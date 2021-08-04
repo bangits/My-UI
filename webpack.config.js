@@ -27,7 +27,7 @@ module.exports = (webpackConfigEnv, argv) => {
         })
       ]
     },
-    // All shared webpack configuration for storybook webpack and app webpack configs
+    // All shared webpack configuration for storybook webpack and app webpack configs
     configureSharedWebpack(isDevelopment)
   );
 };

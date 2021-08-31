@@ -1,0 +1,19 @@
+@import './mixins';
+
+$colors: (
+  white: #fff,
+  dark: #000
+);
+
+// Themes generation
+
+$themeValues: ();
+$themes: ();
+
+@import '../themes/default';
+@import '../themes/dark';
+
+@include generateThemeMappings(dark, $dark);
+@include generateThemeMappings(default, $default);
+
+@include generateThemeVariables();

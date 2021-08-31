@@ -1,0 +1,14 @@
+{
+  "extends": "ts-config-single-spa",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "paths": {
+      // This paths synchronized with webpack shared config
+      "@/*": ["*"],
+      "@atoms": ["components/atoms/index"]
+    }
+  },
+  "include": ["src/**/*", "node_modules/@types"],
+  "exclude": ["src/**/*.test*"]
+}

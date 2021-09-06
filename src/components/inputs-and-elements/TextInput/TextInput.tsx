@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function TextInputs({children}) {
-    return (
-        <div>
-            <input />
-        </div>
-    )
+function TextInputs({ children }) {
+  return (
+    <div>
+      <input />
+    </div>
+  );
 }
 
 export default TextInputs;

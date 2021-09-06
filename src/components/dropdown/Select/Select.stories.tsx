@@ -9,4 +9,4 @@ export default {
   title: 'components/Dropdown/Select'
 } as ComponentMeta<typeof Select>;
 
-export const Default = () => <Select>{"There should be our Select"}</Select>;
+export const Default = () => <Select>{'There should be our Select'}</Select>;

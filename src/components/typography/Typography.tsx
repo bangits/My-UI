@@ -1,7 +1,7 @@
-import React from 'react';
+import styles from './Typography.module.scss';
 
 const Typography = ({ children }) => {
-  return <div>{children}</div>;
+  return <div className={`${styles.Typography} ${styles.h1}`}>{children}</div>;
 };
 
 export default Typography;

@@ -1,0 +1,8 @@
+.Typography {
+  text-decoration: none;
+
+  &.h1 {
+    font-size: typography-sizes('h1-size');
+    line-height: typography-sizes('h1-line-height');
+  }
+}

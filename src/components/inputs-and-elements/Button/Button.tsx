@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ children, onClick }) => (
-  <button onClick={onClick} className={styles.button}>
+  <button onClick={onClick} className={styles.ButtonGhost}>
     {children}
   </button>
 );

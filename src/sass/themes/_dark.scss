@@ -1,5 +1,17 @@
 @import '../utils/functions';
 
 $dark: (
-  buttonBackground: color(dark)
+  //Buttons
+  buttonPrimaryBackground: color(downy),
+  buttonPrimaryColor: color(white),
+  buttonPrimaryHoverBackground: color(pelorous),
+  buttonPrimaryActiveBackground: color(riptide),
+  buttonPrimaryDisabledBackground: color(rdowny),
+  buttonGhostBackground: color(white),
+  buttonGhostColor: color(downy),
+  buttonGhostBorderColor: color(downy),
+  buttonGhostHover: color(transparent-downy),
+  buttonGhostActive: color(transparent),
+  buttonGhostDisabled: color(transparent),
+  buttonGhostBorderDisabled: color(downy)
 );

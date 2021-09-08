@@ -1,60 +1,60 @@
-// .button {
-//   @include theme(background-color, buttonBackground);
-// }
+.ButtonBase {
+  display: flex;
+  align-items: center;
 
-.Button {
-  width: 13.1rem;
-  height: 3.8rem;
-  background-color: #64c9cf;
-  padding: 0.8rem 4.25rem 0.82rem 4.15rem;
-  border-radius: 4px;
+  height: map-get($base-button-sizes, height);
+
+  padding: map-get($base-button-sizes, padding);
+  border-radius: map-get($base-button-sizes, border-radius);
+  font-size: map-get($base-button-sizes, font-size);
+
   border: none;
-  color: white;
-  font-size: 1.6rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
+
+  cursor: pointer;
+}
+
+.LeftIcon {
+  position: relative;
+  right: map-get($base-button-sizes, buttonIconMargin);
+}
+
+.RightIcon {
+  position: relative;
+  left: map-get($base-button-sizes, buttonIconMargin);
+}
+
+.ButtonPrimary {
+  @include theme(background-color, buttonPrimaryBackground);
+  @include theme(color, buttonPrimaryColor);
 
   &:hover {
-    background-color: #2eb2b9;
+    @include theme(background-color, buttonPrimaryHoverBackground);
   }
-  &:focus {
-    background-color: #2eb2b9;
-  }
+
   &:active {
-    background-color: #86dde2;
+    @include theme(background-color, buttonPrimaryActiveBackground);
   }
 
   &:disabled {
-    background-color: rgba(134, 221, 226, 0.08);
+    @include theme(background-color, buttonPrimaryDisabledBackground);
+    opacity: 0.4;
   }
 }
 
 .ButtonGhost {
-  width: 13.1rem;
-  height: 3.8rem;
-  background-color: #fff;
-  font-size: 1.6rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  color: #64c9cf;
-  padding: 0.8rem 4.25rem 0.82rem 4.15rem;
-  border-radius: 4px;
-  border: none;
-  border: solid 1px #64c9cf;
+  @include theme(background-color, buttonGhostBackground);
+  @include theme(color, buttonGhostColor);
+
+  @include theme(border, buttonGhostBorderColor, 1px solid);
 
   &:hover {
-    background-color: rgba(134, 221, 226, 0.1);
-  }
-  &:focus {
-    background-color: rgba(134, 221, 226, 0.1);
+    @include theme(background-color, buttonGhostHover);
   }
   &:active {
-    background-color: #fff;
+    @include theme(background-color, buttonGhostActive);
   }
   &:disabled {
-    border: solid 1px #64c9cf;
-    background-color: #fff;
+    @include theme(background-color, buttonGhostDisabled);
+    @include theme(border-color, buttonGhostBorderDisabled);
   }
 }

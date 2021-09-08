@@ -1,8 +1,12 @@
 @import './mixins';
 
 $colors: (
+  downy: #64c9cf,
+  transparent-downy: rgba(134, 221, 226, 0.1),
   white: #fff,
-  dark: #000
+  dark: #000,
+  pelorous: #2eb2b9,
+  riptide: #86dde2
 );
 
 $typography-sizes: (
@@ -28,6 +32,14 @@ $typography-sizes: (
   p3-line-height: 2.4rem,
   p4-size: 1.4rem,
   p4-line-height: 2.2rem
+);
+
+$base-button-sizes: (
+  font-size: 1.6rem,
+  height: 3.8rem,
+  padding: 0.8rem 4.2rem 0.9rem,
+  border-radius: 0.4rem,
+  buttonIconMargin: 1rem
 );
 
 // Themes generation

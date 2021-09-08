@@ -70,3 +70,7 @@ dist
 *.sln
 *.sw?
 .DS_Store
+
+# Storybook
+
+storybook-static

@@ -1,12 +1,23 @@
 import { action } from '@storybook/addon-actions';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
-import TextInputs from './TextInput';
+import TextInput from './TextInput';
 
 export default {
-  component: TextInputs,
+  component: TextInput,
   decorators: [withKnobs],
   title: 'components/Inputs And Elements/Text Input'
-} as ComponentMeta<typeof TextInputs>;
+} as ComponentMeta<typeof TextInput>;
 
-export const Default = () => <TextInputs>{text('Text', 'Hello from design system')}</TextInputs>;
+export const Default = () => (
+  <TextInput
+    disabled={boolean('Disabled', false)}
+    placeholder='Default Input'
+    defaultValue={text('Default Value', 'xx@bangits.com')}
+    maxLength={text('Max Length', '25')}
+    type='text'
+    error={false}
+    label={text('Label', 'Custom Input')}
+    onChange={action('onChange')}
+  />
+);

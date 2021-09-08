@@ -1,0 +1,12 @@
+$typography-types: 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p1', 'p2', 'p3', 'p4';
+
+.Typography {
+  text-decoration: none;
+
+  @each $type in $typography-types {
+    &.#{$type} {
+      font-size: typography-sizes('#{$type}-size');
+      line-height: typography-sizes('#{$type}-line-height');
+    }
+  }
+}

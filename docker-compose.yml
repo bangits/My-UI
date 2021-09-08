@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  atom-design-system-storybook:
+    container_name: Atom-Design-System-Storybook
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: ./docker/storybook/Dockerfile
+    ports:
+      - '6006:6006'
+    volumes:
+      - ./src:/app/src
+      - .:/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1
+  atom-design-system:
+    container_name: Atom-Design-System
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    ports:
+      - '6005:6005'
+    volumes:
+      - ./src:/app/src
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1

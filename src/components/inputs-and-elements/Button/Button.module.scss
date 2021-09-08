@@ -1,3 +1,22 @@
-.button {
-  @include theme(background-color, buttonBackground);
+.ghost {
+  background-color: cyan;
+}
+.default {
+  background-color: green;
+}
+
+.GhostRight {
+  background-color: rgb(0, 38, 255);
+  color: red;
+}
+
+.GhostLeft {
+  background-color: rgb(0, 255, 98);
+}
+
+.PrimaryLeft {
+  background-color: rgb(128, 0, 107);
+}
+.PrimaryRight {
+  background-color: rgb(128, 0, 0);
 }

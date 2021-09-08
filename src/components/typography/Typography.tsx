@@ -1,4 +1,4 @@
-import { FC, JSXElementConstructor } from 'react';
+import { FC, ReactHTML, ReactSVG } from 'react';
 import styles from './Typography.module.scss';
 import classNames from 'classnames';
 
@@ -6,7 +6,7 @@ export type TypographyVariants = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p1' 
 
 export type TypographyProps = {
   variant?: TypographyVariants;
-  component?: string | JSXElementConstructor<any>;
+  component?: keyof ReactHTML | keyof ReactSVG;
   className?: string;
 };
 

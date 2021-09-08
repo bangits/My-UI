@@ -10,7 +10,12 @@ export type TypographyProps = {
   className?: string;
 };
 
-const Typography: FC<TypographyProps> = ({ children, variant = 'p1', component: Component = 'div', className = '' }) => {
+const Typography: FC<TypographyProps> = ({
+  children,
+  variant = 'p1',
+  component: Component = 'div',
+  className = ''
+}) => {
   return <Component className={classNames(styles.Typography, styles[variant], className)}>{children}</Component>;
 };
 

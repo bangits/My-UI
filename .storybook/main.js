@@ -1,4 +1,3 @@
-const path = require('path');
 const { configureSass, configureWatchOptions, configureAliases } = require('../webpack.shared');
 
 module.exports = {

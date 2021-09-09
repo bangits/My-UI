@@ -14,52 +14,48 @@ export type InputProps = {
   label?: string;
   placeholder?: string;
   onChange?: (e: any) => void;
-  endIcon?: ReactNode;
-  startIcon?: ReactNode;
-  inputProps?: {};
+  rightIcon?: ReactNode;
+  leftIcon?: ReactNode;
+  inputProps?: any;
   maxLength?: any;
   type?: string;
+  explanation?: string;
 };
 
 const TextInputs: FC<InputProps> = ({
   children,
-  disabled,
-  placeholder,
-  defaultValue,
   label,
-  onChange,
-  value,
-  maxLength,
+  color,
+  inputProps,
   type,
+  explanation,
+  success,
   error,
   warning,
-  success,
-  fullWidth,
-  color,
-  inputProps
+  rightIcon,
+  leftIcon,
+  ...props
 }) => {
   return (
-    <div>
-      <label>{label}</label>
-      <input
-        {...inputProps}
-        onChange={onChange}
-        maxLength={Number(maxLength)}
-        type={type}
-        disabled={disabled}
-        placeholder={placeholder}
-        defaultValue={defaultValue}
-        value={value}
-        onKeyDown={(evt) => (type === 'number' ? evt.key === 'e' && evt.preventDefault() : null)}
-        className={classNames(
-          error && styles.error,
-          warning && styles.warning,
-          success && styles.success,
-          fullWidth && styles.fullWidth,
-          styles[color]
-        )}
-      />
-    </div>
+    <>
+      <div
+        className={classNames(styles.TextInputWrapper, {
+          [styles.TextInputSuccess]: success,
+          [styles.TextInputError]: error,
+          [styles.TextInputWarning]: warning
+        })}>
+        <input
+          className={`${styles.TextInputBase}`}
+          onKeyDown={(evt) => (type === 'number' ? evt.key === 'e' && evt.preventDefault() : null)}
+          {...props}
+        />
+
+        <span className={styles.Explanation}>{(error || warning) && explanation}</span>
+
+        <div className={styles.LeftIcon}>{leftIcon}</div>
+        <div className={styles.RightIcon}>{rightIcon}</div>
+      </div>
+    </>
   );
 };
 

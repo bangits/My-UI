@@ -1,0 +1,92 @@
+.TextInputWrapper {
+  position: relative;
+  width: map-get($base-input-size, width);
+}
+
+.LeftIcon {
+  position: absolute;
+  left: map-get($base-input-size, textInputIconMargin);
+  top: map-get($base-input-size, textInputIconMargin);
+}
+
+.RightIcon {
+  position: absolute;
+  right: map-get($base-input-size, textInputIconMargin);
+  top: map-get($base-input-size, textInputIconMargin);
+}
+
+.TextInputBase {
+  width: map-get($base-input-size, width);
+  height: map-get($base-input-size, height);
+  padding: map-get($base-input-size, padding);
+  font-size: map-get($base-input-size, font-size);
+  border-radius: map-get($base-input-size, border-radius);
+  box-sizing: border-box;
+  outline: none;
+  @include theme(background-color, inputsDefaultBackgroud);
+  border: none;
+
+  &:hover,
+  &:focus {
+    @include theme(color, inputsDefaultHover);
+    @include theme(border, inputsDefaultHoverBorderColor, 0.1rem solid);
+  }
+  &:active {
+    @include theme(background-color, inputsDefaultActive);
+    @include theme(border, inputsDefaultActiveBorderColor, 0.1rem solid);
+  }
+
+  &:disabled {
+    @include theme(background-color, inputsDefaultDisabled);
+  }
+}
+
+.Explanation {
+  @include theme(color, inputsDefaultColor);
+  font-size: map-get($base-input-size, font-size);
+}
+
+.TextInputError {
+  input {
+    &,
+    &:focus {
+      @include theme(border, inputsDangerBorderColor, solid 0.1rem);
+      @include theme(color, inputsDangerColor);
+    }
+  }
+
+  .Explanation {
+    @include theme(color, inputsDangerColor);
+    font-size: map-get($base-input-size, font-size);
+  }
+}
+
+.TextInputSuccess {
+  input {
+    &,
+    &:focus {
+      @include theme(border, inputsSuccessBorderColor, solid 0.1rem);
+      @include theme(color, inputsSuccessColor);
+    }
+  }
+
+  .Explanation {
+    @include theme(color, inputsSuccessColor);
+    font-size: map-get($base-input-size, font-size);
+  }
+}
+
+.TextInputWarning {
+  input {
+    &,
+    &:focus {
+      @include theme(border, inputWarningBorderColor, solid 0.1rem);
+      @include theme(color, inputWarningColor);
+    }
+  }
+
+  .Explanation {
+    @include theme(color, inputWarningColor);
+    font-size: map-get($base-input-size, font-size);
+  }
+}

@@ -1,15 +1,11 @@
 .ButtonBase {
   display: flex;
   align-items: center;
-
   height: map-get($base-button-sizes, height);
-
   padding: map-get($base-button-sizes, padding);
   border-radius: map-get($base-button-sizes, border-radius);
   font-size: map-get($base-button-sizes, font-size);
-
   border: none;
-
   cursor: pointer;
 }
 

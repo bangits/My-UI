@@ -1,6 +1,6 @@
+import classNames from 'classnames';
 import React, { ReactNode } from 'react';
 import styles from './Button.module.scss';
-import classNames from 'classnames';
 
 export type ButtonVariants = 'ghost' | 'default';
 export type ButtonColors = 'primary';

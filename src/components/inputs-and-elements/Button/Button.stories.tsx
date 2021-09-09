@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { boolean, optionsKnob, text, withKnobs, color } from '@storybook/addon-knobs';
+import { boolean, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import Button from './Button';
 import BUTTON_TYPES from './button-types';

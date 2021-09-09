@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 export type ButtonVariants = 'ghost' | 'default';
 export type ButtonColors = 'primary';
-export type ButtonTypes = "button" | "submit" | "reset";
+export type ButtonTypes = 'button' | 'submit' | 'reset';
 
 export interface ButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -30,18 +30,14 @@ const Button: React.FC<ButtonProps> = ({
     <button
       className={classNames(styles.ButtonBase, {
         [styles[`ButtonVariant--${variant}`]]: variant !== 'default',
-        [styles[`ButtonColor--${color}`]]: color,
+        [styles[`ButtonColor--${color}`]]: color
       })}
       {...props}>
-      <div className={styles.LeftIcon}>
-        {leftIcon}
-      </div>
+      <div className={styles.LeftIcon}>{leftIcon}</div>
 
       {children}
 
-      <div className={styles.RightIcon}>
-        {rightIcon}
-      </div>
+      <div className={styles.RightIcon}>{rightIcon}</div>
     </button>
   </>
 );

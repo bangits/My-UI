@@ -16,7 +16,7 @@ export const Colors = () => (
     <h2>Primary Color</h2>
     <Button
       type='button'
-      color="primary"
+      color='primary'
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.default, { display: 'inline-radio' })}
       onClick={action('onClick')}
       disabled={boolean('disabled', false)}>

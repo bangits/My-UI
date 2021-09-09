@@ -6,7 +6,14 @@ $colors: (
   white: #fff,
   dark: #000,
   pelorous: #2eb2b9,
-  riptide: #86dde2
+  riptide: #86dde2,
+  selago: #f4f7fe,
+  bermuda-gray: #7d86a9,
+  concrete: #f2f2f2,
+  stratos: #00194c,
+  red-orange: #ff3434,
+  emerald: #53d86a,
+  sunglow: #ffcb2f
 );
 
 $typography-sizes: (
@@ -40,6 +47,15 @@ $base-button-sizes: (
   padding: 0.8rem 4.2rem 0.9rem,
   border-radius: 0.4rem,
   buttonIconMargin: 1rem
+);
+
+$base-input-size: (
+  width: 28rem,
+  height: 3.8rem,
+  padding: 1.5rem 3.05rem 1.5rem,
+  font-size: 1.4rem,
+  border-radius: 0.3rem,
+  textInputIconMargin: 1rem
 );
 
 // Themes generation

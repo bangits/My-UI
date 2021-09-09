@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { boolean, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import TextInput from './TextInput';
 

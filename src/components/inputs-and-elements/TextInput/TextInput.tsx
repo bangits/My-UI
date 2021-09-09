@@ -1,5 +1,5 @@
-import React, { ReactNode, FC } from 'react';
 import classNames from 'classnames';
+import { FC, ReactNode } from 'react';
 import styles from './TextInput.module.scss';
 
 export type InputProps = {
@@ -14,48 +14,52 @@ export type InputProps = {
   label?: string;
   placeholder?: string;
   onChange?: (e: any) => void;
-  rightIcon?: ReactNode;
-  leftIcon?: ReactNode;
+  endIcon?: ReactNode;
+  startIcon?: ReactNode;
   inputProps?: any;
   maxLength?: any;
   type?: string;
-  explanation?: string;
 };
 
 const TextInputs: FC<InputProps> = ({
   children,
+  disabled,
+  placeholder,
+  defaultValue,
   label,
-  color,
-  inputProps,
+  onChange,
+  value,
+  maxLength,
   type,
-  explanation,
-  success,
   error,
   warning,
-  rightIcon,
-  leftIcon,
-  ...props
+  success,
+  fullWidth,
+  color,
+  inputProps
 }) => {
   return (
-    <>
-      <div
-        className={classNames(styles.TextInputWrapper, {
-          [styles.TextInputSuccess]: success,
-          [styles.TextInputError]: error,
-          [styles.TextInputWarning]: warning
-        })}>
-        <input
-          className={`${styles.TextInputBase}`}
-          onKeyDown={(evt) => (type === 'number' ? evt.key === 'e' && evt.preventDefault() : null)}
-          {...props}
-        />
-
-        <span className={styles.Explanation}>{(error || warning) && explanation}</span>
-
-        <div className={styles.LeftIcon}>{leftIcon}</div>
-        <div className={styles.RightIcon}>{rightIcon}</div>
-      </div>
-    </>
+    <div>
+      <label>{label}</label>
+      <input
+        {...inputProps}
+        onChange={onChange}
+        maxLength={Number(maxLength)}
+        type={type}
+        disabled={disabled}
+        placeholder={placeholder}
+        defaultValue={defaultValue}
+        value={value}
+        onKeyDown={(evt) => (type === 'number' ? evt.key === 'e' && evt.preventDefault() : null)}
+        className={classNames(
+          error && styles.error,
+          warning && styles.warning,
+          success && styles.success,
+          fullWidth && styles.fullWidth,
+          styles[color]
+        )}
+      />
+    </div>
   );
 };
 

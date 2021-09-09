@@ -1,37 +1,49 @@
-import React, { JSXElementConstructor, ReactNode } from 'react';
-import classNames from 'classnames';
+import React, { ReactNode } from 'react';
 import styles from './Button.module.scss';
+import classNames from 'classnames';
 
 export type ButtonVariants = 'ghost' | 'default';
+export type ButtonColors = 'primary';
+export type ButtonTypes = "button" | "submit" | "reset";
 
-interface ButtonProps {
+export interface ButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  color?: 'primary' | any;
-  component?: string | JSXElementConstructor<any>;
+  color?: ButtonColors;
   disabled?: boolean;
-  endIcon?: ReactNode;
-  startIcon?: ReactNode;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
   size?: string;
   fullWidth?: string;
-  variant?: string;
+  variant?: ButtonVariants;
+  type?: ButtonTypes;
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  onClick,
-  color,
-  component: Component = 'button',
-  disabled = false,
-  endIcon,
-  startIcon,
-  fullWidth,
-  variant
-}) => {
-  return (
-    <Component disabled={disabled} onClick={onClick} className={classNames(styles[variant], styles.color)}>
+  color = 'primary',
+  variant = 'default',
+  leftIcon,
+  rightIcon,
+  ...props
+}) => (
+  <>
+    <button
+      className={classNames(styles.ButtonBase, {
+        [styles[`ButtonVariant--${variant}`]]: variant !== 'default',
+        [styles[`ButtonColor--${color}`]]: color,
+      })}
+      {...props}>
+      <div className={styles.LeftIcon}>
+        {leftIcon}
+      </div>
+
       {children}
-    </Component>
-  );
-};
+
+      <div className={styles.RightIcon}>
+        {rightIcon}
+      </div>
+    </button>
+  </>
+);
 
 export default Button;

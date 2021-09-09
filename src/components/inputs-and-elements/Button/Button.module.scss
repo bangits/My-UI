@@ -1,22 +1,60 @@
-.ghost {
-  background-color: cyan;
-}
-.default {
-  background-color: green;
+.ButtonBase {
+  display: flex;
+  align-items: center;
+
+  height: map-get($base-button-sizes, height);
+
+  padding: map-get($base-button-sizes, padding);
+  border-radius: map-get($base-button-sizes, border-radius);
+  font-size: map-get($base-button-sizes, font-size);
+
+  border: none;
+
+  cursor: pointer;
 }
 
-.GhostRight {
-  background-color: rgb(0, 38, 255);
-  color: red;
+.LeftIcon {
+  position: relative;
+  right: map-get($base-button-sizes, buttonIconMargin);
 }
 
-.GhostLeft {
-  background-color: rgb(0, 255, 98);
+.RightIcon {
+  position: relative;
+  left: map-get($base-button-sizes, buttonIconMargin);
 }
 
-.PrimaryLeft {
-  background-color: rgb(128, 0, 107);
+.ButtonPrimary {
+  @include theme(background-color, buttonPrimaryBackground);
+  @include theme(color, buttonPrimaryColor);
+
+  &:hover {
+    @include theme(background-color, buttonPrimaryHoverBackground);
+  }
+
+  &:active {
+    @include theme(background-color, buttonPrimaryActiveBackground);
+  }
+
+  &:disabled {
+    @include theme(background-color, buttonPrimaryDisabledBackground);
+    opacity: 0.4;
+  }
 }
-.PrimaryRight {
-  background-color: rgb(128, 0, 0);
+
+.ButtonGhost {
+  @include theme(background-color, buttonGhostBackground);
+  @include theme(color, buttonGhostColor);
+
+  @include theme(border, buttonGhostBorderColor, 1px solid);
+
+  &:hover {
+    @include theme(background-color, buttonGhostHover);
+  }
+  &:active {
+    @include theme(background-color, buttonGhostActive);
+  }
+  &:disabled {
+    @include theme(background-color, buttonGhostDisabled);
+    @include theme(border-color, buttonGhostBorderDisabled);
+  }
 }

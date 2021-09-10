@@ -10,13 +10,12 @@ export default {
   title: 'components/Inputs And Elements/Button'
 } as ComponentMeta<typeof Button>;
 
-//Button Colors
+// Button Colors
 export const Colors = () => (
   <>
-    <h2>Primary Color</h2>
+    <h2>Primary</h2>
     <Button
       type='button'
-      color='primary'
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.default, { display: 'inline-radio' })}
       onClick={action('onClick')}
       disabled={boolean('disabled', false)}>
@@ -25,7 +24,7 @@ export const Colors = () => (
   </>
 );
 
-//Button Variants
+// Button Variants
 export const Variants = () => (
   <>
     <h2>Button Ghost</h2>
@@ -39,25 +38,24 @@ export const Variants = () => (
   </>
 );
 
-//Button With Icons
-
+// Button With Icons
 export const WithIcons = () => (
   <>
-    <h2>Button / Ghost / Right Icon</h2>
+    <h2>End Icon</h2>
 
     <Button
       type='button'
       onClick={action('onClick')}
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.ghost, { display: 'inline-radio' })}
       disabled={boolean('disabled', false)}
-      rightIcon={
-        <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'>
+      endIcon={
+        <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' style={{ transform: 'rotate(180deg)' }}>
           <g data-name='Group 111'>
             <path
               data-name='Path 15'
               d='M552 123h-14m0 0 7 7m-7-7 7-7'
               transform='translate(-536 -114)'
-              style={{ stroke: '#999', strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' }}
+              style={{ fill: 'none', stroke: '#999', strokeLinecap: 'round', strokeLinejoin: 'round' }}
             />
             <path data-name='Rectangle 677' style={{ fill: 'none' }} d='M0 0h18v18H0z' />
           </g>
@@ -66,21 +64,21 @@ export const WithIcons = () => (
       {text('children', 'Ghost')}
     </Button>
 
-    <h2>Button / Ghost / Left Icon</h2>
+    <h2>Start Icon</h2>
 
     <Button
       type='button'
       onClick={action('onClick')}
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.ghost, { display: 'inline-radio' })}
       disabled={boolean('disabled', false)}
-      leftIcon={
+      startIcon={
         <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'>
           <g data-name='Group 111'>
             <path
               data-name='Path 15'
               d='M552 123h-14m0 0 7 7m-7-7 7-7'
               transform='translate(-536 -114)'
-              style={{ stroke: '#999', strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' }}
+              style={{ fill: 'none', stroke: '#999', strokeLinecap: 'round', strokeLinejoin: 'round' }}
             />
             <path data-name='Rectangle 677' style={{ fill: 'none' }} d='M0 0h18v18H0z' />
           </g>

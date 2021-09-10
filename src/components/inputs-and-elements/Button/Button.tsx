@@ -1,43 +1,38 @@
+import { UIColors } from '@/types';
 import classNames from 'classnames';
-import React, { ReactNode } from 'react';
+import { ButtonHTMLAttributes, DetailedHTMLProps, FC, ReactNode } from 'react';
 import styles from './Button.module.scss';
 
 export type ButtonVariants = 'ghost' | 'default';
-export type ButtonColors = 'primary';
-export type ButtonTypes = 'button' | 'submit' | 'reset';
 
-export interface ButtonProps {
-  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  color?: ButtonColors;
-  disabled?: boolean;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
-  size?: string;
-  fullWidth?: string;
+export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, null> {
+  color?: UIColors;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
+  fullWidth?: boolean;
   variant?: ButtonVariants;
-  type?: ButtonTypes;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button: FC<ButtonProps> = ({
   children,
   color = 'primary',
   variant = 'default',
-  leftIcon,
-  rightIcon,
+  startIcon,
+  endIcon,
   ...props
 }) => (
   <>
     <button
       className={classNames(styles.ButtonBase, {
-        [styles[`ButtonVariant--${variant}`]]: variant !== 'default',
+        [styles[`ButtonVariant--${color}__${variant}`]]: variant !== 'default',
         [styles[`ButtonColor--${color}`]]: color
       })}
       {...props}>
-      <div className={styles.LeftIcon}>{leftIcon}</div>
+      <div className={styles.startIcon}>{startIcon}</div>
 
       {children}
 
-      <div className={styles.RightIcon}>{rightIcon}</div>
+      <div className={styles.endIcon}>{endIcon}</div>
     </button>
   </>
 );

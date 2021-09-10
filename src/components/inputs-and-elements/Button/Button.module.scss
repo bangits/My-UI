@@ -13,48 +13,22 @@
   cursor: pointer;
 }
 
-.LeftIcon {
+.startIcon {
   position: relative;
-  right: map-get($base-button-sizes, buttonIconMargin);
+  right: map-get($base-button-sizes, icon-margin);
 }
 
-.RightIcon {
+.endIcon {
   position: relative;
-  left: map-get($base-button-sizes, buttonIconMargin);
+  left: map-get($base-button-sizes, icon-margin);
 }
 
-.ButtonPrimary {
-  @include theme(background-color, buttonPrimaryBackground);
-  @include theme(color, buttonPrimaryColor);
-
-  &:hover {
-    @include theme(background-color, buttonPrimaryHoverBackground);
+@each $color in $base-colors {
+  .ButtonColor--#{$color} {
+    @include getButtonStyles($color);
   }
 
-  &:active {
-    @include theme(background-color, buttonPrimaryActiveBackground);
-  }
-
-  &:disabled {
-    @include theme(background-color, buttonPrimaryDisabledBackground);
-    opacity: 0.4;
-  }
-}
-
-.ButtonGhost {
-  @include theme(background-color, buttonGhostBackground);
-  @include theme(color, buttonGhostColor);
-
-  @include theme(border, buttonGhostBorderColor, 1px solid);
-
-  &:hover {
-    @include theme(background-color, buttonGhostHover);
-  }
-  &:active {
-    @include theme(background-color, buttonGhostActive);
-  }
-  &:disabled {
-    @include theme(background-color, buttonGhostDisabled);
-    @include theme(border-color, buttonGhostBorderDisabled);
+  .ButtonVariant--#{$color}__ghost {
+    @include getButtonGhostStyles($color);
   }
 }

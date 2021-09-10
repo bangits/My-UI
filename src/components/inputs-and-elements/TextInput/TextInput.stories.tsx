@@ -11,20 +11,21 @@ export default {
 
 export const Default = () => (
   <TextInput
-    disabled={boolean('Disabled', false)}
-    placeholder='Default Input'
-    defaultValue={text('Default Value', 'ui-kit@bangits.com')}
+    disabled={boolean('disabled', false)}
+    placeholder={text('placeholder', 'Default Input')}
+    defaultValue={text('defaultValue', undefined)}
+    value={text('defaultValue', 'ui-kit@bangits.com')}
     type='text'
     onChange={action('onChange')}
-    explanation={text('Explanation', 'Explanation')}
+    explanation={text('explanation', '')}
   />
 );
 
 //Input With Icons
 export const WithIcons = () => (
   <>
-    {/* Input With Left Icon */}
-    <h2>Input With Left Icon</h2>
+    <h2>Start Icon</h2>
+
     <TextInput
       disabled={boolean('Disabled', false)}
       placeholder='Input With Left Icon'
@@ -35,14 +36,14 @@ export const WithIcons = () => (
       success={false}
       onChange={action('onChange')}
       explanation={text('Explanation', 'Explanation')}
-      leftIcon={
+      startIcon={
         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
           <g data-name='Group 134'>
             <path
               data-name='Path 1225'
               d='M545.5 128v-1.556a3.119 3.119 0 0 0-3.125-3.111h-6.25a3.119 3.119 0 0 0-3.125 3.111V128m9.375-10.889A3.125 3.125 0 1 1 539.25 114a3.118 3.118 0 0 1 3.125 3.111z'
               transform='translate(-527 -109)'
-              style={{ stroke: '#7d86a9', strokeLinecap: 'round', strokeLinejoin: 'round', fill: 'none' }}
+              style={{ fill: 'none', stroke: '#7d86a9', strokeLinecap: 'round', strokeLinejoin: 'round' }}
             />
             <path data-name='Rectangle 687' style={{ fill: 'none' }} d='M0 0h24v24H0z' />
           </g>
@@ -50,8 +51,7 @@ export const WithIcons = () => (
       }
     />
 
-    {/* Input With Right Icon */}
-    <h2>Input With Right Icon</h2>
+    <h2>End Icon</h2>
     <TextInput
       disabled={boolean('Disabled', false)}
       placeholder='Input With Right Icon'
@@ -62,7 +62,7 @@ export const WithIcons = () => (
       success={false}
       onChange={action('onChange')}
       explanation={text('Explanation', 'Explanation')}
-      rightIcon={
+      endIcon={
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='24'
@@ -79,10 +79,10 @@ export const WithIcons = () => (
   </>
 );
 
-export const WithWarnings = () => (
+export const WithStates = () => (
   <>
-    {/* Input With Error */}
     <h2 style={{ color: '#ff3434' }}>Input With Error</h2>
+
     <TextInput
       disabled={boolean('Disabled', false)}
       placeholder='Input With Error'
@@ -93,8 +93,8 @@ export const WithWarnings = () => (
       explanation={text('Explanation', 'Explanation')}
     />
 
-    {/* Input With Success */}
     <h2 style={{ color: '#53d86a' }}>Input With Success</h2>
+
     <TextInput
       disabled={boolean('Disabled', false)}
       placeholder='Input With Success'
@@ -105,8 +105,8 @@ export const WithWarnings = () => (
       explanation={text('Explanation', 'Explanation')}
     />
 
-    {/* Input With Warning */}
     <h2 style={{ color: '#ffcb2f' }}>Input With Warning</h2>
+
     <TextInput
       disabled={boolean('Disabled', false)}
       placeholder='Input With Warning'

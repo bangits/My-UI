@@ -1,66 +1,98 @@
+import { Typography, TypographyProps } from '@/components';
 import classNames from 'classnames';
-import { FC, ReactNode } from 'react';
+import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import styles from './TextInput.module.scss';
 
-export type InputProps = {
-  value?: any;
-  defaultValue?: any;
-  color?: string;
+export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   warning?: boolean;
   error?: boolean;
   success?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
-  label?: string;
-  placeholder?: string;
-  onChange?: (e: any) => void;
   endIcon?: ReactNode;
   startIcon?: ReactNode;
-  inputProps?: any;
-  maxLength?: any;
-  type?: string;
-};
+  maxLength?: number;
+  explanation?: string;
+  wrapperClassName?: string;
+  explanationProps?: TypographyProps;
+}
 
-const TextInputs: FC<InputProps> = ({
+const TextInputs: FC<TextInputProps> = ({
   children,
-  disabled,
-  placeholder,
-  defaultValue,
-  label,
-  onChange,
-  value,
-  maxLength,
-  type,
+  explanation,
+  success,
   error,
   warning,
-  success,
-  fullWidth,
-  color,
-  inputProps
+  endIcon,
+  startIcon,
+  fullWidth = false,
+  className,
+  wrapperClassName,
+  explanationProps,
+  ...props
 }) => {
+  const { defaultValue, value, disabled, type, onChange } = props;
+
+  const [currentValue, setCurrentValue] = useState(value || defaultValue);
+
+  const onInputChange: TextInputProps['onChange'] = useCallback(
+    (e) => {
+      if (onChange) onChange(e);
+
+      setCurrentValue(e.target.value);
+    },
+    [onChange]
+  );
+
+  const onKeyDown: TextInputProps['onKeyDown'] = useCallback(
+    (evt) => {
+      if (type === 'number' && evt.key === 'e') return evt.preventDefault();
+
+      if (props.onKeyDown) props.onKeyDown(evt);
+    },
+    [props.onKeyDown, type]
+  );
+
   return (
-    <div>
-      <label>{label}</label>
-      <input
-        {...inputProps}
-        onChange={onChange}
-        maxLength={Number(maxLength)}
-        type={type}
-        disabled={disabled}
-        placeholder={placeholder}
-        defaultValue={defaultValue}
-        value={value}
-        onKeyDown={(evt) => (type === 'number' ? evt.key === 'e' && evt.preventDefault() : null)}
+    <>
+      <div
         className={classNames(
-          error && styles.error,
-          warning && styles.warning,
-          success && styles.success,
-          fullWidth && styles.fullWidth,
-          styles[color]
+          styles.TextInputWrapper,
+          {
+            [styles['TextInputWrapper--full-width']]: fullWidth,
+            [styles['TextInputWrapper--error']]: error,
+            [styles['TextInputWrapper--warning']]: warning,
+            [styles['TextInputWrapper--success']]: success,
+            [styles['TextInputWrapper--disabled']]: disabled
+          },
+          wrapperClassName
+        )}>
+        {startIcon && !endIcon && <div className={styles.startIcon}>{startIcon}</div>}
+
+        <input
+          className={classNames(
+            styles.TextInputBase,
+            {
+              [styles[`TextInputBase--filled`]]: !!currentValue,
+              [styles['TextInputBase--start-icon']]: !!startIcon,
+              [styles['TextInputBase--end-icon']]: !!endIcon
+            },
+            className
+          )}
+          {...props}
+          onKeyDown={onKeyDown}
+          onChange={onInputChange}
+        />
+
+        {explanation && (
+          <Typography className={styles.Explanation} variant='p4' component='span'>
+            {explanation}
+          </Typography>
         )}
-      />
-    </div>
+
+        {endIcon && !startIcon && <div className={styles.endIcon}>{endIcon}</div>}
+      </div>
+    </>
   );
 };
-
 export default TextInputs;

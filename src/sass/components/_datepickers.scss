@@ -1,0 +1,12 @@
+@mixin stylize-datepicker {
+    :global {
+        .react-datepicker__input-container {
+            input {
+                background-color: yellow;
+            }
+        }
+        .react-datepicker {
+            background-color: green;
+        }
+    }
+}

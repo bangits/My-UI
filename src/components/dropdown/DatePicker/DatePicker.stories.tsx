@@ -9,4 +9,4 @@ export default {
   title: 'components/Dropdown/Date Picker'
 } as ComponentMeta<typeof DatePicker>;
 
-export const Default = () => <DatePicker>{'There should be our date picker'}</DatePicker>;
+export const Default = () => <DatePicker peekNextMonth={true} isClearable={true} clearButtonTitle={"Clear Me"}  onChange={x => x}/>;

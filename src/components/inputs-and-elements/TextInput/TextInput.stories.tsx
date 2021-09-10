@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import TextInput from './TextInput';
 
@@ -15,6 +15,7 @@ export const Default = () => (
     placeholder={text('placeholder', 'Default Input')}
     defaultValue={text('defaultValue', undefined)}
     value={text('defaultValue', 'ui-kit@bangits.com')}
+    maxLength={number('maxLength', 10)}
     type='text'
     onChange={action('onChange')}
     explanation={text('explanation', '')}

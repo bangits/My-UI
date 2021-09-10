@@ -31,7 +31,7 @@ const TextInputs: FC<TextInputProps> = ({
   explanationProps,
   ...props
 }) => {
-  const { defaultValue, value, disabled, type, onChange } = props;
+  const { defaultValue, value, disabled, type, maxLength, onChange } = props;
 
   const [currentValue, setCurrentValue] = useState(value || defaultValue);
 
@@ -51,6 +51,15 @@ const TextInputs: FC<TextInputProps> = ({
       if (props.onKeyDown) props.onKeyDown(evt);
     },
     [props.onKeyDown, type]
+  );
+
+  const onInput: TextInputProps['onInput'] = useCallback(
+    (evt) => {
+      evt.target['value'] = evt.target['value'].slice(0, maxLength);
+
+      if (props.onInput) props.onInput(evt);
+    },
+    [props.onInput]
   );
 
   return (
@@ -81,6 +90,7 @@ const TextInputs: FC<TextInputProps> = ({
           )}
           {...props}
           onKeyDown={onKeyDown}
+          onInput={onInput}
           onChange={onInputChange}
         />
 

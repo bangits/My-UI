@@ -1,11 +1,16 @@
-import React from 'react';
-import ReactDatePicker, { ReactDatePickerProps } from '@em/react-datepicker';
+import React, {FC} from 'react';
+import ReactDatePicker, { ReactDatePickerProps,  } from '@em/react-datepicker';
 import styles from './DatePicker.module.scss';
 
-const DatePicker: React.FC<ReactDatePickerProps> = ({ ...datePickerProps }) => {
+export interface DatePickerProps extends ReactDatePickerProps{
+  className?: string;
+}
+
+const DatePicker: FC<DatePickerProps> = ({ className,...datePickerProps }) => {
   return (
     <>
-      <ReactDatePicker 
+      <ReactDatePicker
+      className={className}
       wrapperClassName={styles.DatePicker}
       popperClassName={styles.DatePicker}
        {...datePickerProps} 

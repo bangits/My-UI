@@ -1,8 +1,10 @@
 .Typography {
   text-decoration: none;
 
-  &.h1 {
-    font-size: typography-sizes('h1-size');
-    line-height: typography-sizes('h1-line-height');
+  @each $type in $typography-types {
+    &.#{$type} {
+      font-size: typography-sizes('#{$type}-size');
+      line-height: typography-sizes('#{$type}-line-height');
+    }
   }
 }

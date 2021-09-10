@@ -1,11 +1,14 @@
-const path = require('path');
 const { configureSass, configureWatchOptions, configureAliases } = require('../webpack.shared');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   typescript: {
     check: false,
-    reactDocgen: false
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true)
+    }
   },
   addons: [
     '@storybook/addon-docs',

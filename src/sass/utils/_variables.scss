@@ -1,14 +1,29 @@
 @import './mixins';
 
+// Colors
 $colors: (
+  downy: #64c9cf,
+  transparent-downy: rgba(134, 221, 226, 0.1),
   white: #fff,
-  dark: #000
+  dark: #000,
+  pelorous: #2eb2b9,
+  riptide: #86dde2,
+  selago: #f4f7fe,
+  bermuda-gray: #7d86a9,
+  concrete: #f2f2f2,
+  stratos: #00194c,
+  red-orange: #ff3434,
+  emerald: #53d86a,
+  sunglow: #ffcb2f
 );
 
-$typography-sizes: (
-  h1-size: 4.2rem,
-  h1-line-height: 4.2rem
-);
+// Base
+@import '../base/colors';
+
+// Components
+@import '../components/typography';
+@import '../components/button';
+@import '../components/text-input';
 
 // Themes generation
 

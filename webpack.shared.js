@@ -15,6 +15,10 @@ const configureSass = (isDevelopment = true) => [
         }
       },
       {
+        loader: 'resolve-url-loader',
+        options: {}
+      },
+      {
         loader: 'sass-loader',
         options: {
           sourceMap: isDevelopment
@@ -58,7 +62,7 @@ const configureAliases = () => ({
 
 const configureSharedWebpack = (isDevelopment) => ({
   module: {
-    rules: configureSass(isDevelopment)
+    rules: configureSass(isDevelopment),
   },
   watchOptions: configureWatchOptions(),
   resolve: {

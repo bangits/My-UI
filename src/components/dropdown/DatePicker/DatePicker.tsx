@@ -4,7 +4,7 @@ import styles from './DatePicker.module.scss';
 
 const DatePickerInput = ({ onClick, value, placeholderText }) => (
   <>
-    <input type='text' value={value} onClick={onClick} placeholder={placeholderText}/>
+    <input type='text' value={value} onClick={onClick} placeholder={placeholderText} />
     <svg xmlns='http://www.w3.org/2000/svg' width='17' height='19' onClick={onClick}>
       <path
         data-name='Path 2119'
@@ -14,13 +14,13 @@ const DatePickerInput = ({ onClick, value, placeholderText }) => (
       />
     </svg>
   </>
-)
+);
 
-const DatePicker: React.FC<ReactDatePickerProps> = ({ placeholderText,...datePickerProps }) => {
+const DatePicker: React.FC<ReactDatePickerProps> = ({ placeholderText, ...datePickerProps }) => {
   return (
     <>
       <ReactDatePicker
-        customInput={<DatePickerInput onClick={e => e} value={""} placeholderText={placeholderText} />}
+        customInput={<DatePickerInput onClick={(e) => e} value={''} placeholderText={placeholderText} />}
         monthsShown={1}
         wrapperClassName={styles.DatePicker}
         popperClassName={styles.DatePicker}

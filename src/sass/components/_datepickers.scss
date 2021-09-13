@@ -63,7 +63,7 @@
         height: map-get($datepicker-sizes, datepicker-navigation--nextSize);
         border: none;
         position: absolute;
-        top:  map-get($datepicker-sizes, datepicker-navigation--nextMargin);
+        top: map-get($datepicker-sizes, datepicker-navigation--nextMargin);
         right: map-get($datepicker-sizes, datepicker-navigation--nextMargin);
         z-index: 2;
         .react-datepicker__navigation-icon--next {
@@ -88,8 +88,8 @@
       .react-datepicker__day-names {
         display: flex;
         justify-content: space-around;
-        width:map-get($datepicker-sizes, datepicker-day--names) ;
-        padding-top:map-get($datepicker-sizes, datepicker-day--namesPadding) ;
+        width: map-get($datepicker-sizes, datepicker-day--names);
+        padding-top: map-get($datepicker-sizes, datepicker-day--namesPadding);
 
         &::before {
           content: '';
@@ -111,8 +111,8 @@
       .react-datepicker__week.react-datepicker__week {
         display: flex;
         .react-datepicker__day {
-          width: map-get($datepicker-sizes,datepicker-dayWidth);
-          height:map-get($datepicker-sizes,datepicker-dayHeight) ;
+          width: map-get($datepicker-sizes, datepicker-dayWidth);
+          height: map-get($datepicker-sizes, datepicker-dayHeight);
           display: flex;
           justify-content: center;
           align-items: center;

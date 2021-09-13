@@ -1,8 +1,7 @@
 @import './mixins';
 
-html{
-  font-size:10px;
-
+html {
+  font-size: 10px;
 }
 $colors: (
   downy: #64c9cf,
@@ -17,7 +16,7 @@ $colors: (
   stratos: #00194c,
   red-orange: #ff3434,
   emerald: #53d86a,
-  sunglow: #ffcb2f,
+  sunglow: #ffcb2f
 );
 
 $typography-sizes: (
@@ -59,30 +58,30 @@ $base-input-size: (
   padding: 1.5rem 3.05rem 1.5rem,
   font-size: 1.4rem,
   border-radius: 0.3rem,
-  textInputIconMargin: 1.2rem,
+  textInputIconMargin: 1.2rem
 );
 
 //DatePicker
 
-$datepicker-sizes:(
-  input-container-width:32.4rem,
+$datepicker-sizes: (
+  input-container-width: 32.4rem,
   input-height: 3.8rem,
-  input-border-radius:0.35rem,
-  datepicker-iconMargin:1.2rem,
-  day-range--borderRadius:0.5rem,
-  datepicker-month--container:29.89rem,
-  datepicker-month--size:1.8rem,
-  datepicker-current--month:2.2rem,
-  datepicker-navigation--nextSize:1.5rem,
-  datepicker-navigation--nextMargin:2.4rem,
-  datepicker-day--names:29.89rem,
-  datepicker-day:4.27rem,
-  datepicker-dayWidth:4.27rem,
-  datepicker-dayHeight:3.97rem,
-  datepicker-day--namesPadding:5.89rem,
-  datepicker-day--nameWidth:1.94rem,
-  datepicker-day--nameMargin:2.67rem,
-  datepicker-day--namePadding:3.67rem,
+  input-border-radius: 0.35rem,
+  datepicker-iconMargin: 1.2rem,
+  day-range--borderRadius: 0.5rem,
+  datepicker-month--container: 29.89rem,
+  datepicker-month--size: 1.8rem,
+  datepicker-current--month: 2.2rem,
+  datepicker-navigation--nextSize: 1.5rem,
+  datepicker-navigation--nextMargin: 2.4rem,
+  datepicker-day--names: 29.89rem,
+  datepicker-day: 4.27rem,
+  datepicker-dayWidth: 4.27rem,
+  datepicker-dayHeight: 3.97rem,
+  datepicker-day--namesPadding: 5.89rem,
+  datepicker-day--nameWidth: 1.94rem,
+  datepicker-day--nameMargin: 2.67rem,
+  datepicker-day--namePadding: 3.67rem
 );
 // Themes generation
 

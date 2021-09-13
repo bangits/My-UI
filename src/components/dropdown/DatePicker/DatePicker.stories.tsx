@@ -10,13 +10,13 @@ export default {
 } as ComponentMeta<typeof DatePicker>;
 
 export const Default = () => (
-  <DatePicker 
-  yearItemNumber={5}
-  yearDropdownItemNumber={5}
-  showMonthDropdown 
-  showYearDropdown 
-  scrollableYearDropdown
-  placeholderText='dd/mm/yyyy' 
-  onChange={action('onChange')} 
+  <DatePicker
+    yearItemNumber={5}
+    yearDropdownItemNumber={5}
+    showMonthDropdown
+    showYearDropdown
+    scrollableYearDropdown
+    placeholderText='dd/mm/yyyy'
+    onChange={action('onChange')}
   />
 );

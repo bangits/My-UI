@@ -1,6 +1,6 @@
-import { action } from '@storybook/addon-actions';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
+import { useState } from 'react';
 import DatePicker from './DatePicker';
 
 export default {
@@ -9,13 +9,32 @@ export default {
   title: 'components/Dropdown/Date Picker'
 } as ComponentMeta<typeof DatePicker>;
 
-export const Default = () => (
-  <DatePicker
-    placeholderText='dd/mm/yyyy'
-    selected={new Date()}
-    startDate={new Date()}
-    endDate={new Date('09/21/21')}
-    peekNextMonth={true}
-    onChange={(x) => x}
-  />
-);
+export const Default = () => {
+  const [dateRange, setDateRange] = useState([null, null]);
+
+  return (
+    <DatePicker
+      selectsRange
+      placeholderText='dd/mm/yyyy'
+      startDate={dateRange[0]}
+      endDate={dateRange[1]}
+      peekNextMonth={true}
+      onChange={(range: [Date, Date]) => setDateRange(range)}
+    />
+  );
+};
+export const WithTwoMonth = () => {
+  const [dateRange, setDateRange] = useState([null, null]);
+
+  return (
+    <DatePicker
+      selectsRange
+      placeholderText='dd/mm/yyyy'
+      startDate={dateRange[0]}
+      endDate={dateRange[1]}
+      peekNextMonth={true}
+      monthsShown={2}
+      onChange={(range: [Date, Date]) => setDateRange(range)}
+    />
+  );
+};

@@ -39,6 +39,26 @@
         @include theme(background-color, datepicker-day-rangeEnd-bg--primary);
         @include theme(background-color, datepicker-day-rangeEnd-color--primary);
       }
+      .react-datepicker__day--keyboard-selected {
+        background-color: #2eb2b9;
+        color: white;
+      }
+      .react-datepicker__day--in-selecting-range {
+        background-color: #effafa;
+        color: #2eb2b9;
+      }
+      .react-datepicker__day--selecting-range-start {
+        border-bottom-left-radius: map-get($datepicker-sizes, day-range--borderRadius);
+        border-top-left-radius: map-get($datepicker-sizes, day-range--borderRadius);
+        background-color: #2eb2b9;
+        color: white;
+      }
+      .react-datepicker__day--selecting-range-end {
+        border-bottom-right-radius: map-get($datepicker-sizes, day-range--borderRadius);
+        border-top-right-radius: map-get($datepicker-sizes, day-range--borderRadius);
+        background-color: #2eb2b9;
+        color: white;
+      }
       .react-datepicker__month-container {
         background-color: transparent;
         @include theme(border, datepicker-month-container-borderColor--primary, solid 0.1rem);

@@ -20,7 +20,7 @@ const DatePicker: React.FC<ReactDatePickerProps> = ({ placeholderText, ...datePi
   return (
     <>
       <ReactDatePicker
-        customInput={<DatePickerInput onClick={e => e} value={""} placeholderText={placeholderText} />}
+        customInput={<DatePickerInput onClick={(e) => e} value={''} placeholderText={placeholderText} />}
         wrapperClassName={styles.DatePicker}
         popperClassName={styles.DatePicker}
         {...datePickerProps}

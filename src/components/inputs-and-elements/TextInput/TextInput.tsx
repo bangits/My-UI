@@ -1,41 +1,108 @@
-import React from 'react';
+import { Typography, TypographyProps } from '@/components';
+import classNames from 'classnames';
+import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import styles from './TextInput.module.scss';
 
-function TextInputs({ children }) {
-  return (
-    <div className={`${styles.TextInputWrapper} ${styles.TextInputError}`}>
-      <input className={`${styles.TextInputBase}`} />
-
-      <span className={styles.Explanation}>Explanation</span>
-
-      <div className={styles.LeftIcon}>
-        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
-          <g data-name='Group 134'>
-            <path
-              data-name='Path 1225'
-              d='M545.5 128v-1.556a3.119 3.119 0 0 0-3.125-3.111h-6.25a3.119 3.119 0 0 0-3.125 3.111V128m9.375-10.889A3.125 3.125 0 1 1 539.25 114a3.118 3.118 0 0 1 3.125 3.111z'
-              transform='translate(-527 -109)'
-              style={{ fill: 'none', stroke: '#7d86a9', strokeLinecap: 'round', strokeLinejoin: 'round' }}
-            />
-            <path data-name='Rectangle 687' style={{ fill: 'none' }} d='M0 0h24v24H0z' />
-          </g>
-        </svg>
-      </div>
-      {/* <div className={styles.RightIcon}>
-        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
-          <g data-name='Group 134'>
-            <path
-              data-name='Path 1225'
-              d='M545.5 128v-1.556a3.119 3.119 0 0 0-3.125-3.111h-6.25a3.119 3.119 0 0 0-3.125 3.111V128m9.375-10.889A3.125 3.125 0 1 1 539.25 114a3.118 3.118 0 0 1 3.125 3.111z'
-              transform='translate(-527 -109)'
-              style={{stroke:'#7d86a9', strokeLinecap:'round', strokeLinejoin:'round', fill:'none'}}
-            />
-            <path data-name='Rectangle 687' style={{fill:'none'}} d='M0 0h24v24H0z' />
-          </g>
-        </svg>
-      </div> */}
-    </div>
-  );
+export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  warning?: boolean;
+  error?: boolean;
+  success?: boolean;
+  disabled?: boolean;
+  fullWidth?: boolean;
+  endIcon?: ReactNode;
+  startIcon?: ReactNode;
+  maxLength?: number;
+  explanation?: string;
+  wrapperClassName?: string;
+  explanationProps?: TypographyProps;
 }
 
+const TextInputs: FC<TextInputProps> = ({
+  children,
+  explanation,
+  success,
+  error,
+  warning,
+  endIcon,
+  startIcon,
+  fullWidth = false,
+  className,
+  wrapperClassName,
+  explanationProps,
+  ...props
+}) => {
+  const { defaultValue, value, disabled, type, maxLength, onChange } = props;
+
+  const [currentValue, setCurrentValue] = useState(value || defaultValue);
+
+  const onInputChange: TextInputProps['onChange'] = useCallback(
+    (e) => {
+      if (onChange) onChange(e);
+
+      setCurrentValue(e.target.value);
+    },
+    [onChange]
+  );
+
+  const onKeyDown: TextInputProps['onKeyDown'] = useCallback(
+    (evt) => {
+      if (type === 'number' && evt.key === 'e') return evt.preventDefault();
+
+      if (props.onKeyDown) props.onKeyDown(evt);
+    },
+    [props.onKeyDown, type]
+  );
+
+  const onInput: TextInputProps['onInput'] = useCallback(
+    (evt) => {
+      evt.target['value'] = evt.target['value'].slice(0, maxLength);
+
+      if (props.onInput) props.onInput(evt);
+    },
+    [props.onInput]
+  );
+
+  return (
+    <>
+      <div
+        className={classNames(
+          styles.TextInputWrapper,
+          {
+            [styles['TextInputWrapper--full-width']]: fullWidth,
+            [styles['TextInputWrapper--error']]: error,
+            [styles['TextInputWrapper--warning']]: warning,
+            [styles['TextInputWrapper--success']]: success,
+            [styles['TextInputWrapper--disabled']]: disabled
+          },
+          wrapperClassName
+        )}>
+        {startIcon && !endIcon && <div className={styles.startIcon}>{startIcon}</div>}
+
+        <input
+          className={classNames(
+            styles.TextInputBase,
+            {
+              [styles[`TextInputBase--filled`]]: !!currentValue,
+              [styles['TextInputBase--start-icon']]: !!startIcon,
+              [styles['TextInputBase--end-icon']]: !!endIcon
+            },
+            className
+          )}
+          {...props}
+          onKeyDown={onKeyDown}
+          onInput={onInput}
+          onChange={onInputChange}
+        />
+
+        {explanation && (
+          <Typography className={styles.Explanation} variant='p4' component='span'>
+            {explanation}
+          </Typography>
+        )}
+
+        {endIcon && !startIcon && <div className={styles.endIcon}>{endIcon}</div>}
+      </div>
+    </>
+  );
+};
 export default TextInputs;

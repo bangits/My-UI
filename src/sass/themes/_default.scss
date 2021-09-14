@@ -1,36 +1,16 @@
 @import '../utils/functions';
 
-$default: (
+$dark: (
   //Buttons
-  buttonPrimaryBackground: color(downy),
-  buttonPrimaryColor: color(white),
-  buttonPrimaryHoverBackground: color(pelorous),
-  buttonPrimaryActiveBackground: color(riptide),
-  buttonPrimaryDisabledBackground: color(rdowny),
-  buttonGhostBackground: color(white),
-  buttonGhostColor: color(downy),
-  buttonGhostBorderColor: color(downy),
-  buttonGhostHover: color(transparent-downy),
-  buttonGhostActive: color(transparent),
-  buttonGhostDisabled: color(transparent),
-  buttonGhostBorderDisabled: color(downy),
-  //Inputs
-  inputsDefaultBackgroud: color(selago),
-  inputsDefaultColor: color(bermuda-gray),
-  inputsDefaultHover: color(transparent),
-  inputsDefaultActive: color(transparent),
-  inputsDefaultDisabled: color(concrete),
-  inputsDefaultHoverBorderColor: color(stratos),
-  inputsDefaultActiveBorderColor: color(stratos),
-  inputsDangerColor: color(red-orange),
-  inputsDangerBorderColor: color(red-orange),
-  inputsSuccessBorderColor: color(emerald),
-  inputsSuccessColor: color(emerald),
-  inputWarningBorderColor: color(sunglow),
-  inputWarningColor: color(sunglow),
+  button-bg--primary: color(downy),
+  button-color--primary: color(white),
+  button-hover-bg--primary: color(pelorous),
+  button-active-bg--primary: color(riptide),
+  button-ghost-hover--primary: color(transparent-downy),
+  button-ghost-bg: transparent,
   //Datepicker
   datepicker-input-border--primary: color(stratos),
-  datepicker-bg-color--primary: red,
+  datepicker-bg-color--primary: color(pelorous),
   datepicker-color--primary: color(white),
   datepicker-day-bg-inRange--primary: color(aqua-spring),
   datepicker-month-container-borderColor--primary: color(bermuda-gray),
@@ -38,4 +18,20 @@ $default: (
   datepicker-dividerColor--primary: color(bermuda-gray),
   datepicker-dayName--primary: color(gray),
   datepicker-day-in-selectingRange-bg--primary: color(aqua-spring)
+  //Inputs
+  input-bg: color(selago),
+  input-color: color(stratos),
+  input-filled-border-color: color(dark),
+  input-hover-bg: transparent,
+  input-placeholder-color: color(bermuda-gray),
+  input-active-bg-color: color(transparent),
+  input-bg-disabled: color(concrete),
+  input-hover-border-color: color(stratos),
+  input-active-border-color: color(stratos),
+  input-color--error: color(red-orange),
+  input-border-color--error: color(red-orange),
+  input-border-color--success: color(emerald),
+  input-color--success: color(emerald),
+  input-border-color--warning: color(sunglow),
+  input-color--warning: color(sunglow)
 );

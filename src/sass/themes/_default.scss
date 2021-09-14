@@ -1,6 +1,6 @@
 @import '../utils/functions';
 
-$dark: (
+$default: (
   //Buttons
   button-bg--primary: color(downy),
   button-color--primary: color(white),
@@ -17,7 +17,7 @@ $dark: (
   datepicker-day-outsideMonth-color--primary: color(gray),
   datepicker-dividerColor--primary: color(bermuda-gray),
   datepicker-dayName--primary: color(gray),
-  datepicker-day-in-selectingRange-bg--primary: color(aqua-spring)
+  datepicker-day-in-selectingRange-bg--primary: color(aqua-spring),
   //Inputs
   input-bg: color(selago),
   input-color: color(stratos),

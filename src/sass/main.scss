@@ -1,5 +1,9 @@
 @import './utils/variables';
 
+:root {
+  font-size: $base-font-size;
+}
+
 // Components
 
 @import './components/datepickers';

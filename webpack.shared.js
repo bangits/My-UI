@@ -15,6 +15,10 @@ const configureSass = (isDevelopment = true) => [
         }
       },
       {
+        loader: 'resolve-url-loader',
+        options: {}
+      },
+      {
         loader: 'sass-loader',
         options: {
           sourceMap: isDevelopment

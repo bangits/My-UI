@@ -1,6 +1,6 @@
 @import '../utils/functions';
 
-$default: (
+$dark: (
   //Buttons
   button-bg--primary: color(downy),
   button-color--primary: color(white),
@@ -8,17 +8,26 @@ $default: (
   button-active-bg--primary: color(riptide),
   button-ghost-hover--primary: color(transparent-downy),
   button-ghost-bg: transparent,
+  //Datepicker
+  datepicker-input-border--primary: color(stratos),
+  datepicker-bg-color--primary: color(pelorous),
+  datepicker-color--primary: color(white),
+  datepicker-day-bg-inRange--primary: color(aqua-spring),
+  datepicker-month-container-borderColor--primary: color(bermuda-gray),
+  datepicker-day-outsideMonth-color--primary: color(gray),
+  datepicker-dividerColor--primary: color(bermuda-gray),
+  datepicker-dayName--primary: color(gray),
+  datepicker-day-in-selectingRange-bg--primary: color(aqua-spring)
   //Inputs
   input-bg: color(selago),
   input-color: color(stratos),
-  input-hover-bg: transparent,
   input-filled-border-color: color(dark),
+  input-hover-bg: transparent,
   input-placeholder-color: color(bermuda-gray),
-  input-active-bg-color: transparent,
+  input-active-bg-color: color(transparent),
   input-bg-disabled: color(concrete),
-  input-hover-border-color: color(bermuda-gray),
+  input-hover-border-color: color(stratos),
   input-active-border-color: color(stratos),
-  // Input states
   input-color--error: color(red-orange),
   input-border-color--error: color(red-orange),
   input-border-color--success: color(emerald),

@@ -14,7 +14,9 @@ $colors: (
   stratos: #00194c,
   red-orange: #ff3434,
   emerald: #53d86a,
-  sunglow: #ffcb2f
+  sunglow: #ffcb2f,
+  aqua-spring: #effafa,
+  gray: #828282
 );
 
 // Base
@@ -25,8 +27,31 @@ $colors: (
 @import '../components/button';
 @import '../components/text-input';
 
-// Themes generation
+// DatePicker
+$datepicker-sizes: (
+  input-container-width: 32.4rem,
+  input-container-padding: 0.8rem,
+  input-height: 3.8rem,
+  input-border-radius: 0.35rem,
+  datepicker-icon-margin: 1.2rem,
+  day-range--borderRadius: 0.5rem,
+  datepicker-month--container: 29.89rem,
+  datepicker-month--size: 1.8rem,
+  datepicker-current--month: 2.2rem,
+  datepicker-navigation--nextSize: 1.5rem,
+  datepicker-navigation--nextMargin: 2.4rem,
+  datepicker-day--names: 29.89rem,
+  datepicker-day: 4.27rem,
+  datepicker-dayWidth: 4.27rem,
+  datepicker-dayHeight: 3.97rem,
+  datepicker-day--namesPadding: 5.89rem,
+  datepicker-day--nameWidth: 1.94rem,
+  datepicker-day--nameMargin: 2.67rem,
+  datepicker-day--namePadding: 3.67rem,
+  datepicker-month-container--borderRadius: 0.5rem
+);
 
+// Themes generation
 $themeValues: ();
 $themes: ();
 

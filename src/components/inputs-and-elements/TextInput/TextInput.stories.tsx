@@ -10,9 +10,10 @@ export default {
 } as ComponentMeta<typeof TextInput>;
 
 export const Default = () => (
+  <>
   <TextInput
     disabled={boolean('disabled', false)}
-    placeholder={text('placeholder', 'Default Input')}
+    placeholder={text('placeholder', 'Default Text Input')}
     defaultValue={text('defaultValue', undefined)}
     value={text('defaultValue', 'ui-kit@bangits.com')}
     maxLength={number('maxLength', 10)}
@@ -20,23 +21,35 @@ export const Default = () => (
     onChange={action('onChange')}
     explanation={text('explanation', '')}
   />
+
+  <h1>{' '}</h1>
+
+  <TextInput
+    disabled={boolean('disabled', false)}
+    placeholder={text('placeholder for number input', 'Default Number Input')}
+    defaultValue={text('defaultValue', undefined)}
+    value={text('defaultValue', 'ui-kit@bangits.com')}
+    maxLength={number('maxLength', 10)}
+    type='number'
+    onChange={action('onChange')}
+    explanation={text('explanation', '')}
+  />
+  </>
 );
 
 //Input With Icons
 export const WithIcons = () => (
   <>
-    <h2>Start Icon</h2>
-
     <TextInput
-      disabled={boolean('Disabled', false)}
-      placeholder='Input With Left Icon'
-      defaultValue={text('Default Value', 'ui-kit@bangits.com')}
+      disabled={boolean('disabled', false)}
+      placeholder='Input With Start Icon'
+      defaultValue={text('defaultValue for start icon', 'Input With Start Icon')}
       type='text'
       error={false}
       warning={false}
       success={false}
       onChange={action('onChange')}
-      explanation={text('Explanation', 'Explanation')}
+      explanation={text('explanation', 'Explanation')}
       startIcon={
         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
           <g data-name='Group 134'>
@@ -52,17 +65,18 @@ export const WithIcons = () => (
       }
     />
 
-    <h2>End Icon</h2>
+    <h1>{" "}</h1>
+
     <TextInput
-      disabled={boolean('Disabled', false)}
-      placeholder='Input With Right Icon'
-      defaultValue={text('Default Value', 'ui-kit@bangits.com')}
+      disabled={boolean('disabled', false)}
+      placeholder='Input With End Icon'
+      defaultValue={text('defaultValue for end icon', 'Input With End Icon')}
       type='text'
       error={false}
       warning={false}
       success={false}
       onChange={action('onChange')}
-      explanation={text('Explanation', 'Explanation')}
+      explanation={text('explanation', 'Explanation')}
       endIcon={
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -82,36 +96,34 @@ export const WithIcons = () => (
 
 export const WithStates = () => (
   <>
-    <h2 style={{ color: '#ff3434' }}>Input With Error</h2>
-
     <TextInput
-      disabled={boolean('Disabled', false)}
+      disabled={boolean('disabled', false)}
       placeholder='Input With Error'
-      defaultValue={text('Default Value', 'ui-kit@bangits.com')}
+      defaultValue={text('defaultValue for error', 'error@bangits.com')}
       type='text'
       error={true}
       onChange={action('onChange')}
       explanation={text('Explanation', 'Explanation')}
     />
 
-    <h2 style={{ color: '#53d86a' }}>Input With Success</h2>
+    <h1>{" "}</h1>
 
     <TextInput
-      disabled={boolean('Disabled', false)}
+      disabled={boolean('disabled', false)}
       placeholder='Input With Success'
-      defaultValue={text('Default Value', 'ui-kit@bangits.com')}
+      defaultValue={text('defaultValue for success', 'success@bangits.com')}
       type='text'
       success={true}
       onChange={action('onChange')}
       explanation={text('Explanation', 'Explanation')}
     />
 
-    <h2 style={{ color: '#ffcb2f' }}>Input With Warning</h2>
+    <h1>{" "}</h1>
 
     <TextInput
-      disabled={boolean('Disabled', false)}
+      disabled={boolean('disabled', false)}
       placeholder='Input With Warning'
-      defaultValue={text('Default Value', 'ui-kit@bangits.com')}
+      defaultValue={text('defaultValue for warning', 'warning@bangits.com')}
       type='text'
       warning={true}
       onChange={action('onChange')}

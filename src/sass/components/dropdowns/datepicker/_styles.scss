@@ -1,5 +1,7 @@
 @mixin generate-datepicker-styles {
   :global {
+    z-index: map-get($datepicker-sizes, datepicker-z-index);
+
     .react-datepicker {
       display: flex;
 
@@ -124,7 +126,6 @@
       }
 
       // Theming
-
       @each $color in $base-colors {
         &__input-container input {
           @include theme(border, datepicker-input-border--#{$color}, solid 0.1rem);
@@ -149,7 +150,8 @@
           &--range-start,
           &--selecting-range-start,
           &--range-end,
-          &--selecting-range-end {
+          &--selecting-range-end,
+          &--selected {
             @include theme(background-color, datepicker-bg-color--#{$color});
             @include theme(color, datepicker-color--#{$color});
           }

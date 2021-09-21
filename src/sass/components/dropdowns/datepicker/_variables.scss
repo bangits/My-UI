@@ -20,3 +20,8 @@ $datepicker-sizes: (
   datepicker-day--namePadding: 3.67rem,
   datepicker-month-container--borderRadius: 0.5rem
 );
+
+$datepicker-icons: (
+  next: url('../../../icons/next.svg'),
+  prev: url('../../../icons/prev.svg')
+);

@@ -1,9 +1,15 @@
-@import './utils/variables';
+// Abstracts
+@import './abstracts/variables';
+@import './abstracts/mixins';
 
-:root {
-  font-size: $base-font-size;
-}
+// Base
+@import './base/mixins';
+@import './base/reset';
+
+// Theme
+@import './themes/generator';
 
 // Components
-
-@import './components/datepickers';
+@import './components/dropdowns/main';
+@import './components/inputs-and-elements/main';
+@import './components/typography/main';

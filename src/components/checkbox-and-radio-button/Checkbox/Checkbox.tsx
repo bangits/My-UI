@@ -5,10 +5,10 @@ export interface CheckboxProps {
   checked?: boolean;
   disabled?: boolean;
   defaultChecked?: boolean;
-  color?: "primary" | "secondary";
+  color?: 'primary' | 'secondary';
 }
 
-const Checkbox: FC<CheckboxProps> = ({color, ...checkboxProps}) => (
+const Checkbox: FC<CheckboxProps> = ({ color, ...checkboxProps }) => (
   <div>
     <input type='checkbox' className={classNames(color)} {...checkboxProps} />
   </div>

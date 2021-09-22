@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 
 export interface CheckboxProps {
-  onChange?: () => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   checked?: boolean;
   disabled?: boolean;
   defaultChecked?: boolean;
   color?: string;
 }
 
-const Checkbox: FC<CheckboxProps> = ({color, ...checkboxProps}) => (
+const Checkbox: FC<CheckboxProps> = ({ color, ...checkboxProps }) => (
   <div>
     <input type='checkbox' {...checkboxProps} />
   </div>

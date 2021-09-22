@@ -23,6 +23,16 @@ $datepicker-sizes: (
 );
 
 $datepicker-icons: (
-  next: url('../../../icons/next.svg'),
-  prev: url('../../../icons/prev.svg')
+  next: url('../../../../icons/next.svg'),
+  prev: url('../../../../icons/prev.svg')
+);
+
+$datepicker-colors: (
+  datepicker-container-bg: color(white),
+  datepicker-input-border--primary: color(stratos),
+  datepicker-bg-color--primary: color(pelorous),
+  datepicker-secondary-bg-color--primary: color(aqua-spring),
+  datepicker-color--primary: color(white),
+  datepicker-text-color--primary: color(gray),
+  datepicker-dividers-color--primary: color(bermuda-gray)
 );

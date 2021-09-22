@@ -1,3 +1,3 @@
 export * from './typography';
-export * from './dropdown';
+export * from './dropdowns';
 export * from './inputs-and-elements';

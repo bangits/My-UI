@@ -1,10 +1,1 @@
-.Typography {
-  text-decoration: none;
-
-  @each $type in $typography-types {
-    &.#{$type} {
-      font-size: typography-sizes('#{$type}-size');
-      line-height: typography-sizes('#{$type}-line-height');
-    }
-  }
-}
+@include generate-typography-styles;

@@ -1,5 +1,3 @@
-@import './functions';
-
 // This mixin used for generation css with theme
 @mixin theme($property, $key, $inlineExtra: null, $postExtra: null) {
   @each $theme in $themes {
@@ -71,60 +69,5 @@
         }
       }
     }
-  }
-}
-
-// This mixins is used for generating box-shadow like border for preventing size changing
-
-@mixin generateBorderWithBoxShadow($color-variable, $size: 0.1rem) {
-  @include theme(box-shadow, $color-variable, 0px 0px 0px $size);
-}
-
-// --- Components ---
-
-// This mixin is used for merging typography font-size and line-height
-
-@mixin getTypographyStyles($typography-name) {
-  font-size: typography-sizes('#{$typography-name}-size');
-  line-height: typography-sizes('#{$typography-name}-line-height');
-}
-
-// This mixins is used for generating button styles(including ghost state)
-
-@mixin getButtonStyles($color-name) {
-  @include theme(background-color, button-bg--#{$color-name});
-  @include theme(color, button-color--#{$color-name});
-
-  &:hover {
-    @include theme(background-color, button-hover-bg--#{$color-name});
-  }
-
-  &:active {
-    @include theme(background-color, button-active-bg--#{$color-name});
-  }
-
-  &:disabled {
-    opacity: 0.4;
-  }
-}
-
-@mixin getButtonGhostStyles($color-name) {
-  @include theme(background-color, button-ghost-bg);
-
-  @include theme(color, button-bg--#{$color-name});
-
-  @include theme(border, button-bg--#{$color-name}, 1px solid);
-
-  &:hover,
-  &:focus {
-    @include theme(background-color, button-ghost-hover--#{$color-name});
-  }
-
-  &:active {
-    @include theme(background-color, button-ghost-bg);
-  }
-
-  &:disabled {
-    opacity: 0.4;
   }
 }

@@ -99,12 +99,12 @@
       }
 
       &__navigation--next {
-        background: url('../../icons/next.svg') no-repeat;
+        background: map-get($datepicker-icons, next) no-repeat;
         right: map-get($datepicker-sizes, datepicker-navigation--nextMargin);
       }
 
       &__navigation--previous {
-        background: url('../../icons/left-arrow.svg') no-repeat;
+        background: map-get($datepicker-icons, prev) no-repeat;
         left: map-get($datepicker-sizes, datepicker-navigation--nextMargin);
       }
 
@@ -132,6 +132,10 @@
         }
 
         &__day {
+          &--outside-month {
+            @include theme(color, datepicker-text-color--#{$color});
+          }
+
           &--in-range,
           &--range-start,
           &--selecting-range-start,
@@ -150,10 +154,6 @@
           &--selected {
             @include theme(background-color, datepicker-bg-color--#{$color});
             @include theme(color, datepicker-color--#{$color});
-          }
-
-          &--outside-month {
-            @include theme(color, datepicker-text-color--#{$color});
           }
 
           &-names {

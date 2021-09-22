@@ -1,6 +1,10 @@
 {
   "extends": "ts-config-single-spa",
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "dist",
+    "rootDir": "src",
+    "outDir": "dist",
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {

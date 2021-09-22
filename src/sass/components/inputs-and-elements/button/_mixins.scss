@@ -1,0 +1,39 @@
+// This mixins is used for generating button styles(including ghost state)
+
+@mixin getButtonStyles($color-name) {
+  @include theme(background-color, button-bg--#{$color-name});
+  @include theme(color, button-color--#{$color-name});
+
+  &:hover {
+    @include theme(background-color, button-hover-bg--#{$color-name});
+  }
+
+  &:active {
+    @include theme(background-color, button-active-bg--#{$color-name});
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+@mixin getButtonGhostStyles($color-name) {
+  @include theme(background-color, button-ghost-bg);
+
+  @include theme(color, button-bg--#{$color-name});
+
+  @include theme(border, button-bg--#{$color-name}, 1px solid);
+
+  &:hover,
+  &:focus {
+    @include theme(background-color, button-ghost-hover--#{$color-name});
+  }
+
+  &:active {
+    @include theme(background-color, button-ghost-bg);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}

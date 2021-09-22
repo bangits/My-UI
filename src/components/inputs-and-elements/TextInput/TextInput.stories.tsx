@@ -11,29 +11,29 @@ export default {
 
 export const Default = () => (
   <>
-  <TextInput
-    disabled={boolean('disabled', false)}
-    placeholder={text('placeholder', 'Default Text Input')}
-    defaultValue={text('defaultValue', undefined)}
-    value={text('defaultValue', 'ui-kit@bangits.com')}
-    maxLength={number('maxLength', 10)}
-    type='text'
-    onChange={action('onChange')}
-    explanation={text('explanation', '')}
-  />
+    <TextInput
+      disabled={boolean('disabled', false)}
+      placeholder={text('placeholder', 'Default Text Input')}
+      defaultValue={text('defaultValue', undefined)}
+      value={text('defaultValue', 'ui-kit@bangits.com')}
+      maxLength={number('maxLength', 10)}
+      type='text'
+      onChange={action('onChange')}
+      explanation={text('explanation', '')}
+    />
 
-  <h1>{' '}</h1>
+    <h1> </h1>
 
-  <TextInput
-    disabled={boolean('disabled', false)}
-    placeholder={text('placeholder for number input', 'Default Number Input')}
-    defaultValue={text('defaultValue', undefined)}
-    value={text('defaultValue', 'ui-kit@bangits.com')}
-    maxLength={number('maxLength', 10)}
-    type='number'
-    onChange={action('onChange')}
-    explanation={text('explanation', '')}
-  />
+    <TextInput
+      disabled={boolean('disabled', false)}
+      placeholder={text('placeholder for number input', 'Default Number Input')}
+      defaultValue={text('defaultValue', undefined)}
+      value={text('defaultValue', 'ui-kit@bangits.com')}
+      maxLength={number('maxLength', 10)}
+      type='number'
+      onChange={action('onChange')}
+      explanation={text('explanation', '')}
+    />
   </>
 );
 
@@ -65,7 +65,7 @@ export const WithIcons = () => (
       }
     />
 
-    <h1>{" "}</h1>
+    <h1> </h1>
 
     <TextInput
       disabled={boolean('disabled', false)}
@@ -106,7 +106,7 @@ export const WithStates = () => (
       explanation={text('Explanation', 'Explanation')}
     />
 
-    <h1>{" "}</h1>
+    <h1> </h1>
 
     <TextInput
       disabled={boolean('disabled', false)}
@@ -118,7 +118,7 @@ export const WithStates = () => (
       explanation={text('Explanation', 'Explanation')}
     />
 
-    <h1>{" "}</h1>
+    <h1> </h1>
 
     <TextInput
       disabled={boolean('disabled', false)}

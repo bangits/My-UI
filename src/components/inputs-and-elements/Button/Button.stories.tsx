@@ -59,7 +59,7 @@ export const WithIcons = () => (
       }>
       {text('end icon', 'End Icon')}
     </Button>
-    <h1>{' '}</h1>
+    <h1> </h1>
     <Button
       type='button'
       onClick={action('onClick')}

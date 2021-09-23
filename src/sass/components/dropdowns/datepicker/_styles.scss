@@ -81,6 +81,160 @@
           top: map-get($datepicker-sizes, datepicker-current--month);
           font-weight: 700;
         }
+
+        /* here must be the styles of select year and select month */
+        &__dropdown {
+          /* -------------->>>>>>>>>>>>>>> Month Container Start <<<<<<<<<<<<<<<-------------- */
+
+          /* Select Month styles month dropdown container */
+          .react-datepicker__month-dropdown-container {
+            //Month dropdown
+            .react-datepicker__month-dropdown {
+              background-color: cyan;
+
+              //Month
+              .react-datepicker__month-option {
+              }
+
+              //Selected Month
+              .react-datepicker__month-option--selected_month {
+                .react-datepicker__month-option--selected {
+                  //Icon
+                }
+              }
+            }
+
+            //selected  month and arrow icon to click for selecting month.(this is located on the header section)
+            .react-datepicker__month-read-view {
+              .react-datepicker__month-read-view--down-arrow {
+                //Arrow Icon
+              }
+
+              .react-datepicker__month-read-view--selected-month {
+                //Selected Month
+              }
+            }
+          }
+          /* -------------->>>>>>>>>>>>>>> Month Container End <<<<<<<<<<<<<<<-------------- */
+
+          /* -------------->>>>>>>>>>>>>>> Year Container Start <<<<<<<<<<<<<<<-------------- */
+          //Select Year styles year dropdown container.
+          .react-datepicker__year-dropdown-container {
+            //Select year dropdown
+            .react-datepicker__year-dropdown {
+              background-color: red;
+
+              //Years
+              .react-datepicker__year-option {
+                .react-datepicker__navigation {
+                }
+                .react-datepicker__navigation--years {
+                }
+
+                .react-datepicker__navigation--years-upcoming {
+                }
+
+                .react-datepicker__navigation--years-previous {
+                }
+              }
+
+              //Selected Year
+              .react-datepicker__year-option--selected_year {
+                //Selected Year Icon
+                .react-datepicker__year-option--selected {
+                }
+              }
+            }
+
+            //selected  year and arrow icon to click for selecting year.(this is located on the header section)
+            .react-datepicker__year-read-view {
+              .react-datepicker__year-read-view--down-arrow {
+                // Icon
+              }
+
+              .react-datepicker__year-read-view--selected-year {
+                //Selected Year
+              }
+            }
+          }
+          /* -------------->>>>>>>>>>>>>>> Year Container End <<<<<<<<<<<<<<<-------------- */
+        }
+
+        &__dropdown--scroll {
+          /* -------------->>>>>>>>>>>>>>> Month Container Start <<<<<<<<<<<<<<<-------------- */
+
+          /* Select Month styles month dropdown scroll container */
+          .react-datepicker__month-dropdown-container--scroll {
+            //Month dropdown
+            .react-datepicker__month-dropdown {
+              //Month
+              .react-datepicker__month-option {
+              }
+
+              //Selected Month
+              .react-datepicker__month-option--selected_month {
+                .react-datepicker__month-option--selected {
+                  //Icon
+                }
+              }
+            }
+
+            //selected  month and arrow icon to click for selecting month.(this is located on the header section)
+            .react-datepicker__month-read-view {
+              .react-datepicker__month-read-view--down-arrow {
+                //Arrow Icon
+              }
+
+              .react-datepicker__month-read-view--selected-month {
+                //Selected Month
+              }
+            }
+          }
+
+          /* -------------->>>>>>>>>>>>>>> Month Container End <<<<<<<<<<<<<<<-------------- */
+
+          /* -------------->>>>>>>>>>>>>>> Year Container Start <<<<<<<<<<<<<<<-------------- */
+          //Select Year styles year dropdown scroll container
+          .react-datepicker__year-dropdown-container--scroll {
+            //Select year dropdown
+            .react-datepicker__year-dropdown {
+              background-color: red;
+
+              //Years
+              .react-datepicker__year-option {
+                .react-datepicker__navigation {
+                }
+                .react-datepicker__navigation--years {
+                }
+
+                .react-datepicker__navigation--years-upcoming {
+                }
+
+                .react-datepicker__navigation--years-previous {
+                }
+              }
+
+              //Selected Year
+              .react-datepicker__year-option--selected_year {
+                //Selected Year Icon
+                .react-datepicker__year-option--selected {
+                }
+              }
+            }
+
+            //selected  year and arrow icon to click for selecting year.(this is located on the header section)
+            .react-datepicker__year-read-view {
+              .react-datepicker__year-read-view--down-arrow {
+                // Icon
+              }
+
+              .react-datepicker__year-read-view--selected-year {
+                //Selected Year
+              }
+            }
+          }
+          /* -------------->>>>>>>>>>>>>>> Year Container End <<<<<<<<<<<<<<<-------------- */
+        }
       }
 
       &__navigation--next,

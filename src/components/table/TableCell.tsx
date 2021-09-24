@@ -1,5 +1,5 @@
-import { FC, ReactHTML, ReactSVG } from 'react';
 import classNames from 'classnames';
+import { FC, ReactHTML, ReactSVG } from 'react';
 
 export interface TableCellProps {
   component?: keyof ReactHTML | keyof ReactSVG;

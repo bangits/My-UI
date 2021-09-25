@@ -3,11 +3,11 @@ import React from 'react';
 import Status from './Status';
 
 export default {
-    component: Status,
-    decorators: [withKnobs],
-    title: 'components/Status/Status',
-}
+  component: Status,
+  decorators: [withKnobs],
+  title: 'components/Status/Status'
+};
 
 export const Default = () => {
-    return <Status>Active</Status>
-}
+  return <Status>Active</Status>;
+};

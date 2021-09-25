@@ -21,6 +21,7 @@ export const Default = () => {
         onChange={(date: Date) => setDate(date)}
         selected={date}
         showMonthDropdown
+        useShortMonthInDropdown
         showYearDropdown
       />
 

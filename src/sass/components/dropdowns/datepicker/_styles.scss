@@ -69,11 +69,10 @@
         border-radius: map-get($datepicker-sizes, datepicker-month-container--borderRadius);
         width: map-get($datepicker-sizes, datepicker-month--container);
         font-size: map-get($datepicker-sizes, datepicker-month--size);
+        position: relative;
       }
 
       &__header {
-        position: relative;
-
         .react-datepicker__current-month {
           position: absolute;
           left: 50%;
@@ -90,16 +89,34 @@
           .react-datepicker__month-dropdown-container {
             //Month dropdown
             .react-datepicker__month-dropdown {
-              background-color: cyan;
-
+              display: flex;
+              flex-wrap: wrap;
+              align-items: flex-end;
+              justify-content: space-around;
+              background-color: white;
+              position: absolute;
+              width: 100%;
+              height: 100%;
               //Month
               .react-datepicker__month-option {
+                width: 4rem;
+                margin: 10px;
+                text-align: center;
+                border-radius: 4px;
+                padding: 8px 20px 10px;
+                font-size: 1.8rem;
+                color: black;
+                cursor: pointer;
               }
 
               //Selected Month
               .react-datepicker__month-option--selected_month {
+                background-color: #2eb2b9;
+                color: white;
+
                 .react-datepicker__month-option--selected {
                   //Icon
+                  display: none;
                 }
               }
             }
@@ -111,7 +128,9 @@
               }
 
               .react-datepicker__month-read-view--selected-month {
-                //Selected Month
+                display: flex;
+                justify-content: center;
+                transform: translateY(2.2rem);
               }
             }
           }
@@ -122,8 +141,6 @@
           .react-datepicker__year-dropdown-container {
             //Select year dropdown
             .react-datepicker__year-dropdown {
-              background-color: red;
-
               //Years
               .react-datepicker__year-option {
                 .react-datepicker__navigation {
@@ -154,6 +171,9 @@
 
               .react-datepicker__year-read-view--selected-year {
                 //Selected Year
+                position: absolute;
+                top: 2.2rem;
+                right: 30%;
               }
             }
           }
@@ -198,10 +218,24 @@
           .react-datepicker__year-dropdown-container--scroll {
             //Select year dropdown
             .react-datepicker__year-dropdown {
-              background-color: red;
-
+              display: flex;
+              flex-wrap: wrap;
+              align-items: flex-end;
+              justify-content: space-around;
+              background-color: white;
+              position: absolute;
+              width: 100%;
+              height: 100%;
               //Years
               .react-datepicker__year-option {
+                width: 4rem;
+                margin: 10px;
+                text-align: center;
+                border-radius: 4px;
+                padding: 8px 20px 10px;
+                font-size: 1.8rem;
+                color: black;
+                cursor: pointer;
                 .react-datepicker__navigation {
                 }
                 .react-datepicker__navigation--years {
@@ -218,6 +252,7 @@
               .react-datepicker__year-option--selected_year {
                 //Selected Year Icon
                 .react-datepicker__year-option--selected {
+                  display: none;
                 }
               }
             }

@@ -13,7 +13,7 @@ export const Default = () => (
   <>
     <TextInput
       disabled={boolean('disabled', false)}
-      // placeholder={text('placeholder', 'Default Text Input')}
+      placeholder={text('placeholder', 'Default Text Input')}
       defaultValue={text('defaultValue', undefined)}
       value={text('defaultValue', 'ui-kit@bangits.com')}
       maxLength={number('maxLength', 10)}

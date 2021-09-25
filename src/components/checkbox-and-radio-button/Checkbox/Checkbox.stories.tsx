@@ -6,7 +6,7 @@ import Checkbox from './Checkbox';
 export default {
   component: Checkbox,
   decorators: [withKnobs],
-  title: 'components/Inputs And Elements/Checkbox'
+  title: 'components/Checkbox and Radio Button/Checkbox'
 } as ComponentMeta<typeof Checkbox>;
 
-export const Default = () => <Checkbox></Checkbox>;
+export const Default = () => <Checkbox defaultChecked />;

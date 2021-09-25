@@ -1,4 +1,4 @@
-.StatusActive {
+.status--active {
   width: 9rem;
   height: 2.4rem;
   background-color: rgba(0, 178, 30, 0.1);
@@ -21,7 +21,7 @@
   }
 }
 
-.StatusBlocked {
+.status--blocked {
   width: 9rem;
   height: 2.4rem;
   background-color: #ffe0e0;

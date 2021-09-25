@@ -11,7 +11,7 @@ export default {
 export const Default = () => {
   return (
     <>
-      <Status variant="active">Active</Status>
+      <Status variant='active'>Active</Status>
 
       <h1></h1>
 

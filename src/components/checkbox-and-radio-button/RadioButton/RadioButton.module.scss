@@ -29,12 +29,12 @@
   [type='radio']:checked + label:after,
   [type='radio']:not(:checked) + label:after {
     content: '';
-    width: 0.7rem;
-    height: 0.7rem;
+    width: 0.6rem;
+    height: 0.6rem;
     background: #64c9cf;
     position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
+    top: 0.56rem;
+    left: 0.56rem;
     border-radius: 100%;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;

@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
+import styles from './Checkbox.module.scss';
 export interface CheckboxProps {
   onChange?: () => void;
   checked?: boolean;
@@ -9,7 +10,7 @@ export interface CheckboxProps {
 }
 
 const Checkbox: FC<CheckboxProps> = ({color, ...checkboxProps}) => (
-  <div>
+  <div className={styles.Checkbox}>
     <input type='checkbox' className={classNames(color)} {...checkboxProps} />
   </div>
 );

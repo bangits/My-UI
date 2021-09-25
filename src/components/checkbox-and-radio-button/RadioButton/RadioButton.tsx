@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Consumer } from './RadioContext';
+import styles from './RadioButton.module.scss';
 
 export interface RadioButtonProps {
   checked?: boolean;
@@ -15,7 +16,7 @@ const RadioButton: FC<RadioButtonProps> = ({ children, label, value, checked, ..
     <Consumer>
       {(props) => {
         return (
-          <>
+          <div className={styles.RadioButton}>
             <input
               type='radio'
               id={value}
@@ -28,7 +29,7 @@ const RadioButton: FC<RadioButtonProps> = ({ children, label, value, checked, ..
               {...radioProps}
             />
             <label htmlFor={value}>{label}</label>
-          </>
+          </div>
         );
       }}
     </Consumer>

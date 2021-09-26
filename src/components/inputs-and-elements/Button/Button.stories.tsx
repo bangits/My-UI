@@ -13,7 +13,6 @@ export default {
 // Button Colors
 export const Colors = () => (
   <>
-    <h2>Primary</h2>
     <Button
       type='button'
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.default, { display: 'inline-radio' })}
@@ -27,7 +26,6 @@ export const Colors = () => (
 // Button Variants
 export const Variants = () => (
   <>
-    <h2>Button Ghost</h2>
     <Button
       type='button'
       onClick={action('onClick')}
@@ -41,8 +39,6 @@ export const Variants = () => (
 // Button With Icons
 export const WithIcons = () => (
   <>
-    <h2>End Icon</h2>
-
     <Button
       type='button'
       onClick={action('onClick')}
@@ -61,11 +57,9 @@ export const WithIcons = () => (
           </g>
         </svg>
       }>
-      {text('children', 'Ghost')}
+      {text('end icon', 'End Icon')}
     </Button>
-
-    <h2>Start Icon</h2>
-
+    <h1> </h1>
     <Button
       type='button'
       onClick={action('onClick')}
@@ -84,7 +78,7 @@ export const WithIcons = () => (
           </g>
         </svg>
       }>
-      {text('children', 'Ghost')}
+      {text('start icon', 'Start Icon')}
     </Button>
   </>
 );

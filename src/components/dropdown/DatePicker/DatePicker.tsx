@@ -1,16 +1,15 @@
-import React, { FC } from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from '@em/react-datepicker';
+import React from 'react';
 import styles from './DatePicker.module.scss';
+import DatePickerInput from './DatePickerInput';
 
-export interface DatePickerProps extends ReactDatePickerProps {
-  className?: string;
-}
+export type DatepickerProps = ReactDatePickerProps;
 
-const DatePicker: FC<DatePickerProps> = ({ className, ...datePickerProps }) => {
+const DatePicker: React.FC<ReactDatePickerProps> = ({ placeholderText, ...datePickerProps }) => {
   return (
     <>
       <ReactDatePicker
-        className={className}
+        customInput={<DatePickerInput placeholderText={placeholderText} />}
         wrapperClassName={styles.DatePicker}
         popperClassName={styles.DatePicker}
         {...datePickerProps}

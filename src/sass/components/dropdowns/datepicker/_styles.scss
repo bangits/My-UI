@@ -1,0 +1,185 @@
+@mixin generate-datepicker-styles {
+  :global {
+    z-index: map-get($datepicker-sizes, datepicker-z-index);
+
+    .react-datepicker {
+      display: flex;
+
+      &__navigation-icon--previous,
+      &__navigation-icon--next {
+        display: none;
+      }
+
+      &__input-container {
+        width: map-get($datepicker-sizes, input-container-width);
+        position: relative;
+
+        input {
+          width: 100%;
+          height: map-get($datepicker-sizes, input-height);
+          outline: none;
+          border-radius: map-get($datepicker-sizes, input-border-radius);
+          padding-left: map-get($datepicker-sizes, input-container-padding);
+        }
+
+        svg {
+          position: absolute;
+          right: map-get($datepicker-sizes, datepicker-icon-margin);
+          top: map-get($datepicker-sizes, datepicker-icon-margin);
+        }
+      }
+
+      &__day {
+        &--today {
+          font-weight: 700;
+          outline: none;
+        }
+
+        &--range-start,
+        &--selecting-range-start {
+          border-bottom-left-radius: map-get($datepicker-sizes, day-range--borderRadius);
+          border-top-left-radius: map-get($datepicker-sizes, day-range--borderRadius);
+        }
+
+        &--range-end,
+        &--selecting-range-end,
+        &--in-selecting-range:hover {
+          border-bottom-right-radius: map-get($datepicker-sizes, day-range--borderRadius);
+          border-top-right-radius: map-get($datepicker-sizes, day-range--borderRadius);
+        }
+
+        &-names {
+          display: flex;
+          justify-content: space-around;
+          width: map-get($datepicker-sizes, datepicker-day--names);
+          padding-top: map-get($datepicker-sizes, datepicker-day--namesPadding);
+
+          .react-datepicker__day-name {
+            width: map-get($datepicker-sizes, datepicker-day--nameWidth);
+            margin-bottom: map-get($datepicker-sizes, datepicker-day--nameMargin);
+            padding-top: map-get($datepicker-sizes, datepicker-day--namePadding);
+            font-size: map-get($datepicker-sizes, datepicker-day--name);
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      &__month-container {
+        background-color: transparent;
+        border-radius: map-get($datepicker-sizes, datepicker-month-container--borderRadius);
+        width: map-get($datepicker-sizes, datepicker-month--container);
+        font-size: map-get($datepicker-sizes, datepicker-month--size);
+      }
+
+      &__header {
+        position: relative;
+
+        .react-datepicker__current-month {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%);
+          top: map-get($datepicker-sizes, datepicker-current--month);
+          font-weight: 700;
+        }
+      }
+
+      &__navigation--next,
+      &__navigation--previous {
+        width: map-get($datepicker-sizes, datepicker-navigation--nextSize);
+        height: map-get($datepicker-sizes, datepicker-navigation--nextSize);
+        border: none;
+        position: absolute;
+        top: map-get($datepicker-sizes, datepicker-navigation--nextMargin);
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      &__navigation--next {
+        background: map-get($datepicker-icons, next) no-repeat;
+        right: map-get($datepicker-sizes, datepicker-navigation--nextMargin);
+      }
+
+      &__navigation--previous {
+        background: map-get($datepicker-icons, prev) no-repeat;
+        left: map-get($datepicker-sizes, datepicker-navigation--leftMargin);
+      }
+
+      &__month {
+        .react-datepicker__week.react-datepicker__week {
+          display: flex;
+          .react-datepicker__day {
+            width: map-get($datepicker-sizes, datepicker-dayWidth);
+            height: map-get($datepicker-sizes, datepicker-dayHeight);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      // Theming
+      @each $color in $base-colors {
+        &__day-name {
+          @include theme(color, datepicker-day-color--#{$color});
+        }
+
+        &__current-month {
+          @include theme(color, datepicker-current-day--#{$color});
+        }
+
+        &__input-container input {
+          @include theme(border, datepicker-input-border--#{$color}, solid 0.1rem);
+        }
+
+        &__day {
+          &--outside-month {
+            @include theme(color, datepicker-text-color--#{$color});
+          }
+
+          &--in-range,
+          &--range-start,
+          &--selecting-range-start,
+          &--range-end,
+          &--selecting-range-end,
+          &--selecting-range-start,
+          &--in-selecting-range {
+            @include theme(background-color, datepicker-secondary-bg-color--#{$color});
+            @include theme(color, datepicker-bg-color--#{$color});
+          }
+
+          &--range-start,
+          &--selecting-range-start,
+          &--range-end,
+          &--selecting-range-end,
+          &--selected {
+            @include theme(background-color, datepicker-bg-color--#{$color});
+            @include theme(color, datepicker-color--#{$color});
+          }
+        }
+
+        &__month-container {
+          @include theme(
+            box-shadow,
+            datepicker-box-shadow--#{$color},
+            map-get($datepicker-sizes, datepicker-box-shadow)
+          );
+        }
+
+        &__month {
+          .react-datepicker__week.react-datepicker__week {
+            .react-datepicker__day {
+              &:hover {
+                @include theme(background-color, datepicker-bg-color--#{$color});
+                @include theme(color, datepicker-color--#{$color});
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

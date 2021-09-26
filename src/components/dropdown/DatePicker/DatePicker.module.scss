@@ -1,3 +1,4 @@
 .DatePicker {
-  @include stylize-datepicker;
+  @include theme(background-color, datepicker-container-bg);
+  @include generate-datepicker-styles;
 }

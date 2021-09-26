@@ -5,10 +5,10 @@ const { configureSharedWebpack } = require('./webpack.shared');
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
+    argv,
     orgName: 'atom',
     projectName: 'design-system',
-    webpackConfigEnv,
-    argv
+    webpackConfigEnv
   });
 
   const isDevelopment = webpackConfigEnv.development;
@@ -22,8 +22,8 @@ module.exports = (webpackConfigEnv, argv) => {
 
       plugins: [
         new MiniCssExtractPlugin({
-          filename: '[name].[hash].css',
-          chunkFilename: '[id].[hash].css'
+          chunkFilename: '[id].[hash].css',
+          filename: '[name].[hash].css'
         })
       ]
     },

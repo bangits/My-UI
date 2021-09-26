@@ -1,24 +1,26 @@
-@import '../utils/functions';
+$base-text-field-sizes: (
+  width: 28rem,
+  height: 3.8rem,
+  padding: 1rem 1.55rem,
+  font-size: 1.4rem,
+  border-radius: 0.3rem,
+  icon-margin: 1rem,
+  input-adornment: 4rem,
+  explanation-margin: 0.4rem
+);
 
-$default: (
-  //Buttons
-  button-bg--primary: color(downy),
-  button-color--primary: color(white),
-  button-hover-bg--primary: color(pelorous),
-  button-active-bg--primary: color(riptide),
-  button-ghost-hover--primary: color(transparent-downy),
-  button-ghost-bg: transparent,
-  //Inputs
+$input-states: 'success', 'error', 'warning';
+
+$text-field-colors: (
   input-bg: color(selago),
   input-color: color(stratos),
-  input-hover-bg: transparent,
   input-filled-border-color: color(dark),
+  input-hover-bg: transparent,
   input-placeholder-color: color(bermuda-gray),
-  input-active-bg-color: transparent,
+  input-active-bg-color: color(transparent),
   input-bg-disabled: color(concrete),
-  input-hover-border-color: color(bermuda-gray),
+  input-hover-border-color: color(stratos),
   input-active-border-color: color(stratos),
-  // Input states
   input-color--error: color(red-orange),
   input-border-color--error: color(red-orange),
   input-border-color--success: color(emerald),

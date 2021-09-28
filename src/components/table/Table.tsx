@@ -9,7 +9,7 @@ export interface TableProps {
   data?: any[];
   columns?: any[];
   color?: string;
-  fetch?: (...args: any) => {};
+  fetch?: (...args: any) => any;
 }
 
 const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {

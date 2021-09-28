@@ -1,22 +1,21 @@
 import ReactSelect from '@em/react-select';
 import { StateManagerProps } from '@em/react-select/src/useStateManager';
 import React, { FC } from 'react';
-import resetStyles, { resetStylesProps } from './reset-styles';
+import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
 
-export interface ReactSelectProps {
-  selectProps?: StateManagerProps;
-}
-
-
-const Select: FC<ReactSelectProps> = ({ children, ...selectProps }) => (
+const Select: FC<StateManagerProps> = ({ children, isMulti, ...selectProps }) => (
   <ReactSelect
     className={styles.Select}
-    styles={{...resetStyles} as resetStylesProps}
+    styles={resetStyles}
     isClearable={false}
     hideSelectedOptions={false}
     classNamePrefix='react-select'
     isSearchable={false}
+    removeSelected={false}
+    isMulti={isMulti}
+    closeMenuOnSelect={isMulti ? false : true}
+    controlShouldRenderValue={isMulti ? false : true}
     {...selectProps}
   />
 );

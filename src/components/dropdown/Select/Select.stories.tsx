@@ -11,9 +11,6 @@ export default {
 
 export const Default = () => (
   <Select
-    //@ts-ignore
-    isSearchable={false}
-    /* components={{ ValueContainer }} */
     options={[
       {
         label: 'Test',
@@ -49,14 +46,9 @@ export const Default = () => (
 
 export const MultiSelect = () => (
   <Select
-    //@ts-ignore
     placeholder='Multi Select...'
     components={{ Option }}
-    isSearchable={false}
     isMulti
-    closeMenuOnSelect={false}
-    controlShouldRenderValue={false}
-    removeSelected={false}
     options={[
       {
         label: 'Test',

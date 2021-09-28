@@ -62,36 +62,36 @@ const Table: FC<TableProps> = ({ data, columns, color, fetch, component: Compone
   }, [sortBy, selectedFlatRows]);
 
   return (
-      <Component {...getTableProps()} style={{ borderCollapse: 'collapse' }}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => {
-                return (
-                  <TableHead
-                    direction={column.isSortedDesc}
-                    hideSortIcon={column.isSorted}
-                    withSorting={{ ...column.getHeaderProps(column.getSortByToggleProps()) }}>
-                    {column.render('Header')}
-                  </TableHead>
-                );
+    <Component {...getTableProps()} style={{ borderCollapse: 'collapse' }}>
+      <thead>
+        {headerGroups.map((headerGroup) => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map((column) => {
+              return (
+                <TableHead
+                  direction={column.isSortedDesc}
+                  hideSortIcon={column.isSorted}
+                  withSorting={{ ...column.getHeaderProps(column.getSortByToggleProps()) }}>
+                  {column.render('Header')}
+                </TableHead>
+              );
+            })}
+          </tr>
+        ))}
+      </thead>
+      <tbody {...getTableBodyProps()}>
+        {rows.map((row) => {
+          prepareRow(row);
+          return (
+            <TableRow hover {...row.getRowProps()}>
+              {row.cells.map((cell) => {
+                return <TableCell {...cell.getCellProps()}>{cell.render('Cell')}</TableCell>;
               })}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row);
-            return (
-              <TableRow hover {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return <TableCell {...cell.getCellProps()}>{cell.render('Cell')}</TableCell>;
-                })}
-              </TableRow>
-            );
-          })}
-        </tbody>
-      </Component>
+            </TableRow>
+          );
+        })}
+      </tbody>
+    </Component>
   );
 };
 

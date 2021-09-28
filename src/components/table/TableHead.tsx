@@ -8,9 +8,13 @@ export interface TableHeadProps {
   withSorting?: any;
 }
 
-export const TableHead: FC<TableHeadProps> = ({ children, hideSortIcon, withSorting, direction, component: Component = 'th' }) => {
-
-
+export const TableHead: FC<TableHeadProps> = ({
+  children,
+  hideSortIcon,
+  withSorting,
+  direction,
+  component: Component = 'th'
+}) => {
   return (
     <Component {...withSorting}>
       {children}

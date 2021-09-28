@@ -1,5 +1,6 @@
 import  { FC, ReactHTML, ReactSVG, useState } from 'react';
 import classNames from 'classnames';
+import styles from './TableRow.module.scss';
 
 export interface TableRowProps {
   hover?: boolean;
@@ -17,12 +18,12 @@ export const TableRow: FC<TableRowProps> = ({ children, hover, color, selected }
       style={{ 
         color: `black`,
         backgroundColor: `${hover ? (hoverRow ? '#eaf3f3' : '') : ''}`,
-        height: `40px`,
+        height: `auto`,
       }}
-      className={classNames({
-          [`hover`]: hoverRow,
-          [`selected`]: selected,
-      }, `${color}--row`)}
+      className={classNames(styles.TableRow,{
+          [`${styles["Rowhover"]}`]: hoverRow,
+          [`${styles.["Rowselected"]}`]: selected,
+      }, `color--${color}`)}
       >
       {children}
     </tr>

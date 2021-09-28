@@ -8,9 +8,7 @@ export default {
   title: 'components/Table/Table'
 };
 
-
 export const Default = () => {
-
   const data = React.useMemo(
     () => [
       {
@@ -84,7 +82,7 @@ export const Default = () => {
     ],
     []
   );
-  
+
   const columns = React.useMemo(
     () => [
       {
@@ -126,7 +124,6 @@ export const Default = () => {
     ],
     []
   );
-  
 
   const [table, setTable] = useState({});
 
@@ -144,9 +141,7 @@ export const Default = () => {
   );
 };
 
-
 export const ResizableTable = () => {
-
   const data = React.useMemo(
     () => [
       {
@@ -220,7 +215,7 @@ export const ResizableTable = () => {
     ],
     []
   );
-  
+
   const columns = React.useMemo(
     () => [
       {
@@ -262,7 +257,6 @@ export const ResizableTable = () => {
     ],
     []
   );
-  
 
   const [table, setTable] = useState({});
 
@@ -272,6 +266,6 @@ export const ResizableTable = () => {
       ...args
     };
   };
-  
-  return <Table data={data} isResizing absoluteLayout fetch={fetch} columns={columns} />
-}
+
+  return <Table data={data} isResizing absoluteLayout fetch={fetch} columns={columns} />;
+};

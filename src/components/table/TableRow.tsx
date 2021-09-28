@@ -1,4 +1,4 @@
-import  { FC, ReactHTML, ReactSVG, useState } from 'react';
+import { FC, ReactHTML, ReactSVG, useState } from 'react';
 import classNames from 'classnames';
 
 export interface TableRowProps {
@@ -12,18 +12,20 @@ export const TableRow: FC<TableRowProps> = ({ children, hover, color, selected }
 
   return (
     <tr
-      onMouseOver={() => hover ? setHoverRow(true) : null}
-      onMouseOut={() => hover ? setHoverRow(false) : null}
-      style={{ 
+      onMouseOver={() => (hover ? setHoverRow(true) : null)}
+      onMouseOut={() => (hover ? setHoverRow(false) : null)}
+      style={{
         color: `black`,
         backgroundColor: `${hover ? (hoverRow ? '#eaf3f3' : '') : ''}`,
-        height: `40px`,
+        height: `40px`
       }}
-      className={classNames({
+      className={classNames(
+        {
           [`hover`]: hoverRow,
-          [`selected`]: selected,
-      }, `${color}--row`)}
-      >
+          [`selected`]: selected
+        },
+        `${color}--row`
+      )}>
       {children}
     </tr>
   );

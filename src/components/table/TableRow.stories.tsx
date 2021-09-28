@@ -10,12 +10,8 @@ export default {
 
 export const Default = () => {
   return (
-    <TableRow
-    hover
-    >
-      <td>
-          Table Row
-      </td>
+    <TableRow hover>
+      <td>Table Row</td>
     </TableRow>
   );
 };

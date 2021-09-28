@@ -12,7 +12,7 @@ const Select: FC<StateManagerProps> = ({ children, isMulti, ...selectProps }) =>
     hideSelectedOptions={false}
     classNamePrefix='react-select'
     isSearchable={false}
-    removeSelected={false}
+    /* removeSelected={false} */
     isMulti={isMulti}
     closeMenuOnSelect={isMulti ? false : true}
     controlShouldRenderValue={isMulti ? false : true}

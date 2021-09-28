@@ -7,6 +7,7 @@ import styles from './Select.module.scss';
 const Select: FC<StateManagerProps> = ({ children, isMulti, ...selectProps }) => (
   <ReactSelect
     className={styles.Select}
+    //@ts-ignore ignored because we need to reset all css styles
     styles={resetStyles}
     isClearable={false}
     hideSelectedOptions={false}

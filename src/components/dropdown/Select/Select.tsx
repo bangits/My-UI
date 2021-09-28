@@ -7,8 +7,10 @@ import styles from './Select.module.scss';
 const Select: FC<StateManagerProps> = ({ children, isMulti, ...selectProps }) => (
   <ReactSelect
     className={styles.Select}
+    /*eslint-disable */
     //@ts-ignore ignored because we need to reset all css styles
     styles={resetStyles}
+    /*eslint-enable */
     isClearable={false}
     hideSelectedOptions={false}
     classNamePrefix='react-select'

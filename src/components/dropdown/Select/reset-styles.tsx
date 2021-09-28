@@ -1,3 +1,4 @@
+/*eslint-disable */
 const resetStyles = {
   clearIndicator: () => {},
   container: () => {},
@@ -22,5 +23,5 @@ const resetStyles = {
   singleValue: () => {},
   valueContainer: () => {}
 };
-
+/*eslint-enable */
 export default resetStyles;

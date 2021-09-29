@@ -1,5 +1,5 @@
 import React, { FC, ReactHTML, ReactSVG, useEffect } from 'react';
-import { useRowSelect, useSortBy, useTable } from 'react-table';
+import { useAbsoluteLayout, useBlockLayout, useGridLayout, useResizeColumns, useRowSelect, useSortBy, useTable } from 'react-table';
 import TableCell from './TableCell';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
@@ -9,7 +9,11 @@ export interface TableProps {
   data?: any[];
   columns?: any[];
   color?: string;
-  fetch?: (...args: any) => any;
+  fetch?: (...args: any) => {};
+  gridLayout?: boolean,
+  absoluteLayout?: boolean;
+  blockLayout?: boolean;
+  isResizing?: boolean;
 }
 
 const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
@@ -27,10 +31,16 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
   );
 });
 
-const Table: FC<TableProps> = ({ data, columns, color, fetch, component: Component = 'table' }) => {
+const Table: FC<TableProps> = ({ data, columns, color, fetch, component: Component = 'table', isResizing, absoluteLayout, blockLayout, gridLayout }) => {
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, selectedFlatRows, state } = useTable(
     { columns, data },
     useSortBy,
+    useGridLayout,
+    absoluteLayout ? useAbsoluteLayout : false,
+    gridLayout ? useGridLayout : false,
+    blockLayout ? useBlockLayout : false,
+    isResizing ? useResizeColumns : false,
     useRowSelect,
     (hooks) => {
       hooks.visibleColumns.push((columns) => {

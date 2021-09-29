@@ -14,5 +14,23 @@
   .IconArrow {
     position: relative;
     left: 0.8rem;
+
+    .IconUp {
+      width: 1rem;
+      height: 1rem;
+      display: block;
+      transform: rotate(180deg);
+      fill: #7c84ab;
+    }
+
+    .IconDown{
+      width: 1rem;
+      height: 1rem;
+      position: absolute;
+      left:0;
+      top:0.7rem;
+      fill:#7c84ab;
+      opacity:0.5;
+    }
   }
 }

@@ -128,17 +128,12 @@ export const Default = () => {
   const [table, setTable] = useState({});
 
   const fetch = (...args) => {
-    setTable({ ...args });
     return {
       ...args
     };
   };
 
-  return (
-    <>
-      <Table data={data} fetch={fetch} columns={columns} />
-    </>
-  );
+  return <Table data={data} fetch={fetch} columns={columns} />;
 };
 
 export const ResizableTable = () => {

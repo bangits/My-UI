@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
 import classNames from 'classnames';
+import React, { FC } from 'react';
 export interface CheckboxProps {
   onChange?: () => void;
   checked?: boolean;
@@ -9,9 +9,7 @@ export interface CheckboxProps {
 }
 
 const Checkbox: FC<CheckboxProps> = ({ color, ...checkboxProps }) => (
-  <div>
-    <input type='checkbox' className={classNames(color)} {...checkboxProps} />
-  </div>
+  <input type='checkbox' className={classNames(color)} {...checkboxProps} />
 );
 
 export default Checkbox;

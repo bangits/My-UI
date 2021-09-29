@@ -1,5 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
+import { TableCell } from './TableCell';
 import TableRow from './TableRow';
 
 export default {
@@ -11,7 +12,7 @@ export default {
 export const Default = () => {
   return (
     <TableRow hover>
-      <td>Table Row</td>
+      <TableCell>ID44584219</TableCell>
     </TableRow>
   );
 };

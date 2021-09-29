@@ -9,5 +9,9 @@ export default {
 };
 
 export const Default = () => {
-  return <TableCell align='center'>20Burning Hot</TableCell>;
+  return (
+    <TableCell align='center' component='td'>
+      20Burning Hot
+    </TableCell>
+  );
 };

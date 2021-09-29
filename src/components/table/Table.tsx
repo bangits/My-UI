@@ -92,7 +92,7 @@ const Table: FC<TableProps> = ({
     <Component {...getTableProps()} style={{ borderCollapse: 'collapse' }}>
       <thead>
         {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
+          <TableRow {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => {
               return (
                 <TableHead
@@ -111,7 +111,7 @@ const Table: FC<TableProps> = ({
                 </TableHead>
               );
             })}
-          </tr>
+          </TableRow>
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>

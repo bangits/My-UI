@@ -9,5 +9,5 @@ export default {
 };
 
 export const Default = () => {
-  return <TableHead direction='asc'>Hello World</TableHead>;
+  return <TableHead direction>Hello World</TableHead>;
 };

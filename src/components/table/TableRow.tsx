@@ -18,7 +18,7 @@ export const TableRow: FC<TableRowProps> = ({ children, hover, color, selected }
       style={{
         color: `black`,
         backgroundColor: `${hover ? (hoverRow ? '#eaf3f3' : '') : ''}`,
-        height: `auto`
+        height: `auto`,
       }}
       className={classNames(
         styles.TableRow,

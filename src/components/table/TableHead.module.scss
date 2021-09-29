@@ -1,0 +1,18 @@
+.TableHead {
+  display: flex;
+  background: transparent;
+  flex-wrap: wrap;
+  word-break: break-all;
+  padding: 2.6rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #7c84ab;
+  border-bottom: solid 1px #7c84ab;
+  &:hover {
+    background-color: transparent;
+  }
+  .IconArrow {
+    position: relative;
+    left: 0.8rem;
+  }
+}

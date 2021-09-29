@@ -65,7 +65,7 @@ const Table: FC<TableProps> = ({ data, columns, color, fetch, component: Compone
     <Component {...getTableProps()} style={{ borderCollapse: 'collapse' }}>
       <thead>
         {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
+          <TableRow {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => {
               return (
                 <TableHead
@@ -76,7 +76,7 @@ const Table: FC<TableProps> = ({ data, columns, color, fetch, component: Compone
                 </TableHead>
               );
             })}
-          </tr>
+          </TableRow>
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>

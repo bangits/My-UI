@@ -24,11 +24,20 @@ export const TableHead: FC<TableHeadProps> = ({
           ''
         ) : direction ? (
           <>
-            <svg style={{ width: '1rem', height: '1rem' , display:'block' , transform:'rotate(180deg)', fill:'#7C84AB'}} id='Layer_1' x='0px' y='0px' viewBox='0 0 386.257 386.257'>
+            <svg
+              style={{ width: '1rem', height: '1rem', display: 'block', transform: 'rotate(180deg)', fill: '#7C84AB' }}
+              id='Layer_1'
+              x='0px'
+              y='0px'
+              viewBox='0 0 386.257 386.257'>
               <polygon points='0,96.879 193.129,289.379 386.257,96.879 ' />
-              
             </svg>
-            <svg style={{ width: '1rem', height: '1rem',position:'absolute' ,left:'0', top:'0.7rem' }} id='Layer_1' x='0px' y='0px' viewBox='0 0 386.257 386.257'>
+            <svg
+              style={{ width: '1rem', height: '1rem', position: 'absolute', left: '0', top: '0.7rem' }}
+              id='Layer_1'
+              x='0px'
+              y='0px'
+              viewBox='0 0 386.257 386.257'>
               <polygon points='0,96.879 193.129,289.379 386.257,96.879 ' />
             </svg>
           </>

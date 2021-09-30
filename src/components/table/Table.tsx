@@ -8,6 +8,7 @@ import {
   useSortBy,
   useTable
 } from 'react-table';
+import Checkbox from '../checkbox-and-radio-button/Checkbox/Checkbox';
 import TableCell from './TableCell';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
@@ -24,7 +25,7 @@ export interface TableProps {
   isResizing?: boolean;
 }
 
-const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
+/* const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
   const defaultRef = React.useRef();
   const resolvedRef = ref || defaultRef;
 
@@ -32,13 +33,16 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
     resolvedRef.current.indeterminate = indeterminate;
   }, [resolvedRef, indeterminate]);
 
+  console.log(resolvedRef);
+  
+
   return (
     <>
-      <input type='checkbox' ref={resolvedRef} {...rest} />
+      <Checkbox resolvedRef={resolvedRef} {...rest} />
     </>
   );
 });
-
+ */
 const Table: FC<TableProps> = ({
   data,
   columns,
@@ -66,12 +70,12 @@ const Table: FC<TableProps> = ({
             id: 'selection',
             Header: ({ getToggleAllRowsSelectedProps }) => (
               <div>
-                <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
+                <Checkbox {...getToggleAllRowsSelectedProps()} />
               </div>
             ),
             Cell: ({ row }) => (
               <div>
-                <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+                <Checkbox {...row.getToggleRowSelectedProps()} />
               </div>
             )
           },

@@ -125,13 +125,13 @@ export const Default = () => {
     []
   );
 
-  const [table, setTable] = useState({});
 
   const fetch = (...args) => {
     return {
       ...args
     };
   };
+  
 
   return <Table data={data} fetch={fetch} columns={columns} />;
 };

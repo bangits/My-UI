@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
 import classNames from 'classnames';
+import React, { FC } from 'react';
 import styles from './Status.module.scss';
 
 export interface StatusProps {
@@ -9,7 +9,7 @@ export interface StatusProps {
 const Status: FC<StatusProps> = ({ children, variant = 'active' }) => {
   return (
     <>
-      <div className={styles[`status--${variant}`]}>
+      <div className={classNames(styles.Status, styles[`Status--${variant}`])}>
         <span></span> {children}
       </div>
     </>

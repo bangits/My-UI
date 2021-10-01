@@ -17,7 +17,7 @@
   }
 }
 
-.StatusBlocked {
+.Status--blocked {
   background-color: #ffe0e0;
   color: #d30000;
 
@@ -26,7 +26,7 @@
   }
 }
 
-.StatusActive {
+.Status--active {
   background-color: rgba(0, 178, 30, 0.1);
   color: #00b21e;
 

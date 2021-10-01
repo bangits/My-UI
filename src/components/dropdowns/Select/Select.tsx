@@ -1,7 +1,26 @@
-import React from 'react';
+import ReactSelect from '@em/react-select';
+import { StateManagerProps } from '@em/react-select/src/useStateManager';
+import React, { FC } from 'react';
+import resetStyles from './reset-styles';
+import styles from './Select.module.scss';
 
-function Select({ children }) {
-  return <div>{children}</div>;
-}
+const Select: FC<StateManagerProps> = ({ children, isMulti, ...selectProps }) => (
+  <ReactSelect
+    className={styles.Select}
+    /*eslint-disable */
+    //@ts-ignore ignored because we need to reset all css styles
+    styles={resetStyles}
+    /*eslint-enable */
+    isClearable={false}
+    hideSelectedOptions={false}
+    classNamePrefix='react-select'
+    isSearchable={false}
+    /* removeSelected={false} */
+    isMulti={isMulti}
+    closeMenuOnSelect={isMulti ? false : true}
+    controlShouldRenderValue={isMulti ? false : true}
+    {...selectProps}
+  />
+);
 
 export default Select;

@@ -1,0 +1,6 @@
+.DatePicker {
+  margin-top: map-get($datepicker-sizes, datepicker-margin-top);
+
+  @include theme(background-color, datepicker-container-bg);
+  @include generate-datepicker-styles;
+}

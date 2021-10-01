@@ -8,7 +8,13 @@ interface DatePickerInputProps {
 
 const DatePickerInput: FC<DatePickerInputProps> = ({ onClick, value, placeholderText }) => (
   <>
-    <input type='text' value={value} onClick={onClick} placeholder={placeholderText} onChange={(e) => e} />
+    <input
+      type='text'
+      value={value}
+      onClick={onClick}
+      placeholder={placeholderText}
+      onChange={(e) => e.preventDefault()}
+    />
     <svg xmlns='http://www.w3.org/2000/svg' width='17' height='19' onClick={onClick}>
       <path
         data-name='Path 2119'

@@ -1,0 +1,5 @@
+// This mixins is used for generating box-shadow like border for preventing size changing
+
+@mixin generateBorderWithBoxShadow($color-variable, $size: 0.1rem) {
+  @include theme(box-shadow, $color-variable, 0px 0px 0px $size);
+}

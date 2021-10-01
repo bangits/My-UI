@@ -8,9 +8,10 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({ color, ...checkboxProps }, ref) => {
   return (
-    <div className={classNames(styles.Checkbox, {
-      [styles[`Checkbox--${color}`]]: color
-    })}>
+    <div
+      className={classNames(styles.Checkbox, {
+        [styles[`Checkbox--${color}`]]: color
+      })}>
       <input {...checkboxProps} type='checkbox' ref={ref} />
     </div>
   );

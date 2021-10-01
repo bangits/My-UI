@@ -9,5 +9,13 @@ export default {
 };
 
 export const Default = () => {
-  return <Status>Active</Status>;
+  return (
+    <>
+      <Status variant='active'>Active</Status>
+
+      <h1></h1>
+
+      <Status variant='blocked'>Blocked</Status>
+    </>
+  );
 };

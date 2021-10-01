@@ -1,19 +1,15 @@
-.status--active {
+.Status {
   width: 9rem;
   height: 2.4rem;
-  background-color: rgba(0, 178, 30, 0.1);
   border-radius: 1.6rem;
   padding: 0.2rem 1.7rem 0.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 14px;
-  color: #00b21e;
   font-weight: 700;
-  font-family: Roboto;
 
   span {
-    background-color: #00b21e;
     border-radius: 50%;
     width: 0.8rem;
     height: 0.8rem;
@@ -21,25 +17,20 @@
   }
 }
 
-.status--blocked {
-  width: 9rem;
-  height: 2.4rem;
+.StatusBlocked {
   background-color: #ffe0e0;
-  border-radius: 1.6rem;
-  padding: 0.2rem 1.7rem 0.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
   color: #d30000;
-  font-weight: 700;
-  font-family: Roboto;
 
   span {
     background-color: #d30000;
-    border-radius: 50%;
-    width: 0.8rem;
-    height: 0.8rem;
-    margin-right: 0.8rem;
+  }
+}
+
+.StatusActive {
+  background-color: rgba(0, 178, 30, 0.1);
+  color: #00b21e;
+
+  span {
+    background-color: #00b21e;
   }
 }

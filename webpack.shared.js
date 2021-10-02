@@ -48,6 +48,16 @@ const configureSass = (isDevelopment = true) => [
   }
 ];
 
+// Configuration for assets
+const configureAssets = () => {
+  return [
+    {
+      test: /\.svg$/,
+      use: ['@svgr/webpack', 'url-loader']
+    }
+  ];
+};
+
 const configureWatchOptions = () => ({
   aggregateTimeout: 500, // Delay before reloading
   poll: 1000, // Enable polling since fsevents are not supported in docker
@@ -62,7 +72,7 @@ const configureAliases = () => ({
 
 const configureSharedWebpack = (isDevelopment) => ({
   module: {
-    rules: configureSass(isDevelopment)
+    rules: [...configureAssets(), ...configureSass(isDevelopment)]
   },
   watchOptions: configureWatchOptions(),
   resolve: {
@@ -74,5 +84,6 @@ module.exports = {
   configureSharedWebpack,
   configureAliases,
   configureWatchOptions,
-  configureSass
+  configureSass,
+  configureAssets
 };

@@ -8,16 +8,8 @@ export interface CheckboxProps {
   color?: 'primary' | 'secondary';
 }
 
-const Checkbox: FC<CheckboxProps> = ({ color,  ...checkboxProps }) => {
-
-  return (
-    <input
-      type='checkbox'
-    
-      className={classNames(color)}
-      {...checkboxProps}
-    />
-  );
+const Checkbox: FC<CheckboxProps> = ({ color, ...checkboxProps }) => {
+  return <input type='checkbox' className={classNames(color)} {...checkboxProps} />;
 };
 
 export default Checkbox;

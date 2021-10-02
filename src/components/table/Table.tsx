@@ -1,137 +1,149 @@
-import React, { FC, ReactHTML, ReactSVG, useEffect } from 'react';
+import { typedMemo } from '@/helpers/typedMemo';
+import { ComponentType, IComponent } from '@/types/props';
+import { UIColors } from '@/types/ui';
+import { useEffect } from 'react';
 import {
-  useAbsoluteLayout,
-  useBlockLayout,
-  useGridLayout,
+  HeaderGroup,
+  HeaderPropGetter,
+  TableState,
+  useAsyncDebounce,
+  useFlexLayout,
   useResizeColumns,
   useRowSelect,
   useSortBy,
-  useTable
+  useTable,
+  UseTableRowProps
 } from 'react-table';
-import Checkbox from '../checkbox-and-radio-button/Checkbox/Checkbox';
+import selectionHook from './selectionHook';
 import TableCell from './TableCell';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
 
-export interface TableProps {
-  component?: keyof ReactHTML | keyof ReactSVG;
-  data?: any[];
-  columns?: any[];
-  color?: string;
+// This interface used for react-table useSortBy hook
+export interface Column<T extends object> extends HeaderGroup<T> {
+  isSorted: boolean;
+  isSortedDesc: boolean;
+  disableSortBy: boolean;
+  getSortByToggleProps: () => HeaderPropGetter<T>;
+  isResizing: boolean;
+  getResizerProps: () => void;
+}
+
+export interface Row<T extends object> extends UseTableRowProps<T> {
+  isSelected?: boolean;
+}
+
+export interface State<T extends object> extends TableState<T> {
+  sortBy: [
+    {
+      desc?: boolean;
+      id?: keyof T;
+    }
+  ];
+}
+
+export interface TableAction<T> {
+  component: React.ComponentType<{ onClick?: (...args: any[]) => void }>;
+  onClick: (column: T, ...onClickEvent: any[]) => void;
+  props: object;
+}
+export interface TableProps<T extends object> extends IComponent {
+  component?: ComponentType;
+  data?: T[];
+  columns?: {
+    Header: string;
+    accessor: keyof T;
+    disableSortBy?: boolean;
+  }[];
+  color?: UIColors;
   fetch?: (...args: any) => any;
   gridLayout?: boolean;
   absoluteLayout?: boolean;
   blockLayout?: boolean;
   isResizing?: boolean;
+  theadComponent?: ComponentType;
+  tbodyComponent?: ComponentType;
+  actions?: TableAction<T>[];
 }
 
-/* const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
-  const defaultRef = React.useRef();
-  const resolvedRef = ref || defaultRef;
-
-  React.useEffect(() => {
-    resolvedRef.current.indeterminate = indeterminate;
-  }, [resolvedRef, indeterminate]);
-
-  console.log(resolvedRef);
-  
-
-  return (
-    <>
-      <Checkbox resolvedRef={resolvedRef} {...rest} />
-    </>
-  );
-});
- */
-const Table: FC<TableProps> = ({
+const Table = <T extends object>({
   data,
   columns,
   color,
   fetch,
   component: Component = 'table',
   isResizing,
-  absoluteLayout,
-  blockLayout,
-  gridLayout
-}) => {
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, selectedFlatRows, state } = useTable(
+  theadComponent: THeadComponent = 'thead',
+  tbodyComponent: TBodyComponent = 'tbody',
+  actions
+}: TableProps<T>) => {
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable<T>(
     { columns, data },
     useSortBy,
-    useGridLayout,
-    absoluteLayout ? useAbsoluteLayout : false,
-    gridLayout ? useGridLayout : false,
-    blockLayout ? useBlockLayout : false,
-    isResizing ? useResizeColumns : false,
+    ...(isResizing ? [useFlexLayout, useResizeColumns] : []),
     useRowSelect,
-    (hooks) => {
-      hooks.visibleColumns.push((columns) => {
-        return [
-          {
-            id: 'selection',
-            Header: ({ getToggleAllRowsSelectedProps }) => (
-              <div>
-                <Checkbox {...getToggleAllRowsSelectedProps()} />
-              </div>
-            ),
-            Cell: ({ row }) => (
-              <div>
-                <Checkbox {...row.getToggleRowSelectedProps()} />
-              </div>
-            )
-          },
-          ...columns
-        ];
-      });
-    }
+    selectionHook
   );
 
-  const { sortBy } = state;
+  const typedState = state as State<T>;
+
+  const onFetchDataDebounced = useAsyncDebounce(fetch, 100);
 
   useEffect(() => {
-    if (!fetch) return;
-    fetch(selectedFlatRows);
-  }, [sortBy, selectedFlatRows]);
+    onFetchDataDebounced(typedState.sortBy);
+  }, [onFetchDataDebounced, typedState.sortBy]);
 
   return (
     <Component {...getTableProps()} style={{ borderCollapse: 'collapse' }}>
-      <thead>
+      <THeadComponent>
         {headerGroups.map((headerGroup) => (
-          <TableRow {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => {
-              return (
-                <TableHead
-                  direction={column.isSortedDesc}
-                  hideSortIcon={column.isSorted}
-                  withSorting={{ ...column.getHeaderProps(column.getSortByToggleProps()) }}>
-                  {column.render('Header')}
+          <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
+            {headerGroup.headers.map((column: Column<T>) => (
+              <TableHead
+                direction={column.isSortedDesc ? 'desc' : 'asc'}
+                selectedDirection={column.isSorted}
+                hideSortIcon={column.disableSortBy}
+                {...column.getHeaderProps(column.getSortByToggleProps())}
+                color={color}>
+                {column.render('Header')}
 
-                  {isResizing ? (
-                    <div
-                      {...column.getResizerProps()}
-                      style={{ width: '4px', height: '20px', backgroundColor: 'red' }}
-                      className={`resizer ${column.isResizing ? 'isResizing' : ''}`}
-                    />
-                  ) : null}
-                </TableHead>
-              );
-            })}
+                {/* We will do this part when in UI kit there will be ready resizing part */}
+
+                {/* {isResizing ? (
+                  <div
+                    {...column.getResizerProps()}
+                    style={{ width: '4px', height: '20px', backgroundColor: 'red' }}
+                    className={`resizer ${column.isResizing ? 'isResizing' : ''}`}
+                  />
+                ) : null} */}
+              </TableHead>
+            ))}
           </TableRow>
         ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
+      </THeadComponent>
+      <TBodyComponent {...getTableBodyProps()}>
+        {rows.map((row: Row<T>, index) => {
           prepareRow(row);
           return (
-            <TableRow hover {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return <TableCell {...cell.getCellProps()}>{cell.render('Cell')}</TableCell>;
-              })}
+            <TableRow hover selected={row.isSelected} {...row.getRowProps()} color={color}>
+              {row.cells.map((cell) => (
+                <TableCell {...cell.getCellProps()} color={color}>
+                  {cell.render('Cell')}
+                </TableCell>
+              ))}
+
+              {actions &&
+                actions.map(({ component: Component, onClick, props }) => (
+                  <TableCell {...actions} color={color}>
+                    <Component {...props} onClick={(...args: any[]) => onClick(data[index], ...args)} />
+                  </TableCell>
+                ))}
             </TableRow>
           );
         })}
-      </tbody>
+      </TBodyComponent>
     </Component>
   );
 };
 
-export default Table;
+export default typedMemo(Table);

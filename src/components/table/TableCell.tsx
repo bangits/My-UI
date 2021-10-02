@@ -1,16 +1,21 @@
+import { typedMemo } from '@/helpers/typedMemo';
+import { ComponentType, IComponent } from '@/types/props';
+import { UIColors } from '@/types/ui';
 import classNames from 'classnames';
-import { FC, ReactHTML, ReactSVG } from 'react';
+import { FC } from 'react';
 import styles from './TableCell.module.scss';
-
-export interface TableCellProps {
-  component?: keyof ReactHTML | keyof ReactSVG;
+export interface TableCellProps extends IComponent {
+  component?: ComponentType;
   align?: 'left' | 'right' | 'center';
-  color?: 'primary' | 'secondary';
+  color?: UIColors;
 }
+
 export const TableCell: FC<TableCellProps> = ({ children, align, color, component: Component = 'td' }) => {
   return (
-    <Component className={classNames(styles.TableCell, `color--${color} `, `cell--${align}`)}>{children}</Component>
+    <Component className={classNames(styles.TableCell, styles[`TableCell--${color}`], styles[`TableCell--${align}`])}>
+      {children}
+    </Component>
   );
 };
 
-export default TableCell;
+export default typedMemo(TableCell);

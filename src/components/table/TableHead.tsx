@@ -1,78 +1,45 @@
+import { typedMemo } from '@/helpers/typedMemo';
+import { ArrowIcon } from '@/icons';
+import { ComponentType, IComponent } from '@/types/props';
+import { UIColors } from '@/types/ui';
 import classNames from 'classnames';
-import React, { FC, ReactHTML, ReactSVG } from 'react';
+import React, { FC } from 'react';
 import styles from './TableHead.module.scss';
-
-export interface TableHeadProps {
-  component?: keyof ReactHTML | keyof ReactSVG;
+export interface TableHeadProps extends IComponent {
+  component?: ComponentType;
+  selectedDirection?: boolean;
+  direction?: 'asc' | 'desc';
+  color?: UIColors;
   hideSortIcon?: boolean;
-  direction?: boolean;
-  color?: 'primary' | 'secondary';
-  withSorting?: any;
 }
 
 export const TableHead: FC<TableHeadProps> = ({
   children,
-  hideSortIcon,
-  withSorting,
+  selectedDirection,
   direction,
-  component: Component = 'th'
+  component: Component = 'th',
+  hideSortIcon = false,
+  ...props
 }) => {
-  
   return (
-    <Component className={styles.TableHead} {...withSorting}>
+    <Component className={styles.TableHead} {...props}>
       {children}
-      <span className={styles.IconArrow}>
-        {withSorting && (!hideSortIcon ? (
-          <>
-            <svg
-              className={classNames(styles.IconUp, styles.IconDisabled)}
-              id='Layer_1'
-              x='0px'
-              y='0px'
-              viewBox='0 0 386.257 386.257'>
-              <polygon points='0,96.879 193.129,289.379 386.257,96.879 ' />
-            </svg>
-            <svg
-              className={classNames(styles.IconDown, styles.IconDisabled)}
-              id='Layer_1'
-              x='0px'
-              y='0px'
-              viewBox='0 0 386.257 386.257'>
-              <polygon points='0,96.879 193.129,289.379 386.257,96.879 ' />
-            </svg>
-          </>
-        ) : direction ? (
-          <>
-            <svg className={classNames(styles.IconUp)} id='Layer_1' x='0px' y='0px' viewBox='0 0 386.257 386.257'>
-              <polygon points='0,96.879 193.129,289.379 386.257,96.879 ' />
-            </svg>
-            <svg
-              className={classNames(styles.IconDown, styles.IconDisabled)}
-              id='Layer_1'
-              x='0px'
-              y='0px'
-              viewBox='0 0 386.257 386.257'>
-              <polygon points='0,96.879 193.129,289.379 386.257,96.879 ' />
-            </svg>
-          </>
-        ) : (
-          <>
-            <svg
-              className={classNames(styles.IconUp, styles.IconDisabled)}
-              id='Layer_1'
-              x='0px'
-              y='0px'
-              viewBox='0 0 386.257 386.257'>
-              <polygon points='0,96.879 193.129,289.379 386.257,96.879 ' />
-            </svg>
-            <svg className={classNames(styles.IconDown)} id='Layer_1' x='0px' y='0px' viewBox='0 0 386.257 386.257'>
-              <polygon points='0,96.879 193.129,289.379 386.257,96.879 ' />
-            </svg>
-          </>
-        ))}
-      </span>
+      {!hideSortIcon && (
+        <span className={styles.IconArrow}>
+          <ArrowIcon
+            className={classNames(styles.IconUp, {
+              [styles.IconDisabled]: !selectedDirection || direction === 'asc'
+            })}
+          />
+          <ArrowIcon
+            className={classNames(styles.IconDown, {
+              [styles.IconDisabled]: !selectedDirection || direction === 'desc'
+            })}
+          />
+        </span>
+      )}
     </Component>
   );
 };
 
-export default TableHead;
+export default typedMemo(TableHead);

@@ -1,12 +1,12 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
-import RadioGroup from './RadioGroup';
 import RadioButton from './RadioButton';
+import RadioGroup from './RadioGroup';
 
 export default {
   component: RadioGroup,
-  subcomponents: { RadioButton },
   decorators: [withKnobs],
+  subcomponents: { RadioButton },
   title: 'components/Checkbox and Radio Button/Radio Group'
 };
 

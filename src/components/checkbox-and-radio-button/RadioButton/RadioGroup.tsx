@@ -19,10 +19,10 @@ const RadioGroup: FC<RadioGroupProps> = ({ children, onChange, value, defaultVal
   return (
     <Provider
       value={{
-        onChange: onChange ? onChange : handleRadioChange,
-        value: value ? value : selected,
         defaultValue,
-        name
+        name,
+        onChange: onChange ? onChange : handleRadioChange,
+        value: value ? value : selected
       }}>
       {children}
     </Provider>

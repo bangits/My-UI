@@ -1,4 +1,5 @@
 import { typedMemo } from '@/helpers/typedMemo';
+import { ObjectMock } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
 import { useEffect } from 'react';
@@ -20,7 +21,7 @@ import TableHead from './TableHead';
 import TableRow from './TableRow';
 
 // This interface used for react-table useSortBy hook
-export interface Column<T extends object> extends HeaderGroup<T> {
+export interface Column<T extends ObjectMock> extends HeaderGroup<T> {
   isSorted: boolean;
   isSortedDesc: boolean;
   disableSortBy: boolean;
@@ -29,11 +30,11 @@ export interface Column<T extends object> extends HeaderGroup<T> {
   getResizerProps: () => void;
 }
 
-export interface Row<T extends object> extends UseTableRowProps<T> {
+export interface Row<T extends ObjectMock> extends UseTableRowProps<T> {
   isSelected?: boolean;
 }
 
-export interface State<T extends object> extends TableState<T> {
+export interface State<T extends ObjectMock> extends TableState<T> {
   sortBy: [
     {
       desc?: boolean;
@@ -45,9 +46,9 @@ export interface State<T extends object> extends TableState<T> {
 export interface TableAction<T> {
   component: React.ComponentType<{ onClick?: (...args: any[]) => void }>;
   onClick: (column: T, ...onClickEvent: any[]) => void;
-  props: object;
+  props: ObjectMock;
 }
-export interface TableProps<T extends object> extends IComponent {
+export interface TableProps<T extends ObjectMock> extends IComponent {
   component?: ComponentType;
   data?: T[];
   columns?: {
@@ -56,7 +57,7 @@ export interface TableProps<T extends object> extends IComponent {
     disableSortBy?: boolean;
   }[];
   color?: UIColors;
-  fetch?: (...args: any) => any;
+  fetch?: (state: State<T>) => any;
   gridLayout?: boolean;
   absoluteLayout?: boolean;
   blockLayout?: boolean;
@@ -66,7 +67,7 @@ export interface TableProps<T extends object> extends IComponent {
   actions?: TableAction<T>[];
 }
 
-const Table = <T extends object>({
+const Table = <T extends ObjectMock>({
   data,
   columns,
   color,
@@ -90,7 +91,7 @@ const Table = <T extends object>({
   const onFetchDataDebounced = useAsyncDebounce(fetch, 100);
 
   useEffect(() => {
-    onFetchDataDebounced(typedState.sortBy);
+    onFetchDataDebounced(typedState);
   }, [onFetchDataDebounced, typedState.sortBy]);
 
   return (

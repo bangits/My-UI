@@ -1,6 +1,5 @@
-import { Button } from '@/atom-design-system';
+import { action } from '@storybook/addon-actions';
 import { object, withKnobs } from '@storybook/addon-knobs';
-import React from 'react';
 import Table from './Table';
 
 export default {
@@ -10,11 +9,9 @@ export default {
 };
 
 export const Default = () => {
-  const fetch = (sorting) => {};
-
   return (
     <Table
-      fetch={fetch}
+      fetch={action('fetch')}
       data={object('data', [
         {
           x: 'col1'
@@ -22,139 +19,10 @@ export const Default = () => {
       ])}
       columns={object('columns', [
         {
-          accessor: 'x',
-          Header: 'Header'
+          Header: 'Header',
+          accessor: 'x'
         }
       ])}
-    />
-  );
-};
-
-export const ResizableTable = () => {
-  const fetch = (sorting) => {};
-
-  return (
-    <Table
-      data={[
-        {
-          col1: (
-            <img
-              src='https://pnimg.net/w/articles/0/5e9/e84f2a9851.png'
-              alt='beach'
-              style={{ borderRadius: '2px', width: '20px', height: '20px' }}
-            />
-          ),
-          col2: 'ID1',
-          col3: 'ID7654321',
-          col4: '60Burning Hot',
-          col5: 'EGT',
-          col6: 'Slots',
-          col7: 'Mobile, Desktop',
-          col8: '24/09/2021 12:00:56 AM',
-          col9: 'Active'
-        },
-        {
-          col1: (
-            <img
-              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8naCH2wzUHSoovJfnc_GMpWkQe1ihzVmb23Jp0xu-U-XM0UwxHKR2-IaHVHEgfPoOVhE&usqp=CAU'
-              alt='beach'
-              style={{ borderRadius: '2px', width: '20px', height: '20px' }}
-            />
-          ),
-          col2: 'ID2',
-          col3: 'ID7654321',
-          col4: '30Burning Hot',
-          col5: 'EGT',
-          col6: 'Blots',
-          col7: 'Mobile, Desktop',
-          col8: '24/09/2021 12:00:88 AM',
-          col9: 'Active'
-        },
-        {
-          col1: (
-            <img
-              src='https://www.casinowow.com/media/uploads/Shining-Crown-Icon-190x190.png'
-              alt='beach'
-              style={{ borderRadius: '2px', width: '20px', height: '20px' }}
-            />
-          ),
-          col2: 'ID3',
-          col3: 'ID7654321',
-          col4: '10Burning Hot',
-          col5: 'EGT',
-          col6: 'Lots',
-          col7: 'Mobile, Desktop',
-          col8: '24/09/2021 12:00:44 AM',
-          col9: 'Active'
-        },
-        {
-          col1: (
-            <img
-              src='https://cdn.softswiss.net/i/s3/egt/40SuperHot.png'
-              alt='beach'
-              style={{ borderRadius: '2px', width: '20px', height: '20px' }}
-            />
-          ),
-          col2: 'ID4',
-          col3: 'ID7654321',
-          col4: '50Burning Hot',
-          col5: 'EGT',
-          col6: 'Alfa',
-          col7: 'Mobile, Desktop',
-          col8: '24/09/2021 12:00:25 AM',
-          col9: 'Active'
-        }
-      ]}
-      isResizing
-      absoluteLayout
-      fetch={fetch}
-      columns={[
-        {
-          Header: 'ICON',
-          accessor: 'col1',
-          disableSortBy: true
-        },
-        {
-          Header: 'GAME ID',
-          accessor: 'col2'
-        },
-        {
-          Header: 'EXTERNAL ID',
-          accessor: 'col3'
-        },
-        {
-          Header: 'GAME NAME',
-          accessor: 'col4'
-        },
-        {
-          Header: 'PROVIDER ID',
-          accessor: 'col5'
-        },
-        {
-          Header: 'CATEGORY',
-          accessor: 'col6'
-        },
-        {
-          Header: 'VERSION',
-          accessor: 'col7'
-        },
-        {
-          Header: 'RELEASE DATE AND TIME',
-          accessor: 'col8'
-        },
-      ]}
-      actions={[
-        {
-          component: Button,
-          onClick: (column, e) => {
-            console.log(column, e)
-          },
-          props: {
-            startIcon: <div>Start icon</div>,
-            children: "Hi"
-          }
-        }
-      ]}
     />
   );
 };

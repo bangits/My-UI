@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useState } from 'react';
 import { Provider } from './RadioContext';
 
 export interface RadioGroupProps {
@@ -10,19 +10,18 @@ export interface RadioGroupProps {
 }
 
 const RadioGroup: FC<RadioGroupProps> = ({ children, onChange, value, defaultValue, name }) => {
-  const [selected, setSelected] = useState<string>();
+  const [selected, setSelected] = useState<string>(defaultValue);
 
-  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleRadioChange = useCallback((event: React.ChangeEvent<HTMLInputElement>): void => {
     setSelected(event.currentTarget.value);
-  };
+  }, []);
 
   return (
     <Provider
       value={{
-        defaultValue,
-        name,
         onChange: onChange ? onChange : handleRadioChange,
-        value: value ? value : selected
+        value: value ? value : selected,
+        name
       }}>
       {children}
     </Provider>

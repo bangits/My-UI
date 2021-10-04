@@ -1,6 +1,7 @@
 // Abstracts
 @import './abstracts/variables';
 @import './abstracts/mixins';
+@import './abstracts/functions';
 
 // Base
 @import './base/mixins';
@@ -8,9 +9,12 @@
 @import './base/fonts';
 
 // Theme
-@import './themes/generator';
+@import './themes/main';
 
 // Components
 @import './components/dropdowns/main';
 @import './components/inputs-and-elements/main';
 @import './components/typography/main';
+
+// Theme Generator
+@import './themes/generator';

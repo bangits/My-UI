@@ -1,5 +1,5 @@
-import ReactSelect from '@em/react-select';
-import { StateManagerProps } from '@em/react-select/src/useStateManager';
+import ReactSelect from '@my-ui/react-select';
+import { StateManagerProps } from '@my-ui/react-select/src/useStateManager';
 import React, { FC } from 'react';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';

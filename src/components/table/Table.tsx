@@ -2,7 +2,6 @@ import { typedMemo } from '@/helpers/typedMemo';
 import { ObjectMock } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
-import { useEffect } from 'react';
 import {
   HeaderGroup,
   HeaderPropGetter,
@@ -14,7 +13,8 @@ import {
   useSortBy,
   useTable,
   UseTableRowProps
-} from 'react-table';
+} from '@my-ui/react-table';
+import { useEffect } from 'react';
 import selectionHook from './selectionHook';
 import TableCell from './TableCell';
 import TableHead from './TableHead';

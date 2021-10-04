@@ -1,5 +1,5 @@
 import { Checkbox } from '@/components';
-import { components } from '@em/react-select';
+import { components } from '@my-ui/react-select';
 import React from 'react';
 
 export const Option = (props) => {

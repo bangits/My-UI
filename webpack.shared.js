@@ -66,8 +66,7 @@ const configureWatchOptions = () => ({
 
 // Aliases used for simplification imports
 const configureAliases = () => ({
-  '@': path.resolve(__dirname, './src'),
-  '@atoms': path.resolve(__dirname, './src/components/atoms')
+  '@': path.resolve(__dirname, './src')
 });
 
 const configureSharedWebpack = (isDevelopment) => ({

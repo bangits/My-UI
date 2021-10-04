@@ -1,4 +1,4 @@
-import ReactDatePicker, { ReactDatePickerProps } from '@em/react-datepicker';
+import ReactDatePicker, { ReactDatePickerProps } from '@my-ui/react-datepicker';
 import classNames from 'classnames';
 import React from 'react';
 import styles from './DatePicker.module.scss';

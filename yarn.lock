@@ -688,8 +688,8 @@
 
 "@babel/plugin-proposal-private-methods@^7.12.1", "@babel/plugin-proposal-private-methods@^7.14.5":
   version "7.14.5"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-private-methods/-/plugin-proposal-private-methods-7.14.5.tgz#37446495996b2945f30f5be5b60d5e2aa4f5792d"
-  integrity sha512-838DkdUA1u+QTCplatfq4B7+1lnDa/+QMI89x5WZHBcnNv+47N8QEj2k9I2MUU9xIv8XJ4XvPCviM/Dj7Uwt9g==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-proposal-private-methods/-/plugin-proposal-private-methods-7.14.5.tgz#37446495996b2945f30f5be5b60d5e2aa4f5792d"
+  integrity sha1-N0RklZlrKUXzD1vltg1eKqT1eS0=
   dependencies:
     "@babel/helper-create-class-features-plugin" "^7.14.5"
     "@babel/helper-plugin-utils" "^7.14.5"
@@ -1428,8 +1428,8 @@
 
 "@babel/preset-react@^7.12.10", "@babel/preset-react@^7.12.5", "@babel/preset-react@^7.14.5":
   version "7.14.5"
-  resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.14.5.tgz#0fbb769513f899c2c56f3a882fa79673c2d4ab3c"
-  integrity sha512-XFxBkjyObLvBaAvkx1Ie95Iaq4S/GUEIrejyrntQ/VCMKUYvKLoyKxOBzJ2kjA3b6rC9/KL6KXfDC2GqvLiNqQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/preset-react/-/preset-react-7.14.5.tgz#0fbb769513f899c2c56f3a882fa79673c2d4ab3c"
+  integrity sha1-D7t2lRP4mcLFbzqIL6eWc8LUqzw=
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/helper-validator-option" "^7.14.5"
@@ -1567,30 +1567,10 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
   integrity sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g==
 
-"@em/react-datepicker@^1.0.1":
-  version "1.0.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@em/react-datepicker/-/react-datepicker-1.0.1.tgz#d533f798666c1b346651dfd1fcc5ad7b9625330f"
-  integrity sha1-1TP3mGZsGzRmUd/R/MWte5YlMw8=
-  dependencies:
-    "@popperjs/core" "^2.9.2"
-    classnames "^2.2.6"
-    date-fns "^2.0.1"
-    prop-types "^15.7.2"
-    react-onclickoutside "^6.10.0"
-    react-popper "^2.2.5"
-
-"@em/react-select@^1.0.0":
-  version "1.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@em/react-select/-/react-select-1.0.0.tgz#74017f9f2054d8638993191601eb60ec87a14156"
-  integrity sha1-dAF/nyBU2GOJkxkWAetg7IehQVY=
-  dependencies:
-    "@babel/runtime" "^7.12.0"
-    "@emotion/cache" "^11.4.0"
-    "@emotion/react" "^11.1.1"
-    "@types/react-transition-group" "^4.4.0"
-    memoize-one "^5.0.0"
-    prop-types "^15.6.0"
-    react-transition-group "^4.3.0"
+"@discoveryjs/json-ext@^0.5.3":
+  version "0.5.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@discoveryjs/json-ext/-/json-ext-0.5.5.tgz#9283c9ce5b289a3c4f61c12757469e59377f81f3"
+  integrity sha1-koPJzlsomjxPYcEnV0aeWTd/gfM=
 
 "@emotion/cache@^10.0.27", "@emotion/cache@^10.0.9":
   version "10.0.29"
@@ -1713,8 +1693,8 @@
 
 "@emotion/styled@^10.0.27":
   version "10.0.27"
-  resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-10.0.27.tgz#12cb67e91f7ad7431e1875b1d83a94b814133eaf"
-  integrity sha512-iK/8Sh7+NLJzyp9a5+vIQIXTYxfT4yB/OJbjzQanB2RZpvmzBQOHZWhpAMZWYEKRNNbsD6WfBw5sVWkb6WzS/Q==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/styled/-/styled-10.0.27.tgz#12cb67e91f7ad7431e1875b1d83a94b814133eaf"
+  integrity sha1-Estn6R9610MeGHWx2DqUuBQTPq8=
   dependencies:
     "@emotion/styled-base" "^10.0.27"
     babel-plugin-emotion "^10.0.27"
@@ -1905,6 +1885,36 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@my-ui/react-datepicker@1.1.0":
+  version "1.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-datepicker/-/react-datepicker-1.1.0.tgz#6b08c6b3988346e0dcc07ecd436561eef3a5833b"
+  integrity sha1-awjGs5iDRuDcwH7NQ2Vh7vOlgzs=
+  dependencies:
+    "@popperjs/core" "^2.9.2"
+    classnames "^2.2.6"
+    date-fns "^2.0.1"
+    prop-types "^15.7.2"
+    react-onclickoutside "^6.10.0"
+    react-popper "^2.2.5"
+
+"@my-ui/react-select@1.1.0":
+  version "1.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.0.tgz#eedf27470d385e4659a491489b1eb9ebb3ea4099"
+  integrity sha1-7t8nRw04XkZZpJFImx6567PqQJk=
+  dependencies:
+    "@babel/runtime" "^7.12.0"
+    "@emotion/cache" "^11.4.0"
+    "@emotion/react" "^11.1.1"
+    "@types/react-transition-group" "^4.4.0"
+    memoize-one "^5.0.0"
+    prop-types "^15.6.0"
+    react-transition-group "^4.3.0"
+
+"@my-ui/react-table@^1.0.0":
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-table/-/react-table-1.0.0.tgz#c1f31ebb04bd2535ef0c59a438417e85bc60518b"
+  integrity sha1-wfMeuwS9JTXvDFmkOEF+hbxgUYs=
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -1981,19 +1991,19 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@storybook/addon-a11y@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-6.3.6.tgz#6d9dbdaa067a8f6ad15cef64f2103568457d2aae"
-  integrity sha512-IYVDFEGgKORdm7NPZPqltOvu29R9LaZwGBvfzbS3GUc3I9XLbT/cxkZN68Zzmjn2GtP/X1v4uLqp57OsPb4Cdg==
+"@storybook/addon-a11y@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-a11y/-/addon-a11y-6.3.9.tgz#c703f7d1faeabf14f61e0cb993ae2512cd644374"
+  integrity sha1-xwP30frqvxT2Hgy5k64lEs1kQ3Q=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/theming" "6.3.9"
     axe-core "^4.2.0"
     core-js "^3.8.2"
     global "^4.4.0"
@@ -2003,17 +2013,17 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-actions@6.3.6", "@storybook/addon-actions@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.3.6.tgz#691d61d6aca9c4b3edba50c531cbe4d4139ed451"
-  integrity sha512-1MBqCbFiupGEDyIXqFkzF4iR8AduuB7qSNduqtsFauvIkrG5bnlbg5JC7WjnixkCaaWlufgbpasEHioXO9EXGw==
+"@storybook/addon-actions@6.3.9", "@storybook/addon-actions@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-actions/-/addon-actions-6.3.9.tgz#dd4b834b7734bc4c19142cf623b665f02e2d38b9"
+  integrity sha1-3UuDS3c0vEwZFCz2I7Zl8C4tOLk=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     fast-deep-equal "^3.1.3"
     global "^4.4.0"
@@ -2026,17 +2036,17 @@
     util-deprecate "^1.0.2"
     uuid-browser "^3.1.0"
 
-"@storybook/addon-backgrounds@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-6.3.6.tgz#93128e6ebfcb953a83cc2165056dd5815d32cef2"
-  integrity sha512-1lBVAem2M+ggb1UNVgB7/56LaQAor9lI8q0xtQdAzAkt9K4RbbOsLGRhyUm3QH5OiB3qHHG5WQBujWUD6Qfy4g==
+"@storybook/addon-backgrounds@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-backgrounds/-/addon-backgrounds-6.3.9.tgz#09e22afe96ba4dded94e841430e72065bf4873c4"
+  integrity sha1-CeIq/pa6Td7ZToQUMOcgZb9Ic8Q=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     global "^4.4.0"
     memoizerific "^1.11.3"
@@ -2044,24 +2054,24 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-controls@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-6.3.6.tgz#2f8071e5b521375aace60af96e33a19f016581c9"
-  integrity sha512-wTWmnZl2qEAUqgLh8a7TL5f6w37Q51lAoJNlwxFFBSKtGS7xFUnou4qTUArNy5iKu1cWoVvofJ9RnP1maGByYA==
+"@storybook/addon-controls@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-controls/-/addon-controls-6.3.9.tgz#b7645c097c476d800c896f700bc028c66260f359"
+  integrity sha1-t2RcCXxHbYAMiW9wC8AoxmJg81k=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-docs@6.3.6", "@storybook/addon-docs@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-docs/-/addon-docs-6.3.6.tgz#85b8a72b91f9c43edfaf21c416a9b01ad0e06ea4"
-  integrity sha512-/ZPB9u3lfc6ZUrgt9HENU1BxAHNfTbh9r2LictQ8o9gYE/BqvZutl2zqilTpVuutQtTgQ6JycVhxtpk9+TDcuA==
+"@storybook/addon-docs@6.3.9", "@storybook/addon-docs@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-docs/-/addon-docs-6.3.9.tgz#34b87eb5c5059bb98bf09700b60470c8d35fbb58"
+  integrity sha1-NLh+tcUFm7mL8JcAtgRwyNNfu1g=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/generator" "^7.12.11"
@@ -2072,20 +2082,20 @@
     "@mdx-js/loader" "^1.6.22"
     "@mdx-js/mdx" "^1.6.22"
     "@mdx-js/react" "^1.6.22"
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/builder-webpack4" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core" "6.3.6"
-    "@storybook/core-events" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/builder-webpack4" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core" "6.3.9"
+    "@storybook/core-events" "6.3.9"
     "@storybook/csf" "0.0.1"
-    "@storybook/csf-tools" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/postinstall" "6.3.6"
-    "@storybook/source-loader" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/csf-tools" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/postinstall" "6.3.9"
+    "@storybook/source-loader" "6.3.9"
+    "@storybook/theming" "6.3.9"
     acorn "^7.4.1"
     acorn-jsx "^5.3.1"
     acorn-walk "^7.2.0"
@@ -2108,31 +2118,32 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-essentials@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.3.6.tgz#29f5249daee086fe2d14c899ae61712b8c8fbcbd"
-  integrity sha512-FUrpCeINaN4L9L81FswtQFEq2xLwj3W7EyhmqsZcYSr64nscpQyjlPVjs5zhrEanOGIf+4E+mBmWafxbYufXwQ==
+"@storybook/addon-essentials@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-essentials/-/addon-essentials-6.3.9.tgz#c29109c87f33f309b8cbcc38e0730798db23a15d"
+  integrity sha1-wpEJyH8z8wm4y8w44HMHmNsjoV0=
   dependencies:
-    "@storybook/addon-actions" "6.3.6"
-    "@storybook/addon-backgrounds" "6.3.6"
-    "@storybook/addon-controls" "6.3.6"
-    "@storybook/addon-docs" "6.3.6"
+    "@storybook/addon-actions" "6.3.9"
+    "@storybook/addon-backgrounds" "6.3.9"
+    "@storybook/addon-controls" "6.3.9"
+    "@storybook/addon-docs" "6.3.9"
     "@storybook/addon-measure" "^2.0.0"
-    "@storybook/addon-toolbars" "6.3.6"
-    "@storybook/addon-viewport" "6.3.6"
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/addon-toolbars" "6.3.9"
+    "@storybook/addon-viewport" "6.3.9"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
     core-js "^3.8.2"
     regenerator-runtime "^0.13.7"
     storybook-addon-outline "^1.4.1"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-knobs@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-6.3.0.tgz#f289c072729651150a27a163371df20922c24f93"
-  integrity sha512-wsZZ1t38KHdaxzrc9oPyiIJDihJnjHRRabrENQbylktJwETEjb2z3eX0iBRJGiz/YCHO+tGd0ItyZArOdijT6g==
+"@storybook/addon-knobs@^6.3.1":
+  version "6.3.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-knobs/-/addon-knobs-6.3.1.tgz#2115c6f0d5759e4fe73d5f25710f4a94ebd6f0db"
+  integrity sha1-IRXG8NV1nk/nPV8lcQ9KlOvW8Ns=
   dependencies:
+    copy-to-clipboard "^3.3.1"
     core-js "^3.8.2"
     escape-html "^1.0.3"
     fast-deep-equal "^3.1.3"
@@ -2144,16 +2155,16 @@
     react-lifecycles-compat "^3.0.4"
     react-select "^3.2.0"
 
-"@storybook/addon-links@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.3.6.tgz#dc410d5b4a0d222b6b8d0ef03da7a4c16919c092"
-  integrity sha512-PaeAJTjwtPlhrLZlaSQ1YIFA8V0C1yI0dc351lPbTiE7fJ7DwTE03K6xIF/jEdTo+xzhi2PM1Fgvi/SsSecI8w==
+"@storybook/addon-links@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-links/-/addon-links-6.3.9.tgz#a7342d80c26f81bc8d5fdab4906521786bc99343"
+  integrity sha1-pzQtgMJvgbyNX9q0kGUheGvJk0M=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/core-events" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
     "@storybook/csf" "0.0.1"
-    "@storybook/router" "6.3.6"
+    "@storybook/router" "6.3.9"
     "@types/qs" "^6.9.5"
     core-js "^3.8.2"
     global "^4.4.0"
@@ -2167,18 +2178,18 @@
   resolved "https://registry.yarnpkg.com/@storybook/addon-measure/-/addon-measure-2.0.0.tgz#c40bbe91bacd3f795963dc1ee6ff86be87deeda9"
   integrity sha512-ZhdT++cX+L9LwjhGYggvYUUVQH/MGn2rwbrAwCMzA/f2QTFvkjxzX8nDgMxIhaLCDC+gHIxfJG2wrWN0jkBr3g==
 
-"@storybook/addon-storysource@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-storysource/-/addon-storysource-6.3.6.tgz#3ecacd39690675ffcba0d40ca235090fc2bf5574"
-  integrity sha512-BNNuy/6Vb7NzeCDbt+bCL1dC/XQOalzKHW6FplO0pR0eMSi6EmJJnU9V+5rFAUtG5zxGeCx2h7TrrFecouM2BA==
+"@storybook/addon-storysource@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-storysource/-/addon-storysource-6.3.9.tgz#88f5dd4e3b30ee961d99cb88eaced1c5bde6597d"
+  integrity sha1-iPXdTjsw7pYdmcuI6s7Rxb3mWX0=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/router" "6.3.6"
-    "@storybook/source-loader" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/router" "6.3.9"
+    "@storybook/source-loader" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     estraverse "^5.2.0"
     loader-utils "^2.0.0"
@@ -2187,37 +2198,52 @@
     react-syntax-highlighter "^13.5.3"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addon-toolbars@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-toolbars/-/addon-toolbars-6.3.6.tgz#41f5f29988260d2aad9431b7a91f57e848c3e0bf"
-  integrity sha512-VpwkMtvT/4KNjqdO2SCkFw4koMgYN2k8hckbTGRzuUYYTHBvl9yK4q0A7RELEnkm/tsmDI1TjenV/MBifp2Aiw==
+"@storybook/addon-toolbars@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-toolbars/-/addon-toolbars-6.3.9.tgz#70043db07490d13f0e779ed30b0226dc7dd6849b"
+  integrity sha1-cAQ9sHSQ0T8Od57TCwIm3H3WhJs=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addon-viewport@6.3.6", "@storybook/addon-viewport@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-viewport/-/addon-viewport-6.3.6.tgz#9117316e918559d389a19571166579858b25b09b"
-  integrity sha512-Z5eztFFGd6vd+38sDurfTkIr9lY6EYWtMJzr5efedRZGg2IZLXZxQCoyjKEB29VB/IIjHEYHhHSh4SFsHT/m6g==
+"@storybook/addon-viewport@6.3.9", "@storybook/addon-viewport@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-viewport/-/addon-viewport-6.3.9.tgz#3f2bdebb241a3e4e141c06d0e57ad8707e1fe524"
+  integrity sha1-PyveuyQaPk4UHAbQ5XrYcH4f5SQ=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     global "^4.4.0"
     memoizerific "^1.11.3"
     prop-types "^15.7.2"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addons@6.3.6", "@storybook/addons@^6.0.0", "@storybook/addons@^6.3.0":
+"@storybook/addons@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addons/-/addons-6.3.9.tgz#e12c8d4351b861d67cb6b8d64ed33b1f6b90994f"
+  integrity sha1-4SyNQ1G4YdZ8trjWTtM7H2uQmU8=
+  dependencies:
+    "@storybook/api" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/router" "6.3.9"
+    "@storybook/theming" "6.3.9"
+    core-js "^3.8.2"
+    global "^4.4.0"
+    regenerator-runtime "^0.13.7"
+
+"@storybook/addons@^6.0.0", "@storybook/addons@^6.3.0":
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.3.6.tgz#330fd722bdae8abefeb029583e89e51e62c20b60"
   integrity sha512-tVV0vqaEEN9Md4bgScwfrnZYkN8iKZarpkIOFheLev+PHjSp8lgWMK5SNWDlbBYqfQfzrz9xbs+F07bMjfx9jQ==
@@ -2258,10 +2284,36 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/builder-webpack4@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/builder-webpack4/-/builder-webpack4-6.3.6.tgz#fe444abfc178e005ea077e2bcfd6ae7509522908"
-  integrity sha512-LhTPQQowS2t6BRnyfusWZLbhjjf54/HiQyovJTTDnqrCiO6QoCMbVnp79LeO1aSkpQCKoeqOZ7TzH87fCytnZA==
+"@storybook/api@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/api/-/api-6.3.9.tgz#f36c8f01cac602c67b8f22b144e8bd6478039abb"
+  integrity sha1-82yPAcrGAsZ7jyKxROi9ZHgDmrs=
+  dependencies:
+    "@reach/router" "^1.3.4"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/csf" "0.0.1"
+    "@storybook/router" "6.3.9"
+    "@storybook/semver" "^7.3.2"
+    "@storybook/theming" "6.3.9"
+    "@types/reach__router" "^1.3.7"
+    core-js "^3.8.2"
+    fast-deep-equal "^3.1.3"
+    global "^4.4.0"
+    lodash "^4.17.20"
+    memoizerific "^1.11.3"
+    qs "^6.10.0"
+    regenerator-runtime "^0.13.7"
+    store2 "^2.12.0"
+    telejson "^5.3.2"
+    ts-dedent "^2.0.0"
+    util-deprecate "^1.0.2"
+
+"@storybook/builder-webpack4@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/builder-webpack4/-/builder-webpack4-6.3.9.tgz#9deef99cf67dce64645ed387f8158b069368ec79"
+  integrity sha1-ne75nPZ9zmRkXtOH+BWLBpNo7Hk=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -2284,20 +2336,20 @@
     "@babel/preset-env" "^7.12.11"
     "@babel/preset-react" "^7.12.10"
     "@babel/preset-typescript" "^7.12.7"
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/channel-postmessage" "6.3.6"
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/router" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/channel-postmessage" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/router" "6.3.9"
     "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.3.6"
-    "@storybook/ui" "6.3.6"
+    "@storybook/theming" "6.3.9"
+    "@storybook/ui" "6.3.9"
     "@types/node" "^14.0.10"
     "@types/webpack" "^4.41.26"
     autoprefixer "^9.8.6"
@@ -2334,10 +2386,10 @@
     webpack-hot-middleware "^2.25.0"
     webpack-virtual-modules "^0.2.2"
 
-"@storybook/builder-webpack5@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/builder-webpack5/-/builder-webpack5-6.3.6.tgz#3679df2d78b067b8c903fab2cd2523e1e9361ce4"
-  integrity sha512-66Yk3YsvPXRKcBiWLBR3poVTtMSnJW8CmVsFbKHjpP9LZ8qT+YTmLnXhFhZWSzfSAv3dWvKUEyJftuPIxSJl5A==
+"@storybook/builder-webpack5@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/builder-webpack5/-/builder-webpack5-6.3.9.tgz#69cae40278971104394ba1b38a11dace9702c319"
+  integrity sha1-acrkAniXEQQ5S6GzihHazpcCwxk=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -2359,19 +2411,19 @@
     "@babel/preset-env" "^7.12.11"
     "@babel/preset-react" "^7.12.10"
     "@babel/preset-typescript" "^7.12.7"
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/channel-postmessage" "6.3.6"
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/router" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/channel-postmessage" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/router" "6.3.9"
     "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.3.6"
+    "@storybook/theming" "6.3.9"
     "@types/node" "^14.0.10"
     babel-loader "^8.2.2"
     babel-plugin-macros "^3.0.1"
@@ -2396,14 +2448,14 @@
     webpack-hot-middleware "^2.25.0"
     webpack-virtual-modules "^0.4.1"
 
-"@storybook/channel-postmessage@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-6.3.6.tgz#f29c3678161462428e78c9cfed2da11ffca4acb0"
-  integrity sha512-GK7hXnaa+1pxEeMpREDzAZ3+2+k1KN1lbrZf+V7Kc1JZv1/Ji/vxk8AgxwiuzPAMx5J0yh/FduPscIPZ87Pibw==
+"@storybook/channel-postmessage@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/channel-postmessage/-/channel-postmessage-6.3.9.tgz#166aecfa2cfe96740513442bc8c1d1b08d28798f"
+  integrity sha1-Fmrs+iz+lnQFE0QryMHRsI0oeY8=
   dependencies:
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/core-events" "6.3.6"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
     core-js "^3.8.2"
     global "^4.4.0"
     qs "^6.10.0"
@@ -2418,15 +2470,24 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/cli@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/cli/-/cli-6.3.6.tgz#8e06f32bed5dcf59c699a8739a4ce18abe126d35"
-  integrity sha512-6yCep4yQ1RJBYWZy2Sdf4vOxnE8gYhRjvtgdM7cviwnkvXWfKBRTIUAxgzV6ybR1nuEZ5mcWqcw4aPgGYEXUUA==
+"@storybook/channels@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/channels/-/channels-6.3.9.tgz#40907734460fbcb08fe018c794890ffe668e873d"
+  integrity sha1-QJB3NEYPvLCP4BjHlIkP/maOhz0=
+  dependencies:
+    core-js "^3.8.2"
+    ts-dedent "^2.0.0"
+    util-deprecate "^1.0.2"
+
+"@storybook/cli@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/cli/-/cli-6.3.9.tgz#e963ce5a6bf44523d3c49182d5644807263e4223"
+  integrity sha1-6WPOWmv0RSPTxJGC1WRIByY+QiM=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/preset-env" "^7.12.11"
-    "@storybook/codemod" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/codemod" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
     "@storybook/semver" "^7.3.2"
     boxen "^4.2.0"
     chalk "^4.1.0"
@@ -2450,16 +2511,16 @@
     ts-dedent "^2.0.0"
     update-notifier "^5.0.1"
 
-"@storybook/client-api@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/client-api/-/client-api-6.3.6.tgz#4826ce366ae109f608da6ade24b29efeb9b7f7dd"
-  integrity sha512-Q/bWuH691L6k7xkiKtBmZo8C+ijgmQ+vc2Fz8pzIRZuMV8ROL74qhrS4BMKV4LhiYm4f8todtWfaQPBjawZMIA==
+"@storybook/client-api@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/client-api/-/client-api-6.3.9.tgz#421c25c2b3c4c8ae7e26044d00d84deb95659311"
+  integrity sha1-QhwlwrPEyK5+JgRNANhN65VlkxE=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/channel-postmessage" "6.3.6"
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/core-events" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/channel-postmessage" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
     "@storybook/csf" "0.0.1"
     "@types/qs" "^6.9.5"
     "@types/webpack-env" "^1.16.0"
@@ -2482,16 +2543,24 @@
     core-js "^3.8.2"
     global "^4.4.0"
 
-"@storybook/codemod@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.3.6.tgz#fa9712e1b516d77e836446250f6dce92fe863beb"
-  integrity sha512-pyNif3igrpJu0J7U0BptUCNpj+XAsnOJFhBUep7QtbYE3taIH2dGlpGXvyD5kN4zH4Mk/o2KdMp/OxETv1M4hA==
+"@storybook/client-logger@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/client-logger/-/client-logger-6.3.9.tgz#ef8c89e96f79927d46dd1dacddb58f3a43154b9a"
+  integrity sha1-74yJ6W95kn1G3R2s3bWPOkMVS5o=
+  dependencies:
+    core-js "^3.8.2"
+    global "^4.4.0"
+
+"@storybook/codemod@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/codemod/-/codemod-6.3.9.tgz#c46142937c69615831e0067cf8737e10806a82b5"
+  integrity sha1-xGFCk3xpYVgx4AZ8+HN+EIBqgrU=
   dependencies:
     "@babel/types" "^7.12.11"
     "@mdx-js/mdx" "^1.6.22"
     "@storybook/csf" "0.0.1"
-    "@storybook/csf-tools" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/csf-tools" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
     core-js "^3.8.2"
     cross-spawn "^7.0.3"
     globby "^11.0.2"
@@ -2501,7 +2570,37 @@
     recast "^0.19.0"
     regenerator-runtime "^0.13.7"
 
-"@storybook/components@6.3.6", "@storybook/components@^6.0.0", "@storybook/components@^6.3.0":
+"@storybook/components@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/components/-/components-6.3.9.tgz#3f3c56f0311e757e78705e3b495489da071d6891"
+  integrity sha1-PzxW8DEedX54cF47SVSJ2gcdaJE=
+  dependencies:
+    "@popperjs/core" "^2.6.0"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/csf" "0.0.1"
+    "@storybook/theming" "6.3.9"
+    "@types/color-convert" "^2.0.0"
+    "@types/overlayscrollbars" "^1.12.0"
+    "@types/react-syntax-highlighter" "11.0.5"
+    color-convert "^2.0.1"
+    core-js "^3.8.2"
+    fast-deep-equal "^3.1.3"
+    global "^4.4.0"
+    lodash "^4.17.20"
+    markdown-to-jsx "^7.1.3"
+    memoizerific "^1.11.3"
+    overlayscrollbars "^1.13.1"
+    polished "^4.0.5"
+    prop-types "^15.7.2"
+    react-colorful "^5.1.2"
+    react-popper-tooltip "^3.1.1"
+    react-syntax-highlighter "^13.5.3"
+    react-textarea-autosize "^8.3.0"
+    regenerator-runtime "^0.13.7"
+    ts-dedent "^2.0.0"
+    util-deprecate "^1.0.2"
+
+"@storybook/components@^6.0.0", "@storybook/components@^6.3.0":
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.3.6.tgz#bc2fa1dbe59f42b5b2aeb9f84424072835d4ce8b"
   integrity sha512-aZkmtAY8b+LFXG6dVp6cTS6zGJuxkHRHcesRSWRQPxtgitaz1G58clRHxbKPRokfjPHNgYA3snogyeqxSA7YNQ==
@@ -2531,18 +2630,18 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/core-client@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/core-client/-/core-client-6.3.6.tgz#7def721aa15d4faaff574780d30b92055db7261c"
-  integrity sha512-Bq86flEdXdMNbdHrGMNQ6OT1tcBQU8ym56d+nG46Ctjf5GN+Dl+rPtRWuu7cIZs10KgqJH+86DXp+tvpQIDidg==
+"@storybook/core-client@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-client/-/core-client-6.3.9.tgz#616f932ae0c3caf5e56464a88cac375230f0ed51"
+  integrity sha1-YW+TKuDDyvXlZGSojKw3UjDw7VE=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/channel-postmessage" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/core-events" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/channel-postmessage" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
     "@storybook/csf" "0.0.1"
-    "@storybook/ui" "6.3.6"
+    "@storybook/ui" "6.3.9"
     airbnb-js-shims "^2.2.1"
     ansi-to-html "^0.6.11"
     core-js "^3.8.2"
@@ -2554,10 +2653,10 @@
     unfetch "^4.2.0"
     util-deprecate "^1.0.2"
 
-"@storybook/core-common@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/core-common/-/core-common-6.3.6.tgz#da8eed703b609968e15177446f0f1609d1d6d0d0"
-  integrity sha512-nHolFOmTPymI50j180bCtcf1UJZ2eOnYaECRtHvVrCUod5KFF7wh2EHrgWoKqrKrsn84UOY/LkX2C2WkbYtWRg==
+"@storybook/core-common@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-common/-/core-common-6.3.9.tgz#60f2a1c66eaf958f996ed919a5a9f134b19cda76"
+  integrity sha1-YPKhxm6vlY+ZbtkZpanxNLGc2nY=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -2580,7 +2679,7 @@
     "@babel/preset-react" "^7.12.10"
     "@babel/preset-typescript" "^7.12.7"
     "@babel/register" "^7.12.1"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/node-logger" "6.3.9"
     "@storybook/semver" "^7.3.2"
     "@types/glob-base" "^0.3.0"
     "@types/micromatch" "^4.0.1"
@@ -2615,17 +2714,25 @@
   dependencies:
     core-js "^3.8.2"
 
-"@storybook/core-server@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/core-server/-/core-server-6.3.6.tgz#43c1415573c3b72ec6b9ae48d68e1bb446722f7c"
-  integrity sha512-47ZcfxYn7t891oAMG98iH1BQIgQT9Yk/2BBNVCWY43Ong+ME1xJ6j4C/jkRUOseP7URlfLUQsUYKAYJNVijDvg==
+"@storybook/core-events@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-events/-/core-events-6.3.9.tgz#17127905a2d7773b6e02f15bfbddb1fd1b0bce75"
+  integrity sha1-FxJ5BaLXdztuAvFb+92x/RsLznU=
   dependencies:
-    "@storybook/builder-webpack4" "6.3.6"
-    "@storybook/core-client" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/csf-tools" "6.3.6"
-    "@storybook/manager-webpack4" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    core-js "^3.8.2"
+
+"@storybook/core-server@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-server/-/core-server-6.3.9.tgz#780b940c65d29c77b40b84eaedbde01e44f6d6df"
+  integrity sha1-eAuUDGXSnHe0C4Tq7b3gHkT21t8=
+  dependencies:
+    "@discoveryjs/json-ext" "^0.5.3"
+    "@storybook/builder-webpack4" "6.3.9"
+    "@storybook/core-client" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/csf-tools" "6.3.9"
+    "@storybook/manager-webpack4" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
     "@storybook/semver" "^7.3.2"
     "@types/node" "^14.0.10"
     "@types/node-fetch" "^2.5.7"
@@ -2654,18 +2761,18 @@
     util-deprecate "^1.0.2"
     webpack "4"
 
-"@storybook/core@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-6.3.6.tgz#604419d346433103675901b3736bfa1ed9bc534f"
-  integrity sha512-y71VvVEbqCpG28fDBnfNg3RnUPnicwFYq9yuoFVRF0LYcJCy5cYhkIfW3JG8mN2m0P+LzH80mt2Rj6xlSXrkdQ==
+"@storybook/core@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core/-/core-6.3.9.tgz#9f952218a11b69258ab7f4fc1d3e470f4e851a2b"
+  integrity sha1-n5UiGKEbaSWKt/T8HT5HD06FGis=
   dependencies:
-    "@storybook/core-client" "6.3.6"
-    "@storybook/core-server" "6.3.6"
+    "@storybook/core-client" "6.3.9"
+    "@storybook/core-server" "6.3.9"
 
-"@storybook/csf-tools@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/csf-tools/-/csf-tools-6.3.6.tgz#603d9e832f946998b75ff8368fe862375d6cb52c"
-  integrity sha512-MQevelkEUVNCSjKMXLNc/G8q/BB5babPnSeI0IcJq4k+kLUSHtviimLNpPowMgGJBPx/y9VihH8N7vdJUWVj9w==
+"@storybook/csf-tools@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/csf-tools/-/csf-tools-6.3.9.tgz#3f47725bf4108fd08a2350c39cf4eb5755d96c12"
+  integrity sha1-P0dyW/QQj9CKI1DDnPTrV1XZbBI=
   dependencies:
     "@babel/generator" "^7.12.11"
     "@babel/parser" "^7.12.11"
@@ -2689,20 +2796,20 @@
   dependencies:
     lodash "^4.17.15"
 
-"@storybook/manager-webpack4@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/manager-webpack4/-/manager-webpack4-6.3.6.tgz#a5334aa7ae1e048bca8f4daf868925d7054fb715"
-  integrity sha512-qh/jV4b6mFRpRFfhk1JSyO2gKRz8PLPvDt2AD52/bTAtNRzypKoiWqyZNR2CJ9hgNQtDrk2CO3eKPrcdKYGizQ==
+"@storybook/manager-webpack4@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/manager-webpack4/-/manager-webpack4-6.3.9.tgz#c9b0225de9f6d4e6034055f28bb44394b4a97b32"
+  integrity sha1-ybAiXen21OYDQFXyi7RDlLSpezI=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-template-literals" "^7.12.1"
     "@babel/preset-react" "^7.12.10"
-    "@storybook/addons" "6.3.6"
-    "@storybook/core-client" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/theming" "6.3.6"
-    "@storybook/ui" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/core-client" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/theming" "6.3.9"
+    "@storybook/ui" "6.3.9"
     "@types/node" "^14.0.10"
     "@types/webpack" "^4.41.26"
     babel-loader "^8.2.2"
@@ -2732,20 +2839,20 @@
     webpack-dev-middleware "^3.7.3"
     webpack-virtual-modules "^0.2.2"
 
-"@storybook/manager-webpack5@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/manager-webpack5/-/manager-webpack5-6.3.6.tgz#dc0a49e442314b77ea7e33f3f2a735375fca9b4c"
-  integrity sha512-Mn54pn+8bFHSk8vLTu19tzdljCWDmcvAR6CVSyh1O3LXpT5hJ8v9qpskNyUrXVDjH0ydo6xcNbNh1yYCDitAuw==
+"@storybook/manager-webpack5@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/manager-webpack5/-/manager-webpack5-6.3.9.tgz#3660395cccfeda23dfacbf34a434d4ae35a24b09"
+  integrity sha1-NmA5XMz+2iPfrL80pDTUrjWiSwk=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-template-literals" "^7.12.1"
     "@babel/preset-react" "^7.12.10"
-    "@storybook/addons" "6.3.6"
-    "@storybook/core-client" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/theming" "6.3.6"
-    "@storybook/ui" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/core-client" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/theming" "6.3.9"
+    "@storybook/ui" "6.3.9"
     "@types/node" "^14.0.10"
     babel-loader "^8.2.2"
     case-sensitive-paths-webpack-plugin "^2.3.0"
@@ -2773,10 +2880,10 @@
     webpack-dev-middleware "^4.1.0"
     webpack-virtual-modules "^0.4.1"
 
-"@storybook/node-logger@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.3.6.tgz#10356608593440a8e3acf2aababef40333a3401b"
-  integrity sha512-XMDkMN7nVRojjiezrURlkI57+nz3OoH4UBV6qJZICKclxtdKAy0wwOlUSYEUq+axcJ4nvdfzPPoDfGoj37SW7A==
+"@storybook/node-logger@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/node-logger/-/node-logger-6.3.9.tgz#01ba480ad9199838b76017b7454985798323a808"
+  integrity sha1-AbpICtkZmDi3YBe3RUmFeYMjqAg=
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^4.1.0"
@@ -2784,10 +2891,10 @@
     npmlog "^4.1.2"
     pretty-hrtime "^1.0.3"
 
-"@storybook/postinstall@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/postinstall/-/postinstall-6.3.6.tgz#fd79a6c109b38ced4b9b40db2d27b88ee184d449"
-  integrity sha512-90Izr8/GwLiXvdF2A3v1PCpWoxUBgqA0TrWGuiWXfJnfFRVlVrX9A/ClGUPSh80L3oE01E6raaOG4wW4JTRKfw==
+"@storybook/postinstall@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/postinstall/-/postinstall-6.3.9.tgz#ca44341bb0bd5f9162b683176fa38d97b1d4e492"
+  integrity sha1-ykQ0G7C9X5FitoMXb6ONl7HU5JI=
   dependencies:
     core-js "^3.8.2"
 
@@ -2809,18 +2916,18 @@
     react-docgen-typescript "^2.0.0"
     tslib "^2.0.0"
 
-"@storybook/react@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.3.6.tgz#593bc0743ad22ed5e6e072e6157c20c704864fc3"
-  integrity sha512-2c30XTe7WzKnvgHBGOp1dzBVlhcbc3oEX0SIeVE9ZYkLvRPF+J1jG948a26iqOCOgRAW13Bele37mG1gbl4tiw==
+"@storybook/react@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/react/-/react-6.3.9.tgz#3d93a3606a6a9ae1ece8d0d56f382a9c15df5254"
+  integrity sha1-PZOjYGpqmuHs6NDVbzgqnBXfUlQ=
   dependencies:
     "@babel/preset-flow" "^7.12.1"
     "@babel/preset-react" "^7.12.10"
     "@pmmmwh/react-refresh-webpack-plugin" "^0.4.3"
-    "@storybook/addons" "6.3.6"
-    "@storybook/core" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/core" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
     "@storybook/react-docgen-typescript-plugin" "1.0.2-canary.253f8c1.0"
     "@storybook/semver" "^7.3.2"
     "@types/webpack-env" "^1.16.0"
@@ -2854,6 +2961,22 @@
     qs "^6.10.0"
     ts-dedent "^2.0.0"
 
+"@storybook/router@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/router/-/router-6.3.9.tgz#a299091426349b9dc0bb8610773918712b453dc4"
+  integrity sha1-opkJFCY0m53Au4YQdzkYcStFPcQ=
+  dependencies:
+    "@reach/router" "^1.3.4"
+    "@storybook/client-logger" "6.3.9"
+    "@types/reach__router" "^1.3.7"
+    core-js "^3.8.2"
+    fast-deep-equal "^3.1.3"
+    global "^4.4.0"
+    lodash "^4.17.20"
+    memoizerific "^1.11.3"
+    qs "^6.10.0"
+    ts-dedent "^2.0.0"
+
 "@storybook/semver@^7.3.2":
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/@storybook/semver/-/semver-7.3.2.tgz#f3b9c44a1c9a0b933c04e66d0048fcf2fa10dac0"
@@ -2862,13 +2985,13 @@
     core-js "^3.6.5"
     find-up "^4.1.0"
 
-"@storybook/source-loader@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/source-loader/-/source-loader-6.3.6.tgz#2d3d01919baad7a40f67d1150c74e41dea5f1d4c"
-  integrity sha512-om3iS3a+D287FzBrbXB/IXB6Z5Ql2yc4dFKTy6FPe5v4N3U0p5puWOKUYWWbTX1JbcpRj0IXXo7952G68tcC1g==
+"@storybook/source-loader@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/source-loader/-/source-loader-6.3.9.tgz#439879baf86a1cf5d46d9e7aec1edcf64b0e1f5d"
+  integrity sha1-Q5h5uvhqHPXUbZ567B7c9ksOH10=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
     "@storybook/csf" "0.0.1"
     core-js "^3.8.2"
     estraverse "^5.2.0"
@@ -2896,21 +3019,39 @@
     resolve-from "^5.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/ui@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-6.3.6.tgz#a9ed8265e34bb8ef9f0dd08f40170b3dcf8a8931"
-  integrity sha512-S9FjISUiAmbBR7d6ubUEcELQdffDfRxerloxkXs5Ou7n8fEPqpgQB01Hw5MLRUwTEpxPzHn+xtIGYritAGxt/Q==
+"@storybook/theming@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/theming/-/theming-6.3.9.tgz#8e4500dacd298a2ca6bf47b5729449688338283c"
+  integrity sha1-jkUA2s0piiymv0e1cpRJaIM4KDw=
   dependencies:
     "@emotion/core" "^10.1.1"
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/router" "6.3.6"
+    "@emotion/is-prop-valid" "^0.8.6"
+    "@emotion/styled" "^10.0.27"
+    "@storybook/client-logger" "6.3.9"
+    core-js "^3.8.2"
+    deep-object-diff "^1.1.0"
+    emotion-theming "^10.0.27"
+    global "^4.4.0"
+    memoizerific "^1.11.3"
+    polished "^4.0.5"
+    resolve-from "^5.0.0"
+    ts-dedent "^2.0.0"
+
+"@storybook/ui@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/ui/-/ui-6.3.9.tgz#4a360471acc4fa5a16bc5be9fa8eb60940b41f16"
+  integrity sha1-SjYEcazE+loWvFvp+o62CUC0HxY=
+  dependencies:
+    "@emotion/core" "^10.1.1"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/router" "6.3.9"
     "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.3.6"
+    "@storybook/theming" "6.3.9"
     "@types/markdown-to-jsx" "^6.11.3"
     copy-to-clipboard "^3.3.1"
     core-js "^3.8.2"
@@ -3223,8 +3364,8 @@
 
 "@types/node-fetch@^2.5.7":
   version "2.5.12"
-  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.5.12.tgz#8a6f779b1d4e60b7a57fb6fd48d84fb545b9cc66"
-  integrity sha512-MKgC4dlq4kKNa/mYrwpKfzQMB5X3ee5U6fSprkKpToBqBmX4nFZL9cW5jl6sWn+xpRJ7ypWh2yyqqr8UUCstSw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node-fetch/-/node-fetch-2.5.12.tgz#8a6f779b1d4e60b7a57fb6fd48d84fb545b9cc66"
+  integrity sha1-im93mx1OYLelf7b9SNhPtUW5zGY=
   dependencies:
     "@types/node" "*"
     form-data "^3.0.0"
@@ -3281,8 +3422,8 @@
 
 "@types/qs@^6.9.5":
   version "6.9.7"
-  resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
-  integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
+  integrity sha1-Y7t9Bn2xB8weRXwwO8JdUR/r9ss=
 
 "@types/reach__router@^1.3.7":
   version "1.3.9"
@@ -3293,8 +3434,8 @@
 
 "@types/react-dom@^17.0.8":
   version "17.0.9"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.9.tgz#441a981da9d7be117042e1a6fd3dac4b30f55add"
-  integrity sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react-dom/-/react-dom-17.0.9.tgz#441a981da9d7be117042e1a6fd3dac4b30f55add"
+  integrity sha1-RBqYHanXvhFwQuGm/T2sSzD1Wt0=
   dependencies:
     "@types/react" "*"
 
@@ -3305,10 +3446,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-table@7.7.3":
-  version "7.7.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react-table/-/react-table-7.7.3.tgz#0e5f952ec8562db1f6c950c766b53f27294a7e89"
-  integrity sha1-Dl+VLshWLbH2yVDHZrU/JylKfok=
+"@types/react-transition-group@^4.4.0":
+  version "4.4.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react-transition-group/-/react-transition-group-4.4.3.tgz#b0994da0a7023d67dbb4a8910a62112bc00d5688"
+  integrity sha1-sJlNoKcCPWfbtKiRCmIRK8ANVog=
   dependencies:
     "@types/react" "*"
 
@@ -4046,8 +4187,8 @@ array-flatten@^2.1.0:
 
 array-includes@^3.0.3, array-includes@^3.1.1, array-includes@^3.1.2:
   version "3.1.3"
-  resolved "https://registry.yarnpkg.com/array-includes/-/array-includes-3.1.3.tgz#c7f619b382ad2afaf5326cddfdc0afc61af7690a"
-  integrity sha512-gcem1KlBU7c9rB+Rq8/3PPKsK2kjqeEBa3bD5kkQo4nYlOHQCJqIJFqBXDEfwaRuYTT4E+FxA9xez7Gf/e3Q7A==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/array-includes/-/array-includes-3.1.3.tgz#c7f619b382ad2afaf5326cddfdc0afc61af7690a"
+  integrity sha1-x/YZs4KtKvr1Mmzd/cCvxhr3aQo=
   dependencies:
     call-bind "^1.0.2"
     define-properties "^1.1.3"
@@ -4282,8 +4423,8 @@ babel-jest@^27.0.5:
 
 babel-loader@^8.2.2:
   version "8.2.2"
-  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.2.tgz#9363ce84c10c9a40e6c753748e1441b60c8a0b81"
-  integrity sha512-JvTd0/D889PQBtUXJ2PXaKU/pjZDMtHA9V2ecm+eNRmmBCMR09a+fmpGTNwnJtFmFl5Ei7Vy47LjBb+L0wQ99g==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/babel-loader/-/babel-loader-8.2.2.tgz#9363ce84c10c9a40e6c753748e1441b60c8a0b81"
+  integrity sha1-k2POhMEMmkDmx1N0jhRBtgyKC4E=
   dependencies:
     find-cache-dir "^3.3.1"
     loader-utils "^1.4.0"
@@ -4954,7 +5095,7 @@ chalk@2.4.2, chalk@^2.0.0, chalk@^2.4.1, chalk@^2.4.2:
 
 chalk@^1.1.1:
   version "1.1.3"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
   integrity sha1-qBFcVeSnAv5NFQq9OHKCKn4J/Jg=
   dependencies:
     ansi-styles "^2.2.1"
@@ -5078,8 +5219,8 @@ classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.1:
 
 clean-css@^4.2.3:
   version "4.2.3"
-  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
-  integrity sha512-VcMWDN54ZN/DS+g58HYL5/n4Zrqe8vHJpGA8KdgUXFU4fuP/aHNw8eld9SyEIyabIMJX/0RaY/fplOo5hYLSFA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
+  integrity sha1-UHtd59l7SO5T2ErbAWD/YhY4D3g=
   dependencies:
     source-map "~0.6.0"
 
@@ -5095,8 +5236,8 @@ cli-boxes@^2.2.0, cli-boxes@^2.2.1:
 
 cli-table3@0.6.0:
   version "0.6.0"
-  resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.6.0.tgz#b7b1bc65ca8e7b5cef9124e13dc2b21e2ce4faee"
-  integrity sha512-gnB85c3MGC7Nm9I/FkiasNBOKjOiO1RNuXXarQms37q4QMpWdlbBgD/VnOStA2faG1dpXMv31RFApjX1/QdgWQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/cli-table3/-/cli-table3-0.6.0.tgz#b7b1bc65ca8e7b5cef9124e13dc2b21e2ce4faee"
+  integrity sha1-t7G8ZcqOe1zvkSThPcKyHizk+u4=
   dependencies:
     object-assign "^4.1.0"
     string-width "^4.2.0"
@@ -5389,8 +5530,8 @@ core-js-pure@^3.16.0, core-js-pure@^3.8.2:
 
 core-js@^2.4.0:
   version "2.6.12"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
-  integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
+  integrity sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw=
 
 core-js@^3.0.4, core-js@^3.6.4, core-js@^3.6.5, core-js@^3.8.2:
   version "3.16.0"
@@ -5499,8 +5640,8 @@ cross-spawn@7.0.3, cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
 
 cross-spawn@^6.0.0:
   version "6.0.5"
-  resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"
-  integrity sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/cross-spawn/-/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"
+  integrity sha1-Sl7Hxk364iw6FBJNus3uhG2Ay8Q=
   dependencies:
     nice-try "^1.0.4"
     path-key "^2.0.1"
@@ -6333,23 +6474,23 @@ es6-shim@^0.35.5:
   resolved "https://registry.yarnpkg.com/es6-shim/-/es6-shim-0.35.6.tgz#d10578301a83af2de58b9eadb7c2c9945f7388a0"
   integrity sha512-EmTr31wppcaIAgblChZiuN/l9Y7DPyw8Xtbg7fIVngn6zMW+IEBJDJngeKC3x6wr0V/vcA2wqeFnaw1bFJbDdA==
 
-esbuild-loader@^2.9.1:
-  version "2.13.1"
-  resolved "https://registry.yarnpkg.com/esbuild-loader/-/esbuild-loader-2.13.1.tgz#9c89e654390a9a25d99b2f6d803ade30f4335418"
-  integrity sha512-Tzc5nB5tVUmigXz6m4j1OYozJCjdix7E9vtd5RaE54fqz2Rz34Is9S8FbAf8uqR4xvQUBAXIi6Jkn1OeMxw2aQ==
+esbuild-loader@^2.10.0:
+  version "2.15.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-loader/-/esbuild-loader-2.15.1.tgz#5a3940f5d20317f1a35720efa33e933f97c923e9"
+  integrity sha1-WjlA9dIDF/GjVyDvoz6TP5fJI+k=
   dependencies:
-    esbuild "^0.11.19"
+    esbuild "^0.12.21"
     joycon "^3.0.1"
     json5 "^2.2.0"
     loader-utils "^2.0.0"
     tapable "^2.2.0"
-    type-fest "^1.0.1"
+    type-fest "^1.4.0"
     webpack-sources "^2.2.0"
 
-esbuild@^0.11.19:
-  version "0.11.23"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.11.23.tgz#c42534f632e165120671d64db67883634333b4b8"
-  integrity sha512-iaiZZ9vUF5wJV8ob1tl+5aJTrwDczlvGP0JoMmnpC2B0ppiMCu8n8gmy5ZTGl5bcG081XBVn+U+jP+mPFm5T5Q==
+esbuild@^0.12.21:
+  version "0.12.29"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild/-/esbuild-0.12.29.tgz#be602db7c4dc78944a9dbde0d1ea19d36c1f882d"
+  integrity sha1-vmAtt8TceJRKnb3g0eoZ02wfiC0=
 
 escalade@^3.0.2, escalade@^3.1.1:
   version "3.1.1"
@@ -6368,8 +6509,8 @@ escape-html@^1.0.3, escape-html@~1.0.3:
 
 escape-string-regexp@2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
-  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha1-owME6Z2qMuI7L9IPUbq9B8/8o0Q=
 
 escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -6433,8 +6574,8 @@ eslint-plugin-jsx-a11y@^6.3.1:
 
 eslint-plugin-react-hooks@^4.0.8:
   version "4.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz#8c229c268d468956334c943bb45fc860280f5556"
-  integrity sha512-623WEiZJqxR7VdxFCKLI6d6LLpwJkGPYKODnkH3D7WpOG5KM8yWueBd8TLsNAetEJNF5iJmolaAKO3F8yzyVBQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz#8c229c268d468956334c943bb45fc860280f5556"
+  integrity sha1-jCKcJo1GiVYzTJQ7tF/IYCgPVVY=
 
 eslint-scope@5.1.1, eslint-scope@^5.1.1:
   version "5.1.1"
@@ -6478,8 +6619,8 @@ eslint-visitor-keys@^2.0.0, eslint-visitor-keys@^2.1.0:
 
 eslint@^7.29.0:
   version "7.32.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.32.0.tgz#c6d328a14be3fb08c8d1d21e12c02fdb7a2a812d"
-  integrity sha512-VHZ8gX+EDfz+97jGcgyGCyRia/dPOd6Xh9yPv8Bl1+SoaIwD+a/vlrOmGRUyOYu7MwUhc7CxqeaDZU13S4+EpA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/eslint/-/eslint-7.32.0.tgz#c6d328a14be3fb08c8d1d21e12c02fdb7a2a812d"
+  integrity sha1-xtMooUvj+wjI0dIeEsAv23oqgS0=
   dependencies:
     "@babel/code-frame" "7.12.11"
     "@eslint/eslintrc" "^0.4.3"
@@ -6617,8 +6758,8 @@ execa@^1.0.0:
 
 execa@^4.0.0:
   version "4.1.0"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-4.1.0.tgz#4e5491ad1572f2f17a77d388c6c857135b22847a"
-  integrity sha512-j5W0//W7f8UxAn8hXVnwG8tLwdiUy4FJLcSupCg6maBYZDpyBvTApK7KyuI4bKj8KOh1r2YH+6ucuYtJv1bTZA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/execa/-/execa-4.1.0.tgz#4e5491ad1572f2f17a77d388c6c857135b22847a"
+  integrity sha1-TlSRrRVy8vF6d9OIxshXE1sihHo=
   dependencies:
     cross-spawn "^7.0.0"
     get-stream "^5.0.0"
@@ -6730,8 +6871,8 @@ extglob@^2.0.4:
 
 extract-zip@^1.6.6:
   version "1.7.0"
-  resolved "https://registry.yarnpkg.com/extract-zip/-/extract-zip-1.7.0.tgz#556cc3ae9df7f452c493a0cfb51cc30277940927"
-  integrity sha512-xoh5G1W/PB0/27lXgMQyIhP5DSY/LhoCsOyZgb+6iMmRtCwVBo55uKaMoEYrDCKQhWvqEip5ZPKAc6eFNyf/MA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/extract-zip/-/extract-zip-1.7.0.tgz#556cc3ae9df7f452c493a0cfb51cc30277940927"
+  integrity sha1-VWzDrp339FLEk6DPtRzDAneUCSc=
   dependencies:
     concat-stream "^1.6.2"
     debug "^2.6.9"
@@ -6805,8 +6946,8 @@ fastq@^1.6.0:
 
 fault@^1.0.0:
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/fault/-/fault-1.0.4.tgz#eafcfc0a6d214fc94601e170df29954a4f842f13"
-  integrity sha512-CJ0HCB5tL5fYTEA7ToAq5+kTwd++Borf1/bifxd9iT70QcXr4MRrO3Llf8Ifs70q+SJcGHFtnIE/Nw6giCtECA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/fault/-/fault-1.0.4.tgz#eafcfc0a6d214fc94601e170df29954a4f842f13"
+  integrity sha1-6vz8Cm0hT8lGAeFw3ymVSk+ELxM=
   dependencies:
     format "^0.2.0"
 
@@ -7350,8 +7491,8 @@ global-dirs@^3.0.0:
 
 global-modules@2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/global-modules/-/global-modules-2.0.0.tgz#997605ad2345f27f51539bea26574421215c7780"
-  integrity sha512-NGbfmJBp9x8IxyJSd1P+otYK8vonoJactOogrVfFRIAEY1ukil8RSKDz2Yo7wh1oihl51l/r6W4epkeKJHqL8A==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/global-modules/-/global-modules-2.0.0.tgz#997605ad2345f27f51539bea26574421215c7780"
+  integrity sha1-mXYFrSNF8n9RU5vqJldEISFcd4A=
   dependencies:
     global-prefix "^3.0.0"
 
@@ -7679,8 +7820,8 @@ hastscript@^6.0.0:
 
 he@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
-  integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
+  integrity sha1-hK5l+n6vsWX922FWauFLrwVmTw8=
 
 highlight.js@^10.1.1, highlight.js@~10.7.0:
   version "10.7.3"
@@ -7727,8 +7868,8 @@ hpack.js@^2.1.6:
 
 html-entities@^1.2.0, html-entities@^1.2.1:
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.4.0.tgz#cfbd1b01d2afaf9adca1b10ae7dffab98c71d2dc"
-  integrity sha512-8nxjcBcd8wovbeKx7h3wTji4e6+rhaVuPNpMqwWgnHh+N9ToqsCs6XztWRBPQ+UtzsoMAdKZtUENoVzU/EMtZA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/html-entities/-/html-entities-1.4.0.tgz#cfbd1b01d2afaf9adca1b10ae7dffab98c71d2dc"
+  integrity sha1-z70bAdKvr5rcobEK59/6uYxx0tw=
 
 html-entities@^2.3.2:
   version "2.3.2"
@@ -8042,8 +8183,8 @@ internal-slot@^1.0.3:
 
 interpret@^1.0.0:
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
-  integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
+  integrity sha1-Zlq4vE2iendKQFhOgS4+D6RbGh4=
 
 interpret@^2.2.0:
   version "2.2.0"
@@ -8372,13 +8513,13 @@ is-object@^1.0.1:
 
 is-path-cwd@^2.2.0:
   version "2.2.0"
-  resolved "https://registry.yarnpkg.com/is-path-cwd/-/is-path-cwd-2.2.0.tgz#67d43b82664a7b5191fd9119127eb300048a9fdb"
-  integrity sha512-w942bTcih8fdJPJmQHFzkS76NEP8Kzzvmw92cXsazb8intwLqPibPPdXf4ANdKV3rYMuuQYGIWtvz9JilB3NFQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-path-cwd/-/is-path-cwd-2.2.0.tgz#67d43b82664a7b5191fd9119127eb300048a9fdb"
+  integrity sha1-Z9Q7gmZKe1GR/ZEZEn6zAASKn9s=
 
 is-path-inside@^3.0.2:
   version "3.0.3"
-  resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-3.0.3.tgz#d231362e53a07ff2b0e0ea7fed049161ffd16283"
-  integrity sha512-Fd4gABb+ycGAmKou8eMftCupSir5lRxqf4aD/vd0cD2qc4HL07OjCeuHMr8Ro4CoMaeCKDB0/ECBOVWjTwUvPQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-path-inside/-/is-path-inside-3.0.3.tgz#d231362e53a07ff2b0e0ea7fed049161ffd16283"
+  integrity sha1-0jE2LlOgf/Kw4Op/7QSRYf/RYoM=
 
 is-plain-obj@^1.1.0:
   version "1.1.0"
@@ -8691,8 +8832,8 @@ jest-util@^27.0.6:
 
 jest-worker@^26.5.0, jest-worker@^26.6.2:
   version "26.6.2"
-  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.6.2.tgz#7f72cbc4d643c365e27b9fd775f9d0eaa9c7a8ed"
-  integrity sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jest-worker/-/jest-worker-26.6.2.tgz#7f72cbc4d643c365e27b9fd775f9d0eaa9c7a8ed"
+  integrity sha1-f3LLxNZDw2Xie5/XdfnQ6qnHqO0=
   dependencies:
     "@types/node" "*"
     merge-stream "^2.0.0"
@@ -8714,8 +8855,8 @@ joycon@^3.0.1:
 
 js-base64@^2.1.8:
   version "2.6.4"
-  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.6.4.tgz#f4e686c5de1ea1f867dbcad3d46d969428df98c4"
-  integrity sha512-pZe//GGmwJndub7ZghVHz7vjb2LgC1m8B07Au3eYqeqv9emhESByMXxaEgkUkEqJe87oBbSniGYoQNIBklc7IQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/js-base64/-/js-base64-2.6.4.tgz#f4e686c5de1ea1f867dbcad3d46d969428df98c4"
+  integrity sha1-9OaGxd4eofhn28rT1G2WlCjfmMQ=
 
 js-string-escape@^1.0.1:
   version "1.0.1"
@@ -9073,7 +9214,7 @@ lodash.truncate@^4.4.2:
 
 lodash.uniq@4.5.0:
   version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
 lodash@^4.0.0, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@~4.17.10:
@@ -9255,7 +9396,7 @@ mdn-data@2.0.4:
 
 mdurl@^1.0.0:
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
 
 media-typer@0.3.0:
@@ -9577,8 +9718,8 @@ ms@2.1.2:
 
 ms@^2.1.1:
   version "2.1.3"
-  resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
-  integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
+  integrity sha1-V0yBOM4dK1hh8LRFedut1gxmFbI=
 
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
@@ -9957,8 +10098,8 @@ object.pick@^1.3.0:
 
 object.values@^1.1.0:
   version "1.1.4"
-  resolved "https://registry.yarnpkg.com/object.values/-/object.values-1.1.4.tgz#0d273762833e816b693a637d30073e7051535b30"
-  integrity sha512-TnGo7j4XSnKQoK3MfvkzqKCi0nVe/D9I9IjwTNYdb/fxYHpjrluHVOgw0AF6jrRFGMPHdfuidR09tIDiIvnaSg==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/object.values/-/object.values-1.1.4.tgz#0d273762833e816b693a637d30073e7051535b30"
+  integrity sha1-DSc3YoM+gWtpOmN9MAc+cFFTWzA=
   dependencies:
     call-bind "^1.0.2"
     define-properties "^1.1.3"
@@ -10240,8 +10381,8 @@ parse-json@^5.0.0:
 
 parse5@^6.0.0:
   version "6.0.1"
-  resolved "https://registry.yarnpkg.com/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
-  integrity sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
+  integrity sha1-4aHAhcVps9wIMhGE8Zo5zCf3wws=
 
 parseurl@~1.3.2, parseurl@~1.3.3:
   version "1.3.3"
@@ -10405,8 +10546,8 @@ polished@^4.0.5:
 
 portfinder@^1.0.28:
   version "1.0.28"
-  resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"
-  integrity sha512-Se+2isanIcEqf2XMHjyUKskczxbPH7dQnlMjXX6+dybayyHvAf/TCgyMRlzf/B6QDhAEFOGes0pzRo3by4AbMA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/portfinder/-/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"
+  integrity sha1-Z8RiKFK9U3TdHdkA93n1NGL6x3g=
   dependencies:
     async "^2.6.2"
     debug "^3.1.1"
@@ -10554,8 +10695,8 @@ prettier@~2.2.1:
 
 pretty-error@^2.1.1:
   version "2.1.2"
-  resolved "https://registry.yarnpkg.com/pretty-error/-/pretty-error-2.1.2.tgz#be89f82d81b1c86ec8fdfbc385045882727f93b6"
-  integrity sha512-EY5oDzmsX5wvuynAByrmY0P0hcp+QpnAKbJng2A2MPjVKXCxrDSUkzghVJ4ZGPIv+JC4gX8fPUWscC0RtjsWGw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/pretty-error/-/pretty-error-2.1.2.tgz#be89f82d81b1c86ec8fdfbc385045882727f93b6"
+  integrity sha1-von4LYGxyG7I/fvDhQRYgnJ/k7Y=
   dependencies:
     lodash "^4.17.20"
     renderkid "^2.0.4"
@@ -10646,8 +10787,8 @@ prompts@2.4.0:
 
 prompts@^2.4.0:
   version "2.4.1"
-  resolved "https://registry.yarnpkg.com/prompts/-/prompts-2.4.1.tgz#befd3b1195ba052f9fd2fde8a486c4e82ee77f61"
-  integrity sha512-EQyfIuO2hPDsX1L/blblV+H7I0knhgAd82cVneCwcdND9B8AuCDuRcBH6yIcG4dFzlOUqbazQqwGjx5xmsNLuQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/prompts/-/prompts-2.4.1.tgz#befd3b1195ba052f9fd2fde8a486c4e82ee77f61"
+  integrity sha1-vv07EZW6BS+f0v3opIbE6C7nf2E=
   dependencies:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
@@ -10858,8 +10999,8 @@ raw-loader@^4.0.2:
 
 rc@^1.2.8:
   version "1.2.8"
-  resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
-  integrity sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
+  integrity sha1-zZJL9SAKB1uDwYjNa54hG3/A0+0=
   dependencies:
     deep-extend "^0.6.0"
     ini "~1.3.0"
@@ -10996,8 +11137,8 @@ react-is@^16.7.0, react-is@^16.8.1:
 
 react-is@^17.0.2:
   version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
-  integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
+  integrity sha1-5pHUqOnHiTZWVVOas3J2Kw77VPA=
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
@@ -11065,11 +11206,6 @@ react-syntax-highlighter@^13.5.3:
     lowlight "^1.14.0"
     prismjs "^1.21.0"
     refractor "^3.1.0"
-
-react-table@^7.7.0:
-  version "7.7.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-table/-/react-table-7.7.0.tgz#e2ce14d7fe3a559f7444e9ecfe8231ea8373f912"
-  integrity sha1-4s4U1/46VZ90ROns/oIx6oNz+RI=
 
 react-textarea-autosize@^8.3.0:
   version "8.3.3"
@@ -11318,7 +11454,7 @@ regjsparser@^0.6.4:
 
 relateurl@^0.2.7:
   version "0.2.7"
-  resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
 remark-external-links@^8.0.0:
@@ -11713,8 +11849,8 @@ select-hose@^2.0.0:
 
 selfsigned@^1.10.11:
   version "1.10.11"
-  resolved "https://registry.yarnpkg.com/selfsigned/-/selfsigned-1.10.11.tgz#24929cd906fe0f44b6d01fb23999a739537acbe9"
-  integrity sha512-aVmbPOfViZqOZPgRBT0+3u4yZFHpmnIghLMlAcb5/xhp5ZtB/RVnKhz5vl2M32CLXAqR4kha9zfhNg0Lf/sxKA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/selfsigned/-/selfsigned-1.10.11.tgz#24929cd906fe0f44b6d01fb23999a739537acbe9"
+  integrity sha1-JJKc2Qb+D0S20B+yOZmnOVN6y+k=
   dependencies:
     node-forge "^0.10.0"
 
@@ -11868,8 +12004,8 @@ shallow-clone@^3.0.0:
 
 shallowequal@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
-  integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
+  integrity sha1-GI1SHelbkIdAT9TctosT3wrk5/g=
 
 shebang-command@^1.2.0:
   version "1.2.0"
@@ -12221,12 +12357,12 @@ storybook-addon-themes@^6.1.0:
     global "^4.4.0"
     memoizerific "^1.11.3"
 
-storybook-addon-turbo-build@^1.0.0-beta.0:
-  version "1.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/storybook-addon-turbo-build/-/storybook-addon-turbo-build-1.0.0-beta.0.tgz#4498c9e7d743ad3b167e8021d0023d9c91609058"
-  integrity sha512-mUqs41D+3+4IlburEQEPgXOZCwRgDMd8yEFvYD6qP1LVFQBH49FVr5aATQ6edSdKx3KnR6vE7XFAKVHymyaE/Q==
+storybook-addon-turbo-build@^1.0.1:
+  version "1.0.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/storybook-addon-turbo-build/-/storybook-addon-turbo-build-1.0.1.tgz#e1cd8ec41c5f6539885bdb3ee904dd752b90a688"
+  integrity sha1-4c2OxBxfZTmIW9s+6QTddSuQpog=
   dependencies:
-    esbuild-loader "^2.9.1"
+    esbuild-loader "^2.10.0"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
@@ -12271,8 +12407,8 @@ string-width@^1.0.1:
 
 "string-width@^1.0.2 || 2":
   version "2.1.1"
-  resolved "https://registry.yarnpkg.com/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
-  integrity sha512-nOqH59deCq9SRHlxq1Aw85Jnt4w6KvLKqWVik6oA9ZklXLNIOlqg4F2yrT1MVaTjAqvVwdfeZ7w7aCvJD7ugkw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
+  integrity sha1-q5Pyeo3BPSjKyBXEYhQ6bZASrp4=
   dependencies:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^4.0.0"
@@ -12297,8 +12433,8 @@ string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0:
 
 "string.prototype.matchall@^4.0.0 || ^3.0.1":
   version "4.0.5"
-  resolved "https://registry.yarnpkg.com/string.prototype.matchall/-/string.prototype.matchall-4.0.5.tgz#59370644e1db7e4c0c045277690cf7b01203c4da"
-  integrity sha512-Z5ZaXO0svs0M2xd/6By3qpeKpLKd9mO4v4q3oMEQrk8Ck4xOD5d5XeBOOjGrmVZZ/AHB1S0CgG4N5r1G9N3E2Q==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/string.prototype.matchall/-/string.prototype.matchall-4.0.5.tgz#59370644e1db7e4c0c045277690cf7b01203c4da"
+  integrity sha1-WTcGROHbfkwMBFJ3aQz3sBIDxNo=
   dependencies:
     call-bind "^1.0.2"
     define-properties "^1.1.3"
@@ -12807,8 +12943,8 @@ ts-pnp@^1.1.6:
 
 tslib@^1.8.1:
   version "1.14.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
-  integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+  integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
 
 tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3:
   version "2.3.0"
@@ -12873,10 +13009,10 @@ type-fest@^0.8.1:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
 
-type-fest@^1.0.1:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-1.3.0.tgz#6be848243853df1173fa95530112e1358ab0810b"
-  integrity sha512-mYUYkAy6fPatVWtUeCV/qGeGL3IVucmdJOzeAEfwgCJDx8gP0JaW8jn6KQ5xDfPec31e0KXWn5EUOZMhquR1zA==
+type-fest@^1.4.0:
+  version "1.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/type-fest/-/type-fest-1.4.0.tgz#e9fb813fe3bf1744ec359d55d1affefa76f14be1"
+  integrity sha1-6fuBP+O/F0TsNZ1V0a/++nbxS+E=
 
 type-is@~1.6.17, type-is@~1.6.18:
   version "1.6.18"
@@ -13435,8 +13571,8 @@ webpack-config-single-spa@4.0.0:
 
 webpack-dev-middleware@^3.7.3:
   version "3.7.3"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.7.3.tgz#0639372b143262e2b84ab95d3b91a7597061c2c5"
-  integrity sha512-djelc/zGiz9nZj/U7PTBi2ViorGJXEWo/3ltkPbDyxCXhhEXkW0ce99falaok4TPj+AsxLiXJR0EBOb0zh9fKQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack-dev-middleware/-/webpack-dev-middleware-3.7.3.tgz#0639372b143262e2b84ab95d3b91a7597061c2c5"
+  integrity sha1-Bjk3KxQyYuK4SrldO5GnWXBhwsU=
   dependencies:
     memory-fs "^0.4.1"
     mime "^2.4.4"
@@ -13566,8 +13702,8 @@ webpack-virtual-modules@^0.4.1:
 
 webpack@4:
   version "4.46.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.46.0.tgz#bf9b4404ea20a073605e0a011d188d77cb6ad542"
-  integrity sha512-6jJuJjg8znb/xRItk7bkT0+Q7AHCYjjFnvKIWQPkNIOyRqoCGvkOs0ipeQzrqz4l5FtN5ZI/ukEHroeX/o1/5Q==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack/-/webpack-4.46.0.tgz#bf9b4404ea20a073605e0a011d188d77cb6ad542"
+  integrity sha1-v5tEBOogoHNgXgoBHRiNd8tq1UI=
   dependencies:
     "@webassemblyjs/ast" "1.9.0"
     "@webassemblyjs/helper-module-context" "1.9.0"
@@ -13738,8 +13874,8 @@ wrappy@1:
 
 write-file-atomic@^2.3.0:
   version "2.4.3"
-  resolved "https://registry.yarnpkg.com/write-file-atomic/-/write-file-atomic-2.4.3.tgz#1fd2e9ae1df3e75b8d8c367443c692d4ca81f481"
-  integrity sha512-GaETH5wwsX+GcnzhPgKcKjJ6M2Cq3/iZp1WyY/X1CSqrW+jVNM9Y7D8EC2sM4ZG/V8wZlSniJnCKWPmBYAucRQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/write-file-atomic/-/write-file-atomic-2.4.3.tgz#1fd2e9ae1df3e75b8d8c367443c692d4ca81f481"
+  integrity sha1-H9Lprh3z51uNjDZ0Q8aS1MqB9IE=
   dependencies:
     graceful-fs "^4.1.11"
     imurmurhash "^0.1.4"
@@ -13757,8 +13893,8 @@ write-file-atomic@^3.0.0:
 
 ws@^6.1.0:
   version "6.2.2"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-6.2.2.tgz#dd5cdbd57a9979916097652d78f1cc5faea0c32e"
-  integrity sha512-zmhltoSR8u1cnDsD43TX59mzoMZsLKqUweyYBAIvTngR3shc0W6aOZylZmq/7hqyVxPdi+5Ud2QInblgyE72fw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ws/-/ws-6.2.2.tgz#dd5cdbd57a9979916097652d78f1cc5faea0c32e"
+  integrity sha1-3Vzb1XqZeZFgl2UtePHMX66gwy4=
   dependencies:
     async-limiter "~1.0.0"
 

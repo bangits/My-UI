@@ -1,4 +1,4 @@
-import { boolean, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import Checkbox from './Checkbox';
 
@@ -8,4 +8,4 @@ export default {
   title: 'components/Checkbox and Radio Button/Checkbox'
 } as ComponentMeta<typeof Checkbox>;
 
-export const Default = () => <Checkbox defaultChecked disabled={boolean('disabled', false)} />;
+export const Default = () => <Checkbox defaultChecked />;

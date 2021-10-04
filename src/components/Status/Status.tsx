@@ -1,15 +1,17 @@
-import { IComponent } from '@/types/props';
 import classNames from 'classnames';
 import React, { FC } from 'react';
+import styles from './Status.module.scss';
 
-export interface StatusProps extends IComponent {
+export interface StatusProps {
   variant?: 'active' | 'blocked';
 }
 
-const Status: FC<StatusProps> = ({ children, variant, className }) => {
+const Status: FC<StatusProps> = ({ children, variant = 'active' }) => {
   return (
     <>
-      <div className={classNames(`${variant}--status`)}>{children}</div>
+      <div className={classNames(styles.Status, styles[`Status--${variant}`])}>
+        <span></span> {children}
+      </div>
     </>
   );
 };

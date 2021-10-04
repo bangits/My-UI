@@ -12,7 +12,7 @@
     "storybook": "start-storybook -p 6006",
     "start-app": "docker-compose up --build",
     "kill-app": "docker-compose down",
-    "pre-commit": "yarn lint && yarn format",
+    "pre-commit": "yarn lint && yarn format && git add .",
     "pre-push": "yarn format"
   },
   "devDependencies": {
@@ -36,8 +36,10 @@
     "@storybook/manager-webpack5": "^6.3.6",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.3.6",
+    "@svgr/webpack": "^5.5.0",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
+    "@types/react-table": "7.7.3",
     "@types/systemjs": "^6.1.0",
     "@types/webpack-env": "^1.16.0",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
@@ -63,6 +65,7 @@
     "style-loader": "^3.2.1",
     "ts-config-single-spa": "^2.0.1",
     "typescript": "^4.3.4",
+    "url-loader": "^4.1.1",
     "webpack": "^5.47.1",
     "webpack-cli": "^4.7.2",
     "webpack-config-single-spa-react": "^3.0.0",
@@ -77,6 +80,7 @@
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-table": "^7.7.0",
     "single-spa-react": "^4.2.0"
   }
 }

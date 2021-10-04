@@ -52,8 +52,8 @@ const configureSass = (isDevelopment = true) => [
 const configureAssets = () => {
   return [
     {
-      test: /\.svg$/,
-      use: ['@svgr/webpack', 'url-loader']
+      test: /\.react.svg$/,
+      use: ['@svgr/webpack', 'file-loader']
     }
   ];
 };

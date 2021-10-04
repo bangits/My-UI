@@ -79,6 +79,11 @@
           transform: translate(-50%);
           top: map-get($datepicker-sizes, datepicker-current--month);
           font-weight: 700;
+
+          &--hasYearDropdown,
+          &--hasMonthDropdown {
+            display: none;
+          }
         }
 
         /* here must be the styles of select year and select month */
@@ -97,6 +102,9 @@
               position: absolute;
               width: 100%;
               height: 100%;
+              left: 0;
+              top: 0;
+
               //Month
               .react-datepicker__month-option {
                 width: 4rem;
@@ -128,9 +136,7 @@
               }
 
               .react-datepicker__month-read-view--selected-month {
-                display: flex;
-                justify-content: center;
-                transform: translateY(2.2rem);
+                margin-right: 0.8rem;
               }
             }
           }
@@ -171,9 +177,6 @@
 
               .react-datepicker__year-read-view--selected-year {
                 //Selected Year
-                position: absolute;
-                top: 2.2rem;
-                right: 30%;
               }
             }
           }
@@ -183,6 +186,11 @@
         &__dropdown--scroll {
           /* -------------->>>>>>>>>>>>>>> Month Container Start <<<<<<<<<<<<<<<-------------- */
 
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 2.2rem;
+          font-weight: 700;
           /* Select Month styles month dropdown scroll container */
           .react-datepicker__month-dropdown-container--scroll {
             //Month dropdown
@@ -226,6 +234,9 @@
               position: absolute;
               width: 100%;
               height: 100%;
+              left: 0;
+              top: 0;
+
               //Years
               .react-datepicker__year-option {
                 width: 4rem;

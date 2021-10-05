@@ -8,16 +8,22 @@ export interface DatepickerProps extends ReactDatePickerProps {
   withDropdowns?: boolean;
 }
 
-const DatePicker: React.FC<DatepickerProps> = ({ placeholderText, withDropdowns , showMonthDropdown,showYearDropdown, useShortMonthInDropdown,...datePickerProps }) => {
-  
+const DatePicker: React.FC<DatepickerProps> = ({
+  placeholderText,
+  withDropdowns,
+  showMonthDropdown,
+  showYearDropdown,
+  useShortMonthInDropdown,
+  ...datePickerProps
+}) => {
   return (
     <>
       <ReactDatePicker
         customInput={<DatePickerInput placeholderText={placeholderText} />}
         wrapperClassName={styles.DatePicker}
-        popperClassName={classNames(styles.DatePicker, {[styles['DatePicker-withDropdowns']]: withDropdowns})}
+        popperClassName={classNames(styles.DatePicker, { [styles['DatePicker-withDropdowns']]: withDropdowns })}
         showYearDropdown={withDropdowns ? true : false}
-        showMonthDropdown={withDropdowns ? true : false }
+        showMonthDropdown={withDropdowns ? true : false}
         useShortMonthInDropdown={withDropdowns ? true : false}
         {...datePickerProps}
       />

@@ -1,8 +1,8 @@
+import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
 import React from 'react';
-import { UIColors } from '../../../types/ui';
 import styles from './Checkbox.module.scss';
-export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends IComponent, React.InputHTMLAttributes<HTMLInputElement> {
   color?: UIColors;
 }
 

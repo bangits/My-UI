@@ -1,0 +1,4 @@
+// Function for getting color from colors map
+@function typography-sizes($sizeName) {
+  @return map-get($typography-sizes, $sizeName);
+}

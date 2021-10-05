@@ -246,9 +246,32 @@
         @include theme(border, datepicker-input-border--#{$color}, solid 0.1rem);
       }
 
-      &__day {
-        &--outside-month {
-          @include theme(color, datepicker-text-color--#{$color});
+      &__month {
+        .react-datepicker__week.react-datepicker__week {
+          display: flex;
+
+          .react-datepicker__day {
+            width: map-get($datepicker-sizes, datepicker-dayWidth);
+            height: map-get($datepicker-sizes, datepicker-dayHeight);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      // Theming
+      @each $color in $base-colors {
+        &__day-name {
+          @include theme(color, datepicker-day-color--#{$color});
+        }
+
+        &__current-month {
+          @include theme(color, datepicker-current-day--#{$color});
         }
 
         &--in-range,

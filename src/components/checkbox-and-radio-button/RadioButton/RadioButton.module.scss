@@ -51,7 +51,6 @@
     -webkit-transform: scale(1);
     transform: scale(1);
   }
-
 }
 
 .RadioButtonActive {
@@ -61,11 +60,10 @@
   }
 }
 
-
-.RadioButtonDisabled{
+.RadioButtonDisabled {
   input:checked + label:after,
   input:not(:checked) + label:after {
     background: #505d6e;
-    opacity:0.4;
+    opacity: 0.4;
   }
 }

@@ -1,3 +1,4 @@
+import { typedMemo } from '@/helpers/typedMemo';
 import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
 import React from 'react';
@@ -41,4 +42,4 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
   }
 );
 
-export default RadioButton;
+export default typedMemo(RadioButton);

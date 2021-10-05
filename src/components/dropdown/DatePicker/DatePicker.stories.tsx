@@ -22,7 +22,6 @@ export const Default = () => {
         selected={date}
         withDropdowns={boolean('withDropdowns', true)}
         disabled={boolean('disabled', false)}
-        
       />
 
       <h1> </h1>

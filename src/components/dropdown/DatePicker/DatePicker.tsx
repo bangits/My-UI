@@ -1,6 +1,6 @@
 import ReactDatePicker, { ReactDatePickerProps } from '@em/react-datepicker';
 import classNames from 'classnames';
-import React from 'react';
+import React, { useCallback } from 'react';
 import styles from './DatePicker.module.scss';
 import DatePickerInput from './DatePickerInput';
 
@@ -17,11 +17,13 @@ const DatePicker: React.FC<DatepickerProps> = ({
   monthsShown,
   ...datePickerProps
 }) => {
+  const formatWDay = useCallback((nameOfDay) => nameOfDay.substr(0, 3), []);
+
   return (
     <>
       <ReactDatePicker
         customInput={<DatePickerInput placeholderText={placeholderText} />}
-        formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
+        formatWeekDay={formatWDay}
         wrapperClassName={styles.DatePicker}
         popperClassName={classNames(styles.DatePicker, {
           [styles['DatePicker--withDropdowns']]: withDropdowns,

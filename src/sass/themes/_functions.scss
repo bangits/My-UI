@@ -1,11 +1,8 @@
+@import './colors';
+
 // Function for getting color from colors map
 @function color($colorName) {
   @return map-get($colors, $colorName);
-}
-
-// Function for getting color from colors map
-@function typography-sizes($sizeName) {
-  @return map-get($typography-sizes, $sizeName);
 }
 
 // Function for checking is theme value exists

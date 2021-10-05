@@ -1,0 +1,16 @@
+$base-button-sizes: (
+  font-size: 1.6rem,
+  height: 3.8rem,
+  padding: 0.8rem 4.2rem 0.9rem,
+  border-radius: 0.4rem,
+  icon-margin: 1rem
+);
+
+$button-colors: (
+  button-bg--primary: color(downy),
+  button-color--primary: color(white),
+  button-hover-bg--primary: color(pelorous),
+  button-active-bg--primary: color(riptide),
+  button-ghost-hover--primary: color(transparent-downy),
+  button-ghost-bg: transparent
+);

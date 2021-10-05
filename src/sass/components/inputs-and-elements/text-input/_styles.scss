@@ -1,0 +1,116 @@
+@mixin generate-text-input-styles {
+  .TextInputWrapper {
+    width: map-get($base-text-field-sizes, width);
+
+    position: relative;
+
+    &--full-width,
+    & .TextInputBase {
+      width: 100%;
+    }
+
+    .Explanation {
+      display: block;
+
+      margin-top: map-get($base-text-field-sizes, explanation-margin);
+
+      @include theme(color, input-color);
+    }
+
+    @each $state in $input-states {
+      &--#{$state} {
+        .TextInputBase {
+          @include theme(background-color, input-hover-bg);
+
+          &,
+          &:hover,
+          &:focus {
+            @include generateBorderWithBoxShadow(input-border-color--#{$state});
+            @include theme(color, input-color--#{$state});
+          }
+
+          &::placeholder {
+            @include theme(color, input-color--#{$state});
+          }
+
+          &:disabled,
+          &:disabled:hover {
+            box-shadow: none;
+
+            @include theme(color, input-color);
+            @include theme(background-color, input-bg-disabled);
+          }
+        }
+
+        .Explanation {
+          @include theme(color, input-color--#{$state});
+        }
+      }
+    }
+
+    &--disabled .Explanation {
+      @include theme(color, input-color);
+    }
+  }
+
+  .startIcon,
+  .endIcon {
+    position: absolute;
+    top: map-get($base-text-field-sizes, icon-margin);
+  }
+
+  .startIcon {
+    left: map-get($base-text-field-sizes, icon-margin);
+  }
+
+  .endIcon {
+    right: map-get($base-text-field-sizes, icon-margin);
+  }
+
+  .TextInputBase {
+    width: map-get($base-text-field-sizes, width);
+    padding: map-get($base-text-field-sizes, padding);
+
+    font-size: map-get($base-text-field-sizes, font-size);
+    border-radius: map-get($base-text-field-sizes, border-radius);
+
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+
+    @include theme(background-color, input-bg);
+    @include theme(color, input-color);
+
+    &::placeholder {
+      @include theme(color, input-placeholder-color);
+    }
+
+    &:hover,
+    &:focus {
+      @include theme(background-color, input-hover-bg);
+      @include generateBorderWithBoxShadow(input-hover-border-color);
+    }
+
+    &--filled,
+    &--filled:hover,
+    &--filled:focus {
+      @include theme(background-color, input-hover-bg);
+      @include generateBorderWithBoxShadow(input-filled-border-color);
+    }
+
+    &--start-icon {
+      padding-left: map-get($base-text-field-sizes, input-adornment);
+    }
+
+    &--end-icon {
+      padding-right: map-get($base-text-field-sizes, input-adornment);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      box-shadow: none;
+
+      @include theme(background-color, input-bg-disabled);
+    }
+  }
+}

@@ -17,9 +17,7 @@
         input {
           width: 100%;
           height: map-get($datepicker-sizes, input-height);
-
           outline: none;
-
           border-radius: map-get($datepicker-sizes, input-border-radius);
           padding-left: map-get($datepicker-sizes, input-container-padding);
         }
@@ -34,6 +32,7 @@
       &__day {
         &--today {
           font-weight: 700;
+          outline: none;
         }
 
         &--range-start,
@@ -55,16 +54,12 @@
           width: map-get($datepicker-sizes, datepicker-day--names);
           padding-top: map-get($datepicker-sizes, datepicker-day--namesPadding);
 
-          &::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-          }
-
           .react-datepicker__day-name {
             width: map-get($datepicker-sizes, datepicker-day--nameWidth);
             margin-bottom: map-get($datepicker-sizes, datepicker-day--nameMargin);
             padding-top: map-get($datepicker-sizes, datepicker-day--namePadding);
+            font-size: map-get($datepicker-sizes, datepicker-day--name);
+            text-transform: uppercase;
           }
         }
       }
@@ -84,6 +79,7 @@
           left: 50%;
           transform: translate(-50%);
           top: map-get($datepicker-sizes, datepicker-current--month);
+          font-weight: 700;
         }
       }
 
@@ -99,13 +95,13 @@
       }
 
       &__navigation--next {
-        background: url('../../icons/next.svg') no-repeat;
+        background: map-get($datepicker-icons, next) no-repeat;
         right: map-get($datepicker-sizes, datepicker-navigation--nextMargin);
       }
 
       &__navigation--previous {
-        background: url('../../icons/left-arrow.svg') no-repeat;
-        left: map-get($datepicker-sizes, datepicker-navigation--nextMargin);
+        background: map-get($datepicker-icons, prev) no-repeat;
+        left: map-get($datepicker-sizes, datepicker-navigation--leftMargin);
       }
 
       &__month {
@@ -127,11 +123,23 @@
 
       // Theming
       @each $color in $base-colors {
+        &__day-name {
+          @include theme(color, datepicker-day-color--#{$color});
+        }
+
+        &__current-month {
+          @include theme(color, datepicker-current-day--#{$color});
+        }
+
         &__input-container input {
           @include theme(border, datepicker-input-border--#{$color}, solid 0.1rem);
         }
 
         &__day {
+          &--outside-month {
+            @include theme(color, datepicker-text-color--#{$color});
+          }
+
           &--in-range,
           &--range-start,
           &--selecting-range-start,
@@ -151,24 +159,14 @@
             @include theme(background-color, datepicker-bg-color--#{$color});
             @include theme(color, datepicker-color--#{$color});
           }
-
-          &--outside-month {
-            @include theme(color, datepicker-text-color--#{$color});
-          }
-
-          &-names {
-            &::before {
-              @include theme(border, datepicker-dividers-color--#{$color}, solid 0.1rem);
-            }
-
-            .react-datepicker__day-name {
-              @include theme(color, datepicker-text-color--#{$color});
-            }
-          }
         }
 
         &__month-container {
-          @include theme(border, datepicker-dividers-color--#{$color}, solid 0.1rem);
+          @include theme(
+            box-shadow,
+            datepicker-box-shadow--#{$color},
+            map-get($datepicker-sizes, datepicker-box-shadow)
+          );
         }
 
         &__month {

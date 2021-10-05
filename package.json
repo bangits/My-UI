@@ -1,5 +1,5 @@
 {
-  "name": "@atom/design-system",
+  "name": "@my-ui/core",
   "scripts": {
     "start": "webpack serve --env development",
     "start-with-storybook": "yarn start && yarn storybook",

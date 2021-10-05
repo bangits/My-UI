@@ -20,6 +20,7 @@ export const Default = () => {
         peekNextMonth={true}
         onChange={(date: Date) => setDate(date)}
         selected={date}
+        withDropdowns
       />
 
       <h1> </h1>

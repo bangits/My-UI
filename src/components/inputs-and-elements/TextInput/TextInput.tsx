@@ -94,6 +94,7 @@ const TextInputs: FC<TextInputProps> = ({
           onChange={onInputChange}
         />
 
+        <span className={styles.TextInputLabel}>Text</span>
         {explanation && (
           <Typography className={styles.Explanation} variant='p4' component='span'>
             {explanation}

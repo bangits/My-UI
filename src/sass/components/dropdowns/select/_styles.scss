@@ -1,0 +1,73 @@
+@mixin generate-select-styles {
+  :global {
+    width: 28rem;
+    height: 3.8rem;
+    border: solid 1px #00194c;
+    border-radius: 0.35rem;
+    position: relative;
+
+    .react-select {
+      &__placeholder {
+        color: #00194c;
+        font-size: 1.4rem;
+        margin-left: 1.6rem;
+      }
+      &__control {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      &__indicator {
+        color: #00194c;
+        margin: 1rem 1.2rem 2rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      &__single-value {
+        font-size: 1.4rem;
+        margin: 0rem 1.6rem 0.9rem;
+      }
+      &__menu-list {
+        border: solid 1px #86dde2;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        position: absolute;
+        top: 6.9rem;
+        width: 28rem;
+      }
+
+      &__option {
+        padding: 22px 235.6px 21.3px 17.6px;
+        border-bottom: solid 1px #86dde2;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+      }
+      &__value-container {
+        display: flex;
+        position: absolute;
+        top: 0;
+        margin: 10px 5px 10px 10px;
+      }
+      &__multi-value {
+        margin-left: 5px;
+        font-size: 1.4rem;
+        background: gray;
+        display: flex;
+      }
+
+      &__menu-notice {
+        padding: 22px 235.6px 21.3px 17.6px;
+        width: 100%;
+        font-size: 1.4rem;
+      }
+
+      &__input {
+        font-size: 1.4rem !important;
+      }
+    }
+  }
+}

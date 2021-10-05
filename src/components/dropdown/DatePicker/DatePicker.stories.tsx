@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useState } from 'react';
 import DatePicker from './DatePicker';
@@ -17,10 +17,11 @@ export const Default = () => {
     <>
       <DatePicker
         placeholderText='dd/mm/yyyy Without Range'
-        peekNextMonth={true}
+        dateFormat={'dd/MM/yyyy'}
         onChange={(date: Date) => setDate(date)}
         selected={date}
-        withDropdowns
+        withDropdowns={boolean('withDropdowns', true)}
+        disabled={boolean('disabled', false)}
       />
 
       <h1> </h1>
@@ -28,10 +29,12 @@ export const Default = () => {
       <DatePicker
         selectsRange
         placeholderText='dd/mm/yyyy'
+        dateFormat={'dd/MM/yyyy'}
         startDate={dateRange[0]}
         endDate={dateRange[1]}
-        peekNextMonth={true}
         onChange={(range: [Date, Date]) => setDateRange(range)}
+        withDropdowns={boolean('withDropdowns', true)}
+        disabled={boolean('disabled', false)}
       />
     </>
   );
@@ -42,13 +45,15 @@ export const WithTwoMonth = () => {
 
   return (
     <DatePicker
+      dateFormat={'dd/MM/yyyy'}
       selectsRange
       placeholderText='dd/mm/yyyy'
       startDate={dateRange[0]}
       endDate={dateRange[1]}
-      peekNextMonth={true}
       monthsShown={2}
       onChange={(range: [Date, Date]) => setDateRange(range)}
+      withDropdowns={boolean('withDropdowns', true)}
+      disabled={boolean('disabled', false)}
     />
   );
 };

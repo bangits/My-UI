@@ -296,6 +296,7 @@
       &__month {
         .react-datepicker__week.react-datepicker__week {
           display: flex;
+
           .react-datepicker__day {
             width: map-get($datepicker-sizes, datepicker-dayWidth);
             height: map-get($datepicker-sizes, datepicker-dayHeight);

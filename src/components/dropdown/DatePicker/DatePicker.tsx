@@ -14,17 +14,23 @@ const DatePicker: React.FC<DatepickerProps> = ({
   showMonthDropdown,
   showYearDropdown,
   useShortMonthInDropdown,
+  monthsShown,
   ...datePickerProps
 }) => {
   return (
     <>
       <ReactDatePicker
         customInput={<DatePickerInput placeholderText={placeholderText} />}
+        formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
         wrapperClassName={styles.DatePicker}
-        popperClassName={classNames(styles.DatePicker, { [styles['DatePicker--withDropdowns']]: withDropdowns })}
-        showYearDropdown={withDropdowns ? true : false}
-        showMonthDropdown={withDropdowns ? true : false}
-        useShortMonthInDropdown={withDropdowns ? true : false}
+        popperClassName={classNames(styles.DatePicker, {
+          [styles['DatePicker--withDropdowns']]: withDropdowns,
+          [styles['DatePicker-outside-days--hidden']]: monthsShown
+        })}
+        monthsShown={monthsShown}
+        showYearDropdown={withDropdowns}
+        showMonthDropdown={withDropdowns}
+        useShortMonthInDropdown={withDropdowns}
         {...datePickerProps}
       />
     </>

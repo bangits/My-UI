@@ -6,8 +6,8 @@ const { configureSharedWebpack } = require('./webpack.shared');
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
     argv,
-    orgName: 'atom',
-    projectName: 'design-system',
+    orgName: 'my-ui',
+    projectName: 'core',
     webpackConfigEnv
   });
 

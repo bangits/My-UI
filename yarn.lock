@@ -5699,7 +5699,7 @@ css-loader@^3.6.0:
     schema-utils "^2.7.0"
     semver "^6.3.0"
 
-css-loader@^5.0.1, css-loader@^5.2.6:
+css-loader@^5.0.1, css-loader@^5.2.6, css-loader@^5.2.7:
   version "5.2.7"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-5.2.7.tgz#9b9f111edf6fb2be5dc62525644cbc9c232064ae"
   integrity sha512-Q7mOvpBNBG7YrVGMxRxcBJZFL75o+cH2abNASdibkj/fffYD8qWbInZrD0S9ccI6vZclF3DsHE7njGlLtaHbhg==
@@ -7169,6 +7169,25 @@ fork-ts-checker-webpack-plugin@^6.0.4, fork-ts-checker-webpack-plugin@^6.2.12:
   version "6.2.13"
   resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-6.2.13.tgz#ee90a21c36d794eca481991a4233bbed6dc703d5"
   integrity sha512-+j/DfwevcZeSXn5WOv32c/shbcbhcKi88asC2A4TDPtURS3MW/qXiVucGiL1PXdt9PCGB88R3BfaSWZ1C/XGHA==
+  dependencies:
+    "@babel/code-frame" "^7.8.3"
+    "@types/json-schema" "^7.0.5"
+    chalk "^4.1.0"
+    chokidar "^3.4.2"
+    cosmiconfig "^6.0.0"
+    deepmerge "^4.2.2"
+    fs-extra "^9.0.0"
+    glob "^7.1.6"
+    memfs "^3.1.2"
+    minimatch "^3.0.4"
+    schema-utils "2.7.0"
+    semver "^7.3.2"
+    tapable "^1.0.0"
+
+fork-ts-checker-webpack-plugin@^6.3.2:
+  version "6.3.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-6.3.3.tgz#73a9d8e1dc5821fa19a3daedc8be7568b095c8ab"
+  integrity sha1-c6nY4dxYIfoZo9rtyL51aLCVyKs=
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@types/json-schema" "^7.0.5"
@@ -12311,6 +12330,11 @@ standalone-single-spa-webpack-plugin@^2.0.2:
   resolved "https://registry.yarnpkg.com/standalone-single-spa-webpack-plugin/-/standalone-single-spa-webpack-plugin-2.0.2.tgz#843d15e8eac926af4d279cf986680f8867491679"
   integrity sha512-TONJ+OT1fJr2rD4ukJqf0Is9qwomhVXeXHGQnMqS79ToXYIfHJtFo65gLsmOU16bdlcSBvydnCaI6EFlw+wm8g==
 
+standalone-single-spa-webpack-plugin@^3.0.0:
+  version "3.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/standalone-single-spa-webpack-plugin/-/standalone-single-spa-webpack-plugin-3.0.0.tgz#629267e4597b938f1f8c177108a909d4e51a9f50"
+  integrity sha1-YpJn5Fl7k48fjBdxCKkJ1OUan1A=
+
 state-toggle@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/state-toggle/-/state-toggle-1.0.3.tgz#e123b16a88e143139b09c6852221bc9815917dfe"
@@ -13539,22 +13563,39 @@ webpack-cli@^4.7.2:
     v8-compile-cache "^2.2.0"
     webpack-merge "^5.7.3"
 
-webpack-config-single-spa-react-ts@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/webpack-config-single-spa-react-ts/-/webpack-config-single-spa-react-ts-3.0.0.tgz#247e7c6c01edf7c8fc043c8d3d7f67d6e8845f8a"
-  integrity sha512-W0J9ytcmKHneW62XWASpEJUI/moLOTagU3uALS56Hxs7VuT4XuMkNO2+l8NswtVnaXl9PDarjG8jYQ9SEV58Pg==
+webpack-config-single-spa-react-ts@^4.0.2:
+  version "4.0.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack-config-single-spa-react-ts/-/webpack-config-single-spa-react-ts-4.0.2.tgz#cba7fdc4083366aec14f99c81d040d41939df597"
+  integrity sha1-y6f9xAgzZq7BT5nIHQQNQZOd9Zc=
   dependencies:
-    webpack-config-single-spa-react "3.0.0"
-    webpack-config-single-spa-ts "3.0.0"
+    webpack-config-single-spa-react "4.0.2"
+    webpack-config-single-spa-ts "4.1.1"
 
-webpack-config-single-spa-react@3.0.0, webpack-config-single-spa-react@^3.0.0:
+webpack-config-single-spa-react@4.0.2:
+  version "4.0.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack-config-single-spa-react/-/webpack-config-single-spa-react-4.0.2.tgz#6853b08e5640780f82fc6b8163b0bee7ecf07e5a"
+  integrity sha1-aFOwjlZAeA+C/GuBY7C+5+zwflo=
+  dependencies:
+    webpack-config-single-spa "5.1.1"
+
+webpack-config-single-spa-react@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/webpack-config-single-spa-react/-/webpack-config-single-spa-react-3.0.0.tgz#81123db6a3df970f3b4edfad6fef741f4dc8b90c"
   integrity sha512-OtIe+ot0qlD5C7j9rx3/3XZYT1H40nmEYjsu9gA9dq9/qABWImmxUsMpl4/uy8znRjBsuzGhkdSKlTIysg88TQ==
   dependencies:
     webpack-config-single-spa "4.0.0"
 
-webpack-config-single-spa-ts@3.0.0, webpack-config-single-spa-ts@^3.0.0:
+webpack-config-single-spa-ts@4.1.1:
+  version "4.1.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack-config-single-spa-ts/-/webpack-config-single-spa-ts-4.1.1.tgz#b36228b286b2024978a7a69e9d572761d1a6979f"
+  integrity sha1-s2IosoayAkl4p6aenVcnYdGml58=
+  dependencies:
+    fork-ts-checker-webpack-plugin "^6.3.2"
+    typescript "^4.1.2"
+    webpack-config-single-spa "5.1.1"
+    webpack-merge "^5.8.0"
+
+webpack-config-single-spa-ts@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/webpack-config-single-spa-ts/-/webpack-config-single-spa-ts-3.0.0.tgz#32cdf678847ed9ea0f2cfb4ba9e731b29c96122c"
   integrity sha512-OrJhamrIHpFE+2jRl4q6ebBFbnLtsQomto4MX/ZG68b8hTKm6Eqpn1DoeCJGuwQVKfVjzyG66lxIBVmTO+cr/Q==
@@ -13576,6 +13617,19 @@ webpack-config-single-spa@4.0.0:
     style-loader "^3.0.0"
     systemjs-webpack-interop "^2.3.7"
     unused-files-webpack-plugin "^3.4.0"
+    webpack-bundle-analyzer "^4.4.2"
+
+webpack-config-single-spa@5.1.1:
+  version "5.1.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack-config-single-spa/-/webpack-config-single-spa-5.1.1.tgz#e30882606ad7e8913a2367e0f392e4cd26e47072"
+  integrity sha1-4wiCYGrX6JE6I2fg85LkzSbkcHI=
+  dependencies:
+    babel-loader "^8.2.2"
+    css-loader "^5.2.7"
+    html-webpack-plugin "^5.3.2"
+    standalone-single-spa-webpack-plugin "^3.0.0"
+    style-loader "^3.2.1"
+    systemjs-webpack-interop "^2.3.7"
     webpack-bundle-analyzer "^4.4.2"
 
 webpack-dev-middleware@^3.7.3:

@@ -1,3 +1,4 @@
+import { typedMemo } from '@/helpers/typedMemo';
 import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
 import React from 'react';
@@ -17,4 +18,4 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({ color, ...
   );
 });
 
-export default Checkbox;
+export default typedMemo(Checkbox);

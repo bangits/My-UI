@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "atomaks-c716"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "atomaks-c716"
+  template:
+    metadata:
+      labels:
+        app: "atomaks-c716"
+    spec:
+      containers:
+        - name: "atomaks-c716"
+          image: "atomfrontcr.azurecr.io/atomaks"
+          ports:
+          - containerPort: 6006

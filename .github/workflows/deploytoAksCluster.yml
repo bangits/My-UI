@@ -27,7 +27,7 @@ jobs:
     - name: Build and push image to ACR
       id: build-image
       run: |
-        docker build "$GITHUB_WORKSPACE/docker/storybook" -f  "docker/storybook/Dockerfile" -t atomfrontcr.azurecr.io/atomaks:${{ github.sha }} --label dockerfile-path=docker/storybook/Dockerfile .
+        docker build "$GITHUB_WORKSPACE" -f  "docker/storybook/Dockerfile" -t atomfrontcr.azurecr.io/atomaks:${{ github.sha }} --label dockerfile-path=docker/storybook/Dockerfile
         docker push atomfrontcr.azurecr.io/atomaks:${{ github.sha }}
     
     - uses: azure/k8s-set-context@v1

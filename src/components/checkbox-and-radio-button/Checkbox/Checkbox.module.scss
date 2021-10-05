@@ -1,8 +1,10 @@
 .Checkbox {
+  width: 2.4rem;
+  height: 2.4rem;
   input {
     -webkit-appearance: none;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 1.6rem;
+    height: 1.6rem;
     border: 0.1rem solid rgba(43, 54, 116, 0.8);
     border-radius: 0.1rem;
     transform: translateY(0);
@@ -19,10 +21,11 @@
 
         position: absolute;
 
-        width: 1.5rem;
-        height: 2.4rem;
-        left: 0.3rem;
-        top: -0.2rem;
+        width: 0.91rem;
+        height: 0.63rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         background: url('../../../icons/check.svg') no-repeat;
         background-position: center;
       }
@@ -31,5 +34,18 @@
     &:disabled {
       opacity: 0.4;
     }
+  }
+}
+
+.CheckboxActive {
+  input {
+    border: 0.1rem solid #505d6e;
+  }
+}
+
+.CheckboxDisabled {
+  input {
+    border: 0.1rem solid #505d6e;
+    opacity: 0.4;
   }
 }

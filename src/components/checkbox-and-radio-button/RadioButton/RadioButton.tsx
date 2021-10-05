@@ -1,10 +1,11 @@
+import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
 import React from 'react';
-import { UIColors } from '../../../types/ui';
 import styles from './RadioButton.module.scss';
 import { Consumer } from './RadioContext';
 
-export interface RadioButtonProps extends React.InputHTMLAttributes<HTMLInputElement> {
+
+export interface RadioButtonProps extends IComponent , React.InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   color?: UIColors;
   value?: string;

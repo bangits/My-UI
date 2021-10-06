@@ -1,8 +1,8 @@
 .Checkbox {
   input {
     -webkit-appearance: none;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 1.6rem;
+    height: 1.6rem;
     border: 0.1rem solid rgba(43, 54, 116, 0.8);
     border-radius: 0.1rem;
     transform: translateY(0);
@@ -19,12 +19,14 @@
 
         position: absolute;
 
-        width: 1.5rem;
-        height: 2.4rem;
-        left: 0.3rem;
-        top: -0.2rem;
+        width: 0.91rem;
+        height: 0.67rem;
+        left: 0.253rem;
+        top: 0.39rem;
+
         background: url('../../../icons/check.svg') no-repeat;
         background-position: center;
+        background-size: cover;
       }
     }
 

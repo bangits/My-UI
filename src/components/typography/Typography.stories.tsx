@@ -1,8 +1,7 @@
-import TYPOGRAPHY_TYPES from './typography-types';
-import { action } from '@storybook/addon-actions';
 import { optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import Typography from './Typography';
+import TYPOGRAPHY_TYPES from './typography-types';
 
 export default {
   component: Typography,

@@ -1,12 +1,15 @@
 {
   "extends": "ts-config-single-spa",
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "dist",
+    "rootDir": "src",
+    "outDir": "dist",
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
       // This paths synchronized with webpack shared config
-      "@/*": ["*"],
-      "@atoms": ["components/atoms/index"]
+      "@/*": ["*"]
     }
   },
   "include": ["src/**/*", "node_modules/@types"],

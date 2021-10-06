@@ -1,0 +1,36 @@
+.Status {
+  width: 9rem;
+  height: 2.4rem;
+  border-radius: 1.6rem;
+  padding: 0.2rem 1.7rem 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+
+  span {
+    border-radius: 50%;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-right: 0.8rem;
+  }
+}
+
+.Status--blocked {
+  background-color: #ffe0e0;
+  color: #d30000;
+
+  span {
+    background-color: #d30000;
+  }
+}
+
+.Status--active {
+  background-color: rgba(0, 178, 30, 0.1);
+  color: #00b21e;
+
+  span {
+    background-color: #00b21e;
+  }
+}

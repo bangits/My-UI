@@ -1,5 +1,3 @@
-import { TypographyVariants } from './Typography';
-
 const TYPOGRAPHY_TYPES = {
   H1: 'h1',
   H2: 'h2',
@@ -11,6 +9,6 @@ const TYPOGRAPHY_TYPES = {
   P2: 'p2',
   P3: 'p3',
   P4: 'p4'
-} as { [key: string]: TypographyVariants };
+} as const;
 
 export default TYPOGRAPHY_TYPES;

@@ -28,6 +28,11 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.14.9.tgz#ac7996ceaafcf8f410119c8af0d1db4cf914a210"
   integrity sha512-p3QjZmMGHDGdpcwEYYWu7i7oJShJvtgMjJeb0W95PPhSm++3lm8YXYOh45Y6iCN9PkZLTZ7CIX5nFrp7pw7TXw==
 
+"@babel/compat-data@^7.15.0":
+  version "7.15.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/compat-data/-/compat-data-7.15.0.tgz#2dbaf8b85334796cafbb0f5793a90a2fc010b176"
+  integrity sha1-Lbr4uFM0eWyvuw9Xk6kKL8AQsXY=
+
 "@babel/core@7.12.9":
   version "7.12.9"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.12.9.tgz#fd450c4ec10cdbb980e2928b7aa7a28484593fc8"
@@ -71,6 +76,27 @@
     semver "^6.3.0"
     source-map "^0.5.0"
 
+"@babel/core@^7.12.3":
+  version "7.15.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/core/-/core-7.15.5.tgz#f8ed9ace730722544609f90c9bb49162dc3bf5b9"
+  integrity sha1-+O2aznMHIlRGCfkMm7SRYtw79bk=
+  dependencies:
+    "@babel/code-frame" "^7.14.5"
+    "@babel/generator" "^7.15.4"
+    "@babel/helper-compilation-targets" "^7.15.4"
+    "@babel/helper-module-transforms" "^7.15.4"
+    "@babel/helpers" "^7.15.4"
+    "@babel/parser" "^7.15.5"
+    "@babel/template" "^7.15.4"
+    "@babel/traverse" "^7.15.4"
+    "@babel/types" "^7.15.4"
+    convert-source-map "^1.7.0"
+    debug "^4.1.0"
+    gensync "^1.0.0-beta.2"
+    json5 "^2.1.2"
+    semver "^6.3.0"
+    source-map "^0.5.0"
+
 "@babel/eslint-parser@^7.14.7":
   version "7.14.9"
   resolved "https://registry.yarnpkg.com/@babel/eslint-parser/-/eslint-parser-7.14.9.tgz#b2cfaf67cc7f7a9b475d3ee9b166755ffd44e086"
@@ -89,12 +115,28 @@
     jsesc "^2.5.1"
     source-map "^0.5.0"
 
+"@babel/generator@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/generator/-/generator-7.15.4.tgz#85acb159a267ca6324f9793986991ee2022a05b0"
+  integrity sha1-hayxWaJnymMk+Xk5hpke4gIqBbA=
+  dependencies:
+    "@babel/types" "^7.15.4"
+    jsesc "^2.5.1"
+    source-map "^0.5.0"
+
 "@babel/helper-annotate-as-pure@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.14.5.tgz#7bf478ec3b71726d56a8ca5775b046fc29879e61"
   integrity sha512-EivH9EgBIb+G8ij1B2jAwSH36WnGvkQSEC6CkX/6v6ZFlw5fVOHvsgGF4uiEHO2GzMvunZb6tDLQEQSdrdocrA==
   dependencies:
     "@babel/types" "^7.14.5"
+
+"@babel/helper-annotate-as-pure@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.15.4.tgz#3d0e43b00c5e49fdb6c57e421601a7a658d5f835"
+  integrity sha1-PQ5DsAxeSf22xX5CFgGnpljV+DU=
+  dependencies:
+    "@babel/types" "^7.15.4"
 
 "@babel/helper-builder-binary-assignment-operator-visitor@^7.14.5":
   version "7.14.5"
@@ -114,6 +156,16 @@
     browserslist "^4.16.6"
     semver "^6.3.0"
 
+"@babel/helper-compilation-targets@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-compilation-targets/-/helper-compilation-targets-7.15.4.tgz#cf6d94f30fbefc139123e27dd6b02f65aeedb7b9"
+  integrity sha1-z22U8w++/BORI+J91rAvZa7tt7k=
+  dependencies:
+    "@babel/compat-data" "^7.15.0"
+    "@babel/helper-validator-option" "^7.14.5"
+    browserslist "^4.16.6"
+    semver "^6.3.0"
+
 "@babel/helper-create-class-features-plugin@^7.14.5", "@babel/helper-create-class-features-plugin@^7.14.6":
   version "7.14.8"
   resolved "https://registry.yarnpkg.com/@babel/helper-create-class-features-plugin/-/helper-create-class-features-plugin-7.14.8.tgz#a6f8c3de208b1e5629424a9a63567f56501955fc"
@@ -125,6 +177,18 @@
     "@babel/helper-optimise-call-expression" "^7.14.5"
     "@babel/helper-replace-supers" "^7.14.5"
     "@babel/helper-split-export-declaration" "^7.14.5"
+
+"@babel/helper-create-class-features-plugin@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-create-class-features-plugin/-/helper-create-class-features-plugin-7.15.4.tgz#7f977c17bd12a5fba363cb19bea090394bf37d2e"
+  integrity sha1-f5d8F70SpfujY8sZvqCQOUvzfS4=
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.15.4"
+    "@babel/helper-function-name" "^7.15.4"
+    "@babel/helper-member-expression-to-functions" "^7.15.4"
+    "@babel/helper-optimise-call-expression" "^7.15.4"
+    "@babel/helper-replace-supers" "^7.15.4"
+    "@babel/helper-split-export-declaration" "^7.15.4"
 
 "@babel/helper-create-regexp-features-plugin@^7.14.5":
   version "7.14.5"
@@ -178,12 +242,28 @@
     "@babel/template" "^7.14.5"
     "@babel/types" "^7.14.5"
 
+"@babel/helper-function-name@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-function-name/-/helper-function-name-7.15.4.tgz#845744dafc4381a4a5fb6afa6c3d36f98a787ebc"
+  integrity sha1-hFdE2vxDgaSl+2r6bD02+Yp4frw=
+  dependencies:
+    "@babel/helper-get-function-arity" "^7.15.4"
+    "@babel/template" "^7.15.4"
+    "@babel/types" "^7.15.4"
+
 "@babel/helper-get-function-arity@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-get-function-arity/-/helper-get-function-arity-7.14.5.tgz#25fbfa579b0937eee1f3b805ece4ce398c431815"
   integrity sha512-I1Db4Shst5lewOM4V+ZKJzQ0JGGaZ6VY1jYvMghRjqs6DWgxLCIyFt30GlnKkfUeFLpJt2vzbMVEXVSXlIFYUg==
   dependencies:
     "@babel/types" "^7.14.5"
+
+"@babel/helper-get-function-arity@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-get-function-arity/-/helper-get-function-arity-7.15.4.tgz#098818934a137fce78b536a3e015864be1e2879b"
+  integrity sha1-CYgYk0oTf854tTaj4BWGS+Hih5s=
+  dependencies:
+    "@babel/types" "^7.15.4"
 
 "@babel/helper-hoist-variables@^7.14.5":
   version "7.14.5"
@@ -192,6 +272,13 @@
   dependencies:
     "@babel/types" "^7.14.5"
 
+"@babel/helper-hoist-variables@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-hoist-variables/-/helper-hoist-variables-7.15.4.tgz#09993a3259c0e918f99d104261dfdfc033f178df"
+  integrity sha1-CZk6MlnA6Rj5nRBCYd/fwDPxeN8=
+  dependencies:
+    "@babel/types" "^7.15.4"
+
 "@babel/helper-member-expression-to-functions@^7.14.5", "@babel/helper-member-expression-to-functions@^7.14.7":
   version "7.14.7"
   resolved "https://registry.yarnpkg.com/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.14.7.tgz#97e56244beb94211fe277bd818e3a329c66f7970"
@@ -199,12 +286,26 @@
   dependencies:
     "@babel/types" "^7.14.5"
 
+"@babel/helper-member-expression-to-functions@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.15.4.tgz#bfd34dc9bba9824a4658b0317ec2fd571a51e6ef"
+  integrity sha1-v9NNybupgkpGWLAxfsL9VxpR5u8=
+  dependencies:
+    "@babel/types" "^7.15.4"
+
 "@babel/helper-module-imports@^7.0.0", "@babel/helper-module-imports@^7.12.13", "@babel/helper-module-imports@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-module-imports/-/helper-module-imports-7.14.5.tgz#6d1a44df6a38c957aa7c312da076429f11b422f3"
   integrity sha512-SwrNHu5QWS84XlHwGYPDtCxcA0hrSlL2yhWYLgeOc0w7ccOl2qv4s/nARI0aYZW+bSwAL5CukeXA47B/1NKcnQ==
   dependencies:
     "@babel/types" "^7.14.5"
+
+"@babel/helper-module-imports@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-module-imports/-/helper-module-imports-7.15.4.tgz#e18007d230632dea19b47853b984476e7b4e103f"
+  integrity sha1-4YAH0jBjLeoZtHhTuYRHbntOED8=
+  dependencies:
+    "@babel/types" "^7.15.4"
 
 "@babel/helper-module-transforms@^7.12.1", "@babel/helper-module-transforms@^7.14.5", "@babel/helper-module-transforms@^7.14.8":
   version "7.14.8"
@@ -220,12 +321,33 @@
     "@babel/traverse" "^7.14.8"
     "@babel/types" "^7.14.8"
 
+"@babel/helper-module-transforms@^7.15.4":
+  version "7.15.7"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-module-transforms/-/helper-module-transforms-7.15.7.tgz#7da80c8cbc1f02655d83f8b79d25866afe50d226"
+  integrity sha1-fagMjLwfAmVdg/i3nSWGav5Q0iY=
+  dependencies:
+    "@babel/helper-module-imports" "^7.15.4"
+    "@babel/helper-replace-supers" "^7.15.4"
+    "@babel/helper-simple-access" "^7.15.4"
+    "@babel/helper-split-export-declaration" "^7.15.4"
+    "@babel/helper-validator-identifier" "^7.15.7"
+    "@babel/template" "^7.15.4"
+    "@babel/traverse" "^7.15.4"
+    "@babel/types" "^7.15.6"
+
 "@babel/helper-optimise-call-expression@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-optimise-call-expression/-/helper-optimise-call-expression-7.14.5.tgz#f27395a8619e0665b3f0364cddb41c25d71b499c"
   integrity sha512-IqiLIrODUOdnPU9/F8ib1Fx2ohlgDhxnIDU7OEVi+kAbEZcyiF7BLU8W6PfvPi9LzztjS7kcbzbmL7oG8kD6VA==
   dependencies:
     "@babel/types" "^7.14.5"
+
+"@babel/helper-optimise-call-expression@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-optimise-call-expression/-/helper-optimise-call-expression-7.15.4.tgz#f310a5121a3b9cc52d9ab19122bd729822dee171"
+  integrity sha1-8xClEho7nMUtmrGRIr1ymCLe4XE=
+  dependencies:
+    "@babel/types" "^7.15.4"
 
 "@babel/helper-plugin-utils@7.10.4":
   version "7.10.4"
@@ -246,6 +368,15 @@
     "@babel/helper-wrap-function" "^7.14.5"
     "@babel/types" "^7.14.5"
 
+"@babel/helper-remap-async-to-generator@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-remap-async-to-generator/-/helper-remap-async-to-generator-7.15.4.tgz#2637c0731e4c90fbf58ac58b50b2b5a192fc970f"
+  integrity sha1-JjfAcx5MkPv1isWLULK1oZL8lw8=
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.15.4"
+    "@babel/helper-wrap-function" "^7.15.4"
+    "@babel/types" "^7.15.4"
+
 "@babel/helper-replace-supers@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-replace-supers/-/helper-replace-supers-7.14.5.tgz#0ecc0b03c41cd567b4024ea016134c28414abb94"
@@ -256,12 +387,29 @@
     "@babel/traverse" "^7.14.5"
     "@babel/types" "^7.14.5"
 
+"@babel/helper-replace-supers@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-replace-supers/-/helper-replace-supers-7.15.4.tgz#52a8ab26ba918c7f6dee28628b07071ac7b7347a"
+  integrity sha1-UqirJrqRjH9t7ihiiwcHGse3NHo=
+  dependencies:
+    "@babel/helper-member-expression-to-functions" "^7.15.4"
+    "@babel/helper-optimise-call-expression" "^7.15.4"
+    "@babel/traverse" "^7.15.4"
+    "@babel/types" "^7.15.4"
+
 "@babel/helper-simple-access@^7.14.5", "@babel/helper-simple-access@^7.14.8":
   version "7.14.8"
   resolved "https://registry.yarnpkg.com/@babel/helper-simple-access/-/helper-simple-access-7.14.8.tgz#82e1fec0644a7e775c74d305f212c39f8fe73924"
   integrity sha512-TrFN4RHh9gnWEU+s7JloIho2T76GPwRHhdzOWLqTrMnlas8T9O7ec+oEDNsRXndOmru9ymH9DFrEOxpzPoSbdg==
   dependencies:
     "@babel/types" "^7.14.8"
+
+"@babel/helper-simple-access@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-simple-access/-/helper-simple-access-7.15.4.tgz#ac368905abf1de8e9781434b635d8f8674bcc13b"
+  integrity sha1-rDaJBavx3o6XgUNLY12PhnS8wTs=
+  dependencies:
+    "@babel/types" "^7.15.4"
 
 "@babel/helper-skip-transparent-expression-wrappers@^7.14.5":
   version "7.14.5"
@@ -270,6 +418,13 @@
   dependencies:
     "@babel/types" "^7.14.5"
 
+"@babel/helper-skip-transparent-expression-wrappers@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-skip-transparent-expression-wrappers/-/helper-skip-transparent-expression-wrappers-7.15.4.tgz#707dbdba1f4ad0fa34f9114fc8197aec7d5da2eb"
+  integrity sha1-cH29uh9K0Po0+RFPyBl67H1dous=
+  dependencies:
+    "@babel/types" "^7.15.4"
+
 "@babel/helper-split-export-declaration@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.14.5.tgz#22b23a54ef51c2b7605d851930c1976dd0bc693a"
@@ -277,10 +432,22 @@
   dependencies:
     "@babel/types" "^7.14.5"
 
+"@babel/helper-split-export-declaration@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.15.4.tgz#aecab92dcdbef6a10aa3b62ab204b085f776e257"
+  integrity sha1-rsq5Lc2+9qEKo7YqsgSwhfd24lc=
+  dependencies:
+    "@babel/types" "^7.15.4"
+
 "@babel/helper-validator-identifier@^7.14.5", "@babel/helper-validator-identifier@^7.14.8", "@babel/helper-validator-identifier@^7.14.9":
   version "7.14.9"
   resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.14.9.tgz#6654d171b2024f6d8ee151bf2509699919131d48"
   integrity sha512-pQYxPY0UP6IHISRitNe8bsijHex4TWZXi2HwKVsjPiltzlhse2znVcm9Ace510VT1kxIHjGJCZZQBX2gJDbo0g==
+
+"@babel/helper-validator-identifier@^7.15.7":
+  version "7.15.7"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-validator-identifier/-/helper-validator-identifier-7.15.7.tgz#220df993bfe904a4a6b02ab4f3385a5ebf6e2389"
+  integrity sha1-Ig35k7/pBKSmsCq08zhaXr9uI4k=
 
 "@babel/helper-validator-option@^7.14.5":
   version "7.14.5"
@@ -297,6 +464,16 @@
     "@babel/traverse" "^7.14.5"
     "@babel/types" "^7.14.5"
 
+"@babel/helper-wrap-function@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helper-wrap-function/-/helper-wrap-function-7.15.4.tgz#6f754b2446cfaf3d612523e6ab8d79c27c3a3de7"
+  integrity sha1-b3VLJEbPrz1hJSPmq415wnw6Pec=
+  dependencies:
+    "@babel/helper-function-name" "^7.15.4"
+    "@babel/template" "^7.15.4"
+    "@babel/traverse" "^7.15.4"
+    "@babel/types" "^7.15.4"
+
 "@babel/helpers@^7.12.5", "@babel/helpers@^7.14.8":
   version "7.14.8"
   resolved "https://registry.yarnpkg.com/@babel/helpers/-/helpers-7.14.8.tgz#839f88f463025886cff7f85a35297007e2da1b77"
@@ -305,6 +482,15 @@
     "@babel/template" "^7.14.5"
     "@babel/traverse" "^7.14.8"
     "@babel/types" "^7.14.8"
+
+"@babel/helpers@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/helpers/-/helpers-7.15.4.tgz#5f40f02050a3027121a3cf48d497c05c555eaf43"
+  integrity sha1-X0DwIFCjAnEho89I1JfAXFVer0M=
+  dependencies:
+    "@babel/template" "^7.15.4"
+    "@babel/traverse" "^7.15.4"
+    "@babel/types" "^7.15.4"
 
 "@babel/highlight@^7.10.4", "@babel/highlight@^7.14.5":
   version "7.14.5"
@@ -320,6 +506,11 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.14.9.tgz#596c1ad67608070058ebf8df50c1eaf65db895a4"
   integrity sha512-RdUTOseXJ8POjjOeEBEvNMIZU/nm4yu2rufRkcibzkkg7DmQvXU8v3M4Xk9G7uuI86CDGkKcuDWgioqZm+mScQ==
 
+"@babel/parser@^7.15.4", "@babel/parser@^7.15.5":
+  version "7.15.7"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/parser/-/parser-7.15.7.tgz#0c3ed4a2eb07b165dfa85b3cc45c727334c4edae"
+  integrity sha1-DD7UousHsWXfqFs8xFxyczTE7a4=
+
 "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining/-/plugin-bugfix-v8-spread-parameters-in-optional-chaining-7.14.5.tgz#4b467302e1548ed3b1be43beae2cc9cf45e0bb7e"
@@ -329,6 +520,15 @@
     "@babel/helper-skip-transparent-expression-wrappers" "^7.14.5"
     "@babel/plugin-proposal-optional-chaining" "^7.14.5"
 
+"@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining/-/plugin-bugfix-v8-spread-parameters-in-optional-chaining-7.15.4.tgz#dbdeabb1e80f622d9f0b583efb2999605e0a567e"
+  integrity sha1-296rsegPYi2fC1g++ymZYF4KVn4=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-skip-transparent-expression-wrappers" "^7.15.4"
+    "@babel/plugin-proposal-optional-chaining" "^7.14.5"
+
 "@babel/plugin-proposal-async-generator-functions@^7.14.9":
   version "7.14.9"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-async-generator-functions/-/plugin-proposal-async-generator-functions-7.14.9.tgz#7028dc4fa21dc199bbacf98b39bab1267d0eaf9a"
@@ -336,6 +536,15 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/helper-remap-async-to-generator" "^7.14.5"
+    "@babel/plugin-syntax-async-generators" "^7.8.4"
+
+"@babel/plugin-proposal-async-generator-functions@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-proposal-async-generator-functions/-/plugin-proposal-async-generator-functions-7.15.4.tgz#f82aabe96c135d2ceaa917feb9f5fca31635277e"
+  integrity sha1-+Cqr6WwTXSzqqRf+ufX8oxY1J34=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-remap-async-to-generator" "^7.15.4"
     "@babel/plugin-syntax-async-generators" "^7.8.4"
 
 "@babel/plugin-proposal-class-properties@^7.1.0", "@babel/plugin-proposal-class-properties@^7.12.1", "@babel/plugin-proposal-class-properties@^7.14.5":
@@ -352,6 +561,15 @@
   integrity sha512-KBAH5ksEnYHCegqseI5N9skTdxgJdmDoAOc0uXa+4QMYKeZD0w5IARh4FMlTNtaHhbB8v+KzMdTgxMMzsIy6Yg==
   dependencies:
     "@babel/helper-create-class-features-plugin" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/plugin-syntax-class-static-block" "^7.14.5"
+
+"@babel/plugin-proposal-class-static-block@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-proposal-class-static-block/-/plugin-proposal-class-static-block-7.15.4.tgz#3e7ca6128453c089e8b477a99f970c63fc1cb8d7"
+  integrity sha1-PnymEoRTwInotHepn5cMY/wcuNc=
+  dependencies:
+    "@babel/helper-create-class-features-plugin" "^7.15.4"
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-syntax-class-static-block" "^7.14.5"
 
@@ -440,6 +658,17 @@
     "@babel/plugin-syntax-object-rest-spread" "^7.8.3"
     "@babel/plugin-transform-parameters" "^7.14.5"
 
+"@babel/plugin-proposal-object-rest-spread@^7.15.6":
+  version "7.15.6"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.15.6.tgz#ef68050c8703d07b25af402cb96cf7f34a68ed11"
+  integrity sha1-72gFDIcD0Hslr0AsuWz380po7RE=
+  dependencies:
+    "@babel/compat-data" "^7.15.0"
+    "@babel/helper-compilation-targets" "^7.15.4"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/plugin-syntax-object-rest-spread" "^7.8.3"
+    "@babel/plugin-transform-parameters" "^7.15.4"
+
 "@babel/plugin-proposal-optional-catch-binding@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-optional-catch-binding/-/plugin-proposal-optional-catch-binding-7.14.5.tgz#939dd6eddeff3a67fdf7b3f044b5347262598c3c"
@@ -459,8 +688,8 @@
 
 "@babel/plugin-proposal-private-methods@^7.12.1", "@babel/plugin-proposal-private-methods@^7.14.5":
   version "7.14.5"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-private-methods/-/plugin-proposal-private-methods-7.14.5.tgz#37446495996b2945f30f5be5b60d5e2aa4f5792d"
-  integrity sha512-838DkdUA1u+QTCplatfq4B7+1lnDa/+QMI89x5WZHBcnNv+47N8QEj2k9I2MUU9xIv8XJ4XvPCviM/Dj7Uwt9g==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-proposal-private-methods/-/plugin-proposal-private-methods-7.14.5.tgz#37446495996b2945f30f5be5b60d5e2aa4f5792d"
+  integrity sha1-N0RklZlrKUXzD1vltg1eKqT1eS0=
   dependencies:
     "@babel/helper-create-class-features-plugin" "^7.14.5"
     "@babel/helper-plugin-utils" "^7.14.5"
@@ -472,6 +701,16 @@
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.14.5"
     "@babel/helper-create-class-features-plugin" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/plugin-syntax-private-property-in-object" "^7.14.5"
+
+"@babel/plugin-proposal-private-property-in-object@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.15.4.tgz#55c5e3b4d0261fd44fe637e3f624cfb0f484e3e5"
+  integrity sha1-VcXjtNAmH9RP5jfj9iTPsPSE4+U=
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.15.4"
+    "@babel/helper-create-class-features-plugin" "^7.15.4"
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-syntax-private-property-in-object" "^7.14.5"
 
@@ -667,6 +906,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
+"@babel/plugin-transform-block-scoping@^7.15.3":
+  version "7.15.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-transform-block-scoping/-/plugin-transform-block-scoping-7.15.3.tgz#94c81a6e2fc230bcce6ef537ac96a1e4d2b3afaf"
+  integrity sha1-lMgabi/CMLzObvU3rJah5NKzr68=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
 "@babel/plugin-transform-classes@^7.12.1", "@babel/plugin-transform-classes@^7.14.9":
   version "7.14.9"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-classes/-/plugin-transform-classes-7.14.9.tgz#2a391ffb1e5292710b00f2e2c210e1435e7d449f"
@@ -678,6 +924,19 @@
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/helper-replace-supers" "^7.14.5"
     "@babel/helper-split-export-declaration" "^7.14.5"
+    globals "^11.1.0"
+
+"@babel/plugin-transform-classes@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-transform-classes/-/plugin-transform-classes-7.15.4.tgz#50aee17aaf7f332ae44e3bce4c2e10534d5d3bf1"
+  integrity sha1-UK7heq9/MyrkTjvOTC4QU01dO/E=
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.15.4"
+    "@babel/helper-function-name" "^7.15.4"
+    "@babel/helper-optimise-call-expression" "^7.15.4"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-replace-supers" "^7.15.4"
+    "@babel/helper-split-export-declaration" "^7.15.4"
     globals "^11.1.0"
 
 "@babel/plugin-transform-computed-properties@^7.14.5":
@@ -732,6 +991,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
+"@babel/plugin-transform-for-of@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-transform-for-of/-/plugin-transform-for-of-7.15.4.tgz#25c62cce2718cfb29715f416e75d5263fb36a8c2"
+  integrity sha1-JcYszicYz7KXFfQW511SY/s2qMI=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
 "@babel/plugin-transform-function-name@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-function-name/-/plugin-transform-function-name-7.14.5.tgz#e81c65ecb900746d7f31802f6bed1f52d915d6f2"
@@ -773,6 +1039,16 @@
     "@babel/helper-simple-access" "^7.14.5"
     babel-plugin-dynamic-import-node "^2.3.3"
 
+"@babel/plugin-transform-modules-commonjs@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-transform-modules-commonjs/-/plugin-transform-modules-commonjs-7.15.4.tgz#8201101240eabb5a76c08ef61b2954f767b6b4c1"
+  integrity sha1-ggEQEkDqu1p2wI72GylU92e2tME=
+  dependencies:
+    "@babel/helper-module-transforms" "^7.15.4"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-simple-access" "^7.15.4"
+    babel-plugin-dynamic-import-node "^2.3.3"
+
 "@babel/plugin-transform-modules-systemjs@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-systemjs/-/plugin-transform-modules-systemjs-7.14.5.tgz#c75342ef8b30dcde4295d3401aae24e65638ed29"
@@ -782,6 +1058,17 @@
     "@babel/helper-module-transforms" "^7.14.5"
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/helper-validator-identifier" "^7.14.5"
+    babel-plugin-dynamic-import-node "^2.3.3"
+
+"@babel/plugin-transform-modules-systemjs@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-transform-modules-systemjs/-/plugin-transform-modules-systemjs-7.15.4.tgz#b42890c7349a78c827719f1d2d0cd38c7d268132"
+  integrity sha1-tCiQxzSaeMgncZ8dLQzTjH0mgTI=
+  dependencies:
+    "@babel/helper-hoist-variables" "^7.15.4"
+    "@babel/helper-module-transforms" "^7.15.4"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-validator-identifier" "^7.14.9"
     babel-plugin-dynamic-import-node "^2.3.3"
 
 "@babel/plugin-transform-modules-umd@^7.14.5":
@@ -821,10 +1108,24 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
+"@babel/plugin-transform-parameters@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-transform-parameters/-/plugin-transform-parameters-7.15.4.tgz#5f2285cc3160bf48c8502432716b48504d29ed62"
+  integrity sha1-XyKFzDFgv0jIUCQycWtIUE0p7WI=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
 "@babel/plugin-transform-property-literals@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-property-literals/-/plugin-transform-property-literals-7.14.5.tgz#0ddbaa1f83db3606f1cdf4846fa1dfb473458b34"
   integrity sha512-r1uilDthkgXW8Z1vJz2dKYLV1tuw2xsbrp3MrZmD99Wh9vsfKoob+JTgri5VUb/JqyKRXotlOtwgu4stIYCmnw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-react-constant-elements@^7.12.1":
+  version "7.14.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-transform-react-constant-elements/-/plugin-transform-react-constant-elements-7.14.5.tgz#41790d856f7c5cec82d2bcf5d0e5064d682522ed"
+  integrity sha1-QXkNhW98XOyC0rz10OUGTWglIu0=
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
@@ -1026,6 +1327,85 @@
     core-js-compat "^3.16.0"
     semver "^6.3.0"
 
+"@babel/preset-env@^7.12.1":
+  version "7.15.6"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/preset-env/-/preset-env-7.15.6.tgz#0f3898db9d63d320f21b17380d8462779de57659"
+  integrity sha1-DziY251j0yDyGxc4DYRid53ldlk=
+  dependencies:
+    "@babel/compat-data" "^7.15.0"
+    "@babel/helper-compilation-targets" "^7.15.4"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-validator-option" "^7.14.5"
+    "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining" "^7.15.4"
+    "@babel/plugin-proposal-async-generator-functions" "^7.15.4"
+    "@babel/plugin-proposal-class-properties" "^7.14.5"
+    "@babel/plugin-proposal-class-static-block" "^7.15.4"
+    "@babel/plugin-proposal-dynamic-import" "^7.14.5"
+    "@babel/plugin-proposal-export-namespace-from" "^7.14.5"
+    "@babel/plugin-proposal-json-strings" "^7.14.5"
+    "@babel/plugin-proposal-logical-assignment-operators" "^7.14.5"
+    "@babel/plugin-proposal-nullish-coalescing-operator" "^7.14.5"
+    "@babel/plugin-proposal-numeric-separator" "^7.14.5"
+    "@babel/plugin-proposal-object-rest-spread" "^7.15.6"
+    "@babel/plugin-proposal-optional-catch-binding" "^7.14.5"
+    "@babel/plugin-proposal-optional-chaining" "^7.14.5"
+    "@babel/plugin-proposal-private-methods" "^7.14.5"
+    "@babel/plugin-proposal-private-property-in-object" "^7.15.4"
+    "@babel/plugin-proposal-unicode-property-regex" "^7.14.5"
+    "@babel/plugin-syntax-async-generators" "^7.8.4"
+    "@babel/plugin-syntax-class-properties" "^7.12.13"
+    "@babel/plugin-syntax-class-static-block" "^7.14.5"
+    "@babel/plugin-syntax-dynamic-import" "^7.8.3"
+    "@babel/plugin-syntax-export-namespace-from" "^7.8.3"
+    "@babel/plugin-syntax-json-strings" "^7.8.3"
+    "@babel/plugin-syntax-logical-assignment-operators" "^7.10.4"
+    "@babel/plugin-syntax-nullish-coalescing-operator" "^7.8.3"
+    "@babel/plugin-syntax-numeric-separator" "^7.10.4"
+    "@babel/plugin-syntax-object-rest-spread" "^7.8.3"
+    "@babel/plugin-syntax-optional-catch-binding" "^7.8.3"
+    "@babel/plugin-syntax-optional-chaining" "^7.8.3"
+    "@babel/plugin-syntax-private-property-in-object" "^7.14.5"
+    "@babel/plugin-syntax-top-level-await" "^7.14.5"
+    "@babel/plugin-transform-arrow-functions" "^7.14.5"
+    "@babel/plugin-transform-async-to-generator" "^7.14.5"
+    "@babel/plugin-transform-block-scoped-functions" "^7.14.5"
+    "@babel/plugin-transform-block-scoping" "^7.15.3"
+    "@babel/plugin-transform-classes" "^7.15.4"
+    "@babel/plugin-transform-computed-properties" "^7.14.5"
+    "@babel/plugin-transform-destructuring" "^7.14.7"
+    "@babel/plugin-transform-dotall-regex" "^7.14.5"
+    "@babel/plugin-transform-duplicate-keys" "^7.14.5"
+    "@babel/plugin-transform-exponentiation-operator" "^7.14.5"
+    "@babel/plugin-transform-for-of" "^7.15.4"
+    "@babel/plugin-transform-function-name" "^7.14.5"
+    "@babel/plugin-transform-literals" "^7.14.5"
+    "@babel/plugin-transform-member-expression-literals" "^7.14.5"
+    "@babel/plugin-transform-modules-amd" "^7.14.5"
+    "@babel/plugin-transform-modules-commonjs" "^7.15.4"
+    "@babel/plugin-transform-modules-systemjs" "^7.15.4"
+    "@babel/plugin-transform-modules-umd" "^7.14.5"
+    "@babel/plugin-transform-named-capturing-groups-regex" "^7.14.9"
+    "@babel/plugin-transform-new-target" "^7.14.5"
+    "@babel/plugin-transform-object-super" "^7.14.5"
+    "@babel/plugin-transform-parameters" "^7.15.4"
+    "@babel/plugin-transform-property-literals" "^7.14.5"
+    "@babel/plugin-transform-regenerator" "^7.14.5"
+    "@babel/plugin-transform-reserved-words" "^7.14.5"
+    "@babel/plugin-transform-shorthand-properties" "^7.14.5"
+    "@babel/plugin-transform-spread" "^7.14.6"
+    "@babel/plugin-transform-sticky-regex" "^7.14.5"
+    "@babel/plugin-transform-template-literals" "^7.14.5"
+    "@babel/plugin-transform-typeof-symbol" "^7.14.5"
+    "@babel/plugin-transform-unicode-escapes" "^7.14.5"
+    "@babel/plugin-transform-unicode-regex" "^7.14.5"
+    "@babel/preset-modules" "^0.1.4"
+    "@babel/types" "^7.15.6"
+    babel-plugin-polyfill-corejs2 "^0.2.2"
+    babel-plugin-polyfill-corejs3 "^0.2.2"
+    babel-plugin-polyfill-regenerator "^0.2.2"
+    core-js-compat "^3.16.0"
+    semver "^6.3.0"
+
 "@babel/preset-flow@^7.0.0", "@babel/preset-flow@^7.12.1":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/preset-flow/-/preset-flow-7.14.5.tgz#a1810b0780c8b48ab0bece8e7ab8d0d37712751c"
@@ -1046,10 +1426,10 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/preset-react@^7.12.10", "@babel/preset-react@^7.14.5":
+"@babel/preset-react@^7.12.10", "@babel/preset-react@^7.12.5", "@babel/preset-react@^7.14.5":
   version "7.14.5"
-  resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.14.5.tgz#0fbb769513f899c2c56f3a882fa79673c2d4ab3c"
-  integrity sha512-XFxBkjyObLvBaAvkx1Ie95Iaq4S/GUEIrejyrntQ/VCMKUYvKLoyKxOBzJ2kjA3b6rC9/KL6KXfDC2GqvLiNqQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/preset-react/-/preset-react-7.14.5.tgz#0fbb769513f899c2c56f3a882fa79673c2d4ab3c"
+  integrity sha1-D7t2lRP4mcLFbzqIL6eWc8LUqzw=
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/helper-validator-option" "^7.14.5"
@@ -1093,6 +1473,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.12.0":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
+  integrity sha1-/RfRa/34eObdAtGXU6OfqKjZyEo=
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.12.7", "@babel/template@^7.14.5", "@babel/template@^7.3.3":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.14.5.tgz#a9bc9d8b33354ff6e55a9c60d1109200a68974f4"
@@ -1101,6 +1488,15 @@
     "@babel/code-frame" "^7.14.5"
     "@babel/parser" "^7.14.5"
     "@babel/types" "^7.14.5"
+
+"@babel/template@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/template/-/template-7.15.4.tgz#51898d35dcf3faa670c4ee6afcfd517ee139f194"
+  integrity sha1-UYmNNdzz+qZwxO5q/P1RfuE58ZQ=
+  dependencies:
+    "@babel/code-frame" "^7.14.5"
+    "@babel/parser" "^7.15.4"
+    "@babel/types" "^7.15.4"
 
 "@babel/traverse@^7.1.6", "@babel/traverse@^7.12.11", "@babel/traverse@^7.12.9", "@babel/traverse@^7.13.0", "@babel/traverse@^7.14.5", "@babel/traverse@^7.14.8", "@babel/traverse@^7.7.0":
   version "7.14.9"
@@ -1117,10 +1513,33 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
+"@babel/traverse@^7.15.4":
+  version "7.15.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/traverse/-/traverse-7.15.4.tgz#ff8510367a144bfbff552d9e18e28f3e2889c22d"
+  integrity sha1-/4UQNnoUS/v/VS2eGOKPPiiJwi0=
+  dependencies:
+    "@babel/code-frame" "^7.14.5"
+    "@babel/generator" "^7.15.4"
+    "@babel/helper-function-name" "^7.15.4"
+    "@babel/helper-hoist-variables" "^7.15.4"
+    "@babel/helper-split-export-declaration" "^7.15.4"
+    "@babel/parser" "^7.15.4"
+    "@babel/types" "^7.15.4"
+    debug "^4.1.0"
+    globals "^11.1.0"
+
 "@babel/types@^7.0.0", "@babel/types@^7.12.11", "@babel/types@^7.12.7", "@babel/types@^7.14.5", "@babel/types@^7.14.8", "@babel/types@^7.14.9", "@babel/types@^7.2.0", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4", "@babel/types@^7.7.0":
   version "7.14.9"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.14.9.tgz#f2b19c3f2f77c5708d67fe8f6046e9cea2b5036d"
   integrity sha512-u0bLTnv3DFHeaQLYzb7oRJ1JHr1sv/SYDM7JSqHFFLwXG1wTZRughxFI5NCP8qBEo1rVVsn7Yg2Lvw49nne/Ow==
+  dependencies:
+    "@babel/helper-validator-identifier" "^7.14.9"
+    to-fast-properties "^2.0.0"
+
+"@babel/types@^7.12.6", "@babel/types@^7.15.4", "@babel/types@^7.15.6":
+  version "7.15.6"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/types/-/types-7.15.6.tgz#99abdc48218b2881c058dd0a7ab05b99c9be758f"
+  integrity sha1-mavcSCGLKIHAWN0KerBbmcm+dY8=
   dependencies:
     "@babel/helper-validator-identifier" "^7.14.9"
     to-fast-properties "^2.0.0"
@@ -1148,6 +1567,11 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
   integrity sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g==
 
+"@discoveryjs/json-ext@^0.5.3":
+  version "0.5.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@discoveryjs/json-ext/-/json-ext-0.5.5.tgz#9283c9ce5b289a3c4f61c12757469e59377f81f3"
+  integrity sha1-koPJzlsomjxPYcEnV0aeWTd/gfM=
+
 "@emotion/cache@^10.0.27", "@emotion/cache@^10.0.9":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"
@@ -1157,6 +1581,17 @@
     "@emotion/stylis" "0.8.5"
     "@emotion/utils" "0.11.3"
     "@emotion/weak-memoize" "0.2.5"
+
+"@emotion/cache@^11.4.0":
+  version "11.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/cache/-/cache-11.4.0.tgz#293fc9d9a7a38b9aad8e9337e5014366c3b09ac0"
+  integrity sha1-KT/J2aeji5qtjpM35QFDZsOwmsA=
+  dependencies:
+    "@emotion/memoize" "^0.7.4"
+    "@emotion/sheet" "^1.0.0"
+    "@emotion/utils" "^1.0.0"
+    "@emotion/weak-memoize" "^0.2.5"
+    stylis "^4.0.3"
 
 "@emotion/core@^10.0.9", "@emotion/core@^10.1.1":
   version "10.1.1"
@@ -1179,7 +1614,7 @@
     "@emotion/utils" "0.11.3"
     babel-plugin-emotion "^10.0.27"
 
-"@emotion/hash@0.8.0":
+"@emotion/hash@0.8.0", "@emotion/hash@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
@@ -1196,6 +1631,24 @@
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.4.tgz#19bf0f5af19149111c40d98bb0cf82119f5d9eeb"
   integrity sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==
 
+"@emotion/memoize@^0.7.4":
+  version "0.7.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/memoize/-/memoize-0.7.5.tgz#2c40f81449a4e554e9fc6396910ed4843ec2be50"
+  integrity sha1-LED4FEmk5VTp/GOWkQ7UhD7CvlA=
+
+"@emotion/react@^11.1.1":
+  version "11.4.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/react/-/react-11.4.1.tgz#a1b0b767b5bad57515ffb0cad9349614d27f4d57"
+  integrity sha1-obC3Z7W61XUV/7DK2TSWFNJ/TVc=
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@emotion/cache" "^11.4.0"
+    "@emotion/serialize" "^1.0.2"
+    "@emotion/sheet" "^1.0.2"
+    "@emotion/utils" "^1.0.0"
+    "@emotion/weak-memoize" "^0.2.5"
+    hoist-non-react-statics "^3.3.1"
+
 "@emotion/serialize@^0.11.15", "@emotion/serialize@^0.11.16":
   version "0.11.16"
   resolved "https://registry.yarnpkg.com/@emotion/serialize/-/serialize-0.11.16.tgz#dee05f9e96ad2fb25a5206b6d759b2d1ed3379ad"
@@ -1207,10 +1660,26 @@
     "@emotion/utils" "0.11.3"
     csstype "^2.5.7"
 
+"@emotion/serialize@^1.0.2":
+  version "1.0.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/serialize/-/serialize-1.0.2.tgz#77cb21a0571c9f68eb66087754a65fa97bfcd965"
+  integrity sha1-d8shoFccn2jrZgh3VKZfqXv82WU=
+  dependencies:
+    "@emotion/hash" "^0.8.0"
+    "@emotion/memoize" "^0.7.4"
+    "@emotion/unitless" "^0.7.5"
+    "@emotion/utils" "^1.0.0"
+    csstype "^3.0.2"
+
 "@emotion/sheet@0.9.4":
   version "0.9.4"
   resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-0.9.4.tgz#894374bea39ec30f489bbfc3438192b9774d32e5"
   integrity sha512-zM9PFmgVSqBw4zL101Q0HrBVTGmpAxFZH/pYx/cjJT5advXguvcgjHFTCaIO3enL/xr89vK2bh0Mfyj9aa0ANA==
+
+"@emotion/sheet@^1.0.0", "@emotion/sheet@^1.0.2":
+  version "1.0.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/sheet/-/sheet-1.0.2.tgz#1d9ffde531714ba28e62dac6a996a8b1089719d0"
+  integrity sha1-HZ/95TFxS6KOYtrGqZaosQiXGdA=
 
 "@emotion/styled-base@^10.0.27":
   version "10.0.31"
@@ -1224,8 +1693,8 @@
 
 "@emotion/styled@^10.0.27":
   version "10.0.27"
-  resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-10.0.27.tgz#12cb67e91f7ad7431e1875b1d83a94b814133eaf"
-  integrity sha512-iK/8Sh7+NLJzyp9a5+vIQIXTYxfT4yB/OJbjzQanB2RZpvmzBQOHZWhpAMZWYEKRNNbsD6WfBw5sVWkb6WzS/Q==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/styled/-/styled-10.0.27.tgz#12cb67e91f7ad7431e1875b1d83a94b814133eaf"
+  integrity sha1-Estn6R9610MeGHWx2DqUuBQTPq8=
   dependencies:
     "@emotion/styled-base" "^10.0.27"
     babel-plugin-emotion "^10.0.27"
@@ -1235,7 +1704,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/stylis/-/stylis-0.8.5.tgz#deacb389bd6ee77d1e7fcaccce9e16c5c7e78e04"
   integrity sha512-h6KtPihKFn3T9fuIrwvXXUOwlx3rfUvfZIcP5a6rh8Y7zjE3O06hT5Ss4S/YI1AYhuZ1kjaE/5EaOOI2NqSylQ==
 
-"@emotion/unitless@0.7.5":
+"@emotion/unitless@0.7.5", "@emotion/unitless@^0.7.5":
   version "0.7.5"
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
@@ -1245,7 +1714,12 @@
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.11.3.tgz#a759863867befa7e583400d322652a3f44820924"
   integrity sha512-0o4l6pZC+hI88+bzuaX/6BgOvQVhbt2PfmxauVaYOGgbsAw14wdKyvMCZXnsnsHys94iadcF+RG/wZyx6+ZZBw==
 
-"@emotion/weak-memoize@0.2.5":
+"@emotion/utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/utils/-/utils-1.0.0.tgz#abe06a83160b10570816c913990245813a2fd6af"
+  integrity sha1-q+BqgxYLEFcIFskTmQJFgTov1q8=
+
+"@emotion/weak-memoize@0.2.5", "@emotion/weak-memoize@^0.2.5":
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
@@ -1411,6 +1885,36 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@my-ui/react-datepicker@1.1.0":
+  version "1.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-datepicker/-/react-datepicker-1.1.0.tgz#6b08c6b3988346e0dcc07ecd436561eef3a5833b"
+  integrity sha1-awjGs5iDRuDcwH7NQ2Vh7vOlgzs=
+  dependencies:
+    "@popperjs/core" "^2.9.2"
+    classnames "^2.2.6"
+    date-fns "^2.0.1"
+    prop-types "^15.7.2"
+    react-onclickoutside "^6.10.0"
+    react-popper "^2.2.5"
+
+"@my-ui/react-select@1.1.0":
+  version "1.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.0.tgz#eedf27470d385e4659a491489b1eb9ebb3ea4099"
+  integrity sha1-7t8nRw04XkZZpJFImx6567PqQJk=
+  dependencies:
+    "@babel/runtime" "^7.12.0"
+    "@emotion/cache" "^11.4.0"
+    "@emotion/react" "^11.1.1"
+    "@types/react-transition-group" "^4.4.0"
+    memoize-one "^5.0.0"
+    prop-types "^15.6.0"
+    react-transition-group "^4.3.0"
+
+"@my-ui/react-table@^1.0.0":
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-table/-/react-table-1.0.0.tgz#c1f31ebb04bd2535ef0c59a438417e85bc60518b"
+  integrity sha1-wfMeuwS9JTXvDFmkOEF+hbxgUYs=
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -1467,6 +1971,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
   integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
 
+"@popperjs/core@^2.9.2":
+  version "2.10.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@popperjs/core/-/core-2.10.1.tgz#728ecd95ab207aab8a9a4e421f0422db329232be"
+  integrity sha1-co7NlasgequKmk5CHwQi2zKSMr4=
+
 "@reach/router@^1.3.4":
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.3.4.tgz#d2574b19370a70c80480ed91f3da840136d10f8c"
@@ -1482,19 +1991,19 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@storybook/addon-a11y@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-6.3.6.tgz#6d9dbdaa067a8f6ad15cef64f2103568457d2aae"
-  integrity sha512-IYVDFEGgKORdm7NPZPqltOvu29R9LaZwGBvfzbS3GUc3I9XLbT/cxkZN68Zzmjn2GtP/X1v4uLqp57OsPb4Cdg==
+"@storybook/addon-a11y@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-a11y/-/addon-a11y-6.3.9.tgz#c703f7d1faeabf14f61e0cb993ae2512cd644374"
+  integrity sha1-xwP30frqvxT2Hgy5k64lEs1kQ3Q=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/theming" "6.3.9"
     axe-core "^4.2.0"
     core-js "^3.8.2"
     global "^4.4.0"
@@ -1504,17 +2013,17 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-actions@6.3.6", "@storybook/addon-actions@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.3.6.tgz#691d61d6aca9c4b3edba50c531cbe4d4139ed451"
-  integrity sha512-1MBqCbFiupGEDyIXqFkzF4iR8AduuB7qSNduqtsFauvIkrG5bnlbg5JC7WjnixkCaaWlufgbpasEHioXO9EXGw==
+"@storybook/addon-actions@6.3.9", "@storybook/addon-actions@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-actions/-/addon-actions-6.3.9.tgz#dd4b834b7734bc4c19142cf623b665f02e2d38b9"
+  integrity sha1-3UuDS3c0vEwZFCz2I7Zl8C4tOLk=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     fast-deep-equal "^3.1.3"
     global "^4.4.0"
@@ -1527,17 +2036,17 @@
     util-deprecate "^1.0.2"
     uuid-browser "^3.1.0"
 
-"@storybook/addon-backgrounds@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-6.3.6.tgz#93128e6ebfcb953a83cc2165056dd5815d32cef2"
-  integrity sha512-1lBVAem2M+ggb1UNVgB7/56LaQAor9lI8q0xtQdAzAkt9K4RbbOsLGRhyUm3QH5OiB3qHHG5WQBujWUD6Qfy4g==
+"@storybook/addon-backgrounds@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-backgrounds/-/addon-backgrounds-6.3.9.tgz#09e22afe96ba4dded94e841430e72065bf4873c4"
+  integrity sha1-CeIq/pa6Td7ZToQUMOcgZb9Ic8Q=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     global "^4.4.0"
     memoizerific "^1.11.3"
@@ -1545,24 +2054,24 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-controls@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-6.3.6.tgz#2f8071e5b521375aace60af96e33a19f016581c9"
-  integrity sha512-wTWmnZl2qEAUqgLh8a7TL5f6w37Q51lAoJNlwxFFBSKtGS7xFUnou4qTUArNy5iKu1cWoVvofJ9RnP1maGByYA==
+"@storybook/addon-controls@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-controls/-/addon-controls-6.3.9.tgz#b7645c097c476d800c896f700bc028c66260f359"
+  integrity sha1-t2RcCXxHbYAMiW9wC8AoxmJg81k=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-docs@6.3.6", "@storybook/addon-docs@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-docs/-/addon-docs-6.3.6.tgz#85b8a72b91f9c43edfaf21c416a9b01ad0e06ea4"
-  integrity sha512-/ZPB9u3lfc6ZUrgt9HENU1BxAHNfTbh9r2LictQ8o9gYE/BqvZutl2zqilTpVuutQtTgQ6JycVhxtpk9+TDcuA==
+"@storybook/addon-docs@6.3.9", "@storybook/addon-docs@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-docs/-/addon-docs-6.3.9.tgz#34b87eb5c5059bb98bf09700b60470c8d35fbb58"
+  integrity sha1-NLh+tcUFm7mL8JcAtgRwyNNfu1g=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/generator" "^7.12.11"
@@ -1573,20 +2082,20 @@
     "@mdx-js/loader" "^1.6.22"
     "@mdx-js/mdx" "^1.6.22"
     "@mdx-js/react" "^1.6.22"
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/builder-webpack4" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core" "6.3.6"
-    "@storybook/core-events" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/builder-webpack4" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core" "6.3.9"
+    "@storybook/core-events" "6.3.9"
     "@storybook/csf" "0.0.1"
-    "@storybook/csf-tools" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/postinstall" "6.3.6"
-    "@storybook/source-loader" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/csf-tools" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/postinstall" "6.3.9"
+    "@storybook/source-loader" "6.3.9"
+    "@storybook/theming" "6.3.9"
     acorn "^7.4.1"
     acorn-jsx "^5.3.1"
     acorn-walk "^7.2.0"
@@ -1609,31 +2118,32 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-essentials@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.3.6.tgz#29f5249daee086fe2d14c899ae61712b8c8fbcbd"
-  integrity sha512-FUrpCeINaN4L9L81FswtQFEq2xLwj3W7EyhmqsZcYSr64nscpQyjlPVjs5zhrEanOGIf+4E+mBmWafxbYufXwQ==
+"@storybook/addon-essentials@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-essentials/-/addon-essentials-6.3.9.tgz#c29109c87f33f309b8cbcc38e0730798db23a15d"
+  integrity sha1-wpEJyH8z8wm4y8w44HMHmNsjoV0=
   dependencies:
-    "@storybook/addon-actions" "6.3.6"
-    "@storybook/addon-backgrounds" "6.3.6"
-    "@storybook/addon-controls" "6.3.6"
-    "@storybook/addon-docs" "6.3.6"
+    "@storybook/addon-actions" "6.3.9"
+    "@storybook/addon-backgrounds" "6.3.9"
+    "@storybook/addon-controls" "6.3.9"
+    "@storybook/addon-docs" "6.3.9"
     "@storybook/addon-measure" "^2.0.0"
-    "@storybook/addon-toolbars" "6.3.6"
-    "@storybook/addon-viewport" "6.3.6"
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/addon-toolbars" "6.3.9"
+    "@storybook/addon-viewport" "6.3.9"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
     core-js "^3.8.2"
     regenerator-runtime "^0.13.7"
     storybook-addon-outline "^1.4.1"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-knobs@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-6.3.0.tgz#f289c072729651150a27a163371df20922c24f93"
-  integrity sha512-wsZZ1t38KHdaxzrc9oPyiIJDihJnjHRRabrENQbylktJwETEjb2z3eX0iBRJGiz/YCHO+tGd0ItyZArOdijT6g==
+"@storybook/addon-knobs@^6.3.1":
+  version "6.3.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-knobs/-/addon-knobs-6.3.1.tgz#2115c6f0d5759e4fe73d5f25710f4a94ebd6f0db"
+  integrity sha1-IRXG8NV1nk/nPV8lcQ9KlOvW8Ns=
   dependencies:
+    copy-to-clipboard "^3.3.1"
     core-js "^3.8.2"
     escape-html "^1.0.3"
     fast-deep-equal "^3.1.3"
@@ -1645,16 +2155,16 @@
     react-lifecycles-compat "^3.0.4"
     react-select "^3.2.0"
 
-"@storybook/addon-links@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.3.6.tgz#dc410d5b4a0d222b6b8d0ef03da7a4c16919c092"
-  integrity sha512-PaeAJTjwtPlhrLZlaSQ1YIFA8V0C1yI0dc351lPbTiE7fJ7DwTE03K6xIF/jEdTo+xzhi2PM1Fgvi/SsSecI8w==
+"@storybook/addon-links@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-links/-/addon-links-6.3.9.tgz#a7342d80c26f81bc8d5fdab4906521786bc99343"
+  integrity sha1-pzQtgMJvgbyNX9q0kGUheGvJk0M=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/core-events" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
     "@storybook/csf" "0.0.1"
-    "@storybook/router" "6.3.6"
+    "@storybook/router" "6.3.9"
     "@types/qs" "^6.9.5"
     core-js "^3.8.2"
     global "^4.4.0"
@@ -1668,18 +2178,18 @@
   resolved "https://registry.yarnpkg.com/@storybook/addon-measure/-/addon-measure-2.0.0.tgz#c40bbe91bacd3f795963dc1ee6ff86be87deeda9"
   integrity sha512-ZhdT++cX+L9LwjhGYggvYUUVQH/MGn2rwbrAwCMzA/f2QTFvkjxzX8nDgMxIhaLCDC+gHIxfJG2wrWN0jkBr3g==
 
-"@storybook/addon-storysource@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-storysource/-/addon-storysource-6.3.6.tgz#3ecacd39690675ffcba0d40ca235090fc2bf5574"
-  integrity sha512-BNNuy/6Vb7NzeCDbt+bCL1dC/XQOalzKHW6FplO0pR0eMSi6EmJJnU9V+5rFAUtG5zxGeCx2h7TrrFecouM2BA==
+"@storybook/addon-storysource@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-storysource/-/addon-storysource-6.3.9.tgz#88f5dd4e3b30ee961d99cb88eaced1c5bde6597d"
+  integrity sha1-iPXdTjsw7pYdmcuI6s7Rxb3mWX0=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/router" "6.3.6"
-    "@storybook/source-loader" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/router" "6.3.9"
+    "@storybook/source-loader" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     estraverse "^5.2.0"
     loader-utils "^2.0.0"
@@ -1688,37 +2198,52 @@
     react-syntax-highlighter "^13.5.3"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addon-toolbars@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-toolbars/-/addon-toolbars-6.3.6.tgz#41f5f29988260d2aad9431b7a91f57e848c3e0bf"
-  integrity sha512-VpwkMtvT/4KNjqdO2SCkFw4koMgYN2k8hckbTGRzuUYYTHBvl9yK4q0A7RELEnkm/tsmDI1TjenV/MBifp2Aiw==
+"@storybook/addon-toolbars@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-toolbars/-/addon-toolbars-6.3.9.tgz#70043db07490d13f0e779ed30b0226dc7dd6849b"
+  integrity sha1-cAQ9sHSQ0T8Od57TCwIm3H3WhJs=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addon-viewport@6.3.6", "@storybook/addon-viewport@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-viewport/-/addon-viewport-6.3.6.tgz#9117316e918559d389a19571166579858b25b09b"
-  integrity sha512-Z5eztFFGd6vd+38sDurfTkIr9lY6EYWtMJzr5efedRZGg2IZLXZxQCoyjKEB29VB/IIjHEYHhHSh4SFsHT/m6g==
+"@storybook/addon-viewport@6.3.9", "@storybook/addon-viewport@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-viewport/-/addon-viewport-6.3.9.tgz#3f2bdebb241a3e4e141c06d0e57ad8707e1fe524"
+  integrity sha1-PyveuyQaPk4UHAbQ5XrYcH4f5SQ=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/theming" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/theming" "6.3.9"
     core-js "^3.8.2"
     global "^4.4.0"
     memoizerific "^1.11.3"
     prop-types "^15.7.2"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addons@6.3.6", "@storybook/addons@^6.0.0", "@storybook/addons@^6.3.0":
+"@storybook/addons@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addons/-/addons-6.3.9.tgz#e12c8d4351b861d67cb6b8d64ed33b1f6b90994f"
+  integrity sha1-4SyNQ1G4YdZ8trjWTtM7H2uQmU8=
+  dependencies:
+    "@storybook/api" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/router" "6.3.9"
+    "@storybook/theming" "6.3.9"
+    core-js "^3.8.2"
+    global "^4.4.0"
+    regenerator-runtime "^0.13.7"
+
+"@storybook/addons@^6.0.0", "@storybook/addons@^6.3.0":
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.3.6.tgz#330fd722bdae8abefeb029583e89e51e62c20b60"
   integrity sha512-tVV0vqaEEN9Md4bgScwfrnZYkN8iKZarpkIOFheLev+PHjSp8lgWMK5SNWDlbBYqfQfzrz9xbs+F07bMjfx9jQ==
@@ -1759,10 +2284,36 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/builder-webpack4@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/builder-webpack4/-/builder-webpack4-6.3.6.tgz#fe444abfc178e005ea077e2bcfd6ae7509522908"
-  integrity sha512-LhTPQQowS2t6BRnyfusWZLbhjjf54/HiQyovJTTDnqrCiO6QoCMbVnp79LeO1aSkpQCKoeqOZ7TzH87fCytnZA==
+"@storybook/api@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/api/-/api-6.3.9.tgz#f36c8f01cac602c67b8f22b144e8bd6478039abb"
+  integrity sha1-82yPAcrGAsZ7jyKxROi9ZHgDmrs=
+  dependencies:
+    "@reach/router" "^1.3.4"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/csf" "0.0.1"
+    "@storybook/router" "6.3.9"
+    "@storybook/semver" "^7.3.2"
+    "@storybook/theming" "6.3.9"
+    "@types/reach__router" "^1.3.7"
+    core-js "^3.8.2"
+    fast-deep-equal "^3.1.3"
+    global "^4.4.0"
+    lodash "^4.17.20"
+    memoizerific "^1.11.3"
+    qs "^6.10.0"
+    regenerator-runtime "^0.13.7"
+    store2 "^2.12.0"
+    telejson "^5.3.2"
+    ts-dedent "^2.0.0"
+    util-deprecate "^1.0.2"
+
+"@storybook/builder-webpack4@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/builder-webpack4/-/builder-webpack4-6.3.9.tgz#9deef99cf67dce64645ed387f8158b069368ec79"
+  integrity sha1-ne75nPZ9zmRkXtOH+BWLBpNo7Hk=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -1785,20 +2336,20 @@
     "@babel/preset-env" "^7.12.11"
     "@babel/preset-react" "^7.12.10"
     "@babel/preset-typescript" "^7.12.7"
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/channel-postmessage" "6.3.6"
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/router" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/channel-postmessage" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/router" "6.3.9"
     "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.3.6"
-    "@storybook/ui" "6.3.6"
+    "@storybook/theming" "6.3.9"
+    "@storybook/ui" "6.3.9"
     "@types/node" "^14.0.10"
     "@types/webpack" "^4.41.26"
     autoprefixer "^9.8.6"
@@ -1835,10 +2386,10 @@
     webpack-hot-middleware "^2.25.0"
     webpack-virtual-modules "^0.2.2"
 
-"@storybook/builder-webpack5@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/builder-webpack5/-/builder-webpack5-6.3.6.tgz#3679df2d78b067b8c903fab2cd2523e1e9361ce4"
-  integrity sha512-66Yk3YsvPXRKcBiWLBR3poVTtMSnJW8CmVsFbKHjpP9LZ8qT+YTmLnXhFhZWSzfSAv3dWvKUEyJftuPIxSJl5A==
+"@storybook/builder-webpack5@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/builder-webpack5/-/builder-webpack5-6.3.9.tgz#69cae40278971104394ba1b38a11dace9702c319"
+  integrity sha1-acrkAniXEQQ5S6GzihHazpcCwxk=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -1860,19 +2411,19 @@
     "@babel/preset-env" "^7.12.11"
     "@babel/preset-react" "^7.12.10"
     "@babel/preset-typescript" "^7.12.7"
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/channel-postmessage" "6.3.6"
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/router" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/channel-postmessage" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/router" "6.3.9"
     "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.3.6"
+    "@storybook/theming" "6.3.9"
     "@types/node" "^14.0.10"
     babel-loader "^8.2.2"
     babel-plugin-macros "^3.0.1"
@@ -1897,14 +2448,14 @@
     webpack-hot-middleware "^2.25.0"
     webpack-virtual-modules "^0.4.1"
 
-"@storybook/channel-postmessage@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-6.3.6.tgz#f29c3678161462428e78c9cfed2da11ffca4acb0"
-  integrity sha512-GK7hXnaa+1pxEeMpREDzAZ3+2+k1KN1lbrZf+V7Kc1JZv1/Ji/vxk8AgxwiuzPAMx5J0yh/FduPscIPZ87Pibw==
+"@storybook/channel-postmessage@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/channel-postmessage/-/channel-postmessage-6.3.9.tgz#166aecfa2cfe96740513442bc8c1d1b08d28798f"
+  integrity sha1-Fmrs+iz+lnQFE0QryMHRsI0oeY8=
   dependencies:
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/core-events" "6.3.6"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
     core-js "^3.8.2"
     global "^4.4.0"
     qs "^6.10.0"
@@ -1919,15 +2470,24 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/cli@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/cli/-/cli-6.3.6.tgz#8e06f32bed5dcf59c699a8739a4ce18abe126d35"
-  integrity sha512-6yCep4yQ1RJBYWZy2Sdf4vOxnE8gYhRjvtgdM7cviwnkvXWfKBRTIUAxgzV6ybR1nuEZ5mcWqcw4aPgGYEXUUA==
+"@storybook/channels@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/channels/-/channels-6.3.9.tgz#40907734460fbcb08fe018c794890ffe668e873d"
+  integrity sha1-QJB3NEYPvLCP4BjHlIkP/maOhz0=
+  dependencies:
+    core-js "^3.8.2"
+    ts-dedent "^2.0.0"
+    util-deprecate "^1.0.2"
+
+"@storybook/cli@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/cli/-/cli-6.3.9.tgz#e963ce5a6bf44523d3c49182d5644807263e4223"
+  integrity sha1-6WPOWmv0RSPTxJGC1WRIByY+QiM=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/preset-env" "^7.12.11"
-    "@storybook/codemod" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/codemod" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
     "@storybook/semver" "^7.3.2"
     boxen "^4.2.0"
     chalk "^4.1.0"
@@ -1951,16 +2511,16 @@
     ts-dedent "^2.0.0"
     update-notifier "^5.0.1"
 
-"@storybook/client-api@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/client-api/-/client-api-6.3.6.tgz#4826ce366ae109f608da6ade24b29efeb9b7f7dd"
-  integrity sha512-Q/bWuH691L6k7xkiKtBmZo8C+ijgmQ+vc2Fz8pzIRZuMV8ROL74qhrS4BMKV4LhiYm4f8todtWfaQPBjawZMIA==
+"@storybook/client-api@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/client-api/-/client-api-6.3.9.tgz#421c25c2b3c4c8ae7e26044d00d84deb95659311"
+  integrity sha1-QhwlwrPEyK5+JgRNANhN65VlkxE=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/channel-postmessage" "6.3.6"
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/core-events" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/channel-postmessage" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
     "@storybook/csf" "0.0.1"
     "@types/qs" "^6.9.5"
     "@types/webpack-env" "^1.16.0"
@@ -1983,16 +2543,24 @@
     core-js "^3.8.2"
     global "^4.4.0"
 
-"@storybook/codemod@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.3.6.tgz#fa9712e1b516d77e836446250f6dce92fe863beb"
-  integrity sha512-pyNif3igrpJu0J7U0BptUCNpj+XAsnOJFhBUep7QtbYE3taIH2dGlpGXvyD5kN4zH4Mk/o2KdMp/OxETv1M4hA==
+"@storybook/client-logger@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/client-logger/-/client-logger-6.3.9.tgz#ef8c89e96f79927d46dd1dacddb58f3a43154b9a"
+  integrity sha1-74yJ6W95kn1G3R2s3bWPOkMVS5o=
+  dependencies:
+    core-js "^3.8.2"
+    global "^4.4.0"
+
+"@storybook/codemod@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/codemod/-/codemod-6.3.9.tgz#c46142937c69615831e0067cf8737e10806a82b5"
+  integrity sha1-xGFCk3xpYVgx4AZ8+HN+EIBqgrU=
   dependencies:
     "@babel/types" "^7.12.11"
     "@mdx-js/mdx" "^1.6.22"
     "@storybook/csf" "0.0.1"
-    "@storybook/csf-tools" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/csf-tools" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
     core-js "^3.8.2"
     cross-spawn "^7.0.3"
     globby "^11.0.2"
@@ -2002,7 +2570,37 @@
     recast "^0.19.0"
     regenerator-runtime "^0.13.7"
 
-"@storybook/components@6.3.6", "@storybook/components@^6.0.0", "@storybook/components@^6.3.0":
+"@storybook/components@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/components/-/components-6.3.9.tgz#3f3c56f0311e757e78705e3b495489da071d6891"
+  integrity sha1-PzxW8DEedX54cF47SVSJ2gcdaJE=
+  dependencies:
+    "@popperjs/core" "^2.6.0"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/csf" "0.0.1"
+    "@storybook/theming" "6.3.9"
+    "@types/color-convert" "^2.0.0"
+    "@types/overlayscrollbars" "^1.12.0"
+    "@types/react-syntax-highlighter" "11.0.5"
+    color-convert "^2.0.1"
+    core-js "^3.8.2"
+    fast-deep-equal "^3.1.3"
+    global "^4.4.0"
+    lodash "^4.17.20"
+    markdown-to-jsx "^7.1.3"
+    memoizerific "^1.11.3"
+    overlayscrollbars "^1.13.1"
+    polished "^4.0.5"
+    prop-types "^15.7.2"
+    react-colorful "^5.1.2"
+    react-popper-tooltip "^3.1.1"
+    react-syntax-highlighter "^13.5.3"
+    react-textarea-autosize "^8.3.0"
+    regenerator-runtime "^0.13.7"
+    ts-dedent "^2.0.0"
+    util-deprecate "^1.0.2"
+
+"@storybook/components@^6.0.0", "@storybook/components@^6.3.0":
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.3.6.tgz#bc2fa1dbe59f42b5b2aeb9f84424072835d4ce8b"
   integrity sha512-aZkmtAY8b+LFXG6dVp6cTS6zGJuxkHRHcesRSWRQPxtgitaz1G58clRHxbKPRokfjPHNgYA3snogyeqxSA7YNQ==
@@ -2032,18 +2630,18 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/core-client@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/core-client/-/core-client-6.3.6.tgz#7def721aa15d4faaff574780d30b92055db7261c"
-  integrity sha512-Bq86flEdXdMNbdHrGMNQ6OT1tcBQU8ym56d+nG46Ctjf5GN+Dl+rPtRWuu7cIZs10KgqJH+86DXp+tvpQIDidg==
+"@storybook/core-client@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-client/-/core-client-6.3.9.tgz#616f932ae0c3caf5e56464a88cac375230f0ed51"
+  integrity sha1-YW+TKuDDyvXlZGSojKw3UjDw7VE=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/channel-postmessage" "6.3.6"
-    "@storybook/client-api" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/core-events" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/channel-postmessage" "6.3.9"
+    "@storybook/client-api" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/core-events" "6.3.9"
     "@storybook/csf" "0.0.1"
-    "@storybook/ui" "6.3.6"
+    "@storybook/ui" "6.3.9"
     airbnb-js-shims "^2.2.1"
     ansi-to-html "^0.6.11"
     core-js "^3.8.2"
@@ -2055,10 +2653,10 @@
     unfetch "^4.2.0"
     util-deprecate "^1.0.2"
 
-"@storybook/core-common@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/core-common/-/core-common-6.3.6.tgz#da8eed703b609968e15177446f0f1609d1d6d0d0"
-  integrity sha512-nHolFOmTPymI50j180bCtcf1UJZ2eOnYaECRtHvVrCUod5KFF7wh2EHrgWoKqrKrsn84UOY/LkX2C2WkbYtWRg==
+"@storybook/core-common@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-common/-/core-common-6.3.9.tgz#60f2a1c66eaf958f996ed919a5a9f134b19cda76"
+  integrity sha1-YPKhxm6vlY+ZbtkZpanxNLGc2nY=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -2081,7 +2679,7 @@
     "@babel/preset-react" "^7.12.10"
     "@babel/preset-typescript" "^7.12.7"
     "@babel/register" "^7.12.1"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/node-logger" "6.3.9"
     "@storybook/semver" "^7.3.2"
     "@types/glob-base" "^0.3.0"
     "@types/micromatch" "^4.0.1"
@@ -2116,17 +2714,25 @@
   dependencies:
     core-js "^3.8.2"
 
-"@storybook/core-server@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/core-server/-/core-server-6.3.6.tgz#43c1415573c3b72ec6b9ae48d68e1bb446722f7c"
-  integrity sha512-47ZcfxYn7t891oAMG98iH1BQIgQT9Yk/2BBNVCWY43Ong+ME1xJ6j4C/jkRUOseP7URlfLUQsUYKAYJNVijDvg==
+"@storybook/core-events@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-events/-/core-events-6.3.9.tgz#17127905a2d7773b6e02f15bfbddb1fd1b0bce75"
+  integrity sha1-FxJ5BaLXdztuAvFb+92x/RsLznU=
   dependencies:
-    "@storybook/builder-webpack4" "6.3.6"
-    "@storybook/core-client" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/csf-tools" "6.3.6"
-    "@storybook/manager-webpack4" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    core-js "^3.8.2"
+
+"@storybook/core-server@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-server/-/core-server-6.3.9.tgz#780b940c65d29c77b40b84eaedbde01e44f6d6df"
+  integrity sha1-eAuUDGXSnHe0C4Tq7b3gHkT21t8=
+  dependencies:
+    "@discoveryjs/json-ext" "^0.5.3"
+    "@storybook/builder-webpack4" "6.3.9"
+    "@storybook/core-client" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/csf-tools" "6.3.9"
+    "@storybook/manager-webpack4" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
     "@storybook/semver" "^7.3.2"
     "@types/node" "^14.0.10"
     "@types/node-fetch" "^2.5.7"
@@ -2155,18 +2761,18 @@
     util-deprecate "^1.0.2"
     webpack "4"
 
-"@storybook/core@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-6.3.6.tgz#604419d346433103675901b3736bfa1ed9bc534f"
-  integrity sha512-y71VvVEbqCpG28fDBnfNg3RnUPnicwFYq9yuoFVRF0LYcJCy5cYhkIfW3JG8mN2m0P+LzH80mt2Rj6xlSXrkdQ==
+"@storybook/core@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core/-/core-6.3.9.tgz#9f952218a11b69258ab7f4fc1d3e470f4e851a2b"
+  integrity sha1-n5UiGKEbaSWKt/T8HT5HD06FGis=
   dependencies:
-    "@storybook/core-client" "6.3.6"
-    "@storybook/core-server" "6.3.6"
+    "@storybook/core-client" "6.3.9"
+    "@storybook/core-server" "6.3.9"
 
-"@storybook/csf-tools@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/csf-tools/-/csf-tools-6.3.6.tgz#603d9e832f946998b75ff8368fe862375d6cb52c"
-  integrity sha512-MQevelkEUVNCSjKMXLNc/G8q/BB5babPnSeI0IcJq4k+kLUSHtviimLNpPowMgGJBPx/y9VihH8N7vdJUWVj9w==
+"@storybook/csf-tools@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/csf-tools/-/csf-tools-6.3.9.tgz#3f47725bf4108fd08a2350c39cf4eb5755d96c12"
+  integrity sha1-P0dyW/QQj9CKI1DDnPTrV1XZbBI=
   dependencies:
     "@babel/generator" "^7.12.11"
     "@babel/parser" "^7.12.11"
@@ -2190,20 +2796,20 @@
   dependencies:
     lodash "^4.17.15"
 
-"@storybook/manager-webpack4@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/manager-webpack4/-/manager-webpack4-6.3.6.tgz#a5334aa7ae1e048bca8f4daf868925d7054fb715"
-  integrity sha512-qh/jV4b6mFRpRFfhk1JSyO2gKRz8PLPvDt2AD52/bTAtNRzypKoiWqyZNR2CJ9hgNQtDrk2CO3eKPrcdKYGizQ==
+"@storybook/manager-webpack4@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/manager-webpack4/-/manager-webpack4-6.3.9.tgz#c9b0225de9f6d4e6034055f28bb44394b4a97b32"
+  integrity sha1-ybAiXen21OYDQFXyi7RDlLSpezI=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-template-literals" "^7.12.1"
     "@babel/preset-react" "^7.12.10"
-    "@storybook/addons" "6.3.6"
-    "@storybook/core-client" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/theming" "6.3.6"
-    "@storybook/ui" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/core-client" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/theming" "6.3.9"
+    "@storybook/ui" "6.3.9"
     "@types/node" "^14.0.10"
     "@types/webpack" "^4.41.26"
     babel-loader "^8.2.2"
@@ -2233,20 +2839,20 @@
     webpack-dev-middleware "^3.7.3"
     webpack-virtual-modules "^0.2.2"
 
-"@storybook/manager-webpack5@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/manager-webpack5/-/manager-webpack5-6.3.6.tgz#dc0a49e442314b77ea7e33f3f2a735375fca9b4c"
-  integrity sha512-Mn54pn+8bFHSk8vLTu19tzdljCWDmcvAR6CVSyh1O3LXpT5hJ8v9qpskNyUrXVDjH0ydo6xcNbNh1yYCDitAuw==
+"@storybook/manager-webpack5@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/manager-webpack5/-/manager-webpack5-6.3.9.tgz#3660395cccfeda23dfacbf34a434d4ae35a24b09"
+  integrity sha1-NmA5XMz+2iPfrL80pDTUrjWiSwk=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-template-literals" "^7.12.1"
     "@babel/preset-react" "^7.12.10"
-    "@storybook/addons" "6.3.6"
-    "@storybook/core-client" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
-    "@storybook/theming" "6.3.6"
-    "@storybook/ui" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/core-client" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
+    "@storybook/theming" "6.3.9"
+    "@storybook/ui" "6.3.9"
     "@types/node" "^14.0.10"
     babel-loader "^8.2.2"
     case-sensitive-paths-webpack-plugin "^2.3.0"
@@ -2274,10 +2880,10 @@
     webpack-dev-middleware "^4.1.0"
     webpack-virtual-modules "^0.4.1"
 
-"@storybook/node-logger@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.3.6.tgz#10356608593440a8e3acf2aababef40333a3401b"
-  integrity sha512-XMDkMN7nVRojjiezrURlkI57+nz3OoH4UBV6qJZICKclxtdKAy0wwOlUSYEUq+axcJ4nvdfzPPoDfGoj37SW7A==
+"@storybook/node-logger@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/node-logger/-/node-logger-6.3.9.tgz#01ba480ad9199838b76017b7454985798323a808"
+  integrity sha1-AbpICtkZmDi3YBe3RUmFeYMjqAg=
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^4.1.0"
@@ -2285,10 +2891,10 @@
     npmlog "^4.1.2"
     pretty-hrtime "^1.0.3"
 
-"@storybook/postinstall@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/postinstall/-/postinstall-6.3.6.tgz#fd79a6c109b38ced4b9b40db2d27b88ee184d449"
-  integrity sha512-90Izr8/GwLiXvdF2A3v1PCpWoxUBgqA0TrWGuiWXfJnfFRVlVrX9A/ClGUPSh80L3oE01E6raaOG4wW4JTRKfw==
+"@storybook/postinstall@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/postinstall/-/postinstall-6.3.9.tgz#ca44341bb0bd5f9162b683176fa38d97b1d4e492"
+  integrity sha1-ykQ0G7C9X5FitoMXb6ONl7HU5JI=
   dependencies:
     core-js "^3.8.2"
 
@@ -2310,18 +2916,18 @@
     react-docgen-typescript "^2.0.0"
     tslib "^2.0.0"
 
-"@storybook/react@^6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.3.6.tgz#593bc0743ad22ed5e6e072e6157c20c704864fc3"
-  integrity sha512-2c30XTe7WzKnvgHBGOp1dzBVlhcbc3oEX0SIeVE9ZYkLvRPF+J1jG948a26iqOCOgRAW13Bele37mG1gbl4tiw==
+"@storybook/react@^6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/react/-/react-6.3.9.tgz#3d93a3606a6a9ae1ece8d0d56f382a9c15df5254"
+  integrity sha1-PZOjYGpqmuHs6NDVbzgqnBXfUlQ=
   dependencies:
     "@babel/preset-flow" "^7.12.1"
     "@babel/preset-react" "^7.12.10"
     "@pmmmwh/react-refresh-webpack-plugin" "^0.4.3"
-    "@storybook/addons" "6.3.6"
-    "@storybook/core" "6.3.6"
-    "@storybook/core-common" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/core" "6.3.9"
+    "@storybook/core-common" "6.3.9"
+    "@storybook/node-logger" "6.3.9"
     "@storybook/react-docgen-typescript-plugin" "1.0.2-canary.253f8c1.0"
     "@storybook/semver" "^7.3.2"
     "@types/webpack-env" "^1.16.0"
@@ -2355,6 +2961,22 @@
     qs "^6.10.0"
     ts-dedent "^2.0.0"
 
+"@storybook/router@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/router/-/router-6.3.9.tgz#a299091426349b9dc0bb8610773918712b453dc4"
+  integrity sha1-opkJFCY0m53Au4YQdzkYcStFPcQ=
+  dependencies:
+    "@reach/router" "^1.3.4"
+    "@storybook/client-logger" "6.3.9"
+    "@types/reach__router" "^1.3.7"
+    core-js "^3.8.2"
+    fast-deep-equal "^3.1.3"
+    global "^4.4.0"
+    lodash "^4.17.20"
+    memoizerific "^1.11.3"
+    qs "^6.10.0"
+    ts-dedent "^2.0.0"
+
 "@storybook/semver@^7.3.2":
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/@storybook/semver/-/semver-7.3.2.tgz#f3b9c44a1c9a0b933c04e66d0048fcf2fa10dac0"
@@ -2363,13 +2985,13 @@
     core-js "^3.6.5"
     find-up "^4.1.0"
 
-"@storybook/source-loader@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/source-loader/-/source-loader-6.3.6.tgz#2d3d01919baad7a40f67d1150c74e41dea5f1d4c"
-  integrity sha512-om3iS3a+D287FzBrbXB/IXB6Z5Ql2yc4dFKTy6FPe5v4N3U0p5puWOKUYWWbTX1JbcpRj0IXXo7952G68tcC1g==
+"@storybook/source-loader@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/source-loader/-/source-loader-6.3.9.tgz#439879baf86a1cf5d46d9e7aec1edcf64b0e1f5d"
+  integrity sha1-Q5h5uvhqHPXUbZ567B7c9ksOH10=
   dependencies:
-    "@storybook/addons" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
+    "@storybook/addons" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
     "@storybook/csf" "0.0.1"
     core-js "^3.8.2"
     estraverse "^5.2.0"
@@ -2397,21 +3019,39 @@
     resolve-from "^5.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/ui@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-6.3.6.tgz#a9ed8265e34bb8ef9f0dd08f40170b3dcf8a8931"
-  integrity sha512-S9FjISUiAmbBR7d6ubUEcELQdffDfRxerloxkXs5Ou7n8fEPqpgQB01Hw5MLRUwTEpxPzHn+xtIGYritAGxt/Q==
+"@storybook/theming@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/theming/-/theming-6.3.9.tgz#8e4500dacd298a2ca6bf47b5729449688338283c"
+  integrity sha1-jkUA2s0piiymv0e1cpRJaIM4KDw=
   dependencies:
     "@emotion/core" "^10.1.1"
-    "@storybook/addons" "6.3.6"
-    "@storybook/api" "6.3.6"
-    "@storybook/channels" "6.3.6"
-    "@storybook/client-logger" "6.3.6"
-    "@storybook/components" "6.3.6"
-    "@storybook/core-events" "6.3.6"
-    "@storybook/router" "6.3.6"
+    "@emotion/is-prop-valid" "^0.8.6"
+    "@emotion/styled" "^10.0.27"
+    "@storybook/client-logger" "6.3.9"
+    core-js "^3.8.2"
+    deep-object-diff "^1.1.0"
+    emotion-theming "^10.0.27"
+    global "^4.4.0"
+    memoizerific "^1.11.3"
+    polished "^4.0.5"
+    resolve-from "^5.0.0"
+    ts-dedent "^2.0.0"
+
+"@storybook/ui@6.3.9":
+  version "6.3.9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/ui/-/ui-6.3.9.tgz#4a360471acc4fa5a16bc5be9fa8eb60940b41f16"
+  integrity sha1-SjYEcazE+loWvFvp+o62CUC0HxY=
+  dependencies:
+    "@emotion/core" "^10.1.1"
+    "@storybook/addons" "6.3.9"
+    "@storybook/api" "6.3.9"
+    "@storybook/channels" "6.3.9"
+    "@storybook/client-logger" "6.3.9"
+    "@storybook/components" "6.3.9"
+    "@storybook/core-events" "6.3.9"
+    "@storybook/router" "6.3.9"
     "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.3.6"
+    "@storybook/theming" "6.3.9"
     "@types/markdown-to-jsx" "^6.11.3"
     copy-to-clipboard "^3.3.1"
     core-js "^3.8.2"
@@ -2431,6 +3071,109 @@
     regenerator-runtime "^0.13.7"
     resolve-from "^5.0.0"
     store2 "^2.12.0"
+
+"@svgr/babel-plugin-add-jsx-attribute@^5.4.0":
+  version "5.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-5.4.0.tgz#81ef61947bb268eb9d50523446f9c638fb355906"
+  integrity sha1-ge9hlHuyaOudUFI0RvnGOPs1WQY=
+
+"@svgr/babel-plugin-remove-jsx-attribute@^5.4.0":
+  version "5.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/babel-plugin-remove-jsx-attribute/-/babel-plugin-remove-jsx-attribute-5.4.0.tgz#6b2c770c95c874654fd5e1d5ef475b78a0a962ef"
+  integrity sha1-ayx3DJXIdGVP1eHV70dbeKCpYu8=
+
+"@svgr/babel-plugin-remove-jsx-empty-expression@^5.0.1":
+  version "5.0.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/babel-plugin-remove-jsx-empty-expression/-/babel-plugin-remove-jsx-empty-expression-5.0.1.tgz#25621a8915ed7ad70da6cea3d0a6dbc2ea933efd"
+  integrity sha1-JWIaiRXtetcNps6j0KbbwuqTPv0=
+
+"@svgr/babel-plugin-replace-jsx-attribute-value@^5.0.1":
+  version "5.0.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/babel-plugin-replace-jsx-attribute-value/-/babel-plugin-replace-jsx-attribute-value-5.0.1.tgz#0b221fc57f9fcd10e91fe219e2cd0dd03145a897"
+  integrity sha1-CyIfxX+fzRDpH+IZ4s0N0DFFqJc=
+
+"@svgr/babel-plugin-svg-dynamic-title@^5.4.0":
+  version "5.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/babel-plugin-svg-dynamic-title/-/babel-plugin-svg-dynamic-title-5.4.0.tgz#139b546dd0c3186b6e5db4fefc26cb0baea729d7"
+  integrity sha1-E5tUbdDDGGtuXbT+/CbLC66nKdc=
+
+"@svgr/babel-plugin-svg-em-dimensions@^5.4.0":
+  version "5.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/babel-plugin-svg-em-dimensions/-/babel-plugin-svg-em-dimensions-5.4.0.tgz#6543f69526632a133ce5cabab965deeaea2234a0"
+  integrity sha1-ZUP2lSZjKhM85cq6uWXe6uoiNKA=
+
+"@svgr/babel-plugin-transform-react-native-svg@^5.4.0":
+  version "5.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/babel-plugin-transform-react-native-svg/-/babel-plugin-transform-react-native-svg-5.4.0.tgz#00bf9a7a73f1cad3948cdab1f8dfb774750f8c80"
+  integrity sha1-AL+aenPxytOUjNqx+N+3dHUPjIA=
+
+"@svgr/babel-plugin-transform-svg-component@^5.5.0":
+  version "5.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/babel-plugin-transform-svg-component/-/babel-plugin-transform-svg-component-5.5.0.tgz#583a5e2a193e214da2f3afeb0b9e8d3250126b4a"
+  integrity sha1-WDpeKhk+IU2i86/rC56NMlASa0o=
+
+"@svgr/babel-preset@^5.5.0":
+  version "5.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/babel-preset/-/babel-preset-5.5.0.tgz#8af54f3e0a8add7b1e2b0fcd5a882c55393df327"
+  integrity sha1-ivVPPgqK3XseKw/NWogsVTk98yc=
+  dependencies:
+    "@svgr/babel-plugin-add-jsx-attribute" "^5.4.0"
+    "@svgr/babel-plugin-remove-jsx-attribute" "^5.4.0"
+    "@svgr/babel-plugin-remove-jsx-empty-expression" "^5.0.1"
+    "@svgr/babel-plugin-replace-jsx-attribute-value" "^5.0.1"
+    "@svgr/babel-plugin-svg-dynamic-title" "^5.4.0"
+    "@svgr/babel-plugin-svg-em-dimensions" "^5.4.0"
+    "@svgr/babel-plugin-transform-react-native-svg" "^5.4.0"
+    "@svgr/babel-plugin-transform-svg-component" "^5.5.0"
+
+"@svgr/core@^5.5.0":
+  version "5.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/core/-/core-5.5.0.tgz#82e826b8715d71083120fe8f2492ec7d7874a579"
+  integrity sha1-gugmuHFdcQgxIP6PJJLsfXh0pXk=
+  dependencies:
+    "@svgr/plugin-jsx" "^5.5.0"
+    camelcase "^6.2.0"
+    cosmiconfig "^7.0.0"
+
+"@svgr/hast-util-to-babel-ast@^5.5.0":
+  version "5.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/hast-util-to-babel-ast/-/hast-util-to-babel-ast-5.5.0.tgz#5ee52a9c2533f73e63f8f22b779f93cd432a5461"
+  integrity sha1-XuUqnCUz9z5j+PIrd5+TzUMqVGE=
+  dependencies:
+    "@babel/types" "^7.12.6"
+
+"@svgr/plugin-jsx@^5.5.0":
+  version "5.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/plugin-jsx/-/plugin-jsx-5.5.0.tgz#1aa8cd798a1db7173ac043466d7b52236b369000"
+  integrity sha1-GqjNeYodtxc6wENGbXtSI2s2kAA=
+  dependencies:
+    "@babel/core" "^7.12.3"
+    "@svgr/babel-preset" "^5.5.0"
+    "@svgr/hast-util-to-babel-ast" "^5.5.0"
+    svg-parser "^2.0.2"
+
+"@svgr/plugin-svgo@^5.5.0":
+  version "5.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/plugin-svgo/-/plugin-svgo-5.5.0.tgz#02da55d85320549324e201c7b2e53bf431fcc246"
+  integrity sha1-AtpV2FMgVJMk4gHHsuU79DH8wkY=
+  dependencies:
+    cosmiconfig "^7.0.0"
+    deepmerge "^4.2.2"
+    svgo "^1.2.2"
+
+"@svgr/webpack@^5.5.0":
+  version "5.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@svgr/webpack/-/webpack-5.5.0.tgz#aae858ee579f5fa8ce6c3166ef56c6a1b381b640"
+  integrity sha1-quhY7lefX6jObDFm71bGobOBtkA=
+  dependencies:
+    "@babel/core" "^7.12.3"
+    "@babel/plugin-transform-react-constant-elements" "^7.12.1"
+    "@babel/preset-env" "^7.12.1"
+    "@babel/preset-react" "^7.12.5"
+    "@svgr/core" "^5.5.0"
+    "@svgr/plugin-jsx" "^5.5.0"
+    "@svgr/plugin-svgo" "^5.5.0"
+    loader-utils "^2.0.0"
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
@@ -2621,8 +3364,8 @@
 
 "@types/node-fetch@^2.5.7":
   version "2.5.12"
-  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.5.12.tgz#8a6f779b1d4e60b7a57fb6fd48d84fb545b9cc66"
-  integrity sha512-MKgC4dlq4kKNa/mYrwpKfzQMB5X3ee5U6fSprkKpToBqBmX4nFZL9cW5jl6sWn+xpRJ7ypWh2yyqqr8UUCstSw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node-fetch/-/node-fetch-2.5.12.tgz#8a6f779b1d4e60b7a57fb6fd48d84fb545b9cc66"
+  integrity sha1-im93mx1OYLelf7b9SNhPtUW5zGY=
   dependencies:
     "@types/node" "*"
     form-data "^3.0.0"
@@ -2672,10 +3415,15 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
+"@types/q@^1.5.1":
+  version "1.5.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/q/-/q-1.5.5.tgz#75a2a8e7d8ab4b230414505d92335d1dcb53a6df"
+  integrity sha1-daKo59irSyMEFFBdkjNdHctTpt8=
+
 "@types/qs@^6.9.5":
   version "6.9.7"
-  resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
-  integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
+  integrity sha1-Y7t9Bn2xB8weRXwwO8JdUR/r9ss=
 
 "@types/reach__router@^1.3.7":
   version "1.3.9"
@@ -2686,8 +3434,8 @@
 
 "@types/react-dom@^17.0.8":
   version "17.0.9"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.9.tgz#441a981da9d7be117042e1a6fd3dac4b30f55add"
-  integrity sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react-dom/-/react-dom-17.0.9.tgz#441a981da9d7be117042e1a6fd3dac4b30f55add"
+  integrity sha1-RBqYHanXvhFwQuGm/T2sSzD1Wt0=
   dependencies:
     "@types/react" "*"
 
@@ -2698,10 +3446,26 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^17.0.11":
+"@types/react-transition-group@^4.4.0":
+  version "4.4.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react-transition-group/-/react-transition-group-4.4.3.tgz#b0994da0a7023d67dbb4a8910a62112bc00d5688"
+  integrity sha1-sJlNoKcCPWfbtKiRCmIRK8ANVog=
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*":
   version "17.0.15"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.15.tgz#c7533dc38025677e312606502df7656a6ea626d0"
   integrity sha512-uTKHDK9STXFHLaKv6IMnwp52fm0hwU+N89w/p9grdUqcFA6WuqDyPhaWopbNyE1k/VhgzmHl8pu1L4wITtmlLw==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17.0.27":
+  version "17.0.27"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react/-/react-17.0.27.tgz#6498ed9b3ad117e818deb5525fa1946c09f2e0e6"
+  integrity sha1-ZJjtmzrRF+gY3rVSX6GUbAny4OY=
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -3199,6 +3963,14 @@ address@1.1.2, address@^1.0.1:
   resolved "https://registry.yarnpkg.com/address/-/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
   integrity sha512-aT6camzM4xEA54YVJYSqxz1kv4IHnQZRtThJJHhUMRExaU5spC7jX5ugSwTaTgJliIgs4VhZOk7htClvQ/LmRA==
 
+adjust-sourcemap-loader@^4.0.0:
+  version "4.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/adjust-sourcemap-loader/-/adjust-sourcemap-loader-4.0.0.tgz#fc4a0fd080f7d10471f30a7320f25560ade28c99"
+  integrity sha1-/EoP0ID30QRx8wpzIPJVYK3ijJk=
+  dependencies:
+    loader-utils "^2.0.0"
+    regex-parser "^2.2.11"
+
 agent-base@5:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-5.1.1.tgz#e8fb3f242959db44d63be665db7a8e739537a32c"
@@ -3424,8 +4196,8 @@ array-flatten@^2.1.0:
 
 array-includes@^3.0.3, array-includes@^3.1.1, array-includes@^3.1.2:
   version "3.1.3"
-  resolved "https://registry.yarnpkg.com/array-includes/-/array-includes-3.1.3.tgz#c7f619b382ad2afaf5326cddfdc0afc61af7690a"
-  integrity sha512-gcem1KlBU7c9rB+Rq8/3PPKsK2kjqeEBa3bD5kkQo4nYlOHQCJqIJFqBXDEfwaRuYTT4E+FxA9xez7Gf/e3Q7A==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/array-includes/-/array-includes-3.1.3.tgz#c7f619b382ad2afaf5326cddfdc0afc61af7690a"
+  integrity sha1-x/YZs4KtKvr1Mmzd/cCvxhr3aQo=
   dependencies:
     call-bind "^1.0.2"
     define-properties "^1.1.3"
@@ -3494,11 +4266,6 @@ arrify@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-2.0.1.tgz#c9655e9331e0abcd588d2a7cad7e9956f66701fa"
   integrity sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==
-
-asap@~2.0.3:
-  version "2.0.6"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
-  integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
 
 asn1.js@^5.2.0:
   version "5.4.1"
@@ -3665,8 +4432,8 @@ babel-jest@^27.0.5:
 
 babel-loader@^8.2.2:
   version "8.2.2"
-  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.2.tgz#9363ce84c10c9a40e6c753748e1441b60c8a0b81"
-  integrity sha512-JvTd0/D889PQBtUXJ2PXaKU/pjZDMtHA9V2ecm+eNRmmBCMR09a+fmpGTNwnJtFmFl5Ei7Vy47LjBb+L0wQ99g==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/babel-loader/-/babel-loader-8.2.2.tgz#9363ce84c10c9a40e6c753748e1441b60c8a0b81"
+  integrity sha1-k2POhMEMmkDmx1N0jhRBtgyKC4E=
   dependencies:
     find-cache-dir "^3.3.1"
     loader-utils "^1.4.0"
@@ -3957,7 +4724,7 @@ bonjour@^3.5.0:
     multicast-dns "^6.0.1"
     multicast-dns-service-types "^1.1.0"
 
-boolbase@^1.0.0:
+boolbase@^1.0.0, boolbase@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
@@ -4337,7 +5104,7 @@ chalk@2.4.2, chalk@^2.0.0, chalk@^2.4.1, chalk@^2.4.2:
 
 chalk@^1.1.1:
   version "1.1.3"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
   integrity sha1-qBFcVeSnAv5NFQq9OHKCKn4J/Jg=
   dependencies:
     ansi-styles "^2.2.1"
@@ -4446,23 +5213,23 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
 
 class-utils@^0.3.5:
   version "0.3.6"
-  resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
-  integrity sha512-qOhPa/Fj7s6TY8H8esGu5QNpMMQxz79h+urzrNYN6mn+9BnxlDGf5QZ+XeCDsxSjPqsSR56XOZOJmpeurnLMeg==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
+  integrity sha1-+TNprouafOAv1B+q0MqDAzGQxGM=
   dependencies:
     arr-union "^3.1.0"
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5, classnames@^2.3.1:
+classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha1-38+jiR4wbsHa0QXQ6I9EF7hTXo4=
 
 clean-css@^4.2.3:
   version "4.2.3"
-  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
-  integrity sha512-VcMWDN54ZN/DS+g58HYL5/n4Zrqe8vHJpGA8KdgUXFU4fuP/aHNw8eld9SyEIyabIMJX/0RaY/fplOo5hYLSFA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
+  integrity sha1-UHtd59l7SO5T2ErbAWD/YhY4D3g=
   dependencies:
     source-map "~0.6.0"
 
@@ -4478,8 +5245,8 @@ cli-boxes@^2.2.0, cli-boxes@^2.2.1:
 
 cli-table3@0.6.0:
   version "0.6.0"
-  resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.6.0.tgz#b7b1bc65ca8e7b5cef9124e13dc2b21e2ce4faee"
-  integrity sha512-gnB85c3MGC7Nm9I/FkiasNBOKjOiO1RNuXXarQms37q4QMpWdlbBgD/VnOStA2faG1dpXMv31RFApjX1/QdgWQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/cli-table3/-/cli-table3-0.6.0.tgz#b7b1bc65ca8e7b5cef9124e13dc2b21e2ce4faee"
+  integrity sha1-t7G8ZcqOe1zvkSThPcKyHizk+u4=
   dependencies:
     object-assign "^4.1.0"
     string-width "^4.2.0"
@@ -4528,6 +5295,15 @@ clone-response@^1.0.2:
   integrity sha1-0dyXOSAxTfZ/vrlCI7TuNQI56Ws=
   dependencies:
     mimic-response "^1.0.0"
+
+coa@^2.0.2:
+  version "2.0.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/coa/-/coa-2.0.2.tgz#43f6c21151b4ef2bf57187db0d73de229e3e7ec3"
+  integrity sha1-Q/bCEVG07yv1cYfbDXPeIp4+fsM=
+  dependencies:
+    "@types/q" "^1.5.1"
+    chalk "^2.4.1"
+    q "^1.1.2"
 
 code-point-at@^1.0.0:
   version "1.1.0"
@@ -4761,15 +5537,10 @@ core-js-pure@^3.16.0, core-js-pure@^3.8.2:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.16.0.tgz#218e07add3f1844e53fab195c47871fc5ba18de8"
   integrity sha512-wzlhZNepF/QA9yvx3ePDgNGudU5KDB8lu/TRPKelYA/QtSnkS/cLl2W+TIdEX1FAFcBr0YpY7tPDlcmXJ7AyiQ==
 
-core-js@^1.0.0:
-  version "1.2.7"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
-  integrity sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
-
 core-js@^2.4.0:
   version "2.6.12"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
-  integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
+  integrity sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw=
 
 core-js@^3.0.4, core-js@^3.6.4, core-js@^3.6.5, core-js@^3.8.2:
   version "3.16.0"
@@ -4878,8 +5649,8 @@ cross-spawn@7.0.3, cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
 
 cross-spawn@^6.0.0:
   version "6.0.5"
-  resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"
-  integrity sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/cross-spawn/-/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"
+  integrity sha1-Sl7Hxk364iw6FBJNus3uhG2Ay8Q=
   dependencies:
     nice-try "^1.0.4"
     path-key "^2.0.1"
@@ -4958,6 +5729,21 @@ css-loader@^6.2.0:
     postcss-value-parser "^4.1.0"
     semver "^7.3.5"
 
+css-select-base-adapter@^0.1.1:
+  version "0.1.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-select-base-adapter/-/css-select-base-adapter-0.1.1.tgz#3b2ff4972cc362ab88561507a95408a1432135d7"
+  integrity sha1-Oy/0lyzDYquIVhUHqVQIoUMhNdc=
+
+css-select@^2.0.0:
+  version "2.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-select/-/css-select-2.1.0.tgz#6a34653356635934a81baca68d0255432105dbef"
+  integrity sha1-ajRlM1ZjWTSoG6ymjQJVQyEF2+8=
+  dependencies:
+    boolbase "^1.0.0"
+    css-what "^3.2.1"
+    domutils "^1.7.0"
+    nth-check "^1.0.2"
+
 css-select@^4.1.3:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/css-select/-/css-select-4.1.3.tgz#a70440f70317f2669118ad74ff105e65849c7067"
@@ -4969,6 +5755,27 @@ css-select@^4.1.3:
     domutils "^2.6.0"
     nth-check "^2.0.0"
 
+css-tree@1.0.0-alpha.37:
+  version "1.0.0-alpha.37"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-tree/-/css-tree-1.0.0-alpha.37.tgz#98bebd62c4c1d9f960ec340cf9f7522e30709a22"
+  integrity sha1-mL69YsTB2flg7DQM+fdSLjBwmiI=
+  dependencies:
+    mdn-data "2.0.4"
+    source-map "^0.6.1"
+
+css-tree@^1.1.2:
+  version "1.1.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-tree/-/css-tree-1.1.3.tgz#eb4870fb6fd7707327ec95c2ff2ab09b5e8db91d"
+  integrity sha1-60hw+2/XcHMn7JXC/yqwm16NuR0=
+  dependencies:
+    mdn-data "2.0.14"
+    source-map "^0.6.1"
+
+css-what@^3.2.1:
+  version "3.4.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-what/-/css-what-3.4.2.tgz#ea7026fcb01777edbde52124e21f327e7ae950e4"
+  integrity sha1-6nAm/LAXd+295SEk4h8yfnrpUOQ=
+
 css-what@^5.0.0:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-5.0.1.tgz#3efa820131f4669a8ac2408f9c32e7c7de9f4cad"
@@ -4978,6 +5785,13 @@ cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+
+csso@^4.0.2:
+  version "4.2.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/csso/-/csso-4.2.0.tgz#ea3a561346e8dc9f546d6febedd50187cf389529"
+  integrity sha1-6jpWE0bo3J9UbW/r7dUBh884lSk=
+  dependencies:
+    css-tree "^1.1.2"
 
 csstype@^2.5.7:
   version "2.6.17"
@@ -5005,6 +5819,11 @@ dashdash@^1.12.0:
   integrity sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
   dependencies:
     assert-plus "^1.0.0"
+
+date-fns@^2.0.1:
+  version "2.23.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/date-fns/-/date-fns-2.23.0.tgz#4e886c941659af0cf7b30fafdd1eaa37e88788a9"
+  integrity sha1-TohslBZZrwz3sw+v3R6qN+iHiKk=
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
@@ -5270,6 +6089,14 @@ dom-helpers@^5.0.1:
     "@babel/runtime" "^7.8.7"
     csstype "^3.0.2"
 
+dom-serializer@0:
+  version "0.2.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/dom-serializer/-/dom-serializer-0.2.2.tgz#1afb81f533717175d478655debc5e332d9f9bb51"
+  integrity sha1-GvuB9TNxcXXUeGVd68XjMtn5u1E=
+  dependencies:
+    domelementtype "^2.0.1"
+    entities "^2.0.0"
+
 dom-serializer@^1.0.1:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-1.3.2.tgz#6206437d32ceefaec7161803230c7a20bc1b4d91"
@@ -5289,6 +6116,11 @@ domain-browser@^1.1.1:
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
   integrity sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA==
 
+domelementtype@1:
+  version "1.3.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/domelementtype/-/domelementtype-1.3.1.tgz#d048c44b37b0d10a7f2a3d5fee3f4333d790481f"
+  integrity sha1-0EjESzew0Qp/Kj1f7j9DM9eQSB8=
+
 domelementtype@^2.0.1, domelementtype@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-2.2.0.tgz#9a0b6c2782ed6a1c7323d42267183df9bd8b1d57"
@@ -5300,6 +6132,14 @@ domhandler@^4.0.0, domhandler@^4.2.0:
   integrity sha512-zk7sgt970kzPks2Bf+dwT/PLzghLnsivb9CcxkvR8Mzr66Olr0Ofd8neSbglHJHaHa2MadfoSdNlKYAaafmWfA==
   dependencies:
     domelementtype "^2.2.0"
+
+domutils@^1.7.0:
+  version "1.7.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/domutils/-/domutils-1.7.0.tgz#56ea341e834e06e6748af7a1cb25da67ea9f8c2a"
+  integrity sha1-Vuo0HoNOBuZ0ivehyyXaZ+qfjCo=
+  dependencies:
+    dom-serializer "0"
+    domelementtype "1"
 
 domutils@^2.5.2, domutils@^2.6.0:
   version "2.7.0"
@@ -5475,13 +6315,6 @@ encodeurl@~1.0.2:
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
   integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
 
-encoding@^0.1.11:
-  version "0.1.13"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/encoding/-/encoding-0.1.13.tgz#56574afdd791f54a8e9b2785c0582a2d26210fa9"
-  integrity sha1-VldK/deR9UqOmyeFwFgqLSYhD6k=
-  dependencies:
-    iconv-lite "^0.6.2"
-
 end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.4.tgz#5ae64a5f45057baf3626ec14da0ca5e4b2431eb0"
@@ -5581,6 +6414,32 @@ es-abstract@^1.17.0-next.0, es-abstract@^1.18.0-next.1, es-abstract@^1.18.0-next
     string.prototype.trimstart "^1.0.4"
     unbox-primitive "^1.0.1"
 
+es-abstract@^1.17.2:
+  version "1.19.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/es-abstract/-/es-abstract-1.19.0.tgz#0a6e6682268e7f5bdc1c740b33ce2578d64538d3"
+  integrity sha1-Cm5mgiaOf1vcHHQLM84leNZFONM=
+  dependencies:
+    call-bind "^1.0.2"
+    es-to-primitive "^1.2.1"
+    function-bind "^1.1.1"
+    get-intrinsic "^1.1.1"
+    get-symbol-description "^1.0.0"
+    has "^1.0.3"
+    has-symbols "^1.0.2"
+    internal-slot "^1.0.3"
+    is-callable "^1.2.4"
+    is-negative-zero "^2.0.1"
+    is-regex "^1.1.4"
+    is-shared-array-buffer "^1.0.1"
+    is-string "^1.0.7"
+    is-weakref "^1.0.1"
+    object-inspect "^1.11.0"
+    object-keys "^1.1.1"
+    object.assign "^4.1.2"
+    string.prototype.trimend "^1.0.4"
+    string.prototype.trimstart "^1.0.4"
+    unbox-primitive "^1.0.1"
+
 es-array-method-boxes-properly@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/es-array-method-boxes-properly/-/es-array-method-boxes-properly-1.0.0.tgz#873f3e84418de4ee19c5be752990b2e44718d09e"
@@ -5624,23 +6483,23 @@ es6-shim@^0.35.5:
   resolved "https://registry.yarnpkg.com/es6-shim/-/es6-shim-0.35.6.tgz#d10578301a83af2de58b9eadb7c2c9945f7388a0"
   integrity sha512-EmTr31wppcaIAgblChZiuN/l9Y7DPyw8Xtbg7fIVngn6zMW+IEBJDJngeKC3x6wr0V/vcA2wqeFnaw1bFJbDdA==
 
-esbuild-loader@^2.9.1:
-  version "2.13.1"
-  resolved "https://registry.yarnpkg.com/esbuild-loader/-/esbuild-loader-2.13.1.tgz#9c89e654390a9a25d99b2f6d803ade30f4335418"
-  integrity sha512-Tzc5nB5tVUmigXz6m4j1OYozJCjdix7E9vtd5RaE54fqz2Rz34Is9S8FbAf8uqR4xvQUBAXIi6Jkn1OeMxw2aQ==
+esbuild-loader@^2.10.0:
+  version "2.15.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-loader/-/esbuild-loader-2.15.1.tgz#5a3940f5d20317f1a35720efa33e933f97c923e9"
+  integrity sha1-WjlA9dIDF/GjVyDvoz6TP5fJI+k=
   dependencies:
-    esbuild "^0.11.19"
+    esbuild "^0.12.21"
     joycon "^3.0.1"
     json5 "^2.2.0"
     loader-utils "^2.0.0"
     tapable "^2.2.0"
-    type-fest "^1.0.1"
+    type-fest "^1.4.0"
     webpack-sources "^2.2.0"
 
-esbuild@^0.11.19:
-  version "0.11.23"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.11.23.tgz#c42534f632e165120671d64db67883634333b4b8"
-  integrity sha512-iaiZZ9vUF5wJV8ob1tl+5aJTrwDczlvGP0JoMmnpC2B0ppiMCu8n8gmy5ZTGl5bcG081XBVn+U+jP+mPFm5T5Q==
+esbuild@^0.12.21:
+  version "0.12.29"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild/-/esbuild-0.12.29.tgz#be602db7c4dc78944a9dbde0d1ea19d36c1f882d"
+  integrity sha1-vmAtt8TceJRKnb3g0eoZ02wfiC0=
 
 escalade@^3.0.2, escalade@^3.1.1:
   version "3.1.1"
@@ -5659,8 +6518,8 @@ escape-html@^1.0.3, escape-html@~1.0.3:
 
 escape-string-regexp@2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
-  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha1-owME6Z2qMuI7L9IPUbq9B8/8o0Q=
 
 escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -5724,8 +6583,8 @@ eslint-plugin-jsx-a11y@^6.3.1:
 
 eslint-plugin-react-hooks@^4.0.8:
   version "4.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz#8c229c268d468956334c943bb45fc860280f5556"
-  integrity sha512-623WEiZJqxR7VdxFCKLI6d6LLpwJkGPYKODnkH3D7WpOG5KM8yWueBd8TLsNAetEJNF5iJmolaAKO3F8yzyVBQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz#8c229c268d468956334c943bb45fc860280f5556"
+  integrity sha1-jCKcJo1GiVYzTJQ7tF/IYCgPVVY=
 
 eslint-scope@5.1.1, eslint-scope@^5.1.1:
   version "5.1.1"
@@ -5769,8 +6628,8 @@ eslint-visitor-keys@^2.0.0, eslint-visitor-keys@^2.1.0:
 
 eslint@^7.29.0:
   version "7.32.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.32.0.tgz#c6d328a14be3fb08c8d1d21e12c02fdb7a2a812d"
-  integrity sha512-VHZ8gX+EDfz+97jGcgyGCyRia/dPOd6Xh9yPv8Bl1+SoaIwD+a/vlrOmGRUyOYu7MwUhc7CxqeaDZU13S4+EpA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/eslint/-/eslint-7.32.0.tgz#c6d328a14be3fb08c8d1d21e12c02fdb7a2a812d"
+  integrity sha1-xtMooUvj+wjI0dIeEsAv23oqgS0=
   dependencies:
     "@babel/code-frame" "7.12.11"
     "@eslint/eslintrc" "^0.4.3"
@@ -5908,8 +6767,8 @@ execa@^1.0.0:
 
 execa@^4.0.0:
   version "4.1.0"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-4.1.0.tgz#4e5491ad1572f2f17a77d388c6c857135b22847a"
-  integrity sha512-j5W0//W7f8UxAn8hXVnwG8tLwdiUy4FJLcSupCg6maBYZDpyBvTApK7KyuI4bKj8KOh1r2YH+6ucuYtJv1bTZA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/execa/-/execa-4.1.0.tgz#4e5491ad1572f2f17a77d388c6c857135b22847a"
+  integrity sha1-TlSRrRVy8vF6d9OIxshXE1sihHo=
   dependencies:
     cross-spawn "^7.0.0"
     get-stream "^5.0.0"
@@ -6021,8 +6880,8 @@ extglob@^2.0.4:
 
 extract-zip@^1.6.6:
   version "1.7.0"
-  resolved "https://registry.yarnpkg.com/extract-zip/-/extract-zip-1.7.0.tgz#556cc3ae9df7f452c493a0cfb51cc30277940927"
-  integrity sha512-xoh5G1W/PB0/27lXgMQyIhP5DSY/LhoCsOyZgb+6iMmRtCwVBo55uKaMoEYrDCKQhWvqEip5ZPKAc6eFNyf/MA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/extract-zip/-/extract-zip-1.7.0.tgz#556cc3ae9df7f452c493a0cfb51cc30277940927"
+  integrity sha1-VWzDrp339FLEk6DPtRzDAneUCSc=
   dependencies:
     concat-stream "^1.6.2"
     debug "^2.6.9"
@@ -6096,8 +6955,8 @@ fastq@^1.6.0:
 
 fault@^1.0.0:
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/fault/-/fault-1.0.4.tgz#eafcfc0a6d214fc94601e170df29954a4f842f13"
-  integrity sha512-CJ0HCB5tL5fYTEA7ToAq5+kTwd++Borf1/bifxd9iT70QcXr4MRrO3Llf8Ifs70q+SJcGHFtnIE/Nw6giCtECA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/fault/-/fault-1.0.4.tgz#eafcfc0a6d214fc94601e170df29954a4f842f13"
+  integrity sha1-6vz8Cm0hT8lGAeFw3ymVSk+ELxM=
   dependencies:
     format "^0.2.0"
 
@@ -6114,19 +6973,6 @@ fb-watchman@^2.0.0:
   integrity sha512-DkPJKQeY6kKwmuMretBhr7G6Vodr7bFwDYTXIkfG1gjvNpaxBTQV3PbXg6bR1c1UP4jPOX0jHUbbHANL9vRjVg==
   dependencies:
     bser "2.1.1"
-
-fbjs@^0.8.4:
-  version "0.8.17"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
-  integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
-  dependencies:
-    core-js "^1.0.0"
-    isomorphic-fetch "^2.1.1"
-    loose-envify "^1.0.0"
-    object-assign "^4.1.0"
-    promise "^7.1.1"
-    setimmediate "^1.0.5"
-    ua-parser-js "^0.7.18"
 
 fd-slicer@~1.1.0:
   version "1.1.0"
@@ -6149,8 +6995,8 @@ file-entry-cache@^6.0.1:
 
 file-loader@^6.2.0:
   version "6.2.0"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-6.2.0.tgz#baef7cf8e1840df325e4390b4484879480eebe4d"
-  integrity sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/file-loader/-/file-loader-6.2.0.tgz#baef7cf8e1840df325e4390b4484879480eebe4d"
+  integrity sha1-uu98+OGEDfMl5DkLRISHlIDuvk0=
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
@@ -6551,6 +7397,14 @@ get-stream@^6.0.0:
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-6.0.1.tgz#a262d8eef67aced57c2852ad6167526a43cbf7b7"
   integrity sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==
 
+get-symbol-description@^1.0.0:
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/get-symbol-description/-/get-symbol-description-1.0.0.tgz#7fdb81c900101fbd564dd5f1a30af5aadc1e58d6"
+  integrity sha1-f9uByQAQH71WTdXxowr1qtweWNY=
+  dependencies:
+    call-bind "^1.0.2"
+    get-intrinsic "^1.1.1"
+
 get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
@@ -6646,8 +7500,8 @@ global-dirs@^3.0.0:
 
 global-modules@2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/global-modules/-/global-modules-2.0.0.tgz#997605ad2345f27f51539bea26574421215c7780"
-  integrity sha512-NGbfmJBp9x8IxyJSd1P+otYK8vonoJactOogrVfFRIAEY1ukil8RSKDz2Yo7wh1oihl51l/r6W4epkeKJHqL8A==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/global-modules/-/global-modules-2.0.0.tgz#997605ad2345f27f51539bea26574421215c7780"
+  integrity sha1-mXYFrSNF8n9RU5vqJldEISFcd4A=
   dependencies:
     global-prefix "^3.0.0"
 
@@ -6833,6 +7687,13 @@ has-symbols@^1.0.1, has-symbols@^1.0.2:
   resolved "https://registry.yarnpkg.com/has-symbols/-/has-symbols-1.0.2.tgz#165d3070c00309752a1236a479331e3ac56f1423"
   integrity sha512-chXa79rL/UC2KlX17jo3vRGz0azaWEx5tGqZg5pO3NUyEJVB17dMruQlzCCOfUvElghKcm5194+BCRvi2Rv/Gw==
 
+has-tostringtag@^1.0.0:
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/has-tostringtag/-/has-tostringtag-1.0.0.tgz#7e133818a7d394734f941e73c3d3f9291e658b25"
+  integrity sha1-fhM4GKfTlHNPlB5zw9P5KR5liyU=
+  dependencies:
+    has-symbols "^1.0.2"
+
 has-unicode@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
@@ -6968,8 +7829,8 @@ hastscript@^6.0.0:
 
 he@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
-  integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
+  integrity sha1-hK5l+n6vsWX922FWauFLrwVmTw8=
 
 highlight.js@^10.1.1, highlight.js@~10.7.0:
   version "10.7.3"
@@ -6985,7 +7846,7 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoist-non-react-statics@^3.3.0:
+hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.1:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -7016,8 +7877,8 @@ hpack.js@^2.1.6:
 
 html-entities@^1.2.0, html-entities@^1.2.1:
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.4.0.tgz#cfbd1b01d2afaf9adca1b10ae7dffab98c71d2dc"
-  integrity sha512-8nxjcBcd8wovbeKx7h3wTji4e6+rhaVuPNpMqwWgnHh+N9ToqsCs6XztWRBPQ+UtzsoMAdKZtUENoVzU/EMtZA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/html-entities/-/html-entities-1.4.0.tgz#cfbd1b01d2afaf9adca1b10ae7dffab98c71d2dc"
+  integrity sha1-z70bAdKvr5rcobEK59/6uYxx0tw=
 
 html-entities@^2.3.2:
   version "2.3.2"
@@ -7199,13 +8060,6 @@ iconv-lite@0.4.24:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-iconv-lite@^0.6.2:
-  version "0.6.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/iconv-lite/-/iconv-lite-0.6.3.tgz#a52f80bf38da1952eb5c681790719871a1a72501"
-  integrity sha1-pS+AvzjaGVLrXGgXkHGYcaGnJQE=
-  dependencies:
-    safer-buffer ">= 2.1.2 < 3.0.0"
-
 icss-utils@^4.0.0, icss-utils@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/icss-utils/-/icss-utils-4.1.1.tgz#21170b53789ee27447c2f47dd683081403f9a467"
@@ -7338,8 +8192,8 @@ internal-slot@^1.0.3:
 
 interpret@^1.0.0:
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
-  integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
+  integrity sha1-Zlq4vE2iendKQFhOgS4+D6RbGh4=
 
 interpret@^2.2.0:
   version "2.2.0"
@@ -7457,6 +8311,11 @@ is-callable@^1.1.3, is-callable@^1.1.4, is-callable@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.2.3.tgz#8b1e0500b73a1d76c70487636f368e519de8db8e"
   integrity sha512-J1DcMe8UYTBSrKezuIUTUwjXsho29693unXM2YhJUTR2txK/eG47bvNa/wipPFmZFgr/N6f1GA66dv0mEyTIyQ==
+
+is-callable@^1.2.4:
+  version "1.2.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-callable/-/is-callable-1.2.4.tgz#47301d58dd0259407865547853df6d61fe471945"
+  integrity sha1-RzAdWN0CWUB4ZVR4U99tYf5HGUU=
 
 is-ci@^2.0.0:
   version "2.0.0"
@@ -7663,13 +8522,13 @@ is-object@^1.0.1:
 
 is-path-cwd@^2.2.0:
   version "2.2.0"
-  resolved "https://registry.yarnpkg.com/is-path-cwd/-/is-path-cwd-2.2.0.tgz#67d43b82664a7b5191fd9119127eb300048a9fdb"
-  integrity sha512-w942bTcih8fdJPJmQHFzkS76NEP8Kzzvmw92cXsazb8intwLqPibPPdXf4ANdKV3rYMuuQYGIWtvz9JilB3NFQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-path-cwd/-/is-path-cwd-2.2.0.tgz#67d43b82664a7b5191fd9119127eb300048a9fdb"
+  integrity sha1-Z9Q7gmZKe1GR/ZEZEn6zAASKn9s=
 
 is-path-inside@^3.0.2:
   version "3.0.3"
-  resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-3.0.3.tgz#d231362e53a07ff2b0e0ea7fed049161ffd16283"
-  integrity sha512-Fd4gABb+ycGAmKou8eMftCupSir5lRxqf4aD/vd0cD2qc4HL07OjCeuHMr8Ro4CoMaeCKDB0/ECBOVWjTwUvPQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-path-inside/-/is-path-inside-3.0.3.tgz#d231362e53a07ff2b0e0ea7fed049161ffd16283"
+  integrity sha1-0jE2LlOgf/Kw4Op/7QSRYf/RYoM=
 
 is-plain-obj@^1.1.0:
   version "1.1.0"
@@ -7706,6 +8565,14 @@ is-regex@^1.0.4, is-regex@^1.1.2, is-regex@^1.1.3:
     call-bind "^1.0.2"
     has-symbols "^1.0.2"
 
+is-regex@^1.1.4:
+  version "1.1.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-regex/-/is-regex-1.1.4.tgz#eef5663cd59fa4c0ae339505323df6854bb15958"
+  integrity sha1-7vVmPNWfpMCuM5UFMj32hUuxWVg=
+  dependencies:
+    call-bind "^1.0.2"
+    has-tostringtag "^1.0.0"
+
 is-root@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-root/-/is-root-2.1.0.tgz#809e18129cf1129644302a4f8544035d51984a9c"
@@ -7716,7 +8583,12 @@ is-set@^2.0.2:
   resolved "https://registry.yarnpkg.com/is-set/-/is-set-2.0.2.tgz#90755fa4c2562dc1c5d4024760d6119b94ca18ec"
   integrity sha512-+2cnTEZeY5z/iXGbLhPrOAaK/Mau5k5eXq9j14CpRTftq0pAJu2MwVRSZhyZWBzx3o6X795Lz6Bpb6R0GKf37g==
 
-is-stream@^1.0.1, is-stream@^1.1.0:
+is-shared-array-buffer@^1.0.1:
+  version "1.0.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-shared-array-buffer/-/is-shared-array-buffer-1.0.1.tgz#97b0c85fbdacb59c9c446fe653b82cf2b5b7cfe6"
+  integrity sha1-l7DIX72stZycRG/mU7gs8rW3z+Y=
+
+is-stream@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
   integrity sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
@@ -7731,6 +8603,13 @@ is-string@^1.0.5, is-string@^1.0.6:
   resolved "https://registry.yarnpkg.com/is-string/-/is-string-1.0.6.tgz#3fe5d5992fb0d93404f32584d4b0179a71b54a5f"
   integrity sha512-2gdzbKUuqtQ3lYNrUTQYoClPhm7oQu4UdpSZMp1/DGgkHBT8E2Z1l0yMdb6D4zNAxwDiMv8MdulKROJGNl0Q0w==
 
+is-string@^1.0.7:
+  version "1.0.7"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-string/-/is-string-1.0.7.tgz#0dd12bf2006f255bb58f695110eff7491eebc0fd"
+  integrity sha1-DdEr8gBvJVu1j2lREO/3SR7rwP0=
+  dependencies:
+    has-tostringtag "^1.0.0"
+
 is-symbol@^1.0.2, is-symbol@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/is-symbol/-/is-symbol-1.0.4.tgz#a6dac93b635b063ca6872236de88910a57af139c"
@@ -7742,6 +8621,13 @@ is-typedarray@^1.0.0, is-typedarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
+
+is-weakref@^1.0.1:
+  version "1.0.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-weakref/-/is-weakref-1.0.1.tgz#842dba4ec17fa9ac9850df2d6efbc1737274f2a2"
+  integrity sha1-hC26TsF/qayYUN8tbvvBc3J08qI=
+  dependencies:
+    call-bind "^1.0.0"
 
 is-whitespace-character@^1.0.0:
   version "1.0.4"
@@ -7811,14 +8697,6 @@ isobject@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-4.0.0.tgz#3f1c9155e73b192022a80819bacd0343711697b0"
   integrity sha512-S/2fF5wH8SJA/kmwr6HYhK/RI/OkhD84k8ntalo0iJjZikgq1XFvR5M8NPT1x5F7fBwCG3qHfnzeP/Vh/ZxCUA==
-
-isomorphic-fetch@^2.1.1:
-  version "2.2.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
-  integrity sha1-YRrhrPFPXoH3KVB0coGf6XM1WKk=
-  dependencies:
-    node-fetch "^1.0.1"
-    whatwg-fetch ">=0.10.0"
 
 isstream@~0.1.2:
   version "0.1.2"
@@ -7963,8 +8841,8 @@ jest-util@^27.0.6:
 
 jest-worker@^26.5.0, jest-worker@^26.6.2:
   version "26.6.2"
-  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.6.2.tgz#7f72cbc4d643c365e27b9fd775f9d0eaa9c7a8ed"
-  integrity sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jest-worker/-/jest-worker-26.6.2.tgz#7f72cbc4d643c365e27b9fd775f9d0eaa9c7a8ed"
+  integrity sha1-f3LLxNZDw2Xie5/XdfnQ6qnHqO0=
   dependencies:
     "@types/node" "*"
     merge-stream "^2.0.0"
@@ -7986,8 +8864,8 @@ joycon@^3.0.1:
 
 js-base64@^2.1.8:
   version "2.6.4"
-  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.6.4.tgz#f4e686c5de1ea1f867dbcad3d46d969428df98c4"
-  integrity sha512-pZe//GGmwJndub7ZghVHz7vjb2LgC1m8B07Au3eYqeqv9emhESByMXxaEgkUkEqJe87oBbSniGYoQNIBklc7IQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/js-base64/-/js-base64-2.6.4.tgz#f4e686c5de1ea1f867dbcad3d46d969428df98c4"
+  integrity sha1-9OaGxd4eofhn28rT1G2WlCjfmMQ=
 
 js-string-escape@^1.0.1:
   version "1.0.1"
@@ -8345,7 +9223,7 @@ lodash.truncate@^4.4.2:
 
 lodash.uniq@4.5.0:
   version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
 lodash@^4.0.0, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@~4.17.10:
@@ -8353,7 +9231,7 @@ lodash@^4.0.0, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.2
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -8515,9 +9393,19 @@ mdast-util-to-string@^1.0.0:
   resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-1.1.0.tgz#27055500103f51637bd07d01da01eb1967a43527"
   integrity sha512-jVU0Nr2B9X3MU4tSK7JP1CMkSvOj7X5l/GboG1tKRw52lLF1x2Ju92Ms9tNetCcbfX3hzlM73zYo2NKkWSfF/A==
 
+mdn-data@2.0.14:
+  version "2.0.14"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
+  integrity sha1-cRP8QoGRfWPOKbQ0RvcB5owlulA=
+
+mdn-data@2.0.4:
+  version "2.0.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/mdn-data/-/mdn-data-2.0.4.tgz#699b3c38ac6f1d728091a64650b65d388502fd5b"
+  integrity sha1-aZs8OKxvHXKAkaZGULZdOIUC/Vs=
+
 mdurl@^1.0.0:
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
 
 media-typer@0.3.0:
@@ -8793,7 +9681,7 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.4, mkdirp@^0.5.5:
+mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.4, mkdirp@^0.5.5, mkdirp@~0.5.1:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.5.tgz#d91cefd62d1436ca0f41620e251288d420099def"
   integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
@@ -8839,8 +9727,8 @@ ms@2.1.2:
 
 ms@^2.1.1:
   version "2.1.3"
-  resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
-  integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
+  integrity sha1-V0yBOM4dK1hh8LRFedut1gxmFbI=
 
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
@@ -8920,11 +9808,6 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-nested-object-assign@^1.0.3:
-  version "1.0.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/nested-object-assign/-/nested-object-assign-1.0.4.tgz#c9db56078eb6043960fdb6ba918a5122a06ccac4"
-  integrity sha1-ydtWB462BDlg/ba6kYpRIqBsysQ=
-
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -8944,14 +9827,6 @@ node-dir@^0.1.10, node-dir@^0.1.17:
   integrity sha1-X1Zl2TNRM1yqvvjxxVRRbPXx5OU=
   dependencies:
     minimatch "^3.0.2"
-
-node-fetch@^1.0.1:
-  version "1.7.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
-  integrity sha1-mA9vcthSEaU0fGsrwYxbhMPrR+8=
-  dependencies:
-    encoding "^0.1.11"
-    is-stream "^1.0.1"
 
 node-fetch@^2.6.1:
   version "2.6.1"
@@ -9117,6 +9992,13 @@ npmlog@^4.0.0, npmlog@^4.1.2:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
+nth-check@^1.0.2:
+  version "1.0.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/nth-check/-/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
+  integrity sha1-sr0pXDfj3VijvwcAN2Zjuk2c8Fw=
+  dependencies:
+    boolbase "~1.0.0"
+
 nth-check@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/nth-check/-/nth-check-2.0.0.tgz#1bb4f6dac70072fc313e8c9cd1417b5074c0a125"
@@ -9207,7 +10089,7 @@ object.entries@^1.1.0:
     es-abstract "^1.18.0-next.2"
     has "^1.0.3"
 
-object.getownpropertydescriptors@^2.0.3, object.getownpropertydescriptors@^2.1.1, object.getownpropertydescriptors@^2.1.2:
+object.getownpropertydescriptors@^2.0.3, object.getownpropertydescriptors@^2.1.0, object.getownpropertydescriptors@^2.1.1, object.getownpropertydescriptors@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/object.getownpropertydescriptors/-/object.getownpropertydescriptors-2.1.2.tgz#1bd63aeacf0d5d2d2f31b5e393b03a7c601a23f7"
   integrity sha512-WtxeKSzfBjlzL+F9b7M7hewDzMwy+C8NRssHd1YrNlzHzIDrXcXiNOMrezdAEM4UXixgV+vvnyBeN7Rygl2ttQ==
@@ -9225,8 +10107,8 @@ object.pick@^1.3.0:
 
 object.values@^1.1.0:
   version "1.1.4"
-  resolved "https://registry.yarnpkg.com/object.values/-/object.values-1.1.4.tgz#0d273762833e816b693a637d30073e7051535b30"
-  integrity sha512-TnGo7j4XSnKQoK3MfvkzqKCi0nVe/D9I9IjwTNYdb/fxYHpjrluHVOgw0AF6jrRFGMPHdfuidR09tIDiIvnaSg==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/object.values/-/object.values-1.1.4.tgz#0d273762833e816b693a637d30073e7051535b30"
+  integrity sha1-DSc3YoM+gWtpOmN9MAc+cFFTWzA=
   dependencies:
     call-bind "^1.0.2"
     define-properties "^1.1.3"
@@ -9508,8 +10390,8 @@ parse-json@^5.0.0:
 
 parse5@^6.0.0:
   version "6.0.1"
-  resolved "https://registry.yarnpkg.com/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
-  integrity sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
+  integrity sha1-4aHAhcVps9wIMhGE8Zo5zCf3wws=
 
 parseurl@~1.3.2, parseurl@~1.3.3:
   version "1.3.3"
@@ -9673,8 +10555,8 @@ polished@^4.0.5:
 
 portfinder@^1.0.28:
   version "1.0.28"
-  resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"
-  integrity sha512-Se+2isanIcEqf2XMHjyUKskczxbPH7dQnlMjXX6+dybayyHvAf/TCgyMRlzf/B6QDhAEFOGes0pzRo3by4AbMA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/portfinder/-/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"
+  integrity sha1-Z8RiKFK9U3TdHdkA93n1NGL6x3g=
   dependencies:
     async "^2.6.2"
     debug "^3.1.1"
@@ -9777,7 +10659,7 @@ postcss-value-parser@^4.1.0:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
   integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
 
-postcss@^7.0.14, postcss@^7.0.26, postcss@^7.0.32, postcss@^7.0.36, postcss@^7.0.5, postcss@^7.0.6:
+postcss@^7.0.14, postcss@^7.0.26, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.36, postcss@^7.0.5, postcss@^7.0.6:
   version "7.0.36"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.36.tgz#056f8cffa939662a8f5905950c07d5285644dfcb"
   integrity sha512-BebJSIUMwJHRH0HAQoxN4u1CN86glsrwsW0q7T+/m44eXOUAxSNdHRkNZPYz5vVUbg17hFgOQDE7fZk7li3pZw==
@@ -9822,8 +10704,8 @@ prettier@~2.2.1:
 
 pretty-error@^2.1.1:
   version "2.1.2"
-  resolved "https://registry.yarnpkg.com/pretty-error/-/pretty-error-2.1.2.tgz#be89f82d81b1c86ec8fdfbc385045882727f93b6"
-  integrity sha512-EY5oDzmsX5wvuynAByrmY0P0hcp+QpnAKbJng2A2MPjVKXCxrDSUkzghVJ4ZGPIv+JC4gX8fPUWscC0RtjsWGw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/pretty-error/-/pretty-error-2.1.2.tgz#be89f82d81b1c86ec8fdfbc385045882727f93b6"
+  integrity sha1-von4LYGxyG7I/fvDhQRYgnJ/k7Y=
   dependencies:
     lodash "^4.17.20"
     renderkid "^2.0.4"
@@ -9904,13 +10786,6 @@ promise.prototype.finally@^3.1.0:
     es-abstract "^1.17.0-next.0"
     function-bind "^1.1.1"
 
-promise@^7.1.1:
-  version "7.3.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
-  integrity sha1-BktyYCsY+Q8pGSuLG8QY/9Hr078=
-  dependencies:
-    asap "~2.0.3"
-
 prompts@2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/prompts/-/prompts-2.4.0.tgz#4aa5de0723a231d1ee9121c40fdf663df73f61d7"
@@ -9921,8 +10796,8 @@ prompts@2.4.0:
 
 prompts@^2.4.0:
   version "2.4.1"
-  resolved "https://registry.yarnpkg.com/prompts/-/prompts-2.4.1.tgz#befd3b1195ba052f9fd2fde8a486c4e82ee77f61"
-  integrity sha512-EQyfIuO2hPDsX1L/blblV+H7I0knhgAd82cVneCwcdND9B8AuCDuRcBH6yIcG4dFzlOUqbazQqwGjx5xmsNLuQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/prompts/-/prompts-2.4.1.tgz#befd3b1195ba052f9fd2fde8a486c4e82ee77f61"
+  integrity sha1-vv07EZW6BS+f0v3opIbE6C7nf2E=
   dependencies:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
@@ -10041,6 +10916,11 @@ puppeteer-core@^2.1.1:
     rimraf "^2.6.1"
     ws "^6.1.0"
 
+q@^1.1.2:
+  version "1.5.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
+  integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
+
 qs@6.7.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
@@ -10128,22 +11008,13 @@ raw-loader@^4.0.2:
 
 rc@^1.2.8:
   version "1.2.8"
-  resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
-  integrity sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
+  integrity sha1-zZJL9SAKB1uDwYjNa54hG3/A0+0=
   dependencies:
     deep-extend "^0.6.0"
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
-
-react-addons-create-fragment@^15.6.2:
-  version "15.6.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-addons-create-fragment/-/react-addons-create-fragment-15.6.2.tgz#a394de7c2c7becd6b5475ba1b97ac472ce7c74f8"
-  integrity sha1-o5TefCx77Na1R1uhuXrEcs58dPg=
-  dependencies:
-    fbjs "^0.8.4"
-    loose-envify "^1.3.1"
-    object-assign "^4.1.0"
 
 react-colorful@^5.1.2:
   version "5.3.0"
@@ -10184,6 +11055,11 @@ react-docgen-typescript@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-docgen-typescript/-/react-docgen-typescript-2.0.0.tgz#0f684350159ae4d2d556f8bc241a74669753944b"
   integrity sha512-lPf+KJKAo6a9klKyK4y8WwgaX+6t5/HkVjHOpJDMbmaXfXcV7zP0QgWtnEOc3ccEUXKvlHMGUMIS9f6Zgo1BSw==
+
+react-docgen-typescript@^2.1.0:
+  version "2.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-docgen-typescript/-/react-docgen-typescript-2.1.0.tgz#20db64a7fd62e63a8a9469fb4abd90600878cbb2"
+  integrity sha1-INtkp/1i5jqKlGn7Sr2QYAh4y7I=
 
 react-docgen@^5.0.0:
   version "5.4.0"
@@ -10270,13 +11146,18 @@ react-is@^16.7.0, react-is@^16.8.1:
 
 react-is@^17.0.2:
   version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
-  integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
+  integrity sha1-5pHUqOnHiTZWVVOas3J2Kw77VPA=
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-onclickoutside@^6.10.0:
+  version "6.11.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-onclickoutside/-/react-onclickoutside-6.11.2.tgz#790e2100b9a3589eefca1404ecbf0476b81b7928"
+  integrity sha1-eQ4hALmjWJ7vyhQE7L8EdrgbeSg=
 
 react-popper-tooltip@^3.1.1:
   version "3.1.1"
@@ -10287,7 +11168,7 @@ react-popper-tooltip@^3.1.1:
     "@popperjs/core" "^2.5.4"
     react-popper "^2.2.4"
 
-react-popper@^2.2.4:
+react-popper@^2.2.4, react-popper@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-2.2.5.tgz#1214ef3cec86330a171671a4fbcbeeb65ee58e96"
   integrity sha512-kxGkS80eQGtLl18+uig1UIf9MKixFSyPxglsgLBxlYnyDf65BiY9B3nZSc6C9XUNDgStROB0fMQlTEz1KxGddw==
@@ -10524,6 +11405,11 @@ regex-not@^1.0.0, regex-not@^1.0.2:
     extend-shallow "^3.0.2"
     safe-regex "^1.1.0"
 
+regex-parser@^2.2.11:
+  version "2.2.11"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/regex-parser/-/regex-parser-2.2.11.tgz#3b37ec9049e19479806e878cabe7c1ca83ccfe58"
+  integrity sha1-OzfskEnhlHmAboeMq+fByoPM/lg=
+
 regexp.prototype.flags@^1.2.0, regexp.prototype.flags@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/regexp.prototype.flags/-/regexp.prototype.flags-1.3.1.tgz#7ef352ae8d159e758c0eadca6f8fcb4eef07be26"
@@ -10577,7 +11463,7 @@ regjsparser@^0.6.4:
 
 relateurl@^0.2.7:
   version "0.2.7"
-  resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
 remark-external-links@^8.0.0:
@@ -10737,6 +11623,17 @@ resolve-from@^5.0.0:
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-5.0.0.tgz#c35225843df8f776df21c57557bc087e9dfdfc69"
   integrity sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==
 
+resolve-url-loader@^4.0.0:
+  version "4.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/resolve-url-loader/-/resolve-url-loader-4.0.0.tgz#d50d4ddc746bb10468443167acf800dcd6c3ad57"
+  integrity sha1-1Q1N3HRrsQRoRDFnrPgA3NbDrVc=
+  dependencies:
+    adjust-sourcemap-loader "^4.0.0"
+    convert-source-map "^1.7.0"
+    loader-utils "^2.0.0"
+    postcss "^7.0.35"
+    source-map "0.6.1"
+
 resolve-url@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
@@ -10842,7 +11739,7 @@ safe-regex@^1.1.0:
   dependencies:
     ret "~0.1.10"
 
-"safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
+"safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
@@ -10896,6 +11793,11 @@ sass@^1.37.0:
   integrity sha512-B+Tu6cSAG8ffs/cqsZl/bgSH2pCmavDaPTYAoW8QA1qNHh/RqndNfVKuABKYkLjUQ5aq/BnCENVpE80cqdSM1w==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
+
+sax@~1.2.4:
+  version "1.2.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+  integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
 
 scheduler@^0.20.2:
   version "0.20.2"
@@ -10956,8 +11858,8 @@ select-hose@^2.0.0:
 
 selfsigned@^1.10.11:
   version "1.10.11"
-  resolved "https://registry.yarnpkg.com/selfsigned/-/selfsigned-1.10.11.tgz#24929cd906fe0f44b6d01fb23999a739537acbe9"
-  integrity sha512-aVmbPOfViZqOZPgRBT0+3u4yZFHpmnIghLMlAcb5/xhp5ZtB/RVnKhz5vl2M32CLXAqR4kha9zfhNg0Lf/sxKA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/selfsigned/-/selfsigned-1.10.11.tgz#24929cd906fe0f44b6d01fb23999a739537acbe9"
+  integrity sha1-JJKc2Qb+D0S20B+yOZmnOVN6y+k=
   dependencies:
     node-forge "^0.10.0"
 
@@ -11079,7 +11981,7 @@ set-value@^2.0.0, set-value@^2.0.1:
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
 
-setimmediate@^1.0.4, setimmediate@^1.0.5:
+setimmediate@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
   integrity sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=
@@ -11111,8 +12013,8 @@ shallow-clone@^3.0.0:
 
 shallowequal@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
-  integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
+  integrity sha1-GI1SHelbkIdAT9TctosT3wrk5/g=
 
 shebang-command@^1.2.0:
   version "1.2.0"
@@ -11277,6 +12179,11 @@ source-map-url@^0.4.0:
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.1.tgz#0af66605a745a5a2f91cf1bbf8a7afbc283dec56"
   integrity sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==
 
+source-map@0.6.1, source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+
 source-map@^0.4.2:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
@@ -11288,11 +12195,6 @@ source-map@^0.5.0, source-map@^0.5.6, source-map@^0.5.7:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
-
-source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
-  integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
 source-map@^0.7.3, source-map@~0.7.2:
   version "0.7.3"
@@ -11450,17 +12352,6 @@ storybook-addon-outline@^1.4.1:
     "@storybook/core-events" "^6.3.0"
     ts-dedent "^2.1.1"
 
-storybook-addon-react-docgen@^1.2.42:
-  version "1.2.42"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/storybook-addon-react-docgen/-/storybook-addon-react-docgen-1.2.42.tgz#01b3d782612627304ae077c98bf6f5fce3fecb5b"
-  integrity sha1-AbPXgmEmJzBK4HfJi/b1/OP+y1s=
-  dependencies:
-    nested-object-assign "^1.0.3"
-    prop-types "^15.6.2"
-    react-addons-create-fragment "^15.6.2"
-    react-lifecycles-compat "^3.0.4"
-    storybook-pretty-props "^1.2.1"
-
 storybook-addon-themes@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/storybook-addon-themes/-/storybook-addon-themes-6.1.0.tgz#5d7afe293cd4bc28a8f634aa466dbd8fd2f9222e"
@@ -11475,17 +12366,12 @@ storybook-addon-themes@^6.1.0:
     global "^4.4.0"
     memoizerific "^1.11.3"
 
-storybook-addon-turbo-build@^1.0.0-beta.0:
-  version "1.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/storybook-addon-turbo-build/-/storybook-addon-turbo-build-1.0.0-beta.0.tgz#4498c9e7d743ad3b167e8021d0023d9c91609058"
-  integrity sha512-mUqs41D+3+4IlburEQEPgXOZCwRgDMd8yEFvYD6qP1LVFQBH49FVr5aATQ6edSdKx3KnR6vE7XFAKVHymyaE/Q==
+storybook-addon-turbo-build@^1.0.1:
+  version "1.0.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/storybook-addon-turbo-build/-/storybook-addon-turbo-build-1.0.1.tgz#e1cd8ec41c5f6539885bdb3ee904dd752b90a688"
+  integrity sha1-4c2OxBxfZTmIW9s+6QTddSuQpog=
   dependencies:
-    esbuild-loader "^2.9.1"
-
-storybook-pretty-props@^1.2.1:
-  version "1.2.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/storybook-pretty-props/-/storybook-pretty-props-1.2.1.tgz#04c6e7c80efc0190a5dd94dceaf50579c159e182"
-  integrity sha1-BMbnyA78AZCl3ZTc6vUFecFZ4YI=
+    esbuild-loader "^2.10.0"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
@@ -11530,8 +12416,8 @@ string-width@^1.0.1:
 
 "string-width@^1.0.2 || 2":
   version "2.1.1"
-  resolved "https://registry.yarnpkg.com/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
-  integrity sha512-nOqH59deCq9SRHlxq1Aw85Jnt4w6KvLKqWVik6oA9ZklXLNIOlqg4F2yrT1MVaTjAqvVwdfeZ7w7aCvJD7ugkw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
+  integrity sha1-q5Pyeo3BPSjKyBXEYhQ6bZASrp4=
   dependencies:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^4.0.0"
@@ -11556,8 +12442,8 @@ string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0:
 
 "string.prototype.matchall@^4.0.0 || ^3.0.1":
   version "4.0.5"
-  resolved "https://registry.yarnpkg.com/string.prototype.matchall/-/string.prototype.matchall-4.0.5.tgz#59370644e1db7e4c0c045277690cf7b01203c4da"
-  integrity sha512-Z5ZaXO0svs0M2xd/6By3qpeKpLKd9mO4v4q3oMEQrk8Ck4xOD5d5XeBOOjGrmVZZ/AHB1S0CgG4N5r1G9N3E2Q==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/string.prototype.matchall/-/string.prototype.matchall-4.0.5.tgz#59370644e1db7e4c0c045277690cf7b01203c4da"
+  integrity sha1-WTcGROHbfkwMBFJ3aQz3sBIDxNo=
   dependencies:
     call-bind "^1.0.2"
     define-properties "^1.1.3"
@@ -11706,6 +12592,11 @@ style-to-object@0.3.0, style-to-object@^0.3.0:
   dependencies:
     inline-style-parser "0.1.1"
 
+stylis@^4.0.3:
+  version "4.0.10"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/stylis/-/stylis-4.0.10.tgz#446512d1097197ab3f02fb3c258358c3f7a14240"
+  integrity sha1-RGUS0Qlxl6s/Avs8JYNYw/ehQkA=
+
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
@@ -11738,6 +12629,30 @@ supports-color@^8.0.0:
   integrity sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==
   dependencies:
     has-flag "^4.0.0"
+
+svg-parser@^2.0.2:
+  version "2.0.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/svg-parser/-/svg-parser-2.0.4.tgz#fdc2e29e13951736140b76cb122c8ee6630eb6b5"
+  integrity sha1-/cLinhOVFzYUC3bLEiyO5mMOtrU=
+
+svgo@^1.2.2:
+  version "1.3.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/svgo/-/svgo-1.3.2.tgz#b6dc511c063346c9e415b81e43401145b96d4167"
+  integrity sha1-ttxRHAYzRsnkFbgeQ0ARRbltQWc=
+  dependencies:
+    chalk "^2.4.1"
+    coa "^2.0.2"
+    css-select "^2.0.0"
+    css-select-base-adapter "^0.1.1"
+    css-tree "1.0.0-alpha.37"
+    csso "^4.0.2"
+    js-yaml "^3.13.1"
+    mkdirp "~0.5.1"
+    object.values "^1.1.0"
+    sax "~1.2.4"
+    stable "^0.1.8"
+    unquote "~1.1.1"
+    util.promisify "~1.0.0"
 
 symbol.prototype.description@^1.0.0:
   version "1.0.4"
@@ -12037,8 +12952,8 @@ ts-pnp@^1.1.6:
 
 tslib@^1.8.1:
   version "1.14.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
-  integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+  integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
 
 tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3:
   version "2.3.0"
@@ -12103,10 +13018,10 @@ type-fest@^0.8.1:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
 
-type-fest@^1.0.1:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-1.3.0.tgz#6be848243853df1173fa95530112e1358ab0810b"
-  integrity sha512-mYUYkAy6fPatVWtUeCV/qGeGL3IVucmdJOzeAEfwgCJDx8gP0JaW8jn6KQ5xDfPec31e0KXWn5EUOZMhquR1zA==
+type-fest@^1.4.0:
+  version "1.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/type-fest/-/type-fest-1.4.0.tgz#e9fb813fe3bf1744ec359d55d1affefa76f14be1"
+  integrity sha1-6fuBP+O/F0TsNZ1V0a/++nbxS+E=
 
 type-is@~1.6.17, type-is@~1.6.18:
   version "1.6.18"
@@ -12132,11 +13047,6 @@ typescript@^4.1.2, typescript@^4.3.4:
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
   integrity sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==
-
-ua-parser-js@^0.7.18:
-  version "0.7.28"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
-  integrity sha1-i6BOZT81ziECOcZGYWhb+RId7DE=
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
@@ -12295,7 +13205,7 @@ unpipe@1.0.0, unpipe@~1.0.0:
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
 
-unquote@^1.1.0:
+unquote@^1.1.0, unquote@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/unquote/-/unquote-1.1.1.tgz#8fded7324ec6e88a0ff8b905e7c098cdc086d544"
   integrity sha1-j97XMk7G6IoP+LkF58CYzcCG1UQ=
@@ -12358,8 +13268,8 @@ urix@^0.1.0:
 
 url-loader@^4.1.1:
   version "4.1.1"
-  resolved "https://registry.yarnpkg.com/url-loader/-/url-loader-4.1.1.tgz#28505e905cae158cf07c92ca622d7f237e70a4e2"
-  integrity sha512-3BTV812+AVHHOJQO8O5MkWgZ5aosP7GnROJwvzLS9hWDj00lZ6Z0wNak423Lp9PBZN05N+Jk/N5Si8jRAlGyWA==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/url-loader/-/url-loader-4.1.1.tgz#28505e905cae158cf07c92ca622d7f237e70a4e2"
+  integrity sha1-KFBekFyuFYzwfJLKYi1/I35wpOI=
   dependencies:
     loader-utils "^2.0.0"
     mime-types "^2.1.27"
@@ -12427,6 +13337,16 @@ util.promisify@^1.0.0:
     for-each "^0.3.3"
     has-symbols "^1.0.1"
     object.getownpropertydescriptors "^2.1.1"
+
+util.promisify@~1.0.0:
+  version "1.0.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/util.promisify/-/util.promisify-1.0.1.tgz#6baf7774b80eeb0f7520d8b81d07982a59abbaee"
+  integrity sha1-a693dLgO6w91INi4HQeYKlmruu4=
+  dependencies:
+    define-properties "^1.1.3"
+    es-abstract "^1.17.2"
+    has-symbols "^1.0.1"
+    object.getownpropertydescriptors "^2.1.0"
 
 util@0.10.3:
   version "0.10.3"
@@ -12660,8 +13580,8 @@ webpack-config-single-spa@4.0.0:
 
 webpack-dev-middleware@^3.7.3:
   version "3.7.3"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.7.3.tgz#0639372b143262e2b84ab95d3b91a7597061c2c5"
-  integrity sha512-djelc/zGiz9nZj/U7PTBi2ViorGJXEWo/3ltkPbDyxCXhhEXkW0ce99falaok4TPj+AsxLiXJR0EBOb0zh9fKQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack-dev-middleware/-/webpack-dev-middleware-3.7.3.tgz#0639372b143262e2b84ab95d3b91a7597061c2c5"
+  integrity sha1-Bjk3KxQyYuK4SrldO5GnWXBhwsU=
   dependencies:
     memory-fs "^0.4.1"
     mime "^2.4.4"
@@ -12791,8 +13711,8 @@ webpack-virtual-modules@^0.4.1:
 
 webpack@4:
   version "4.46.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.46.0.tgz#bf9b4404ea20a073605e0a011d188d77cb6ad542"
-  integrity sha512-6jJuJjg8znb/xRItk7bkT0+Q7AHCYjjFnvKIWQPkNIOyRqoCGvkOs0ipeQzrqz4l5FtN5ZI/ukEHroeX/o1/5Q==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack/-/webpack-4.46.0.tgz#bf9b4404ea20a073605e0a011d188d77cb6ad542"
+  integrity sha1-v5tEBOogoHNgXgoBHRiNd8tq1UI=
   dependencies:
     "@webassemblyjs/ast" "1.9.0"
     "@webassemblyjs/helper-module-context" "1.9.0"
@@ -12860,11 +13780,6 @@ websocket-extensions@>=0.1.1:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
   integrity sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==
-
-whatwg-fetch@>=0.10.0:
-  version "3.6.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/whatwg-fetch/-/whatwg-fetch-3.6.2.tgz#dced24f37f2624ed0281725d51d0e2e3fe677f8c"
-  integrity sha1-3O0k838mJO0CgXJdUdDi4/5nf4w=
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
@@ -12968,8 +13883,8 @@ wrappy@1:
 
 write-file-atomic@^2.3.0:
   version "2.4.3"
-  resolved "https://registry.yarnpkg.com/write-file-atomic/-/write-file-atomic-2.4.3.tgz#1fd2e9ae1df3e75b8d8c367443c692d4ca81f481"
-  integrity sha512-GaETH5wwsX+GcnzhPgKcKjJ6M2Cq3/iZp1WyY/X1CSqrW+jVNM9Y7D8EC2sM4ZG/V8wZlSniJnCKWPmBYAucRQ==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/write-file-atomic/-/write-file-atomic-2.4.3.tgz#1fd2e9ae1df3e75b8d8c367443c692d4ca81f481"
+  integrity sha1-H9Lprh3z51uNjDZ0Q8aS1MqB9IE=
   dependencies:
     graceful-fs "^4.1.11"
     imurmurhash "^0.1.4"
@@ -12987,8 +13902,8 @@ write-file-atomic@^3.0.0:
 
 ws@^6.1.0:
   version "6.2.2"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-6.2.2.tgz#dd5cdbd57a9979916097652d78f1cc5faea0c32e"
-  integrity sha512-zmhltoSR8u1cnDsD43TX59mzoMZsLKqUweyYBAIvTngR3shc0W6aOZylZmq/7hqyVxPdi+5Ud2QInblgyE72fw==
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ws/-/ws-6.2.2.tgz#dd5cdbd57a9979916097652d78f1cc5faea0c32e"
+  integrity sha1-3Vzb1XqZeZFgl2UtePHMX66gwy4=
   dependencies:
     async-limiter "~1.0.0"
 

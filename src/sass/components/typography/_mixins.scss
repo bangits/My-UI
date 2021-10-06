@@ -1,0 +1,8 @@
+@import './functions';
+
+// This mixin is used for merging typography font-size and line-height
+
+@mixin getTypographyStyles($typography-name) {
+  font-size: typography-sizes('#{$typography-name}-size');
+  line-height: typography-sizes('#{$typography-name}-line-height');
+}

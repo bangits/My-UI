@@ -1,8 +1,9 @@
-import { Button } from '@my-ui/core';
+import { typedMemo } from '@/helpers/typedMemo';
+import { IComponent } from '@/types/props';
 import React, { FC, ReactNode, useCallback, useState } from 'react';
 import { Provider } from './RadioContext';
 
-export interface RadioGroupProps {
+export interface RadioGroupProps extends IComponent {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
   defaultValue?: string;
@@ -20,9 +21,9 @@ const RadioGroup: FC<RadioGroupProps> = ({ children, onChange, value, defaultVal
   return (
     <Provider
       value={{
+        name,
         onChange: onChange ? onChange : handleRadioChange,
-        value: value ? value : selected,
-        name
+        value: value ? value : selected
       }}>
       <Button>asasd</Button>
       {children}
@@ -30,4 +31,4 @@ const RadioGroup: FC<RadioGroupProps> = ({ children, onChange, value, defaultVal
   );
 };
 
-export default RadioGroup;
+export default typedMemo(RadioGroup);

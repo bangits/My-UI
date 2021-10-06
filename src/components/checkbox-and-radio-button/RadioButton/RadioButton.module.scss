@@ -25,16 +25,18 @@
     border: 0.2rem solid #a4b7cd;
     border-radius: 100%;
     background: transparent;
+    padding: 0.4rem;
+    box-sizing: border-box;
   }
   input:checked + label:after,
   input:not(:checked) + label:after {
     content: '';
-    width: 0.6rem;
-    height: 0.6rem;
+    width: 0.8rem;
+    height: 0.8rem;
     background: #64c9cf;
     position: absolute;
-    top: 0.7rem;
-    left: 0.7rem;
+    top: 0.4rem;
+    left: 0.4rem;
     border-radius: 100%;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
@@ -49,18 +51,19 @@
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+}
 
-  //disabled
+.RadioButtonActive {
+  input:checked + label:after,
+  input:not(:checked) + label:after {
+    background: #505d6e;
+  }
+}
 
-  //   input:checked + label:before,
-  //   input:not(:checked) + label:before {
-  //     content: '';
-  //     border: 1px solid #64c9cf;
-  //     opacity: 0.4;
-  //   }
-  //   input:checked + label:after,
-  //   input:not(:checked) + label:after {
-  //     content: '';
-  //     background: #64c9cf;
-  //   }
+.RadioButtonDisabled {
+  input:checked + label:after,
+  input:not(:checked) + label:after {
+    background: #505d6e;
+    opacity: 0.4;
+  }
 }

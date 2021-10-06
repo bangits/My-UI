@@ -1,9 +1,9 @@
+import { typedMemo } from '@/helpers/typedMemo';
+import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
 import React from 'react';
-import { UIColors } from '../../../types/ui';
 import styles from './Checkbox.module.scss';
-
-export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends IComponent, React.InputHTMLAttributes<HTMLInputElement> {
   color?: UIColors;
 }
 
@@ -18,4 +18,4 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({ color, ...
   );
 });
 
-export default Checkbox;
+export default typedMemo(Checkbox);

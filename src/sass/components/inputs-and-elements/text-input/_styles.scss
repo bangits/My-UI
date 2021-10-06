@@ -7,9 +7,12 @@
     & .TextInputBase {
       width: 100%;
       height: 3.8rem;
+      font-family: $base-font-family;
+
       .TextInputLabel {
         font-size: 1.4rem;
       }
+
       &:focus,
       &--filled {
         border: solid 0.1rem #00194c;
@@ -19,6 +22,7 @@
         + .TextInputLabel {
           line-height: 1.3em;
           font-size: 1.2rem;
+
           &:after {
             content: '';
             background: #00194c;

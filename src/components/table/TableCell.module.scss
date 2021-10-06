@@ -1,5 +1,5 @@
 .TableCell {
-  display: flex;
+  display: inline-block;
   align-items: center;
   background: transparent;
   flex-wrap: wrap;
@@ -9,4 +9,7 @@
   font-weight: 700;
   border-bottom: solid 1px #7c84ab;
   width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

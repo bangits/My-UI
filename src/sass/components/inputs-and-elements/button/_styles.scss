@@ -2,6 +2,7 @@
   .ButtonBase {
     display: flex;
     align-items: center;
+    font-family: $base-font-family;
 
     height: map-get($base-button-sizes, height);
 

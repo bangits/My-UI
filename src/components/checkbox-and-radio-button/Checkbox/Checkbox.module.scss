@@ -1,4 +1,6 @@
 .Checkbox {
+  width: 2.4rem;
+  height: 2.4rem;
   input {
     -webkit-appearance: none;
     width: 1.6rem;
@@ -33,5 +35,18 @@
     &:disabled {
       opacity: 0.4;
     }
+  }
+}
+
+.CheckboxActive {
+  input {
+    border: 0.1rem solid #505d6e;
+  }
+}
+
+.CheckboxDisabled {
+  input {
+    border: 0.1rem solid #505d6e;
+    opacity: 0.4;
   }
 }

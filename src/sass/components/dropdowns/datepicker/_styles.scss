@@ -4,6 +4,7 @@
 
     .react-datepicker {
       display: flex;
+      font-family: $base-font-family;
 
       &__navigation-icon--previous,
       &__navigation-icon--next {
@@ -15,6 +16,7 @@
         position: relative;
 
         input {
+          font-family: $base-font-family;
           width: 100%;
           height: map-get($datepicker-sizes, input-height);
           outline: none;

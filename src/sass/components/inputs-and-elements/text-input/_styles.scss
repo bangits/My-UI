@@ -7,8 +7,11 @@
     & .TextInputBase {
       width: 100%;
       height: 3.8rem;
+      font-family: $base-font-family;
+
       .TextInputLabel {
         font-size: 1.4rem;
+        font-family: $base-font-family;
       }
       &:focus,
       &--filled {
@@ -19,6 +22,8 @@
         + .TextInputLabel {
           line-height: 1.3em;
           font-size: 1.2rem;
+          font-family: $base-font-family;
+
           &:after {
             content: '';
             background: #00194c;
@@ -45,6 +50,7 @@
 
     .Explanation {
       display: block;
+      font-family: $base-font-family;
 
       margin-top: map-get($base-text-field-sizes, explanation-margin);
 

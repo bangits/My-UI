@@ -1885,6 +1885,48 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@my-ui/core@1.1.1", "@my-ui/core@^1.1.0":
+  version "1.1.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-1.1.1.tgz#bcbcc6b1c2609282d34fb89c31ea9c9bf2b0b8f1"
+  integrity sha1-vLzGscJgkoLTT7icMeqcm/KwuPE=
+  dependencies:
+    "@my-ui/core" "^1.1.0"
+    "@my-ui/react-datepicker" "1.1.0"
+    "@my-ui/react-select" "1.1.0"
+    "@my-ui/react-table" "^1.0.0"
+    classnames "^2.3.1"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    single-spa-react "^4.2.0"
+
+"@my-ui/core@2.0.0":
+  version "2.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.0.0.tgz#a46899fc8939230487a2004ed5e341358038234f"
+  integrity sha1-pGiZ/Ik5IwSHogBO1eNBNYA4I08=
+  dependencies:
+    "@my-ui/core" "1.1.1"
+    "@my-ui/react-datepicker" "1.1.0"
+    "@my-ui/react-select" "1.1.0"
+    "@my-ui/react-table" "^1.0.0"
+    classnames "^2.3.1"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    single-spa-react "^4.2.0"
+
+"@my-ui/core@2.0.1":
+  version "2.0.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.0.1.tgz#79158cf8b34bb4b3a13013ad8da465d959af3b1c"
+  integrity sha1-eRWM+LNLtLOhMBOtjaRl2VmvOxw=
+  dependencies:
+    "@my-ui/core" "2.0.0"
+    "@my-ui/react-datepicker" "1.1.0"
+    "@my-ui/react-select" "1.1.0"
+    "@my-ui/react-table" "^1.0.0"
+    classnames "^2.3.1"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    single-spa-react "^4.2.0"
+
 "@my-ui/react-datepicker@1.1.0":
   version "1.1.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-datepicker/-/react-datepicker-1.1.0.tgz#6b08c6b3988346e0dcc07ecd436561eef3a5833b"

@@ -13,7 +13,11 @@ module.exports = (webpackConfigEnv, argv) => {
       entry: './src/my-ui-core.ts',
       output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js'
+        filename: 'index.js',
+        library: {
+          name: '@my-ui/core',
+          type: 'umd'
+        }
       },
       resolve: {
         modules: [path.join(__dirname, 'src'), 'node_modules'],

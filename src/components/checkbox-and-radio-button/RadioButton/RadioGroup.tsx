@@ -1,3 +1,4 @@
+import { Button } from '@my-ui/core';
 import React, { FC, ReactNode, useCallback, useState } from 'react';
 import { Provider } from './RadioContext';
 
@@ -23,6 +24,7 @@ const RadioGroup: FC<RadioGroupProps> = ({ children, onChange, value, defaultVal
         value: value ? value : selected,
         name
       }}>
+      <Button>asasd</Button>
       {children}
     </Provider>
   );

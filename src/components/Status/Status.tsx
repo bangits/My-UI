@@ -10,7 +10,8 @@ const Status: FC<StatusProps> = ({ children, variant = 'active' }) => {
   return (
     <>
       <div className={classNames(styles.Status, styles[`Status--${variant}`])}>
-        <span></span> {children}
+        <span className={styles.StatusCircle}></span>
+        <span className={styles.StatusLabel}>{children}</span>
       </div>
     </>
   );

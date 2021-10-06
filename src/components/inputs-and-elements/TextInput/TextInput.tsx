@@ -64,7 +64,7 @@ const TextInputs: FC<TextInputProps> = ({
 
   return (
     <>
-      <div
+      {/* <div
         className={classNames(
           styles.TextInputWrapper,
           {
@@ -102,7 +102,25 @@ const TextInputs: FC<TextInputProps> = ({
         )}
 
         {endIcon && !startIcon && <div className={styles.endIcon}>{endIcon}</div>}
-      </div>
+      </div> */}
+
+      <label className={classNames(styles.TextInputWrapper)}>
+        {startIcon && !endIcon && <div className={styles.startIcon}>{startIcon}</div>}
+
+        <input
+          placeholder=' '
+          className={classNames(
+            styles.TextInputBaseInput,
+            {
+              [styles[`TextInputBase--filled`]]: !!currentValue,
+              [styles['TextInputBase--start-icon']]: !!startIcon,
+              [styles['TextInputBase--end-icon']]: !!endIcon
+            },
+            className
+          )}
+        />
+        <span className={styles.TextInputPlaceholder}>Textfield</span>
+      </label>
     </>
   );
 };

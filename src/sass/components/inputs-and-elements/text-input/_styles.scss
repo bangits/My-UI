@@ -1,100 +1,179 @@
 @mixin generate-text-input-styles {
-  .TextInputWrapper {
-    width: map-get($base-text-field-sizes, width);
-    position: relative;
+  // .TextInputWrapper {
+  //   width: map-get($base-text-field-sizes, width);
+  //   position: relative;
 
-    &--full-width,
-    & .TextInputBase {
-      width: 100%;
-      height: 3.8rem;
-      .TextInputLabel {
-        font-size: 1.4rem;
-      }
-      &:focus,
-      &--filled {
-        border: solid 0.1rem #00194c;
-        border-top: 0;
-        box-shadow: none;
+  //   &--full-width,
+  //   & .TextInputBase {
+  //     width: 100%;
+  //     height: 3.8rem;
 
-        + .TextInputLabel {
-          line-height: 1.3em;
-          font-size: 1.2rem;
-          &:after {
-            content: '';
-            background: #00194c;
-            width: 23rem;
-            height: 0.1rem;
-            display: block;
-            position: absolute;
-            top: 0.85rem;
-            left: 3.2rem;
-          }
-          &::before {
-            content: '';
-            display: block;
-            width: 1rem;
-            background: #00194c;
-            height: 0.1rem;
-            position: absolute;
-            right: 2.6rem;
-            top: 0.85rem;
-          }
-        }
-      }
-    }
+  //     .TextInputWrapper {
+  //       font-size: 1.4rem;
+  //     }
+  //     &:focus,
+  //     &--filled {
+  //       border: solid 0.1rem #00194c;
+  //       border-top: 0;
+  //       box-shadow: none;
 
-    .Explanation {
-      display: block;
+  //       + .TextInputWrapper {
+  //         line-height: 1.3em;
+  //         font-size: 1.2rem;
+  //       }
+  //     }
+  //   }
 
-      margin-top: map-get($base-text-field-sizes, explanation-margin);
+  //   .Explanation {
+  //     display: block;
 
-      @include theme(color, input-color);
-    }
+  //     margin-top: map-get($base-text-field-sizes, explanation-margin);
 
-    @each $state in $input-states {
-      &--#{$state} {
-        .TextInputBase {
-          @include theme(background-color, input-hover-bg);
+  //     @include theme(color, input-color);
+  //   }
 
-          &,
-          &:hover,
-          &:focus {
-            @include generateBorderWithBoxShadow(input-border-color--#{$state});
-            @include theme(color, input-color--#{$state});
-          }
+  //   @each $state in $input-states {
+  //     &--#{$state} {
+  //       .TextInputBase {
+  //         @include theme(background-color, input-hover-bg);
 
-          &::placeholder {
-            @include theme(color, input-color--#{$state});
-          }
+  //         &,
+  //         &:hover,
+  //         &:focus {
+  //           @include generateBorderWithBoxShadow(input-border-color--#{$state});
+  //           @include theme(color, input-color--#{$state});
+  //         }
 
-          &:disabled,
-          &:disabled:hover {
-            box-shadow: none;
+  //         &::placeholder {
+  //           @include theme(color, input-color--#{$state});
+  //         }
 
-            @include theme(color, input-color);
-            @include theme(background-color, input-bg-disabled);
-          }
-        }
+  //         &:disabled,
+  //         &:disabled:hover {
+  //           box-shadow: none;
 
-        .Explanation {
-          @include theme(color, input-color--#{$state});
-        }
-      }
-    }
+  //           @include theme(color, input-color);
+  //           @include theme(background-color, input-bg-disabled);
+  //         }
+  //       }
 
-    &--disabled .Explanation {
-      @include theme(color, input-color);
-    }
+  //       .Explanation {
+  //         @include theme(color, input-color--#{$state});
+  //       }
+  //     }
+  //   }
 
-    .TextInputLabel {
-      position: absolute;
-      top: -0.8rem;
-      left: 1.6rem;
-      font-size: 1.4rem;
-      line-height: 3.5em;
-      transition: color 0.2s, font-size 0.2s, line-height 0.2s;
-    }
-  }
+  //   &--disabled .Explanation {
+  //     @include theme(color, input-color);
+  //   }
+
+  //   .TextInputWrapper {
+  //     position: absolute;
+  //     width: 100%;
+  //     left: 0;
+  //     top: 0;
+  //     font-size: 1.4rem;
+  //     transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+  //     height: 1.2rem;
+
+  //     &:after {
+  //       content: '';
+  //       display: block;
+  //       box-sizing: border-box;
+  //       margin-top: 6px;
+  //       border-top: solid 1px;
+  //       border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+  //       min-width: 20px;
+  //       height: 8px;
+  //       pointer-events: none;
+  //       box-shadow: inset 0 1px transparent;
+  //       transition: border-color 0.2s, box-shadow 0.2s;
+
+  //       flex-grow: 1;
+  //   margin-left: 4px;
+  //   border-right: solid 1px transparent;
+  //   border-radius: 0 4px;
+  //     }
+  //     &::before {
+  //       content: '';
+  //       display: block;
+  //       box-sizing: border-box;
+  //       margin-top: 6px;
+  //       border-top: solid 1px;
+  //       border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+  //       min-width: 20px;
+  //       height: 8px;
+  //       pointer-events: none;
+  //       box-shadow: inset 0 1px transparent;
+  //       transition: border-color 0.2s, box-shadow 0.2s;
+
+  //       margin-right: 4px;
+  //       border-left: solid 1px transparent;
+  //       border-radius: 4px 0;
+  //     }
+  //   }
+  // }
+
+  // .startIcon,
+  // .endIcon {
+  //   position: absolute;
+  //   top: map-get($base-text-field-sizes, icon-margin);
+  // }
+
+  // .startIcon {
+  //   left: map-get($base-text-field-sizes, icon-margin);
+  // }
+
+  // .endIcon {
+  //   right: map-get($base-text-field-sizes, icon-margin);
+  // }
+
+  // .TextInputBase {
+  //   width: map-get($base-text-field-sizes, width);
+  //   padding: map-get($base-text-field-sizes, padding);
+
+  //   font-size: map-get($base-text-field-sizes, font-size);
+  //   border-radius: map-get($base-text-field-sizes, border-radius);
+
+  //   box-sizing: border-box;
+  //   outline: none;
+  //   border: none;
+
+  //   @include theme(background-color, input-bg);
+  //   @include theme(color, input-color);
+
+  //   &::placeholder {
+  //     @include theme(color, input-placeholder-color);
+  //   }
+
+  //   &:hover,
+  //   &:focus {
+  //     @include theme(background-color, input-hover-bg);
+  //     @include generateBorderWithBoxShadow(input-hover-border-color);
+  //   }
+
+  //   &--filled,
+  //   &--filled:hover,
+  //   &--filled:focus {
+  //     @include theme(background-color, input-hover-bg);
+  //     @include generateBorderWithBoxShadow(input-filled-border-color);
+  //   }
+
+  //   &--start-icon {
+  //     padding-left: map-get($base-text-field-sizes, input-adornment);
+  //   }
+
+  //   &--end-icon {
+  //     padding-right: map-get($base-text-field-sizes, input-adornment);
+  //   }
+
+  //   &:disabled,
+  //   &:disabled:hover {
+  //     box-shadow: none;
+
+  //     @include theme(background-color, input-bg-disabled);
+  //   }
+  // }
 
   .startIcon,
   .endIcon {
@@ -106,54 +185,136 @@
     left: map-get($base-text-field-sizes, icon-margin);
   }
 
-  .endIcon {
-    right: map-get($base-text-field-sizes, icon-margin);
+  .TextInputWrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.6rem;
+    font-size: 1.4rem;
+    overflow: hidden;
   }
 
-  .TextInputBase {
-    width: map-get($base-text-field-sizes, width);
-    padding: map-get($base-text-field-sizes, padding);
-
-    font-size: map-get($base-text-field-sizes, font-size);
-    border-radius: map-get($base-text-field-sizes, border-radius);
-
+  .TextInputBaseInput {
+    margin: 0;
+    border: solid 0.1rem #8ea6c1;
+    border-top-color: transparent;
+    border-radius: 0.4rem;
+    width: 100%;
+    height: inherit;
+    background-color: transparent;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: 1.4rem;
+    line-height: inherit;
+    transition: border 0.2s, box-shadow 0.2s;
+    padding: 0 1.6rem;
     box-sizing: border-box;
-    outline: none;
-    border: none;
+    min-height: 3.8rem;
 
-    @include theme(background-color, input-bg);
-    @include theme(color, input-color);
+    &:not(:focus) {
+      border-top-color: #8ea6c1;
 
-    &::placeholder {
-      @include theme(color, input-placeholder-color);
+      + .TextInputPlaceholder {
+        font-size: 1.4rem;
+        line-height: 5rem;
+
+        &::before,
+        &::after {
+          border-top-color: transparent;
+        }
+      }
     }
 
-    &:hover,
     &:focus {
-      @include theme(background-color, input-hover-bg);
-      @include generateBorderWithBoxShadow(input-hover-border-color);
-    }
+      border-color: #3c54b2;
+      border-top-color: transparent;
+      box-shadow: inset 1px 0 var(--pure-material-safari-helper1), inset -1px 0 var(--pure-material-safari-helper1),
+        inset 0 -1px var(--pure-material-safari-helper1);
+      outline: none;
 
-    &--filled,
-    &--filled:hover,
-    &--filled:focus {
-      @include theme(background-color, input-hover-bg);
-      @include generateBorderWithBoxShadow(input-filled-border-color);
-    }
+      + .TextInputPlaceholder {
+        color: #3c54b2;
 
-    &--start-icon {
-      padding-left: map-get($base-text-field-sizes, input-adornment);
-    }
-
-    &--end-icon {
-      padding-right: map-get($base-text-field-sizes, input-adornment);
-    }
-
-    &:disabled,
-    &:disabled:hover {
-      box-shadow: none;
-
-      @include theme(background-color, input-bg-disabled);
+        &::before,
+        &::after {
+          border-top-color: #3c54b2;
+          box-shadow: inset 0 1px var(--pure-material-safari-helper1);
+        }
+      }
     }
   }
+
+  .TextInputPlaceholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    width: 100%;
+    max-height: 100%;
+    color: #8ea6c1;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    cursor: text;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      box-sizing: border-box;
+      margin-top: 0.6rem;
+      border-top: solid 1px;
+      border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+      min-width: 1rem;
+      height: 0.8rem;
+      pointer-events: none;
+      box-shadow: inset 0 1px transparent;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    &::before {
+      margin-right: 0.4rem;
+      border-left: solid 0.1rem transparent;
+      border-radius: 0.4rem 0;
+    }
+
+    &::after {
+      flex-grow: 1;
+      margin-left: 0.4rem;
+      border-right: solid 0.1rem transparent;
+      border-radius: 0 0.4rem;
+    }
+  }
+
+  // /* Disabled */
+  // .TextInputWrapper > input:disabled,
+  // .TextInputWrapper > input:disabled + span,
+  // .TextInputWrapper > textarea:disabled,
+  // .TextInputWrapper > textarea:disabled + span {
+  //   border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+  //   border-top-color: transparent !important;
+  //   color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+  //   pointer-events: none;
+  // }
+
+  // .TextInputWrapper > input:disabled + span::before,
+  // .TextInputWrapper > input:disabled + span::after,
+  // .TextInputWrapper > textarea:disabled + span::before,
+  // .TextInputWrapper > textarea:disabled + span::after {
+  //   border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+  // }
+
+  // .TextInputWrapper > input:disabled:placeholder-shown,
+  // .TextInputWrapper > input:disabled:placeholder-shown + span,
+  // .TextInputWrapper > textarea:disabled:placeholder-shown,
+  // .TextInputWrapper > textarea:disabled:placeholder-shown + span {
+  //   border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+  // }
+
+  // .TextInputWrapper > input:disabled:placeholder-shown + span::before,
+  // .TextInputWrapper > input:disabled:placeholder-shown + span::after,
+  // .TextInputWrapper > textarea:disabled:placeholder-shown + span::before,
+  // .TextInputWrapper > textarea:disabled:placeholder-shown + span::after {
+  //   border-top-color: transparent !important;
+  // }
 }

@@ -1,5 +1,6 @@
 .Status {
-  width: 9rem;
+  width: fit-content;
+  min-width:9rem;
   height: 2.4rem;
   border-radius: 1.6rem;
   padding: 0.2rem 1.7rem 0.3rem;
@@ -8,12 +9,13 @@
   align-items: center;
   font-size: 14px;
   font-weight: 700;
+  box-sizing:border-box;
 
   span {
     border-radius: 50%;
     width: 0.8rem;
     height: 0.8rem;
-    margin-right: 0.8rem;
+    margin:.6rem .8rem .5rem 0;
   }
 }
 

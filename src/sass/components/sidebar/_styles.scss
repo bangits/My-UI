@@ -8,23 +8,22 @@
 
   .SidebarBase {
     position: absolute;
-    z-index: 1000;
+    z-index: map-get($sidebar-sizes, sidebar-z-index);
     display: flex;
     flex-direction: column;
-    min-width: 21.45rem;
-    min-height: 100vh;
-    background-color: #ffffff;
-    box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.05);
+    min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
+    min-height: map-get($sidebar-sizes, sidebar-min-height);
+    background-color: map-get($sidebar-colors, sidebar-background-color);
+    box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
     transition: 0.3s;
     /* overflow: hidden;
     overflow-y: scroll; */
 
     &--logo {
-      margin-top: 3.2rem;
-      margin-left: 2.4rem;
-      width: 4rem;
-      height: 4rem;
-      border-radius: 0.4rem;
+      margin: map-get($sidebar-sizes, sidebar-logo-collapsed-margin);
+      width: map-get($sidebar-sizes, sidebar-logo-width);
+      height: map-get($sidebar-sizes, sidebar-logo-height);
+      border-radius: map-get($sidebar-sizes, sidebar-logo-borderRadius);
       transition: 0.3s;
 
       img {
@@ -37,18 +36,18 @@
 
     &--button-container {
       background-color: red;
-      box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.05);
-      width: 2.4rem;
-      height: 2.4rem;
+      box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
+      width: map-get($sidebar-sizes, sidebar-button-container-width);
+      height: map-get($sidebar-sizes, sidebar-button-container-height);
       position: absolute;
-      border-radius: 50%;
-      top: 4rem;
-      right: -1.2rem;
+      border-radius: map-get($sidebar-sizes, sidebar-button-container-borderRadius);
+      top: map-get($sidebar-sizes, sidebar-button-container-top);
+      right: map-get($sidebar-sizes, sidebar-button-container-right);
       cursor: pointer;
     }
 
     &--item-container {
-      margin-top: 8rem;
+      margin-top: map-get($sidebar-sizes, sidebar-item-container-margin-top);
       padding: 0;
     }
 
@@ -64,13 +63,13 @@
 
     &--closed {
       position: absolute;
-      z-index: 1000;
+      z-index: map-get($sidebar-sizes, sidebar-z-index);
       display: flex;
       flex-direction: column;
-      min-width: 7.2rem;
-      min-height: 100vh;
-      background-color: #ffffff;
-      box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.05);
+      min-width: map-get($sidebar-sizes, sidebar-min-width);
+      min-height: map-get($sidebar-sizes, sidebar-min-height);
+      background-color: map-get($sidebar-colors, sidebar-background-color);
+      box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
       transition: 0.3s;
 
       &::before {
@@ -84,7 +83,7 @@
       }
 
       .SidebarBase--logo {
-        margin: 3.2rem 1.6rem 0 1.6rem;
+        margin: map-get($sidebar-sizes, sidebar-logo-margin);
         transition: 0.3s;
       }
 

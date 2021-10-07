@@ -4,45 +4,44 @@
     display: flex;
     align-items: center;
     list-style: none;
-    width: 100%;
-    height: 5.3rem;
+    width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-width);
+    height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-height);
     cursor: pointer;
 
     &--isActive {
-      height: 5.3rem;
-      background-color: #f4f7fe;
-      border-radius: 0.8rem;
+      height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-height);
+      background-color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-background-color);
+      border-radius: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-borderRadius);
 
       &::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
+        top: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-after-top);
+        left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-after-left);
         display: block;
-        width: 0.8rem;
-        height: 5.3rem;
-        background-color: #3c54b2;
-        border-radius: 3.2rem 0 0 3.2rem;
+        width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-after-width);
+        height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-after-height);
+        background-color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-after-background-color);
+        border-radius: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-after-borderRadius);
       }
 
       .MenuItemBase--icon {
-        margin-left: 2.4rem;
-        width: 1.6rem;
-        height: 1.6rem;
-        padding: 0.4rem;
-        color: #3c54b2;
-        opacity: 1;
+        margin: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-margin);
+        width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-width);
+        height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-height);
+        padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-padding);
+        color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-icon-color);
+        opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-opacity);
       }
       .MenuItemBase--label {
-        margin-left: 1.6rem;
-        padding-top: 0.2rem;
-        padding-bottom: 0.1rem;
+        margin: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-margin);
+        padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-padding);
         font-family: $base-font-family;
-        font-size: 1.6rem;
+        font-size: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-font-size);
         font-weight: bold;
-        letter-spacing: 0.032rem;
-        color: #3c54b2;
-        opacity: 1;
+        letter-spacing: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-letter-spacing);
+        color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-label-color);
+        opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-opacity);
       }
     }
 
@@ -54,42 +53,29 @@
     }
 
     &:hover {
-      height: 5.3rem;
-      background-color: #f4f7fe;
-      border-radius: 0.8rem;
-      margin-bottom: 0;
-
-      /* &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        width: 0.8rem;
-        height: 5.3rem;
-        background-color: #3c54b2;
-        border-radius: 3.2rem 0 0 3.2rem;
-      } */
+      height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-height);
+      background-color: map-get($sidebar-menu-item-colors, sidebar-menu-item-hover-background-color);
+      border-radius: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-borderRadius);
+      margin-bottom: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-marginB);
 
       .MenuItemBase--icon {
-        margin-left: 2.4rem;
-        width: 1.6rem;
-        height: 1.6rem;
-        padding: 0.4rem;
-        color: #3c54b2;
-        opacity: 1;
+        margin-left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-marginL);
+        width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-width);
+        height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-height);
+        padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-padding);
+        color: map-get($sidebar-menu-item-colors, sidebar-menu-item-hover-icon-color);
+        opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-opacity);
         transition: 0.3s;
       }
       .MenuItemBase--label {
-        margin-left: 1.6rem;
-        padding-top: 0.2rem;
-        padding-bottom: 0.1rem;
+        margin-left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-marginL);
+        padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-padding);
         font-family: $base-font-family;
-        font-size: 1.6rem;
+        font-size: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-font-size);
         font-weight: bold;
-        letter-spacing: 0.032rem;
-        color: #3c54b2;
-        opacity: 1;
+        letter-spacing: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-letter-spacing);
+        color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-label-color);
+        opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-opacity);
         transition: 0.3s;
       }
 
@@ -99,48 +85,47 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        top: 0;
-        right: -18.1rem;
-        width: 18.1rem;
+        top: map-get($sidebar-menu-item-sizes, hover-sub-menu-top);
+        right: map-get($sidebar-menu-item-sizes, hover-sub-menu-right);
+        width: map-get($sidebar-menu-item-sizes, hover-sub-menu-width);
         /* height: 16.6rem; */
         box-shadow: 0 3px 6px 0 rgba(32, 32, 32, 0.1);
-        background-color: #ffffff;
-        border-radius: 0.8rem;
+        background-color: map-get($sidebar-menu-item-colors, hover-sub-menu-background-color);
+        border-radius: map-get($sidebar-menu-item-sizes, hover-sub-menu-borderRadius);
 
         .MenuItemBase--sub-header {
           display: block;
           align-self: flex-start;
-          margin-left: 2.4rem;
-          font-size: 1.2rem;
-          font-weight: 500;
-          color: #3c54b2;
+          margin-left: map-get($sidebar-menu-item-sizes, hover-sub-menu-header-marginL);
+          font-size: map-get($sidebar-menu-item-sizes, hover-sub-menu-header-font-size);
+          font-weight: map-get($sidebar-menu-item-sizes, hover-sub-menu-header-font-weight);
+          color: map-get($sidebar-menu-item-colors, hover-sub-menu-header-color);
         }
       }
     }
 
     &--icon {
-      margin-left: 2.4rem;
-      min-width: 1.6rem;
-      width: 1.6rem;
-      height: 1.6rem;
-      padding: 0.4rem;
-      color: #95acc5;
-      opacity: 0.5;
+      margin-left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-marginL);
+      min-width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-min-width);
+      width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-width);
+      height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-height);
+      padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-padding);
+      color: map-get($sidebar-menu-item-colors, sidebar-menu-item-icon-color);
+      opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-opacity);
       transition: 0.3s;
     }
 
     &--label {
       font-family: $base-font-family;
-      margin-left: 1.6rem;
-      padding-top: 0.2rem;
-      padding-bottom: 0.1rem;
+      margin-left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-marginL);
+      padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-padding);
       font-family: $base-font-family;
-      font-size: 1.6rem;
+      font-size: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-font-size);
       font-weight: bold;
-      letter-spacing: 0.032rem;
-      color: #95acc5;
-      opacity: 0.5;
-      min-width: 13.7rem;
+      letter-spacing: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-letter-spacing);
+      color: map-get($sidebar-menu-item-colors, sidebar-menu-item-label-color);
+      opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-opacity);
+      min-width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-min-width);
       transition: 0.3s;
     }
   }

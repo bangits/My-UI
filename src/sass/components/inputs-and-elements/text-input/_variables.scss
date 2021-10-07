@@ -1,30 +1,38 @@
-$base-text-field-sizes: (
+$base-text-field-variables: (
   width: 28rem,
   height: 3.8rem,
   padding: 1rem 1.55rem,
   font-size: 1.4rem,
-  border-radius: 0.3rem,
-  icon-margin: 1rem,
-  input-adornment: 4rem,
-  explanation-margin: 0.4rem
+  input-label-focused-font-size: 1.2rem,
+  icon-margin: 1.3rem,
+  explanation-margin: 0.2rem,
+  input-label-offset: 0.6rem,
+  input-label-offset--with-icons: 2.7rem,
+  label-transition: 0.2s,
+  input-border-radius: 0.4rem,
+  input-type-offset: 1.4rem,
+  input-type-offset--with-icons: 4.1rem,
+  input-min-height: 3.8rem,
+  input-label-line-height: 5rem,
+  input-label-focused-line-height: 1.5rem,
+  input-corner-min-width: 1rem,
+  input-corner-offset: 0.4rem
 );
 
 $input-states: 'success', 'error', 'warning';
 
 $text-field-colors: (
   input-bg: color(selago),
-  input-color: color(stratos),
-  input-filled-border-color: color(dark),
-  input-hover-bg: transparent,
-  input-placeholder-color: color(bermuda-gray),
-  input-active-bg-color: color(transparent),
-  input-bg-disabled: color(concrete),
-  input-hover-border-color: color(stratos),
-  input-active-border-color: color(stratos),
+  input-color: color(gray-transparent),
+  input-focused-color: #3c54b2,
+  //
   input-color--error: color(red-orange),
-  input-border-color--error: color(red-orange),
-  input-border-color--success: color(emerald),
+  input-focused-color--error: color(red-orange),
+  //
   input-color--success: color(emerald),
-  input-border-color--warning: color(sunglow),
-  input-color--warning: color(sunglow)
+  input-focused-color--success: color(emerald),
+  //
+  input-color--warning: color(sunglow),
+  input-focused-color--warning: color(sunglow),
+  //
 );

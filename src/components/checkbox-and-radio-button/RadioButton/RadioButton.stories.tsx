@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import RadioButton from './RadioButton';
 
@@ -9,5 +9,5 @@ export default {
 };
 
 export const DefaultRadio = () => {
-  return <RadioButton value='default' label='Default' />;
+  return <RadioButton value='default' label={text('label', 'Default')} disabled={boolean('disabled', false)} />;
 };

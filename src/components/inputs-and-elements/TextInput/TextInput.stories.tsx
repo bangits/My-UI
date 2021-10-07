@@ -13,26 +13,28 @@ export const Default = () => (
   <>
     <TextInput
       disabled={boolean('disabled', false)}
-      placeholder={text('placeholder', 'Default Text Input')}
+      label={text('label', 'Default Text Input')}
       defaultValue={text('defaultValue', undefined)}
       value={text('defaultValue', 'ui-kit@bangits.com')}
       maxLength={number('maxLength', 10)}
       type='text'
       onChange={action('onChange')}
       explanation={text('explanation', '')}
+      fullWidth={boolean('fullWidth', false)}
     />
 
     <h1> </h1>
 
     <TextInput
       disabled={boolean('disabled', false)}
-      placeholder={text('placeholder for number input', 'Default Number Input')}
+      label={text('label for number input', 'Default Number Input')}
       defaultValue={text('defaultValue', undefined)}
       value={text('defaultValue', 'ui-kit@bangits.com')}
       maxLength={number('maxLength', 10)}
       type='number'
       onChange={action('onChange')}
       explanation={text('explanation', '')}
+      fullWidth={boolean('fullWidth for number input', false)}
     />
   </>
 );
@@ -42,7 +44,7 @@ export const WithIcons = () => (
   <>
     <TextInput
       disabled={boolean('disabled', false)}
-      placeholder='Input With Start Icon'
+      label='Input With Start Icon'
       defaultValue={text('defaultValue for start icon', 'Input With Start Icon')}
       type='text'
       error={false}
@@ -69,7 +71,7 @@ export const WithIcons = () => (
 
     <TextInput
       disabled={boolean('disabled', false)}
-      placeholder='Input With End Icon'
+      label='Input With End Icon'
       defaultValue={text('defaultValue for end icon', 'Input With End Icon')}
       type='text'
       error={false}
@@ -98,7 +100,7 @@ export const WithStates = () => (
   <>
     <TextInput
       disabled={boolean('disabled', false)}
-      placeholder='Input With Error'
+      label='Input With Error'
       defaultValue={text('defaultValue for error', 'error@bangits.com')}
       type='text'
       error={true}
@@ -110,7 +112,7 @@ export const WithStates = () => (
 
     <TextInput
       disabled={boolean('disabled', false)}
-      placeholder='Input With Success'
+      label='Input With Success'
       defaultValue={text('defaultValue for success', 'success@bangits.com')}
       type='text'
       success={true}
@@ -122,7 +124,7 @@ export const WithStates = () => (
 
     <TextInput
       disabled={boolean('disabled', false)}
-      placeholder='Input With Warning'
+      label='Input With Warning'
       defaultValue={text('defaultValue for warning', 'warning@bangits.com')}
       type='text'
       warning={true}

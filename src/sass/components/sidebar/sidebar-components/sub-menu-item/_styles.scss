@@ -1,0 +1,23 @@
+@mixin generate-sub-menu-items-styles {
+  .SubMenuItemsBase {
+    box-sizing: border-box;
+    width: 17.3rem;
+    font-family: $base-font-family;
+    font-size: 1.2rem;
+    color: #95acc5;
+    height: 3.1rem;
+    text-align: left;
+    padding-left: 2.8rem;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      height: 3.1rem;
+      border-radius: 0.8rem;
+      background-color: #f4f7fe;
+      color: #3c54b2;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+}

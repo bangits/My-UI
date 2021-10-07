@@ -1,3 +1,9 @@
-$icon-button-sizes: ();
+$icon-button-sizes: (
+  icon-button-width: 2.4rem,
+  icon-button-height: 2.4rem,
+  icon-button-borderRadius: 50%
+);
 
-$icon-button-colors: ();
+$icon-button-colors: (
+  icon-button-background-color: color(white)
+);

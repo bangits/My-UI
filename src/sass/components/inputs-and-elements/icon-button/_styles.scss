@@ -1,7 +1,16 @@
 @mixin generate-icon-button-styles {
   .IconButtonBase {
-    background-color: red;
-    width: 40px;
-    height: 40px;
+    width: map-get($icon-button-sizes, icon-button-width);
+    height: map-get($icon-button-sizes, icon-button-height);
+    border: none;
+    border-radius: map-get($icon-button-sizes, icon-button-borderRadius);
+    background-color: map-get($icon-button-colors, icon-button-background-color);
+    box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
+
+    &--icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

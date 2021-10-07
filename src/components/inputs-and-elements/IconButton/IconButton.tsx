@@ -8,7 +8,11 @@ export interface IconButtonProps extends ButtonProps {
 }
 
 const IconButton: FC<IconButtonProps> = ({ icon }) => {
-  return <button className={classNames(styles.IconButtonBase)}>{icon}</button>;
+  return (
+    <button className={classNames(styles.IconButtonBase)}>
+      <div className={styles['IconButtonBase--icon']}>{icon}</div>
+    </button>
+  );
 };
 
 export default IconButton;

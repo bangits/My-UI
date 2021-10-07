@@ -13,3 +13,13 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
+.TableCell--center {
+  justify-content: center;
+}
+.TableCell--start {
+  justify-content: start;
+}
+.TableCell--end {
+  justify-content: flex-end;
+}

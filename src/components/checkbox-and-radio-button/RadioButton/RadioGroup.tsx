@@ -25,7 +25,6 @@ const RadioGroup: FC<RadioGroupProps> = ({ children, onChange, value, defaultVal
         onChange: onChange ? onChange : handleRadioChange,
         value: value ? value : selected
       }}>
-      <Button>asasd</Button>
       {children}
     </Provider>
   );

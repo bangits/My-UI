@@ -1,0 +1,25 @@
+.TableContainer {
+  border-collapse: collapse;
+  box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
+  border-radius: 1.6rem;
+
+  &--withSelection {
+    .TableBody {
+      tr td:first-child {
+        width: fit-content;
+      }
+    }
+  }
+  .ActionTableCell {
+    display: none;
+    &:hover {
+      display: inherit;
+      position: absolute;
+      left: 43rem;
+      top: 0px;
+      background: red;
+      width: 135px;
+      max-width: 135px;
+    }
+  }
+}

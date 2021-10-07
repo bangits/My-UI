@@ -23,7 +23,9 @@ module.exports = (webpackConfigEnv, argv) => {
         modules: [path.join(__dirname, 'src'), 'node_modules'],
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
         alias: {
-          'react/jsx-runtime': require.resolve('react/jsx-runtime')
+          'react/jsx-runtime': require.resolve('react/jsx-runtime'),
+          react: path.resolve(__dirname, './node_modules/react'),
+          'react-dom': path.resolve(__dirname, './node_modules/react-dom')
         }
       },
       module: {
@@ -45,7 +47,11 @@ module.exports = (webpackConfigEnv, argv) => {
           resourceRegExp: /node_modules/,
           contextRegExp: /node_modules/
         })
-      ]
+      ],
+      externals: {
+        react: 'react',
+        'react-dom': 'react-dom'
+      }
     },
     // All shared webpack configuration for app webpack configs
     configureSharedWebpack(isDevelopment)

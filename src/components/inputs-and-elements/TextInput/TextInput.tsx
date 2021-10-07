@@ -1,7 +1,9 @@
 import { Typography, TypographyProps } from '@/components';
 import classNames from 'classnames';
-import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
+import React, { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import styles from './TextInput.module.scss';
+
+window.MYUIReact = React;
 
 export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   warning?: boolean;
@@ -80,7 +82,7 @@ const TextInputs: FC<TextInputProps> = ({
         containerClassName
       )}>
       <label className={classNames(styles.TextInputWrapper)}>
-        {startIcon && !endIcon && <div className={styles.StartIcon}>{startIcon}</div>}
+        {startIcon && <div className={styles.StartIcon}>{startIcon}</div>}
 
         <input
           className={classNames(
@@ -99,7 +101,7 @@ const TextInputs: FC<TextInputProps> = ({
         />
         {label && <span className={styles.TextInputPlaceholder}>{label}</span>}
 
-        {endIcon && !startIcon && <div className={styles.EndIcon}>{endIcon}</div>}
+        {endIcon && <div className={styles.EndIcon}>{endIcon}</div>}
       </label>
 
       {explanation && (

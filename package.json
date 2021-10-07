@@ -1,6 +1,6 @@
 {
   "name": "@my-ui/core",
-  "version": "2.0.2",
+  "version": "2.0.14",
   "scripts": {
     "start": "webpack serve --env development",
     "start-with-storybook": "yarn start && yarn storybook",
@@ -72,23 +72,30 @@
     "typescript": "^4.3.4",
     "url-loader": "^4.1.1",
     "webpack": "^5.47.1",
+    "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.2",
     "webpack-config-single-spa-react": "^3.0.0",
     "webpack-config-single-spa-react-ts": "^4.0.2",
     "webpack-config-single-spa-ts": "^3.0.0",
     "webpack-dev-server": "^4.0.0-rc.0",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@my-ui/core": "2.0.1",
     "@my-ui/react-datepicker": "1.1.0",
     "@my-ui/react-select": "1.1.0",
     "@my-ui/react-table": "^1.0.0",
     "classnames": "^2.3.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "single-spa-react": "^4.2.0"
   },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "main": "./dist/index.js",
-  "types": "./dist/my-ui-core.d.ts"
+  "types": "./dist/my-ui-core.d.ts",
+  "files": [
+    "dist"
+  ]
 }

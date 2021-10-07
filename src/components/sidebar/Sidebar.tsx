@@ -1,8 +1,10 @@
 import { typedMemo } from '@/helpers/typedMemo';
+import { IconButtonLeft, IconButtonRight } from '@/icons';
 import { UIColors } from '@/types';
 import { IComponent } from '@/types/props';
 import classNames from 'classnames';
 import React, { FC, useCallback, useState } from 'react';
+import IconButton from '../inputs-and-elements/IconButton/IconButton';
 import { MenuItem, MenuItemProps } from './sidebar-components/MenuItem';
 import styles from './Sidebar.module.scss';
 
@@ -34,7 +36,12 @@ const Sidebar: FC<SidebarProps> = ({ width, color, position, collapsedWidth, log
           <img src={logoSrc} alt='Logo' />
         </div>
 
-        <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}></div>
+        <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}>
+          <IconButton
+            icon={sidebar ? <IconButtonRight /> : <IconButtonLeft />}
+            className={classNames(styles['SidebarBase--button'])}
+          />
+        </div>
 
         <ul className={classNames(styles['SidebarBase--item-container'])}>
           {menuItems.map((item) => (

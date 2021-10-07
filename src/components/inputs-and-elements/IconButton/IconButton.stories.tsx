@@ -1,4 +1,4 @@
-import { IconButtonIcon } from '@/icons';
+import { IconButtonRight } from '@/icons';
 import { withKnobs } from '@storybook/addon-knobs';
 import IconButton from './IconButton';
 
@@ -9,5 +9,5 @@ export default {
 };
 
 export const Default = () => {
-  return <IconButton icon={<IconButtonIcon />} />;
+  return <IconButton icon={<IconButtonRight />} />;
 };

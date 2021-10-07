@@ -35,7 +35,7 @@
     }
 
     &--button-container {
-      background-color: red;
+      background-color: White;
       box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
       width: map-get($sidebar-sizes, sidebar-button-container-width);
       height: map-get($sidebar-sizes, sidebar-button-container-height);
@@ -44,6 +44,15 @@
       top: map-get($sidebar-sizes, sidebar-button-container-top);
       right: map-get($sidebar-sizes, sidebar-button-container-right);
       cursor: pointer;
+    }
+
+    &--button {
+      width: map-get($sidebar-sizes, sidebar-button-container-width);
+      height: map-get($sidebar-sizes, sidebar-button-container-height);
+
+      &:hover {
+        background-color: transparent;
+      }
     }
 
     &--item-container {

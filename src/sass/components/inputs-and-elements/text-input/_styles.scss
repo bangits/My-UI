@@ -13,6 +13,9 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
     position: relative;
     display: inline-block;
 
+    max-width: map-get($base-text-field-variables, width);
+    width: 100%;
+
     overflow: hidden;
 
     padding-top: map-get($base-text-field-variables, input-label-offset);
@@ -155,8 +158,12 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
   }
 
   .TextInputContainer {
+    &--full-width .TextInputWrapper {
+      max-width: initial;
+    }
+
     &--disabled {
-      opacity: 0.5;
+      opacity: map-get($base-text-field-variables, disabled-opacity);
     }
 
     &--withRightIcon {

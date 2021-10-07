@@ -20,6 +20,7 @@ export const Default = () => (
       type='text'
       onChange={action('onChange')}
       explanation={text('explanation', '')}
+      fullWidth={boolean('fullWidth', false)}
     />
 
     <h1> </h1>
@@ -33,6 +34,7 @@ export const Default = () => (
       type='number'
       onChange={action('onChange')}
       explanation={text('explanation', '')}
+      fullWidth={boolean('fullWidth for number input', false)}
     />
   </>
 );

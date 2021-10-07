@@ -16,7 +16,8 @@ $base-text-field-variables: (
   input-label-line-height: 5rem,
   input-label-focused-line-height: 1.5rem,
   input-corner-min-width: 1rem,
-  input-corner-offset: 0.4rem
+  input-corner-offset: 0.4rem,
+  disabled-opacity: 0.5
 );
 
 $input-states: 'success', 'error', 'warning';

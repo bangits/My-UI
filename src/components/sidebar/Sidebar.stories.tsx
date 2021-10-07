@@ -1,5 +1,5 @@
 import { HomeIcon } from '@/icons';
-import { number, withKnobs } from '@storybook/addon-knobs';
+import { number, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import Sidebar from './Sidebar';
 
@@ -12,7 +12,7 @@ export default {
 export const Default = () => {
   return (
     <Sidebar
-      logoSrc={'https://pbs.twimg.com/profile_images/1220044684791308288/xGeuSMdZ.jpg'}
+      logoSrc={text('logoSrc', 'https://pbs.twimg.com/profile_images/1220044684791308288/xGeuSMdZ.jpg')}
       position='fixed'
       width={number('width', 21.45)}
       collapsedWidth={number('collapsedWidth', 7.2)}

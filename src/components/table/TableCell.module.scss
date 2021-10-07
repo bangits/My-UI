@@ -1,17 +1,28 @@
 .TableCell {
-  display: inline-block;
-  align-items: center;
+  display: flex;
   background: transparent;
-  flex-wrap: wrap;
-  word-break: break-all;
-  padding: 2.6rem;
+  white-space: nowrap;
+  padding: 1.8rem 1.4rem 0;
+  box-sizing: border-box;
   font-size: 1.4rem;
   font-weight: 700;
-  border-bottom: solid 1px #7c84ab;
+  color: #7c84ab;
   width: 100%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  height: 5.2rem;
+  font-weight: 300;
+  text-align: left;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  div {
+    max-width: 13.5rem;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .TableCell--center {

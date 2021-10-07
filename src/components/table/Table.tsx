@@ -14,11 +14,13 @@ import {
   useTable,
   UseTableRowProps
 } from '@my-ui/react-table';
+import classNames from 'classnames';
 import { useEffect } from 'react';
 import selectionHook from './selectionHook';
 import TableCell from './TableCell';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
+import styles from './Table.module.scss';
 
 // This interface used for react-table useSortBy hook
 export interface Column<T extends ObjectMock> extends HeaderGroup<T> {
@@ -59,6 +61,7 @@ export interface TableProps<T extends ObjectMock> extends IComponent {
   color?: UIColors;
   fetch?: (state: State<T>) => any;
   gridLayout?: boolean;
+  isWithSelection?: boolean;
   absoluteLayout?: boolean;
   blockLayout?: boolean;
   isResizing?: boolean;
@@ -76,6 +79,7 @@ const Table = <T extends ObjectMock>({
   isResizing,
   theadComponent: THeadComponent = 'thead',
   tbodyComponent: TBodyComponent = 'tbody',
+  isWithSelection = true,
   actions
 }: TableProps<T>) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable<T>(
@@ -83,7 +87,7 @@ const Table = <T extends ObjectMock>({
     useSortBy,
     ...(isResizing ? [useFlexLayout, useResizeColumns] : []),
     useRowSelect,
-    selectionHook
+    ...(isWithSelection ? [selectionHook] : [])
   );
 
   const typedState = state as State<T>;
@@ -95,7 +99,11 @@ const Table = <T extends ObjectMock>({
   }, [onFetchDataDebounced, typedState.sortBy]);
 
   return (
-    <Component {...getTableProps()} style={{ borderCollapse: 'collapse' }}>
+    <Component
+      {...getTableProps()}
+      className={classNames(styles.TableContainer, {
+        [styles['TableContainer--withSelection']]: isWithSelection
+      })}>
       <THeadComponent>
         {headerGroups.map((headerGroup) => (
           <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
@@ -106,8 +114,7 @@ const Table = <T extends ObjectMock>({
                 hideSortIcon={column.disableSortBy}
                 {...column.getHeaderProps(column.getSortByToggleProps())}
                 color={color}>
-                {column.render('Header')}
-
+                <span> {column.render('Header')}</span>
                 {/* We will do this part when in UI kit there will be ready resizing part */}
 
                 {/* {isResizing ? (
@@ -122,23 +129,24 @@ const Table = <T extends ObjectMock>({
           </TableRow>
         ))}
       </THeadComponent>
-      <TBodyComponent {...getTableBodyProps()}>
+      <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
         {rows.map((row: Row<T>, index) => {
           prepareRow(row);
           return (
             <TableRow hover selected={row.isSelected} {...row.getRowProps()} color={color}>
               {row.cells.map((cell) => (
                 <TableCell {...cell.getCellProps()} color={color}>
-                  {cell.render('Cell')}
+                  <div>{cell.render('Cell')}</div>
                 </TableCell>
               ))}
 
-              {actions &&
-                actions.map(({ component: Component, onClick, props }) => (
-                  <TableCell {...actions} color={color}>
+              {actions && (
+                <TableCell {...actions} color={color} className={styles.ActionTableCell}>
+                  {actions.map(({ component: Component, onClick, props }) => (
                     <Component {...props} onClick={(...args: any[]) => onClick(data[index], ...args)} />
-                  </TableCell>
-                ))}
+                  ))}
+                </TableCell>
+              )}
             </TableRow>
           );
         })}

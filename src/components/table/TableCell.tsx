@@ -10,9 +10,10 @@ export interface TableCellProps extends IComponent {
   color?: UIColors;
 }
 
-export const TableCell: FC<TableCellProps> = ({ children, align, color, component: Component = 'td' }) => {
+export const TableCell: FC<TableCellProps> = ({ children, align, color, component: Component = 'td', className }) => {
   return (
-    <Component className={classNames(styles.TableCell, styles[`TableCell--${color}`], styles[`TableCell--${align}`])}>
+    <Component
+      className={classNames(styles.TableCell, styles[`TableCell--${color}`], styles[`TableCell--${align}`], className)}>
       {children}
     </Component>
   );

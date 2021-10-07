@@ -23,21 +23,23 @@ export const TableHead: FC<TableHeadProps> = ({
 }) => {
   return (
     <Component className={styles.TableHead} {...props}>
-      {children}
-      {!hideSortIcon && (
-        <span className={styles.IconArrow}>
-          <ArrowIcon
-            className={classNames(styles.IconUp, {
-              [styles.IconDisabled]: !selectedDirection || direction === 'asc'
-            })}
-          />
-          <ArrowIcon
-            className={classNames(styles.IconDown, {
-              [styles.IconDisabled]: !selectedDirection || direction === 'desc'
-            })}
-          />
-        </span>
-      )}
+      <div>
+        {children}
+        {!hideSortIcon && (
+          <span className={styles.IconArrow}>
+            <ArrowIcon
+              className={classNames(styles.IconUp, {
+                [styles.IconDisabled]: !selectedDirection || direction === 'asc'
+              })}
+            />
+            <ArrowIcon
+              className={classNames(styles.IconDown, {
+                [styles.IconDisabled]: !selectedDirection || direction === 'desc'
+              })}
+            />
+          </span>
+        )}
+      </div>
     </Component>
   );
 };

@@ -66,4 +66,8 @@
     background: #505d6e;
     opacity: 0.4;
   }
+
+  &:disabled {
+    opacity: 0.4;
+  }
 }

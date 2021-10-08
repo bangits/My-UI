@@ -3,21 +3,16 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
 @mixin generate-text-input-styles {
   .Explanation {
     display: block;
-
     margin-top: map-get($base-text-field-variables, explanation-margin);
-
     @include theme(color, input-color);
   }
 
   .TextInputWrapper {
     position: relative;
     display: inline-block;
-
     max-width: map-get($base-text-field-variables, width);
     width: 100%;
-
     overflow: hidden;
-
     padding-top: map-get($base-text-field-variables, input-label-offset);
     font-size: map-get($base-text-field-variables, font-size);
   }
@@ -88,17 +83,12 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
     top: 0;
     left: 0;
     display: flex;
-
     @include theme(border-color, input-focused-color);
-
     width: 100%;
     max-height: 100%;
-
     @include theme(color, input-color);
-
     font-size: map-get($base-text-field-variables, font-size);
     line-height: map-get($base-text-field-variables, input-label-focused-line-height);
-
     cursor: text;
     transition: text-indent $transition-duration, color $transition-duration, font-size $transition-duration,
       line-height $transition-duration;
@@ -140,10 +130,8 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
   .EndIcon {
     position: absolute;
     top: map-get($base-text-field-variables, icon-margin);
-
     width: 2.4rem;
     height: 2.4rem;
-
     display: flex;
     justify-content: center;
     align-items: center;

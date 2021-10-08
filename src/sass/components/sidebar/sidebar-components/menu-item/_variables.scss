@@ -15,7 +15,7 @@ $sidebar-menu-item-sizes: (
   sidebar-menu-item-isActive-icon-padding: 0.4rem,
   sidebar-menu-item-isActive-icon-opacity: 1,
   sidebar-menu-item-isActive-label-margin: 0 0 0 1.6rem,
-  sidebar-menu-item-isActive-label-padding: 0.2rem 0 0.1rem 0,
+  sidebar-menu-item-isActive-label-padding: 0 0 0 0,
   sidebar-menu-item-isActive-label-font-size: 1.6rem,
   sidebar-menu-item-isActive-label-letter-spacing: 0.032rem,
   sidebar-menu-item-isActive-label-opacity: 1,
@@ -29,7 +29,7 @@ $sidebar-menu-item-sizes: (
   sidebar-menu-item-hover-icon-padding: 0.4rem,
   sidebar-menu-item-hover-icon-opacity: 1,
   sidebar-menu-item-hover-label-marginL: 1.6rem,
-  sidebar-menu-item-hover-label-padding: 0.2rem 0 0.1rem 0,
+  sidebar-menu-item-hover-label-padding: 0 0 0 0,
   sidebar-menu-item-hover-label-font-size: 1.6rem,
   sidebar-menu-item-hover-label-letter-spacing: 0.032rem,
   sidebar-menu-item-hover-label-opacity: 1,
@@ -50,8 +50,9 @@ $sidebar-menu-item-sizes: (
   sidebar-menu-item-icon-opacity: 0.5,
   //labels
   sidebar-menu-item-label-marginL: 1.6rem,
-  sidebar-menu-item-label-padding: 0.2rem 0 0.1rem 0,
+  sidebar-menu-item-label-padding: 0 0 0 0,
   sidebar-menu-item-label-font-size: 1.6rem,
+  sidebar-menu-item-label-font-weight: 500,
   sidebar-menu-item-label-letter-spacing: 0.032rem,
   sidebar-menu-item-label-opacity: 0.5,
   sidebar-menu-item-label-min-width: 13.7rem

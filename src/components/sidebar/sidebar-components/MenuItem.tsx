@@ -45,8 +45,8 @@ export const MenuItem: FC<MenuItemProps> = ({
 
       <div className={classNames({ [styles['MenuItemBase--sub']]: subItems?.length > 0 })}>
         <p className={classNames([styles['MenuItemBase--sub-header']])}>{label}</p>
-        {subItems?.map((item) => (
-          <SubMenuItems label={item.label} onClick={item.onClick} />
+        {subItems?.map((item, key) => (
+          <SubMenuItems key={key} label={item.label} onClick={item.onClick} />
         ))}
       </div>
     </Component>

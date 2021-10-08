@@ -3,6 +3,7 @@ import { ArrowIcon } from '@/icons';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
 import classNames from 'classnames';
+import { CSSProperties } from 'markdown-to-jsx/node_modules/@types/react';
 import React, { FC } from 'react';
 import styles from './TableHead.module.scss';
 export interface TableHeadProps extends IComponent {
@@ -11,6 +12,7 @@ export interface TableHeadProps extends IComponent {
   direction?: 'asc' | 'desc';
   color?: UIColors;
   hideSortIcon?: boolean;
+  style?: CSSProperties;
 }
 
 export const TableHead: FC<TableHeadProps> = ({

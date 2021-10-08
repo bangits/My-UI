@@ -57,6 +57,7 @@ export interface TableProps<T extends ObjectMock> extends IComponent {
     Header: string;
     accessor: keyof T;
     disableSortBy?: boolean;
+    maxWidth?: number | string;
   }[];
   color?: UIColors;
   fetch?: (state: State<T>) => any;
@@ -104,7 +105,7 @@ const Table = <T extends ObjectMock>({
       className={classNames(styles.TableContainer, {
         [styles['TableContainer--withSelection']]: isWithSelection
       })}>
-      <THeadComponent>
+      <THeadComponent className={styles.TableHead}>
         {headerGroups.map((headerGroup) => (
           <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
             {headerGroup.headers.map((column: Column<T>) => (
@@ -113,6 +114,12 @@ const Table = <T extends ObjectMock>({
                 selectedDirection={column.isSorted}
                 hideSortIcon={column.disableSortBy}
                 {...column.getHeaderProps(column.getSortByToggleProps())}
+                style={{
+                  ...(column.getHeaderProps(column.getSortByToggleProps()).style || {}),
+                  ...{
+                    maxWidth: column.maxWidth
+                  }
+                }}
                 color={color}>
                 <span> {column.render('Header')}</span>
                 {/* We will do this part when in UI kit there will be ready resizing part */}
@@ -134,11 +141,19 @@ const Table = <T extends ObjectMock>({
           prepareRow(row);
           return (
             <TableRow hover selected={row.isSelected} {...row.getRowProps()} color={color}>
-              {row.cells.map((cell) => (
-                <TableCell {...cell.getCellProps()} color={color}>
-                  <div>{cell.render('Cell')}</div>
-                </TableCell>
-              ))}
+              {row.cells.map((cell) => {
+                console.log(cell.column.maxWidth);
+                return (
+                  <TableCell
+                    {...(cell.getCellProps().style || {})}
+                    style={{
+                      maxWidth: cell.column.maxWidth
+                    }}
+                    color={color}>
+                    <div>{cell.render('Cell')}</div>
+                  </TableCell>
+                );
+              })}
 
               {actions && (
                 <TableCell {...actions} color={color} className={styles.ActionTableCell}>

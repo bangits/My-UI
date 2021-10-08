@@ -19,14 +19,19 @@ const Button: FC<ButtonProps> = ({
   variant = 'default',
   startIcon,
   endIcon,
+  className,
   ...props
 }) => (
   <>
     <button
-      className={classNames(styles.ButtonBase, {
-        [styles[`ButtonVariant--${color}__${variant}`]]: variant !== 'default',
-        [styles[`ButtonColor--${color}`]]: color
-      })}
+      className={classNames(
+        styles.ButtonBase,
+        {
+          [styles[`ButtonVariant--${color}__${variant}`]]: variant !== 'default',
+          [styles[`ButtonColor--${color}`]]: color
+        },
+        className
+      )}
       {...props}>
       <div className={styles.startIcon}>{startIcon}</div>
 

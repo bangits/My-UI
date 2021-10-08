@@ -20,9 +20,16 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
   // Input
   .TextInputBaseInput {
     width: 100%;
-
     @include theme(color, input-focused-color);
-    @include theme(border, input-color, solid 0.1rem);
+    @include theme(border, input-color, solid map-get($base-text-field-variables, input-border-width));
+
+    &:hover {
+      border-width: map-get($base-text-field-variables, input-hover-border-width);
+    }
+
+    &:disabled {
+      opacity: map-get($base-text-field-variables, input-disabled);
+    }
 
     // Sizes
     border-radius: map-get($base-text-field-variables, input-border-radius);
@@ -92,6 +99,7 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
     cursor: text;
     transition: text-indent $transition-duration, color $transition-duration, font-size $transition-duration,
       line-height $transition-duration;
+    height: 0.4rem;
 
     &::before,
     &::after {
@@ -142,7 +150,7 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
   }
 
   .EndIcon {
-    right: map-get($base-text-field-variables, icon-margin);
+    right: map-get($base-text-field-variables, icon-margin-right);
   }
 
   .TextInputContainer {

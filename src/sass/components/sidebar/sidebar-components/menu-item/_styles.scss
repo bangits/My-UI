@@ -121,8 +121,7 @@
       padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-padding);
       font-family: $base-font-family;
       font-size: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-font-size);
-      font-weight: bold;
-      letter-spacing: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-letter-spacing);
+      font-weight: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-font-weight);
       color: map-get($sidebar-menu-item-colors, sidebar-menu-item-label-color);
       opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-opacity);
       min-width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-min-width);

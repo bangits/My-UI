@@ -44,8 +44,9 @@ const Sidebar: FC<SidebarProps> = ({ width, color, position, collapsedWidth, log
         </div>
 
         <ul className={classNames(styles['SidebarBase--item-container'])}>
-          {menuItems.map((item) => (
+          {menuItems.map((item, key) => (
             <MenuItem
+              key={key}
               className={classNames(styles['SidebarBase--menu-item'])}
               label={item.label}
               icon={item.icon}

@@ -14,7 +14,7 @@ export const Default = () => {
     <Sidebar
       logoSrc={text('logoSrc', 'https://pbs.twimg.com/profile_images/1220044684791308288/xGeuSMdZ.jpg')}
       position='fixed'
-      width={number('width', 21.45)}
+      width={number('width', 21.5)}
       collapsedWidth={number('collapsedWidth', 7.2)}
       menuItems={[
         {

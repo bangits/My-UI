@@ -23,8 +23,11 @@
 
         width: 0.91rem;
         height: 0.67rem;
-        left: 0.253rem;
-        top: 0.39rem;
+
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
 
         background: url('../../../icons/check.svg') no-repeat;
         background-position: center;

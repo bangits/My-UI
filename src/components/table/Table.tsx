@@ -17,10 +17,10 @@ import {
 import classNames from 'classnames';
 import { useEffect } from 'react';
 import selectionHook from './selectionHook';
+import styles from './Table.module.scss';
 import TableCell from './TableCell';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
-import styles from './Table.module.scss';
 
 // This interface used for react-table useSortBy hook
 export interface Column<T extends ObjectMock> extends HeaderGroup<T> {

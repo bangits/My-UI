@@ -1,5 +1,5 @@
 import { IconButton } from '@/components';
-import { IconButtonIcon } from '@/icons';
+import { IconButtonLeft } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { object, withKnobs } from '@storybook/addon-knobs';
 import Table from './Table';
@@ -78,14 +78,14 @@ export const Default = () => {
           component: IconButton,
           onClick: () => {},
           props: {
-            icon: <IconButtonIcon />
+            icon: <IconButtonLeft />
           }
         },
         {
           component: IconButton,
           onClick: () => {},
           props: {
-            icon: <IconButtonIcon />
+            icon: <IconButtonLeft />
           }
         }
       ]}

@@ -2,24 +2,45 @@
   border-collapse: collapse;
   box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
   border-radius: 1.6rem;
+  min-width: 124.6rem;
 
-  &--withSelection {
-    .TableBody {
-      tr td:first-child {
-        width: fit-content;
+  .TableBody {
+    tr {
+      &:hover {
+        font-weight: 700;
+
+        td > div {
+          font-weight: 700;
+        }
+
+        .ActionTableCell {
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          right: 0;
+          background: #eaf3f3;
+          max-width: 16.8rem;
+        }
       }
     }
   }
+
+  &--withSelection {
+    .TableBody,
+    .TableHead {
+      tr td,
+      tr th {
+        &:first-child {
+          max-width: 4.8rem !important;
+        }
+      }
+    }
+  }
+
   .ActionTableCell {
     display: none;
-    &:hover {
-      display: inherit;
-      position: absolute;
-      left: 43rem;
-      top: 0px;
-      background: red;
-      width: 135px;
-      max-width: 135px;
-    }
   }
 }

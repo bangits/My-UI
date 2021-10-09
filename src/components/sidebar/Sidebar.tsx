@@ -8,10 +8,11 @@ import IconButton from '../inputs-and-elements/IconButton/IconButton';
 import { MenuItem, MenuItemProps } from './sidebar-components/MenuItem';
 import styles from './Sidebar.module.scss';
 
+export type SidebarPositions = 'fixed' | 'static';
 export interface SidebarProps extends IComponent {
   width?: number;
   color?: UIColors;
-  position?: 'fixed' | 'static';
+  position?: SidebarPositions;
   collapsedWidth?: number;
   logoSrc?: string;
   menuItems?: MenuItemProps[];
@@ -25,16 +26,16 @@ const Sidebar: FC<SidebarProps> = ({ width, color, position, collapsedWidth, log
   }, [sidebar]);
 
   return (
-    <div className={classNames({ [styles[`SidebarWrapper--${position}`]]: position })}>
+    <div
+      style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem` }}
+      className={classNames({ [styles[`SidebarWrapper--${position}`]]: position })}>
       <div
         className={classNames(styles.SidebarBase, {
           [styles['SidebarBase--closed']]: sidebar,
           [styles[`SidebarBase--${color}`]]: color
         })}
         style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem` }}>
-        <div className={classNames(styles['SidebarBase--logo'])}>
-          <img src={logoSrc} alt='Logo' />
-        </div>
+        <div className={classNames(styles['SidebarBase--logo'])}>{logoSrc && <img src={logoSrc} alt='Logo' />}</div>
 
         <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}>
           <IconButton

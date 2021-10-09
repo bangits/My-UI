@@ -1,19 +1,25 @@
 @mixin generate-sidebar-styles {
   .SidebarWrapper--fixed {
     position: fixed;
+    min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
+    min-height: map-get($sidebar-sizes, sidebar-min-height);
   }
   .SidebarWrapper--static {
     position: static;
+    /*     min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
+ */
+    min-height: map-get($sidebar-sizes, sidebar-min-height);
   }
 
   .SidebarBase {
+    @include theme(background-color, sidebar-background-color);
+
     position: absolute;
     z-index: map-get($sidebar-sizes, sidebar-z-index);
     display: flex;
     flex-direction: column;
     min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
     min-height: map-get($sidebar-sizes, sidebar-min-height);
-    background-color: map-get($sidebar-colors, sidebar-background-color);
     box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
     transition: 0.3s;
     /* overflow: hidden;
@@ -26,6 +32,8 @@
       border-radius: map-get($sidebar-sizes, sidebar-logo-borderRadius);
       transition: 0.3s;
 
+      @include theme(background-color, sidebar-logo-background-color);
+
       img {
         width: 100%;
         height: 100%;
@@ -35,7 +43,7 @@
     }
 
     &--button-container {
-      background-color: White;
+      @include theme(background-color, sidebar-button-container-background-color);
       box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
       width: map-get($sidebar-sizes, sidebar-button-container-width);
       height: map-get($sidebar-sizes, sidebar-button-container-height);
@@ -61,13 +69,13 @@
     }
 
     &::before {
+      @include theme(background-color, sidebar-line-color);
       position: absolute;
       right: -1px;
-      top: 6vh;
+      top: 6%;
       content: '';
       width: 1px;
-      background-color: #ebebeb;
-      min-height: 94.85vh;
+      min-height: 94%;
     }
 
     &--closed {
@@ -84,11 +92,11 @@
       &::before {
         position: absolute;
         right: -1px;
-        top: 6rem;
+        top: 6%;
         content: '';
         width: 1px;
         background-color: #ebebeb;
-        min-height: 94.85vh;
+        min-height: 94%;
       }
 
       .SidebarBase--logo {

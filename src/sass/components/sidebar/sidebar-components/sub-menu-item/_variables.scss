@@ -1,0 +1,17 @@
+$sidebar-sub-menu-item-sizes: (
+  sidebar-sub-menu-item-width: 17.3rem,
+  sidebar-sub-menu-item-height: 3.1rem,
+  sidebar-sub-menu-item-font-size: 1.2rem,
+  sidebar-sub-menu-item-padding: 0 0 0 2.8rem,
+  //hover
+  sidebar-sub-menu-item-hover-height: 3.1rem,
+  sidebar-sub-menu-item-hover-borderRadius: 0.8rem,
+  sidebar-sub-menu-item-hover-font-weight: 500
+);
+
+$sidebar-sub-menu-item-colors: (
+  sidebar-sub-menu-item-color: color(lite-mocha),
+  //hover
+  sidebar-sub-menu-item-hover-background-color: color(ma-white),
+  sidebar-sub-menu-item-hover-color: color(night-in-manchester)
+);

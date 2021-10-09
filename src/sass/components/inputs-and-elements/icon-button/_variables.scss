@@ -1,12 +1,14 @@
 $icon-button-sizes: (
   icon-button-width: 4rem,
   icon-button-height: 4rem,
-  icon-button-borderRadius: 50%,
+  icon-button-padding: 0.8rem,
+  icon-button-borderRadius: 2rem,
   icon-button-icon-width: 2.4rem,
   icon-button-icon-height: 2.4rem,
   icon-button-hover-opacity: 0.1
 );
 
 $icon-button-colors: (
+  icon-button-light-bg: color(white),
   icon-button-hover-background-color: color(heavy-violet)
 );

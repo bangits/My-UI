@@ -14,7 +14,7 @@ export const Default = () => {
     <>
       <IconButton
         icon={<PenIcon />}
-        variants={optionsKnob('variantsDark', ICON_BUTTON_VARIANTS, ICON_BUTTON_VARIANTS.dark, {
+        variant={optionsKnob('variantsDark', ICON_BUTTON_VARIANTS, ICON_BUTTON_VARIANTS.dark, {
           display: 'inline-radio'
         })}
       />
@@ -23,7 +23,7 @@ export const Default = () => {
 
       <IconButton
         icon={<DustbinIcon />}
-        variants={optionsKnob('variantsLight', ICON_BUTTON_VARIANTS, ICON_BUTTON_VARIANTS.light, {
+        variant={optionsKnob('variantsLight', ICON_BUTTON_VARIANTS, ICON_BUTTON_VARIANTS.light, {
           display: 'inline-radio'
         })}
       />

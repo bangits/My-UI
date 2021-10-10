@@ -1,4 +1,4 @@
-import { typedMemo } from '@/helpers/typedMemo';
+import { typedMemo } from '@/helpers';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
 import classNames from 'classnames';

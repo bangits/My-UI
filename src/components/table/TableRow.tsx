@@ -1,5 +1,5 @@
-import { typedMemo } from '@/helpers/typedMemo';
-import { IComponent, ComponentType } from '@/types/props';
+import { typedMemo } from '@/helpers';
+import { ComponentType, IComponent } from '@/types/props';
 import classNames from 'classnames';
 import { CSSProperties } from 'markdown-to-jsx/node_modules/@types/react';
 import { FC, useCallback, useState } from 'react';

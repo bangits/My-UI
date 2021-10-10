@@ -1,4 +1,4 @@
-import { typedMemo } from '@/helpers/typedMemo';
+import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types/props';
 import React, { FC, ReactNode, useCallback, useState } from 'react';
 import { Provider } from './RadioContext';

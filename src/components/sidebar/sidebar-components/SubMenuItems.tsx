@@ -1,4 +1,4 @@
-import { typedMemo } from '@/helpers/typedMemo';
+import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';

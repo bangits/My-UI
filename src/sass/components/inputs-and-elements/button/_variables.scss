@@ -1,16 +1,14 @@
-$base-button-sizes: (
-  font-size: 1.6rem,
-  height: 3.8rem,
-  padding: 0.8rem 4.2rem 0.9rem,
-  border-radius: 0.4rem,
-  icon-margin: 1rem
+$button-sizes: (
+  button-font-size: calculateRem(16px),
+  button-height: calculateRem(38px),
+  button-padding: calculateRem(8px) calculateRem(42px) calculateRem(9px),
+  button-border-radius: calculateRem(4px),
+  icon-margin: calculateRem(10px),
+  button-border-width: calculateRem(1px)
 );
 
-$button-colors: (
-  button-bg--primary: color(downy),
-  button-color--primary: color(white),
-  button-hover-bg--primary: color(pelorous),
-  button-active-bg--primary: color(riptide),
-  button-ghost-hover--primary: color(transparent-downy),
-  button-ghost-bg: transparent
-);
+@function getButtonSizes($property) {
+  @return map-get($button-sizes, $property);
+}
+
+$button-colors: ();

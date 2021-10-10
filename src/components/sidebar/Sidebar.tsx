@@ -1,4 +1,4 @@
-import { typedMemo } from '@/helpers/typedMemo';
+import { typedMemo } from '@/helpers';
 import { IconButtonLeft, IconButtonRight } from '@/icons';
 import { UIColors } from '@/types';
 import { IComponent } from '@/types/props';

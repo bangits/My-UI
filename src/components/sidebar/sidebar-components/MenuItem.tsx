@@ -1,4 +1,4 @@
-import { typedMemo } from '@/helpers/typedMemo';
+import { typedMemo } from '@/helpers';
 import { UIColors } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import classNames from 'classnames';

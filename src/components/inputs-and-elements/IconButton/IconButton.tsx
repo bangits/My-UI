@@ -1,5 +1,5 @@
 import { ButtonProps } from '@/components';
-import { typedMemo } from '@/helpers/typedMemo';
+import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
@@ -12,12 +12,16 @@ export interface IconButtonProps extends Omit<ButtonProps, 'variant'>, IComponen
   variant?: IconButtonVariants;
 }
 
-const IconButton: FC<IconButtonProps> = ({ icon, variant }) => {
+const IconButton: FC<IconButtonProps> = ({ icon, variant = 'dark', className }) => {
   return (
     <button
-      className={classNames(styles.IconButtonBase, {
-        [styles[`IconButtonBase--${variant ? variant : 'dark'}`]]: variant ? variant : 'dark'
-      })}>
+      className={classNames(
+        styles.IconButtonBase,
+        {
+          [styles[`IconButtonBase--${variant}`]]: variant
+        },
+        className
+      )}>
       <span className={styles['IconButtonBase--icon']}>{icon}</span>
     </button>
   );

@@ -3,3 +3,28 @@
 @mixin generateBorderWithBoxShadow($color-variable, $size: 0.1rem) {
   @include theme(box-shadow, $color-variable, 0px 0px 0px $size);
 }
+
+// Use flexbox
+
+@mixin flex($justify-content: null, $align-items: null, $direction: null, $flex-wrap: null) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $direction;
+  flex-wrap: $flex-wrap;
+}
+
+// Center with position: absolute;
+
+@mixin center-absolute {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+// Center with display: flex
+
+@mixin center-flex {
+  @include flex(center, center);
+}

@@ -5,7 +5,7 @@ import Status from './Status';
 export default {
   component: Status,
   decorators: [withKnobs],
-  title: 'components/Status/Status'
+  title: 'components/Others/Status'
 };
 
 export const Default = () => {

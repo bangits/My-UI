@@ -1,8 +1,9 @@
 $base-text-field-variables: (
-  width: 28rem,
-  height: 3.8rem,
-  padding: 1rem 1.55rem,
-  font-size: 1.4rem,
+  input-width: 28rem,
+  input-font-size: 1.4rem,
+  input-min-height: 3.8rem,
+  input-disabled: 0.5,
+  //
   input-label-focused-font-size: 1.2rem,
   icon-margin: 1.3rem,
   icon-margin-right: 0.8rem,
@@ -13,23 +14,24 @@ $base-text-field-variables: (
   input-border-radius: 0.4rem,
   input-type-offset: 1.4rem,
   input-type-offset--with-icons: 4.1rem,
-  input-min-height: 3.8rem,
   input-label-line-height: 5rem,
   input-label-focused-line-height: 1.5rem,
   input-corner-min-width: 1rem,
   input-corner-offset: 0.6rem,
   disabled-opacity: 0.5,
   input-border-width: 0.05rem,
-  input-hover-border-width: 0.1rem,
-  input-disabled: 0.5
+  input-hover-border-width: 0.1rem
 );
+
+@function getTextFieldSizes($property) {
+  @return map-get($base-text-field-variables, $property);
+}
 
 $input-states: 'success', 'error', 'warning';
 
 $text-field-colors: (
   input-bg: color(selago),
-  input-color: color(gray-transparent),
-  input-focused-color: #3c54b2,
+  default-input-color: color(gray-transparent),
   //
   input-color--error: color(red-orange),
   input-focused-color--error: color(red-orange),

@@ -1,0 +1,47 @@
+@mixin generate-checkbox-styles {
+  .Checkbox {
+    input {
+      width: getCheckboxSizes(checkbox-width);
+      height: getCheckboxSizes(checkbox-height);
+
+      border-style: solid;
+      border-width: getCheckboxSizes(checkbox-border-width);
+      border-radius: getCheckboxSizes(checkbox-border-radius);
+
+      // Reset
+      margin: 0;
+      -webkit-appearance: none;
+      transform: translateY(0);
+      outline: none;
+
+      &:checked {
+        &:after {
+          content: '';
+
+          @include center-absolute();
+
+          width: getCheckboxSizes(checkbox-check-width);
+          height: getCheckboxSizes(checkbox-check-height);
+
+          background: url('../../../../icons/check.svg') no-repeat center / cover;
+        }
+      }
+
+      &:disabled {
+        @include theme(opacity, disabled-opacity);
+      }
+    }
+  }
+
+  @each $color in $base-colors {
+    .Checkbox--#{$color} {
+      input {
+        @include theme(border-color, #{$color});
+
+        &:checked {
+          @include theme(background-color, #{$color});
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { IconButton } from '@/components';
-import Status from '@/components/Status/Status';
+import { Status } from '@/components/others';
 import { Edit, View } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';

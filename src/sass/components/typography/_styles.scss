@@ -8,5 +8,11 @@
         line-height: typography-sizes('#{$type}-line-height');
       }
     }
+
+    @each $color in $base-colors {
+      &.Typography--#{$color} {
+        @include theme(color, #{$color});
+      }
+    }
   }
 }

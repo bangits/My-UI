@@ -1,0 +1,10 @@
+@import '../themes/functions';
+
+$base-colors-map: (
+  primary: color(night-in-manchester),
+  primary--transparent: rgba(color(night-in-manchester), 0.1),
+  primary--color: color(white),
+  black-color: color(midnight-sun),
+  black-color--transparent: rgba(color(midnight-sun), 0.1),
+  disabled-opacity: 0.4
+);

@@ -1,40 +1,44 @@
-$transition-duration: map-get($base-text-field-variables, label-transition);
+$transition-duration: getTextFieldSizes(label-transition);
 
 @mixin generate-text-input-styles {
   .Explanation {
     display: block;
-    margin-top: map-get($base-text-field-variables, explanation-margin);
-    @include theme(color, input-color);
+    margin-top: getTextFieldSizes(explanation-margin);
+
+    @include theme(color, default-input-color);
   }
 
   .TextInputWrapper {
     position: relative;
     display: inline-block;
-    max-width: map-get($base-text-field-variables, width);
+
     width: 100%;
+    max-width: getTextFieldSizes(input-width);
+
+    padding-top: getTextFieldSizes(input-label-offset);
+    font-size: getTextFieldSizes(input-font-size);
+
     overflow: hidden;
-    padding-top: map-get($base-text-field-variables, input-label-offset);
-    font-size: map-get($base-text-field-variables, font-size);
   }
 
   // Input
   .TextInputBaseInput {
     width: 100%;
-    @include theme(color, input-focused-color);
-    @include theme(border, input-color, solid map-get($base-text-field-variables, input-border-width));
+
+    @include theme(border, default-input-color, solid getTextFieldSizes(input-border-width));
 
     &:hover {
-      border-width: map-get($base-text-field-variables, input-hover-border-width);
+      border-width: getTextFieldSizes(input-hover-border-width);
     }
 
     &:disabled {
-      opacity: map-get($base-text-field-variables, input-disabled);
+      opacity: getTextFieldSizes(input-disabled);
     }
 
     // Sizes
-    border-radius: map-get($base-text-field-variables, input-border-radius);
-    padding: 0 map-get($base-text-field-variables, input-type-offset);
-    min-height: map-get($base-text-field-variables, input-min-height);
+    border-radius: getTextFieldSizes(input-border-radius);
+    padding: 0 getTextFieldSizes(input-type-offset);
+    min-height: getTextFieldSizes(input-min-height);
 
     // Reset
     background-color: transparent;
@@ -51,10 +55,10 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
     transition: border $transition-duration, box-shadow $transition-duration;
 
     &:not(:focus):not(.TextInputBaseInput--filled) {
-      @include theme(border-top-color, input-color);
+      @include theme(border-top-color, default-input-color);
 
       + .TextInputPlaceholder {
-        line-height: map-get($base-text-field-variables, input-label-line-height);
+        line-height: getTextFieldSizes(input-label-line-height);
 
         &::before,
         &::after {
@@ -63,22 +67,28 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
       }
     }
 
+    &--with-label {
+      &:focus,
+      &.TextInputBaseInput--filled {
+        border-top-color: transparent !important;
+      }
+    }
+
     &:focus,
     &--filled {
-      @include theme(border-color, input-focused-color);
+      @include theme(border-color, primary);
 
-      border-top-color: transparent !important;
       box-shadow: inset 1px 0 inherit, inset -1px 0 inherit, inset 0 -1px inherit;
       outline: none;
 
       + .TextInputPlaceholder {
-        @include theme(color, input-focused-color);
+        @include theme(color, primary);
 
-        font-size: map-get($base-text-field-variables, input-label-focused-font-size);
+        font-size: getTextFieldSizes(input-label-focused-font-size);
 
         &::before,
         &::after {
-          @include theme(border-top-color, input-focused-color);
+          @include theme(border-top-color, primary);
         }
       }
     }
@@ -90,12 +100,12 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
     top: 0;
     left: 0;
     display: flex;
-    @include theme(border-color, input-focused-color);
+    @include theme(border-color, primary);
     width: 100%;
     max-height: 100%;
-    @include theme(color, input-color);
-    font-size: map-get($base-text-field-variables, font-size);
-    line-height: map-get($base-text-field-variables, input-label-focused-line-height);
+    @include theme(color, default-input-color);
+    font-size: getTextFieldSizes(font-size);
+    line-height: getTextFieldSizes(input-label-focused-line-height);
     cursor: text;
     transition: text-indent $transition-duration, color $transition-duration, font-size $transition-duration,
       line-height $transition-duration;
@@ -106,29 +116,29 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
       content: '';
       display: block;
       box-sizing: border-box;
-      margin-top: map-get($base-text-field-variables, input-label-offset);
+      margin-top: getTextFieldSizes(input-label-offset);
       border-top: solid 1px;
 
-      @include theme(border-top-color, input-focused-color);
+      @include theme(border-top-color, primary);
 
-      min-width: map-get($base-text-field-variables, input-corner-min-width);
-      height: calc(map-get($base-text-field-variables, input-label-offset) + 0.2rem);
+      min-width: getTextFieldSizes(input-corner-min-width);
+      height: calc(getTextFieldSizes(input-label-offset) + 0.2rem);
       pointer-events: none;
       transition: border-color $transition-duration, box-shadow $transition-duration;
       box-shadow: inset 0 1px transparent;
     }
 
     &::before {
-      margin-right: map-get($base-text-field-variables, input-corner-offset);
+      margin-right: getTextFieldSizes(input-corner-offset);
       border-left: solid 0.1rem transparent;
-      border-radius: map-get($base-text-field-variables, input-corner-offset) 0;
+      border-radius: getTextFieldSizes(input-border-radius) 0;
     }
 
     &::after {
       flex-grow: 1;
-      margin-left: map-get($base-text-field-variables, input-corner-offset);
+      margin-left: getTextFieldSizes(input-corner-offset);
       border-right: solid 0.1rem transparent;
-      border-radius: 0 map-get($base-text-field-variables, input-corner-offset);
+      border-radius: 0 getTextFieldSizes(input-border-radius);
     }
   }
 
@@ -137,7 +147,7 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
   .StartIcon,
   .EndIcon {
     position: absolute;
-    top: map-get($base-text-field-variables, icon-margin);
+    top: getTextFieldSizes(icon-margin);
     width: 2.4rem;
     height: 2.4rem;
     display: flex;
@@ -146,11 +156,11 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
   }
 
   .StartIcon {
-    left: map-get($base-text-field-variables, icon-margin);
+    left: getTextFieldSizes(icon-margin);
   }
 
   .EndIcon {
-    right: map-get($base-text-field-variables, icon-margin-right);
+    right: getTextFieldSizes(icon-margin-right);
   }
 
   .TextInputContainer {
@@ -159,22 +169,22 @@ $transition-duration: map-get($base-text-field-variables, label-transition);
     }
 
     &--disabled {
-      opacity: map-get($base-text-field-variables, disabled-opacity);
+      opacity: getTextFieldSizes(disabled-opacity);
     }
 
     &--withRightIcon {
       .TextInputBaseInput {
-        padding-right: map-get($base-text-field-variables, input-type-offset--with-icons);
+        padding-right: getTextFieldSizes(input-type-offset--with-icons);
       }
     }
 
     &--withLeftIcon {
       .TextInputBaseInput {
-        padding-left: map-get($base-text-field-variables, input-type-offset--with-icons);
+        padding-left: getTextFieldSizes(input-type-offset--with-icons);
       }
 
       .TextInputPlaceholder {
-        text-indent: map-get($base-text-field-variables, input-label-offset--with-icons);
+        text-indent: getTextFieldSizes(input-label-offset--with-icons);
       }
 
       .TextInputBaseInput {

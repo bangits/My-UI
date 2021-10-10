@@ -1,0 +1,14 @@
+$checkbox-sizes: (
+  checkbox-width: calculateRem(16px),
+  checkbox-height: calculateRem(16px),
+  checkbox-border-width: calculateRem(1px),
+  checkbox-border-radius: calculateRem(4px),
+  checkbox-check-width: calculateRem(9.1px),
+  checkbox-check-height: calculateRem(6.3px)
+);
+
+@function getCheckboxSizes($property) {
+  @return map-get($checkbox-sizes, $property);
+}
+
+$checkbox-colors: ();

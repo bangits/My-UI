@@ -1,8 +1,11 @@
 $dark: map-collect(
+  $base-colors-map,
   $datepicker-colors,
   $button-colors,
   $text-field-colors,
   $sidebar-colors,
   $sidebar-sub-menu-item-colors,
-  $sidebar-menu-item-colors
+  $sidebar-menu-item-colors,
+  $checkbox-colors,
+  $radio-button-colors
 );

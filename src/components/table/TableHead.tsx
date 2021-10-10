@@ -1,4 +1,4 @@
-import { typedMemo } from '@/helpers/typedMemo';
+import { typedMemo } from '@/helpers';
 import { ArrowIcon } from '@/icons';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';

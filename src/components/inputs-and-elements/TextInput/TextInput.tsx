@@ -76,8 +76,8 @@ const TextInputs: FC<TextInputProps> = ({
           [styles['TextInputContainer--warning']]: warning,
           [styles['TextInputContainer--success']]: success,
           [styles['TextInputContainer--disabled']]: disabled,
-          [styles['TextInputContainer--withLeftIcon']]: Boolean(startIcon),
-          [styles['TextInputContainer--withRightIcon']]: Boolean(endIcon)
+          [styles['TextInputContainer--withLeftIcon']]: !!startIcon,
+          [styles['TextInputContainer--withRightIcon']]: !!endIcon
         },
         containerClassName
       )}>
@@ -89,6 +89,7 @@ const TextInputs: FC<TextInputProps> = ({
             styles.TextInputBaseInput,
             {
               [styles[`TextInputBaseInput--filled`]]: !!currentValue,
+              [styles[`TextInputBaseInput--with-label`]]: !!label,
               [styles['TextInputBaseInput--start-icon']]: !!startIcon,
               [styles['TextInputBaseInput--end-icon']]: !!endIcon
             },

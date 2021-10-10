@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @function map-collect($maps...) {
   $collection: ();
 
@@ -5,4 +7,9 @@
     $collection: map-merge($collection, $map);
   }
   @return $collection;
+}
+
+@function calculateRem($size) {
+  $remSize: math.div($size, $rem-size);
+  @return $remSize * 1rem;
 }

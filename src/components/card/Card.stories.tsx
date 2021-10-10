@@ -9,31 +9,5 @@ export default {
 };
 
 export const Default = () => {
-  return (
-    <Card component='div' borderRadius={number('borderRadius', 2.6)}>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-    </Card>
-  );
+  return <Card component='div' borderRadius={number('borderRadius', 2.6)} style={{ minHeight: 500 }}></Card>;
 };

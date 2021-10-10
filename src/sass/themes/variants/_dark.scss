@@ -1,1 +1,8 @@
-$dark: map-collect($datepicker-colors, $button-colors, $text-field-colors);
+$dark: map-collect(
+  $datepicker-colors,
+  $button-colors,
+  $text-field-colors,
+  $sidebar-colors,
+  $sidebar-sub-menu-item-colors,
+  $sidebar-menu-item-colors
+);

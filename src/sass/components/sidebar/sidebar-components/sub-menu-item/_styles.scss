@@ -1,22 +1,25 @@
 @mixin generate-sub-menu-items-styles {
   .SubMenuItemsBase {
     box-sizing: border-box;
-    width: 17.3rem;
+    width: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-width);
     font-family: $base-font-family;
-    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    font-size: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-font-size);
     color: #95acc5;
-    height: 3.1rem;
+    height: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-height);
     text-align: left;
-    padding-left: 2.8rem;
+    padding: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-padding);
     display: flex;
     align-items: center;
 
     &:hover {
-      height: 3.1rem;
-      border-radius: 0.8rem;
+      height: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-height);
+      border-radius: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-borderRadius);
       background-color: #f4f7fe;
       color: #3c54b2;
-      font-weight: 500;
+      font-weight: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-font-weight);
+      line-height: 2.4rem;
       cursor: pointer;
     }
   }

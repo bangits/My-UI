@@ -5,13 +5,19 @@ import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './IconButton.module.scss';
 
-export interface IconButtonProps extends ButtonProps, IComponent {
+export type IconButtonVariants = 'dark' | 'light';
+
+export interface IconButtonProps extends Omit<ButtonProps, 'variant'>, IComponent {
   icon?: ReactNode;
+  variant?: IconButtonVariants;
 }
 
-const IconButton: FC<IconButtonProps> = ({ icon, ...iconButtonProps }) => {
+const IconButton: FC<IconButtonProps> = ({ icon, variant }) => {
   return (
-    <button {...iconButtonProps} className={classNames(styles.IconButtonBase, iconButtonProps.className)}>
+    <button
+      className={classNames(styles.IconButtonBase, {
+        [styles[`IconButtonBase--${variant ? variant : 'dark'}`]]: variant ? variant : 'dark'
+      })}>
       <span className={styles['IconButtonBase--icon']}>{icon}</span>
     </button>
   );

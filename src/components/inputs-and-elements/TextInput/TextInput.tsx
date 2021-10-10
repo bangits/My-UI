@@ -1,8 +1,7 @@
 import { Typography, TypographyProps } from '@/components';
 import classNames from 'classnames';
-import React, { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
+import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import styles from './TextInput.module.scss';
-
 export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   warning?: boolean;
   error?: boolean;

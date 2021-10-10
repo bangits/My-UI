@@ -3,6 +3,8 @@
     box-sizing: border-box;
     width: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-width);
     font-family: $base-font-family;
+    font-weight: 500;
+    line-height: 1.6rem;
     font-size: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-font-size);
     color: #95acc5;
     height: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-height);
@@ -17,6 +19,7 @@
       background-color: #f4f7fe;
       color: #3c54b2;
       font-weight: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-font-weight);
+      line-height: 2.4rem;
       cursor: pointer;
     }
   }

@@ -2,13 +2,13 @@
   .SidebarWrapper--fixed {
     position: fixed;
     min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
-    min-height: map-get($sidebar-sizes, sidebar-min-height);
+    height: map-get($sidebar-sizes, sidebar-height);
   }
   .SidebarWrapper--static {
     position: static;
     /*     min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
  */
-    min-height: map-get($sidebar-sizes, sidebar-min-height);
+    height: map-get($sidebar-sizes, sidebar-height);
   }
 
   .SidebarBase {
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
-    min-height: map-get($sidebar-sizes, sidebar-min-height);
+    height: map-get($sidebar-sizes, sidebar-height);
     box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
     transition: 0.3s;
     /* overflow: hidden;
@@ -52,6 +52,10 @@
       top: map-get($sidebar-sizes, sidebar-button-container-top);
       right: map-get($sidebar-sizes, sidebar-button-container-right);
       cursor: pointer;
+
+      svg {
+        fill: #3c54b2;
+      }
     }
 
     &--button {
@@ -84,7 +88,7 @@
       display: flex;
       flex-direction: column;
       min-width: map-get($sidebar-sizes, sidebar-min-width);
-      min-height: map-get($sidebar-sizes, sidebar-min-height);
+      height: map-get($sidebar-sizes, sidebar-height);
       background-color: map-get($sidebar-colors, sidebar-background-color);
       box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
       transition: 0.3s;

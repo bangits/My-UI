@@ -3,7 +3,7 @@ import { Typography } from '@/my-ui-core';
 import { number, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import Sidebar from './Sidebar';
-import { SidebarPositions } from './sidebar-components/sidebar-types';
+import { SidebarPositions } from './sidebar-types';
 
 export default {
   component: Sidebar,

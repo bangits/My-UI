@@ -32,6 +32,9 @@
         padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-padding);
         color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-icon-color);
         opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-opacity);
+        svg {
+          fill: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-icon-color);
+        }
       }
       .MenuItemBase--label {
         margin: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-margin);
@@ -66,6 +69,10 @@
         color: map-get($sidebar-menu-item-colors, sidebar-menu-item-hover-icon-color);
         opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-opacity);
         transition: 0.3s;
+
+        svg {
+          fill: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-icon-color);
+        }
       }
       .MenuItemBase--label {
         margin-left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-marginL);
@@ -113,6 +120,10 @@
       color: map-get($sidebar-menu-item-colors, sidebar-menu-item-icon-color);
       opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-opacity);
       transition: 0.3s;
+
+      svg {
+        fill: map-get($sidebar-menu-item-colors, sidebar-menu-item-icon-color);
+      }
     }
 
     &--label {

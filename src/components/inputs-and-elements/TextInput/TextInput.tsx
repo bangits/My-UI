@@ -3,8 +3,6 @@ import classNames from 'classnames';
 import React, { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import styles from './TextInput.module.scss';
 
-window.MYUIReact = React;
-
 export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   warning?: boolean;
   error?: boolean;

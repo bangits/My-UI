@@ -8,99 +8,14 @@
 
     .react-select {
       &__placeholder {
-        width: 28rem;
-        height: 3.8rem;
-        color: #00194c;
-        font-size: 1.4rem;
-        display: flex;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-        width: 100%;
-        max-height: 100%;
-        color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-        font-size: 75%;
-        line-height: 15px;
-        cursor: text;
-        transition: color 0.2s, font-size 0.2s, line-height 0.2s;
-
-        &:before,
-        &:after {
-          content: '';
-          display: block;
-          box-sizing: border-box;
-
-          border-top: solid 1px;
-          border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-          min-width: 10px;
-          height: 8px;
-          pointer-events: none;
-          box-shadow: inset 0 1px transparent;
-          transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        &:before {
-          margin-right: 4px;
-          border-left: solid 1px transparent;
-          border-radius: 4px 0;
-        }
-
-        &:after {
-          flex-grow: 1;
-          margin-left: 4px;
-          border-right: solid 1px transparent;
-          border-radius: 0 4px;
-        }
-
-        &:before,
-        &:after {
-          border-top-color: red;
-        }
-
-        &:not(:focus):placeholder-shown {
-          font-size: inherit;
-          line-height: 68px;
-        }
-
-        &:before:not(:focus):placeholder-shown {
-          border-top-color: transparent;
-        }
-        &:after:not(:focus):placeholder-shown {
-          border-top-color: transparent;
-        }
       }
       &__control {
-        .react-select__value-container {
-          width: 28rem;
-          height: 3.8rem;
-          border: solid 1px #00194c;
-          border-radius: 0.35rem;
-          position: relative;
-          display: inline-block;
-          font-size: 16px;
-          line-height: 1.5;
-          overflow: hidden;
-        }
-
-        .react-select__value-container:hover {
-          border-top-color: transparent;
-        }
-
-        .react-select__value-container:not(:focus):placeholder-shown {
-          border-color: green;
-        }
-        .react-select__value-container:not(:focus):placeholder-shown {
-          border-top-color: blue;
-        }
-
-        .react-select__value-container:focus {
-          border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
-          border-top-color: transparent;
-          box-shadow: inset 1px 0 var(--pure-material-safari-helper1), inset -1px 0 var(--pure-material-safari-helper1),
-            inset 0 -1px var(--pure-material-safari-helper1);
-          outline: none;
-        }
+        width: 28rem;
+        height: 3.8rem;
+        /* border: solid 1px #00194c;
+        border-radius: 0.35rem;
+        font-size: 16px;
+        line-height: 1.5; */
       }
 
       &__indicator {

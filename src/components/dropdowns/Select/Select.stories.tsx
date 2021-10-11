@@ -1,6 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
-import { Option } from './Options';
+import { Control1, Option, ValueContainer } from './Options';
 import Select from './Select';
 
 export default {
@@ -47,35 +47,35 @@ export const Default = () => (
 export const MultiSelect = () => (
   <Select
     placeholder='Multi Select...'
-    components={{ Option }}
+    components={{ Option, Control: Control1, ValueContainer }}
     isMulti
     options={[
       {
-        label: 'Test',
+        label: 'All',
         value: 1
       },
       {
-        label: 'Test2',
+        label: 'Jewels and Gems',
         value: 2
       },
       {
-        label: 'Test3',
+        label: 'Fantasy',
         value: 3
       },
       {
-        label: 'Test4',
+        label: 'Halloween',
         value: 4
       },
       {
-        label: 'Test5',
+        label: 'Luxury',
         value: 5
       },
       {
-        label: 'Test6',
+        label: 'Fruits / Vegetables',
         value: 6
       },
       {
-        label: 'Test7',
+        label: 'Asian',
         value: 7
       }
     ]}

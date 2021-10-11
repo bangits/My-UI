@@ -76,6 +76,8 @@ $transition-duration: getTextFieldSizes(label-transition);
 
     &:focus,
     &--filled {
+      @include theme(color, primary);
+
       box-shadow: inset 1px 0 inherit, inset -1px 0 inherit, inset 0 -1px inherit;
       outline: none;
 

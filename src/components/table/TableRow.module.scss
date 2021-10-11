@@ -9,11 +9,10 @@
   }
 }
 
-.TableRow--hover {
-  background-color: #f4f7fe;
-  font-weight: bold;
-}
-
+.TableRow--hover,
 .TableRow--selected {
   background-color: #f4f7fe;
+  div {
+    font-weight: 700;
+  }
 }

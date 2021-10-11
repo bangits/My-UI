@@ -1,19 +1,26 @@
 .TableContainer {
+  display: block;
   border-collapse: collapse;
   box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
   border-radius: 1.6rem;
-  min-width: 124.6rem;
-  overflow-x: scroll;
+  max-width: 124.6rem;
+  overflow-x: auto;
+  width: 100%;
+
+  .TableHead tr {
+    min-height: 5.6rem;
+    th {
+      &:last-child {
+        margin-left: 0;
+      }
+    }
+  }
 
   .TableBody {
     tr {
+      height: 5.2rem;
+
       &:hover {
-        font-weight: 700;
-
-        td > div {
-          font-weight: 700;
-        }
-
         .ActionTableCell {
           padding: 0;
           display: flex;
@@ -21,9 +28,10 @@
           align-items: center;
           position: absolute;
           top: 0;
-          right: 0;
-          background: #eaf3f3;
-          max-width: 16.8rem;
+          right: -5px;
+          background: #eaecf6;
+          height: 100%;
+          max-width: 14rem;
         }
       }
 
@@ -39,7 +47,7 @@
       tr td,
       tr th {
         &:first-child {
-          max-width: 4.8rem !important;
+          max-width: 1.8rem !important;
         }
       }
     }

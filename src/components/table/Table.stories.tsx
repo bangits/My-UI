@@ -160,48 +160,41 @@ export const Default = () => {
       columns={[
         {
           Header: 'Icon',
-          accessor: 'x',
-          maxWidth: '6rem'
+          accessor: 'x'
         },
         {
           Header: 'Game Id',
-          accessor: 'y',
-          maxWidth: '10.4rem'
+          accessor: 'y'
         },
         {
           Header: 'External Id',
-          accessor: 'z',
-          maxWidth: '10.4rem'
+          accessor: 'z'
         },
         {
           Header: 'Game Name',
-          accessor: 'b',
-          maxWidth: '12rem'
+          accessor: 'b'
         },
         {
           Header: 'Provider Id',
-          accessor: 'n',
-          maxWidth: '10.1rem'
+          accessor: 'n'
         },
         {
           Header: 'Category',
-          accessor: 'c',
-          maxWidth: '8.9rem'
+          accessor: 'c'
         },
         {
           Header: 'Version',
           accessor: 'v',
-          maxWidth: '7.6rem'
+          maxWidth: '10rem'
         },
         {
           Header: 'Release date and time',
           accessor: 'w',
-          maxWidth: '18.2rem'
+          align: 'right'
         },
         {
           Header: 'User status',
-          accessor: 'r',
-          maxWidth: '18.2rem'
+          accessor: 'r'
         }
       ]}
       actions={[

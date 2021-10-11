@@ -1,6 +1,6 @@
 .TableRow {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   border-bottom: solid 1px rgba(43, 54, 116, 0.1);
   font-weight: normal;
   position: relative;
@@ -9,7 +9,9 @@
 
 .TableRow--hover,
 .TableRow--selected {
-  background-color: #f4f7fe;
+  background-color: #eaecf6;
+}
+.TableRow--selected {
   div {
     font-weight: 700;
   }

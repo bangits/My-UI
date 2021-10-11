@@ -1,6 +1,6 @@
 import { IconButton } from '@/components';
 import { Status } from '@/components/others';
-import { Edit, View } from '@/icons';
+import { EditIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import Table from './Table';
@@ -209,14 +209,14 @@ export const Default = () => {
           component: IconButton,
           onClick: () => {},
           props: {
-            icon: <View />
+            icon: <ViewIcon />
           }
         },
         {
           component: IconButton,
           onClick: () => {},
           props: {
-            icon: <Edit />
+            icon: <EditIcon />
           }
         }
       ]}

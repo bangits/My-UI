@@ -1,11 +1,10 @@
 import { Typography, TypographyProps } from '@/components';
+import { UIColors } from '@/types';
 import classNames from 'classnames';
 import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import styles from './TextInput.module.scss';
 export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-  warning?: boolean;
-  error?: boolean;
-  success?: boolean;
+  color?: UIColors;
   disabled?: boolean;
   fullWidth?: boolean;
   endIcon?: ReactNode;
@@ -18,11 +17,9 @@ export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HT
 }
 
 const TextInputs: FC<TextInputProps> = ({
+  color,
   children,
   explanation,
-  success,
-  error,
-  warning,
   endIcon,
   startIcon,
   fullWidth = false,
@@ -69,9 +66,7 @@ const TextInputs: FC<TextInputProps> = ({
         styles.TextInputContainer,
         {
           [styles['TextInputContainer--full-width']]: fullWidth,
-          [styles['TextInputContainer--error']]: error,
-          [styles['TextInputContainer--warning']]: warning,
-          [styles['TextInputContainer--success']]: success,
+          [styles[`TextInputContainer--${color}`]]: color,
           [styles['TextInputContainer--disabled']]: disabled,
           [styles['TextInputContainer--withLeftIcon']]: !!startIcon,
           [styles['TextInputContainer--withRightIcon']]: !!endIcon
@@ -97,7 +92,7 @@ const TextInputs: FC<TextInputProps> = ({
           onInput={onInput}
           onChange={onInputChange}
         />
-        {label && <span className={styles.TextInputPlaceholder}>{label}</span>}
+        {label && <span className={styles.TextInputLabel}>{label}</span>}
 
         {endIcon && <div className={styles.EndIcon}>{endIcon}</div>}
       </label>

@@ -1,9 +1,18 @@
-$avatar-sizes: ();
+$avatar-sizes: (
+  avatar-label-size: calculateRem(16px),
+  avatar-label-margin-right: calculateRem(7px),
+  avatar-label-margin-left: calculateRem(19px),
+  avatar-img-width: calculateRem(30px),
+  avatar-img-height: calculateRem(30px),
+  avatar-img-margin: calculateRem(7px),
+  avatar-border-radius: 100%
+);
 
 @function getAvatarSizes($property) {
   @return map-get($avatar-sizes, $property);
 }
 
 $avatar-colors: (
-  avatar-label-color: color(midnight-sun)
+  avatar-label-color: color(midnight-sun),
+  avatar-border-color: color(mercury)
 );

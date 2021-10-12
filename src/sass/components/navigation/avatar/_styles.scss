@@ -1,23 +1,40 @@
 @mixin generate-avatar-styles {
   .Avatar {
     @include flex(null, center);
+    position: relative;
 
     .AvatarLabel {
       @include theme(color, avatar-label-color);
 
-      font-size: 1.6rem;
+      font-size: getAvatarSizes(avatar-label-size);
       font-weight: 500;
-      margin-right: 0.7rem;
-      margin-left: 1.9rem;
+      margin-right: getAvatarSizes(avatar-label-margin-right);
+      margin-left: getAvatarSizes(avatar-label-margin-left);
     }
     .AvatarImg {
-      width: 3rem;
-      height: 3rem;
-      border: solid 1px #ebebeb;
-      border-radius: 100%;
-      margin-left: 0.7rem;
+      width: getAvatarSizes(avatar-img-width);
+      height: getAvatarSizes(avatar-img-height);
+      @include theme(border, avatar-border-color, 1px solid);
+      border-radius: getAvatarSizes(avatar-border-radius);
+      margin-left: getAvatarSizes(avatar-img-margin);
       img {
         width: 100%;
+      }
+    }
+    .AvatarDropdownTitle {
+      font-weight: 500;
+    }
+    .AvatarDropdownCard {
+      position: absolute;
+      width: 181px;
+      padding: 16px 8px;
+      right: 0;
+      bottom: 0;
+      top: 50px;
+      height: fit-content;
+      .AvatarDropdownMenu {
+        list-style-type: none;
+        margin: 0;
       }
     }
   }

@@ -1,22 +1,20 @@
 @mixin generate-badge-styles {
   .BadgeContainer {
     position: relative;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: getBadgeSizes(badge-width);
+    height: getBadgeSizes(badge-height);
     .BadgeNumber {
       position: absolute;
-      top: -0.3rem;
-      left: 1.18rem;
-      width: 2.22rem;
-      height: 2.22rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #3c54b2;
-      color: white;
-      font-size: 0.8rem;
-      font-weight: 500;
-      border-radius: 100%;
+      top: getBadgeSizes(badge-number-position-top);
+      left: getBadgeSizes(badge-number-position-left);
+      width: getBadgeSizes(badge-number-width);
+      height: getBadgeSizes(badge-number-height);
+      @include flex(center, center);
+      @include theme(background-color, badge-number-background);
+      @include theme(color, badge-number-color);
+      font-size: getBadgeSizes(badge-number-size);
+      font-weight: getBadgeSizes(badge-number-fontWeight);
+      border-radius: getBadgeSizes(badge-number-borderRadius);
     }
   }
 }

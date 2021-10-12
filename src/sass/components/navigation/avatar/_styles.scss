@@ -1,6 +1,6 @@
 @mixin generate-avatar-styles {
   .Avatar {
-    @include theme(null, center);
+    @include flex(null, center);
 
     .AvatarLabel {
       @include theme(color, avatar-label-color);

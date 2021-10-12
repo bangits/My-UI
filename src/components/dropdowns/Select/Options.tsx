@@ -1,6 +1,10 @@
 import { Checkbox, TextInput } from '@/components';
+import useOutsideClickEvent from '@/helpers/useOutsideClickEvent';
+import { DropdownArrowIconDown, DropdownArrowIconUp } from '@/icons';
 import { components } from '@my-ui/react-select';
-import React, { useCallback, useState } from 'react';
+import classNames from 'classnames';
+import React, { useCallback, useEffect, useState } from 'react';
+import styles from './Select.module.scss';
 
 export const Option = (props) => {
   return (
@@ -11,54 +15,85 @@ export const Option = (props) => {
     </div>
   );
 };
+export const DefaultOption = (props) => {
+  const handleClick = useCallback((e) => {
+    console.dir(e.target.closest('.MyUI-Select').querySelector('input'));
 
-export const ValueContainer = ({ children, ...props }) => {
+    e.target.closest('.MyUI-Select').querySelector('input');
+  }, []);
+
   return (
-    // @ts-ignore
-    <components.ValueContainer {...props}>
-      {/* @ts-ignore */}
-      <components.Placeholder {...props} isFocused={props.isFocused}>
-        {props.selectProps.placeholder}
-      </components.Placeholder>
-      {React.Children.map(children, (child) =>
-        (child && child.type === components.Input) || components.Placeholder ? child : null
-      )}
-      {/* <TextInput label='Select...' /> */}
-    </components.ValueContainer>
+    <div onClick={handleClick}>
+      <components.Option {...props}>
+        <span>{props.label}</span>
+      </components.Option>
+    </div>
   );
 };
 
-export const Control1 = ({ ...propsX }) => {
-  console.log(propsX);
+export const SearchControl = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuToggle = useCallback(() => {
-    isMenuOpen ? propsX.selectProps.onMenuClose() : propsX.selectProps.onMenuOpen();
+    isMenuOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();
+    setIsMenuOpen(!isMenuOpen);
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const subscriber = useOutsideClickEvent('.MyUI-Select-Input');
+
+    subscriber.subscribe(() => {
+      setIsMenuOpen(false);
+      props.selectProps.onMenuClose();
+    });
+
+    return () => {
+      subscriber.unsubscribe();
+    };
+  }, []);
+
+  return (
+    // @ts-ignore
+    <components.Control {...props}>
+      <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
+        <TextInput
+          fullWidth
+          onChange={(e) => {
+            props.selectProps.onInputChange(e.target.value);
+          }}
+          onClick={menuToggle}
+          value={props.selectProps.inputValue}
+          label={
+            props.selectProps.value
+              ? props.selectProps?.value[0]?.label || props.selectProps?.value.label
+                ? props.selectProps?.value[0]?.label || props.selectProps?.value.label
+                : 'Select...'
+              : 'Select...'
+          }
+          endIcon={
+            <div className={classNames(styles['Select--icon-container'])}>
+              {isMenuOpen ? <DropdownArrowIconUp /> : <DropdownArrowIconDown />}
+            </div>
+          }
+        />
+      </div>
+    </components.Control>
+  );
+};
+
+export const IconControl = ({ ...props }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const menuToggle = useCallback(() => {
+    isMenuOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();
     setIsMenuOpen(!isMenuOpen);
   }, [isMenuOpen]);
 
   return (
     // @ts-ignore
-    <components.Control {...propsX}>
-      {' '}
-      <TextInput
-        style={{ width: '23.8rem', height: '3.8rem' }}
-        onChange={(e) => {
-          propsX.selectProps.onInputChange(e.target.value);
-        }}
-        value={propsX.selectProps.inputValue}
-        label={
-          propsX.selectProps.value
-            ? propsX.selectProps?.value[0]?.label
-              ? propsX.selectProps?.value[0]?.label
-              : 'Select...'
-            : 'Select...'
-        }
-        endIcon={<div onClick={menuToggle}>{isMenuOpen ? 'X' : 'Y'}</div>}
-        onFocus={() => {
-          propsX.selectProps.onMenuOpen(), propsX.selectProps.menuIsOpen ? null : setIsMenuOpen(!isMenuOpen);
-        }}
-      />
+    <components.Control {...props}>
+      <label onClick={menuToggle}>Icon</label>
+      <label> Columns</label>
     </components.Control>
   );
 };

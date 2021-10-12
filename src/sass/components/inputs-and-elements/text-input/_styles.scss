@@ -4,20 +4,16 @@ $transition-duration: getTextFieldSizes(label-transition);
   .Explanation {
     display: block;
     margin-top: getTextFieldSizes(explanation-margin);
-
     @include theme(color, default-input-color);
   }
 
   .TextInputWrapper {
     position: relative;
     display: inline-block;
-
     width: 100%;
     max-width: getTextFieldSizes(input-width);
-
     padding-top: getTextFieldSizes(input-label-offset);
     font-size: getTextFieldSizes(input-font-size);
-
     overflow: hidden;
   }
 
@@ -168,7 +164,7 @@ $transition-duration: getTextFieldSizes(label-transition);
   }
 
   .StartIcon {
-    left: getTextFieldSizes(icon-margin);
+    left: getTextFieldSizes(icon-margin-left);
   }
 
   .EndIcon {

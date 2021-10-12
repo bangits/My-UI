@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
+import { IComponent } from '@/types';
 
-const Badge = () => {
+export interface Badge extends IComponent {
+  quantity: number;
+  icon: ReactNode;
+}
+
+const Badge: FC<Badge> = () => {
   return <>Badge</>;
 };
 

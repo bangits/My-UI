@@ -31,19 +31,21 @@ const Avatar: FC<AvatarProps> = ({ imageSource }) => {
         <Typography className={styles.AvatarDropdownTitle} variant='p5' color='primary'>
           Profile Settings
         </Typography>
-        <SubMenuItems label='asdsda' />
+        <SubMenuItems label='View Profile' />
+        <hr />
         <ul className={styles.AvatarDropdownMenu}>
           <li>
-            <SubMenuItems icon={<HomeIcon />} label='asdsda' />
+            <SubMenuItems className={styles.AvatarSubMenuItems} icon={<HomeIcon />} label='Lorem Ipsum' />
           </li>
           <li>
-            <SubMenuItems icon={<HomeIcon />} label='asdsda' />
+            <SubMenuItems icon={<HomeIcon />} label='Lorem Ipsum' />
           </li>
           <li>
-            <SubMenuItems icon={<HomeIcon />} label='asdsda' />
+            <SubMenuItems icon={<HomeIcon />} label='Lorem Ipsum' />
           </li>
         </ul>
-        <SubMenuItems label='asdsda' />
+        <hr />
+        <SubMenuItems label='Lorem Ipsum' />
       </Card>
     </div>
   );

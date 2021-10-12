@@ -21,8 +21,22 @@
         width: 100%;
       }
     }
+    .SubMenuItemsIcon {
+      width: 24px;
+      height: 24px;
+      margin-left: 16px;
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
     .AvatarDropdownTitle {
       font-weight: 500;
+      margin: 16px 24px 16px;
+    }
+    .AvatarSubMenuItems {
+      padding: 0;
+      margin: 16px 24px;
     }
     .AvatarDropdownCard {
       position: absolute;
@@ -35,6 +49,7 @@
       .AvatarDropdownMenu {
         list-style-type: none;
         margin: 0;
+        padding: 0;
       }
     }
   }

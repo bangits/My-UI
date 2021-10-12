@@ -1,5 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import Avatar from './Avatar';
+import AvatarImg from '@/images/avatar.png';
 
 export default {
   component: Avatar,
@@ -8,5 +9,5 @@ export default {
 };
 
 export const Default = () => {
-  return <Avatar />;
+  return <Avatar imageSource={AvatarImg} />;
 };

@@ -4,6 +4,7 @@ import styles from './Avatar.module.scss';
 import AvatarImg from '@/images/avatar.png';
 export interface AvatarProps extends IComponent {
   imageSource?: string;
+  avatarLabel?: string;
   dropdownTitle?: string;
   topButtonLabel?: string;
   onTopButtonClick?: () => void;
@@ -16,12 +17,12 @@ export interface AvatarProps extends IComponent {
   onBottomButtonClick?: () => void;
 }
 
-const Avatar: FC<AvatarProps> = () => {
+const Avatar: FC<AvatarProps> = ({ imageSource }) => {
   return (
     <div className={styles.Avatar}>
       <span className={styles.AvatarLabel}>Evgenia</span>
       <div className={styles.AvatarImg}>
-        <img src={AvatarImg} alt='avatar' />
+        <img src={imageSource} alt='avatar' />
       </div>
     </div>
   );

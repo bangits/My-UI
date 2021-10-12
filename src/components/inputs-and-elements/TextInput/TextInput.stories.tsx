@@ -116,7 +116,7 @@ export const WithStates = () => (
       label='Input With Error'
       defaultValue={text('defaultValue for error', 'error@bangits.com')}
       type='text'
-      error={true}
+      color={'danger'}
       onChange={action('onChange')}
       explanation={text('Explanation', 'Explanation')}
     />
@@ -128,7 +128,7 @@ export const WithStates = () => (
       label='Input With Success'
       defaultValue={text('defaultValue for success', 'success@bangits.com')}
       type='text'
-      success={true}
+      color={'success'}
       onChange={action('onChange')}
       explanation={text('Explanation', 'Explanation')}
     />
@@ -140,7 +140,7 @@ export const WithStates = () => (
       label='Input With Warning'
       defaultValue={text('defaultValue for warning', 'warning@bangits.com')}
       type='text'
-      warning={true}
+      color={'warning'}
       onChange={action('onChange')}
       explanation={text('Explanation', 'Explanation')}
     />

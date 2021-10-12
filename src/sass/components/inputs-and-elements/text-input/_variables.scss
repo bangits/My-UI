@@ -3,22 +3,25 @@ $base-text-field-variables: (
   input-font-size: 1.4rem,
   input-min-height: 3.8rem,
   input-disabled: 0.5,
+  input-label-height: 1.4rem,
+  input-icon-size: 2.4rem,
+  disabled-opacity: 0.5,
   //
   input-label-focused-font-size: 1.2rem,
   icon-margin: 1.3rem,
+  icon-margin-left: 0.9rem,
   icon-margin-right: 0.8rem,
-  explanation-margin: 0.4rem,
+  explanation-margin: 0,
   input-label-offset: 0.53rem,
   input-label-offset--with-icons: 2.7rem,
   label-transition: 0.2s,
   input-border-radius: 0.4rem,
-  input-type-offset: 1.4rem,
+  input-type-offset: 1.6rem,
   input-type-offset--with-icons: 4.1rem,
   input-label-line-height: 5rem,
   input-label-focused-line-height: 1.5rem,
   input-corner-min-width: 1rem,
   input-corner-offset: 0.6rem,
-  disabled-opacity: 0.5,
   input-border-width: 0.05rem,
   input-hover-border-width: 0.1rem
 );
@@ -26,8 +29,6 @@ $base-text-field-variables: (
 @function getTextFieldSizes($property) {
   @return map-get($base-text-field-variables, $property);
 }
-
-$input-states: 'success', 'error', 'warning';
 
 $text-field-colors: (
   input-bg: color(selago),

@@ -17,7 +17,8 @@ module.exports = (webpackConfigEnv, argv) => {
         library: {
           name: '@my-ui/core',
           type: 'umd'
-        }
+        },
+        publicPath: '/'
       },
       resolve: {
         modules: [path.join(__dirname, 'src'), 'node_modules'],

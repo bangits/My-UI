@@ -4,20 +4,16 @@ $transition-duration: getTextFieldSizes(label-transition);
   .Explanation {
     display: block;
     margin-top: getTextFieldSizes(explanation-margin);
-
     @include theme(color, default-input-color);
   }
 
   .TextInputWrapper {
     position: relative;
     display: inline-block;
-
     width: 100%;
     max-width: getTextFieldSizes(input-width);
-
     padding-top: getTextFieldSizes(input-label-offset);
     font-size: getTextFieldSizes(input-font-size);
-
     overflow: hidden;
   }
 
@@ -57,7 +53,7 @@ $transition-duration: getTextFieldSizes(label-transition);
     &:not(:focus):not(.TextInputBaseInput--filled) {
       @include theme(border-top-color, default-input-color);
 
-      + .TextInputPlaceholder {
+      + .TextInputLabel {
         line-height: getTextFieldSizes(input-label-line-height);
 
         &::before,
@@ -76,12 +72,12 @@ $transition-duration: getTextFieldSizes(label-transition);
 
     &:focus,
     &--filled {
-      @include theme(border-color, primary);
+      @include theme(color, primary);
 
       box-shadow: inset 1px 0 inherit, inset -1px 0 inherit, inset 0 -1px inherit;
       outline: none;
 
-      + .TextInputPlaceholder {
+      + .TextInputLabel {
         @include theme(color, primary);
 
         font-size: getTextFieldSizes(input-label-focused-font-size);
@@ -95,37 +91,50 @@ $transition-duration: getTextFieldSizes(label-transition);
   }
 
   // Label
-  .TextInputPlaceholder {
+  .TextInputLabel {
     position: absolute;
     top: 0;
-    left: 0;
-    display: flex;
+
+    @include flex;
+
     @include theme(border-color, primary);
+
     width: 100%;
     max-height: 100%;
+
     @include theme(color, default-input-color);
-    font-size: getTextFieldSizes(font-size);
+
+    font-size: getTextFieldSizes(input-font-size);
     line-height: getTextFieldSizes(input-label-focused-line-height);
+
     cursor: text;
+
     transition: text-indent $transition-duration, color $transition-duration, font-size $transition-duration,
       line-height $transition-duration;
-    height: 0.4rem;
+
+    height: getTextFieldSizes(input-label-height);
 
     &::before,
     &::after {
       content: '';
+
       display: block;
+
       box-sizing: border-box;
       margin-top: getTextFieldSizes(input-label-offset);
+
       border-top: solid 1px;
 
       @include theme(border-top-color, primary);
 
       min-width: getTextFieldSizes(input-corner-min-width);
       height: calc(getTextFieldSizes(input-label-offset) + 0.2rem);
+
       pointer-events: none;
-      transition: border-color $transition-duration, box-shadow $transition-duration;
+
       box-shadow: inset 0 1px transparent;
+
+      transition: border-color $transition-duration, box-shadow $transition-duration;
     }
 
     &::before {
@@ -148,15 +157,14 @@ $transition-duration: getTextFieldSizes(label-transition);
   .EndIcon {
     position: absolute;
     top: getTextFieldSizes(icon-margin);
-    width: 2.4rem;
-    height: 2.4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: getTextFieldSizes(input-icon-size);
+    height: getTextFieldSizes(input-icon-size);
+
+    @include center-flex;
   }
 
   .StartIcon {
-    left: getTextFieldSizes(icon-margin);
+    left: getTextFieldSizes(icon-margin-left);
   }
 
   .EndIcon {
@@ -183,14 +191,14 @@ $transition-duration: getTextFieldSizes(label-transition);
         padding-left: getTextFieldSizes(input-type-offset--with-icons);
       }
 
-      .TextInputPlaceholder {
+      .TextInputLabel {
         text-indent: getTextFieldSizes(input-label-offset--with-icons);
       }
 
       .TextInputBaseInput {
         &:focus,
         &--filled {
-          + .TextInputPlaceholder {
+          + .TextInputLabel {
             text-indent: 0;
           }
         }
@@ -201,40 +209,45 @@ $transition-duration: getTextFieldSizes(label-transition);
   // Color mapping
 
   .TextInputContainer {
-    @each $state in $input-states {
-      &--#{$state} {
+    @each $color in $base-colors {
+      &--#{$color} {
         .Explanation {
-          @include theme(color, input-color--#{$state});
+          @include theme(color, #{$color});
         }
 
-        .TextInputPlaceholder {
-          @include theme(border-color, input-focused-color--#{$state});
-          @include theme(color, input-color--#{$state});
+        .TextInputLabel {
+          @include theme(border-color, #{$color});
+          @include theme(color, #{$color});
 
           &::before,
           &::after {
-            @include theme(border-top-color, input-focused-color--#{$state});
+            @include theme(border-top-color, #{$color});
           }
         }
 
         .TextInputBaseInput {
-          @include theme(color, input-focused-color--#{$state});
+          @include theme(color, #{$color});
 
-          @include theme(border, input-color--#{$state}, solid 0.1rem);
+          @include theme(border, #{$color}, solid 0.1rem);
 
           &:not(:focus) {
-            @include theme(border-top-color, input-color--#{$state});
+            @include theme(border-top-color, #{$color});
+          }
+
+          &:focus,
+          &--filled {
+            @include theme(border-color, #{$color});
           }
 
           &:focus {
-            @include theme(border-color, input-focused-color--#{$state});
+            @include theme(border-color, #{$color});
 
-            + .TextInputPlaceholder {
-              @include theme(color, input-focused-color--#{$state});
+            + .TextInputLabel {
+              @include theme(color, #{$color});
 
               &::before,
               &::after {
-                @include theme(border-top-color, input-focused-color--#{$state});
+                @include theme(border-top-color, #{$color});
               }
             }
           }
@@ -242,36 +255,4 @@ $transition-duration: getTextFieldSizes(label-transition);
       }
     }
   }
-
-  // /* Disabled */
-  // .TextInputWrapper > input:disabled,
-  // .TextInputWrapper > input:disabled + span,
-  // .TextInputWrapper > textarea:disabled,
-  // .TextInputWrapper > textarea:disabled + span {
-  //   border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
-  //   border-top-color: transparent !important;
-  //   color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
-  //   pointer-events: none;
-  // }
-
-  // .TextInputWrapper > input:disabled + span::before,
-  // .TextInputWrapper > input:disabled + span::after,
-  // .TextInputWrapper > textarea:disabled + span::before,
-  // .TextInputWrapper > textarea:disabled + span::after {
-  //   border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
-  // }
-
-  // .TextInputWrapper > input:disabled:placeholder-shown,
-  // .TextInputWrapper > input:disabled:placeholder-shown + span,
-  // .TextInputWrapper > textarea:disabled:placeholder-shown,
-  // .TextInputWrapper > textarea:disabled:placeholder-shown + span {
-  //   border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
-  // }
-
-  // .TextInputWrapper > input:disabled:placeholder-shown + span::before,
-  // .TextInputWrapper > input:disabled:placeholder-shown + span::after,
-  // .TextInputWrapper > textarea:disabled:placeholder-shown + span::before,
-  // .TextInputWrapper > textarea:disabled:placeholder-shown + span::after {
-  //   border-top-color: transparent !important;
-  // }
 }

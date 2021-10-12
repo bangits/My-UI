@@ -1,7 +1,14 @@
-import React from 'react';
-
-const Badge = () => {
-  return <>Badge</>;
+import { NotificationIcon } from '@/icons';
+import { IComponent } from '@/types';
+import React, { FC } from 'react';
+import styles from './Badge.module.scss';
+const Badge: FC<IComponent> = () => {
+  return (
+    <div className={styles.BadgeContainer}>
+      <NotificationIcon />
+      <span className={styles.BadgeNumber}>10</span>
+    </div>
+  );
 };
 
 export default Badge;

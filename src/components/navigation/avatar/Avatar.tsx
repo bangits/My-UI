@@ -1,6 +1,7 @@
 import { IComponent } from '@/types';
-import { FC, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styles from './Avatar.module.scss';
+import AvatarImg from '@/images/avatar.png';
 export interface AvatarProps extends IComponent {
   imageSource?: string;
   dropdownTitle?: string;
@@ -15,8 +16,15 @@ export interface AvatarProps extends IComponent {
   onBottomButtonClick?: () => void;
 }
 
-const Avatar: FC<AvatarProps> = ({}) => {
-  return <div className={styles.Avatar}></div>;
+const Avatar: FC<AvatarProps> = () => {
+  return (
+    <div className={styles.Avatar}>
+      <span className={styles.AvatarLabel}>Evgenia</span>
+      <div className={styles.AvatarImg}>
+        <img src={AvatarImg} alt='avatar' />
+      </div>
+    </div>
+  );
 };
 
 export default Avatar;

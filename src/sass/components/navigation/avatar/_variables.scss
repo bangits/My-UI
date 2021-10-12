@@ -1,3 +1,9 @@
-$sidebar-sizes: ();
+$avatar-sizes: ();
 
-$sidebar-colors: ();
+@function getAvatarSizes($property) {
+  @return map-get($avatar-sizes, $property);
+}
+
+$avatar-colors: (
+  avatar-label-color: color(midnight-sun)
+);

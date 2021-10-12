@@ -1,16 +1,15 @@
 @mixin generate-header-styles {
   .Header {
-    background-color: white;
+    @include theme(background-color, header-background);
     box-sizing: border-box;
     width: 100%;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    box-shadow: 1px 5px 10px black;
+    height: getHeaderSizes(header-height);
+
+    @include flex(flex-end, center);
+
     .HeaderContainer {
-      display: flex;
-      margin-right: 40px;
+      @include flex(null, center);
+      margin-right: getHeaderSizes(header-container-margin);
     }
   }
 }

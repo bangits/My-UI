@@ -6,7 +6,7 @@ const Badge: FC<IComponent> = () => {
   return (
     <div className={styles.BadgeContainer}>
       <NotificationIcon />
-      <span className={styles.BadgeNumber}>10</span>
+      <span className={styles.BadgeNumber}>5555</span>
     </div>
   );
 };

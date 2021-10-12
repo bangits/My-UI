@@ -16,6 +16,10 @@ module.exports = (webpackConfigEnv, argv) => {
   return merge(
     defaultConfig,
     {
+      output: {
+        publicPath: '/'
+      },
+
       devServer: {
         port: webpackConfigEnv.PORT || 6005
       },

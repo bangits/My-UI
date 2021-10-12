@@ -36,7 +36,14 @@ const configureSass = (isDevelopment = true) => [
     test: /\.s(a|c)ss$/,
     exclude: /\.module.(s(a|c)ss)$/,
     use: [
-      isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+      isDevelopment
+        ? 'style-loader'
+        : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: ''
+            }
+          },
       'css-loader',
       {
         loader: 'sass-loader',
@@ -53,7 +60,15 @@ const configureAssets = () => {
   return [
     {
       test: /\.react.svg$/,
-      use: ['@svgr/webpack', 'file-loader']
+      use: [
+        '@svgr/webpack',
+        {
+          loader: 'file-loader',
+          options: {
+            publicPath: '/'
+          }
+        }
+      ]
     }
   ];
 };

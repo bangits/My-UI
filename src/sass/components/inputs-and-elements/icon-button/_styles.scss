@@ -21,9 +21,7 @@
       }
 
       .IconButtonBase--icon {
-        svg {
-          fill: #3c54b2;
-        }
+        color: #51566a;
       }
     }
 
@@ -34,19 +32,23 @@
       box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.1);
 
       .IconButtonBase--icon {
-        svg {
-          fill: #51566a;
-        }
+        color: #51566a;
       }
 
       &:hover {
         border: solid 1px #3c54b2;
 
         .IconButtonBase--icon {
-          svg {
-            fill: #3c54b2;
-          }
+          color: #3c54b2;
         }
+      }
+    }
+
+    &--active {
+      border: solid 1px #3c54b2;
+
+      .IconButtonBase--icon {
+        color: #3c54b2;
       }
     }
 

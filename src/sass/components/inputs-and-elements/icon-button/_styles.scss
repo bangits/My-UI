@@ -2,9 +2,9 @@
   .IconButtonBase {
     position: relative;
     z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    @include center-flex();
+
     width: map-get($icon-button-sizes, icon-button-width);
     height: map-get($icon-button-sizes, icon-button-height);
     border-radius: map-get($icon-button-sizes, icon-button-borderRadius);
@@ -14,12 +14,10 @@
       background-color: transparent;
       cursor: pointer;
       border: none;
-
       &:hover {
         border-radius: map-get($icon-button-sizes, icon-button-borderRadius);
         background-color: rgba(81, 86, 106, 0.1);
       }
-
       .IconButtonBase--icon {
         color: #51566a;
       }
@@ -30,14 +28,11 @@
       cursor: pointer;
       border: none;
       box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.1);
-
       .IconButtonBase--icon {
         color: #51566a;
       }
-
       &:hover {
         border: solid 1px #3c54b2;
-
         .IconButtonBase--icon {
           color: #3c54b2;
         }
@@ -46,21 +41,22 @@
 
     &--active {
       border: solid 1px #3c54b2;
-
       .IconButtonBase--icon {
         color: #3c54b2;
       }
     }
 
-    &--light {
-      @include theme(background-color, primary--color);
-
-      box-shadow: getIconButtonSizes(light-box-shadow);
-
-      &:hover {
-        @include theme(border, primary, getIconButtonSizes(light-border-size) solid);
-        @include theme(color, primary);
-      }
+    &--icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      width: map-get($icon-button-sizes, icon-button-icon-width);
+      height: map-get($icon-button-sizes, icon-button-icon-height);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

@@ -13,13 +13,17 @@ export interface IconButtonProps extends Omit<ButtonProps, 'variant'>, IComponen
   isActive?: boolean;
 }
 
-const IconButton: FC<IconButtonProps> = ({ icon, variant, isActive }) => {
+const IconButton: FC<IconButtonProps> = ({ icon, variant, isActive, className }) => {
   return (
     <button
-      className={classNames(styles.IconButtonBase, {
-        [styles[`IconButtonBase--${variant ? variant : 'dark'}`]]: variant ? variant : 'dark',
-        [styles[`IconButtonBase--active`]]: isActive
-      })}>
+      className={classNames(
+        styles.IconButtonBase,
+        {
+          [styles[`IconButtonBase--${variant ? variant : 'dark'}`]]: variant ? variant : 'dark',
+          [styles[`IconButtonBase--active`]]: isActive
+        },
+        className
+      )}>
       <span className={styles['IconButtonBase--icon']}>{icon}</span>
     </button>
   );

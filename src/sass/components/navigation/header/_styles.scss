@@ -9,6 +9,7 @@
     .HeaderContainer {
       @include flex(null, center);
       margin-right: getHeaderSizes(header-container-margin);
+      height: 100%;
     }
   }
 }

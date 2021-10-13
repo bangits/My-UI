@@ -1,6 +1,5 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
-import { Option } from './Options';
 import Select from './Select';
 
 export default {
@@ -11,73 +10,94 @@ export default {
 
 export const Default = () => (
   <Select
+    inputLabel={text('inputLabelSingle', 'Single Select...')}
+    isSearchable
     options={[
       {
-        label: 'Test',
-        value: 1
-      },
-      {
-        label: 'Test2',
+        label: 'Jewels and Gems',
         value: 2
       },
       {
-        label: 'Test3',
+        label: 'Fantasy',
         value: 3
       },
       {
-        label: 'Test4',
+        label: 'Halloween',
         value: 4
       },
       {
-        label: 'Test5',
+        label: 'Luxury',
         value: 5
       },
       {
-        label: 'Test6',
+        label: 'Fruits / Vegetables',
         value: 6
       },
       {
-        label: 'Test7',
+        label: 'Asian',
         value: 7
+      },
+      {
+        label: 'Food',
+        value: 8
+      },
+      {
+        label: 'Branded',
+        value: 9
+      },
+      {
+        label: 'Animals',
+        value: 10
       }
     ]}
   />
 );
 
 export const MultiSelect = () => (
-  <Select
-    placeholder='Multi Select...'
-    components={{ Option }}
-    isMulti
-    options={[
-      {
-        label: 'Test',
-        value: 1
-      },
-      {
-        label: 'Test2',
-        value: 2
-      },
-      {
-        label: 'Test3',
-        value: 3
-      },
-      {
-        label: 'Test4',
-        value: 4
-      },
-      {
-        label: 'Test5',
-        value: 5
-      },
-      {
-        label: 'Test6',
-        value: 6
-      },
-      {
-        label: 'Test7',
-        value: 7
-      }
-    ]}
-  />
+  <>
+    <Select
+      inputLabel={text('inputLabelMulti', 'Multi Select...')}
+      inputSelectedLabel={text('inputSelectedLabel', 'Selected items: ')}
+      isSearchable
+      isMulti
+      options={[
+        {
+          label: 'Jewels and Gems',
+          value: 2
+        },
+        {
+          label: 'Fantasy',
+          value: 3
+        },
+        {
+          label: 'Halloween',
+          value: 4
+        },
+        {
+          label: 'Luxury',
+          value: 5
+        },
+        {
+          label: 'Fruits / Vegetables',
+          value: 6
+        },
+        {
+          label: 'Asian',
+          value: 7
+        },
+        {
+          label: 'Food',
+          value: 8
+        },
+        {
+          label: 'Branded',
+          value: 9
+        },
+        {
+          label: 'Animals',
+          value: 10
+        }
+      ]}
+    />
+  </>
 );

@@ -54,48 +54,50 @@ export const Default = () => (
 );
 
 export const MultiSelect = () => (
-  <Select
-    inputLabel={text('inputLabelMulti', 'Multi Select...')}
-    inputSelectedLabel={text('inputSelectedLabel', 'Selected...')}
-    isSearchable
-    isMulti
-    options={[
-      {
-        label: 'Jewels and Gems',
-        value: 2
-      },
-      {
-        label: 'Fantasy',
-        value: 3
-      },
-      {
-        label: 'Halloween',
-        value: 4
-      },
-      {
-        label: 'Luxury',
-        value: 5
-      },
-      {
-        label: 'Fruits / Vegetables',
-        value: 6
-      },
-      {
-        label: 'Asian',
-        value: 7
-      },
-      {
-        label: 'Food',
-        value: 8
-      },
-      {
-        label: 'Branded',
-        value: 9
-      },
-      {
-        label: 'Animals',
-        value: 10
-      }
-    ]}
-  />
+  <>
+    <Select
+      inputLabel={text('inputLabelMulti', 'Multi Select...')}
+      inputSelectedLabel={text('inputSelectedLabel', 'Selected items: ')}
+      isSearchable
+      isMulti
+      options={[
+        {
+          label: 'Jewels and Gems',
+          value: 2
+        },
+        {
+          label: 'Fantasy',
+          value: 3
+        },
+        {
+          label: 'Halloween',
+          value: 4
+        },
+        {
+          label: 'Luxury',
+          value: 5
+        },
+        {
+          label: 'Fruits / Vegetables',
+          value: 6
+        },
+        {
+          label: 'Asian',
+          value: 7
+        },
+        {
+          label: 'Food',
+          value: 8
+        },
+        {
+          label: 'Branded',
+          value: 9
+        },
+        {
+          label: 'Animals',
+          value: 10
+        }
+      ]}
+    />
+  </>
 );

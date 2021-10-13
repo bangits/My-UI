@@ -38,8 +38,7 @@ export const SearchControl = (props) => {
   }, [isMenuOpen]);
 
   useEffect(() => {
-    if (props.isMulti) return;
-    const subscriber = useOutsideClickEvent('.MyUI-Select-Input');
+    const subscriber = useOutsideClickEvent(props.isMulti ? '.MyUI-Select' : '.MyUI-Select-Input');
 
     subscriber.subscribe(() => {
       setIsMenuOpen(false);

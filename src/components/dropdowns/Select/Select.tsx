@@ -6,7 +6,7 @@ import { DefaultOption, IconControl, Option, SearchControl } from './Options';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
 
-type SelectProps = {
+export type SelectProps = {
   selectAllLabel?: string;
   selectAllValue?: string;
   inputLabel?: string;

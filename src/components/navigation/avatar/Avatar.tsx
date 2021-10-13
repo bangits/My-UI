@@ -31,8 +31,8 @@ const Avatar: FC<AvatarProps> = ({ imageSource }) => {
         <Typography className={styles.AvatarDropdownTitle} variant='p5' color='primary'>
           Profile Settings
         </Typography>
-        <SubMenuItems label='View Profile' />
-        <hr />
+        <SubMenuItems label='View Profile' className={styles.AvatarSubMenuItemsLink} />
+        <hr className={styles.AvatarDropdownDivider} />
         <ul className={styles.AvatarDropdownMenu}>
           <li>
             <SubMenuItems className={styles.AvatarSubMenuItems} icon={<HomeIcon />} label='Lorem Ipsum' />
@@ -44,8 +44,8 @@ const Avatar: FC<AvatarProps> = ({ imageSource }) => {
             <SubMenuItems icon={<HomeIcon />} label='Lorem Ipsum' />
           </li>
         </ul>
-        <hr />
-        <SubMenuItems label='Lorem Ipsum' />
+        <hr className={styles.AvatarDropdownDivider} />
+        <SubMenuItems label='Log Out' />
       </Card>
     </div>
   );

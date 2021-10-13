@@ -1,12 +1,10 @@
 @mixin generate-header-styles {
   .Header {
-    // @include theme(background-color, header-background);
-    background-color: red;
+    @include theme(background-color, header-background);
+    @include flex(flex-end, center);
     box-sizing: border-box;
     width: 100%;
     height: getHeaderSizes(header-height);
-
-    @include flex(flex-end, center);
 
     .HeaderContainer {
       @include flex(null, center);

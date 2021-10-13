@@ -21,22 +21,15 @@
         width: 100%;
       }
     }
-    .SubMenuItemsIcon {
-      width: 24px;
-      height: 24px;
-      margin-left: 16px;
-      svg {
-        width: 16px;
-        height: 16px;
-      }
-    }
+
     .AvatarDropdownTitle {
       font-weight: 500;
       margin: 16px 24px 16px;
     }
     .AvatarSubMenuItems {
       padding: 0;
-      margin: 16px 24px;
+      margin-left: 8px;
+      // margin: 16px 24px;
     }
     .AvatarDropdownCard {
       position: absolute;
@@ -46,6 +39,17 @@
       bottom: 0;
       top: 50px;
       height: fit-content;
+
+      .AvatarDropdownDivider {
+        width: 165px;
+        border: solid 1px #f9f9f9;
+        background: #f9f9f9;
+      }
+
+      .AvatarSubMenuItemsLink {
+        margin: 0 -3px;
+        margin-left: 8px;
+      }
       .AvatarDropdownMenu {
         list-style-type: none;
         margin: 0;

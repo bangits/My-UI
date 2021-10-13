@@ -3,6 +3,12 @@
     @include flex(null, center);
     position: relative;
 
+    .AvatarWrapper {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+    }
+
     .AvatarLabel {
       @include theme(color, avatar-label-color);
 
@@ -10,6 +16,7 @@
       font-weight: 500;
       margin-right: getAvatarSizes(avatar-label-margin-right);
       margin-left: getAvatarSizes(avatar-label-margin-left);
+      cursor: pointer;
     }
     .AvatarImg {
       width: getAvatarSizes(avatar-img-width);
@@ -17,6 +24,7 @@
       @include theme(border, avatar-border-color, 1px solid);
       border-radius: getAvatarSizes(avatar-border-radius);
       margin-left: getAvatarSizes(avatar-img-margin);
+      cursor: pointer;
       img {
         width: 100%;
       }
@@ -55,6 +63,12 @@
         margin: 0;
         padding: 0;
       }
+    }
+    .DropDownHide {
+      display: none;
+    }
+    .DropDownShow {
+      display: block;
     }
   }
 }

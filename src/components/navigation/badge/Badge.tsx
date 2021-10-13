@@ -1,6 +1,5 @@
 import React, { FC, ReactNode } from 'react';
 import { IComponent } from '@/types';
-import { NotificationIcon } from '@/icons';
 import styles from './Badge.module.scss';
 import classNames from 'classnames';
 import { typedMemo } from '@/helpers';

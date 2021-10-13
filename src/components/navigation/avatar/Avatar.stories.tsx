@@ -1,6 +1,7 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { object, text, withKnobs, number } from '@storybook/addon-knobs';
 import Avatar from './Avatar';
 import AvatarImg from '@/images/avatar.png';
+import { HomeIcon } from '@/icons';
 
 export default {
   component: Avatar,
@@ -9,5 +10,42 @@ export default {
 };
 
 export const Default = () => {
-  return <Avatar imageSource={AvatarImg} />;
+  return (
+    <Avatar
+      imageSource={AvatarImg}
+      avatarLabel={text('avatarLabel', 'Evgenia')}
+      dropdownTitle={text('dropdownTitle', 'Profile Settings')}
+      topButtonLabel={text('topButtonLabel', 'View Profile')}
+      bottomButtonLabel={text('bottomButtonLabel', 'Log Out')}
+      onTopButtonClick={() => {
+        alert('View Profile');
+      }}
+      onBottomButtonClick={() => {
+        alert('Log Out');
+      }}
+      dropdownLinks={[
+        {
+          label: 'Lorem Ipsum',
+          icon: <HomeIcon />,
+          onClick: () => {
+            alert('Lorem Ipsum 1');
+          }
+        },
+        {
+          label: 'Lorem Ipsum',
+          icon: <HomeIcon />,
+          onClick: () => {
+            alert('Lorem Ipsum 2');
+          }
+        },
+        {
+          label: 'Lorem Ipsum',
+          icon: <HomeIcon />,
+          onClick: () => {
+            alert('Lorem Ipsum 3');
+          }
+        }
+      ]}
+    />
+  );
 };

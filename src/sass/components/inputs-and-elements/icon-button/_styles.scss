@@ -1,28 +1,54 @@
 @mixin generate-icon-button-styles {
   .IconButtonBase {
-    @include center-flex();
-
-    width: getIconButtonSizes(icon-button-width);
-    height: getIconButtonSizes(icon-button-height);
-
-    border-radius: 50%;
-
-    cursor: pointer;
-    border: none;
-    padding: 0;
-
-    &--icon {
-      width: getIconButtonSizes(icon-button-icon-width);
-      height: getIconButtonSizes(icon-button-icon-height);
-
-      @include center-flex();
-    }
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: map-get($icon-button-sizes, icon-button-width);
+    height: map-get($icon-button-sizes, icon-button-height);
+    border-radius: map-get($icon-button-sizes, icon-button-borderRadius);
+    padding: map-get($icon-button-sizes, icon-button-padding);
 
     &--dark {
       background-color: transparent;
+      cursor: pointer;
+      border: none;
 
       &:hover {
-        @include theme(background-color, black-color--transparent);
+        border-radius: map-get($icon-button-sizes, icon-button-borderRadius);
+        background-color: rgba(81, 86, 106, 0.1);
+      }
+
+      .IconButtonBase--icon {
+        color: #51566a;
+      }
+    }
+
+    &--light {
+      background-color: map-get($icon-button-colors, icon-button-light-bg);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.1);
+
+      .IconButtonBase--icon {
+        color: #51566a;
+      }
+
+      &:hover {
+        border: solid 1px #3c54b2;
+
+        .IconButtonBase--icon {
+          color: #3c54b2;
+        }
+      }
+    }
+
+    &--active {
+      border: solid 1px #3c54b2;
+
+      .IconButtonBase--icon {
+        color: #3c54b2;
       }
     }
 

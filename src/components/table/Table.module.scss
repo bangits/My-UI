@@ -8,17 +8,20 @@
   width: 100%;
 
   .TableHead tr {
-    min-height: 5.6rem;
+    min-height: 5.5rem;
     th {
       &:last-child {
-        margin-left: 0;
+        margin-left: 1.9rem;
+        svg {
+          display: none;
+        }
       }
     }
   }
 
   .TableBody {
     tr {
-      height: 5.2rem;
+      height: 5.1rem;
 
       &:hover {
         .ActionTableCell {

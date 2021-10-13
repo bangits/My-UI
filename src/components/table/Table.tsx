@@ -15,10 +15,10 @@ import {
   UseTableRowProps
 } from '@my-ui/react-table';
 import classNames from 'classnames';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import selectionHook from './selectionHook';
 import styles from './Table.module.scss';
-import TableCell from './TableCell';
+import TableCell, { TableCellProps } from './TableCell';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
 
@@ -57,7 +57,8 @@ export interface TableProps<T extends ObjectMock> extends IComponent {
     Header: string;
     accessor: keyof T;
     disableSortBy?: boolean;
-    maxWidth?: number | string;
+    align?: TableCellProps['align'];
+    maxWidth?: string | number;
   }[];
   color?: UIColors;
   fetch?: (state: State<T>) => any;
@@ -83,6 +84,10 @@ const Table = <T extends ObjectMock>({
   isWithSelection = true,
   actions
 }: TableProps<T>) => {
+  const tableHeadRef = useRef(null);
+
+  const [tableHeadWidths, setTableHeadWidths] = useState([]);
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable<T>(
     { columns, data },
     useSortBy,
@@ -96,6 +101,10 @@ const Table = <T extends ObjectMock>({
   const onFetchDataDebounced = useAsyncDebounce(fetch, 100);
 
   useEffect(() => {
+    setTableHeadWidths(Object.values(tableHeadRef.current.querySelectorAll('th')).map((th) => th.clientWidth));
+  }, []);
+
+  useEffect(() => {
     onFetchDataDebounced(typedState);
   }, [onFetchDataDebounced, typedState.sortBy]);
 
@@ -105,21 +114,16 @@ const Table = <T extends ObjectMock>({
       className={classNames(styles.TableContainer, {
         [styles['TableContainer--withSelection']]: isWithSelection
       })}>
-      <THeadComponent className={styles.TableHead}>
+      <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
         {headerGroups.map((headerGroup) => (
           <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
-            {headerGroup.headers.map((column: Column<T>) => (
+            {headerGroup.headers.map((column: Column<T>, index) => (
               <TableHead
+                data-column-index={index}
                 direction={column.isSortedDesc ? 'desc' : 'asc'}
                 selectedDirection={column.isSorted}
                 hideSortIcon={column.disableSortBy}
                 {...column.getHeaderProps(column.getSortByToggleProps())}
-                style={{
-                  ...(column.getHeaderProps(column.getSortByToggleProps()).style || {}),
-                  ...{
-                    maxWidth: column.maxWidth
-                  }
-                }}
                 color={color}>
                 <span> {column.render('Header')}</span>
                 {/* We will do this part when in UI kit there will be ready resizing part */}
@@ -141,14 +145,16 @@ const Table = <T extends ObjectMock>({
           prepareRow(row);
           return (
             <TableRow hover selected={row.isSelected} {...row.getRowProps()} color={color}>
-              {row.cells.map((cell) => {
-                console.log(cell.column.maxWidth);
+              {row.cells.map((cell, index) => {
                 return (
                   <TableCell
-                    {...(cell.getCellProps().style || {})}
                     style={{
-                      maxWidth: cell.column.maxWidth
+                      maxWidth:
+                        typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                          ? cell.column.maxWidth
+                          : `${tableHeadWidths[index] / 10}rem`
                     }}
+                    align={columns[index - 1]?.align}
                     color={color}>
                     <div>{cell.render('Cell')}</div>
                   </TableCell>

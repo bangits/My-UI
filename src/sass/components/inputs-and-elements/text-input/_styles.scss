@@ -27,10 +27,6 @@ $transition-duration: getTextFieldSizes(label-transition);
       border-width: getTextFieldSizes(input-hover-border-width);
     }
 
-    &:disabled {
-      opacity: getTextFieldSizes(input-disabled);
-    }
-
     // Sizes
     border-radius: getTextFieldSizes(input-border-radius);
     padding: 0 getTextFieldSizes(input-type-offset);
@@ -73,6 +69,7 @@ $transition-duration: getTextFieldSizes(label-transition);
     &:focus,
     &--filled {
       @include theme(color, primary);
+      @include theme(border-color, primary);
 
       box-shadow: inset 1px 0 inherit, inset -1px 0 inherit, inset 0 -1px inherit;
       outline: none;
@@ -171,7 +168,20 @@ $transition-duration: getTextFieldSizes(label-transition);
     right: getTextFieldSizes(icon-margin-right);
   }
 
+  .StartIcon,
+  .EndIcon {
+    @include theme(color, default-input-color);
+  }
+
   .TextInputContainer {
+    &--focused,
+    &--filled {
+      .StartIcon,
+      .EndIcon {
+        @include theme(color, primary);
+      }
+    }
+
     &--full-width .TextInputWrapper {
       max-width: initial;
     }
@@ -211,6 +221,20 @@ $transition-duration: getTextFieldSizes(label-transition);
   .TextInputContainer {
     @each $color in $base-colors {
       &--#{$color} {
+        &.TextInputContainer {
+          &--focused,
+          &--filled {
+            .StartIcon,
+            .EndIcon {
+              @include theme(color, #{$color});
+            }
+          }
+        }
+
+        .TextInputWrapper {
+          @include theme(color, #{$color});
+        }
+
         .Explanation {
           @include theme(color, #{$color});
         }

@@ -45,7 +45,7 @@ const Avatar: FC<AvatarProps> = ({
 
   return (
     <div className={classNames(styles.Avatar, className)}>
-      <div style={{}} className={classNames(styles.AvatarWrapper, className, 'AvatarWrapper')}>
+      <div className={classNames(styles.AvatarWrapper, className, 'AvatarWrapper')}>
         <span className={styles.AvatarLabel} onClick={() => setOpen(!open)}>
           {avatarLabel}
         </span>

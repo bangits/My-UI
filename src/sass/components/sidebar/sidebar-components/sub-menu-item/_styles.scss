@@ -12,15 +12,21 @@
     padding: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-padding);
     display: flex;
     align-items: center;
+    opacity: 0.7;
+
+    &:last-child {
+      margin-bottom: 0.4rem;
+    }
 
     &:hover {
       height: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-height);
       border-radius: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-borderRadius);
-      background-color: #f4f7fe;
+      background-color: rgba(60, 84, 178, 0.1);
       color: #3c54b2;
       font-weight: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-font-weight);
       line-height: 2.4rem;
       cursor: pointer;
+      opacity: 1;
     }
   }
 }

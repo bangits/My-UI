@@ -1,6 +1,6 @@
 import { Typography, TypographyProps } from '@/components';
 import classNames from 'classnames';
-import React, { DetailedHTMLProps, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
+import React, { DetailedHTMLProps, InputHTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react';
 import styles from './TextInput.module.scss';
 
 window.MYUIReact = React;
@@ -69,6 +69,10 @@ const TextInputs = React.forwardRef<HTMLInputElement, TextInputProps>(
       },
       [props.onInput]
     );
+
+    useEffect(() => {
+      setCurrentValue(value);
+    }, [value]);
 
     return (
       <div

@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import Select from './Select';
 
@@ -10,6 +10,7 @@ export default {
 
 export const Default = () => (
   <Select
+    inputLabel={text('inputLabelSingle', 'Single Select...')}
     isSearchable
     options={[
       {
@@ -54,7 +55,8 @@ export const Default = () => (
 
 export const MultiSelect = () => (
   <Select
-    placeholder='Multi Select...'
+    inputLabel={text('inputLabelMulti', 'Multi Select...')}
+    inputSelectedLabel={text('inputSelectedLabel', 'Selected...')}
     isSearchable
     isMulti
     options={[

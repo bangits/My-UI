@@ -17,9 +17,7 @@ export const Option = (props) => {
 };
 export const DefaultOption = (props) => {
   const handleClick = useCallback((e) => {
-    console.dir(e.target.closest('.MyUI-Select').querySelector('input'));
-
-    e.target.closest('.MyUI-Select').querySelector('input');
+    e.target.closest('.MyUI-Select').querySelector('input').blur();
   }, []);
 
   return (
@@ -40,6 +38,7 @@ export const SearchControl = (props) => {
   }, [isMenuOpen]);
 
   useEffect(() => {
+    if (props.isMulti) return;
     const subscriber = useOutsideClickEvent('.MyUI-Select-Input');
 
     subscriber.subscribe(() => {
@@ -52,23 +51,39 @@ export const SearchControl = (props) => {
     };
   }, []);
 
+  console.log(props);
+
   return (
     // @ts-ignore
     <components.Control {...props}>
       <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
         <TextInput
+          className='MyUi-Input'
           fullWidth
           onChange={(e) => {
             props.selectProps.onInputChange(e.target.value);
           }}
           onClick={menuToggle}
-          value={props.selectProps.inputValue}
+          value={
+            props.selectProps.inputValue
+              ? props.selectProps.inputValue
+              : props.selectProps?.value.length > 0
+              ? props.selectProps?.value.length > 1
+                ? props.options.length === props.selectProps?.value.length
+                  ? props.options[0].label
+                  : `${props.selectProps.inputSelectedLabel} ${props.selectProps?.value.length}`
+                : props.selectProps?.value[0]?.label
+              : ''
+          }
           label={
-            props.selectProps.value
-              ? props.selectProps?.value[0]?.label || props.selectProps?.value.label
-                ? props.selectProps?.value[0]?.label || props.selectProps?.value.label
-                : 'Select...'
-              : 'Select...'
+            !props.isMulti
+              ? props.selectProps.value
+                ? (props.selectProps?.value.length > 1 ? '' : props.selectProps?.value[0]?.label) ||
+                  props.selectProps?.value.label
+                  ? props.selectProps?.value[0]?.label || props.selectProps?.value.label
+                  : props.selectProps.inputLabel
+                : props.selectProps.inputLabel
+              : props.selectProps.inputLabel
           }
           endIcon={
             <div className={classNames(styles['Select--icon-container'])}>

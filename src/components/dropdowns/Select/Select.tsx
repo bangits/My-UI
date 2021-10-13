@@ -9,6 +9,8 @@ import styles from './Select.module.scss';
 type SelectProps = {
   selectAllLabel?: string;
   selectAllValue?: string;
+  inputLabel?: string;
+  inputSelectedLabel?: string;
 };
 
 const Select: FC<StateManagerProps & SelectProps> = ({
@@ -19,6 +21,8 @@ const Select: FC<StateManagerProps & SelectProps> = ({
   selectAllValue = '*',
   selectAllLabel = 'All',
   className,
+  inputLabel,
+  inputSelectedLabel,
   ...selectProps
 }) => {
   const [selectedOptions, setSelectedOptions] = useState(defaultValue || []);
@@ -59,6 +63,8 @@ const Select: FC<StateManagerProps & SelectProps> = ({
     <div>
       <ReactSelect
         {...selectProps}
+        inputSelectedLabel={inputSelectedLabel}
+        inputLabel={inputLabel}
         onChange={onChange}
         /*eslint-disable */
         //@ts-ignore ignored because we need to reset all css styles

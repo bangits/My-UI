@@ -27,8 +27,8 @@
       align-items: center;
 
       svg {
-        width: 16px;
-        height: 16px;
+        width: map-get($sidebar-sub-menu-item-sizes, sub-menu-items-iconWidth);
+        height: map-get($sidebar-sub-menu-item-sizes, sub-menu-items-iconHeight);
       }
     }
   }

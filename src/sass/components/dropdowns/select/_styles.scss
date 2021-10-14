@@ -7,9 +7,6 @@
     .react-select {
       position: relative;
 
-      &__control {
-      }
-
       &__indicator {
         color: #00194c;
         margin: 1rem 1.2rem 2rem;
@@ -25,7 +22,7 @@
       &__menu {
         position: relative;
         z-index: 9999;
-        top: 1rem;
+        top: 0.4rem;
       }
 
       &__menu-list {

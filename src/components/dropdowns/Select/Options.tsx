@@ -1,9 +1,8 @@
 import { Checkbox, TextInput } from '@/components';
-import useOutsideClickEvent from '@/helpers/useOutsideClickEvent';
 import { DropdownArrowIconDown, DropdownArrowIconUp } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styles from './Select.module.scss';
 
 export const Option = (props) => {
@@ -37,29 +36,21 @@ export const SearchControl = (props) => {
     setIsMenuOpen(!isMenuOpen);
   }, [isMenuOpen]);
 
-  useEffect(() => {
-    const subscriber = useOutsideClickEvent(props.isMulti ? '.MyUI-Select' : '.MyUI-Select-Input');
-
-    subscriber.subscribe(() => {
-      setIsMenuOpen(false);
-      props.selectProps.onMenuClose();
-    });
-
-    return () => {
-      subscriber.unsubscribe();
-    };
-  }, []);
-
   return (
     // @ts-ignore
     <components.Control {...props}>
       <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
         <TextInput
           className='MyUi-Input'
-          color={props.selectProps.color}
+          color={props.selectProps.color !== 'primary' && props.selectProps.color}
+          explanation={props.selectProps.explanation}
           fullWidth
           onChange={(e) => {
             props.selectProps.onInputChange(e.target.value);
+          }}
+          onBlur={() => {
+            setIsMenuOpen(false);
+            props.selectProps.onMenuClose();
           }}
           onClick={menuToggle}
           value={

@@ -1,10 +1,10 @@
+import { IconButton } from '@/components';
 import { typedMemo } from '@/helpers';
 import { IconButtonLeft, IconButtonRight } from '@/icons';
 import { UIColors } from '@/types';
 import { IComponent } from '@/types/props';
 import classNames from 'classnames';
 import React, { FC, useCallback, useState } from 'react';
-import IconButton from '../inputs-and-elements/IconButton/IconButton';
 import { MenuItem, MenuItemProps } from './sidebar-components/MenuItem';
 import styles from './Sidebar.module.scss';
 

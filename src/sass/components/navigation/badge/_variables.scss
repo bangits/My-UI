@@ -1,0 +1,22 @@
+$badge-sizes: (
+  badge-width: calculateRem(24px),
+  badge-height: calculateRem(24px),
+  badge-number-position-top: calculateRem(-3px),
+  badge-number-position-left: calculateRem(11.8px),
+  badge-number-width: calculateRem(22.2px),
+  badge-number-height: calculateRem(22.2px),
+  badge-number-size: calculateRem(8px),
+  badge-number-fontWeight: 500,
+  badge-number-borderRadius: 100%
+);
+
+@function getBadgeSizes($property) {
+  @return map-get($badge-sizes, $property);
+}
+
+$badge-colors: (
+  badge-number-background: color(azure-approx),
+  badge-number-color: (
+    white
+  )
+);

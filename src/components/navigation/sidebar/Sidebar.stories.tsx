@@ -8,7 +8,7 @@ import { SidebarPositions } from './sidebar-types';
 export default {
   component: Sidebar,
   decorators: [withKnobs],
-  title: 'components/Sidebar/Sidebar'
+  title: 'components/Navigation/Sidebar'
 };
 
 export const Default = () => {

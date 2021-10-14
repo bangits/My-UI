@@ -6,5 +6,6 @@ export { ReactComponent as DropdownArrowIconUp } from './dropdownArrowUp.react.s
 export { ReactComponent as DustbinIcon } from './dustbin.react.svg';
 export { ReactComponent as EditIcon } from './edit.react.svg';
 export { ReactComponent as HomeIcon } from './home.react.svg';
+export { ReactComponent as NotificationIcon } from './notification.react.svg';
 export { ReactComponent as PenIcon } from './pen.react.svg';
 export { ReactComponent as ViewIcon } from './view.react.svg';

@@ -28,5 +28,15 @@
       cursor: pointer;
       opacity: 1;
     }
+    .SubMenuItemsIcon {
+      display: flex;
+      align-items: center;
+      margin-left: map-get($sidebar-sub-menu-item-sizes, sub-menu-items-icon-marginLeft);
+
+      svg {
+        width: map-get($sidebar-sub-menu-item-sizes, sub-menu-items-iconWidth);
+        height: map-get($sidebar-sub-menu-item-sizes, sub-menu-items-iconHeight);
+      }
+    }
   }
 }

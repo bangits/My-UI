@@ -125,7 +125,7 @@ const TextInputs: FC<TextInputProps> = ({
       </label>
 
       {explanation && (
-        <Typography className={styles.Explanation} variant='p4' component='span'>
+        <Typography className={styles.Explanation} variant='p5' component='span'>
           {explanation}
         </Typography>
       )}

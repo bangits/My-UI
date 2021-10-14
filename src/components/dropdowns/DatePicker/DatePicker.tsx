@@ -27,7 +27,7 @@ const DatePicker: React.FC<DatepickerProps> = ({
         wrapperClassName={styles.DatePicker}
         popperClassName={classNames(styles.DatePicker, {
           [styles['DatePicker--withDropdowns']]: withDropdowns,
-          [styles['DatePicker-outside-days--hidden']]: monthsShown
+          [styles['DatePicker--withTwoMonths']]: monthsShown === 2
         })}
         monthsShown={monthsShown}
         showYearDropdown={withDropdowns}

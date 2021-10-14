@@ -12,6 +12,9 @@ export const Default = () => (
   <Select
     inputLabel={text('inputLabelSingle', 'Single Select...')}
     isSearchable
+    success={boolean('success', false)}
+    error={boolean('error', false)}
+    warning={boolean('warning', false)}
     options={object('options', [
       {
         label: 'Jewels and Gems',
@@ -59,9 +62,9 @@ export const MultiSelect = () => (
       inputLabel={text('inputLabelMulti', 'Multi Select...')}
       inputSelectedLabel={text('inputSelectedLabel', 'Selected items: ')}
       isSearchable
-      success={boolean('success', false)}
-      error={boolean('error', false)}
-      warning={boolean('warning', false)}
+      success={boolean('successSingleSelect', false)}
+      error={boolean('errorSingleSelect', false)}
+      warning={boolean('warningSingleSelect', false)}
       isMulti={boolean('isMulti', true)}
       options={object('multiSelectOptions', [
         {

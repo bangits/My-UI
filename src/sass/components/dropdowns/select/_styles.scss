@@ -115,3 +115,18 @@
     }
   }
 }
+
+@mixin generate-full-width-select-styles {
+  :global {
+    width: 100%;
+
+    .react-select {
+      width: 100%;
+
+      &__control,
+      &__menu-list {
+        width: 100%;
+      }
+    }
+  }
+}

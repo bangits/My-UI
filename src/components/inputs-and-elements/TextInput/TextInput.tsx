@@ -62,7 +62,7 @@ const TextInputs: FC<TextInputProps> = ({
   );
 
   useEffect(() => {
-    setCurrentValue(value);
+    if (!defaultValue) setCurrentValue(value);
   }, [value]);
 
   const onBlur: TextInputProps['onBlur'] = useCallback(

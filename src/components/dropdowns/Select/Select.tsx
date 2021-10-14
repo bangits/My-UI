@@ -11,11 +11,13 @@ export type SelectProps = {
   selectAllValue?: string;
   inputLabel?: string;
   inputSelectedLabel?: string;
-};
+  fullWidth?: boolean;
+} & StateManagerProps;
 
-const Select: FC<StateManagerProps & SelectProps> = ({
+const Select: FC<SelectProps> = ({
   children,
-  isSearchable,
+  isSearchable = true,
+  fullWidth = false,
   isMulti,
   defaultValue,
   selectAllValue = '*',
@@ -60,30 +62,35 @@ const Select: FC<StateManagerProps & SelectProps> = ({
   );
 
   return (
-    <div>
-      <ReactSelect
-        {...selectProps}
-        inputSelectedLabel={inputSelectedLabel}
-        inputLabel={inputLabel}
-        onChange={onChange}
-        /*eslint-disable */
-        //@ts-ignore ignored because we need to reset all css styles
-        styles={resetStyles}
-        /*eslint-enable */
-        isClearable={false}
-        hideSelectedOptions={false}
-        classNamePrefix='react-select'
-        components={{ Option: isMulti ? Option : DefaultOption, Control: isSearchable ? SearchControl : IconControl }}
-        /* removeSelected={false} */
-        isMulti={isMulti}
-        closeMenuOnSelect={isMulti ? false : true}
-        controlShouldRenderValue={isMulti ? false : true}
-        backspaceRemovesValue={false}
-        value={selectedOptions}
-        className={classNames(styles.Select, 'MyUI-Select', className)}
-        options={isMulti ? [allOption, ...selectProps.options] : selectProps.options}
-      />
-    </div>
+    <ReactSelect
+      {...selectProps}
+      inputSelectedLabel={inputSelectedLabel}
+      inputLabel={inputLabel}
+      onChange={onChange}
+      /*eslint-disable */
+      //@ts-ignore ignored because we need to reset all css styles
+      styles={resetStyles}
+      /*eslint-enable */
+      isClearable={false}
+      hideSelectedOptions={false}
+      classNamePrefix='react-select'
+      components={{ Option: isMulti ? Option : DefaultOption, Control: isSearchable ? SearchControl : IconControl }}
+      /* removeSelected={false} */
+      isMulti={isMulti}
+      closeMenuOnSelect={isMulti ? false : true}
+      controlShouldRenderValue={isMulti ? false : true}
+      backspaceRemovesValue={false}
+      value={selectedOptions}
+      className={classNames(
+        styles.Select,
+        {
+          [styles[`Select--fullWidth`]]: fullWidth
+        },
+        'MyUI-Select',
+        className
+      )}
+      options={isMulti ? [allOption, ...selectProps.options] : selectProps.options}
+    />
   );
 };
 

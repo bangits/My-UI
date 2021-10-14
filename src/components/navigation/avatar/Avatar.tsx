@@ -5,6 +5,7 @@ import { Card, Typography } from '@/components';
 import SubMenuItems from '../sidebar/sidebar-components/SubMenuItems';
 import classNames from 'classnames';
 import useOutsideClickEvent from '../../../helpers/useOutsideClickEvent';
+
 export interface AvatarProps extends IComponent {
   imageSource?: string;
   avatarLabel: string;
@@ -62,15 +63,35 @@ const Avatar: FC<AvatarProps> = ({
           <Typography className={styles.AvatarDropdownTitle} variant='p5' color='primary'>
             {dropdownTitle}
           </Typography>
-          <SubMenuItems label={topButtonLabel} onClick={onTopButtonClick} />
+          <SubMenuItems
+            className={styles.SubMenuItems}
+            label={topButtonLabel}
+            onClick={onTopButtonClick}
+            style={{ marginLeft: '0' }}
+          />
+
+          <hr className={styles.AvatarDropdownDivider} />
+
           <ul className={styles.AvatarDropdownMenu}>
             {dropdownLinks.map((items, idx) => (
               <li key={idx}>
-                <SubMenuItems onClick={items.onClick} icon={items.icon} label={items.label} />
+                <SubMenuItems
+                  className={styles.SubMenuItems}
+                  onClick={items.onClick}
+                  icon={items.icon}
+                  label={items.label}
+                />
               </li>
             ))}
           </ul>
-          <SubMenuItems label={bottomButtonLabel} onClick={onBottomButtonClick} />
+
+          <hr className={styles.AvatarDropdownDivider} />
+          <SubMenuItems
+            className={styles.SubMenuItems}
+            label={bottomButtonLabel}
+            onClick={onBottomButtonClick}
+            style={{ marginLeft: '0' }}
+          />
         </Card>
       </div>
     </div>

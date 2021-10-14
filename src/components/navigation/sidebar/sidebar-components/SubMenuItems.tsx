@@ -10,9 +10,9 @@ export interface SubMenuItemProps extends IComponent {
   icon?: ReactNode;
 }
 
-const SubMenuItems: FC<SubMenuItemProps> = ({ label, icon, ...subItemProps }) => {
+const SubMenuItems: FC<SubMenuItemProps> = ({ label, icon, className, ...subItemProps }) => {
   return (
-    <div className={classNames(styles.SubMenuItemsBase)}>
+    <div className={classNames(styles.SubMenuItemsBase, className)}>
       {icon && <div className={styles.SubMenuItemsIcon}>{icon}</div>}
       <a {...subItemProps}>{label}</a>
     </div>

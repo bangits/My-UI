@@ -50,6 +50,7 @@ const Select: FC<StateManagerProps & SelectProps> = ({
       } else if (selectProps.options.length === selectedOptions.length) {
         const allOptions = selectProps.options;
         setSelectedOptions([allOption, ...allOptions]);
+        if (selectProps.onChange) selectProps.onChange([allOption, ...allOptions], event);
       } else {
         setSelectedOptions(selectedOptions);
 

@@ -1,8 +1,7 @@
 import { typedMemo } from '@/helpers';
 import { ComponentType, IComponent } from '@/types/props';
 import classNames from 'classnames';
-import { CSSProperties } from 'markdown-to-jsx/node_modules/@types/react';
-import { FC, useCallback, useState } from 'react';
+import { CSSProperties, FC, useCallback, useState } from 'react';
 import { UIColors } from '../../types/ui';
 import styles from './TableRow.module.scss';
 export interface TableRowProps extends IComponent {

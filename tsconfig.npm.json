@@ -11,8 +11,9 @@
     "jsx": "react-jsx",
     "target": "ESNext",
     "baseUrl": "src",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
     "paths": {
-      // This paths synchronized with webpack shared config
       "@/*": ["*"]
     },
     "skipLibCheck": true

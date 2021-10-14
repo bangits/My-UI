@@ -1,8 +1,7 @@
 import { UIColors } from '@/types';
-import ReactSelect from '@my-ui/react-select';
-import { StateManagerProps } from '@my-ui/react-select/src/useStateManager';
+import ReactSelect, { Props } from '@my-ui/react-select';
 import classNames from 'classnames';
-import React, { FC, useCallback, useMemo, useRef, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { DefaultOption, IconControl, Option, SearchControl } from './Options';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
@@ -15,7 +14,7 @@ export type SelectProps = {
   explanation?: string;
   fullWidth?: boolean;
   color?: UIColors;
-} & StateManagerProps;
+} & Props;
 
 const Select: FC<SelectProps> = ({
   children,
@@ -32,13 +31,11 @@ const Select: FC<SelectProps> = ({
   inputSelectedLabel = 'Selected items: ',
   ...selectProps
 }) => {
-  const selectRef = useRef(null);
-
   const [selectedOptions, setSelectedOptions] = useState(defaultValue || []);
 
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
 
-  const onChange = useCallback<StateManagerProps['onChange']>(
+  const onChange = useCallback<Props['onChange']>(
     (selectedOptions: [], event) => {
       const selectedOptionValue = (event.option as { value?: string | undefined })?.value;
 

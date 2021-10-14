@@ -47,9 +47,6 @@ export const WithIcons = () => (
       label='Input With Start Icon'
       defaultValue={text('defaultValue for start icon', 'Input With Start Icon')}
       type='text'
-      error={false}
-      warning={false}
-      success={false}
       onChange={action('onChange')}
       explanation={text('explanation', 'Explanation')}
       startIcon={
@@ -74,9 +71,6 @@ export const WithIcons = () => (
       label='Input With End Icon'
       defaultValue={text('defaultValue for end icon', 'Input With End Icon')}
       type='text'
-      error={false}
-      warning={false}
-      success={false}
       onChange={action('onChange')}
       explanation={text('explanation', 'Explanation')}
       endIcon={

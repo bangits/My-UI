@@ -1,18 +1,13 @@
 @mixin generate-select-styles {
   :global {
     width: 23rem;
-    height: 3.8rem;
     box-sizing: border-box;
     position: relative;
 
     .react-select {
       position: relative;
-      width: 23rem;
-      height: 3.8rem;
 
       &__control {
-        width: 23rem;
-        height: 3.8rem;
       }
 
       &__indicator {

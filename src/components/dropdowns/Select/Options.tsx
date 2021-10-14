@@ -50,14 +50,13 @@ export const SearchControl = (props) => {
     };
   }, []);
 
-  console.log(props);
-
   return (
     // @ts-ignore
     <components.Control {...props}>
       <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
         <TextInput
           className='MyUi-Input'
+          color={props.selectProps.color}
           fullWidth
           onChange={(e) => {
             props.selectProps.onInputChange(e.target.value);

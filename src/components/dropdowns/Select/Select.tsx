@@ -1,3 +1,4 @@
+import { UIColors } from '@/types';
 import ReactSelect from '@my-ui/react-select';
 import { StateManagerProps } from '@my-ui/react-select/src/useStateManager';
 import classNames from 'classnames';
@@ -12,6 +13,7 @@ export type SelectProps = {
   inputLabel?: string;
   inputSelectedLabel?: string;
   fullWidth?: boolean;
+  color?: UIColors;
 } & StateManagerProps;
 
 const Select: FC<SelectProps> = ({
@@ -19,12 +21,13 @@ const Select: FC<SelectProps> = ({
   isSearchable = true,
   fullWidth = false,
   isMulti,
+  color,
   defaultValue,
   selectAllValue = '*',
   selectAllLabel = 'All',
   className,
-  inputLabel,
-  inputSelectedLabel,
+  inputLabel = 'Select...',
+  inputSelectedLabel = 'Selected items: ',
   ...selectProps
 }) => {
   const [selectedOptions, setSelectedOptions] = useState(defaultValue || []);
@@ -52,6 +55,7 @@ const Select: FC<SelectProps> = ({
       } else if (selectProps.options.length === selectedOptions.length) {
         const allOptions = selectProps.options;
         setSelectedOptions([allOption, ...allOptions]);
+        if (selectProps.onChange) selectProps.onChange([allOption, ...allOptions], event);
       } else {
         setSelectedOptions(selectedOptions);
 
@@ -77,6 +81,7 @@ const Select: FC<SelectProps> = ({
       components={{ Option: isMulti ? Option : DefaultOption, Control: isSearchable ? SearchControl : IconControl }}
       /* removeSelected={false} */
       isMulti={isMulti}
+      color={color}
       closeMenuOnSelect={isMulti ? false : true}
       controlShouldRenderValue={isMulti ? false : true}
       backspaceRemovesValue={false}

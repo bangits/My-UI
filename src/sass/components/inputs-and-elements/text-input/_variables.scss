@@ -23,9 +23,8 @@ $base-text-field-variables: (
   input-label-focused-line-height: 1.5rem,
   input-corner-min-width: 1rem,
   input-corner-offset: 0.6rem,
-  <<<<<<< HEAD input-border-width: 0.1rem,
-  ======= input-border-width: 0.05rem,
-  >>>>>>> b696c52b901b6582d6bc1abf601ac70452ac32f7 input-hover-border-width: 0.1rem
+  input-border-width: 0.1rem,
+  input-hover-border-width: 0.1rem
 );
 
 @function getTextFieldSizes($property) {

@@ -21,8 +21,8 @@ const Select: FC<StateManagerProps & SelectProps> = ({
   selectAllValue = '*',
   selectAllLabel = 'All',
   className,
-  inputLabel,
-  inputSelectedLabel,
+  inputLabel = 'Select...',
+  inputSelectedLabel = 'Selected items: ',
   ...selectProps
 }) => {
   const [selectedOptions, setSelectedOptions] = useState(defaultValue || []);

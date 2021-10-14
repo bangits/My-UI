@@ -50,8 +50,6 @@ export const SearchControl = (props) => {
     };
   }, []);
 
-  console.log(props);
-
   return (
     // @ts-ignore
     <components.Control {...props}>

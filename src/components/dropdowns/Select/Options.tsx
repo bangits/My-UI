@@ -56,6 +56,9 @@ export const SearchControl = (props) => {
       <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
         <TextInput
           className='MyUi-Input'
+          error={props.selectProps.error}
+          warning={props.selectProps.warning}
+          success={props.selectProps.success}
           fullWidth
           onChange={(e) => {
             props.selectProps.onInputChange(e.target.value);

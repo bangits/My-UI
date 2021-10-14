@@ -1,3 +1,4 @@
+import { TextInputProps } from '@/components';
 import ReactSelect from '@my-ui/react-select';
 import { StateManagerProps } from '@my-ui/react-select/src/useStateManager';
 import classNames from 'classnames';
@@ -11,12 +12,18 @@ export type SelectProps = {
   selectAllValue?: string;
   inputLabel?: string;
   inputSelectedLabel?: string;
+  error?: boolean;
+  success?: boolean;
+  warning?: boolean;
 };
 
-const Select: FC<StateManagerProps & SelectProps> = ({
+const Select: FC<StateManagerProps & SelectProps & TextInputProps> = ({
   children,
   isSearchable,
   isMulti,
+  error,
+  success,
+  warning,
   defaultValue,
   selectAllValue = '*',
   selectAllLabel = 'All',
@@ -64,6 +71,9 @@ const Select: FC<StateManagerProps & SelectProps> = ({
     <div>
       <ReactSelect
         {...selectProps}
+        error={error}
+        success={success}
+        warning={warning}
         inputSelectedLabel={inputSelectedLabel}
         inputLabel={inputLabel}
         onChange={onChange}

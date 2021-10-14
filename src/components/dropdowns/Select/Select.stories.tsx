@@ -59,6 +59,9 @@ export const MultiSelect = () => (
       inputLabel={text('inputLabelMulti', 'Multi Select...')}
       inputSelectedLabel={text('inputSelectedLabel', 'Selected items: ')}
       isSearchable
+      success={boolean('success', false)}
+      error={boolean('error', false)}
+      warning={boolean('warning', false)}
       isMulti={boolean('isMulti', true)}
       options={object('multiSelectOptions', [
         {

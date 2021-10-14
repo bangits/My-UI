@@ -7,6 +7,7 @@
       border-style: solid;
       border-width: getCheckboxSizes(checkbox-border-width);
       border-radius: getCheckboxSizes(checkbox-border-radius);
+      @include theme(border-color, black-color);
 
       // Reset
       margin: 0;
@@ -36,9 +37,12 @@
   @each $color in $base-colors {
     .Checkbox--#{$color} {
       input {
-        @include theme(border-color, #{$color});
+        @if $color != 'primary' {
+          @include theme(border-color, #{$color});
+        }
 
         &:checked {
+          @include theme(border-color, #{$color});
           @include theme(background-color, #{$color});
         }
       }

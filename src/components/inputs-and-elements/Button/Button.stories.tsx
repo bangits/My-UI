@@ -51,7 +51,7 @@ export const WithIcons = () => (
               data-name='Path 15'
               d='M552 123h-14m0 0 7 7m-7-7 7-7'
               transform='translate(-536 -114)'
-              style={{ fill: 'none', stroke: '#999', strokeLinecap: 'round', strokeLinejoin: 'round' }}
+              style={{ fill: 'none', stroke: 'currentColor', strokeLinecap: 'round', strokeLinejoin: 'round' }}
             />
             <path data-name='Rectangle 677' style={{ fill: 'none' }} d='M0 0h18v18H0z' />
           </g>
@@ -72,7 +72,7 @@ export const WithIcons = () => (
               data-name='Path 15'
               d='M552 123h-14m0 0 7 7m-7-7 7-7'
               transform='translate(-536 -114)'
-              style={{ fill: 'none', stroke: '#999', strokeLinecap: 'round', strokeLinejoin: 'round' }}
+              style={{ fill: 'none', stroke: 'currentColor', strokeLinecap: 'round', strokeLinejoin: 'round' }}
             />
             <path data-name='Rectangle 677' style={{ fill: 'none' }} d='M0 0h18v18H0z' />
           </g>

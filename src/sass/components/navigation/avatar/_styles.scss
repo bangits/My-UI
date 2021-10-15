@@ -43,6 +43,8 @@
       right: getAvatarSizes(avatar-dropdown-card-positionRight);
       top: getAvatarSizes(avatar-dropdown-card-positionTop);
       height: fit-content;
+      box-shadow: 0 3px 6px 0 rgba(32, 32, 32, 0.1);
+      box-sizing: border-box;
 
       .AvatarDropdownDivider {
         width: getAvatarSizes(avatar-dropdown-divider-width);

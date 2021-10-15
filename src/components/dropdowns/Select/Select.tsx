@@ -83,6 +83,7 @@ const Select: FC<SelectProps> = ({
       /* removeSelected={false} */
       isMulti={isMulti}
       color={color}
+      option
       explanation={explanation}
       closeMenuOnSelect={isMulti ? false : true}
       controlShouldRenderValue={isMulti ? false : true}

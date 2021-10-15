@@ -30,6 +30,7 @@ export const DefaultOption = (props) => {
 
 export const SearchControl = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hoverValue, setHoverValue] = useState('');
 
   const menuToggle = useCallback(() => {
     isMenuOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();
@@ -54,15 +55,17 @@ export const SearchControl = (props) => {
           }}
           onClick={menuToggle}
           value={
-            props.selectProps.inputValue
+            props.isMulti
               ? props.selectProps.inputValue
-              : props.selectProps?.value.length > 0
-              ? props.selectProps?.value.length > 1
-                ? props.options.length === props.selectProps?.value.length
-                  ? props.options[0].label
-                  : `${props.selectProps.inputSelectedLabel} ${props.selectProps?.value.length}`
-                : props.selectProps?.value[0]?.label
-              : ''
+                ? props.selectProps.inputValue
+                : props.selectProps?.value.length > 0
+                ? props.selectProps?.value.length > 1
+                  ? props.options.length === props.selectProps?.value.length
+                    ? props.options[0].label
+                    : `${props.selectProps.inputSelectedLabel} ${props.selectProps?.value.length}`
+                  : props.selectProps?.value[0]?.label
+                : ''
+              : props.selectProps?.value?.label
           }
           label={props.selectProps.inputLabel}
           endIcon={

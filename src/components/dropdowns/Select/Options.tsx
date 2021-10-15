@@ -55,7 +55,9 @@ export const SearchControl = (props) => {
           }}
           onClick={menuToggle}
           value={
-            props.isMulti
+            isMenuOpen
+              ? props.selectProps.inputValue
+              : props.isMulti
               ? props.selectProps.inputValue
                 ? props.selectProps.inputValue
                 : props.selectProps?.value.length > 0

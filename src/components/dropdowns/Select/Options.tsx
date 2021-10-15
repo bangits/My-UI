@@ -64,16 +64,7 @@ export const SearchControl = (props) => {
                 : props.selectProps?.value[0]?.label
               : ''
           }
-          label={
-            !props.isMulti
-              ? props.selectProps.value
-                ? (props.selectProps?.value.length > 1 ? '' : props.selectProps?.value[0]?.label) ||
-                  props.selectProps?.value.label
-                  ? props.selectProps?.value[0]?.label || props.selectProps?.value.label
-                  : props.selectProps.inputLabel
-                : props.selectProps.inputLabel
-              : props.selectProps.inputLabel
-          }
+          label={props.selectProps.inputLabel}
           endIcon={
             <div className={classNames(styles['Select--icon-container'])}>
               {isMenuOpen ? <DropdownArrowIconUp /> : <DropdownArrowIconDown />}

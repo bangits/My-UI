@@ -5,6 +5,7 @@
     "noEmit": false,
     "allowJs": false,
     "emitDeclarationOnly": true,
+    "skipDefaultLibCheck": true,
     "declarationDir": "dist",
     "rootDir": "src",
     "moduleResolution": "Node",
@@ -14,7 +15,6 @@
     "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
     "paths": {
-      // This paths synchronized with webpack shared config
       "@/*": ["*"]
     },
     "skipLibCheck": true

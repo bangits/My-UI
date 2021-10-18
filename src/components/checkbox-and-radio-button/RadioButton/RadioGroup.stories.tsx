@@ -13,9 +13,9 @@ export default {
 export const DefaultRadioGroup = () => {
   return (
     <RadioGroup defaultValue='female'>
-      <RadioButton value='male' label='Male' style={{ marginBottom: 5 }} />
-      <RadioButton value='female' label='Female' style={{ marginBottom: 5 }} />
-      <RadioButton value='other' label='Other' />
+      <RadioButton value='male' style={{ marginBottom: 5 }} />
+      <RadioButton value='female' style={{ marginBottom: 5 }} />
+      <RadioButton value='other' />
     </RadioGroup>
   );
 };

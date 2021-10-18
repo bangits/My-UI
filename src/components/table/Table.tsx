@@ -84,6 +84,7 @@ const Table = <T extends ObjectMock>({
   actions
 }: TableProps<T>) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable<T>(
+    // @ts-ignore
     { columns, data },
     useSortBy,
     ...(isResizing ? [useFlexLayout, useResizeColumns] : []),

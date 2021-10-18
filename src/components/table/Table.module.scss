@@ -8,10 +8,6 @@
   .TableBody {
     tr {
       &:hover {
-        td > div {
-          font-weight: 700;
-        }
-
         .ActionTableCell {
           padding: 0;
           display: flex;

@@ -1485,10 +1485,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@my-ui/react-datepicker@1.1.0":
-  version "1.1.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-datepicker/-/react-datepicker-1.1.0.tgz#6b08c6b3988346e0dcc07ecd436561eef3a5833b"
-  integrity sha1-awjGs5iDRuDcwH7NQ2Vh7vOlgzs=
+"@my-ui/react-datepicker@^1.3.0":
+  version "1.3.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-datepicker/-/react-datepicker-1.3.0.tgz#0b86e7983de45aedeb5b45711fac301d8a2bdf79"
+  integrity sha1-C4bnmD3kWu3rW0VxH6wwHYor33k=
   dependencies:
     "@popperjs/core" "^2.9.2"
     classnames "^2.2.6"
@@ -1510,10 +1510,10 @@
     prop-types "^15.6.0"
     react-transition-group "^4.3.0"
 
-"@my-ui/react-table@^1.0.0":
-  version "1.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-table/-/react-table-1.0.0.tgz#c1f31ebb04bd2535ef0c59a438417e85bc60518b"
-  integrity sha1-wfMeuwS9JTXvDFmkOEF+hbxgUYs=
+"@my-ui/react-table@^1.2.0":
+  version "1.2.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-table/-/react-table-1.2.0.tgz#44f2152c680d56684636ea45c62f128c3d78f632"
+  integrity sha1-RPIVLGgNVmhGNupFxi8SjD149jI=
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -4921,6 +4921,14 @@ compressible@~2.0.16:
   integrity sha1-r1PMprBw1MPAdQ+9dyhqbXzEb7o=
   dependencies:
     mime-db ">= 1.43.0 < 2"
+
+compression-webpack-plugin@^9.0.0:
+  version "9.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/compression-webpack-plugin/-/compression-webpack-plugin-9.0.0.tgz#38b4e18313f5d704c453ab5645e38a5805ba5889"
+  integrity sha1-OLThgxP11wTEU6tWReOKWAW6WIk=
+  dependencies:
+    schema-utils "^3.1.0"
+    serialize-javascript "^6.0.0"
 
 compression@^1.7.4:
   version "1.7.4"
@@ -11940,11 +11948,6 @@ signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   version "3.0.5"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/signal-exit/-/signal-exit-3.0.5.tgz#9e3e8cc0c75a99472b44321033a7702e7738252f"
   integrity sha1-nj6MwMdamUcrRDIQM6dwLnc4JS8=
-
-single-spa-react@^4.2.0:
-  version "4.4.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/single-spa-react/-/single-spa-react-4.4.0.tgz#c28ccc0531d752745270bc1bb69126ba3d5686c1"
-  integrity sha1-wozMBTHXUnRScLwbtpEmuj1WhsE=
 
 sirv@^1.0.7:
   version "1.0.17"

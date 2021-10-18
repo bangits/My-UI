@@ -8,7 +8,7 @@ import { Consumer } from './RadioContext';
 export interface RadioButtonProps extends IComponent, React.InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   color?: UIColors;
-  value?: string;
+  value?: string | number;
 }
 
 const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
@@ -29,7 +29,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
               <input
                 {...radioProps}
                 type='radio'
-                id={value}
+                id={value.toString()}
                 value={value}
                 name={name}
                 checked={radioGroupProps.value ? radioGroupProps.value === value : checked}
@@ -37,7 +37,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
                 ref={ref}
               />
 
-              <label htmlFor={value} />
+              <label htmlFor={value.toString()} />
             </div>
           );
         }}

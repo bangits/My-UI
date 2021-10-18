@@ -1,7 +1,7 @@
 import { Typography, TypographyProps } from '@/components';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
-import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react';
+import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import styles from './TextInput.module.scss';
 export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   color?: UIColors;
@@ -32,7 +32,6 @@ const TextInputs: FC<TextInputProps> = ({
   const { defaultValue, value, disabled, type, maxLength, onChange } = props;
 
   const [currentValue, setCurrentValue] = useState(value || defaultValue);
-  const [isFocused, setFocused] = useState(false);
 
   const onInputChange: TextInputProps['onChange'] = useCallback(
     (e) => {
@@ -61,28 +60,6 @@ const TextInputs: FC<TextInputProps> = ({
     [props.onInput]
   );
 
-  useEffect(() => {
-    if (!defaultValue) setCurrentValue(value);
-  }, [value]);
-
-  const onBlur: TextInputProps['onBlur'] = useCallback(
-    (evt) => {
-      setFocused(false);
-
-      if (props.onBlur) props.onBlur(evt);
-    },
-    [props.onBlur]
-  );
-
-  const onFocus: TextInputProps['onFocus'] = useCallback(
-    (evt) => {
-      setFocused(true);
-
-      if (props.onFocus) props.onFocus(evt);
-    },
-    [props.onFocus]
-  );
-
   return (
     <div
       className={classNames(
@@ -92,9 +69,7 @@ const TextInputs: FC<TextInputProps> = ({
           [styles[`TextInputContainer--${color}`]]: color,
           [styles['TextInputContainer--disabled']]: disabled,
           [styles['TextInputContainer--withLeftIcon']]: !!startIcon,
-          [styles['TextInputContainer--withRightIcon']]: !!endIcon,
-          [styles['TextInputContainer--focused']]: isFocused,
-          [styles['TextInputContainer--filled']]: !!currentValue
+          [styles['TextInputContainer--withRightIcon']]: !!endIcon
         },
         containerClassName
       )}>
@@ -113,8 +88,6 @@ const TextInputs: FC<TextInputProps> = ({
             className
           )}
           {...props}
-          onFocus={onFocus}
-          onBlur={onBlur}
           onKeyDown={onKeyDown}
           onInput={onInput}
           onChange={onInputChange}
@@ -125,12 +98,11 @@ const TextInputs: FC<TextInputProps> = ({
       </label>
 
       {explanation && (
-        <Typography className={styles.Explanation} variant='p5' component='span'>
+        <Typography className={styles.Explanation} variant='p4' component='span'>
           {explanation}
         </Typography>
       )}
     </div>
   );
 };
-
 export default TextInputs;

@@ -4,7 +4,6 @@ import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
 import React, { useCallback, useState } from 'react';
 import styles from './Select.module.scss';
-
 export const Option = (props) => {
   return (
     <div>
@@ -18,7 +17,6 @@ export const DefaultOption = (props) => {
   const handleClick = useCallback((e) => {
     e.target.closest('.MyUI-Select').querySelector('input').blur();
   }, []);
-
   return (
     <div onClick={handleClick}>
       <components.Option {...props}>
@@ -27,16 +25,13 @@ export const DefaultOption = (props) => {
     </div>
   );
 };
-
 export const SearchControl = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoverValue, setHoverValue] = useState('');
-
   const menuToggle = useCallback(() => {
     isMenuOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();
     setIsMenuOpen(!isMenuOpen);
   }, [isMenuOpen]);
-
   return (
     // @ts-ignore
     <components.Control {...props}>
@@ -83,12 +78,10 @@ export const SearchControl = (props) => {
 
 export const IconControl = ({ ...props }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const menuToggle = useCallback(() => {
     isMenuOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();
     setIsMenuOpen(!isMenuOpen);
   }, [isMenuOpen]);
-
   return (
     // @ts-ignore
     <components.Control {...props}>

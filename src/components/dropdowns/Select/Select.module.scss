@@ -1,20 +1,3 @@
 .Select {
-  .Select--search {
-    width: 23rem;
-  }
-
-  .Select--icon-container {
-    display: flex;
-  }
-
   @include generate-select-styles;
-
-  &--fullWidth {
-    .Select--search {
-      width: 100%;
-      height: 3.8rem;
-    }
-
-    @include generate-full-width-select-styles;
-  }
 }

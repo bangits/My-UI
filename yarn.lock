@@ -1497,10 +1497,10 @@
     react-onclickoutside "^6.10.0"
     react-popper "^2.2.5"
 
-"@my-ui/react-select@1.1.2":
-  version "1.1.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.2.tgz#eadbf12fa5bea620eb21dc31a1de1ee58df5ed07"
-  integrity sha1-6tvxL6W+piDrIdwxod4e5Y317Qc=
+"@my-ui/react-select@1.1.0":
+  version "1.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.0.tgz#eedf27470d385e4659a491489b1eb9ebb3ea4099"
+  integrity sha1-7t8nRw04XkZZpJFImx6567PqQJk=
   dependencies:
     "@babel/runtime" "^7.12.0"
     "@emotion/cache" "^11.4.0"
@@ -2807,11 +2807,6 @@
   version "7.0.9"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/json-schema/-/json-schema-7.0.9.tgz#97edc9037ea0c38585320b28964dde3b39e4660d"
   integrity sha1-l+3JA36gw4WFMgsolk3eOznkZg0=
-
-"@types/json5@^0.0.29":
-  version "0.0.29"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
-  integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
 "@types/markdown-to-jsx@^6.11.3":
   version "6.11.3"
@@ -12425,11 +12420,6 @@ strip-ansi@^7.0.0:
   dependencies:
     ansi-regex "^6.0.1"
 
-strip-bom@^3.0.0:
-  version "3.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
-  integrity sha1-IzTBjpx1n3vdVv3vfprj1YjmjtM=
-
 strip-eof@^1.0.0:
   version "1.0.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/strip-eof/-/strip-eof-1.0.0.tgz#bb43ff5598a6eb05d89b59fcd129c983313606bf"
@@ -12880,24 +12870,6 @@ ts-pnp@^1.1.6:
   version "1.2.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha1-pQCtCEsHmPHDBxrzkeZZEshrypI=
-
-tsconfig-paths@^3.11.0:
-  version "3.11.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/tsconfig-paths/-/tsconfig-paths-3.11.0.tgz#954c1fe973da6339c78e06b03ce2e48810b65f36"
-  integrity sha1-lUwf6XPaYznHjgawPOLkiBC2XzY=
-  dependencies:
-    "@types/json5" "^0.0.29"
-    json5 "^1.0.1"
-    minimist "^1.2.0"
-    strip-bom "^3.0.0"
-
-tscpaths@^0.0.9:
-  version "0.0.9"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/tscpaths/-/tscpaths-0.0.9.tgz#c77abfde6820920f10c64f83c27753b9505814ab"
-  integrity sha1-x3q/3mggkg8Qxk+DwndTuVBYFKs=
-  dependencies:
-    commander "^2.20.0"
-    globby "^9.2.0"
 
 tslib@^1.8.1:
   version "1.14.1"

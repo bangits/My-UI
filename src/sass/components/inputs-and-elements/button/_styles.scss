@@ -1,9 +1,7 @@
 @mixin generate-button-styles {
   .ButtonBase {
     @include center-flex();
-
     height: getButtonSizes(button-height);
-
     padding: getButtonSizes(button-padding);
     border-radius: getButtonSizes(button-border-radius);
     font-size: getButtonSizes(button-font-size);

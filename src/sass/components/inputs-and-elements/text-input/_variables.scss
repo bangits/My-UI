@@ -1,8 +1,8 @@
 $base-text-field-variables: (
+  input-container: 6rem,
   input-width: 28rem,
   input-font-size: 1.4rem,
   input-min-height: 3.8rem,
-  input-container-max-height: 4.4rem,
   input-disabled: 0.5,
   input-label-height: 1.4rem,
   input-icon-size: 2.4rem,
@@ -12,7 +12,7 @@ $base-text-field-variables: (
   icon-margin: 1.3rem,
   icon-margin-left: 0.9rem,
   icon-margin-right: 0.8rem,
-  explanation-margin: 0.4rem,
+  explanation-margin: 0,
   input-label-offset: 0.53rem,
   input-label-offset--with-icons: 2.7rem,
   label-transition: 0.2s,
@@ -23,7 +23,7 @@ $base-text-field-variables: (
   input-label-focused-line-height: 1.5rem,
   input-corner-min-width: 1rem,
   input-corner-offset: 0.6rem,
-  input-border-width: 0.1rem,
+  input-border-width: 0.05rem,
   input-hover-border-width: 0.1rem
 );
 

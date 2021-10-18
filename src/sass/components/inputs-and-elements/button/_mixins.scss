@@ -1,17 +1,15 @@
 // This mixins is used for generating button styles(including ghost state)
 
 @mixin getButtonStyles($color-name) {
-  .startIcon,
-  .endIcon {
-    @include theme(color, #{$color-name}--color);
+  @include theme(background-color, #{$color-name});
+  @include theme(color, #{$color-name}--color);
+
+  &:hover {
+    @include theme(background-color, #{$color-name}--light);
   }
 
-  &,
-  &:hover,
-  &:focus,
   &:active {
-    @include theme(background-color, #{$color-name});
-    @include theme(color, #{$color-name}--color);
+    @include theme(background-color, #{$color-name}--bold);
   }
 
   &:disabled {
@@ -20,26 +18,20 @@
 }
 
 @mixin getButtonGhostStyles($color-name) {
-  .startIcon,
-  .endIcon {
-    @include theme(color, #{$color-name});
-  }
-
-  &,
-  &:active {
-    background-color: transparent;
-  }
-
   @include theme(color, #{$color-name});
+  @include theme(background-color, #{$color-name}--color);
 
   @include theme(border-color, #{$color-name});
 
-  &:hover,
-  &:focus {
+  &:hover {
     @include theme(background-color, #{$color-name}--transparent);
   }
 
   &:disabled {
     @include theme(opacity, disabled-opacity);
+  }
+
+  &:active {
+    @include theme(background-color, #{$color-name}--pressed);
   }
 }

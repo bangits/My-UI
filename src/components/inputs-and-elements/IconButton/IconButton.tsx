@@ -10,17 +10,15 @@ export type IconButtonVariants = 'dark' | 'light';
 export interface IconButtonProps extends Omit<ButtonProps, 'variant'>, IComponent {
   icon?: ReactNode;
   variant?: IconButtonVariants;
-  isActive?: boolean;
 }
 
-const IconButton: FC<IconButtonProps> = ({ icon, variant, isActive, className }) => {
+const IconButton: FC<IconButtonProps> = ({ icon, variant = 'dark', className }) => {
   return (
     <button
       className={classNames(
         styles.IconButtonBase,
         {
-          [styles[`IconButtonBase--${variant ? variant : 'dark'}`]]: variant ? variant : 'dark',
-          [styles[`IconButtonBase--active`]]: isActive
+          [styles[`IconButtonBase--${variant}`]]: variant
         },
         className
       )}>

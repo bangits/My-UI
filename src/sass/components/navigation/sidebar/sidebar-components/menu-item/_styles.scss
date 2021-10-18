@@ -9,10 +9,8 @@
     cursor: pointer;
 
     &--isActive {
-      /*       @include them(background-color, primary--transparent);
- */
       height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-height);
-      background-color: #f5f6fb;
+      background-color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-background-color);
       border-radius: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-borderRadius);
 
       &::after {
@@ -59,7 +57,7 @@
 
     &:hover {
       height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-height);
-      background-color: #f5f6fb;
+      background-color: map-get($sidebar-menu-item-colors, sidebar-menu-item-hover-background-color);
       border-radius: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-borderRadius);
       margin-bottom: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-marginB);
 
@@ -105,8 +103,7 @@
         .MenuItemBase--sub-header {
           display: block;
           align-self: flex-start;
-
-          margin: map-get($sidebar-menu-item-sizes, hover-sub-menu-header-margin);
+          margin-left: map-get($sidebar-menu-item-sizes, hover-sub-menu-header-marginL);
           font-size: map-get($sidebar-menu-item-sizes, hover-sub-menu-header-font-size);
           font-weight: map-get($sidebar-menu-item-sizes, hover-sub-menu-header-font-weight);
           color: map-get($sidebar-menu-item-colors, hover-sub-menu-header-color);

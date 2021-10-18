@@ -1,6 +1,5 @@
-import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import Badge from './Badge';
-import { NotificationIcon } from '@/icons';
 
 export default {
   component: Badge,
@@ -9,9 +8,5 @@ export default {
 };
 
 export const Default = () => {
-  return (
-    <>
-      <Badge icon={<NotificationIcon />} quantity={number('quantity', 7)} />
-    </>
-  );
+  return <Badge />;
 };

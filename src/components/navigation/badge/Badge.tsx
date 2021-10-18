@@ -1,20 +1,7 @@
-import React, { FC, ReactNode } from 'react';
-import { IComponent } from '@/types';
-import styles from './Badge.module.scss';
-import classNames from 'classnames';
-import { typedMemo } from '@/helpers';
-export interface BadgeProps extends IComponent {
-  quantity?: number;
-  icon?: ReactNode;
-}
+import React from 'react';
 
-const Badge: FC<BadgeProps> = ({ quantity, icon, className }) => {
-  return (
-    <div className={classNames(styles.BadgeContainer, className)}>
-      {icon}
-      <span className={styles.BadgeNumber}>{quantity}</span>
-    </div>
-  );
+const Badge = () => {
+  return <>Badge</>;
 };
 
-export default typedMemo(Badge);
+export default Badge;

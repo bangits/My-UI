@@ -4,7 +4,7 @@ $checkbox-sizes: (
   checkbox-border-width: calculateRem(1px),
   checkbox-border-radius: calculateRem(4px),
   checkbox-check-width: calculateRem(9.1px),
-  checkbox-check-height: calculateRem(7.3px)
+  checkbox-check-height: calculateRem(6.3px)
 );
 
 @function getCheckboxSizes($property) {

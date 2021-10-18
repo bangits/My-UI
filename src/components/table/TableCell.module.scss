@@ -2,14 +2,15 @@
   display: flex;
   background: transparent;
   white-space: nowrap;
+  padding: 1.8rem 1.4rem 0;
   box-sizing: border-box;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #505d6e;
+  color: #7c84ab;
   width: 20%;
+  height: 5.2rem;
   font-weight: 300;
   text-align: left;
-  margin: 0 1.6rem;
 
   &:last-child {
     border-bottom: none;
@@ -32,9 +33,9 @@
 .TableCell--center {
   justify-content: center;
 }
-.TableCell--left {
+.TableCell--start {
   justify-content: start;
 }
-.TableCell--right {
+.TableCell--end {
   justify-content: flex-end;
 }

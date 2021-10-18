@@ -75,6 +75,7 @@ export const SearchControl = (props) => {
     </components.Control>
   );
 };
+
 export const IconControl = ({ ...props }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuToggle = useCallback(() => {

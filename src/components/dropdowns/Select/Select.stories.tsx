@@ -19,6 +19,7 @@ export const Default = () => (
         {
           danger: 'danger',
           warning: 'warning',
+          success: 'success',
           primary: 'primary'
         },
         'primary',
@@ -73,6 +74,7 @@ export const Default = () => (
         {
           danger: 'danger',
           warning: 'warning',
+          success: 'success',
           primary: 'primary'
         },
         'primary',

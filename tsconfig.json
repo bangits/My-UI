@@ -8,6 +8,7 @@
     "moduleResolution": "Node",
     "jsx": "react-jsx",
     "baseUrl": "src",
+    "downlevelIteration": true,
     "paths": {
       // This paths synchronizd with webpack shared config
       "@/*": ["*"]

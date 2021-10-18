@@ -31,13 +31,15 @@ const Select: FC<SelectProps> = ({
   inputSelectedLabel = 'Selected items: ',
   ...selectProps
 }) => {
-  const [selectedOptions, setSelectedOptions] = useState(defaultValue || []);
+  const [selectedOptions, setSelectedOptions] = useState((defaultValue as []) || []);
 
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
 
   const onChange = useCallback<Props['onChange']>(
     (selectedOptions: [], event) => {
       const selectedOptionValue = (event.option as { value?: string | undefined })?.value;
+
+      const allOptions = selectedOptions;
 
       if (event.action === 'select-option' && selectedOptionValue === selectAllValue) {
         const allOptions = selectProps.options;
@@ -51,6 +53,7 @@ const Select: FC<SelectProps> = ({
       } else if (event.action === 'deselect-option' && selectedOptionValue !== selectAllValue) {
         //@ts-ignore
         const filteredOptions = selectedOptions.filter((option) => option.value !== selectAllValue);
+
         setSelectedOptions([...filteredOptions]);
         if (selectProps.onChange) selectProps.onChange([...filteredOptions], event);
       } else if (selectProps.options.length === selectedOptions.length) {
@@ -63,8 +66,19 @@ const Select: FC<SelectProps> = ({
         if (selectProps.onChange) selectProps.onChange(selectedOptions, event);
       }
     },
-    [selectProps.onChange, selectProps.options, selectProps.value, selectAllValue, allOption]
+    [selectProps.onChange, selectProps.options, selectProps.value, selectAllValue, allOption, selectedOptions]
   );
+
+  const sortedOptions = useMemo(() => {
+    if (!Array.isArray(selectedOptions)) return;
+
+    const sortOptions = new Set<[]>([
+      ...selectedOptions?.filter((option) => option.value !== '*'),
+      ...selectProps.options
+    ]);
+
+    return sortOptions;
+  }, [selectedOptions, selectProps.options]);
 
   return (
     <ReactSelect
@@ -83,6 +97,7 @@ const Select: FC<SelectProps> = ({
       /* removeSelected={false} */
       isMulti={isMulti}
       color={color}
+      option
       explanation={explanation}
       closeMenuOnSelect={isMulti ? false : true}
       controlShouldRenderValue={isMulti ? false : true}
@@ -96,7 +111,7 @@ const Select: FC<SelectProps> = ({
         'MyUI-Select',
         className
       )}
-      options={isMulti ? [allOption, ...selectProps.options] : selectProps.options}
+      options={isMulti ? [allOption, ...sortedOptions] : selectProps.options}
     />
   );
 };

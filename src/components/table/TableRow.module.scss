@@ -9,10 +9,14 @@
   }
 }
 
-.TableRow--hover,
 .TableRow--selected {
-  background-color: #f4f7fe;
+  box-shadow: 3px 3px 6px 0 rgba(32, 32, 32, 0.05);
   div {
     font-weight: 700;
   }
+}
+
+.TableRow--hover,
+.TableRow--selected {
+  background-color: #f4f7fe;
 }

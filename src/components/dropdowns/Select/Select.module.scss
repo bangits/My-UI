@@ -1,17 +1,61 @@
 .Select {
+  position: relative;
   .Select--search {
-    width: 23rem;
+    width: 28rem;
+  }
+
+  .AllOption {
+    &:first-child {
+      position: absolute;
+      z-index: 10000;
+      width: 27.2rem;
+      background-color: #ffffff;
+      margin-bottom: 10rem;
+      div {
+        border-bottom: none;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+    &:nth-child(2) {
+      margin-top: 3.1rem;
+      border-top: solid 1px rgba(43, 54, 116, 0.05);
+    }
   }
 
   .Select--icon-container {
     display: flex;
   }
 
+  .Select--clear-button {
+    display: flex;
+    align-items: center;
+    margin-left: 0.4rem;
+    position: absolute;
+    z-index: 999999;
+    top: 33.5rem;
+    width: 27.2rem;
+    height: 3.2rem;
+    background-color: #ffffff;
+    cursor: pointer;
+    div {
+      width: 2.4rem;
+      height: 2.4rem;
+      color: #8ea6c1;
+    }
+    span {
+      height: 1.4rem;
+      font-size: 1.2rem;
+      color: #8ea6c1;
+      padding-left: 0.4rem;
+    }
+  }
+
   @include generate-select-styles;
 
   &--fullWidth {
     .Select--search {
-      width: 100%;
       height: 3.8rem;
     }
 

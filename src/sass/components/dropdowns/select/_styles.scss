@@ -1,6 +1,6 @@
 @mixin generate-select-styles {
   :global {
-    width: 23rem;
+    width: 28rem;
     box-sizing: border-box;
     position: relative;
 
@@ -20,28 +20,46 @@
       }
 
       &__menu {
-        position: relative;
+        position: absolute;
         z-index: 9999;
-        top: 0.4rem;
+        top: 4.73rem;
+        width: 28rem;
+        height: 32rem;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
+        border-radius: 0.8rem;
+        box-sizing: border-box;
       }
 
       &__menu-list {
-        position: absolute;
-        box-sizing: border-box;
-        width: 23rem;
-        box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
-        padding: 0rem 0.4rem 0.05rem 0.4rem;
-        border-radius: 0.8rem;
+        width: 27.2rem;
         background-color: #ffffff;
-        height: 200px;
+        height: 32rem;
         overflow: hidden;
         overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+          width: 0.4rem;
+        }
+        &::-webkit-scrollbar-track {
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #e8edf3;
+          border-radius: 0.8rem;
+          min-height: 16.4rem;
+        }
 
         div:last-child {
           div {
             border-bottom: none;
           }
         }
+      }
+
+      &__menu-list--is-multi {
+        height: 28.9rem;
       }
 
       &__option {
@@ -52,8 +70,8 @@
         cursor: pointer;
 
         &:hover {
+          margin: 0;
           background-color: #f5f6fb;
-          border-radius: 0.4rem;
         }
 
         label {

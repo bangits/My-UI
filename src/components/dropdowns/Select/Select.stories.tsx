@@ -1,4 +1,4 @@
-import { boolean, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import Select from './Select';
 
@@ -14,6 +14,7 @@ export const Default = () => (
       menuIsOpen={boolean('isMenuOpenSingle', true)}
       inputLabel={text('inputLabelSingle', 'Single Select...')}
       isSearchable
+      maxLength={number('maxLengthSingleSelect', 20)}
       color={optionsKnob(
         'color',
         {
@@ -63,11 +64,36 @@ export const Default = () => (
         {
           label: 'Animals',
           value: 10
+        },
+        {
+          label: 'Food',
+          value: 8
+        },
+        {
+          label: 'Branded',
+          value: 9
+        },
+        {
+          label: 'Animals',
+          value: 10
+        },
+        {
+          label: 'Food',
+          value: 8
+        },
+        {
+          label: 'Branded',
+          value: 9
+        },
+        {
+          label: 'Animals',
+          value: 10
         }
       ])}
     />
     <Select
       inputLabel={text('inputLabelSingle', 'Single Select...')}
+      maxLength={number('maxLengthSingleSelect', 20)}
       isSearchable
       color={optionsKnob(
         'color',
@@ -127,9 +153,12 @@ export const Default = () => (
 export const MultiSelect = () => (
   <>
     <Select
+      clearButton
+      clearButtonLabel={text('clearButtonLabel', 'Clear')}
+      maxLength={number('maxLengthMultiSelect', 50)}
       menuIsOpen={boolean('isMenuOpenMulti', true)}
       inputLabel={text('inputLabelMulti', 'Multi Select...')}
-      inputSelectedLabel={text('inputSelectedLabel', 'Selected items: ')}
+      inputSelectedLabel={text('inputSelectedLabel', 'Selected ')}
       explanation={text('explanation', '')}
       isSearchable
       color={optionsKnob(
@@ -186,8 +215,11 @@ export const MultiSelect = () => (
     />
 
     <Select
+      clearButton
+      clearButtonLabel={text('clearButtonLabel', 'Clear')}
       inputLabel={text('inputLabelMulti', 'Multi Select...')}
-      inputSelectedLabel={text('inputSelectedLabel', 'Selected items: ')}
+      maxLength={number('maxLengthMultiSelect', 50)}
+      inputSelectedLabel={text('inputSelectedLabel', 'Selected ')}
       explanation={text('explanation', '')}
       isSearchable
       color={optionsKnob(

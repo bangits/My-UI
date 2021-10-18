@@ -54,11 +54,11 @@
 
   @include generate-select-styles;
 
-  &--fullWidth {
+  /* &--fullWidth {
     .Select--search {
       height: 3.8rem;
     }
 
     @include generate-full-width-select-styles;
-  }
+  } */
 }

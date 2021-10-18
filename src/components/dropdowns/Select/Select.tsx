@@ -1,13 +1,77 @@
-import ReactSelect from '@my-ui/react-select';
-import { StateManagerProps } from '@my-ui/react-select/src/useStateManager';
-import React, { FC } from 'react';
+import { UIColors } from '@/types';
+import ReactSelect, { Props } from '@my-ui/react-select';
+import classNames from 'classnames';
+import React, { FC, useCallback, useMemo, useState } from 'react';
+import { DefaultOption, IconControl, Option, SearchControl } from './Options';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
-
-const Select: FC<StateManagerProps> = ({ children, isMulti, ...selectProps }) => {
+export type SelectProps = {
+  selectAllLabel?: string;
+  selectAllValue?: string;
+  inputLabel?: string;
+  inputSelectedLabel?: string;
+  explanation?: string;
+  fullWidth?: boolean;
+  color?: UIColors;
+} & Props;
+const Select: FC<SelectProps> = ({
+  children,
+  isSearchable = true,
+  fullWidth = false,
+  explanation,
+  isMulti,
+  color,
+  defaultValue,
+  selectAllValue = '*',
+  selectAllLabel = 'All',
+  className,
+  inputLabel = 'Select...',
+  inputSelectedLabel = 'Selected items: ',
+  ...selectProps
+}) => {
+  const [selectedOptions, setSelectedOptions] = useState((defaultValue as []) || []);
+  const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
+  const onChange = useCallback<Props['onChange']>(
+    (selectedOptions: [], event) => {
+      const selectedOptionValue = (event.option as { value?: string | undefined })?.value;
+      const allOptions = selectedOptions;
+      if (event.action === 'select-option' && selectedOptionValue === selectAllValue) {
+        const allOptions = selectProps.options;
+        setSelectedOptions([allOption, ...allOptions]);
+        if (selectProps.onChange) selectProps.onChange([allOption, ...allOptions], event);
+      } else if (event.action === 'deselect-option' && selectedOptionValue === selectAllValue) {
+        setSelectedOptions([]);
+        if (selectProps.onChange) selectProps.onChange([], event);
+      } else if (event.action === 'deselect-option' && selectedOptionValue !== selectAllValue) {
+        //@ts-ignore
+        const filteredOptions = selectedOptions.filter((option) => option.value !== selectAllValue);
+        setSelectedOptions([...filteredOptions]);
+        if (selectProps.onChange) selectProps.onChange([...filteredOptions], event);
+      } else if (selectProps.options.length === selectedOptions.length) {
+        const allOptions = selectProps.options;
+        setSelectedOptions([allOption, ...allOptions]);
+        if (selectProps.onChange) selectProps.onChange([allOption, ...allOptions], event);
+      } else {
+        setSelectedOptions(selectedOptions);
+        if (selectProps.onChange) selectProps.onChange(selectedOptions, event);
+      }
+    },
+    [selectProps.onChange, selectProps.options, selectProps.value, selectAllValue, allOption, selectedOptions]
+  );
+  const sortedOptions = useMemo(() => {
+    if (!Array.isArray(selectedOptions)) return;
+    const sortOptions = new Set<[]>([
+      ...selectedOptions?.filter((option) => option.value !== '*'),
+      ...selectProps.options
+    ]);
+    return sortOptions;
+  }, [selectedOptions, selectProps.options]);
   return (
     <ReactSelect
-      className={styles.Select}
+      {...selectProps}
+      inputSelectedLabel={inputSelectedLabel}
+      inputLabel={inputLabel}
+      onChange={onChange}
       /*eslint-disable */
       //@ts-ignore ignored because we need to reset all css styles
       styles={resetStyles}
@@ -15,16 +79,26 @@ const Select: FC<StateManagerProps> = ({ children, isMulti, ...selectProps }) =>
       isClearable={false}
       hideSelectedOptions={false}
       classNamePrefix='react-select'
-      placeholder='Select me sfasdf'
-      isSearchable={false}
-      menuIsOpen={true}
+      components={{ Option: isMulti ? Option : DefaultOption, Control: isSearchable ? SearchControl : IconControl }}
       /* removeSelected={false} */
       isMulti={isMulti}
+      color={color}
+      option
+      explanation={explanation}
       closeMenuOnSelect={isMulti ? false : true}
       controlShouldRenderValue={isMulti ? false : true}
-      {...selectProps}
+      backspaceRemovesValue={false}
+      value={selectedOptions}
+      className={classNames(
+        styles.Select,
+        {
+          [styles[`Select--fullWidth`]]: fullWidth
+        },
+        'MyUI-Select',
+        className
+      )}
+      options={isMulti ? [allOption, ...sortedOptions] : selectProps.options}
     />
   );
 };
-
 export default Select;

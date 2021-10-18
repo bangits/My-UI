@@ -39,7 +39,6 @@ const Sidebar: FC<SidebarProps> = ({ width, color, position, collapsedWidth, log
 
         <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}>
           <IconButton
-            variant='light'
             icon={sidebar ? <IconButtonRight /> : <IconButtonLeft />}
             className={classNames(styles['SidebarBase--button'])}
           />

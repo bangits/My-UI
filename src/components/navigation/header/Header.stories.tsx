@@ -1,7 +1,6 @@
-import { withKnobs, text, number } from '@storybook/addon-knobs';
-import Header from './Header';
 import { HomeIcon, NotificationIcon } from '@/icons';
-import AvatarImg from '@/images/avatar.png';
+import { number, text, withKnobs } from '@storybook/addon-knobs';
+import Header from './Header';
 
 export default {
   component: Header,
@@ -14,7 +13,7 @@ export const Default = () => {
     <Header
       notificationProps={{ icon: <NotificationIcon />, quantity: number('quantity', 7) }}
       avatarProps={{
-        imageSource: AvatarImg,
+        imageSource: text('imageSource', 'https://avatars.design/wp-content/uploads/2016/09/28_GIF.gif'),
         avatarLabel: text('avatarLabel', 'Evgenia'),
         dropdownTitle: text('dropdownTitle', 'Profile Settings'),
         topButtonLabel: text('topButtonLabel', 'View Profile'),

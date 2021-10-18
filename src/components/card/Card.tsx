@@ -7,12 +7,11 @@ import styles from './Card.module.scss';
 export interface CardProps extends IComponent {
   component?: ComponentType;
   borderRadius?: number;
-  boxShadow?: string;
 }
 
-const Card: FC<CardProps> = ({ component: Component = 'div', boxShadow, borderRadius, className, ...cardProps }) => {
+const Card: FC<CardProps> = ({ component: Component = 'div', borderRadius, className, ...cardProps }) => {
   const classes = useStyles({
-    card: { borderRadius: `${borderRadius}rem`, boxShadow }
+    card: { borderRadius: `${borderRadius}rem` }
   });
 
   return <Component {...cardProps} className={classNames(styles.CardBase, classes.card, className)} />;

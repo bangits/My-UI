@@ -3,7 +3,7 @@ $transition-duration: getTextFieldSizes(label-transition);
 @mixin generate-text-input-styles {
   .Explanation {
     display: block;
-    margin: getTextFieldSizes(explanation-margin) 0;
+    margin-top: getTextFieldSizes(explanation-margin);
     @include theme(color, default-input-color);
   }
 
@@ -25,6 +25,10 @@ $transition-duration: getTextFieldSizes(label-transition);
 
     &:hover {
       border-width: getTextFieldSizes(input-hover-border-width);
+    }
+
+    &:disabled {
+      opacity: getTextFieldSizes(input-disabled);
     }
 
     // Sizes
@@ -69,7 +73,6 @@ $transition-duration: getTextFieldSizes(label-transition);
     &:focus,
     &--filled {
       @include theme(color, primary);
-      @include theme(border-color, primary);
 
       box-shadow: inset 1px 0 inherit, inset -1px 0 inherit, inset 0 -1px inherit;
       outline: none;
@@ -168,23 +171,8 @@ $transition-duration: getTextFieldSizes(label-transition);
     right: getTextFieldSizes(icon-margin-right);
   }
 
-  .StartIcon,
-  .EndIcon {
-    @include theme(color, default-input-color);
-  }
-
   .TextInputContainer {
-    @include flex;
-    flex-direction: column;
-
-    &--focused,
-    &--filled {
-      .StartIcon,
-      .EndIcon {
-        @include theme(color, primary);
-      }
-    }
-
+    min-height: getTextFieldSizes(input-container);
     &--full-width .TextInputWrapper {
       max-width: initial;
     }
@@ -224,17 +212,6 @@ $transition-duration: getTextFieldSizes(label-transition);
   .TextInputContainer {
     @each $color in $base-colors {
       &--#{$color} {
-        &.TextInputContainer {
-          .StartIcon,
-          .EndIcon {
-            @include theme(color, #{$color});
-          }
-        }
-
-        .TextInputWrapper {
-          @include theme(color, #{$color});
-        }
-
         .Explanation {
           @include theme(color, #{$color});
         }

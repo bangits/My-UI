@@ -23,7 +23,7 @@ services:
       context: .
       dockerfile: ./docker/app/Dockerfile
     ports:
-      - '6007:6007'
+      - '6005:6005'
     volumes:
       - ./src:/app/src
     environment:

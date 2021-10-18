@@ -1,62 +1,40 @@
 @mixin generate-icon-button-styles {
   .IconButtonBase {
-    position: relative;
-    z-index: 1;
-
     @include center-flex();
 
-    width: map-get($icon-button-sizes, icon-button-width);
-    height: map-get($icon-button-sizes, icon-button-height);
-    border-radius: map-get($icon-button-sizes, icon-button-borderRadius);
-    padding: map-get($icon-button-sizes, icon-button-padding);
+    width: getIconButtonSizes(icon-button-width);
+    height: getIconButtonSizes(icon-button-height);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+    border: none;
+    padding: 0;
+
+    &--icon {
+      width: getIconButtonSizes(icon-button-icon-width);
+      height: getIconButtonSizes(icon-button-icon-height);
+
+      @include center-flex();
+    }
 
     &--dark {
       background-color: transparent;
-      cursor: pointer;
-      border: none;
+
       &:hover {
-        border-radius: map-get($icon-button-sizes, icon-button-borderRadius);
-        background-color: rgba(81, 86, 106, 0.1);
-      }
-      .IconButtonBase--icon {
-        color: #51566a;
+        @include theme(background-color, black-color--transparent);
       }
     }
 
     &--light {
-      background-color: map-get($icon-button-colors, icon-button-light-bg);
-      cursor: pointer;
-      border: none;
-      box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.1);
-      .IconButtonBase--icon {
-        color: #51566a;
-      }
+      @include theme(background-color, primary--color);
+
+      box-shadow: getIconButtonSizes(light-box-shadow);
+
       &:hover {
-        border: solid 1px #3c54b2;
-        .IconButtonBase--icon {
-          color: #3c54b2;
-        }
+        @include theme(border, primary, getIconButtonSizes(light-border-size) solid);
+        @include theme(color, primary);
       }
-    }
-
-    &--active {
-      border: solid 1px #3c54b2;
-      .IconButtonBase--icon {
-        color: #3c54b2;
-      }
-    }
-
-    &--icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 100;
-      width: map-get($icon-button-sizes, icon-button-icon-width);
-      height: map-get($icon-button-sizes, icon-button-icon-height);
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
   }
 }

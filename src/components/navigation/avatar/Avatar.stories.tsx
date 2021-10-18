@@ -1,7 +1,6 @@
-import { object, text, withKnobs, number } from '@storybook/addon-knobs';
-import Avatar from './Avatar';
-import AvatarImg from '@/images/avatar.png';
 import { HomeIcon } from '@/icons';
+import { text, withKnobs } from '@storybook/addon-knobs';
+import Avatar from './Avatar';
 
 export default {
   component: Avatar,
@@ -12,7 +11,7 @@ export default {
 export const Default = () => {
   return (
     <Avatar
-      imageSource={AvatarImg}
+      imageSource={text('imageSource', 'https://avatars.design/wp-content/uploads/2016/09/28_GIF.gif')}
       avatarLabel={text('avatarLabel', 'Evgenia')}
       dropdownTitle={text('dropdownTitle', 'Profile Settings')}
       topButtonLabel={text('topButtonLabel', 'View Profile')}

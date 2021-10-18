@@ -5,12 +5,11 @@
     "declarationDir": "dist",
     "rootDir": "src",
     "outDir": "dist",
-    "moduleResolution": "Node",
     "jsx": "react-jsx",
     "baseUrl": "src",
     "downlevelIteration": true,
     "paths": {
-      // This paths synchronizd with webpack shared config
+      // This paths synchronized with webpack shared config
       "@/*": ["*"]
     }
   },

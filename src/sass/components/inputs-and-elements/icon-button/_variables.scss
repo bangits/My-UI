@@ -1,14 +1,15 @@
 $icon-button-sizes: (
-  icon-button-width: 4rem,
-  icon-button-height: 4rem,
-  icon-button-padding: 0.8rem,
-  icon-button-borderRadius: 2rem,
-  icon-button-icon-width: 2.4rem,
-  icon-button-icon-height: 2.4rem,
-  icon-button-hover-opacity: 0.1
+  icon-button-width: calculateRem(40px),
+  icon-button-height: calculateRem(40px),
+  icon-button-icon-width: calculateRem(24px),
+  icon-button-icon-height: calculateRem(24px),
+  icon-button-hover-opacity: 0.1,
+  light-box-shadow: 0 calculateRem(2px) calculateRem(4px) 0 rgba(0, 0, 0, 0.1),
+  light-border-size: calculateRem(1px)
 );
 
-$icon-button-colors: (
-  icon-button-light-bg: color(white),
-  icon-button-hover-background-color: color(heavy-violet)
-);
+@function getIconButtonSizes($property) {
+  @return map-get($icon-button-sizes, $property);
+}
+
+$icon-button-colors: ();

@@ -160,6 +160,8 @@ $transition-duration: getTextFieldSizes(label-transition);
     width: getTextFieldSizes(input-icon-size);
     height: getTextFieldSizes(input-icon-size);
 
+    @include theme(color, default-input-color);
+
     @include center-flex;
   }
 
@@ -175,6 +177,14 @@ $transition-duration: getTextFieldSizes(label-transition);
     min-height: getTextFieldSizes(input-container);
     &--full-width .TextInputWrapper {
       max-width: initial;
+    }
+
+    &--focused,
+    &--filled {
+      .EndIcon,
+      .StartIcon {
+        @include theme(color, primary);
+      }
     }
 
     &--disabled {
@@ -212,7 +222,20 @@ $transition-duration: getTextFieldSizes(label-transition);
   .TextInputContainer {
     @each $color in $base-colors {
       &--#{$color} {
+        &--focused,
+        &--filled {
+          .EndIcon,
+          .StartIcon {
+            @include theme(color, #{$color});
+          }
+        }
+
         .Explanation {
+          @include theme(color, #{$color});
+        }
+
+        .StartIcon,
+        .EndIcon {
           @include theme(color, #{$color});
         }
 

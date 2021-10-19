@@ -1,7 +1,7 @@
 import { Typography, TypographyProps } from '@/components';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
-import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
+import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react';
 import styles from './TextInput.module.scss';
 export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   color?: UIColors;
@@ -32,6 +32,7 @@ const TextInputs: FC<TextInputProps> = ({
   const { defaultValue, value, disabled, type, maxLength, onChange } = props;
 
   const [currentValue, setCurrentValue] = useState(value || defaultValue);
+  const [isInputFocused, setInputFocused] = useState(false);
 
   const onInputChange: TextInputProps['onChange'] = useCallback(
     (e) => {
@@ -60,6 +61,28 @@ const TextInputs: FC<TextInputProps> = ({
     [props.onInput]
   );
 
+  const onFocus: TextInputProps['onFocus'] = useCallback(
+    (evt) => {
+      setInputFocused(true);
+
+      if (props.onFocus) props.onFocus(evt);
+    },
+    [props.onFocus]
+  );
+
+  const onBlur: TextInputProps['onBlur'] = useCallback(
+    (evt) => {
+      setInputFocused(false);
+
+      if (props.onBlur) props.onBlur(evt);
+    },
+    [props.onBlur]
+  );
+
+  useEffect(() => {
+    if (value) setCurrentValue(value);
+  }, [value]);
+
   return (
     <div
       className={classNames(
@@ -69,7 +92,9 @@ const TextInputs: FC<TextInputProps> = ({
           [styles[`TextInputContainer--${color}`]]: color,
           [styles['TextInputContainer--disabled']]: disabled,
           [styles['TextInputContainer--withLeftIcon']]: !!startIcon,
-          [styles['TextInputContainer--withRightIcon']]: !!endIcon
+          [styles['TextInputContainer--withRightIcon']]: !!endIcon,
+          [styles['TextInputContainer--focused']]: isInputFocused,
+          [styles['TextInputContainer--filled']]: !!currentValue
         },
         containerClassName
       )}>
@@ -91,6 +116,8 @@ const TextInputs: FC<TextInputProps> = ({
           onKeyDown={onKeyDown}
           onInput={onInput}
           onChange={onInputChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
         {label && <span className={styles.TextInputLabel}>{label}</span>}
 

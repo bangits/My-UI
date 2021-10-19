@@ -1,12 +1,11 @@
-import { IComponent } from '@/types';
-import React, { FC, ReactNode, useState, useEffect } from 'react';
-import styles from './Avatar.module.scss';
 import { Card, Typography } from '@/components';
-import SubMenuItems from '../sidebar/sidebar-components/SubMenuItems';
+import { useOutsideClickEvent } from '@/helpers';
+import { IComponent } from '@/types';
 import classNames from 'classnames';
-import useOutsideClickEvent from '../../../helpers/useOutsideClickEvent';
-
-export interface AvatarProps extends IComponent {
+import React, { FC, ReactNode, useEffect, useState } from 'react';
+import SubMenuItems from '../sidebar/sidebar-components/SubMenuItems';
+import styles from './Avatar.module.scss';
+interface AvatarProps extends IComponent {
   imageSource?: string;
   avatarLabel: string;
   dropdownTitle?: string;

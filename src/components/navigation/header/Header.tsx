@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import { Avatar, Badge } from '@/components';
 import { IComponent } from '@/types';
+import classNames from 'classnames';
+import React, { FC } from 'react';
 import { AvatarProps } from './../avatar/Avatar';
 import { BadgeProps } from './../badge/Badge';
 import styles from './Header.module.scss';
-import { Avatar, Badge } from '@/components';
-import classNames from 'classnames';
 export interface HeaderProps extends IComponent {
   avatarProps?: AvatarProps;
   notificationProps: BadgeProps;

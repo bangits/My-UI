@@ -1497,10 +1497,10 @@
     react-onclickoutside "^6.10.0"
     react-popper "^2.2.5"
 
-"@my-ui/react-select@1.1.0":
-  version "1.1.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.0.tgz#eedf27470d385e4659a491489b1eb9ebb3ea4099"
-  integrity sha1-7t8nRw04XkZZpJFImx6567PqQJk=
+"@my-ui/react-select@1.1.2":
+  version "1.1.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.2.tgz#eadbf12fa5bea620eb21dc31a1de1ee58df5ed07"
+  integrity sha1-6tvxL6W+piDrIdwxod4e5Y317Qc=
   dependencies:
     "@babel/runtime" "^7.12.0"
     "@emotion/cache" "^11.4.0"
@@ -1510,10 +1510,10 @@
     prop-types "^15.6.0"
     react-transition-group "^4.3.0"
 
-"@my-ui/react-table@^1.2.0":
-  version "1.2.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-table/-/react-table-1.2.0.tgz#44f2152c680d56684636ea45c62f128c3d78f632"
-  integrity sha1-RPIVLGgNVmhGNupFxi8SjD149jI=
+"@my-ui/react-table@1.3.0":
+  version "1.3.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-table/-/react-table-1.3.0.tgz#b1746c61b797781e45fb7bcc446949fbe71bcd41"
+  integrity sha1-sXRsYbeXeB5F+3vMRGlJ++cbzUE=
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

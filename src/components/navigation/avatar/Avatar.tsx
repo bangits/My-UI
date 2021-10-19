@@ -1,36 +1,98 @@
-import styles from './Avatar.module.scss';
-import { IComponent } from '@/types';
-import React, { FC } from 'react';
-import AvatarImg from '@/images/avatar.png';
 import { Card, Typography } from '@/components';
+import { IComponent } from '@/types';
+import classNames from 'classnames';
+import React, { FC, ReactNode, useEffect, useState } from 'react';
+import useOutsideClickEvent from '../../../helpers/useOutsideClickEvent';
 import SubMenuItems from '../sidebar/sidebar-components/SubMenuItems';
-import { HomeIcon } from '@/icons';
+import styles from './Avatar.module.scss';
+export interface AvatarProps extends IComponent {
+  imageSource?: string;
+  avatarLabel: string;
+  dropdownTitle?: string;
+  topButtonLabel?: string;
+  onTopButtonClick?: () => void;
+  dropdownLinks?: {
+    label?: string;
+    icon?: ReactNode;
+    onClick?: () => void;
+  }[];
+  bottomButtonLabel?: string;
+  onBottomButtonClick?: () => void;
+}
 
-const Avatar: FC<IComponent> = () => {
+const Avatar: FC<AvatarProps> = ({
+  imageSource,
+  avatarLabel,
+  dropdownTitle,
+  topButtonLabel,
+  bottomButtonLabel,
+  onTopButtonClick,
+  onBottomButtonClick,
+  dropdownLinks,
+  className
+}) => {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const subscriber = useOutsideClickEvent('.AvatarWrapper');
+    subscriber.subscribe(() => {
+      setOpen(false);
+    });
+    return () => {
+      subscriber.unsubscribe();
+    };
+  }, []);
+
   return (
-    <div className={styles.Avatar}>
-      <span className={styles.AvatarLabel}>Evgenia</span>
-      <div className={styles.AvatarImg}>
-        <img src={AvatarImg} alt='avatar' />
+    <div className={classNames(styles.Avatar, className)}>
+      <div className={classNames(styles.AvatarWrapper, className, 'AvatarWrapper')}>
+        <span className={styles.AvatarLabel} onClick={() => setOpen(!open)}>
+          {avatarLabel}
+        </span>
+        <div className={styles.AvatarImg}>
+          <img src={imageSource} alt='avatar' onClick={() => setOpen(!open)} />
+        </div>
       </div>
-      <Card borderRadius={0.8} className={styles.AvatarDropdownCard}>
-        <Typography className={styles.AvatarDropdownTitle} variant='p5' color='primary'>
-          Profile Settings
-        </Typography>
-        <SubMenuItems label='asdsda' />
-        <ul className={styles.AvatarDropdownMenu}>
-          <li>
-            <SubMenuItems icon={<HomeIcon />} label='asdsda' />
-          </li>
-          <li>
-            <SubMenuItems icon={<HomeIcon />} label='asdsda' />
-          </li>
-          <li>
-            <SubMenuItems icon={<HomeIcon />} label='asdsda' />
-          </li>
-        </ul>
-        <SubMenuItems label='asdsda' />
-      </Card>
+      <div
+        className={classNames({
+          [styles.DropDownShow]: open,
+          [styles.DropDownHide]: !open
+        })}>
+        <Card borderRadius={0.8} className={styles.AvatarDropdownCard}>
+          <Typography className={styles.AvatarDropdownTitle} variant='p5' color='primary'>
+            {dropdownTitle}
+          </Typography>
+          <SubMenuItems
+            className={styles.SubMenuItems}
+            label={topButtonLabel}
+            onClick={onTopButtonClick}
+            style={{ marginLeft: '0' }}
+          />
+
+          <hr className={styles.AvatarDropdownDivider} />
+
+          <ul className={styles.AvatarDropdownMenu}>
+            {dropdownLinks.map((items, idx) => (
+              <li key={idx}>
+                <SubMenuItems
+                  className={styles.SubMenuItems}
+                  onClick={items.onClick}
+                  icon={items.icon}
+                  label={items.label}
+                />
+              </li>
+            ))}
+          </ul>
+
+          <hr className={styles.AvatarDropdownDivider} />
+          <SubMenuItems
+            className={styles.SubMenuItems}
+            label={bottomButtonLabel}
+            onClick={onBottomButtonClick}
+            style={{ marginLeft: '0' }}
+          />
+        </Card>
+      </div>
     </div>
   );
 };

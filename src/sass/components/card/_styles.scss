@@ -1,0 +1,8 @@
+@mixin generate-card-styles {
+  .CardBase {
+    width: getCardSizes(card-width);
+    height: getCardSizes(card-height);
+    border-radius: getCardSizes(card-border-radius);
+    box-shadow: 0 0 0.4rem 0 rgba(0, 0, 0, 0.05);
+  }
+}

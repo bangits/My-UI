@@ -1,34 +1,32 @@
 import { Typography, TypographyProps } from '@/components';
+import { UIColors } from '@/types';
 import classNames from 'classnames';
 import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import styles from './TextInput.module.scss';
-
 export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-  warning?: boolean;
-  error?: boolean;
-  success?: boolean;
+  color?: UIColors;
   disabled?: boolean;
   fullWidth?: boolean;
   endIcon?: ReactNode;
   startIcon?: ReactNode;
   maxLength?: number;
   explanation?: string;
-  wrapperClassName?: string;
+  containerClassName?: string;
   explanationProps?: TypographyProps;
+  label?: string;
 }
 
 const TextInputs: FC<TextInputProps> = ({
+  color,
   children,
   explanation,
-  success,
-  error,
-  warning,
   endIcon,
   startIcon,
   fullWidth = false,
   className,
-  wrapperClassName,
+  containerClassName,
   explanationProps,
+  label,
   ...props
 }) => {
   const { defaultValue, value, disabled, type, maxLength, onChange } = props;
@@ -63,28 +61,29 @@ const TextInputs: FC<TextInputProps> = ({
   );
 
   return (
-    <>
-      <div
-        className={classNames(
-          styles.TextInputWrapper,
-          {
-            [styles['TextInputWrapper--full-width']]: fullWidth,
-            [styles['TextInputWrapper--error']]: error,
-            [styles['TextInputWrapper--warning']]: warning,
-            [styles['TextInputWrapper--success']]: success,
-            [styles['TextInputWrapper--disabled']]: disabled
-          },
-          wrapperClassName
-        )}>
-        {startIcon && !endIcon && <div className={styles.startIcon}>{startIcon}</div>}
+    <div
+      className={classNames(
+        styles.TextInputContainer,
+        {
+          [styles['TextInputContainer--full-width']]: fullWidth,
+          [styles[`TextInputContainer--${color}`]]: color,
+          [styles['TextInputContainer--disabled']]: disabled,
+          [styles['TextInputContainer--withLeftIcon']]: !!startIcon,
+          [styles['TextInputContainer--withRightIcon']]: !!endIcon
+        },
+        containerClassName
+      )}>
+      <label className={classNames(styles.TextInputWrapper)}>
+        {startIcon && <div className={styles.StartIcon}>{startIcon}</div>}
 
         <input
           className={classNames(
-            styles.TextInputBase,
+            styles.TextInputBaseInput,
             {
-              [styles[`TextInputBase--filled`]]: !!currentValue,
-              [styles['TextInputBase--start-icon']]: !!startIcon,
-              [styles['TextInputBase--end-icon']]: !!endIcon
+              [styles[`TextInputBaseInput--filled`]]: !!currentValue,
+              [styles[`TextInputBaseInput--with-label`]]: !!label,
+              [styles['TextInputBaseInput--start-icon']]: !!startIcon,
+              [styles['TextInputBaseInput--end-icon']]: !!endIcon
             },
             className
           )}
@@ -93,17 +92,17 @@ const TextInputs: FC<TextInputProps> = ({
           onInput={onInput}
           onChange={onInputChange}
         />
+        {label && <span className={styles.TextInputLabel}>{label}</span>}
 
-        <span className={styles.TextInputLabel}>Text</span>
-        {explanation && (
-          <Typography className={styles.Explanation} variant='p4' component='span'>
-            {explanation}
-          </Typography>
-        )}
+        {endIcon && <div className={styles.EndIcon}>{endIcon}</div>}
+      </label>
 
-        {endIcon && !startIcon && <div className={styles.endIcon}>{endIcon}</div>}
-      </div>
-    </>
+      {explanation && (
+        <Typography className={styles.Explanation} variant='p5' component='span'>
+          {explanation}
+        </Typography>
+      )}
+    </div>
   );
 };
 export default TextInputs;

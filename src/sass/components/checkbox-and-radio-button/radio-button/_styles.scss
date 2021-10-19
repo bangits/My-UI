@@ -1,0 +1,74 @@
+@mixin generate-radio-button-styles {
+  .RadioButton {
+    &,
+    label {
+      width: getRadioButtonSizes(radio-button-width);
+      height: getRadioButtonSizes(radio-button-height);
+    }
+
+    input {
+      position: absolute;
+      // For not showing default input
+      left: -9999px;
+
+      &:checked + label {
+        &::after {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      &:disabled + label {
+        @include theme(opacity, disabled-opacity);
+      }
+    }
+
+    label {
+      position: relative;
+
+      display: inline-block;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        position: absolute;
+
+        width: getRadioButtonSizes(radio-button-circle-width);
+        height: getRadioButtonSizes(radio-button-circle-height);
+
+        border-style: solid;
+        border-width: getRadioButtonSizes(radio-button-border-width);
+        border-radius: 100%;
+        @include theme(border-color, black-color);
+      }
+
+      &::after {
+        content: '';
+
+        width: 50%;
+        height: 50%;
+        border-radius: 100%;
+
+        transition: all 0.2s ease;
+
+        @include center-absolute();
+        transform: translate(-50%, -50%) scale(0);
+      }
+    }
+  }
+
+  @each $color in $base-colors {
+    .RadioButton--#{$color} {
+      input {
+        &:checked + label::before {
+          @include theme(border-color, #{$color});
+        }
+      }
+
+      label {
+        &::after {
+          @include theme(background-color, #{$color});
+        }
+      }
+    }
+  }
+}

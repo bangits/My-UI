@@ -1,4 +1,4 @@
-import { typedMemo } from '@/helpers/typedMemo';
+import { typedMemo } from '@/helpers';
 import { ObjectMock } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
@@ -14,8 +14,10 @@ import {
   useTable,
   UseTableRowProps
 } from '@my-ui/react-table';
+import classNames from 'classnames';
 import { useEffect } from 'react';
 import selectionHook from './selectionHook';
+import styles from './Table.module.scss';
 import TableCell from './TableCell';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
@@ -55,10 +57,12 @@ export interface TableProps<T extends ObjectMock> extends IComponent {
     Header: string;
     accessor: keyof T;
     disableSortBy?: boolean;
+    maxWidth?: number | string;
   }[];
   color?: UIColors;
   fetch?: (state: State<T>) => any;
   gridLayout?: boolean;
+  isWithSelection?: boolean;
   absoluteLayout?: boolean;
   blockLayout?: boolean;
   isResizing?: boolean;
@@ -76,6 +80,7 @@ const Table = <T extends ObjectMock>({
   isResizing,
   theadComponent: THeadComponent = 'thead',
   tbodyComponent: TBodyComponent = 'tbody',
+  isWithSelection = true,
   actions
 }: TableProps<T>) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable<T>(
@@ -83,7 +88,7 @@ const Table = <T extends ObjectMock>({
     useSortBy,
     ...(isResizing ? [useFlexLayout, useResizeColumns] : []),
     useRowSelect,
-    selectionHook
+    ...(isWithSelection ? [selectionHook] : [])
   );
 
   const typedState = state as State<T>;
@@ -95,8 +100,12 @@ const Table = <T extends ObjectMock>({
   }, [onFetchDataDebounced, typedState.sortBy]);
 
   return (
-    <Component {...getTableProps()} style={{ borderCollapse: 'collapse' }}>
-      <THeadComponent>
+    <Component
+      {...getTableProps()}
+      className={classNames(styles.TableContainer, {
+        [styles['TableContainer--withSelection']]: isWithSelection
+      })}>
+      <THeadComponent className={styles.TableHead}>
         {headerGroups.map((headerGroup) => (
           <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
             {headerGroup.headers.map((column: Column<T>) => (
@@ -105,9 +114,14 @@ const Table = <T extends ObjectMock>({
                 selectedDirection={column.isSorted}
                 hideSortIcon={column.disableSortBy}
                 {...column.getHeaderProps(column.getSortByToggleProps())}
+                style={{
+                  ...(column.getHeaderProps(column.getSortByToggleProps()).style || {}),
+                  ...{
+                    maxWidth: column.maxWidth
+                  }
+                }}
                 color={color}>
-                {column.render('Header')}
-
+                <span> {column.render('Header')}</span>
                 {/* We will do this part when in UI kit there will be ready resizing part */}
 
                 {/* {isResizing ? (
@@ -122,23 +136,32 @@ const Table = <T extends ObjectMock>({
           </TableRow>
         ))}
       </THeadComponent>
-      <TBodyComponent {...getTableBodyProps()}>
+      <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
         {rows.map((row: Row<T>, index) => {
           prepareRow(row);
           return (
             <TableRow hover selected={row.isSelected} {...row.getRowProps()} color={color}>
-              {row.cells.map((cell) => (
-                <TableCell {...cell.getCellProps()} color={color}>
-                  {cell.render('Cell')}
-                </TableCell>
-              ))}
-
-              {actions &&
-                actions.map(({ component: Component, onClick, props }) => (
-                  <TableCell {...actions} color={color}>
-                    <Component {...props} onClick={(...args: any[]) => onClick(data[index], ...args)} />
+              {row.cells.map((cell) => {
+                console.log(cell.column.maxWidth);
+                return (
+                  <TableCell
+                    {...(cell.getCellProps().style || {})}
+                    style={{
+                      maxWidth: cell.column.maxWidth
+                    }}
+                    color={color}>
+                    <div>{cell.render('Cell')}</div>
                   </TableCell>
-                ))}
+                );
+              })}
+
+              {actions && (
+                <TableCell {...actions} color={color} className={styles.ActionTableCell}>
+                  {actions.map(({ component: Component, onClick, props }) => (
+                    <Component {...props} onClick={(...args: any[]) => onClick(data[index], ...args)} />
+                  ))}
+                </TableCell>
+              )}
             </TableRow>
           );
         })}

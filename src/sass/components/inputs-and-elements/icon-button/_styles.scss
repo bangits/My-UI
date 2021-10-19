@@ -1,0 +1,40 @@
+@mixin generate-icon-button-styles {
+  .IconButtonBase {
+    @include center-flex();
+
+    width: getIconButtonSizes(icon-button-width);
+    height: getIconButtonSizes(icon-button-height);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+    border: none;
+    padding: 0;
+
+    &--icon {
+      width: getIconButtonSizes(icon-button-icon-width);
+      height: getIconButtonSizes(icon-button-icon-height);
+
+      @include center-flex();
+    }
+
+    &--dark {
+      background-color: transparent;
+
+      &:hover {
+        @include theme(background-color, black-color--transparent);
+      }
+    }
+
+    &--light {
+      @include theme(background-color, primary--color);
+
+      box-shadow: getIconButtonSizes(light-box-shadow);
+
+      &:hover {
+        @include theme(border, primary, getIconButtonSizes(light-border-size) solid);
+        @include theme(color, primary);
+      }
+    }
+  }
+}

@@ -1,163 +1,258 @@
+$transition-duration: getTextFieldSizes(label-transition);
+
 @mixin generate-text-input-styles {
+  .Explanation {
+    display: block;
+    margin: getTextFieldSizes(explanation-margin) 0;
+    @include theme(color, default-input-color);
+  }
+
   .TextInputWrapper {
-    width: map-get($base-text-field-sizes, width);
     position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: getTextFieldSizes(input-width);
+    padding-top: getTextFieldSizes(input-label-offset);
+    font-size: getTextFieldSizes(input-font-size);
+    overflow: hidden;
+  }
 
-    &--full-width,
-    & .TextInputBase {
-      width: 100%;
-      height: 3.8rem;
-      font-family: $base-font-family;
+  // Input
+  .TextInputBaseInput {
+    width: 100%;
 
-      .TextInputLabel {
-        font-size: 1.4rem;
-      }
-      
-      &:focus,
-      &--filled {
-        border: solid 0.1rem #00194c;
-        border-top: 0;
-        box-shadow: none;
+    @include theme(border, default-input-color, solid getTextFieldSizes(input-border-width));
 
-        + .TextInputLabel {
-          line-height: 1.3em;
-          font-size: 1.2rem;
+    &:hover {
+      border-width: getTextFieldSizes(input-hover-border-width);
+    }
 
-          &:after {
-            content: '';
-            background: #00194c;
-            width: 23rem;
-            height: 0.1rem;
-            display: block;
-            position: absolute;
-            top: 0.85rem;
-            left: 3.2rem;
-          }
-          &::before {
-            content: '';
-            display: block;
-            width: 1rem;
-            background: #00194c;
-            height: 0.1rem;
-            position: absolute;
-            right: 2.6rem;
-            top: 0.85rem;
-          }
+    &:disabled {
+      opacity: getTextFieldSizes(input-disabled);
+    }
+
+    // Sizes
+    border-radius: getTextFieldSizes(input-border-radius);
+    padding: 0 getTextFieldSizes(input-type-offset);
+    min-height: getTextFieldSizes(input-min-height);
+
+    // Reset
+    background-color: transparent;
+    box-sizing: border-box;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+    border-top-color: transparent;
+    height: inherit;
+    box-shadow: none;
+    font-family: inherit;
+
+    // Animation
+    transition: border $transition-duration, box-shadow $transition-duration;
+
+    &:not(:focus):not(.TextInputBaseInput--filled) {
+      @include theme(border-top-color, default-input-color);
+
+      + .TextInputLabel {
+        line-height: getTextFieldSizes(input-label-line-height);
+
+        &::before,
+        &::after {
+          border-top-color: transparent;
         }
       }
     }
 
-    .Explanation {
+    &--with-label {
+      &:focus,
+      &.TextInputBaseInput--filled {
+        border-top-color: transparent !important;
+      }
+    }
+
+    &:focus,
+    &--filled {
+      @include theme(color, primary);
+
+      box-shadow: inset 1px 0 inherit, inset -1px 0 inherit, inset 0 -1px inherit;
+      outline: none;
+
+      + .TextInputLabel {
+        @include theme(color, primary);
+
+        font-size: getTextFieldSizes(input-label-focused-font-size);
+
+        &::before,
+        &::after {
+          @include theme(border-top-color, primary);
+        }
+      }
+    }
+  }
+
+  // Label
+  .TextInputLabel {
+    position: absolute;
+    top: 0;
+
+    @include flex;
+
+    @include theme(border-color, primary);
+
+    width: 100%;
+    max-height: 100%;
+
+    @include theme(color, default-input-color);
+
+    font-size: getTextFieldSizes(input-font-size);
+    line-height: getTextFieldSizes(input-label-focused-line-height);
+
+    cursor: text;
+
+    transition: text-indent $transition-duration, color $transition-duration, font-size $transition-duration,
+      line-height $transition-duration;
+
+    height: getTextFieldSizes(input-label-height);
+
+    &::before,
+    &::after {
+      content: '';
+
       display: block;
 
-      margin-top: map-get($base-text-field-sizes, explanation-margin);
+      box-sizing: border-box;
+      margin-top: getTextFieldSizes(input-label-offset);
 
-      @include theme(color, input-color);
+      border-top: solid 1px;
+
+      @include theme(border-top-color, primary);
+
+      min-width: getTextFieldSizes(input-corner-min-width);
+      height: calc(getTextFieldSizes(input-label-offset) + 0.2rem);
+
+      pointer-events: none;
+
+      box-shadow: inset 0 1px transparent;
+
+      transition: border-color $transition-duration, box-shadow $transition-duration;
     }
 
-    @each $state in $input-states {
-      &--#{$state} {
-        .TextInputBase {
-          @include theme(background-color, input-hover-bg);
+    &::before {
+      margin-right: getTextFieldSizes(input-corner-offset);
+      border-left: solid 0.1rem transparent;
+      border-radius: getTextFieldSizes(input-border-radius) 0;
+    }
 
-          &,
-          &:hover,
-          &:focus {
-            @include generateBorderWithBoxShadow(input-border-color--#{$state});
-            @include theme(color, input-color--#{$state});
-          }
+    &::after {
+      flex-grow: 1;
+      margin-left: getTextFieldSizes(input-corner-offset);
+      border-right: solid 0.1rem transparent;
+      border-radius: 0 getTextFieldSizes(input-border-radius);
+    }
+  }
 
-          &::placeholder {
-            @include theme(color, input-color--#{$state});
-          }
+  // Icons
 
-          &:disabled,
-          &:disabled:hover {
-            box-shadow: none;
+  .StartIcon,
+  .EndIcon {
+    position: absolute;
+    top: getTextFieldSizes(icon-margin);
+    width: getTextFieldSizes(input-icon-size);
+    height: getTextFieldSizes(input-icon-size);
 
-            @include theme(color, input-color);
-            @include theme(background-color, input-bg-disabled);
-          }
-        }
+    @include center-flex;
+  }
 
-        .Explanation {
-          @include theme(color, input-color--#{$state});
-        }
+  .StartIcon {
+    left: getTextFieldSizes(icon-margin-left);
+  }
+
+  .EndIcon {
+    right: getTextFieldSizes(icon-margin-right);
+  }
+
+  .TextInputContainer {
+    &--full-width .TextInputWrapper {
+      max-width: initial;
+    }
+
+    &--disabled {
+      opacity: getTextFieldSizes(disabled-opacity);
+    }
+
+    &--withRightIcon {
+      .TextInputBaseInput {
+        padding-right: getTextFieldSizes(input-type-offset--with-icons);
       }
     }
 
-    &--disabled .Explanation {
-      @include theme(color, input-color);
-    }
+    &--withLeftIcon {
+      .TextInputBaseInput {
+        padding-left: getTextFieldSizes(input-type-offset--with-icons);
+      }
 
-    .TextInputLabel {
-      position: absolute;
-      top: -0.8rem;
-      left: 1.6rem;
-      font-size: 1.4rem;
-      line-height: 3.5em;
-      transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+      .TextInputLabel {
+        text-indent: getTextFieldSizes(input-label-offset--with-icons);
+      }
+
+      .TextInputBaseInput {
+        &:focus,
+        &--filled {
+          + .TextInputLabel {
+            text-indent: 0;
+          }
+        }
+      }
     }
   }
 
-  .startIcon,
-  .endIcon {
-    position: absolute;
-    top: map-get($base-text-field-sizes, icon-margin);
-  }
+  // Color mapping
 
-  .startIcon {
-    left: map-get($base-text-field-sizes, icon-margin);
-  }
+  .TextInputContainer {
+    @each $color in $base-colors {
+      &--#{$color} {
+        .Explanation {
+          @include theme(color, #{$color});
+        }
 
-  .endIcon {
-    right: map-get($base-text-field-sizes, icon-margin);
-  }
+        .TextInputLabel {
+          @include theme(border-color, #{$color});
+          @include theme(color, #{$color});
 
-  .TextInputBase {
-    width: map-get($base-text-field-sizes, width);
-    padding: map-get($base-text-field-sizes, padding);
+          &::before,
+          &::after {
+            @include theme(border-top-color, #{$color});
+          }
+        }
 
-    font-size: map-get($base-text-field-sizes, font-size);
-    border-radius: map-get($base-text-field-sizes, border-radius);
+        .TextInputBaseInput {
+          @include theme(color, #{$color});
 
-    box-sizing: border-box;
-    outline: none;
-    border: none;
+          @include theme(border, #{$color}, solid 0.1rem);
 
-    @include theme(background-color, input-bg);
-    @include theme(color, input-color);
+          &:not(:focus) {
+            @include theme(border-top-color, #{$color});
+          }
 
-    &::placeholder {
-      @include theme(color, input-placeholder-color);
-    }
+          &:focus,
+          &--filled {
+            @include theme(border-color, #{$color});
+          }
 
-    &:hover,
-    &:focus {
-      @include theme(background-color, input-hover-bg);
-      @include generateBorderWithBoxShadow(input-hover-border-color);
-    }
+          &:focus {
+            @include theme(border-color, #{$color});
 
-    &--filled,
-    &--filled:hover,
-    &--filled:focus {
-      @include theme(background-color, input-hover-bg);
-      @include generateBorderWithBoxShadow(input-filled-border-color);
-    }
+            + .TextInputLabel {
+              @include theme(color, #{$color});
 
-    &--start-icon {
-      padding-left: map-get($base-text-field-sizes, input-adornment);
-    }
-
-    &--end-icon {
-      padding-right: map-get($base-text-field-sizes, input-adornment);
-    }
-
-    &:disabled,
-    &:disabled:hover {
-      box-shadow: none;
-
-      @include theme(background-color, input-bg-disabled);
+              &::before,
+              &::after {
+                @include theme(border-top-color, #{$color});
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

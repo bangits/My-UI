@@ -11,9 +11,12 @@ $datepicker-sizes: (
   datepicker-month--container: 30.85rem,
   datepicker-month--size: 1.8rem,
   datepicker-current--month: 2.2rem,
-  datepicker-navigation--nextSize: 1.5rem,
-  datepicker-navigation--nextMargin: 2.4rem,
-  datepicker-navigation--leftMargin: 0.8rem,
+  datepicker-navigation--nextSize: 0.6rem,
+  datepicker-navigation--nextSize-height: 1.2rem,
+  datepicker-navigation--nextSize-top: 3.6rem,
+  datepicker-navigation--nextMargin: 2.5rem,
+  datepicker-navigation--leftMargin: 2.5rem,
+  datepicker-month-container--leftMargin: 2.5rem,
   datepicker-day--names: 29.89rem,
   datepicker-day: 4.27rem,
   datepicker-day--name: 1rem,
@@ -23,7 +26,13 @@ $datepicker-sizes: (
   datepicker-day--nameWidth: 1.94rem,
   datepicker-day--nameMargin: 1.7rem,
   datepicker-day--namePadding: 3.67rem,
-  datepicker-month-container--borderRadius: 0.4rem
+  datepicker-month-container--borderRadius: 0.4rem,
+  datepicker-padding: 0.65rem 1.6rem 1.4rem,
+  datepicker-month-title-font-size: 1.6rem,
+  datepicker-month-title-padding: 1.75rem 0 2.4rem 0,
+  datepicker-week-font-size: 1.3rem,
+  datepicker-day-width: 4rem,
+  datepicker-day-padding: 1rem 0
 );
 
 $datepicker-icons: (
@@ -40,5 +49,9 @@ $datepicker-colors: (
   datepicker-text-color--primary: color(gray),
   datepicker-day-color--primary: color(silver),
   datepicker-box-shadow--primary: color(carbon-fiber),
-  datepicker-current-day--primary: color(oxford-blue)
+  datepicker-current-day--primary: color(oxford-blue),
+  datepicker-day--primary: color(azure-approx),
+  datepicker-day-selected-row--primary: color(azure-approx-opacity-10),
+  datepicker-selected-days--primary: color(shuttl-gray),
+  datepicker-week-color--primary: color(silver)
 );

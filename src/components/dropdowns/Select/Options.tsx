@@ -14,7 +14,9 @@ export const Option = (props) => {
 
 export const ValueContainer = ({ children, ...props }) => {
   return (
+    // @ts-ignore
     <components.ValueContainer {...props}>
+      {/* @ts-ignore */}
       <components.Placeholder {...props} isFocused={props.isFocused}>
         {props.selectProps.placeholder}
       </components.Placeholder>

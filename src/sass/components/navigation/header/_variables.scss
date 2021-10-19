@@ -1,0 +1,12 @@
+$header-sizes: (
+  header-height: calculateRem(56px),
+  header-container-margin: calculateRem(43px)
+);
+
+@function getHeaderSizes($property) {
+  @return map-get($header-sizes, $property);
+}
+
+$header-colors: (
+  header-background: color(white)
+);

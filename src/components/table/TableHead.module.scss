@@ -1,39 +1,48 @@
 .TableHead {
   display: flex;
   background: transparent;
-  flex-wrap: wrap;
-  word-break: break-all;
-  padding: 2.6rem;
+  white-space: nowrap;
+  padding: 1.8rem 1.4rem 0;
+  box-sizing: border-box;
+  font-weight: 700;
   font-size: 1.4rem;
   font-weight: 700;
   color: #7c84ab;
-  border-bottom: solid 1px #7c84ab;
+  width: 20%;
+  height: 5.2rem;
+  text-align: left;
+  text-transform: uppercase;
+
+  div {
+    max-width: 13.5rem;
+    display: inline-block;
+  }
   &:hover {
     background-color: transparent;
   }
   .IconArrow {
     position: relative;
-    left: 0.8rem;
+    left: 0.3rem;
+    top: -0.7rem;
 
     .IconUp {
       width: 1rem;
-      height: 1rem;
-      display: block;
+      height: 0.6rem;
       transform: rotate(180deg);
       fill: #7c84ab;
     }
 
     .IconDown {
       width: 1rem;
-      height: 1rem;
+      height: 0.6rem;
       position: absolute;
-      left: 0;
-      top: 0.7rem;
+      left: 0.002rem;
+      top: 1.3rem;
       fill: #7c84ab;
     }
 
     .IconDisabled {
-      opacity: 0.5;
+      opacity: 0.4;
     }
   }
 }

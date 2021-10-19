@@ -1,0 +1,33 @@
+$avatar-sizes: (
+  avatar-label-size: calculateRem(16px),
+  avatar-label-fontWeight: 500,
+  avatar-label-margin-right: calculateRem(7px),
+  avatar-label-margin-left: calculateRem(19px),
+  avatar-img-width: calculateRem(30px),
+  avatar-img-height: calculateRem(30px),
+  avatar-img-margin: calculateRem(7px),
+  avatar-border-radius: 100%,
+  avatar-dropdown-title: calculateRem(16px) calculateRem(24px) calculateRem(16px),
+  avatar-dropdown-title-fontWeight: 500,
+  avatar-dropdown-card-width: calculateRem(181px),
+  avatar-dropdown-card-padding: calculateRem(16px) calculateRem(8px),
+  avatar-dropdown-card-positionRight: 0,
+  avatar-dropdown-card-positionTop: calculateRem(61px),
+  avatar-dropdown-divider-width: calculateRem(163px),
+  avatar-dropdown-menu-margin: 0,
+  avatar-dropdown-menu-padding: 0,
+  avatar-sub-menu-items: 0 calculateRem(24px),
+  avatar-sub-menu-items-marginLeft: calculateRem(12px),
+  avatar-sub-menu-items-width: calculateRem(165px),
+  avatar-sub-menu-items-height: calculateRem(32px)
+);
+
+@function getAvatarSizes($property) {
+  @return map-get($avatar-sizes, $property);
+}
+
+$avatar-colors: (
+  avatar-label-color: color(midnight-sun),
+  avatar-border-color: color(mercury),
+  avatar-divider-borderColor: color(alabaster)
+);

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: 'atomaks-c716'
+  labels:
+    app: 'atomaks-c716'
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 6006
+      targetPort: 6006
+      protocol: TCP
+      name: http
+  selector:
+    app: 'atomaks-c716'

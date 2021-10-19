@@ -1,37 +1,42 @@
 @mixin generate-button-styles {
   .ButtonBase {
-    display: flex;
-    align-items: center;
-    font-family: $base-font-family;
+    @include center-flex();
 
-    height: map-get($base-button-sizes, height);
+    height: getButtonSizes(button-height);
 
-    padding: map-get($base-button-sizes, padding);
-    border-radius: map-get($base-button-sizes, border-radius);
-    font-size: map-get($base-button-sizes, font-size);
+    padding: getButtonSizes(button-padding);
+    border-radius: getButtonSizes(button-border-radius);
+    font-size: getButtonSizes(button-font-size);
 
+    // Reset
+    font-family: inherit;
     border: none;
-
     cursor: pointer;
   }
 
+  .startIcon,
+  .endIcon {
+    height: 100%;
+  }
+
   .startIcon {
-    position: relative;
-    right: map-get($base-button-sizes, icon-margin);
+    transform: translateX(-(getButtonSizes(icon-margin)));
   }
 
   .endIcon {
-    position: relative;
-    left: map-get($base-button-sizes, icon-margin);
+    transform: translateX(getButtonSizes(icon-margin));
   }
 
   @each $color in $base-colors {
     .ButtonColor--#{$color} {
       @include getButtonStyles($color);
-    }
 
-    .ButtonVariant--#{$color}__ghost {
-      @include getButtonGhostStyles($color);
+      &.ButtonVariant--#{$color}__ghost {
+        border-style: solid;
+        border-width: getButtonSizes(button-border-width);
+
+        @include getButtonGhostStyles($color);
+      }
     }
   }
 }

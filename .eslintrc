@@ -17,6 +17,6 @@
     "@typescript-eslint/prefer-interface": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-console": "error",
-    "sort-keys": "warn"
+    "sort-keys": "off"
   }
 }

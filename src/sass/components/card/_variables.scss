@@ -1,0 +1,9 @@
+$card-sizes: (
+  card-width: 100%,
+  card-height: 100%,
+  card-border-radius: calculateRem(26px)
+);
+
+@function getCardSizes($property) {
+  @return map-get($card-sizes, $property);
+}

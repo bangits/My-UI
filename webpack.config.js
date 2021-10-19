@@ -6,8 +6,8 @@ const { configureSharedWebpack } = require('./webpack.shared');
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
     argv,
-    orgName: 'atom',
-    projectName: 'design-system',
+    orgName: 'my-ui',
+    projectName: 'core',
     webpackConfigEnv
   });
 
@@ -16,6 +16,10 @@ module.exports = (webpackConfigEnv, argv) => {
   return merge(
     defaultConfig,
     {
+      output: {
+        publicPath: '/'
+      },
+
       devServer: {
         port: webpackConfigEnv.PORT || 6005
       },

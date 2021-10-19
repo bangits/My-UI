@@ -6,6 +6,7 @@ WORKDIR /app
 
 # First copy package.json and run yarn for caching
 COPY package.json .
+COPY .npmrc .npmrc
 COPY yarn.* .
 RUN yarn
 

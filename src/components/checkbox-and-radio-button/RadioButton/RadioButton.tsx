@@ -1,26 +1,31 @@
+import { typedMemo } from '@/helpers';
+import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
 import React from 'react';
-import { UIColors } from '../../../types/ui';
 import styles from './RadioButton.module.scss';
 import { Consumer } from './RadioContext';
 
-export interface RadioButtonProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface RadioButtonProps extends IComponent, React.InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   color?: UIColors;
   value?: string;
-  label?: string;
 }
 
 const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
-  ({ label, value, checked, color, name, ...radioProps }, ref) => {
+  ({ value, checked, color = 'primary', name, style, className, ...radioProps }, ref) => {
     return (
       <Consumer>
         {(radioGroupProps) => {
           return (
             <div
-              className={classNames(styles.RadioButton, {
-                [styles[`RadioButton--${color}`]]: color
-              })}>
+              className={classNames(
+                styles.RadioButton,
+                {
+                  [styles[`RadioButton--${color}`]]: color
+                },
+                className
+              )}
+              style={style}>
               <input
                 {...radioProps}
                 type='radio'
@@ -32,7 +37,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
                 ref={ref}
               />
 
-              <label htmlFor={value}>{label}</label>
+              <label htmlFor={value} />
             </div>
           );
         }}
@@ -41,4 +46,4 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
   }
 );
 
-export default RadioButton;
+export default typedMemo(RadioButton);

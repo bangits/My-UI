@@ -1,7 +1,7 @@
 version: '3.9'
 services:
-  atom-design-system-storybook:
-    container_name: Atom-Design-System-Storybook
+  my-ui-storybook:
+    container_name: My-UI-Storybook
     stdin_open: true
     tty: true
     build:
@@ -15,8 +15,8 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
       - COMPOSE_CONVERT_WINDOWS_PATHS=1
-  atom-design-system:
-    container_name: Atom-Design-System
+  my-ui:
+    container_name: My-UI
     stdin_open: true
     tty: true
     build:

@@ -1,0 +1,119 @@
+@mixin generate-sidebar-styles {
+  .SidebarWrapper--fixed {
+    position: fixed;
+    min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
+    height: map-get($sidebar-sizes, sidebar-height);
+  }
+  .SidebarWrapper--static {
+    position: static;
+    /*     min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
+ */
+    height: map-get($sidebar-sizes, sidebar-height);
+  }
+
+  .SidebarBase {
+    @include theme(background-color, sidebar-background-color);
+
+    position: absolute;
+    z-index: map-get($sidebar-sizes, sidebar-z-index);
+    display: flex;
+    flex-direction: column;
+    min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
+    height: map-get($sidebar-sizes, sidebar-height);
+    box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+    /* overflow: hidden;
+    overflow-y: scroll; */
+
+    &--logo {
+      margin: map-get($sidebar-sizes, sidebar-logo-collapsed-margin);
+      width: map-get($sidebar-sizes, sidebar-logo-width);
+      height: map-get($sidebar-sizes, sidebar-logo-height);
+      border-radius: map-get($sidebar-sizes, sidebar-logo-borderRadius);
+      transition: 0.3s;
+
+      @include theme(background-color, sidebar-logo-background-color);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.4rem;
+      }
+    }
+
+    &--button-container {
+      @include theme(background-color, sidebar-button-container-background-color);
+      box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
+      width: map-get($sidebar-sizes, sidebar-button-container-width);
+      height: map-get($sidebar-sizes, sidebar-button-container-height);
+      position: absolute;
+      border-radius: map-get($sidebar-sizes, sidebar-button-container-borderRadius);
+      top: map-get($sidebar-sizes, sidebar-button-container-top);
+      right: map-get($sidebar-sizes, sidebar-button-container-right);
+      cursor: pointer;
+
+      svg {
+        fill: #3c54b2;
+      }
+    }
+
+    &--button {
+      width: map-get($sidebar-sizes, sidebar-button-container-width);
+      height: map-get($sidebar-sizes, sidebar-button-container-height);
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    &--item-container {
+      margin-top: map-get($sidebar-sizes, sidebar-item-container-margin-top);
+      padding: 0;
+    }
+
+    &::before {
+      @include theme(background-color, sidebar-line-color);
+      position: absolute;
+      right: -1px;
+      top: 6%;
+      content: '';
+      width: 1px;
+      min-height: 94%;
+    }
+
+    &--closed {
+      position: absolute;
+      z-index: map-get($sidebar-sizes, sidebar-z-index);
+      display: flex;
+      flex-direction: column;
+      min-width: map-get($sidebar-sizes, sidebar-min-width);
+      height: map-get($sidebar-sizes, sidebar-height);
+      background-color: map-get($sidebar-colors, sidebar-background-color);
+      box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
+
+      &::before {
+        position: absolute;
+        right: -1px;
+        top: 6%;
+        content: '';
+        width: 1px;
+        background-color: #ebebeb;
+        min-height: 94%;
+      }
+
+      .SidebarBase--logo {
+        margin: map-get($sidebar-sizes, sidebar-logo-margin);
+        transition: 0.3s;
+      }
+
+      .SidebarBase--menu-item {
+        > a {
+          display: none;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+}

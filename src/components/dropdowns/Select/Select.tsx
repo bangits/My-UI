@@ -13,6 +13,9 @@ export type SelectProps = {
   explanation?: string;
   fullWidth?: boolean;
   color?: UIColors;
+  maxLength?: number;
+  clearButton?: boolean;
+  clearButtonLabel?: string;
 } & Props;
 const Select: FC<SelectProps> = ({
   children,
@@ -27,6 +30,9 @@ const Select: FC<SelectProps> = ({
   className,
   inputLabel = 'Select...',
   inputSelectedLabel = 'Selected items: ',
+  maxLength = 50,
+  clearButton,
+  clearButtonLabel,
   ...selectProps
 }) => {
   const [selectedOptions, setSelectedOptions] = useState((defaultValue as []) || []);
@@ -34,7 +40,6 @@ const Select: FC<SelectProps> = ({
   const onChange = useCallback<Props['onChange']>(
     (selectedOptions: [], event) => {
       const selectedOptionValue = (event.option as { value?: string | undefined })?.value;
-      const allOptions = selectedOptions;
       if (event.action === 'select-option' && selectedOptionValue === selectAllValue) {
         const allOptions = selectProps.options;
         setSelectedOptions([allOption, ...allOptions]);
@@ -66,39 +71,52 @@ const Select: FC<SelectProps> = ({
     ]);
     return sortOptions;
   }, [selectedOptions, selectProps.options]);
+
+  const [selectRef, setSelectRef] = useState<any>();
+  const clearValue = () => {
+    selectRef.clearValue();
+  };
+
   return (
-    <ReactSelect
-      {...selectProps}
-      inputSelectedLabel={inputSelectedLabel}
-      inputLabel={inputLabel}
-      onChange={onChange}
-      /*eslint-disable */
-      //@ts-ignore ignored because we need to reset all css styles
-      styles={resetStyles}
-      /*eslint-enable */
-      isClearable={false}
-      hideSelectedOptions={false}
-      classNamePrefix='react-select'
-      components={{ Option: isMulti ? Option : DefaultOption, Control: isSearchable ? SearchControl : IconControl }}
-      /* removeSelected={false} */
-      isMulti={isMulti}
-      color={color}
-      option
-      explanation={explanation}
-      closeMenuOnSelect={isMulti ? false : true}
-      controlShouldRenderValue={isMulti ? false : true}
-      backspaceRemovesValue={false}
-      value={selectedOptions}
-      className={classNames(
-        styles.Select,
-        {
-          [styles[`Select--fullWidth`]]: fullWidth
-        },
-        'MyUI-Select',
-        className
-      )}
-      options={isMulti ? [allOption, ...sortedOptions] : selectProps.options}
-    />
+    <div className={styles.Select}>
+      <ReactSelect
+        {...selectProps}
+        selectAllValue={selectAllValue}
+        clearButton={clearButton}
+        clearButtonLabel={clearButtonLabel}
+        ref={(ref) => setSelectRef(ref)}
+        maxLength={maxLength}
+        inputSelectedLabel={inputSelectedLabel}
+        inputLabel={inputLabel}
+        onChange={onChange}
+        /*eslint-disable */
+        //@ts-ignore ignored because we need to reset all css styles
+        styles={resetStyles}
+        /*eslint-enable */
+        isClearable={true}
+        hideSelectedOptions={false}
+        classNamePrefix='react-select'
+        components={{ Option: isMulti ? Option : DefaultOption, Control: isSearchable ? SearchControl : IconControl }}
+        /* removeSelected={false} */
+        isMulti={isMulti}
+        color={color}
+        option
+        explanation={explanation}
+        closeMenuOnSelect={isMulti ? false : true}
+        controlShouldRenderValue={isMulti ? false : true}
+        backspaceRemovesValue={false}
+        value={selectedOptions}
+        className={classNames(
+          styles.Select,
+          {
+            [styles[`Select--fullWidth`]]: fullWidth
+          },
+          'MyUI-Select',
+          className
+        )}
+        options={isMulti ? [allOption, ...sortedOptions] : selectProps.options}
+      />
+    </div>
   );
 };
 export default Select;

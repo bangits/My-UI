@@ -114,9 +114,9 @@ export const IconControl = ({ ...props }) => {
 
 export const MenuList = (props) => {
   return (
-    // @ts-ignore
-    <components.MenuList {...props}>
-      {props.children}
+    <>
+      {/* @ts-ignore */}
+      <components.MenuList {...props}>{props.children}</components.MenuList>
       {props.selectProps.clearButton && (
         <div onClick={props.clearValue} className={classNames(styles[`Select--clear-button`])}>
           <div>
@@ -125,6 +125,6 @@ export const MenuList = (props) => {
           <span>{props.selectProps.clearButtonLabel}</span>
         </div>
       )}
-    </components.MenuList>
+    </>
   );
 };

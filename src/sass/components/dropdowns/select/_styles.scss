@@ -38,7 +38,7 @@
         background-color: #ffffff;
         max-height: 32rem;
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: auto;
 
         &::-webkit-scrollbar {
           width: 0.4rem;
@@ -94,6 +94,7 @@
         }
         span {
           height: 1.7rem;
+          margin-left: 1.2rem;
           display: flex;
           align-items: center;
           font-size: 1.4rem;

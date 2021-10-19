@@ -1,6 +1,7 @@
-import { HomeIcon } from '@/icons';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { object, text, withKnobs, number } from '@storybook/addon-knobs';
 import Avatar from './Avatar';
+import AvatarImg from '@/images/avatar.png';
+import { HomeIcon } from '@/icons';
 
 export default {
   component: Avatar,

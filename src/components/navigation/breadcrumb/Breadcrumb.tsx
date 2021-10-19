@@ -1,25 +1,36 @@
 import { typedMemo } from '@/helpers';
-import { IComponent } from '@/types';
+import { ComponentType, IComponent } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './Breadcrumb.module.scss';
 
-export interface BreadcrumbProps extends IComponent {
-  links?: { isRedirect?: boolean; link?: string; label?: string }[];
-  activeLink?: boolean;
+export interface BreadcrumbProps extends IComponent, ComponentType {
+  links: {
+    isRedirect?: boolean;
+    linkComponent?: ComponentType;
+    label: string;
+    isClickable?: boolean;
+    componentProps?: any;
+  }[];
+  activeLink: number;
+  wrapperComponent?: ComponentType;
+  itemComponent?: ComponentType;
 }
 
-const Breadcrumb: FC<BreadcrumbProps> = ({ links, activeLink }) => {
+const Breadcrumb: FC<BreadcrumbProps> = ({
+  links,
+  activeLink = 0,
+  wrapperComponent: Component = 'ul',
+  itemComponent: ItemComponent = 'li'
+}) => {
   return (
-    <ul className={classNames(styles.BreadcrumbBase)}>
-      {links.map((link) => (
-        <>
-          <li>
-            <a href='#'>{link.label}</a>
-          </li>
-        </>
+    <Component className={classNames(styles.BreadcrumbBase)}>
+      {links.map(({ linkComponent: LinkComponent = 'a', label, componentProps = {} }, key) => (
+        <ItemComponent key={key}>
+          <LinkComponent {...componentProps}>{label}</LinkComponent>
+        </ItemComponent>
       ))}
-    </ul>
+    </Component>
   );
 };
 

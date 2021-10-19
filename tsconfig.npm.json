@@ -12,6 +12,7 @@
     "jsx": "react-jsx",
     "target": "ESNext",
     "baseUrl": "src",
+    "allowSyntheticDefaultImports": true,
     "paths": {
       // This paths synchronized with webpack shared config
       "@/*": ["*"]

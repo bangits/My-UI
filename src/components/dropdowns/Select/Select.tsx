@@ -2,7 +2,7 @@ import { UIColors } from '@/types';
 import ReactSelect, { Props } from '@my-ui/react-select';
 import classNames from 'classnames';
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { DefaultOption, IconControl, Option, SearchControl } from './Options';
+import { DefaultOption, IconControl, MenuList, Option, SearchControl } from './Options';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
 export type SelectProps = {
@@ -96,7 +96,11 @@ const Select: FC<SelectProps> = ({
         isClearable={true}
         hideSelectedOptions={false}
         classNamePrefix='react-select'
-        components={{ Option: isMulti ? Option : DefaultOption, Control: isSearchable ? SearchControl : IconControl }}
+        components={{
+          Option: isMulti ? Option : DefaultOption,
+          Control: isSearchable ? SearchControl : IconControl,
+          MenuList
+        }}
         /* removeSelected={false} */
         isMulti={isMulti}
         color={color}

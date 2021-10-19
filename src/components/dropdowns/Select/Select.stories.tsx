@@ -28,7 +28,7 @@ export const Default = () => (
           display: 'inline-radio'
         }
       )}
-      options={object('options', [
+      options={object('options1', [
         {
           label: 'Jewels and Gems',
           value: 2
@@ -64,30 +64,6 @@ export const Default = () => (
         {
           label: 'Animals',
           value: 10
-        },
-        {
-          label: 'Food',
-          value: 8
-        },
-        {
-          label: 'Branded',
-          value: 9
-        },
-        {
-          label: 'Animals',
-          value: 10
-        },
-        {
-          label: 'Food',
-          value: 8
-        },
-        {
-          label: 'Branded',
-          value: 9
-        },
-        {
-          label: 'Animals',
-          value: 10
         }
       ])}
     />
@@ -108,7 +84,7 @@ export const Default = () => (
           display: 'inline-radio'
         }
       )}
-      options={object('options', [
+      options={object('options2', [
         {
           label: 'Jewels and Gems',
           value: 2
@@ -235,7 +211,7 @@ export const MultiSelect = () => (
         }
       )}
       isMulti={boolean('isMulti', true)}
-      options={object('multiSelectOptions', [
+      options={object('multiSelectOptions2', [
         {
           label: 'Jewels and Gems',
           value: 2
@@ -271,6 +247,26 @@ export const MultiSelect = () => (
         {
           label: 'Animals',
           value: 10
+        },
+        {
+          label: 'Animals 2',
+          value: 11
+        },
+        {
+          label: 'Animals',
+          value: 12
+        },
+        {
+          label: 'Animals 2',
+          value: 13
+        },
+        {
+          label: 'Animals',
+          value: 14
+        },
+        {
+          label: 'Animals 2',
+          value: 15
         }
       ])}
     />

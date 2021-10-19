@@ -92,14 +92,6 @@ export const SearchControl = (props) => {
             </div>
           }
         />
-        {props.selectProps.clearButton && props.selectProps.menuIsOpen && (
-          <div onClick={props.clearValue} className={classNames(styles[`Select--clear-button`])}>
-            <div>
-              <ClearIcon />
-            </div>
-            <span>{props.selectProps.clearButtonLabel}</span>
-          </div>
-        )}
       </div>
     </components.Control>
   );
@@ -120,11 +112,19 @@ export const IconControl = ({ ...props }) => {
   );
 };
 
-// export const MenuList = (props) => {
-//   return (
-//     // @ts-ignore
-//     <components.MenuList {...props}>
-//      sd
-//     </components.MenuList>
-//   );
-// };
+export const MenuList = (props) => {
+  return (
+    // @ts-ignore
+    <components.MenuList {...props}>
+      {props.children}
+      {props.selectProps.clearButton && (
+        <div onClick={props.clearValue} className={classNames(styles[`Select--clear-button`])}>
+          <div>
+            <ClearIcon />
+          </div>
+          <span>{props.selectProps.clearButtonLabel}</span>
+        </div>
+      )}
+    </components.MenuList>
+  );
+};

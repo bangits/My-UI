@@ -8,13 +8,15 @@
     &:first-child {
       position: absolute;
       z-index: 10000;
-      width: 27.2rem;
+      width: 27rem;
+      left: 0rem;
       background-color: #ffffff;
-      margin-bottom: 10rem;
-      div {
+      border-radius: 0.8rem 0.8rem 0 0;
+      > div {
         border-bottom: none;
         &:hover {
-          background-color: transparent;
+          background-color: rgba(60, 84, 178, 0.1);
+          border-radius: 0.8rem 0.8rem 0 0;
         }
       }
     }
@@ -31,12 +33,11 @@
   .Select--clear-button {
     display: flex;
     align-items: center;
-    margin-left: 0.4rem;
     position: absolute;
     z-index: 999999;
-    top: 33.5rem;
-    width: 27.2rem;
-    height: 3.2rem;
+    bottom: 0;
+    width: 27rem;
+    height: 3.1rem;
     background-color: #ffffff;
     cursor: pointer;
     div {

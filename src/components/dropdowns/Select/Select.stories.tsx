@@ -136,6 +136,7 @@ export const MultiSelect = () => (
       inputLabel={text('inputLabelMulti', 'Multi Select...')}
       inputSelectedLabel={text('inputSelectedLabel', 'Selected ')}
       explanation={text('explanation', '')}
+      fullWidth={boolean('fullWidth', false)}
       isSearchable
       color={optionsKnob(
         'color',

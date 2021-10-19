@@ -106,6 +106,16 @@
           letter-spacing: normal;
         }
 
+        label,
+        span {
+          word-break: break-all;
+          width: 90%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          display: inline-block;
+        }
+
         div {
           display: flex;
           justify-content: center;
@@ -136,6 +146,22 @@
 
       &__input {
         font-size: 1.4rem !important;
+      }
+    }
+  }
+}
+
+@mixin generate-full-width-select-styles {
+  :global {
+    width: 100%;
+
+    .react-select {
+      &__menu {
+        width: 100%;
+      }
+
+      &__menu-list {
+        width: calc(100% - 0.8rem);
       }
     }
   }

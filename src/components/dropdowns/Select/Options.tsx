@@ -48,6 +48,7 @@ export const SearchControl = (props) => {
     <components.Control {...props}>
       <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
         <TextInput
+          fullWidth={props.selectProps.fullWidth}
           className='MyUi-Input'
           color={props.selectProps.color !== 'primary' && props.selectProps.color}
           explanation={props.selectProps.explanation}

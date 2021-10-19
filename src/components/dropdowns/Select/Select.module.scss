@@ -4,6 +4,25 @@
     width: 28rem;
   }
 
+  &--dropdown-control {
+    display: flex;
+    align-items: center;
+
+    .Select--dropdown-control-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+    .Select--dropdown-control-label {
+      height: 1.7rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.14rem;
+    }
+  }
+
   .AllOption {
     &:first-child {
       position: absolute;

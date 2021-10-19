@@ -8,6 +8,7 @@ import styles from './Select.module.scss';
 export type SelectProps = {
   selectAllLabel?: string;
   selectAllValue?: string;
+  selectAll?: boolean;
   inputLabel?: string;
   inputSelectedLabel?: string;
   explanation?: string;
@@ -16,6 +17,7 @@ export type SelectProps = {
   maxLength?: number;
   clearButton?: boolean;
   clearButtonLabel?: string;
+  dropdown?: boolean;
 } & Props;
 const Select: FC<SelectProps> = ({
   children,
@@ -33,6 +35,8 @@ const Select: FC<SelectProps> = ({
   maxLength = 50,
   clearButton,
   clearButtonLabel,
+  selectAll,
+  dropdown,
   ...selectProps
 }) => {
   const [selectedOptions, setSelectedOptions] = useState((defaultValue as []) || []);
@@ -109,12 +113,13 @@ const Select: FC<SelectProps> = ({
         className={classNames(
           styles.Select,
           {
-            [styles[`Select--fullWidth`]]: fullWidth
+            [styles[`Select--fullWidth`]]: fullWidth,
+            ['Select--dropdown']: dropdown
           },
           'MyUI-Select',
           className
         )}
-        options={isMulti ? [allOption, ...sortedOptions] : selectProps.options}
+        options={isMulti ? (selectAll ? [allOption, ...sortedOptions] : [...sortedOptions]) : selectProps.options}
       />
     </div>
   );

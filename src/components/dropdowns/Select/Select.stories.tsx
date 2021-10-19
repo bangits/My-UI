@@ -13,6 +13,7 @@ export const Default = () => (
     <Select
       menuIsOpen={boolean('isMenuOpenSingle', true)}
       inputLabel={text('inputLabelSingle', 'Single Select...')}
+      selectAll
       isSearchable
       maxLength={number('maxLengthSingleSelect', 20)}
       color={optionsKnob(
@@ -95,6 +96,7 @@ export const Default = () => (
       inputLabel={text('inputLabelSingle', 'Single Select...')}
       maxLength={number('maxLengthSingleSelect', 20)}
       isSearchable
+      selectAll
       color={optionsKnob(
         'color',
         {
@@ -153,6 +155,7 @@ export const Default = () => (
 export const MultiSelect = () => (
   <>
     <Select
+      selectAll
       clearButton
       clearButtonLabel={text('clearButtonLabel', 'Clear')}
       maxLength={number('maxLengthMultiSelect', 50)}
@@ -215,6 +218,7 @@ export const MultiSelect = () => (
     />
 
     <Select
+      selectAll
       clearButton
       clearButtonLabel={text('clearButtonLabel', 'Clear')}
       inputLabel={text('inputLabelMulti', 'Multi Select...')}
@@ -276,3 +280,63 @@ export const MultiSelect = () => (
     />
   </>
 );
+
+export const Dropdown = () => {
+  return (
+    <Select
+      dropdown
+      isSearchable={false}
+      color={optionsKnob(
+        'color',
+        {
+          danger: 'danger',
+          warning: 'warning',
+          primary: 'primary'
+        },
+        'primary',
+        {
+          display: 'inline-radio'
+        }
+      )}
+      isMulti={boolean('isMulti', true)}
+      options={object('dropdownOptions', [
+        {
+          label: 'Jewels and Gems',
+          value: 2
+        },
+        {
+          label: 'Fantasy',
+          value: 3
+        },
+        {
+          label: 'Halloween',
+          value: 4
+        },
+        {
+          label: 'Luxury',
+          value: 5
+        },
+        {
+          label: 'Fruits / Vegetables',
+          value: 6
+        },
+        {
+          label: 'Asian',
+          value: 7
+        },
+        {
+          label: 'Food',
+          value: 8
+        },
+        {
+          label: 'Branded',
+          value: 9
+        },
+        {
+          label: 'Animals',
+          value: 10
+        }
+      ])}
+    />
+  );
+};

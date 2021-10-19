@@ -1,5 +1,5 @@
 import { Checkbox, TextInput } from '@/components';
-import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp } from '@/icons';
+import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp, SettingIcon } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -114,17 +114,15 @@ export const IconControl = ({ ...props }) => {
   return (
     // @ts-ignore
     <components.Control {...props}>
-      <label onClick={menuToggle}>Icon</label>
-      <label> Columns</label>
+      <div onClick={menuToggle} className={classNames(styles['Select--dropdown-control'])}>
+        <span className='Select--dropdown-control-icon'>
+          <SettingIcon />
+        </span>
+        <span className='Select--dropdown-control-label'>Columns</span>
+      </div>
+      <div>
+        <input />
+      </div>
     </components.Control>
   );
 };
-
-// export const MenuList = (props) => {
-//   return (
-//     // @ts-ignore
-//     <components.MenuList {...props}>
-//      sd
-//     </components.MenuList>
-//   );
-// };

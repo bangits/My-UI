@@ -12,7 +12,6 @@
 
     .AvatarLabel {
       @include theme(color, avatar-label-color);
-
       font-size: getAvatarSizes(avatar-label-size);
       font-weight: getAvatarSizes(avatar-label-fontWeight);
       margin-right: getAvatarSizes(avatar-label-margin-right);
@@ -70,6 +69,8 @@
 
     .SubMenuItems {
       padding: getAvatarSizes(avatar-sub-menu-items);
+      width: getAvatarSizes(avatar-sub-menu-items-width);
+      height: getAvatarSizes(avatar-sub-menu-items-height);
       a {
         margin-left: getAvatarSizes(avatar-sub-menu-items-marginLeft);
       }

@@ -4,8 +4,9 @@
     box-sizing: border-box;
     position: relative;
     .Select--dropdown {
+      position: relative;
       .react-select__menu {
-        top: 2rem;
+        top: 0rem;
         .react-select__menu-list {
           height: 32rem;
         }

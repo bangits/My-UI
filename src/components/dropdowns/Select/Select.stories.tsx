@@ -286,6 +286,7 @@ export const Dropdown = () => {
     <Select
       dropdown
       isSearchable={false}
+      dropdownLabel={text('dropdownLabel', 'Columns')}
       color={optionsKnob(
         'color',
         {

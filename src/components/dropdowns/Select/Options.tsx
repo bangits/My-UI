@@ -115,14 +115,28 @@ export const IconControl = ({ ...props }) => {
     // @ts-ignore
     <components.Control {...props}>
       <div onClick={menuToggle} className={classNames(styles['Select--dropdown-control'])}>
-        <span className='Select--dropdown-control-icon'>
+        <span className={classNames(styles['Select--dropdown-control-icon'])}>
           <SettingIcon />
         </span>
-        <span className='Select--dropdown-control-label'>Columns</span>
-      </div>
-      <div>
-        <input />
+        <span className={classNames(styles['Select--dropdown-control-label'])}>{props.selectProps.dropdownLabel}</span>
       </div>
     </components.Control>
+  );
+};
+
+export const MenuList = (props) => {
+  return (
+    // @ts-ignore
+    <components.MenuList {...props}>
+      {props.children}
+      {props.selectProps.clearButton && (
+        <div onClick={props.clearValue} className={classNames(styles[`Select--clear-button`])}>
+          <div>
+            <ClearIcon />
+          </div>
+          <span>{props.selectProps.clearButtonLabel}</span>
+        </div>
+      )}
+    </components.MenuList>
   );
 };

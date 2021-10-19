@@ -22,4 +22,12 @@ $avatar-sizes: (
   avatar-sub-menu-items-height: calculateRem(32px)
 );
 
-$avatar-colors: ();
+@function getAvatarSizes($property) {
+  @return map-get($avatar-sizes, $property);
+}
+
+$avatar-colors: (
+  avatar-label-color: color(midnight-sun),
+  avatar-border-color: color(mercury),
+  avatar-divider-borderColor: color(alabaster)
+);

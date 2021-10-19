@@ -3,7 +3,7 @@ $transition-duration: getTextFieldSizes(label-transition);
 @mixin generate-text-input-styles {
   .Explanation {
     display: block;
-    margin-top: getTextFieldSizes(explanation-margin);
+    margin: getTextFieldSizes(explanation-margin) 0;
     @include theme(color, default-input-color);
   }
 

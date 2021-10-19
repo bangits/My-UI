@@ -1,4 +1,4 @@
-export default function useOutsideClickEvent(selector: string) {
+export function useOutsideClickEvent(selector: string) {
   let subscriber: ((e: Event) => void) | null = null;
   return {
     subscribe: (cb: () => void) => {

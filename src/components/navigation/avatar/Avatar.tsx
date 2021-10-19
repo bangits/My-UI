@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import React, { FC, ReactNode, useEffect, useState } from 'react';
 import SubMenuItems from '../sidebar/sidebar-components/SubMenuItems';
 import styles from './Avatar.module.scss';
-interface AvatarProps extends IComponent {
+export interface AvatarProps extends IComponent {
   imageSource?: string;
   avatarLabel: string;
   dropdownTitle?: string;

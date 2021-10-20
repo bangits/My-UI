@@ -2,8 +2,9 @@ import { Checkbox, TextInput } from '@/components';
 import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp, LoopIcon, SettingIcon } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './Select.module.scss';
+
 export const Option = (props) => {
   return (
     <div
@@ -106,15 +107,31 @@ export const SearchControl = (props) => {
 };
 
 export const IconControl = ({ ...props }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuToggle = useCallback(() => {
-    isMenuOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();
-    setIsMenuOpen(!isMenuOpen);
-  }, [isMenuOpen]);
+    props.selectProps.menuIsOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();
+  }, [props.selectProps.menuIsOpen]);
+
+  function useOutsideClick(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          props.selectProps.onMenuClose();
+        }
+      }
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  const wrapperRef = useRef(null);
+  useOutsideClick(wrapperRef);
+
   return (
     // @ts-ignore
     <components.Control {...props}>
-      <div onClick={menuToggle} className={classNames(styles['Select--dropdown-control'])}>
+      <div ref={wrapperRef} onClick={menuToggle} className={classNames(styles['Select--dropdown-control'])}>
         <span className={classNames(styles['Select--dropdown-control-icon'])}>
           <SettingIcon />
         </span>

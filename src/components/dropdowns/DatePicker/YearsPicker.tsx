@@ -34,9 +34,8 @@ const YearsPicker: FC<YearsPickerProps> = ({ years, monthDate, customHeaderCount
     <div className={styles.YearPickerWrapper}>
       <div className={styles.YearHeader}>
         <button
-          aria-label='Previous Month'
+          aria-label='Previous Year'
           className={'react-datepicker__navigation react-datepicker__navigation--previous aaa'}
-          style={customHeaderCount === 1 ? { visibility: 'hidden' } : null}
           onClick={() => setYearSelection(calculateYears(yearSelection[2] + 1))}>
           <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'}>{'<'}</span>
         </button>
@@ -45,9 +44,8 @@ const YearsPicker: FC<YearsPickerProps> = ({ years, monthDate, customHeaderCount
         </div>
 
         <button
-          aria-label='Next Month'
+          aria-label='Next Year'
           className={'react-datepicker__navigation react-datepicker__navigation--next'}
-          style={customHeaderCount === 1 ? { visibility: 'hidden' } : null}
           onClick={() => setYearSelection(calculateYears(yearSelection[0] + 5))}>
           <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'}>{'>'}</span>
         </button>

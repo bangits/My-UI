@@ -1,10 +1,11 @@
 import { UIColors } from '@/types';
 import ReactSelect, { Props } from '@my-ui/react-select';
 import classNames from 'classnames';
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { DefaultOption, IconControl, MenuList, Option, SearchControl } from './Options';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
+
 export type SelectProps = {
   selectAllLabel?: string;
   selectAllValue?: string;
@@ -17,6 +18,7 @@ export type SelectProps = {
   clearButton?: boolean;
   clearButtonLabel?: string;
 } & Props;
+
 const Select: FC<SelectProps> = ({
   children,
   isSearchable = true,
@@ -24,7 +26,8 @@ const Select: FC<SelectProps> = ({
   explanation,
   isMulti,
   color,
-  defaultValue,
+  defaultValue: defaultValueProp,
+  value: valueProp,
   selectAllValue = '*',
   selectAllLabel = 'All',
   className,
@@ -35,8 +38,35 @@ const Select: FC<SelectProps> = ({
   clearButtonLabel,
   ...selectProps
 }) => {
-  const [selectedOptions, setSelectedOptions] = useState((defaultValue as []) || []);
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
+
+  const defaultValue =
+    defaultValueProp !== undefined
+      ? isMulti
+        ? selectProps.options.filter((o) => defaultValueProp.includes(o.value))
+        : { value: defaultValueProp, label: selectProps.options.find((o) => o.value === defaultValueProp)?.label }
+      : undefined;
+
+  const value =
+    valueProp !== undefined
+      ? isMulti
+        ? selectProps.options.filter((o) => valueProp.includes(o.value))
+        : { value: valueProp, label: selectProps.options.find((o) => o.value === valueProp)?.label }
+      : undefined;
+
+  const [selectedOptions, setSelectedOptions] = useState((defaultValue as []) || []);
+
+  const sortedOptions = useMemo(() => {
+    if (!Array.isArray(selectedOptions)) return;
+    const sortOptions = new Set<[]>([
+      ...selectedOptions?.filter((option) => option.value !== '*'),
+      ...selectProps.options
+    ]);
+    return sortOptions;
+  }, [selectedOptions, selectProps.options]);
+
+  const options = isMulti ? [allOption, ...sortedOptions] : selectProps.options;
+
   const onChange = useCallback<Props['onChange']>(
     (selectedOptions: [], event) => {
       const selectedOptionValue = (event.option as { value?: string | undefined })?.value;
@@ -63,19 +93,10 @@ const Select: FC<SelectProps> = ({
     },
     [selectProps.onChange, selectProps.options, selectProps.value, selectAllValue, allOption, selectedOptions]
   );
-  const sortedOptions = useMemo(() => {
-    if (!Array.isArray(selectedOptions)) return;
-    const sortOptions = new Set<[]>([
-      ...selectedOptions?.filter((option) => option.value !== '*'),
-      ...selectProps.options
-    ]);
-    return sortOptions;
-  }, [selectedOptions, selectProps.options]);
 
-  const [selectRef, setSelectRef] = useState<any>();
-  const clearValue = () => {
-    selectRef.clearValue();
-  };
+  useEffect(() => {
+    if (defaultValue || value) setSelectedOptions(defaultValue || value);
+  }, [valueProp, defaultValueProp]);
 
   return (
     <ReactSelect
@@ -83,7 +104,6 @@ const Select: FC<SelectProps> = ({
       selectAllValue={selectAllValue}
       clearButton={clearButton}
       clearButtonLabel={clearButtonLabel}
-      ref={(ref) => setSelectRef(ref)}
       maxLength={maxLength}
       inputSelectedLabel={inputSelectedLabel}
       inputLabel={inputLabel}
@@ -109,7 +129,8 @@ const Select: FC<SelectProps> = ({
       closeMenuOnSelect={isMulti ? false : true}
       controlShouldRenderValue={isMulti ? false : true}
       backspaceRemovesValue={false}
-      value={selectedOptions}
+      value={value}
+      defaultValue={defaultValue}
       className={classNames(
         styles.Select,
         {
@@ -118,7 +139,7 @@ const Select: FC<SelectProps> = ({
         'MyUI-Select',
         className
       )}
-      options={isMulti ? [allOption, ...sortedOptions] : selectProps.options}
+      options={options}
     />
   );
 };

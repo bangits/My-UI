@@ -189,6 +189,7 @@ export const MultiSelect = () => (
           value: 10
         }
       ])}
+      defaultValue={[2, 7]}
     />
 
     <Select

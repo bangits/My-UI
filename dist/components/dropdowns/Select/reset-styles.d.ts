@@ -1,0 +1,25 @@
+declare const resetStyles: {
+    clearIndicator: () => void;
+    container: () => void;
+    control: () => void;
+    dropdownIndicator: () => void;
+    group: () => void;
+    groupHeading: () => void;
+    indicatorsContainer: () => void;
+    indicatorSeparator: () => void;
+    input: () => void;
+    loadingIndicator: () => void;
+    loadingMessage: () => void;
+    menu: () => void;
+    menuList: () => void;
+    menuPortal: () => void;
+    multiValue: () => void;
+    multiValueLabel: () => void;
+    multiValueRemove: () => void;
+    noOptionsMessage: () => void;
+    option: () => void;
+    placeholder: () => void;
+    singleValue: () => void;
+    valueContainer: () => void;
+};
+export default resetStyles;

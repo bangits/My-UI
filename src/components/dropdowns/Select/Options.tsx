@@ -75,8 +75,8 @@ export const SearchControl = (props) => {
               : props.isMulti
               ? props.selectProps.inputValue
                 ? props.selectProps.inputValue
-                : props.selectProps?.value.length > 0
-                ? props.selectProps?.value.length > 1
+                : props.selectProps?.value?.length > 0
+                ? props.selectProps?.value?.length > 1
                   ? props.options.length === props.selectProps?.value.length
                     ? props.options[0].label
                     : `${props.selectProps.inputSelectedLabel} (${props.selectProps?.value.length})`

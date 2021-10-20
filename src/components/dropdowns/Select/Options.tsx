@@ -1,5 +1,5 @@
 import { Checkbox, TextInput } from '@/components';
-import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp, SettingIcon } from '@/icons';
+import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp, LoopIcon, SettingIcon } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -8,7 +8,7 @@ export const Option = (props) => {
   return (
     <div
       className={classNames({
-        [styles[`AllOption`]]: props.selectProps?.selectAllValue === '*'
+        [styles[`AllOption`]]: props.selectProps?.selectAllValue === '*' && props.selectProps.selectAll
       })}>
       <components.Option {...props}>
         <Checkbox checked={props.isSelected} onChange={() => null} /> <label>{props.label}</label>
@@ -125,18 +125,42 @@ export const IconControl = ({ ...props }) => {
 };
 
 export const MenuList = (props) => {
+  const inputMouseDownHandler = useCallback((e) => e.stopPropagation(), []);
+
+  const inputChangeHandler = useCallback(
+    (e) => {
+      props.selectProps.onInputChange(e.target.value);
+    },
+    [props.selectProps]
+  );
+
   return (
     // @ts-ignore
-    <components.MenuList {...props}>
-      {props.children}
-      {props.selectProps.clearButton && (
-        <div onClick={props.clearValue} className={classNames(styles[`Select--clear-button`])}>
-          <div>
-            <ClearIcon />
-          </div>
-          <span>{props.selectProps.clearButtonLabel}</span>
+    <>
+      {props.selectProps.dropdown && (
+        <div className={classNames(styles['Select--dropdown--input'])}>
+          <input
+            onMouseDown={inputMouseDownHandler}
+            type='text'
+            placeholder='Select Filters...'
+            onChange={inputChangeHandler}
+          />
+          <span>
+            <LoopIcon />
+          </span>
         </div>
       )}
-    </components.MenuList>
+      <components.MenuList {...props}>
+        {props.children}
+        {props.selectProps.clearButton && (
+          <div onClick={props.clearValue} className={classNames(styles[`Select--clear-button`])}>
+            <div>
+              <ClearIcon />
+            </div>
+            <span>{props.selectProps.clearButtonLabel}</span>
+          </div>
+        )}
+      </components.MenuList>
+    </>
   );
 };

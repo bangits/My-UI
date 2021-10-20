@@ -302,40 +302,44 @@ export const Dropdown = () => {
       isMulti={boolean('isMulti', true)}
       options={object('dropdownOptions', [
         {
-          label: 'Jewels and Gems',
+          label: 'External ID',
           value: 2
         },
         {
-          label: 'Fantasy',
+          label: 'Game icon',
           value: 3
         },
         {
-          label: 'Halloween',
+          label: 'Game background',
           value: 4
         },
         {
-          label: 'Luxury',
+          label: 'Game name',
           value: 5
         },
         {
-          label: 'Fruits / Vegetables',
+          label: 'Game URL',
           value: 6
         },
         {
-          label: 'Asian',
+          label: 'Game data',
           value: 7
         },
         {
-          label: 'Food',
+          label: 'Provider',
           value: 8
         },
         {
-          label: 'Branded',
+          label: 'Theme',
           value: 9
         },
         {
-          label: 'Animals',
+          label: 'Type',
           value: 10
+        },
+        {
+          label: 'Subtype',
+          value: 11
         }
       ])}
     />

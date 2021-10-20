@@ -89,6 +89,7 @@ const Select: FC<SelectProps> = ({
       <ReactSelect
         {...selectProps}
         selectAllValue={selectAllValue}
+        selectAll={selectAll}
         dropdown={dropdown}
         dropdownLabel={dropdownLabel}
         clearButton={clearButton}

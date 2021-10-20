@@ -13,6 +13,7 @@ export const Default = () => (
     <Select
       menuIsOpen={boolean('isMenuOpenSingle', true)}
       inputLabel={text('inputLabelSingle', 'Single Select...')}
+      selectAll
       isSearchable
       maxLength={number('maxLengthSingleSelect', 20)}
       color={optionsKnob(
@@ -71,6 +72,7 @@ export const Default = () => (
       inputLabel={text('inputLabelSingle', 'Single Select...')}
       maxLength={number('maxLengthSingleSelect', 20)}
       isSearchable
+      selectAll
       color={optionsKnob(
         'color',
         {
@@ -129,6 +131,7 @@ export const Default = () => (
 export const MultiSelect = () => (
   <>
     <Select
+      selectAll
       clearButton
       clearButtonLabel={text('clearButtonLabel', 'Clear')}
       maxLength={number('maxLengthMultiSelect', 50)}
@@ -193,6 +196,7 @@ export const MultiSelect = () => (
     />
 
     <Select
+      selectAll
       clearButton
       clearButtonLabel={text('clearButtonLabel', 'Clear')}
       inputLabel={text('inputLabelMulti', 'Multi Select...')}
@@ -274,3 +278,68 @@ export const MultiSelect = () => (
     />
   </>
 );
+
+export const Dropdown = () => {
+  return (
+    <Select
+      dropdown
+      isSearchable={false}
+      dropdownLabel={text('dropdownLabel', 'Columns')}
+      color={optionsKnob(
+        'color',
+        {
+          danger: 'danger',
+          warning: 'warning',
+          primary: 'primary'
+        },
+        'primary',
+        {
+          display: 'inline-radio'
+        }
+      )}
+      isMulti={boolean('isMulti', true)}
+      options={object('dropdownOptions', [
+        {
+          label: 'External ID',
+          value: 2
+        },
+        {
+          label: 'Game icon',
+          value: 3
+        },
+        {
+          label: 'Game background',
+          value: 4
+        },
+        {
+          label: 'Game name',
+          value: 5
+        },
+        {
+          label: 'Game URL',
+          value: 6
+        },
+        {
+          label: 'Game data',
+          value: 7
+        },
+        {
+          label: 'Provider',
+          value: 8
+        },
+        {
+          label: 'Theme',
+          value: 9
+        },
+        {
+          label: 'Type',
+          value: 10
+        },
+        {
+          label: 'Subtype',
+          value: 11
+        }
+      ])}
+    />
+  );
+};

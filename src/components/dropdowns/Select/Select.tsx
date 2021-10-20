@@ -9,6 +9,7 @@ import styles from './Select.module.scss';
 export type SelectProps = {
   selectAllLabel?: string;
   selectAllValue?: string;
+  selectAll?: boolean;
   inputLabel?: string;
   inputSelectedLabel?: string;
   explanation?: string;
@@ -17,6 +18,8 @@ export type SelectProps = {
   maxLength?: number;
   clearButton?: boolean;
   clearButtonLabel?: string;
+  dropdown?: boolean;
+  dropdownLabel?: string;
 } & Props;
 
 const Select: FC<SelectProps> = ({
@@ -36,6 +39,9 @@ const Select: FC<SelectProps> = ({
   maxLength = 50,
   clearButton,
   clearButtonLabel,
+  selectAll,
+  dropdown,
+  dropdownLabel,
   ...selectProps
 }) => {
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
@@ -102,12 +108,14 @@ const Select: FC<SelectProps> = ({
     <ReactSelect
       {...selectProps}
       selectAllValue={selectAllValue}
+      selectAll={selectAll}
+      dropdown={dropdown}
+      dropdownLabel={dropdownLabel}
       clearButton={clearButton}
       clearButtonLabel={clearButtonLabel}
       maxLength={maxLength}
       inputSelectedLabel={inputSelectedLabel}
       inputLabel={inputLabel}
-      fullWidth={fullWidth}
       onChange={onChange}
       /*eslint-disable */
       //@ts-ignore ignored because we need to reset all css styles
@@ -134,12 +142,13 @@ const Select: FC<SelectProps> = ({
       className={classNames(
         styles.Select,
         {
-          [styles[`Select--fullWidth`]]: fullWidth
+          [styles[`Select--fullWidth`]]: fullWidth,
+          ['Select--dropdown']: dropdown
         },
         'MyUI-Select',
         className
       )}
-      options={options}
+      options={isMulti ? (selectAll ? [allOption, ...sortedOptions] : [...sortedOptions]) : selectProps.options}
     />
   );
 };

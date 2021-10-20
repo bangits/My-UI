@@ -1,14 +1,15 @@
 import { Checkbox, TextInput } from '@/components';
-import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp } from '@/icons';
+import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp, LoopIcon, SettingIcon } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './Select.module.scss';
+
 export const Option = (props) => {
   return (
     <div
       className={classNames({
-        [styles[`AllOption`]]: props.selectProps?.selectAllValue === '*'
+        [styles[`AllOption`]]: props.selectProps?.selectAllValue === '*' && props.selectProps.selectAll
       })}>
       <components.Option {...props}>
         <Checkbox checked={props.isSelected} onChange={() => null} /> <label>{props.label}</label>
@@ -99,33 +100,77 @@ export const SearchControl = (props) => {
 };
 
 export const IconControl = ({ ...props }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuToggle = useCallback(() => {
-    isMenuOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();
-    setIsMenuOpen(!isMenuOpen);
-  }, [isMenuOpen]);
+    props.selectProps.menuIsOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();
+  }, [props.selectProps.menuIsOpen]);
+
+  function useOutsideClick(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          props.selectProps.onMenuClose();
+        }
+      }
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  const wrapperRef = useRef(null);
+  useOutsideClick(wrapperRef);
+
   return (
     // @ts-ignore
     <components.Control {...props}>
-      <label onClick={menuToggle}>Icon</label>
-      <label> Columns</label>
+      <div ref={wrapperRef} onClick={menuToggle} className={classNames(styles['Select--dropdown-control'])}>
+        <span className={classNames(styles['Select--dropdown-control-icon'])}>
+          <SettingIcon />
+        </span>
+        <span className={classNames(styles['Select--dropdown-control-label'])}>{props.selectProps.dropdownLabel}</span>
+      </div>
     </components.Control>
   );
 };
 
 export const MenuList = (props) => {
+  const inputMouseDownHandler = useCallback((e) => e.stopPropagation(), []);
+
+  const inputChangeHandler = useCallback(
+    (e) => {
+      props.selectProps.onInputChange(e.target.value);
+    },
+    [props.selectProps]
+  );
+
   return (
+    // @ts-ignore
     <>
-      {/* @ts-ignore */}
-      <components.MenuList {...props}>{props.children}</components.MenuList>
-      {props.selectProps.clearButton && (
-        <div onClick={props.clearValue} className={classNames(styles[`Select--clear-button`])}>
-          <div>
-            <ClearIcon />
-          </div>
-          <span>{props.selectProps.clearButtonLabel}</span>
+      {props.selectProps.dropdown && (
+        <div className={classNames(styles['Select--dropdown--input'])}>
+          <input
+            onMouseDown={inputMouseDownHandler}
+            type='text'
+            placeholder='Select Filters...'
+            onChange={inputChangeHandler}
+          />
+          <span>
+            <LoopIcon />
+          </span>
         </div>
       )}
+      <components.MenuList {...props}>
+        {props.children}
+        {props.selectProps.clearButton && (
+          <div onClick={props.clearValue} className={classNames(styles[`Select--clear-button`])}>
+            <div>
+              <ClearIcon />
+            </div>
+            <span>{props.selectProps.clearButtonLabel}</span>
+          </div>
+        )}
+      </components.MenuList>
     </>
   );
 };

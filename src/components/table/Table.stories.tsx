@@ -1,8 +1,7 @@
-import { IconButton } from '@/components';
-import { Status } from '@/components/others';
+import { IconButton, Status } from '@/components';
 import { EditIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
+import { object, withKnobs } from '@storybook/addon-knobs';
 import Table from './Table';
 
 export default {
@@ -12,198 +11,69 @@ export default {
 };
 
 export const Default = () => {
+  const data = object('data', [
+    {
+      y: 'ID1234567',
+      z: 'ID1234567',
+      b: '20BurningHot',
+      n: 'EGT',
+      w: '12/07/2021, 12:00:00',
+      e: 'Mobile Desktop',
+      v: 'Mobile, Desktop',
+      c: 'Slots'
+    }
+  ]);
+
   return (
     <Table
       fetch={action('fetch')}
       data={[
-        {
+        ...data.map((d) => ({
           x: (
             <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
           ),
-          y: 'ID1234567',
-          z: 'ID1234567',
-          b: '20BurningHot',
-          n: 'EGT',
-          w: '12/07/2021,12:00:00',
-          e: 'Mobile Desktop',
           r: <Status variant='blocked'>Blocked</Status>,
-          v: 'Mobile, Desktop',
-          c: 'Slots'
-        },
-        {
-          x: (
-            <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
-          ),
-          y: 'ID1234567',
-          z: 'ID1234567',
-          b: '20BurningHot',
-          n: 'EGT',
-          w: '12/07/2021,12:00:00',
-          e: 'Mobile Desktop',
-          r: <Status variant='blocked'>Blocked</Status>,
-          v: 'Mobile, Desktop',
-          c: 'Slots'
-        },
-        {
-          x: (
-            <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
-          ),
-          y: 'ID1234567',
-          z: 'ID1234567',
-          b: '20BurningHot',
-          n: 'EGT',
-          w: '12/07/2021,12:00:00',
-          e: 'Mobile Desktop',
-          r: <Status variant='blocked'>Blocked</Status>,
-          v: 'Mobile, Desktop',
-          c: 'Slots'
-        },
-        {
-          x: (
-            <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
-          ),
-          y: 'ID1234567',
-          z: 'ID1234567',
-          b: '20BurningHot',
-          n: 'EGT',
-          w: '12/07/2021,12:00:00',
-          e: 'Mobile Desktop',
-          r: <Status variant='blocked'>Blocked</Status>,
-          v: 'Mobile, Desktop',
-          c: 'Slots'
-        },
-        {
-          x: (
-            <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
-          ),
-          y: 'ID1234567',
-          z: 'ID1234567',
-          b: '20BurningHot',
-          n: 'EGT',
-          w: '12/07/2021,12:00:00',
-          e: 'Mobile Desktop',
-          r: <Status variant='blocked'>Blocked</Status>,
-          v: 'Mobile, Desktop',
-          c: 'Slots'
-        },
-        {
-          x: (
-            <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
-          ),
-          y: 'ID1234567',
-          z: 'ID1234567',
-          b: '20BurningHot',
-          n: 'EGT',
-          w: '12/07/2021,12:00:00',
-          e: 'Mobile Desktop',
-          r: <Status variant='blocked'>Blocked</Status>,
-          v: 'Mobile, Desktop',
-          c: 'Slots'
-        },
-        {
-          x: (
-            <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
-          ),
-          y: 'ID1234567',
-          z: 'ID1234567',
-          b: '20BurningHot',
-          n: 'EGT',
-          w: '12/07/2021,12:00:00',
-          e: 'Mobile Desktop',
-          r: <Status variant='active'>Active</Status>,
-          v: 'Mobile, Desktop',
-          c: 'Slots'
-        },
-        {
-          x: (
-            <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
-          ),
-          y: 'ID1234567',
-          z: 'ID1234567',
-          b: '20BurningHot',
-          n: 'EGT',
-          w: '12/07/2021,12:00:00',
-          e: 'Mobile Desktop',
-          r: <Status variant='blocked'>Blocked</Status>,
-          v: 'Mobile, Desktop',
-          c: 'Slots'
-        },
-        {
-          x: (
-            <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
-          ),
-          y: 'ID1234567',
-          z: 'ID1234567',
-          b: '20BurningHot',
-          n: 'EGT',
-          w: '12/07/2021,12:00:00',
-          e: 'Mobile Desktop',
-          r: <Status variant='blocked'>Blocked</Status>,
-          v: 'Mobile, Desktop',
-          c: 'Slots'
-        },
-        {
-          x: (
-            <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
-          ),
-          y: 'ID1234567',
-          z: 'ID1234567',
-          b: '20BurningHot',
-          n: 'EGT',
-          w: '12/07/2021,12:00:00',
-          e: 'Mobile Desktop',
-          r: <Status variant='blocked'>Blocked</Status>,
-          v: 'Mobile, Desktop',
-          c: 'Slots'
-        }
+          ...d
+        }))
       ]}
-      columns={[
+      columns={object('columns', [
         {
           Header: 'Icon',
-          accessor: 'x',
-          maxWidth: '6rem'
+          accessor: 'x'
         },
         {
           Header: 'Game Id',
-          accessor: 'y',
-          maxWidth: '10.4rem'
+          accessor: 'y'
         },
         {
           Header: 'External Id',
-          accessor: 'z',
-          maxWidth: '10.4rem'
+          accessor: 'z'
         },
         {
           Header: 'Game Name',
-          accessor: 'b',
-          maxWidth: '12rem'
+          accessor: 'b'
         },
         {
           Header: 'Provider Id',
-          accessor: 'n',
-          maxWidth: '10.1rem'
+          accessor: 'n'
         },
         {
           Header: 'Category',
-          accessor: 'c',
-          maxWidth: '8.9rem'
+          accessor: 'c'
         },
         {
           Header: 'Version',
-          accessor: 'v',
-          maxWidth: '7.6rem'
+          accessor: 'v'
         },
         {
           Header: 'Release date and time',
-          accessor: 'w',
-          maxWidth: '18.2rem'
+          accessor: 'w'
         },
         {
           Header: 'User status',
-          accessor: 'r',
-          maxWidth: '18.2rem'
+          accessor: 'r'
         }
-      ]}
+      ])}
       actions={[
         {
           component: IconButton,

@@ -1,8 +1,9 @@
-import { typedMemo } from '@/helpers';
+import { typedMemo } from '@/helpers/typedMemo';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
 import classNames from 'classnames';
-import { CSSProperties, FC } from 'react';
+import { CSSProperties } from 'markdown-to-jsx/node_modules/@types/react';
+import { FC } from 'react';
 import styles from './TableCell.module.scss';
 export interface TableCellProps extends IComponent {
   component?: ComponentType;
@@ -19,6 +20,7 @@ export const TableCell: FC<TableCellProps> = ({
   className,
   ...props
 }) => {
+  console.log(align);
   return (
     <Component
       className={classNames(styles.TableCell, styles[`TableCell--${color}`], styles[`TableCell--${align}`], className)}

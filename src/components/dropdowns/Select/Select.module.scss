@@ -133,4 +133,8 @@
 
     @include generate-full-width-select-styles;
   }
+
+  &--dropdown {
+    @include generate-dropdown-select-styles;
+  }
 }

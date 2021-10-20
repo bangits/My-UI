@@ -3,46 +3,6 @@
     width: 28rem;
     box-sizing: border-box;
     position: relative;
-    .Select--dropdown {
-      position: relative;
-      .react-select__menu {
-        top: 2.8rem;
-        width: 19.2rem;
-        max-height: 35.3rem;
-        min-height: 9.6rem;
-        box-sizing: border-box;
-
-        .react-select__menu-list {
-          margin-top: 3.2rem;
-          width: 19.2rem;
-          max-height: 32.1rem;
-          min-height: 9.6rem;
-          border-radius: 0 0 0.8rem 0.8rem;
-
-          .react-select__option {
-            width: 18.4rem;
-            margin: 0 0.4rem;
-            span,
-            label {
-              height: 1.7rem;
-            }
-
-            &:hover {
-              width: 19.2rem;
-              margin: 0;
-
-              &:first-child {
-                border-radius: none;
-              }
-
-              div {
-                margin-left: 0.4rem;
-              }
-            }
-          }
-        }
-      }
-    }
 
     .react-select {
       &__indicator {
@@ -198,6 +158,49 @@
 
       &__menu-list {
         width: calc(100% - 0.8rem);
+      }
+    }
+  }
+}
+
+@mixin generate-dropdown-select-styles {
+  position: relative;
+  :global {
+    .react-select__menu {
+      top: 2.8rem;
+      width: 19.2rem;
+      max-height: 35.3rem;
+      min-height: 9.6rem;
+      box-sizing: border-box;
+
+      .react-select__menu-list {
+        margin-top: 3.2rem;
+        width: 19.2rem;
+        max-height: 32.1rem;
+        min-height: 9.6rem;
+        border-radius: 0 0 0.8rem 0.8rem;
+
+        .react-select__option {
+          width: 18.4rem;
+          margin: 0 0.4rem;
+          span,
+          label {
+            height: 1.7rem;
+          }
+
+          &:hover {
+            width: 19.2rem;
+            margin: 0;
+
+            &:first-child {
+              border-radius: none;
+            }
+
+            div {
+              margin-left: 0.4rem;
+            }
+          }
+        }
       }
     }
   }

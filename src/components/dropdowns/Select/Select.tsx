@@ -143,7 +143,7 @@ const Select: FC<SelectProps> = ({
         styles.Select,
         {
           [styles[`Select--fullWidth`]]: fullWidth,
-          ['Select--dropdown']: dropdown
+          [styles['Select--dropdown']]: dropdown
         },
         'MyUI-Select',
         className

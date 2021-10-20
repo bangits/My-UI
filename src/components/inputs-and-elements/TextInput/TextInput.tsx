@@ -80,7 +80,7 @@ const TextInputs: FC<TextInputProps> = ({
   );
 
   useEffect(() => {
-    if (value) setCurrentValue(value);
+    if (!defaultValue) setCurrentValue(value);
   }, [value]);
 
   return (

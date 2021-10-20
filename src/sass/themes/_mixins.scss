@@ -61,10 +61,10 @@
 
 // This mixin used for generation css variables
 @mixin generateThemeVariables {
-  @each $key, $val in $themeValues {
-    @each $theme in $themes {
-      @if (themeExists($key, $theme)) {
-        :root {
+  :root {
+    @each $key, $val in $themeValues {
+      @each $theme in $themes {
+        @if (themeExists($key, $theme)) {
           --theme-#{$theme}-#{$key}: #{getThemeValue($key, $theme)};
         }
       }

@@ -89,6 +89,7 @@ const Table = <T extends ObjectMock>({
   const [tableHeadWidths, setTableHeadWidths] = useState([]);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable<T>(
+    // @ts-ignore
     { columns, data },
     useSortBy,
     ...(isResizing ? [useFlexLayout, useResizeColumns] : []),
@@ -101,12 +102,9 @@ const Table = <T extends ObjectMock>({
   const onFetchDataDebounced = useAsyncDebounce(fetch, 100);
 
   useEffect(() => {
-    console.log(Object.values(tableHeadRef.current.querySelectorAll('th')));
-
+    // @ts-ignore
     setTableHeadWidths(Object.values(tableHeadRef.current.querySelectorAll('th')).map((th) => th.clientWidth));
   }, [columns]);
-
-  console.log(tableHeadWidths);
 
   useEffect(() => {
     onFetchDataDebounced(typedState);
@@ -118,6 +116,7 @@ const Table = <T extends ObjectMock>({
       className={classNames(styles.TableContainer, {
         [styles['TableContainer--withSelection']]: isWithSelection
       })}>
+      {/* @ts-ignore */}
       <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
         {headerGroups.map((headerGroup) => (
           <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>

@@ -43,12 +43,23 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
         <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'}>{'<'}</span>
       </button>
       <div className='month-and-yearWrapper' style={{ display: 'flex', justifyContent: 'center' }}>
-        <span className='react-datepicker__current-month' onClick={() => setMonth(!month)}>
+        <span
+          className='react-datepicker__current-month'
+          onClick={() => {
+            setMonth(true);
+            setYear(false);
+          }}>
           {monthDate.toLocaleString('en-US', {
             month: 'long'
           })}
         </span>
-        <span className='react-datepicker__current-month' onClick={() => setYear(!year)} style={{ marginLeft: '8px' }}>
+        <span
+          className='react-datepicker__current-month'
+          onClick={() => {
+            setMonth(false);
+            setYear(true);
+          }}
+          style={{ marginLeft: '8px' }}>
           {monthDate.toLocaleString('en-US', {
             year: 'numeric'
           })}
@@ -78,7 +89,6 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
             onChange={(year, month) => {
               changeYear(year);
               changeMonth(month);
-              setYear(false);
               setMonth(false);
             }}
             monthDate={monthDate}

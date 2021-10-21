@@ -49,15 +49,19 @@ const Select: FC<SelectProps> = ({
   const defaultValue =
     defaultValueProp !== undefined
       ? isMulti
-        ? selectProps.options.filter((o) => defaultValueProp.includes(o.value))
-        : { value: defaultValueProp, label: selectProps.options.find((o) => o.value === defaultValueProp)?.label }
+        ? // @ts-ignore
+          selectProps.options.filter((o) => defaultValueProp.includes(o.value))
+        : // @ts-ignore
+          { value: defaultValueProp, label: selectProps.options.find((o) => o.value === defaultValueProp)?.label }
       : undefined;
 
   const value =
     valueProp !== undefined
       ? isMulti
-        ? selectProps.options.filter((o) => valueProp.includes(o.value))
-        : { value: valueProp, label: selectProps.options.find((o) => o.value === valueProp)?.label }
+        ? // @ts-ignore
+          selectProps.options.filter((o) => valueProp.includes(o.value))
+        : // @ts-ignore
+          { value: valueProp, label: selectProps.options.find((o) => o.value === valueProp)?.label }
       : undefined;
 
   const [selectedOptions, setSelectedOptions] = useState((defaultValue as []) || []);
@@ -97,10 +101,12 @@ const Select: FC<SelectProps> = ({
         if (selectProps.onChange) selectProps.onChange(selectedOptions, event);
       }
     },
+    // @ts-ignore
     [selectProps.onChange, selectProps.options, selectProps.value, selectAllValue, allOption, selectedOptions]
   );
 
   useEffect(() => {
+    // @ts-ignore
     if (defaultValue || value) setSelectedOptions(defaultValue || value);
   }, [valueProp, defaultValueProp]);
 
@@ -152,4 +158,5 @@ const Select: FC<SelectProps> = ({
     />
   );
 };
+
 export default Select;

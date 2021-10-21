@@ -149,7 +149,6 @@ const Table = <T extends ObjectMock>({
           return (
             <TableRow hover selected={row.isSelected} {...row.getRowProps()} color={color}>
               {row.cells.map((cell, index) => {
-                console.log(cell.column.maxWidth);
                 return (
                   <TableCell
                     style={{

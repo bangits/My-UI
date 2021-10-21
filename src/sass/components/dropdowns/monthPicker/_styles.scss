@@ -1,0 +1,67 @@
+@mixin generate-monthPicker-styles {
+  .DatePicker {
+    .MonthPickerWrapper {
+      width: getMonthSelectSizes(datePicker-month-width);
+      left: getMonthSelectSizes(datePicker-month-left);
+      font-size: getMonthSelectSizes(datePicker-month-font-size);
+      font-weight: getMonthSelectSizes(datePicker-month-font-weight);
+      height: getMonthSelectSizes(datePicker-month-height);
+      bottom: getMonthSelectSizes(datePicker-month-bottom);
+      z-index: getMonthSelectSizes(datePicker-z-index);
+      position: absolute;
+      background: white;
+      justify-content: space-around;
+      color: #505d6e;
+      .MonthPickerWrapper__Header {
+        width: getMonthSelectSizes(datePicker-month-header-width);
+        padding-top: getMonthSelectSizes(datePicker-month-header-margin-top);
+        font-size: getMonthSelectSizes(datePicker-month-header-font-size);
+        font-weight: getMonthSelectSizes(datePicker-month-header-font-weight);
+        text-align: center;
+        color: #505d6e;
+      }
+      button {
+        margin-top: getMonthSelectSizes(datePicker-month-header-arrow-margin-top);
+      }
+      .MonthWrapper {
+        margin-top: getMonthSelectSizes(datePicker-month-wrapper-margin-top);
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: space-evenly;
+
+        .button,
+        .selectedYear {
+          padding: getMonthSelectSizes(datePicker-month-wrapper-month-padding);
+          height: getMonthSelectSizes(datePicker-month-wrapper-month-height);
+          font-size: getMonthSelectSizes(datePicker-month-wrapper-month-font-size);
+          font-weight: getMonthSelectSizes(datePicker-month-wrapper-month-font-weight);
+          border-radius: getMonthSelectSizes(datePicker-month-wrapper-month-border-radius);
+          width: getMonthSelectSizes(datePicker-month-selected-year-width);
+          margin-bottom: getMonthSelectSizes(datePicker-month-selected-year-margin-bottom);
+        }
+
+        .button {
+          border: none;
+          background: none;
+          color: #505d6e;
+          cursor: pointer;
+          &:hover {
+            color: white;
+            background: #3c54b2;
+          }
+          @include flex(center, center);
+        }
+        .selectedYear {
+          border: none;
+          color: white;
+          background: #3c54b2;
+          cursor: pointer;
+          &:hover {
+            color: white;
+            background: #3c54b2;
+          }
+        }
+      }
+    }
+  }
+}

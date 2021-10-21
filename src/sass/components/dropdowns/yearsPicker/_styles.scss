@@ -54,7 +54,8 @@
         }
 
         .buttonDisabled {
-          color: #f6f7f8;
+          color: #505d6e;
+          opacity: 0.1;
           cursor: auto;
           &:hover {
             color: #f6f7f8;

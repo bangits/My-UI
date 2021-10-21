@@ -1,0 +1,48 @@
+$datepicker-month-sizes: (
+  datePicker-z-index: 1000,
+  datePicker-month-width: 30.8rem,
+  datePicker-month-left: 0,
+  datePicker-month-bottom: 0,
+  datePicker-month-font-size: 1.8rem,
+  datePicker-month-font-weight: 300,
+  datePicker-month-height: 97.62%,
+  datePicker-month-header-width: 100%,
+  datePicker-month-header-margin-top: 2rem,
+  datePicker-month-header-font-size: 1.6rem,
+  datePicker-month-header-font-weight: 500,
+  datePicker-month-header-arrow-margin-top: -1.2rem,
+  datePicker-month-wrapper-height: 77%,
+  datePicker-month-wrapper-margin-top: 3rem,
+  datePicker-month-wrapper-month-padding: 0rem 2.5rem,
+  datePicker-month-wrapper-month-height: 4.2rem,
+  datePicker-month-wrapper-month-font-size: 1.8rem,
+  datePicker-month-wrapper-month-font-weight: 300,
+  datePicker-month-wrapper-month-border-radius: 0.4rem,
+  datePicker-month-selected-year-width: 3rem,
+  datePicker-month-selected-year-margin-bottom: 2.3rem
+);
+
+$datepicker-icons: (
+  next: url('../../../../icons/next.svg'),
+  prev: url('../../../../icons/prev.svg')
+);
+
+$datepicker-colors: (
+  datepicker-container-bg: color(white),
+  datepicker-input-border--primary: color(stratos),
+  datepicker-bg-color--primary: color(pelorous),
+  datepicker-secondary-bg-color--primary: color(aqua-spring),
+  datepicker-color--primary: color(white),
+  datepicker-text-color--primary: color(gray),
+  datepicker-day-color--primary: color(silver),
+  datepicker-box-shadow--primary: color(carbon-fiber),
+  datepicker-current-day--primary: color(oxford-blue),
+  datepicker-day--primary: color(azure-approx),
+  datepicker-day-selected-row--primary: color(azure-approx-opacity-10),
+  datepicker-selected-days--primary: color(shuttl-gray),
+  datepicker-week-color--primary: color(silver)
+);
+
+@function getMonthSelectSizes($property) {
+  @return map-get($datepicker-month-sizes, $property);
+}

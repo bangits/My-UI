@@ -1,8 +1,6 @@
-import React, { FC, useMemo, useState, useEffect } from 'react';
-import styles from './DatePicker.module.scss';
-import classNames from 'classnames';
-import YearsPicker from './YearsPicker';
+import React, { FC, useState } from 'react';
 import MonthPicker from './MonthPicker';
+import YearsPicker from './YearsPicker';
 
 export interface DatePickerHeaderProps {
   monthDate: Date;
@@ -38,7 +36,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
       <button
         aria-label='Previous Month'
         className={'react-datepicker__navigation react-datepicker__navigation--previous'}
-        style={customHeaderCount === 1 ? { visibility: 'hidden' } : null}
+        style={customHeaderCount === 1 ? { visibility: 'hidden' } : undefined}
         onClick={decreaseMonth}>
         <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'}>{'<'}</span>
       </button>
@@ -57,7 +55,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
       <button
         aria-label='Next Month'
         className={'react-datepicker__navigation react-datepicker__navigation--next'}
-        style={customHeaderCount === 1 ? { visibility: 'hidden' } : null}
+        style={customHeaderCount === 1 ? { visibility: 'hidden' } : undefined}
         onClick={increaseMonth}>
         <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'}>{'>'}</span>
       </button>

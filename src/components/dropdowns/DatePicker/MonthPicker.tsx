@@ -1,15 +1,15 @@
-import React, { useState, useCallback, useEffect, FC } from 'react';
-import styles from './DatePicker.module.scss';
 import classNames from 'classnames';
+import React, { FC, useCallback, useEffect, useState } from 'react';
+import styles from './DatePicker.module.scss';
 
-export interface YearsPickerProps {
-  years;
-  monthDate;
-  customHeaderCount;
-  onChange;
-}
+// export interface YearsPickerProps {
+//   years;
+//   monthDate;
+//   customHeaderCount;
+//   onChange;
+// }
 
-const MonthPicker: FC<YearsPickerProps> = ({ years, monthDate, customHeaderCount, onChange }) => {
+const MonthPicker: FC<any> = ({ years, monthDate, customHeaderCount, onChange }) => {
   const [yearSelection, setYearSelection] = useState(years);
   console.log('monthDate', monthDate);
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

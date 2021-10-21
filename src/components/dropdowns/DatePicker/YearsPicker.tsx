@@ -1,15 +1,15 @@
+import classNames from 'classnames';
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import styles from './DatePicker.module.scss';
-import classNames from 'classnames';
 
-export interface YearsPickerProps {
-  years;
-  monthDate;
-  customHeaderCount;
-  onChange;
-}
+// export interface YearsPickerProps {
+//   years;
+//   monthDate;
+//   customHeaderCount;
+//   onChange;
+// }
 
-const YearsPicker: FC<YearsPickerProps> = ({ years, monthDate, customHeaderCount, onChange }) => {
+const YearsPicker: FC<any> = ({ years, monthDate, customHeaderCount, onChange }) => {
   const [yearSelection, setYearSelection] = useState(years);
 
   const calculateYears = useCallback((year) => {

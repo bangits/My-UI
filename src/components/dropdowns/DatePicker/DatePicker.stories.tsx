@@ -10,8 +10,8 @@ export default {
 } as ComponentMeta<typeof DatePicker>;
 
 export const Default = () => {
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [date, setDate] = useState(null);
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+  const [date, setDate] = useState<Date | null>(null);
 
   return (
     <>

@@ -12,7 +12,7 @@ export interface RadioGroupProps extends IComponent {
 }
 
 const RadioGroup: FC<RadioGroupProps> = ({ children, onChange, value, defaultValue, name }) => {
-  const [selected, setSelected] = useState<string>(defaultValue);
+  const [selected, setSelected] = useState<string | null>(defaultValue || null);
 
   const handleRadioChange = useCallback((event: React.ChangeEvent<HTMLInputElement>): void => {
     setSelected(event.currentTarget.value);

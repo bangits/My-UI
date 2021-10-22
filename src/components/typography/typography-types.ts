@@ -8,7 +8,8 @@ const TYPOGRAPHY_TYPES = {
   P1: 'p1',
   P2: 'p2',
   P3: 'p3',
-  P4: 'p4'
+  P4: 'p4',
+  P5: 'p5'
 } as const;
 
 export default TYPOGRAPHY_TYPES;

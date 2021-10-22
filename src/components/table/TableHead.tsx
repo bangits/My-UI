@@ -1,10 +1,9 @@
-import { typedMemo } from '@/helpers';
+import { typedMemo } from '@/helpers/typedMemo';
 import { ArrowIcon } from '@/icons';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
 import classNames from 'classnames';
-import { CSSProperties } from 'markdown-to-jsx/node_modules/@types/react';
-import React, { FC } from 'react';
+import React, { CSSProperties, FC } from 'react';
 import styles from './TableHead.module.scss';
 export interface TableHeadProps extends IComponent {
   component?: ComponentType;

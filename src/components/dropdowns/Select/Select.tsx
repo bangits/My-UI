@@ -1,19 +1,27 @@
 import { UIColors } from '@/types';
 import ReactSelect, { Props } from '@my-ui/react-select';
 import classNames from 'classnames';
-import React, { FC, useCallback, useMemo, useState } from 'react';
-import { DefaultOption, IconControl, Option, SearchControl } from './Options';
+import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { DefaultOption, IconControl, MenuList, Option, SearchControl } from './Options';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
+
 export type SelectProps = {
   selectAllLabel?: string;
   selectAllValue?: string;
+  selectAll?: boolean;
   inputLabel?: string;
   inputSelectedLabel?: string;
   explanation?: string;
   fullWidth?: boolean;
   color?: UIColors;
+  maxLength?: number;
+  clearButton?: boolean;
+  clearButtonLabel?: string;
+  dropdown?: boolean;
+  dropdownLabel?: string;
 } & Props;
+
 const Select: FC<SelectProps> = ({
   children,
   isSearchable = true,
@@ -21,20 +29,57 @@ const Select: FC<SelectProps> = ({
   explanation,
   isMulti,
   color,
-  defaultValue,
+  defaultValue: defaultValueProp,
+  value: valueProp,
   selectAllValue = '*',
   selectAllLabel = 'All',
   className,
   inputLabel = 'Select...',
   inputSelectedLabel = 'Selected items: ',
+  maxLength = 50,
+  clearButton,
+  clearButtonLabel,
+  selectAll,
+  dropdown,
+  dropdownLabel,
   ...selectProps
 }) => {
-  const [selectedOptions, setSelectedOptions] = useState((defaultValue as []) || []);
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
+
+  const defaultValue =
+    defaultValueProp !== undefined
+      ? isMulti
+        ? // @ts-ignore
+          selectProps.options.filter((o) => defaultValueProp.includes(o.value))
+        : // @ts-ignore
+          { value: defaultValueProp, label: selectProps.options.find((o) => o.value === defaultValueProp)?.label }
+      : undefined;
+
+  const value =
+    valueProp !== undefined
+      ? isMulti
+        ? // @ts-ignore
+          selectProps.options.filter((o) => valueProp.includes(o.value))
+        : // @ts-ignore
+          { value: valueProp, label: selectProps.options.find((o) => o.value === valueProp)?.label }
+      : undefined;
+
+  const [selectedOptions, setSelectedOptions] = useState((defaultValue as []) || []);
+
+  const sortedOptions = useMemo(() => {
+    if (!Array.isArray(selectedOptions)) return;
+    const sortOptions = new Set<[]>([
+      ...selectedOptions?.filter((option) => option.value !== '*'),
+      ...selectProps.options
+    ]);
+    return sortOptions;
+  }, [selectedOptions, selectProps.options]);
+
+  const options = isMulti ? [allOption, ...sortedOptions] : selectProps.options;
+
   const onChange = useCallback<Props['onChange']>(
     (selectedOptions: [], event) => {
       const selectedOptionValue = (event.option as { value?: string | undefined })?.value;
-      const allOptions = selectedOptions;
       if (event.action === 'select-option' && selectedOptionValue === selectAllValue) {
         const allOptions = selectProps.options;
         setSelectedOptions([allOption, ...allOptions]);
@@ -56,19 +101,25 @@ const Select: FC<SelectProps> = ({
         if (selectProps.onChange) selectProps.onChange(selectedOptions, event);
       }
     },
+    // @ts-ignore
     [selectProps.onChange, selectProps.options, selectProps.value, selectAllValue, allOption, selectedOptions]
   );
-  const sortedOptions = useMemo(() => {
-    if (!Array.isArray(selectedOptions)) return;
-    const sortOptions = new Set<[]>([
-      ...selectedOptions?.filter((option) => option.value !== '*'),
-      ...selectProps.options
-    ]);
-    return sortOptions;
-  }, [selectedOptions, selectProps.options]);
+
+  useEffect(() => {
+    // @ts-ignore
+    if (defaultValue || value) setSelectedOptions(defaultValue || value);
+  }, [valueProp, defaultValueProp]);
+
   return (
     <ReactSelect
       {...selectProps}
+      selectAllValue={selectAllValue}
+      selectAll={selectAll}
+      dropdown={dropdown}
+      dropdownLabel={dropdownLabel}
+      clearButton={clearButton}
+      clearButtonLabel={clearButtonLabel}
+      maxLength={maxLength}
       inputSelectedLabel={inputSelectedLabel}
       inputLabel={inputLabel}
       onChange={onChange}
@@ -76,10 +127,14 @@ const Select: FC<SelectProps> = ({
       //@ts-ignore ignored because we need to reset all css styles
       styles={resetStyles}
       /*eslint-enable */
-      isClearable={false}
+      isClearable={true}
       hideSelectedOptions={false}
       classNamePrefix='react-select'
-      components={{ Option: isMulti ? Option : DefaultOption, Control: isSearchable ? SearchControl : IconControl }}
+      components={{
+        Option: isMulti ? Option : DefaultOption,
+        Control: isSearchable ? SearchControl : IconControl,
+        MenuList
+      }}
       /* removeSelected={false} */
       isMulti={isMulti}
       color={color}
@@ -88,17 +143,20 @@ const Select: FC<SelectProps> = ({
       closeMenuOnSelect={isMulti ? false : true}
       controlShouldRenderValue={isMulti ? false : true}
       backspaceRemovesValue={false}
-      value={selectedOptions}
+      value={value}
+      defaultValue={defaultValue}
       className={classNames(
         styles.Select,
         {
-          [styles[`Select--fullWidth`]]: fullWidth
+          [styles[`Select--fullWidth`]]: fullWidth,
+          [styles['Select--dropdown']]: dropdown
         },
         'MyUI-Select',
         className
       )}
-      options={isMulti ? [allOption, ...sortedOptions] : selectProps.options}
+      options={isMulti ? (selectAll ? [allOption, ...sortedOptions] : [...sortedOptions]) : selectProps.options}
     />
   );
 };
+
 export default Select;

@@ -88,7 +88,7 @@ const configureSharedWebpack = (isDevelopment) => ({
   module: {
     rules: [...configureAssets(), ...configureSass(isDevelopment)]
   },
-  watchOptions: configureWatchOptions(),
+  // watchOptions: configureWatchOptions(),
   resolve: {
     alias: configureAliases()
   }

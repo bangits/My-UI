@@ -2,6 +2,7 @@ import ReactDatePicker, { ReactDatePickerProps } from '@my-ui/react-datepicker';
 import classNames from 'classnames';
 import React, { useCallback } from 'react';
 import styles from './DatePicker.module.scss';
+import DatePickerHeader from './DatePickerHeader';
 import DatePickerInput from './DatePickerInput';
 
 export interface DatepickerProps extends ReactDatePickerProps {
@@ -19,11 +20,14 @@ const DatePicker: React.FC<DatepickerProps> = ({
 }) => {
   const formatWDay = useCallback((nameOfDay) => nameOfDay.substr(0, 3), []);
 
+  const renderCustomHeader = useCallback((params) => <DatePickerHeader {...params} />, []);
+
   return (
     <>
       <ReactDatePicker
         customInput={<DatePickerInput placeholderText={placeholderText} />}
         formatWeekDay={formatWDay}
+        renderCustomHeader={renderCustomHeader}
         wrapperClassName={styles.DatePicker}
         popperClassName={classNames(styles.DatePicker, {
           [styles['DatePicker--withDropdowns']]: withDropdowns,

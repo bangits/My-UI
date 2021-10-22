@@ -17,7 +17,17 @@ $avatar-sizes: (
   avatar-dropdown-menu-margin: 0,
   avatar-dropdown-menu-padding: 0,
   avatar-sub-menu-items: 0 calculateRem(24px),
-  avatar-sub-menu-items-marginLeft: calculateRem(12px)
+  avatar-sub-menu-items-marginLeft: calculateRem(12px),
+  avatar-sub-menu-items-width: calculateRem(165px),
+  avatar-sub-menu-items-height: calculateRem(32px)
 );
 
-$sidebar-colors: ();
+@function getAvatarSizes($property) {
+  @return map-get($avatar-sizes, $property);
+}
+
+$avatar-colors: (
+  avatar-label-color: color(midnight-sun),
+  avatar-border-color: color(mercury),
+  avatar-divider-borderColor: color(alabaster)
+);

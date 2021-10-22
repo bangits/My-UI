@@ -1,21 +1,21 @@
 import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styles from './SubMenuItems.module.scss';
 
 export interface SubMenuItemProps extends IComponent {
   label?: string;
+  icon?: ReactNode;
   onClick?: () => void;
 }
 
-const SubMenuItems: FC<SubMenuItemProps> = ({ label, ...subItemProps }) => {
+const SubMenuItems: FC<SubMenuItemProps> = ({ label, icon, className, ...subItemProps }) => {
   return (
-    <>
-      <a {...subItemProps} className={classNames(styles.SubMenuItemsBase)}>
-        {label}
-      </a>
-    </>
+    <div className={classNames(styles.SubMenuItemsBase, className)}>
+      {icon && <div className={styles.SubMenuItemsIcon}>{icon}</div>}
+      <a {...subItemProps}>{label}</a>
+    </div>
   );
 };
 

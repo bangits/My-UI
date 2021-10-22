@@ -1,0 +1,77 @@
+@mixin generate-yearsPicker-styles {
+  .DatePicker {
+    .YearPickerWrapper {
+      width: getYearSelectSizes(datePicker-year-wrapper-width);
+      left: getYearSelectSizes(datePicker-year-wrapper-left);
+      font-size: getYearSelectSizes(datePicker-year-wrapper-font-size);
+      font-weight: getYearSelectSizes(datePicker-year-wrapper-font-weight);
+      height: getYearSelectSizes(datePicker-year-wrapper-height);
+      bottom: getYearSelectSizes(datePicker-year-wrapper-bottom);
+      z-index: getYearSelectSizes(datePicker-year-wrapper-z-index);
+      position: absolute;
+      background: white;
+      justify-content: space-around;
+      color: #505d6e;
+      .MonthPickerWrapper__Header {
+        width: getYearSelectSizes(datePicker-year-header-width);
+        margin-top: getYearSelectSizes(datePicker-year-header-margin-top);
+        font-size: getYearSelectSizes(datePicker-year-header-font-size);
+        font-weight: getYearSelectSizes(datePicker-year-header-font-weight);
+        text-align: center;
+        color: #505d6e;
+      }
+      .YearHeader button {
+        margin-top: getYearSelectSizes(datePicker-year-header-button-margin-top);
+      }
+      .YearsWrapper {
+        margin-top: getYearSelectSizes(datePicker-year-wrapper-margin-top);
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: space-evenly;
+
+        .selectedYear,
+        .buttonDisabled,
+        .button {
+          padding: getYearSelectSizes(datePicker-year-button-padding);
+          font-size: getYearSelectSizes(datePicker-year-button-font-size);
+          font-weight: getYearSelectSizes(datePicker-year-button-font-weight);
+          height: getYearSelectSizes(datePicker-year-button-height);
+          width: getYearSelectSizes(datePicker-year-button-width);
+          border-radius: getYearSelectSizes(datePicker-year-button-border-radius);
+          margin-bottom: getYearSelectSizes(datePicker-year-button-margin-bottom);
+          border: none;
+          background: none;
+        }
+
+        .button {
+          color: #505d6e;
+          cursor: pointer;
+          &:hover {
+            color: white;
+            background: #3c54b2;
+          }
+          @include flex(center, center);
+        }
+
+        .buttonDisabled {
+          color: #505d6e;
+          opacity: 0.1;
+          cursor: auto;
+          &:hover {
+            color: #f6f7f8;
+            background: white;
+          }
+        }
+        .selectedYear {
+          color: white;
+          background: #3c54b2;
+          cursor: pointer;
+          &:hover {
+            color: white;
+            background: #3c54b2;
+          }
+        }
+      }
+    }
+  }
+}

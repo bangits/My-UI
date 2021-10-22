@@ -1,108 +1,10 @@
 @mixin generate-select-styles {
   :global {
     width: 28rem;
-    height: 3.8rem;
-    /* border: solid 1px #00194c;
-    border-radius: 0.35rem; */
+    box-sizing: border-box;
     position: relative;
 
     .react-select {
-      &__placeholder {
-        width: 28rem;
-        height: 3.8rem;
-        color: #00194c;
-        font-size: 1.4rem;
-        display: flex;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-        width: 100%;
-        max-height: 100%;
-        color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-        font-size: 75%;
-        line-height: 15px;
-        cursor: text;
-        transition: color 0.2s, font-size 0.2s, line-height 0.2s;
-
-        &:before,
-        &:after {
-          content: '';
-          display: block;
-          box-sizing: border-box;
-
-          border-top: solid 1px;
-          border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-          min-width: 10px;
-          height: 8px;
-          pointer-events: none;
-          box-shadow: inset 0 1px transparent;
-          transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        &:before {
-          margin-right: 4px;
-          border-left: solid 1px transparent;
-          border-radius: 4px 0;
-        }
-
-        &:after {
-          flex-grow: 1;
-          margin-left: 4px;
-          border-right: solid 1px transparent;
-          border-radius: 0 4px;
-        }
-
-        &:before,
-        &:after {
-          border-top-color: red;
-        }
-
-        &:not(:focus):placeholder-shown {
-          font-size: inherit;
-          line-height: 68px;
-        }
-
-        &:before:not(:focus):placeholder-shown {
-          border-top-color: transparent;
-        }
-        &:after:not(:focus):placeholder-shown {
-          border-top-color: transparent;
-        }
-      }
-      &__control {
-        .react-select__value-container {
-          width: 28rem;
-          height: 3.8rem;
-          border: solid 1px #00194c;
-          border-radius: 0.35rem;
-          position: relative;
-          display: inline-block;
-          font-size: 16px;
-          line-height: 1.5;
-          overflow: hidden;
-        }
-
-        .react-select__value-container:hover {
-          border-top-color: transparent;
-        }
-
-        .react-select__value-container:not(:focus):placeholder-shown {
-          border-color: green;
-        }
-        .react-select__value-container:not(:focus):placeholder-shown {
-          border-top-color: blue;
-        }
-
-        .react-select__value-container:focus {
-          border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
-          border-top-color: transparent;
-          box-shadow: inset 1px 0 var(--pure-material-safari-helper1), inset -1px 0 var(--pure-material-safari-helper1),
-            inset 0 -1px var(--pure-material-safari-helper1);
-          outline: none;
-        }
-      }
-
       &__indicator {
         color: #00194c;
         margin: 1rem 1.2rem 2rem;
@@ -114,38 +16,67 @@
         font-size: 1.4rem;
         margin: 0rem 1.6rem 0.9rem;
       }
-      &__menu-list {
-        width: 23rem;
-        box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
-        padding: 0rem 0.4rem 0.05rem 0.4rem;
-        border-radius: 0.8rem;
+
+      &__menu {
+        position: absolute;
+        z-index: 9999;
+        top: 4.73rem;
+        width: 28rem;
+        max-height: 32rem;
         background-color: #ffffff;
-        height: 200px;
+        box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
+        border-radius: 0.8rem;
+        box-sizing: border-box;
+      }
+
+      &__menu-list {
+        width: 28rem;
+        background-color: #ffffff;
+        max-height: 28.8rem;
         overflow: hidden;
-        overflow-y: scroll;
+        overflow-y: auto;
+        border-radius: 0.8rem;
+
+        &::-webkit-scrollbar {
+          width: 0.4rem;
+        }
+        &::-webkit-scrollbar-track {
+          background-color: #e8edf3;
+          border-radius: 0.8rem;
+          margin-bottom: 0.4rem;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #8ea6c1;
+          border-radius: 0.8rem;
+          min-height: 4rem;
+          max-height: 4rem;
+        }
 
         div:last-child {
           div {
+            height: 3.2rem;
             border-bottom: none;
           }
         }
       }
 
-      &__menu-list {
+      &__menu-list--is-multi {
+        max-height: 32rem;
       }
 
       &__option {
         height: 3.1rem;
-        border-bottom: solid 1px rgba(43, 54, 116, 0.05);
+        border-bottom: solid 1px #f9f9f9;
         display: flex;
         align-items: center;
 
         &:hover {
-          background-color: #f5f6fb;
-          border-radius: 0.4rem;
+          margin: 0;
+          background-color: rgba(60, 84, 178, 0.1);
         }
 
         label {
+          height: 1.7rem;
           display: flex;
           align-items: center;
           margin-left: 0.4rem;
@@ -156,6 +87,29 @@
           font-style: normal;
           line-height: normal;
           letter-spacing: normal;
+        }
+        span {
+          height: 1.7rem;
+          margin-left: 1.2rem;
+          display: flex;
+          align-items: center;
+          font-size: 1.4rem;
+          color: #505d6e;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+        }
+
+        label,
+        span {
+          word-break: break-all;
+          width: 14rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          display: inline-block;
         }
 
         div {
@@ -188,6 +142,65 @@
 
       &__input {
         font-size: 1.4rem !important;
+      }
+    }
+  }
+}
+
+@mixin generate-full-width-select-styles {
+  :global {
+    width: 100%;
+
+    .react-select {
+      &__menu {
+        width: 100%;
+      }
+
+      &__menu-list {
+        width: calc(100% - 0.8rem);
+      }
+    }
+  }
+}
+
+@mixin generate-dropdown-select-styles {
+  position: relative;
+  :global {
+    .react-select__menu {
+      top: 2.8rem;
+      width: 19.2rem;
+      max-height: 35.3rem;
+      min-height: 9.6rem;
+      box-sizing: border-box;
+
+      .react-select__menu-list {
+        margin-top: 3.2rem;
+        width: 19.2rem;
+        max-height: 32.1rem;
+        min-height: 9.6rem;
+        border-radius: 0 0 0.8rem 0.8rem;
+
+        .react-select__option {
+          width: 18.4rem;
+          margin: 0 0.4rem;
+          span,
+          label {
+            height: 1.7rem;
+          }
+
+          &:hover {
+            width: 19.2rem;
+            margin: 0;
+
+            &:first-child {
+              border-radius: none;
+            }
+
+            div {
+              margin-left: 0.4rem;
+            }
+          }
+        }
       }
     }
   }

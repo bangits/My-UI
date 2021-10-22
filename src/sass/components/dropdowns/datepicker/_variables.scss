@@ -1,38 +1,29 @@
 $datepicker-sizes: (
-  datepicker-margin-top: 0.8rem,
-  datepicker-z-index: 1000,
-  datepicker-box-shadow: 3px 3px 6px 0,
-  input-container-width: 29.8rem,
-  input-container-padding: 0.8rem,
-  input-height: 3.8rem,
-  input-border-radius: 0.35rem,
-  datepicker-icon-margin: 1.2rem,
-  day-range--borderRadius: 0.5rem,
-  datepicker-month--container: 30.85rem,
-  datepicker-month--size: 1.8rem,
-  datepicker-current--month: 2.2rem,
-  datepicker-navigation--nextSize: 0.6rem,
-  datepicker-navigation--nextSize-height: 1.2rem,
-  datepicker-navigation--nextSize-top: 3.6rem,
-  datepicker-navigation--nextMargin: 2.5rem,
-  datepicker-navigation--leftMargin: 2.5rem,
-  datepicker-month-container--leftMargin: 2.5rem,
-  datepicker-day--names: 29.89rem,
-  datepicker-day: 4.27rem,
-  datepicker-day--name: 1rem,
-  datepicker-dayWidth: 4.27rem,
-  datepicker-dayHeight: 3.97rem,
-  datepicker-day--namesPadding: 2.4rem,
-  datepicker-day--nameWidth: 1.94rem,
-  datepicker-day--nameMargin: 1.7rem,
-  datepicker-day--namePadding: 3.67rem,
-  datepicker-month-container--borderRadius: 0.4rem,
-  datepicker-padding: 0.65rem 1.6rem 1.4rem,
-  datepicker-month-title-font-size: 1.6rem,
-  datepicker-month-title-padding: 1.75rem 0 2.4rem 0,
-  datepicker-week-font-size: 1.3rem,
-  datepicker-day-width: 4rem,
-  datepicker-day-padding: 1rem 0
+  datePicker-wrapper-two-month-min-width: 58.5rem,
+  datePicker-month-container--leftMargin: 2.5rem,
+  datePicker-month-container-min-height: 32.2rem,
+  datePicker-z-index: 1000,
+  datePicker-margin-top: 0.8rem,
+  datePicker-padding: 0rem 1.6rem 0rem,
+  datePicker-wrapper-width: 27.6rem,
+  datePicker-wrapper-min-height: 31.4rem,
+  datePicker-wrapper-padding-bottom: 0.6rem,
+  datePicker-navigation--nextSize: 0.6rem,
+  datePicker-navigation--nextSize-height: 1.2rem,
+  datePicker-navigation--nextSize-top: 3.6rem,
+  datePicker-navigation--nextMargin: 2.5rem,
+  datePicker-navigation--leftMargin: 2.5rem,
+  datePicker-month-container--borderRadius: 0.4rem,
+  datePicker-month-title-font-size: 1.6rem,
+  datePicker-month-title-padding: 2.4rem 0,
+  datePicker-day--name: 1rem,
+  datePicker-week-font-size: 0.9rem,
+  datePicker-week-name-font-size: 1rem,
+  datePicker-week-name-min-width: 4rem,
+  datePicker-weeks-margin-bottom: 0.6rem,
+  datePicker-month--size: 1.8rem,
+  datePicker-day-width: 4rem,
+  datePicker-day-padding: 0.9rem 0
 );
 
 $datepicker-icons: (
@@ -79,3 +70,10 @@ $datepicker-colors: (
   datepicker-selected-days--primary: color(shuttl-gray),
   datepicker-week-color--primary: color(silver)
 );
+
+@function getDatePickerSizes($property) {
+  @return map-get($datepicker-sizes, $property);
+}
+@function getDatePickerIcons($property) {
+  @return map-get($datepicker-icons, $property);
+}

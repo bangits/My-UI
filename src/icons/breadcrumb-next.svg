@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #505d6e;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <g id="Group_2246" data-name="Group 2246" transform="translate(-1657 -3706)">
+    <path id="Path_3429" data-name="Path 3429" class="cls-1" d="M92,656.493h9m0,0-4.5,4.493m4.5-4.493L96.5,652" transform="translate(1572.5 3061.507)"/>
+    <rect id="Rectangle_1121" data-name="Rectangle 1121" class="cls-2" width="24" height="24" transform="translate(1657 3706)"/>
+  </g>
+</svg>

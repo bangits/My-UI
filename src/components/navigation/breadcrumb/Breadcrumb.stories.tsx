@@ -10,10 +10,7 @@ export default {
 export const Default = () => {
   return (
     <Breadcrumb
-      links={object('links', [{ label: 'Home' }, { label: 'Library' }])}
-      activeLink={number('activeLink', 0)}
-      wrapperComponent={text('wrapperComponent', 'ul')}
-      itemComponent={text('itemComponent', 'li')}
+      links={object('links', [{ label: 'Home', isRedirect: true }, { label: 'Library' }, { label: 'Game Management' }])}
     />
   );
 };

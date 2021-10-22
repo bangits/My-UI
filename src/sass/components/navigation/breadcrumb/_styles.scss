@@ -1,0 +1,45 @@
+@mixin generate-breadcrumb-styles {
+  .BreadcrumbBase {
+    @include flex;
+
+    font-size: breadcrumb-sizes(breadcrumbBase-font-size);
+
+    list-style: none;
+    padding: breadcrumb-sizes(breadcrumbBase-padding);
+
+    .BreadcrumbItem {
+      margin-left: breadcrumb-sizes(breadcrumb-item-margin-left);
+
+      @include theme(color, black-color);
+
+      opacity: breadcrumb-sizes(breadcrumb-item-opacity);
+
+      &:first-child {
+        margin-left: breadcrumb-sizes(breadcrumb-item-first-child-margin-left);
+
+        &:before {
+          content: '';
+        }
+      }
+
+      &:last-child {
+        opacity: breadcrumb-sizes(breadcrumb-item-opacity-last-child);
+      }
+
+      &:before {
+        @include flex;
+
+        width: breadcrumb-sizes(breadcrumb-item-arrow-width);
+        height: breadcrumb-sizes(breadcrumb-item-arrow-height);
+        margin-left: breadcrumb-sizes(breadcrumb-item-arrow-margin-left);
+        content: url('../../../../icons/breadcrumb-next.svg');
+      }
+    }
+
+    .BreadcrumbText {
+      &.BreadcrumbLink {
+        cursor: pointer;
+      }
+    }
+  }
+}

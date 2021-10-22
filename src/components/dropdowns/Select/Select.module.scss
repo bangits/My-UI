@@ -74,12 +74,15 @@
     &:first-child {
       position: absolute;
       z-index: 10000;
-      width: 27.2rem;
+      width: 28rem;
       left: 0rem;
+      top: 0;
       background-color: #ffffff;
       border-radius: 0.8rem 0.8rem 0 0;
       > div {
         border-bottom: none;
+        > div {
+        }
         &:hover {
           background-color: rgba(60, 84, 178, 0.1);
           border-radius: 0.8rem 0.8rem 0 0;
@@ -92,6 +95,23 @@
     }
   }
 
+  &--custom-option {
+    &:first-child {
+      margin: 0;
+      > div {
+        padding-left: 0.4rem;
+      }
+    }
+    margin: 0 0.4rem;
+
+    &:hover {
+      margin: 0;
+      > div {
+        padding-left: 0.4rem;
+      }
+    }
+  }
+
   .Select--icon-container {
     display: flex;
   }
@@ -101,16 +121,16 @@
     align-items: center;
     position: absolute;
     z-index: 999999;
-    margin-left: 0.4rem;
     bottom: 0;
     width: 28rem;
     height: 3.1rem;
-    border-radius: 0 0 0.8rem 0.8rem;
+    border-radius: 0 0 0.6rem 0.6rem;
     background-color: #ffffff;
     cursor: pointer;
     div {
       width: 2.4rem;
-      height: 2.4rem;
+      height: 2.4rem !important;
+      margin-left: 0.4rem;
       color: #8ea6c1;
     }
     span {

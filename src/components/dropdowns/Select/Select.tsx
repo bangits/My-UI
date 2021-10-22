@@ -82,6 +82,7 @@ const Select: FC<SelectProps> = ({
       const selectedOptionValue = (event.option as { value?: string | undefined })?.value;
       if (event.action === 'select-option' && selectedOptionValue === selectAllValue) {
         const allOptions = selectProps.options;
+
         setSelectedOptions([allOption, ...allOptions]);
         if (selectProps.onChange) selectProps.onChange([allOption, ...allOptions], event);
       } else if (event.action === 'deselect-option' && selectedOptionValue === selectAllValue) {
@@ -94,8 +95,8 @@ const Select: FC<SelectProps> = ({
         if (selectProps.onChange) selectProps.onChange([...filteredOptions], event);
       } else if (selectProps.options.length === selectedOptions.length) {
         const allOptions = selectProps.options;
-        setSelectedOptions([allOption, ...allOptions]);
-        if (selectProps.onChange) selectProps.onChange([allOption, ...allOptions], event);
+        setSelectedOptions(selectedOptions);
+        if (selectProps.onChange) selectProps.onChange(selectedOptions, event);
       } else {
         setSelectedOptions(selectedOptions);
         if (selectProps.onChange) selectProps.onChange(selectedOptions, event);
@@ -110,6 +111,7 @@ const Select: FC<SelectProps> = ({
     if (defaultValue || value) setSelectedOptions(defaultValue || value);
   }, [valueProp, defaultValueProp]);
 
+  console.log(selectedOptions);
   return (
     <ReactSelect
       {...selectProps}

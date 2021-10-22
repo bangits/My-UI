@@ -1,6 +1,7 @@
 @mixin generate-monthPicker-styles {
   .DatePicker {
     .MonthPickerWrapper {
+      border-radius: getMonthSelectSizes(datePicker-month-wrapper-month-border-radius);
       width: getMonthSelectSizes(datePicker-month-width);
       left: getMonthSelectSizes(datePicker-month-left);
       font-size: getMonthSelectSizes(datePicker-month-font-size);
@@ -24,7 +25,8 @@
         margin-top: getMonthSelectSizes(datePicker-month-header-arrow-margin-top);
       }
       .MonthWrapper {
-        margin-top: getMonthSelectSizes(datePicker-month-wrapper-margin-top);
+        // margin-top: getMonthSelectSizes(datePicker-month-wrapper-margin-top);
+        margin-top: 2rem;
         display: grid;
         grid-template-columns: auto auto auto;
         justify-content: space-evenly;
@@ -37,7 +39,9 @@
           font-weight: getMonthSelectSizes(datePicker-month-wrapper-month-font-weight);
           border-radius: getMonthSelectSizes(datePicker-month-wrapper-month-border-radius);
           width: getMonthSelectSizes(datePicker-month-selected-year-width);
-          margin-bottom: getMonthSelectSizes(datePicker-month-selected-year-margin-bottom);
+          // margin-bottom: getMonthSelectSizes(datePicker-month-selected-year-margin-bottom);
+          margin-top: 1rem;
+          margin-bottom: 1.4rem;
         }
 
         .button {

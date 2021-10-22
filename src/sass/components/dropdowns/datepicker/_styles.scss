@@ -56,6 +56,7 @@
         }
         &__day--in-range {
           @include theme(background-color, datepicker-day-selected-row--primary);
+          color: #3c54b2;
         }
         &__day--selecting-range-start {
           @include theme(background-color, datepicker-day--primary);

@@ -46,7 +46,8 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
           onClick={() => {
             setMonth(true);
             setYear(false);
-          }}>
+          }}
+          style={{ cursor: 'pointer' }}>
           {monthDate.toLocaleString('en-US', {
             month: 'long'
           })}
@@ -57,7 +58,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
             setMonth(false);
             setYear(true);
           }}
-          style={{ marginLeft: '8px' }}>
+          style={{ marginLeft: '8px', cursor: 'pointer' }}>
           {monthDate.toLocaleString('en-US', {
             year: 'numeric'
           })}

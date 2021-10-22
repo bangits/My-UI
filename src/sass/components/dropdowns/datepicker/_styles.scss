@@ -15,6 +15,7 @@
       z-index: getDatePickerSizes(datePicker-z-index);
       .react-datepicker {
         @include theme(background-color, datepicker-color--primary);
+        border-radius: getDatePickerSizes(datePicker-month-container--borderRadius);
         margin-top: getDatePickerSizes(datePicker-margin-top);
         padding: getDatePickerSizes(datePicker-padding);
         box-shadow: 3px 3px 6px 0 rgba(46, 46, 46, 0.1);
@@ -55,6 +56,7 @@
         }
         &__day--in-range {
           @include theme(background-color, datepicker-day-selected-row--primary);
+          color: #3c54b2;
         }
         &__day--selecting-range-start {
           @include theme(background-color, datepicker-day--primary);
@@ -63,8 +65,8 @@
 
         &__day--in-selecting-range {
           @include theme(background-color, datepicker-day-selected-row--primary);
+          color: #3c54b2;
         }
-        @include theme(color, datepicker-input-border--primary);
 
         &__current-month {
           @include theme(color, datepicker-selected-days--primary);
@@ -94,8 +96,11 @@
             justify-content: center;
           }
         }
+        &__week:first-child {
+          margin-top: 1rem;
+        }
         &__week {
-          @include theme(color, datepicker-day--primary);
+          color: #505d6e;
           margin-top: getDatePickerSizes(datePicker-navigation--nextSize);
           font-size: getDatePickerSizes(datePicker-month--size);
           margin-bottom: getDatePickerSizes(datePicker-weeks-margin-bottom);

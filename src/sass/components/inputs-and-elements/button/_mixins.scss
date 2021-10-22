@@ -29,6 +29,9 @@
 
   &:disabled {
     @include theme(opacity, disabled-opacity);
+    &:hover {
+      background-color: transparent;
+    }
   }
 
   &:active {

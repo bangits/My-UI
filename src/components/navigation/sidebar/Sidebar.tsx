@@ -16,9 +16,10 @@ export interface SidebarProps extends IComponent {
   collapsedWidth?: number;
   logoSrc?: string;
   menuItems?: MenuItemProps[];
+  height?: string | number;
 }
 
-const Sidebar: FC<SidebarProps> = ({ width, color, position, collapsedWidth, logoSrc, menuItems }) => {
+const Sidebar: FC<SidebarProps> = ({ width, height, color, position, collapsedWidth, logoSrc, menuItems }) => {
   const [sidebar, setSidebar] = useState(false);
 
   const toggleSidebar = useCallback(() => {
@@ -27,14 +28,14 @@ const Sidebar: FC<SidebarProps> = ({ width, color, position, collapsedWidth, log
 
   return (
     <div
-      style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem` }}
+      style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem`, height }}
       className={classNames({ [styles[`SidebarWrapper--${position}`]]: position })}>
       <div
         className={classNames(styles.SidebarBase, {
           [styles['SidebarBase--closed']]: sidebar,
           [styles[`SidebarBase--${color}`]]: color
         })}
-        style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem` }}>
+        style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem`, height }}>
         <div className={classNames(styles['SidebarBase--logo'])}>{logoSrc && <img src={logoSrc} alt='Logo' />}</div>
 
         <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}>

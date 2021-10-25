@@ -72,7 +72,7 @@ export const Default = () => (
       inputLabel={text('inputLabelSingle', 'Single Select...')}
       maxLength={number('maxLengthSingleSelect', 20)}
       isSearchable
-      selectAll
+      selectAll={boolean('selectAll1', true)}
       color={optionsKnob(
         'color',
         {
@@ -131,7 +131,7 @@ export const Default = () => (
 export const MultiSelect = () => (
   <>
     <Select
-      selectAll
+      selectAll={boolean('selectAll2', true)}
       clearButton
       clearButtonLabel={text('clearButtonLabel', 'Clear')}
       maxLength={number('maxLengthMultiSelect', 50)}

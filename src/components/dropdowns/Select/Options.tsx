@@ -9,7 +9,8 @@ export const Option = (props) => {
   return (
     <div
       className={classNames({
-        [styles[`AllOption`]]: props.selectProps?.selectAllValue === '*' && props.selectProps.selectAll
+        [styles[`AllOption`]]: props.selectProps?.selectAllValue === '*' && props.selectProps.selectAll,
+        [styles['Select--custom-option']]: !props.selectProps?.dropdown
       })}>
       <components.Option {...props}>
         <Checkbox checked={props.isSelected} onChange={() => null} /> <label>{props.label}</label>
@@ -23,7 +24,9 @@ export const DefaultOption = (props) => {
     e.target.closest('.MyUI-Select').querySelector('input').blur();
   }, []);
   return (
-    <div onClick={handleClick}>
+    <div
+      className={classNames({ [styles['Select--custom-option']]: !props.selectProps?.dropdown })}
+      onClick={handleClick}>
       <components.Option {...props}>
         <span>{props.label}</span>
       </components.Option>
@@ -61,6 +64,7 @@ export const SearchControl = (props) => {
             if (e.target.value === '') {
               setInputValue('');
               props.selectProps.onMenuOpen();
+              setIsMenuOpen(!isMenuOpen);
             }
           }}
           onBlur={() => {

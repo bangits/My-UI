@@ -1,0 +1,19 @@
+@mixin generate-alert-styles {
+  .AlertBase {
+    @include flex(null, center);
+    min-width: getAlertSizes(alert-width);
+    width: fit-content;
+    height: getAlertSizes(alert-height);
+    border-radius: getAlertSizes(alert-radius);
+    padding: getAlertSizes(alert-padding);
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.05);
+    .AlertText {
+      color: #8ea6c1;
+      margin-left: getAlertSizes(alert-text-marginLeft);
+    }
+    .AlertClose {
+      margin-left: getAlertSizes(alert-close-marginLeft);
+    }
+  }
+}

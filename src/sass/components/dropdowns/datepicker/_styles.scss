@@ -1,63 +1,64 @@
 @mixin generate-datepicker-styles {
   .DatePicker {
-    &--withTwoMonths {
-      :global {
-        .react-datepicker {
-          min-width: getDatePickerSizes(datePicker-wrapper-two-month-min-width);
-        }
-        .react-datepicker__month-container:last-child {
-          margin-left: getDatePickerSizes(datePicker-month-container--leftMargin);
-        }
-      }
-    }
-
     :global {
-      z-index: getDatePickerSizes(datePicker-z-index);
+      z-index: getBaseSizes(z-index);
+
       .react-datepicker {
-        @include theme(background-color, datepicker-color--primary);
-        border-radius: getDatePickerSizes(datePicker-month-container--borderRadius);
-        margin-top: getDatePickerSizes(datePicker-margin-top);
-        padding: getDatePickerSizes(datePicker-padding);
-        box-shadow: 3px 3px 6px 0 rgba(46, 46, 46, 0.1);
-        width: getDatePickerSizes(datePicker-wrapper-width);
-        min-height: getDatePickerSizes(datePicker-wrapper-min-heigh);
-        padding-bottom: getDatePickerSizes(datePicker-wrapper-padding-bottom);
-        min-height: getDatePickerSizes(datePicker-month-container-min-height);
-        display: flex;
+        // Color
+        @include theme(background-color, primary--color);
+
+        @include flex;
+
+        width: getDatePickerSizes(datepicker-width);
+        min-height: getDatePickerSizes(datepicker-min-height);
+
+        margin-top: getDatePickerSizes(datepicker-margin-top);
+        padding: getDatePickerSizes(datepicker-padding);
+
+        border-radius: getDatePickerSizes(datepicker-border-radius);
+        box-shadow: getDatePickerSizes(datepicker-shadow-sizes) rgba(46, 46, 46, 0.1); //getDatePickerColors(datepicker-shadow-color)
+
+        // Removing default prev next icons
         &__navigation-icon--previous,
         &__navigation-icon--next {
           display: none;
         }
+
         &__navigation--next,
         &__navigation--previous {
-          height: getDatePickerSizes(datePicker-navigation--nextSize-height);
-          width: getDatePickerSizes(datePicker-navigation--nextSize);
-          top: getDatePickerSizes(datePicker-navigation--nextSize-top);
-          border: none;
           position: absolute;
+          top: getDatePickerSizes(datepicker-navigation-top);
+
+          height: getDatePickerSizes(datepicker-navigation-height);
+          width: getDatePickerSizes(datepicker-navigation-width);
+
           cursor: pointer;
-          z-index: 2;
+          border: none;
+
+          z-index: getBaseSizes(z-index);
         }
 
         &__navigation--next {
-          background: getDatePickerIcons(next) no-repeat;
-          right: getDatePickerSizes(datePicker-navigation--nextMargin);
+          background: getIcon(next) no-repeat;
+          right: getDatePickerSizes(datepicker-navigation-margin);
         }
 
         &__navigation--previous {
-          background: getDatePickerIcons(prev) no-repeat;
-          left: getDatePickerSizes(datePicker-navigation--leftMargin);
+          background: getIcon(prev) no-repeat;
+          left: getDatePickerSizes(datepicker-navigation-margin);
         }
 
         &__day--range-start,
         &__day--range-end {
-          @include theme(color, datepicker-color--primary);
-          @include theme(background-color, datepicker-day--primary);
+          @include theme(color, primary--color);
+          @include theme(background-color, primary);
         }
+
         &__day--in-range {
-          @include theme(background-color, datepicker-day-selected-row--primary);
+          @include theme(background-color, primary, $opacity: 0.1);
           color: #3c54b2;
         }
+
         &__day--selecting-range-start {
           @include theme(background-color, datepicker-day--primary);
           border-radius: getDatePickerSizes(datePicker-month-container--borderRadius);
@@ -112,11 +113,6 @@
             cursor: pointer;
             text-align: center;
           }
-          .react-datepicker__day:hover {
-            @include theme(color, datepicker-color--primary);
-            @include theme(background-color, datepicker-day--primary);
-            border-radius: getDatePickerSizes(datePicker-month-container--borderRadius);
-          }
         }
         &__day--outside-month {
           visibility: hidden;
@@ -124,7 +120,8 @@
 
         &__day--selecting-range-start,
         &__day--range-start,
-        &__day--range-end {
+        &__day--range-end,
+        &__day:hover {
           @include theme(color, datepicker-color--primary);
           @include theme(background-color, datepicker-day--primary);
           border-radius: getDatePickerSizes(datePicker-month-container--borderRadius);
@@ -132,5 +129,26 @@
         }
       }
     }
+
+    &--withTwoMonths {
+      :global {
+        .react-datepicker {
+          min-width: getDatePickerSizes(datePicker-wrapper-two-month-min-width);
+        }
+
+        .react-datepicker__month-container:last-child {
+          margin-left: getDatePickerSizes(datePicker-month-container--leftMargin);
+        }
+      }
+    }
   }
+
+  // :global {
+  //   .react-datepicker-popper {
+  //     transform: translate(
+  //       getDatePickerSizes(datepicker-input-space-left),
+  //       getDatePickerSizes(datepicker-input-space-top)
+  //     ) !important; // Using important for reassingeing react-datepicker inline style
+  //   }
+  // }
 }

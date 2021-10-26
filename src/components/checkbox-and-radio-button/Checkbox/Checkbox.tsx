@@ -1,3 +1,4 @@
+import { getMyUIPrefix } from '@/configs';
 import { typedMemo } from '@/helpers';
 import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
@@ -8,7 +9,7 @@ export interface CheckboxProps extends IComponent, React.InputHTMLAttributes<HTM
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ color = 'primary', className, ...checkboxProps }, ref) => {
+  ({ color = 'primary', className, style, ...checkboxProps }, ref) => {
     return (
       <div
         className={classNames(
@@ -16,9 +17,11 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           {
             [styles[`Checkbox--${color}`]]: color
           },
-          className
-        )}>
-        <input {...checkboxProps} type='checkbox' ref={ref} />
+          className,
+          `${getMyUIPrefix()}-CheckboxContainer`
+        )}
+        style={style}>
+        <input {...checkboxProps} className={`${getMyUIPrefix()}-CheckboxInput`} type='checkbox' ref={ref} />
       </div>
     );
   }

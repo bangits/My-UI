@@ -1,1 +1,1 @@
-export { default as Sidebar } from './Sidebar';
+export { default as Sidebar, SidebarPositions, SidebarProps } from './Sidebar';

@@ -1,0 +1,7 @@
+@function getIcon($icon-name) {
+  @return map-get($base-icons-map, $icon-name);
+}
+
+@function getBaseSizes($icon-name) {
+  @return map-get($base-sizes, $icon-name);
+}

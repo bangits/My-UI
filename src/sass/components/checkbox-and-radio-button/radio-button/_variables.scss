@@ -3,7 +3,8 @@ $radio-button-sizes: (
   radio-button-height: calculateRem(16px),
   radio-button-circle-width: calculateRem(12px),
   radio-button-circle-height: calculateRem(12px),
-  radio-button-border-width: calculateRem(2px)
+  radio-button-border-width: calculateRem(2px),
+  radio-checked-transition: all 0.2s ease
 );
 
 @function getRadioButtonSizes($property) {

@@ -1,11 +1,11 @@
 import { TextInput } from '@/components';
 import React, { FC } from 'react';
-import { DatepickerProps } from './DatePicker';
 
-interface DatePickerInputProps extends DatepickerProps {
+interface DatePickerInputProps {
   onClick?: () => void;
   value?: string;
   placeholderText?: string;
+  disabled?: boolean;
 }
 
 const DatePickerInput: FC<DatePickerInputProps> = ({ onClick, value, placeholderText, disabled }) => (

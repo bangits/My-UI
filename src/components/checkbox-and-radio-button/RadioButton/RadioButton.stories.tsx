@@ -1,3 +1,4 @@
+import { getComponentName } from '@/configs';
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import RadioButton from './RadioButton';
@@ -5,7 +6,7 @@ import RadioButton from './RadioButton';
 export default {
   component: RadioButton,
   decorators: [withKnobs],
-  title: 'components/Checkbox and Radio Button/Radio Button'
+  title: getComponentName('CHECKBOX_AND_RADIO', 'Radio Button')
 };
 
 export const DefaultRadio = () => {

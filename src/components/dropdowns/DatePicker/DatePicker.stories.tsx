@@ -1,3 +1,4 @@
+import { getComponentName } from '@/configs';
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useState } from 'react';
@@ -6,7 +7,7 @@ import DatePicker from './DatePicker';
 export default {
   component: DatePicker,
   decorators: [withKnobs],
-  title: 'components/Dropdown/Date Picker'
+  title: getComponentName('DROPDOWN', 'DatePicker')
 } as ComponentMeta<typeof DatePicker>;
 
 export const Default = () => {
@@ -23,8 +24,6 @@ export const Default = () => {
         withDropdowns={boolean('withDropdowns', true)}
         disabled={boolean('disabled', false)}
       />
-
-      <h1> </h1>
 
       <DatePicker
         selectsRange

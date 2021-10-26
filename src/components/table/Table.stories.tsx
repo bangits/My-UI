@@ -67,7 +67,8 @@ export const Default = () => {
         },
         {
           Header: 'Release date and time',
-          accessor: 'w'
+          accessor: 'w',
+          align: 'right'
         },
         {
           Header: 'User status',

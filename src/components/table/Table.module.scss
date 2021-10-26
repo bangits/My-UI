@@ -11,7 +11,6 @@
     min-height: 5.5rem;
     th {
       &:last-child {
-        margin-left: 1.9rem;
         svg {
           display: none;
         }
@@ -31,7 +30,8 @@
           align-items: center;
           position: absolute;
           top: 0;
-          right: -1.9rem;
+          right: 0;
+          margin: 0;
           background: #eaecf6;
           height: 100%;
           max-width: 16.3rem;

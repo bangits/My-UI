@@ -5,6 +5,7 @@ import { UIColors } from '@/types/ui';
 import classNames from 'classnames';
 import React, { CSSProperties, FC } from 'react';
 import styles from './TableHead.module.scss';
+
 export interface TableHeadProps extends IComponent {
   component?: ComponentType;
   selectedDirection?: boolean;
@@ -24,10 +25,10 @@ export const TableHead: FC<TableHeadProps> = ({
 }) => {
   return (
     <Component className={styles.TableHead} {...props}>
-      <div>
+      <div className={styles.TableHeadContainer}>
         {children}
         {!hideSortIcon && (
-          <span className={styles.IconArrow}>
+          <div className={styles.IconArrow}>
             <ArrowIcon
               className={classNames(styles.IconUp, {
                 [styles.IconDisabled]: !selectedDirection || direction === 'asc'
@@ -38,7 +39,7 @@ export const TableHead: FC<TableHeadProps> = ({
                 [styles.IconDisabled]: !selectedDirection || direction === 'desc'
               })}
             />
-          </span>
+          </div>
         )}
       </div>
     </Component>

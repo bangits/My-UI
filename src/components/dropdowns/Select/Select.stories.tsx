@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { boolean, number, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import Select from './Select';
@@ -11,7 +12,6 @@ export default {
 export const Default = () => (
   <>
     <Select
-      // menuIsOpen={boolean('isMenuOpenSingle', true)}
       inputLabel={text('inputLabelSingle', 'Single Select...')}
       selectAll
       isSearchable
@@ -69,7 +69,6 @@ export const Default = () => (
       ])}
     />
     <Select
-      menuIsOpen={true}
       inputLabel={text('inputLabelSingle', 'Single Select...')}
       maxLength={number('maxLengthSingleSelect', 20)}
       isSearchable
@@ -153,6 +152,7 @@ export const MultiSelect = () => (
           display: 'inline-radio'
         }
       )}
+      onChange={action('onChange')}
       isMulti={boolean('isMulti', true)}
       options={object('multiSelectOptions', [
         {
@@ -192,13 +192,11 @@ export const MultiSelect = () => (
           value: 10
         }
       ])}
-      defaultValue={[2, 7]}
     />
 
     <Select
       selectAll
       clearButton
-      menuIsOpen={true}
       clearButtonLabel={text('clearButtonLabel', 'Clear')}
       inputLabel={text('inputLabelMulti', 'Multi Select...')}
       maxLength={number('maxLengthMultiSelect', 50)}

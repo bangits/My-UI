@@ -224,3 +224,14 @@
     }
   }
 }
+
+@mixin generate-with-clear-select-styles {
+  :global {
+    .react-select {
+      &__menu-list {
+        padding-bottom: 3.2rem;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

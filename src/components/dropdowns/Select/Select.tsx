@@ -1,127 +1,141 @@
-import { UIColors } from '@/types';
-import ReactSelect, { Props } from '@my-ui/react-select';
+import { TextInputProps } from '@/components';
+import ReactSelect, { ActionMeta, GroupBase, Props } from '@my-ui/react-select';
 import classNames from 'classnames';
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { DefaultOption, IconControl, MenuList, Option, SearchControl } from './Options';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
 
-export type SelectProps = {
+export type SelectValueType = number | string;
+
+export type SelectOptionType = { value: SelectValueType; label: string };
+export interface SelectProps<
+  Option extends SelectOptionType[],
+  IsMulti extends boolean,
+  Group extends GroupBase<Option>
+> extends Omit<Props<Option, IsMulti, Group>, 'defaultValue' | 'value' | 'options' | 'onChange'>,
+    TextInputProps {
+  selectAll?: boolean;
   selectAllLabel?: string;
   selectAllValue?: string;
-  selectAll?: boolean;
+  //
   inputLabel?: string;
-  inputSelectedLabel?: string;
-  explanation?: string;
-  fullWidth?: boolean;
-  color?: UIColors;
-  maxLength?: number;
+  inputSelectedLabel?: string; // Need to remove
+  renderInputSelectedLabel?: (selectedCount: number) => string;
+  //
   clearButton?: boolean;
   clearButtonLabel?: string;
+  //
   dropdown?: boolean;
   dropdownLabel?: string;
-} & Props;
 
-const Select: FC<SelectProps> = ({
-  children,
+  //
+  defaultValue?: IsMulti extends true ? SelectValueType[] : SelectValueType;
+  value?: IsMulti extends true ? SelectValueType[] : SelectValueType;
+  isMulti?: IsMulti;
+  options: SelectOptionType[];
+  onChange?: (updatedOptions: SelectOptionType[], event: ActionMeta<unknown>) => void;
+}
+
+function Select<Option extends SelectOptionType[], IsMulti extends boolean, Group extends GroupBase<Option>>({
   isSearchable = true,
   fullWidth = false,
-  explanation,
   isMulti,
-  color,
-  defaultValue: defaultValueProp,
-  value: valueProp,
+  defaultValue,
+  value,
   selectAllValue = '*',
   selectAllLabel = 'All',
   className,
   inputLabel = 'Select...',
   inputSelectedLabel = 'Selected items: ',
-  maxLength = 50,
+  renderInputSelectedLabel = (count) => `Selected items: ${count}`,
   clearButton,
   clearButtonLabel,
   selectAll,
   dropdown,
   dropdownLabel,
   ...selectProps
-}) => {
+}: SelectProps<Option, IsMulti, Group>) {
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
 
-  const defaultValue =
-    defaultValueProp !== undefined
-      ? isMulti
-        ? // @ts-ignore
-          selectProps.options.filter((o) => defaultValueProp.includes(o.value))
-        : // @ts-ignore
-          { value: defaultValueProp, label: selectProps.options.find((o) => o.value === defaultValueProp)?.label }
-      : undefined;
+  const transformNumberValueToOptions = useCallback(
+    (value) => {
+      if (!value) return;
 
-  const value =
-    valueProp !== undefined
-      ? isMulti
-        ? // @ts-ignore
-          selectProps.options.filter((o) => valueProp.includes(o.value))
-        : // @ts-ignore
-          { value: valueProp, label: selectProps.options.find((o) => o.value === valueProp)?.label }
-      : undefined;
+      return isMulti
+        ? selectProps.options.filter((o) => (value as SelectValueType[]).includes(o.value))
+        : { value: defaultValue as SelectValueType, label: selectProps.options.find((o) => o.value === value)?.label };
+    },
+    [selectProps.options]
+  );
 
-  const [selectedOptions, setSelectedOptions] = useState((defaultValue as []) || []);
+  const transformedDefaultValue = useMemo(() => transformNumberValueToOptions(defaultValue), [defaultValue, isMulti]);
+
+  const isWithValue = useMemo(() => !!value, []);
+
+  const [selectedOptions, setSelectedOptions] = useState(transformedDefaultValue);
+
+  const transformedValue = useMemo(
+    () => (value ? transformNumberValueToOptions(value) : selectedOptions),
+    [value, selectedOptions]
+  );
 
   const sortedOptions = useMemo(() => {
-    if (!Array.isArray(selectedOptions)) return;
-    const sortOptions = new Set<[]>([
-      ...selectedOptions?.filter((option) => option.value !== '*'),
-      ...selectProps.options
-    ]);
-    return sortOptions;
-  }, [selectedOptions, selectProps.options]);
+    const selectedOptions = Array.isArray(transformedValue)
+      ? transformedValue.filter((option) => option.value !== selectAllValue)
+      : [];
 
-  const options = isMulti ? [allOption, ...sortedOptions] : selectProps.options;
+    return new Set([...selectedOptions, ...selectProps.options]);
+  }, [transformedValue, selectAllValue, selectProps.options]);
+
+  const options = useMemo(
+    () => (isMulti && selectAll ? [allOption, ...sortedOptions] : selectProps.options),
+    [allOption, isMulti, sortedOptions, selectProps.options]
+  );
 
   const onChange = useCallback<Props['onChange']>(
-    (selectedOptions: [], event) => {
-      const selectedOptionValue = (event.option as { value?: string | undefined })?.value;
-      if (event.action === 'select-option' && selectedOptionValue === selectAllValue) {
-        const allOptions = selectProps.options;
+    (selectedOptions: SelectOptionType[], event) => {
+      const selectedOptionValue = (event.option as SelectOptionType)?.value;
 
-        setSelectedOptions([allOption, ...allOptions]);
-        if (selectProps.onChange) selectProps.onChange([allOption, ...allOptions], event);
-      } else if (event.action === 'deselect-option' && selectedOptionValue === selectAllValue) {
-        setSelectedOptions([]);
-        if (selectProps.onChange) selectProps.onChange([], event);
-      } else if (event.action === 'deselect-option' && selectedOptionValue !== selectAllValue) {
-        //@ts-ignore
-        const filteredOptions = selectedOptions.filter((option) => option.value !== selectAllValue);
-        setSelectedOptions([...filteredOptions]);
-        if (selectProps.onChange) selectProps.onChange([...filteredOptions], event);
-      } else if (selectProps.options.length === selectedOptions.length) {
-        const allOptions = selectProps.options;
-        setSelectedOptions(selectedOptions);
-        if (selectProps.onChange) selectProps.onChange(selectedOptions, event);
+      let updatedOptions: SelectOptionType[] | SelectOptionType;
+
+      // For all option
+      if (
+        selectedOptionValue === selectAllValue ||
+        (selectProps.options.length === selectedOptions.length && event.action !== 'deselect-option')
+      ) {
+        updatedOptions = event.action === 'select-option' ? options : [];
       } else {
-        setSelectedOptions(selectedOptions);
-        if (selectProps.onChange) selectProps.onChange(selectedOptions, event);
+        const filteredOptions = isMulti
+          ? [...selectedOptions.filter((option) => option.value !== selectAllValue)]
+          : selectedOptions;
+
+        updatedOptions = filteredOptions;
       }
+
+      setSelectedOptions(updatedOptions);
+
+      if (selectProps.onChange)
+        selectProps.onChange(Array.isArray(updatedOptions) ? updatedOptions : [updatedOptions], event);
     },
-    // @ts-ignore
-    [selectProps.onChange, selectProps.options, selectProps.value, selectAllValue, allOption, selectedOptions]
+    [selectAllValue, options, allOption, selectedOptions, selectProps.options, isMulti]
   );
 
   useEffect(() => {
-    // @ts-ignore
-    if (defaultValue || value) setSelectedOptions(defaultValue || value);
-  }, [valueProp, defaultValueProp]);
+    if (isWithValue) setSelectedOptions(transformNumberValueToOptions(value));
+  }, [value]);
 
-  console.log(selectedOptions);
   return (
     <ReactSelect
       {...selectProps}
+      value={transformedValue}
+      defaultValue={transformedDefaultValue}
       selectAllValue={selectAllValue}
       selectAll={selectAll}
       dropdown={dropdown}
       dropdownLabel={dropdownLabel}
       clearButton={clearButton}
       clearButtonLabel={clearButtonLabel}
-      maxLength={maxLength}
       inputSelectedLabel={inputSelectedLabel}
       inputLabel={inputLabel}
       onChange={onChange}
@@ -139,26 +153,23 @@ const Select: FC<SelectProps> = ({
       }}
       /* removeSelected={false} */
       isMulti={isMulti}
-      color={color}
       option
-      explanation={explanation}
       closeMenuOnSelect={isMulti ? false : true}
       controlShouldRenderValue={isMulti ? false : true}
       backspaceRemovesValue={false}
-      value={value}
-      defaultValue={defaultValue}
       className={classNames(
         styles.Select,
         {
           [styles[`Select--fullWidth`]]: fullWidth,
-          [styles['Select--dropdown']]: dropdown
+          [styles['Select--dropdown']]: dropdown,
+          [styles['Select--with-clear']]: clearButton
         },
         'MyUI-Select',
         className
       )}
-      options={isMulti ? (selectAll ? [allOption, ...sortedOptions] : [...sortedOptions]) : selectProps.options}
+      options={options}
     />
   );
-};
+}
 
 export default Select;

@@ -97,46 +97,30 @@ $transition-duration: getTextFieldSizes(label-transition);
   .TextInputLabel {
     position: absolute;
     top: 0;
-
     @include flex;
-
     @include theme(border-color, primary);
-
     width: 100%;
     max-height: 100%;
-
     @include theme(color, default-input-color);
-
     font-size: getTextFieldSizes(input-font-size);
     line-height: getTextFieldSizes(input-label-focused-line-height);
-
     cursor: text;
-
     transition: text-indent $transition-duration, color $transition-duration, font-size $transition-duration,
       line-height $transition-duration;
-
     height: getTextFieldSizes(input-label-height);
 
     &::before,
     &::after {
       content: '';
-
       display: block;
-
       box-sizing: border-box;
       margin-top: getTextFieldSizes(input-label-offset);
-
       border-top: solid 1px;
-
       @include theme(border-top-color, primary);
-
       min-width: getTextFieldSizes(input-corner-min-width);
       height: calc(getTextFieldSizes(input-label-offset) + 0.2rem);
-
       pointer-events: none;
-
       box-shadow: inset 0 1px transparent;
-
       transition: border-color $transition-duration, box-shadow $transition-duration;
     }
 
@@ -162,9 +146,7 @@ $transition-duration: getTextFieldSizes(label-transition);
     top: getTextFieldSizes(icon-margin);
     width: getTextFieldSizes(input-icon-size);
     height: getTextFieldSizes(input-icon-size);
-
     @include theme(color, default-input-color);
-
     @include center-flex;
   }
 

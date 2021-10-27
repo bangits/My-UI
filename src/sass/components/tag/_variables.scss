@@ -1,0 +1,16 @@
+$tag-sizes: (
+  tag-width: calculateRem(92px),
+  tag-height: calculateRem(32px),
+  tag-padding: calculateRem(8px) calculateRem(16px) calculateRem(7px) calculateRem(16px),
+  tag-border-radius: calculateRem(16px)
+);
+
+$tag-colors: ();
+
+@function getTagSizes($property) {
+  @return map-get($tag-sizes, $property);
+}
+
+@function getTagColors($property) {
+  @return map-get($tag-colors, $property);
+}

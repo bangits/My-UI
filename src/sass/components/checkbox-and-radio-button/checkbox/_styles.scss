@@ -7,6 +7,7 @@
       border-style: solid;
       border-width: getCheckboxSizes(checkbox-border-width);
       border-radius: getCheckboxSizes(checkbox-border-radius);
+      @include theme(border-color, black-color);
 
       // Reset
       margin: 0;
@@ -23,7 +24,7 @@
           width: getCheckboxSizes(checkbox-check-width);
           height: getCheckboxSizes(checkbox-check-height);
 
-          background: url('../../../../icons/check.svg') no-repeat center / cover;
+          background: getIcon(checkbox-check) no-repeat center / cover;
         }
       }
 
@@ -36,9 +37,8 @@
   @each $color in $base-colors {
     .Checkbox--#{$color} {
       input {
-        @include theme(border-color, #{$color});
-
         &:checked {
+          @include theme(border-color, #{$color});
           @include theme(background-color, #{$color});
         }
       }

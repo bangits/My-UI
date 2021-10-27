@@ -1,5 +1,13 @@
 @import '../themes/functions';
 
+// Sizes
+
+$base-sizes: (
+  z-index: 10
+);
+
+// Colors
+
 $base-colors-map: (
   primary: color(night-in-manchester),
   primary--transparent: rgba(color(night-in-manchester), 0.1),
@@ -28,4 +36,14 @@ $base-colors-map: (
   black-color: color(midnight-sun),
   black-color--transparent: rgba(color(midnight-sun), 0.1),
   disabled-opacity: 0.4
+);
+
+// Icons
+
+$component-icons-path: '../../../../icons/';
+
+$base-icons-map: (
+  checkbox-check: url(#{$component-icons-path}check.svg),
+  next: url(#{$component-icons-path}next.svg),
+  prev: url(#{$component-icons-path}prev.svg)
 );

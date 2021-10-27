@@ -1,3 +1,4 @@
+import { getMyUIPrefix } from '@/configs';
 import { typedMemo } from '@/helpers';
 import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
@@ -6,9 +7,7 @@ import styles from './RadioButton.module.scss';
 import { Consumer } from './RadioContext';
 
 export interface RadioButtonProps extends IComponent, React.InputHTMLAttributes<HTMLInputElement> {
-  name?: string;
   color?: UIColors;
-  value: string | number;
 }
 
 const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
@@ -23,7 +22,8 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
                 {
                   [styles[`RadioButton--${color}`]]: color
                 },
-                className
+                className,
+                `${getMyUIPrefix()}-RadioButtonContainer`
               )}
               style={style}>
               <input
@@ -32,12 +32,13 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
                 id={value.toString()}
                 value={value}
                 name={name}
-                checked={radioGroupProps.value ? radioGroupProps.value === value : checked}
+                checked={radioGroupProps?.value ? radioGroupProps.value === value : checked}
                 onChange={radioGroupProps?.onChange}
                 ref={ref}
+                className={`${getMyUIPrefix()}-RadioButtonInput`}
               />
 
-              <label htmlFor={value.toString()} />
+              <label htmlFor={value.toString()} className={`${getMyUIPrefix()}-RadioButtonCheck`} />
             </div>
           );
         }}

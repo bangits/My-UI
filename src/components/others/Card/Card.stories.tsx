@@ -5,7 +5,7 @@ import Card from './Card';
 export default {
   component: Card,
   decorators: [withKnobs],
-  title: 'components/Card/Card'
+  title: 'components/Others/Card'
 };
 
 export const Default = () => {

@@ -1,7 +1,7 @@
 import { typedMemo, useStyles } from '@/helpers';
 import { ComponentType, IComponent } from '@/types';
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './Card.module.scss';
 
 export interface CardProps extends IComponent {

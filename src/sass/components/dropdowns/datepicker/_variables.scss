@@ -1,19 +1,23 @@
 $datepicker-sizes: (
+  datepicker-width: calculateRem(276px),
+  datepicker-border-radius: calculateRem(4px),
+  datepicker-min-height: calculateRem(322px),
+  datepicker-shadow-sizes: 3px 3px 6px 0,
+  datepicker-margin-top: calculateRem(8px),
+  datepicker-input-space-left: calculateRem(10px),
+  datepicker-input-space-top: calculateRem(53px),
+  datepicker-padding: 0 calculateRem(16px) calculateRem(6px) calculateRem(16px),
+  datepicker-navigation-height: calculateRem(12px),
+  datepicker-navigation-width: calculateRem(6px),
+  datepicker-navigation-top: calculateRem(36px),
+  datepicker-navigation-margin: calculateRem(25px),
+  //
+  datePicker-month-container--borderRadius: 0.4rem,
   datePicker-wrapper-two-month-min-width: 58.5rem,
   datePicker-month-container--leftMargin: 2.5rem,
   datePicker-month-container-min-height: 32.2rem,
   datePicker-z-index: 1000,
-  datePicker-margin-top: 0.8rem,
-  datePicker-padding: 0rem 1.6rem 0rem,
-  datePicker-wrapper-width: 27.6rem,
-  datePicker-wrapper-min-height: 31.4rem,
   datePicker-wrapper-padding-bottom: 0.6rem,
-  datePicker-navigation--nextSize: 0.6rem,
-  datePicker-navigation--nextSize-height: 1.2rem,
-  datePicker-navigation--nextSize-top: 3.6rem,
-  datePicker-navigation--nextMargin: 2.5rem,
-  datePicker-navigation--leftMargin: 2.5rem,
-  datePicker-month-container--borderRadius: 0.4rem,
   datePicker-month-title-font-size: 1.6rem,
   datePicker-month-title-padding: 2.4rem 0,
   datePicker-day--name: 1rem,
@@ -26,12 +30,13 @@ $datepicker-sizes: (
   datePicker-day-padding: 0.9rem 0
 );
 
-$datepicker-icons: (
-  next: url('../../../../icons/next.svg'),
-  prev: url('../../../../icons/prev.svg')
-);
+@function getDatePickerSizes($property) {
+  @return map-get($datepicker-sizes, $property);
+}
 
 $datepicker-colors: (
+  datepicker-shadow-color: rgba(46, 46, 46, 0.1),
+  //
   datepicker-container-bg: color(white),
   datepicker-input-border--primary: color(stratos),
   datepicker-bg-color--primary: color(pelorous),
@@ -71,9 +76,6 @@ $datepicker-colors: (
   datepicker-week-color--primary: color(silver)
 );
 
-@function getDatePickerSizes($property) {
-  @return map-get($datepicker-sizes, $property);
-}
-@function getDatePickerIcons($property) {
-  @return map-get($datepicker-icons, $property);
+@function getDatePickerColors($property) {
+  @return map-get($datepicker-colors, $property);
 }

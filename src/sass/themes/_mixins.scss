@@ -1,21 +1,39 @@
 // This mixin used for generation css with theme
-@mixin theme($property, $key, $inlineExtra: null, $postExtra: null) {
+@mixin theme($property, $key, $inlineExtra: null, $postExtra: null, $opacity: null) {
   @each $theme in $themes {
     @if (themeExists($key, $theme)) {
-      $value: getThemeValue($key, $theme);
+      $value: null;
+
+      @if ($opacity) {
+        $value: rgba(getThemeValue($key, $theme), $opacity);
+
+        :root {
+          --theme-#{$theme}-#{$key}--#{$opacity * 10}: $value;
+        }
+      } @else {
+        $value: getThemeValue($key, $theme);
+      }
 
       @if ($theme == 'default') {
         :global(body) & {
           #{$property}: #{$inlineExtra} #{$value} #{$postExtra};
 
-          #{$property}: #{$inlineExtra} var(--theme-#{$theme}-#{$key}, #{$value}) #{$postExtra};
+          @if ($opacity) {
+            #{$property}: #{$inlineExtra} var(--theme-#{$theme}-#{$key}--#{$opacity * 10}, #{$value}) #{$postExtra};
+          } @else {
+            #{$property}: #{$inlineExtra} var(--theme-#{$theme}-#{$key}, #{$value}) #{$postExtra};
+          }
         }
       } @else {
         :global(.theme-#{$theme}) &,
         &:global(.theme-#{$theme}) {
           #{$property}: #{$inlineExtra} #{$value} #{$postExtra};
 
-          #{$property}: #{$inlineExtra} var(--theme-#{$theme}-#{$key}, #{$value}) #{$postExtra};
+          @if ($opacity) {
+            #{$property}: #{$inlineExtra} var(--theme-#{$theme}-#{$key}--#{$opacity * 10}, #{$value}) #{$postExtra};
+          } @else {
+            #{$property}: #{$inlineExtra} var(--theme-#{$theme}-#{$key}, #{$value}) #{$postExtra};
+          }
         }
       }
     } @else {

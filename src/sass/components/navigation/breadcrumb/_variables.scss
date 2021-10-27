@@ -1,0 +1,17 @@
+$breadcrumb-sizes: (
+  breadcrumbBase-font-size: 1.4rem,
+  breadcrumbBase-padding: 0,
+  breadcrumb-item-margin-left: 4rem,
+  breadcrumb-item-opacity: 0.5,
+  breadcrumb-item-first-child-margin-left: 0,
+  breadcrumb-item-opacity-last-child: 1,
+  breadcrumb-item-arrow-width: 0.3rem,
+  breadcrumb-item-arrow-height: 0.3rem,
+  breadcrumb-item-arrow-margin-left: -3rem
+);
+
+$breadcrumb-colors: ();
+
+@function breadcrumb-sizes($sizeName) {
+  @return map-get($breadcrumb-sizes, $sizeName);
+}

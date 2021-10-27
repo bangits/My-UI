@@ -1,4 +1,4 @@
-import { number, object, text, withKnobs } from '@storybook/addon-knobs';
+import { object, withKnobs } from '@storybook/addon-knobs';
 import Breadcrumb from './Breadcrumb';
 
 export default {
@@ -10,7 +10,7 @@ export default {
 export const Default = () => {
   return (
     <Breadcrumb
-      links={object('links', [{ label: 'Home', isRedirect: true }, { label: 'Library' }, { label: 'Game Management' }])}
+      links={object('links', [{ label: 'Home' }, { label: 'Library', isRedirect: true }, { label: 'Game Management' }])}
     />
   );
 };

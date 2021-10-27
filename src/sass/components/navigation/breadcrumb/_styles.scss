@@ -12,8 +12,6 @@
 
       @include theme(color, black-color);
 
-      opacity: breadcrumb-sizes(breadcrumb-item-opacity);
-
       &:first-child {
         margin-left: breadcrumb-sizes(breadcrumb-item-first-child-margin-left);
 
@@ -23,20 +21,35 @@
       }
 
       &:last-child {
-        opacity: breadcrumb-sizes(breadcrumb-item-opacity-last-child);
+        .BreadcrumbText {
+          opacity: breadcrumb-sizes(breadcrumb-item-active-opacity);
+        }
       }
 
       &:before {
         @include flex;
+
+        opacity: breadcrumb-sizes(breadcrumb-item-opacity);
 
         width: breadcrumb-sizes(breadcrumb-item-arrow-width);
         height: breadcrumb-sizes(breadcrumb-item-arrow-height);
         margin-left: breadcrumb-sizes(breadcrumb-item-arrow-margin-left);
         content: url('../../../../icons/breadcrumb-next.svg');
       }
+
+      &:hover {
+        .BreadcrumbLink {
+          opacity: breadcrumb-sizes(breadcrumb-item-active-opacity);
+        }
+      }
     }
 
     .BreadcrumbText {
+      transition: all breadcrumb-sizes(breadcrumb-hover-transition);
+      transition-property: opacity, color;
+
+      opacity: breadcrumb-sizes(breadcrumb-item-opacity);
+
       &.BreadcrumbLink {
         cursor: pointer;
       }

@@ -17,6 +17,9 @@
 
       &:disabled + label {
         @include theme(opacity, disabled-opacity);
+        &:hover {
+          cursor: auto;
+        }
       }
     }
 

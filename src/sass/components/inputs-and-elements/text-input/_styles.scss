@@ -30,6 +30,9 @@ $transition-duration: getTextFieldSizes(label-transition);
     &:disabled {
       opacity: getTextFieldSizes(input-disabled);
     }
+    &:focus {
+      @include theme(border-color, input-color-focus-default);
+    }
 
     // Sizes
     border-radius: getTextFieldSizes(input-border-radius);

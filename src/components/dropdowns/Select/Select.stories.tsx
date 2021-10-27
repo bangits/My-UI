@@ -11,7 +11,7 @@ export default {
 export const Default = () => (
   <>
     <Select
-      menuIsOpen={boolean('isMenuOpenSingle', true)}
+      // menuIsOpen={boolean('isMenuOpenSingle', true)}
       inputLabel={text('inputLabelSingle', 'Single Select...')}
       selectAll
       isSearchable
@@ -69,6 +69,7 @@ export const Default = () => (
       ])}
     />
     <Select
+      menuIsOpen={true}
       inputLabel={text('inputLabelSingle', 'Single Select...')}
       maxLength={number('maxLengthSingleSelect', 20)}
       isSearchable
@@ -135,7 +136,6 @@ export const MultiSelect = () => (
       clearButton
       clearButtonLabel={text('clearButtonLabel', 'Clear')}
       maxLength={number('maxLengthMultiSelect', 50)}
-      menuIsOpen={boolean('isMenuOpenMulti', true)}
       inputLabel={text('inputLabelMulti', 'Multi Select...')}
       inputSelectedLabel={text('inputSelectedLabel', 'Selected ')}
       explanation={text('explanation', '')}
@@ -198,6 +198,7 @@ export const MultiSelect = () => (
     <Select
       selectAll
       clearButton
+      menuIsOpen={true}
       clearButtonLabel={text('clearButtonLabel', 'Clear')}
       inputLabel={text('inputLabelMulti', 'Multi Select...')}
       maxLength={number('maxLengthMultiSelect', 50)}

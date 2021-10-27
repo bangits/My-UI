@@ -78,7 +78,7 @@
       left: 0rem;
       top: 0;
       background-color: #ffffff;
-      border-radius: 0.8rem 0.8rem 0 0;
+      // border-radius: 0.8rem 0.8rem 0 0;
       > div {
         border-bottom: none;
         > div {
@@ -121,7 +121,8 @@
     align-items: center;
     position: absolute;
     z-index: 999999;
-    bottom: 0;
+    // bottom: 0;
+    bottom: -0.5rem;
     width: 28rem;
     height: 3.1rem;
     border-radius: 0 0 0.6rem 0.6rem;

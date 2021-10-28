@@ -3,6 +3,7 @@
     @include flex(null, center);
     min-width: getAlertSizes(alert-width);
     width: fit-content;
+    width: -moz-fit-content; //for mozilla
     height: getAlertSizes(alert-height);
     border-radius: getAlertSizes(alert-radius);
     padding: getAlertSizes(alert-padding);

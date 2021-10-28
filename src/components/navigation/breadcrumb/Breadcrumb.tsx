@@ -1,4 +1,5 @@
 import { typedMemo } from '@/helpers';
+import { BreadcrumbNext } from '@/icons';
 import { ComponentType, IComponent } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';
@@ -22,14 +23,21 @@ const Breadcrumb: FC<BreadcrumbProps> = ({
 }) => {
   return (
     <Component className={classNames(styles.BreadcrumbBase)}>
-      {links.map(({ linkComponent: LinkComponent = 'a', label, componentProps = {}, isRedirect }, key) => (
-        <ItemComponent key={key} className={styles.BreadcrumbItem}>
-          <LinkComponent
-            {...componentProps}
-            className={classNames(styles.BreadcrumbText, { [styles.BreadcrumbLink]: isRedirect })}>
-            {label}
-          </LinkComponent>
-        </ItemComponent>
+      {links.map(({ linkComponent: LinkComponent = 'a', label, componentProps = {}, isRedirect }, index) => (
+        <>
+          <ItemComponent key={index} className={styles.BreadcrumbItem}>
+            <LinkComponent
+              {...componentProps}
+              className={classNames(styles.BreadcrumbText, { [styles.BreadcrumbLink]: isRedirect })}>
+              {label}
+            </LinkComponent>
+          </ItemComponent>
+          {index !== links.length - 1 && (
+            <div className={styles.BreadcrumbIconContainer}>
+              <BreadcrumbNext />
+            </div>
+          )}
+        </>
       ))}
     </Component>
   );

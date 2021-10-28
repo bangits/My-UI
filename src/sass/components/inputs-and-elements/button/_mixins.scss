@@ -14,6 +14,9 @@
 
   &:disabled {
     @include theme(opacity, disabled-opacity);
+    &:hover {
+      @include theme(background-color, #{$color-name});
+    }
   }
 }
 
@@ -30,7 +33,7 @@
   &:disabled {
     @include theme(opacity, disabled-opacity);
     &:hover {
-      background-color: transparent;
+      background-color: unset;
     }
   }
 

@@ -10,6 +10,11 @@
     font-family: inherit;
     border: none;
     cursor: pointer;
+
+    &:disabled {
+      &:hover {
+      }
+    }
   }
 
   .startIcon,

@@ -1,0 +1,9 @@
+$tab-sizes: (
+  tab-container-width: calculateRem(946px),
+  tab-container-heigth: calculateRem(48px),
+  tab-container-border-radius: calculateRem(24px)
+);
+
+@function getTabSizes($property) {
+  @return map-get($tab-sizes, $property);
+}

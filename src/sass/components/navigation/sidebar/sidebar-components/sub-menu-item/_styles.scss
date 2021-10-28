@@ -13,6 +13,10 @@
     display: flex;
     align-items: center;
 
+    a {
+      @include dots-after-text;
+    }
+
     &:hover {
       height: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-height);
       border-radius: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-borderRadius);

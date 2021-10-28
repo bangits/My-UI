@@ -119,7 +119,11 @@ const TextInputs: FC<TextInputProps> = ({
           onFocus={onFocus}
           onBlur={onBlur}
         />
-        {label && <span className={styles.TextInputLabel}>{label}</span>}
+        {label && (
+          <span className={styles.TextInputLabelContainer}>
+            <span className={styles.TextInputLabelText}>{label}</span>
+          </span>
+        )}
 
         {endIcon && <div className={styles.EndIcon}>{endIcon}</div>}
       </label>

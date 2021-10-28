@@ -56,7 +56,7 @@ $transition-duration: getTextFieldSizes(label-transition);
     &:not(:focus):not(.TextInputBaseInput--filled) {
       @include theme(border-top-color, default-input-color);
 
-      + .TextInputLabel {
+      + .TextInputLabelContainer {
         line-height: getTextFieldSizes(input-label-line-height);
 
         &::before,
@@ -80,7 +80,7 @@ $transition-duration: getTextFieldSizes(label-transition);
       box-shadow: inset 1px 0 inherit, inset -1px 0 inherit, inset 0 -1px inherit;
       outline: none;
 
-      + .TextInputLabel {
+      + .TextInputLabelContainer {
         @include theme(color, primary);
 
         font-size: getTextFieldSizes(input-label-focused-font-size);
@@ -94,7 +94,7 @@ $transition-duration: getTextFieldSizes(label-transition);
   }
 
   // Label
-  .TextInputLabel {
+  .TextInputLabelContainer {
     position: absolute;
     top: 0;
 
@@ -154,6 +154,12 @@ $transition-duration: getTextFieldSizes(label-transition);
     }
   }
 
+  .TextInputLabelText {
+    min-height: 3.8rem;
+    padding-right: getTextFieldSizes(input-label-icon-offset);
+    @include dots-after-text;
+  }
+
   // Icons
 
   .StartIcon,
@@ -190,6 +196,12 @@ $transition-duration: getTextFieldSizes(label-transition);
       }
     }
 
+    &--focused {
+      .TextInputLabelText {
+        padding-right: 0;
+      }
+    }
+
     &--disabled {
       opacity: getTextFieldSizes(disabled-opacity);
     }
@@ -205,14 +217,14 @@ $transition-duration: getTextFieldSizes(label-transition);
         padding-left: getTextFieldSizes(input-type-offset--with-icons);
       }
 
-      .TextInputLabel {
+      .TextInputLabelContainer {
         text-indent: getTextFieldSizes(input-label-offset--with-icons);
       }
 
       .TextInputBaseInput {
         &:focus,
         &--filled {
-          + .TextInputLabel {
+          + .TextInputLabelContainer {
             text-indent: 0;
           }
         }
@@ -242,7 +254,7 @@ $transition-duration: getTextFieldSizes(label-transition);
           @include theme(color, #{$color});
         }
 
-        .TextInputLabel {
+        .TextInputLabelContainer {
           @include theme(border-color, #{$color});
           @include theme(color, #{$color});
 
@@ -269,7 +281,7 @@ $transition-duration: getTextFieldSizes(label-transition);
           &:focus {
             @include theme(border-color, #{$color});
 
-            + .TextInputLabel {
+            + .TextInputLabelContainer {
               @include theme(color, #{$color});
 
               &::before,

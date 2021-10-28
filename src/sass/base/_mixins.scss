@@ -28,3 +28,11 @@
 @mixin center-flex {
   @include flex(center, center);
 }
+
+// Dots after text
+
+@mixin dots-after-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -59,7 +59,7 @@ const Avatar: FC<AvatarProps> = ({
           [styles.DropDownHide]: !open
         })}>
         <Card borderRadius={0.8} className={styles.AvatarDropdownCard}>
-          <Typography className={styles.AvatarDropdownTitle} variant='p5' color='primary'>
+          <Typography component='span' className={styles.AvatarDropdownTitle} variant='p5' color='primary'>
             {dropdownTitle}
           </Typography>
           <SubMenuItems

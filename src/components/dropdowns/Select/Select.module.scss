@@ -158,4 +158,8 @@
   &--dropdown {
     @include generate-dropdown-select-styles;
   }
+
+  &--with-clear {
+    @include generate-with-clear-select-styles;
+  }
 }

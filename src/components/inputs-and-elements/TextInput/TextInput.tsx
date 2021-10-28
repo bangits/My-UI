@@ -3,7 +3,8 @@ import { UIColors } from '@/types';
 import classNames from 'classnames';
 import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react';
 import styles from './TextInput.module.scss';
-export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+
+export interface TextInputProps {
   color?: UIColors;
   disabled?: boolean;
   fullWidth?: boolean;
@@ -16,7 +17,7 @@ export interface TextInputProps extends DetailedHTMLProps<InputHTMLAttributes<HT
   label?: string;
 }
 
-const TextInputs: FC<TextInputProps> = ({
+const TextInputs: FC<TextInputProps & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>> = ({
   color,
   children,
   explanation,

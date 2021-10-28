@@ -176,9 +176,7 @@ $transition-duration: getTextFieldSizes(label-transition);
       .StartIcon {
         @include theme(color, primary);
       }
-    }
 
-    &--focused {
       .TextInputLabelText {
         padding-right: 0;
       }

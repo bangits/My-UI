@@ -1,7 +1,7 @@
 import { TextInputProps } from '@/components';
 import ReactSelect, { ActionMeta, GroupBase, Props } from '@my-ui/react-select';
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import { DefaultOption, IconControl, MenuList, Option, SearchControl } from './Options';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
@@ -28,7 +28,7 @@ export interface SelectProps<
   //
   dropdown?: boolean;
   dropdownLabel?: string;
-
+  dropdownIcon?: ReactNode;
   //
   defaultValue?: IsMulti extends true ? SelectValueType[] : SelectValueType;
   value?: IsMulti extends true ? SelectValueType[] : SelectValueType;
@@ -54,6 +54,7 @@ function Select<Option extends SelectOptionType[], IsMulti extends boolean, Grou
   selectAll,
   dropdown,
   dropdownLabel,
+  dropdownIcon,
   ...selectProps
 }: SelectProps<Option, IsMulti, Group>) {
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
@@ -134,6 +135,7 @@ function Select<Option extends SelectOptionType[], IsMulti extends boolean, Grou
       selectAll={selectAll}
       dropdown={dropdown}
       dropdownLabel={dropdownLabel}
+      dropdownIcon={dropdownIcon}
       clearButton={clearButton}
       clearButtonLabel={clearButtonLabel}
       inputSelectedLabel={inputSelectedLabel}

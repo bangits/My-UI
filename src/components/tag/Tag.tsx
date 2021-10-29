@@ -7,7 +7,7 @@ const Tag = () => {
   return (
     <>
       <div className={styles.Tag}>
-        <Typography variant='p4' className={styles.TagText}>
+        <Typography component='span' variant='p4' className={styles.TagText}>
           Armenian
         </Typography>
       </div>
@@ -15,7 +15,7 @@ const Tag = () => {
       {/* //remove margin style */}
 
       <div style={{ marginTop: '2rem' }} className={`${styles.Tag} ${styles['Tag--icon']}`}>
-        <Typography variant='p4' className={styles.TagText}>
+        <Typography component='span' variant='p4' className={styles.TagText}>
           Armenian
         </Typography>
         <span className={styles.IconContainer}>
@@ -25,7 +25,7 @@ const Tag = () => {
 
       {/* //remove margin style */}
       <div style={{ marginTop: '2rem' }} className={`${styles.Tag} ${styles['Tag--primary']}`}>
-        <Typography variant='p4' className={styles.TagText}>
+        <Typography component='span' variant='p4' className={styles.TagText}>
           Jackpot Support
         </Typography>
       </div>

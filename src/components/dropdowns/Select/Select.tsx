@@ -1,4 +1,4 @@
-import { TextInputProps } from '@/components';
+import { BaseTextInputProps } from '@/components';
 import { UIColors } from '@/types';
 import ReactSelect, { ActionMeta, GroupBase, Props } from '@my-ui/react-select';
 import classNames from 'classnames';
@@ -15,7 +15,7 @@ export interface SelectProps<
   IsMulti extends boolean,
   Group extends GroupBase<Option>
 > extends Omit<Props<Option, IsMulti, Group>, 'defaultValue' | 'value' | 'options' | 'onChange'>,
-    TextInputProps {
+    BaseTextInputProps {
   selectAll?: boolean;
   selectAllLabel?: string;
   selectAllValue?: string;

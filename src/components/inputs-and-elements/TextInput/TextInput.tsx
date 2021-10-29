@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react';
 import styles from './TextInput.module.scss';
 
-export interface TextInputProps {
+export interface BaseTextInputProps {
   color?: UIColors;
   disabled?: boolean;
   fullWidth?: boolean;
@@ -19,7 +19,9 @@ export interface TextInputProps {
 
 type InputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-const TextInputs: FC<TextInputProps & InputProps> = ({
+export type TextInputProps = BaseTextInputProps & InputProps;
+
+const TextInputs: FC<TextInputProps> = ({
   color,
   children,
   explanation,
@@ -37,7 +39,7 @@ const TextInputs: FC<TextInputProps & InputProps> = ({
   const [currentValue, setCurrentValue] = useState(value || defaultValue);
   const [isInputFocused, setInputFocused] = useState(false);
 
-  const onInputChange: InputProps['onChange'] = useCallback(
+  const onInputChange: TextInputProps['onChange'] = useCallback(
     (e) => {
       if (onChange) onChange(e);
 
@@ -46,7 +48,7 @@ const TextInputs: FC<TextInputProps & InputProps> = ({
     [onChange]
   );
 
-  const onKeyDown: InputProps['onKeyDown'] = useCallback(
+  const onKeyDown: TextInputProps['onKeyDown'] = useCallback(
     (evt) => {
       if (type === 'number' && evt.key === 'e') return evt.preventDefault();
 
@@ -55,7 +57,7 @@ const TextInputs: FC<TextInputProps & InputProps> = ({
     [props.onKeyDown, type]
   );
 
-  const onInput: InputProps['onInput'] = useCallback(
+  const onInput: TextInputProps['onInput'] = useCallback(
     (evt) => {
       evt.target['value'] = evt.target['value'].slice(0, maxLength);
 
@@ -64,7 +66,7 @@ const TextInputs: FC<TextInputProps & InputProps> = ({
     [props.onInput]
   );
 
-  const onFocus: InputProps['onFocus'] = useCallback(
+  const onFocus: TextInputProps['onFocus'] = useCallback(
     (evt) => {
       setInputFocused(true);
 
@@ -73,7 +75,7 @@ const TextInputs: FC<TextInputProps & InputProps> = ({
     [props.onFocus]
   );
 
-  const onBlur: InputProps['onBlur'] = useCallback(
+  const onBlur: TextInputProps['onBlur'] = useCallback(
     (evt) => {
       setInputFocused(false);
 

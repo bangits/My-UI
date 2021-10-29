@@ -15,3 +15,4 @@ export { ReactComponent as PenIcon } from './pen.react.svg';
 export { ReactComponent as ClearIcon } from './select-clear.react.svg';
 export { ReactComponent as SettingIcon } from './setting.react.svg';
 export { ReactComponent as ViewIcon } from './view.react.svg';
+export { ReactComponent as FilterIcon } from './filter.react.svg';

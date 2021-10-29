@@ -1,5 +1,5 @@
 import { Checkbox, TextInput } from '@/components';
-import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp, LoopIcon, SettingIcon } from '@/icons';
+import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp, FilterIcon, LoopIcon, SettingIcon } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -130,7 +130,7 @@ export const IconControl = ({ ...props }) => {
     <components.Control {...props}>
       <div ref={wrapperRef} onClick={menuToggle} className={classNames(styles['Select--dropdown-control'])}>
         <span className={classNames(styles['Select--dropdown-control-icon'])}>
-          <SettingIcon />
+          <FilterIcon />
         </span>
         <span className={classNames(styles['Select--dropdown-control-label'])}>{props.selectProps.dropdownLabel}</span>
       </div>

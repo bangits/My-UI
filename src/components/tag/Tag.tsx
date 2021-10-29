@@ -14,7 +14,7 @@ const Tag = () => {
 
       {/* //remove margin style */}
 
-      <div style={{ marginTop: '2rem' }} className={`${styles.Tag} ${styles['Tag--icon']}`}>
+      <div style={{ marginTop: '2rem' }} className={`${styles.Tag} ${styles['Tag--icon']} ${styles['Tag--primary']}`}>
         <Typography component='span' variant='p4' className={styles.TagText}>
           Armenian
         </Typography>

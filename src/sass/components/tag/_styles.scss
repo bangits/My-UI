@@ -8,17 +8,17 @@
     border-radius: getTagSizes(tag-border-radius);
     box-sizing: border-box;
     @include theme(background-color, gray-color, $opacity: 0.1);
-    @include flex(null, center);
+    @include flex(center, center);
 
     .TagText {
       @include theme(color, gray-color);
     }
 
     &--icon {
-      padding-right: 0.4rem;
+      padding-right: getTagSizes(tag-close-icon-padding-right);
       .IconContainer {
-        width: 2.4rem;
-        height: 2.4rem;
+        width: getTagSizes(tag-icon-container-width);
+        height: getTagSizes(tag-icon-container-height);
         svg {
           width: 100%;
           height: 100%;

@@ -291,7 +291,8 @@ export const Dropdown = () => {
         {
           danger: 'danger',
           warning: 'warning',
-          primary: 'primary'
+          primary: 'primary',
+          success: 'success'
         },
         'primary',
         {

@@ -1,4 +1,5 @@
 import { TextInputProps } from '@/components';
+import { UIColors } from '@/types';
 import ReactSelect, { ActionMeta, GroupBase, Props } from '@my-ui/react-select';
 import classNames from 'classnames';
 import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
@@ -29,6 +30,7 @@ export interface SelectProps<
   dropdown?: boolean;
   dropdownLabel?: string;
   dropdownIcon?: ReactNode;
+  color?: UIColors;
   //
   defaultValue?: IsMulti extends true ? SelectValueType[] : SelectValueType;
   value?: IsMulti extends true ? SelectValueType[] : SelectValueType;
@@ -55,6 +57,7 @@ function Select<Option extends SelectOptionType[], IsMulti extends boolean, Grou
   dropdown,
   dropdownLabel,
   dropdownIcon,
+  color,
   ...selectProps
 }: SelectProps<Option, IsMulti, Group>) {
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
@@ -136,6 +139,7 @@ function Select<Option extends SelectOptionType[], IsMulti extends boolean, Grou
       dropdown={dropdown}
       dropdownLabel={dropdownLabel}
       dropdownIcon={dropdownIcon}
+      color={color}
       clearButton={clearButton}
       clearButtonLabel={clearButtonLabel}
       inputSelectedLabel={inputSelectedLabel}

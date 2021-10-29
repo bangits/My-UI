@@ -127,7 +127,12 @@ export const IconControl = ({ ...props }) => {
   return (
     //@ts-ignore
     <components.Control {...props}>
-      <div ref={wrapperRef} onClick={menuToggle} className={classNames(styles['Select--dropdown-control'])}>
+      <div
+        ref={wrapperRef}
+        onClick={menuToggle}
+        className={classNames(styles['Select--dropdown-control'], {
+          [styles[`Select--dropdown-control--${props.selectProps.color}`]]: props.selectProps.color
+        })}>
         <span className={classNames(styles['Select--dropdown-control-icon'])}>
           {props.selectProps.dropdownIcon ?? <SettingIcon />}
         </span>

@@ -17,7 +17,9 @@ export interface TextInputProps {
   label?: string;
 }
 
-const TextInputs: FC<TextInputProps & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>> = ({
+type InputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+
+const TextInputs: FC<TextInputProps & InputProps> = ({
   color,
   children,
   explanation,
@@ -35,7 +37,7 @@ const TextInputs: FC<TextInputProps & DetailedHTMLProps<InputHTMLAttributes<HTML
   const [currentValue, setCurrentValue] = useState(value || defaultValue);
   const [isInputFocused, setInputFocused] = useState(false);
 
-  const onInputChange: TextInputProps['onChange'] = useCallback(
+  const onInputChange: InputProps['onChange'] = useCallback(
     (e) => {
       if (onChange) onChange(e);
 
@@ -44,7 +46,7 @@ const TextInputs: FC<TextInputProps & DetailedHTMLProps<InputHTMLAttributes<HTML
     [onChange]
   );
 
-  const onKeyDown: TextInputProps['onKeyDown'] = useCallback(
+  const onKeyDown: InputProps['onKeyDown'] = useCallback(
     (evt) => {
       if (type === 'number' && evt.key === 'e') return evt.preventDefault();
 
@@ -53,7 +55,7 @@ const TextInputs: FC<TextInputProps & DetailedHTMLProps<InputHTMLAttributes<HTML
     [props.onKeyDown, type]
   );
 
-  const onInput: TextInputProps['onInput'] = useCallback(
+  const onInput: InputProps['onInput'] = useCallback(
     (evt) => {
       evt.target['value'] = evt.target['value'].slice(0, maxLength);
 
@@ -62,7 +64,7 @@ const TextInputs: FC<TextInputProps & DetailedHTMLProps<InputHTMLAttributes<HTML
     [props.onInput]
   );
 
-  const onFocus: TextInputProps['onFocus'] = useCallback(
+  const onFocus: InputProps['onFocus'] = useCallback(
     (evt) => {
       setInputFocused(true);
 
@@ -71,7 +73,7 @@ const TextInputs: FC<TextInputProps & DetailedHTMLProps<InputHTMLAttributes<HTML
     [props.onFocus]
   );
 
-  const onBlur: TextInputProps['onBlur'] = useCallback(
+  const onBlur: InputProps['onBlur'] = useCallback(
     (evt) => {
       setInputFocused(false);
 

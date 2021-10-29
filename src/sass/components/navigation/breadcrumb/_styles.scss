@@ -1,15 +1,15 @@
 @mixin generate-breadcrumb-styles {
   .BreadcrumbBase {
-    @include flex;
+    @include flex(null, center);
 
     font-size: breadcrumb-sizes(breadcrumbBase-font-size);
 
+    margin: 0;
+    padding: 0;
     list-style: none;
     padding: breadcrumb-sizes(breadcrumbBase-padding);
 
     .BreadcrumbItem {
-      margin-left: breadcrumb-sizes(breadcrumb-item-margin-left);
-
       @include theme(color, black-color);
 
       &:first-child {
@@ -24,17 +24,6 @@
         .BreadcrumbText {
           opacity: breadcrumb-sizes(breadcrumb-item-active-opacity);
         }
-      }
-
-      &:before {
-        @include flex;
-
-        opacity: breadcrumb-sizes(breadcrumb-item-opacity);
-
-        width: breadcrumb-sizes(breadcrumb-item-arrow-width);
-        height: breadcrumb-sizes(breadcrumb-item-arrow-height);
-        margin-left: breadcrumb-sizes(breadcrumb-item-arrow-margin-left);
-        content: url('../../../../icons/breadcrumb-next.svg');
       }
 
       &:hover {
@@ -53,6 +42,17 @@
       &.BreadcrumbLink {
         cursor: pointer;
       }
+    }
+
+    .BreadcrumbIconContainer {
+      width: breadcrumb-sizes(next-icon-size);
+      height: breadcrumb-sizes(next-icon-size);
+
+      margin: 0 breadcrumb-sizes(breadcrumb-item-icon-margin);
+
+      @include flex(center, center);
+
+      opacity: breadcrumb-sizes(breadcrumb-item-opacity);
     }
   }
 }

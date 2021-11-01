@@ -1,3 +1,4 @@
+import { FilterIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
@@ -282,6 +283,7 @@ export const Dropdown = () => {
   return (
     <Select
       dropdown
+      dropdownIcon={<FilterIcon />}
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
       color={optionsKnob(
@@ -289,7 +291,8 @@ export const Dropdown = () => {
         {
           danger: 'danger',
           warning: 'warning',
-          primary: 'primary'
+          primary: 'primary',
+          success: 'success'
         },
         'primary',
         {

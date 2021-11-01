@@ -1,5 +1,5 @@
 import { Checkbox, TextInput } from '@/components';
-import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp, FilterIcon, LoopIcon, SettingIcon } from '@/icons';
+import { ClearIcon, DropdownArrowIconDown, DropdownArrowIconUp, LoopIcon, SettingIcon } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -48,7 +48,6 @@ export const SearchControl = (props) => {
   }, [props.selectProps?.value?.label]);
 
   return (
-    // @ts-ignore
     <components.Control {...props}>
       <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
         <TextInput
@@ -126,11 +125,16 @@ export const IconControl = ({ ...props }) => {
   useOutsideClick(wrapperRef);
 
   return (
-    // @ts-ignore
+    //@ts-ignore
     <components.Control {...props}>
-      <div ref={wrapperRef} onClick={menuToggle} className={classNames(styles['Select--dropdown-control'])}>
+      <div
+        ref={wrapperRef}
+        onClick={menuToggle}
+        className={classNames(styles['Select--dropdown-control'], {
+          [styles[`Select--dropdown-control--${props.selectProps.color}`]]: props.selectProps.color
+        })}>
         <span className={classNames(styles['Select--dropdown-control-icon'])}>
-          <FilterIcon />
+          {props.selectProps.dropdownIcon ?? <SettingIcon />}
         </span>
         <span className={classNames(styles['Select--dropdown-control-label'])}>{props.selectProps.dropdownLabel}</span>
       </div>
@@ -149,7 +153,6 @@ export const MenuList = (props) => {
   );
 
   return (
-    // @ts-ignore
     <>
       {props.selectProps.dropdown && (
         <div className={classNames(styles['Select--dropdown--input'])}>

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react';
 import styles from './TextInput.module.scss';
 
-export interface TextInputProps {
+export interface BaseTextInputProps {
   color?: UIColors;
   disabled?: boolean;
   fullWidth?: boolean;
@@ -17,7 +17,11 @@ export interface TextInputProps {
   label?: string;
 }
 
-const TextInputs: FC<TextInputProps & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>> = ({
+type InputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+
+export type TextInputProps = BaseTextInputProps & InputProps;
+
+const TextInputs: FC<TextInputProps> = ({
   color,
   children,
   explanation,

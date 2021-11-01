@@ -16,6 +16,7 @@
     @include theme(opacity, disabled-opacity);
     &:hover {
       @include theme(background-color, #{$color-name});
+      cursor: auto;
     }
   }
 }

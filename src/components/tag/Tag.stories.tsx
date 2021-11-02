@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, optionsKnob } from '@storybook/addon-knobs';
 import Tag from './Tag';
 
 export default {
@@ -8,5 +8,29 @@ export default {
 };
 
 export const Default = () => {
-  return <Tag />;
+  return (
+    <>
+      <Tag
+        title={text('title', 'Armenia')}
+        closeIcon={boolean('closeIcon', true)}
+        inactive={boolean('inactive', false)}
+        color={optionsKnob(
+          'color',
+          {
+            danger: 'danger',
+            warning: 'warning',
+            success: 'success',
+            primary: 'primary'
+          },
+          'primary',
+          {
+            display: 'inline-radio'
+          }
+        )}
+        handleClick={() => {
+          alert('close');
+        }}
+      />
+    </>
+  );
 };

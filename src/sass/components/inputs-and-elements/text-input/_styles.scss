@@ -91,6 +91,13 @@ $transition-duration: getTextFieldSizes(label-transition);
         }
       }
     }
+
+    &--with-two-start-icon {
+      padding-left: 6.3rem !important;
+    }
+    &--with-two-end-icon {
+      padding-right: 6.3rem !important;
+    }
   }
 
   // Label
@@ -142,6 +149,13 @@ $transition-duration: getTextFieldSizes(label-transition);
     min-height: 3.8rem;
     padding-right: getTextFieldSizes(input-label-icon-offset);
     @include dots-after-text;
+
+    &--with-two-start-icon {
+      padding-left: 2.4rem;
+    }
+    &--with-two-end-icon {
+      padding-right: 4rem;
+    }
   }
 
   // Icons
@@ -150,7 +164,7 @@ $transition-duration: getTextFieldSizes(label-transition);
   .EndIcon {
     position: absolute;
     top: getTextFieldSizes(icon-margin);
-    width: getTextFieldSizes(input-icon-size);
+    min-width: getTextFieldSizes(input-icon-size);
     height: getTextFieldSizes(input-icon-size);
     @include theme(color, default-input-color);
     @include center-flex;

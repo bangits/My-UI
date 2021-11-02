@@ -351,9 +351,12 @@ export const RenderInput = () => {
     <Select
       renderInput={(value, isMenuOpen) => (
         <>
-          <span style={{ letterSpacing: '.14rem', fontSize: '1.4rem', height: '1.7rem' }}>{value}</span>
+          <span style={{ color: '#505D6E', letterSpacing: '.14rem', fontSize: '1.4rem', height: '1.7rem' }}>
+            {value}
+          </span>
           <span
             style={{
+              color: '#505D6E',
               width: '2.4rem',
               height: '2.4rem',
               display: 'flex',
@@ -372,7 +375,7 @@ export const RenderInput = () => {
         </>
       )}
       isSearchable={false}
-      /* color={optionsKnob(
+      color={optionsKnob(
         'color',
         {
           danger: 'danger',
@@ -384,7 +387,7 @@ export const RenderInput = () => {
         {
           display: 'inline-radio'
         }
-      )} */
+      )}
       options={object('dropdownOptions', [
         {
           label: 'Row per page: 20',

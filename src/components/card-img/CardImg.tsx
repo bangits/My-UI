@@ -1,16 +1,19 @@
 import { Typography } from '@/my-ui-core';
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './CardImg.module.scss';
-
-const CardImg = () => {
+import { IComponent } from '@/types';
+export interface CardImgProps extends IComponent {
+  title: string;
+  image?: string;
+  handleClick?: () => void;
+}
+const CardImg: FC<CardImgProps> = ({ title, image, handleClick }) => {
   return (
-    <div className={styles.CardImgContainer}>
-      <div className={styles.CardImg}>
-        <img src='https://wallpaperaccess.com/full/1765659.jpg' alt='' />
-      </div>
+    <div className={styles.CardImgContainer} onClick={handleClick}>
+      <div className={styles.CardImg}>{image && <img src={image} alt='' />}</div>
       <div className={styles.CardTextContainer}>
         <Typography variant='p5' component='p' className={styles.CardText}>
-          Diamond Link
+          {title}
         </Typography>
       </div>
     </div>

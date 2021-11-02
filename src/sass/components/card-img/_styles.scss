@@ -1,10 +1,12 @@
 @mixin generate-cardimg-styles {
   .CardImgContainer {
+    cursor: pointer;
     .CardImg {
       width: 100%;
       height: getCardImgSizes(card-img-height);
       box-shadow: getCardImgSizes(card-img-box-shadow) #0000000d;
       border-radius: getCardImgSizes(card-img-border-radius);
+
       @include theme(background-color, black-color);
 
       img {

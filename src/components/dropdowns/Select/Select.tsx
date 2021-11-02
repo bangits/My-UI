@@ -3,7 +3,7 @@ import { UIColors } from '@/types';
 import ReactSelect, { ActionMeta, GroupBase, Props } from '@my-ui/react-select';
 import classNames from 'classnames';
 import React, { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
-import { DefaultOption, IconControl, MenuList, Option, SearchControl } from './Options';
+import { DefaultOption, IconControl, MenuList, Option, RenderInput, SearchControl } from './Options';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
 
@@ -37,6 +37,8 @@ export interface SelectProps<
   isMulti?: IsMulti;
   options: SelectOptionType[];
   onChange?: (updatedOptions: SelectOptionType[], event: ActionMeta<unknown>) => void;
+  //
+  renderInput?: (value: SelectValueType, isMenuOpen: boolean) => ReactNode;
 }
 
 function Select<Option extends SelectOptionType[], IsMulti extends boolean, Group extends GroupBase<Option>>({
@@ -58,6 +60,7 @@ function Select<Option extends SelectOptionType[], IsMulti extends boolean, Grou
   dropdownLabel,
   dropdownIcon,
   color,
+  renderInput,
   ...selectProps
 }: SelectProps<Option, IsMulti, Group>) {
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
@@ -143,6 +146,7 @@ function Select<Option extends SelectOptionType[], IsMulti extends boolean, Grou
       clearButton={clearButton}
       clearButtonLabel={clearButtonLabel}
       inputSelectedLabel={inputSelectedLabel}
+      renderInput={renderInput}
       inputLabel={inputLabel}
       onChange={onChange}
       /*eslint-disable */
@@ -154,7 +158,7 @@ function Select<Option extends SelectOptionType[], IsMulti extends boolean, Grou
       classNamePrefix='react-select'
       components={{
         Option: isMulti ? Option : DefaultOption,
-        Control: isSearchable ? SearchControl : IconControl,
+        Control: renderInput ? RenderInput : isSearchable ? SearchControl : IconControl,
         MenuList
       }}
       /* removeSelected={false} */

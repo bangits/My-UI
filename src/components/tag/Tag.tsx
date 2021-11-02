@@ -1,33 +1,31 @@
 import { AlertClose } from '@/icons';
 import { Typography } from '@/my-ui-core';
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './Tag.module.scss';
+import classNames from 'classnames';
+import { IComponent } from '@/types';
 
-const Tag = () => {
+export interface TagProps extends IComponent {
+  title: string;
+  closeIcon: boolean;
+  inactive: boolean;
+  color: any;
+  handleClick: () => void;
+}
+
+const Tag: FC<TagProps> = ({ title, closeIcon, inactive, color = 'primary', handleClick }) => {
   return (
     <>
-      <div className={styles.Tag}>
-        <Typography component='span' variant='p4' className={styles.TagText}>
-          Armenian
+      <div
+        className={classNames(styles.Tag, {
+          [styles[`Tag--icon`]]: closeIcon,
+          [styles[`Tag--${color}`]]: !inactive,
+          [styles.TagText]: closeIcon
+        })}>
+        <Typography component='span' variant='p4' className={classNames(styles.TagText)}>
+          {title}
         </Typography>
-      </div>
-
-      {/* //remove margin style */}
-
-      <div style={{ marginTop: '2rem' }} className={`${styles.Tag} ${styles['Tag--icon']} ${styles['Tag--primary']}`}>
-        <Typography component='span' variant='p4' className={styles.TagText}>
-          Armenian
-        </Typography>
-        <span className={styles.IconContainer}>
-          <AlertClose />
-        </span>
-      </div>
-
-      {/* //remove margin style */}
-      <div style={{ marginTop: '2rem' }} className={`${styles.Tag} ${styles['Tag--primary']}`}>
-        <Typography component='span' variant='p4' className={styles.TagText}>
-          Jackpot Support
-        </Typography>
+        {closeIcon && <span className={styles.IconContainer}>{closeIcon && <AlertClose onClick={handleClick} />}</span>}
       </div>
     </>
   );

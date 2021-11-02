@@ -21,7 +21,7 @@ export const Option = (props) => {
 
 export const DefaultOption = (props) => {
   const handleClick = useCallback((e) => {
-    e.target.closest('.MyUI-Select').querySelector('input').blur();
+    e.target.closest('.MyUI-Select').querySelector('input')?.blur();
   }, []);
   return (
     <div
@@ -179,5 +179,44 @@ export const MenuList = (props) => {
         )}
       </components.MenuList>
     </>
+  );
+};
+
+export const RenderInput = (props) => {
+  const menuToggle = useCallback(() => {
+    props.selectProps.menuIsOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();
+  }, [props.selectProps.menuIsOpen]);
+
+  function useOutsideClick(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          props.selectProps.onMenuClose();
+        }
+      }
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  const wrapperRef = useRef(null);
+  useOutsideClick(wrapperRef);
+
+  return (
+    <components.Control {...props}>
+      <div
+        ref={wrapperRef}
+        onClick={menuToggle}
+        className={classNames(styles['Select--dropdown-control'], {
+          [styles[`Select--dropdown-control--${props.selectProps.color}`]]: props.selectProps.color
+        })}>
+        {props.selectProps.renderInput(
+          props.selectProps.value && !props.isMulti ? props.selectProps.value.label : props.options[0].label || '',
+          props.selectProps.menuIsOpen
+        )}
+      </div>
+    </components.Control>
   );
 };

@@ -166,8 +166,10 @@ $transition-duration: getTextFieldSizes(label-transition);
 
   .TextInputContainer {
     min-height: getTextFieldSizes(input-container);
-    &--full-width .TextInputWrapper {
-      max-width: initial;
+    &--full-width {
+      .TextInputWrapper {
+        max-width: initial;
+      }
     }
 
     &--focused,

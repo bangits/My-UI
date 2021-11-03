@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 export function useOutsideClickEvent(selector: string) {
   let subscriber: ((e: Event) => void) | null = null;
   return {
@@ -11,4 +13,18 @@ export function useOutsideClickEvent(selector: string) {
       if (subscriber) document.removeEventListener('click', subscriber);
     }
   };
+}
+
+export function useOutsideClickWithRef(ref, action) {
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        action();
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref]);
 }

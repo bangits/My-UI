@@ -23,5 +23,5 @@ const resetStyles = {
   singleValue: () => {},
   valueContainer: () => {}
 };
-/*eslint-enable */
+
 export default resetStyles;

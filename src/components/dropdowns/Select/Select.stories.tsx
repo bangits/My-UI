@@ -333,3 +333,63 @@ export const Dropdown = () => {
     />
   );
 };
+
+export const RenderInput = () => {
+  return (
+    <Select
+      renderInput={(value, isMenuOpen) => (
+        <>
+          <span style={{ color: '#505D6E', letterSpacing: '.14rem', fontSize: '1.4rem', height: '1.7rem' }}>
+            {value}
+          </span>
+          <span
+            style={{
+              color: '#505D6E',
+              width: '2.4rem',
+              height: '2.4rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transform: isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
+            }}>
+            <svg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 10 5'>
+              <path
+                id='Shape'
+                d='M.122,4.383,4.657.123a.572.572,0,0,1,.71,0l4.512,4.26c.273.239.056.617-.355.617H.476C.066,5-.152,4.622.122,4.383Z'
+                fill='currentColor'
+              />
+            </svg>
+          </span>
+        </>
+      )}
+      isSearchable={false}
+      color={optionsKnob(
+        'color',
+        {
+          danger: 'danger',
+          warning: 'warning',
+          primary: 'primary',
+          success: 'success'
+        },
+        'primary',
+        {
+          display: 'inline-radio'
+        }
+      )}
+      options={object('dropdownOptions', [
+        {
+          label: 'Row per page: 20',
+          value: 2
+        },
+        {
+          label: 'Row per page: 30',
+          value: 3
+        },
+        {
+          label: 'Row per page: 40',
+          value: 4
+        }
+      ])}
+    />
+  );
+};

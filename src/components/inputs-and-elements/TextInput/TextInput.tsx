@@ -8,8 +8,8 @@ export interface BaseTextInputProps {
   color?: UIColors;
   disabled?: boolean;
   fullWidth?: boolean;
-  endIcon?: ReactNode;
-  startIcon?: ReactNode;
+  endIcon?: ReactNode[] | ReactNode;
+  startIcon?: ReactNode[] | ReactNode;
   maxLength?: number;
   explanation?: string;
   containerClassName?: string;
@@ -104,7 +104,9 @@ const TextInputs: FC<TextInputProps> = ({
         containerClassName
       )}>
       <label className={classNames(styles.TextInputWrapper)}>
-        {startIcon && <div className={styles.StartIcon}>{startIcon}</div>}
+        {startIcon && (
+          <div className={styles.StartIcon}>{Array.isArray(startIcon) ? startIcon.slice(0, 2) : startIcon}</div>
+        )}
 
         <input
           className={classNames(
@@ -113,7 +115,9 @@ const TextInputs: FC<TextInputProps> = ({
               [styles[`TextInputBaseInput--filled`]]: !!currentValue,
               [styles[`TextInputBaseInput--with-label`]]: !!label,
               [styles['TextInputBaseInput--start-icon']]: !!startIcon,
-              [styles['TextInputBaseInput--end-icon']]: !!endIcon
+              [styles['TextInputBaseInput--end-icon']]: !!endIcon,
+              [styles['TextInputBaseInput--with-two-start-icon']]: Array.isArray(startIcon) && startIcon.length > 1,
+              [styles['TextInputBaseInput--with-two-end-icon']]: Array.isArray(endIcon) && endIcon.length > 1
             },
             className
           )}
@@ -126,11 +130,17 @@ const TextInputs: FC<TextInputProps> = ({
         />
         {label && (
           <span className={styles.TextInputLabelContainer}>
-            <span className={styles.TextInputLabelText}>{label}</span>
+            <span
+              className={classNames(styles.TextInputLabelText, {
+                [styles['TextInputLabelText--with-two-start-icon']]: Array.isArray(startIcon) && startIcon.length > 1,
+                [styles['TextInputLabelText--with-two-end-icon']]: Array.isArray(endIcon) && endIcon.length > 1
+              })}>
+              {label}
+            </span>
           </span>
         )}
 
-        {endIcon && <div className={styles.EndIcon}>{endIcon}</div>}
+        {endIcon && <div className={styles.EndIcon}>{Array.isArray(endIcon) ? endIcon.slice(0, 2) : endIcon}</div>}
       </label>
 
       {explanation && (

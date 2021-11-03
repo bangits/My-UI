@@ -1,0 +1,24 @@
+import { number, withKnobs, text } from '@storybook/addon-knobs';
+import React from 'react';
+import CardImg from './CardImg';
+import styles from './CardImg.module.scss';
+
+export default {
+  component: CardImg,
+  decorators: [withKnobs],
+  title: 'components/CardImg/CardImg'
+};
+
+export const Default = () => {
+  return (
+    <div style={{ maxWidth: '98px' }}>
+      <CardImg
+        title={text('title', 'Diamond Link')}
+        image={text('image', 'https://wallpaperaccess.com/full/1765659.jpg')}
+        handleClick={() => {
+          alert('game was clicked');
+        }}
+      />
+    </div>
+  );
+};

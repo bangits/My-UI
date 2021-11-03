@@ -64,24 +64,31 @@ export const SearchControl: typeof components.Control = (props) => {
 
   return (
     <components.Control {...props}>
-      <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
-        <TextInput
-          fullWidth={selectProps.fullWidth}
-          color={selectProps.color !== 'primary' ? selectProps.color : undefined}
-          explanation={selectProps.explanation}
-          maxLength={selectProps.maxLength}
-          onChange={onSearchValueChange}
-          onBlur={onInputBlur}
-          onClick={menuToggle}
-          value={searchValue}
-          label={selectProps.inputLabel}
-          endIcon={
-            <div className={classNames(styles['Select--icon-container'])}>
-              {isMenuOpen ? <DropdownArrowIconUp /> : <DropdownArrowIconDown />}
-            </div>
-          }
-        />
-      </div>
+      {selectProps.renderInput ? (
+        <div onClick={selectProps.onMenuOpen}>
+          {/* @ts-ignore ignoring typescript for typecast */}
+          {selectProps.renderInput(selectProps.value, props.selectProps.menuIsOpen)}
+        </div>
+      ) : (
+        <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
+          <TextInput
+            fullWidth={selectProps.fullWidth}
+            color={selectProps.color !== 'primary' ? selectProps.color : undefined}
+            explanation={selectProps.explanation}
+            maxLength={selectProps.maxLength}
+            onChange={onSearchValueChange}
+            onBlur={onInputBlur}
+            onClick={menuToggle}
+            value={searchValue}
+            label={selectProps.inputLabel}
+            endIcon={
+              <div className={classNames(styles['Select--icon-container'])}>
+                {isMenuOpen ? <DropdownArrowIconUp /> : <DropdownArrowIconDown />}
+              </div>
+            }
+          />
+        </div>
+      )}
     </components.Control>
   );
 };

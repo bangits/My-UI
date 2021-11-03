@@ -34,6 +34,9 @@ export interface CustomSelectProps extends BaseTextInputProps {
   dropdownSearchPlaceholder?: string;
   dropdownIcon?: ReactNode;
   color?: UIColors;
+
+  //
+  renderInput?: (value: SelectOptionType, isMenuOpen: boolean) => ReactNode;
 }
 
 export interface SelectProps<
@@ -64,7 +67,7 @@ function Select<
 
   const transformNumberValueToOptions = useCallback(
     (value) => {
-      if (!value) return;
+      if (!value) return value;
 
       const transformedValues = isMulti
         ? selectProps.options.filter((o) => (value as SelectValueType[]).includes(o.value))
@@ -126,7 +129,7 @@ function Select<
 
       if (selectProps.onChange)
         selectProps.onChange(
-          // @ts-ignore
+          // @ts-ignore ignoring typescript for typecast
           Array.isArray(updatedOptions)
             ? updatedOptions.filter((o) => o.value !== selectAllValue).map((o) => o.value)
             : updatedOptions.value,
@@ -145,7 +148,7 @@ function Select<
       {...selectProps}
       onChange={onChange}
       classNamePrefix='react-select'
-      value={transformedValue || selectedOptions}
+      value={transformedValue === undefined ? selectedOptions : transformedValue}
       defaultValue={transformedDefaultValue}
       // @ts-ignore ignored because we need to reset all css styles
       styles={resetStyles}

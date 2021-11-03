@@ -2,7 +2,7 @@ import { Select } from '@/components';
 import { FilterIcon } from '@/icons';
 import { boolean, number, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default {
   component: Select,
@@ -10,124 +10,136 @@ export default {
   title: 'components/Dropdown/Select'
 } as ComponentMeta<typeof Select>;
 
-export const Default = () => (
-  <>
-    <Select
-      inputLabel={text('inputLabelSingle', 'Single Select...')}
-      selectAll
-      isSearchable
-      maxLength={number('maxLengthSingleSelect', 20)}
-      color={optionsKnob(
-        'color',
-        {
-          danger: 'danger',
-          warning: 'warning',
-          success: 'success',
-          primary: 'primary'
-        },
-        'primary',
-        {
-          display: 'inline-radio'
-        }
-      )}
-      options={object('options1', [
-        {
-          label: 'Jewels and Gems',
-          value: 2
-        },
-        {
-          label: 'Fantasy',
-          value: 3
-        },
-        {
-          label: 'Halloween',
-          value: 4
-        },
-        {
-          label: 'Luxury',
-          value: 5
-        },
-        {
-          label: 'Fruits / Vegetables',
-          value: 6
-        },
-        {
-          label: 'Asian',
-          value: 7
-        },
-        {
-          label: 'Food',
-          value: 8
-        },
-        {
-          label: 'Branded',
-          value: 9
-        },
-        {
-          label: 'Animals',
-          value: 10
-        }
-      ])}
-    />
-    <Select
-      inputLabel={text('inputLabelSingle', 'Single Select...')}
-      maxLength={number('maxLengthSingleSelect', 20)}
-      isSearchable
-      selectAll={boolean('selectAll1', true)}
-      color={optionsKnob(
-        'color',
-        {
-          danger: 'danger',
-          warning: 'warning',
-          success: 'success',
-          primary: 'primary'
-        },
-        'primary',
-        {
-          display: 'inline-radio'
-        }
-      )}
-      options={object('options2', [
-        {
-          label: 'Jewels and Gems',
-          value: 2
-        },
-        {
-          label: 'Fantasy',
-          value: 3
-        },
-        {
-          label: 'Halloween',
-          value: 4
-        },
-        {
-          label: 'Luxury',
-          value: 5
-        },
-        {
-          label: 'Fruits / Vegetables',
-          value: 6
-        },
-        {
-          label: 'Asian',
-          value: 7
-        },
-        {
-          label: 'Food',
-          value: 8
-        },
-        {
-          label: 'Branded',
-          value: 9
-        },
-        {
-          label: 'Animals',
-          value: 10
-        }
-      ])}
-    />
-  </>
-);
+export const Default = () => {
+  const [value, setValue] = useState(2);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setValue(null);
+    }, 2000);
+  }, []);
+
+  return (
+    <>
+      <Select
+        value={value}
+        onChange={setValue}
+        inputLabel={text('inputLabelSingle', 'Single Select...')}
+        selectAll
+        isSearchable
+        maxLength={number('maxLengthSingleSelect', 20)}
+        color={optionsKnob(
+          'color',
+          {
+            danger: 'danger',
+            warning: 'warning',
+            success: 'success',
+            primary: 'primary'
+          },
+          'primary',
+          {
+            display: 'inline-radio'
+          }
+        )}
+        options={object('options1', [
+          {
+            label: 'Jewels and Gems',
+            value: 2
+          },
+          {
+            label: 'Fantasy',
+            value: 3
+          },
+          {
+            label: 'Halloween',
+            value: 4
+          },
+          {
+            label: 'Luxury',
+            value: 5
+          },
+          {
+            label: 'Fruits / Vegetables',
+            value: 6
+          },
+          {
+            label: 'Asian',
+            value: 7
+          },
+          {
+            label: 'Food',
+            value: 8
+          },
+          {
+            label: 'Branded',
+            value: 9
+          },
+          {
+            label: 'Animals',
+            value: 10
+          }
+        ])}
+      />
+      <Select
+        inputLabel={text('inputLabelSingle', 'Single Select...')}
+        maxLength={number('maxLengthSingleSelect', 20)}
+        isSearchable
+        selectAll={boolean('selectAll1', true)}
+        color={optionsKnob(
+          'color',
+          {
+            danger: 'danger',
+            warning: 'warning',
+            success: 'success',
+            primary: 'primary'
+          },
+          'primary',
+          {
+            display: 'inline-radio'
+          }
+        )}
+        options={object('options2', [
+          {
+            label: 'Jewels and Gems',
+            value: 2
+          },
+          {
+            label: 'Fantasy',
+            value: 3
+          },
+          {
+            label: 'Halloween',
+            value: 4
+          },
+          {
+            label: 'Luxury',
+            value: 5
+          },
+          {
+            label: 'Fruits / Vegetables',
+            value: 6
+          },
+          {
+            label: 'Asian',
+            value: 7
+          },
+          {
+            label: 'Food',
+            value: 8
+          },
+          {
+            label: 'Branded',
+            value: 9
+          },
+          {
+            label: 'Animals',
+            value: 10
+          }
+        ])}
+      />
+    </>
+  );
+};
 
 export const MultiSelect = () => {
   const [value, setValue] = useState([2]);
@@ -337,10 +349,11 @@ export const Dropdown = () => {
 export const RenderInput = () => {
   return (
     <Select
+      defaultValue={2}
       renderInput={(value, isMenuOpen) => (
         <>
           <span style={{ color: '#505D6E', letterSpacing: '.14rem', fontSize: '1.4rem', height: '1.7rem' }}>
-            {value}
+            {value.label}
           </span>
           <span
             style={{

@@ -1,4 +1,5 @@
-import { number, withKnobs } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { number, object, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import Tab from './Tab';
 
@@ -9,5 +10,19 @@ export default {
 };
 
 export const Default = () => {
-  return <Tab />;
+  return (
+    <Tab
+      options={object('options', [
+        { title: 'Game Information', value: 1 },
+        { title: 'Game Properties', value: 2 },
+        { title: 'Game Details', value: 3 },
+        { title: 'Game ID', value: 4 },
+        { title: 'Game Name', value: 5 },
+        { title: 'Game Image', value: 6 },
+        { title: 'Game Data', value: 7 }
+      ])}
+      defaultValue={number('defaultValue', 2)}
+      onChange={action('onChange')}
+    />
+  );
 };

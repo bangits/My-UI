@@ -1,7 +1,8 @@
+import classNames from 'classnames';
 import React, { FC, useState } from 'react';
 import MonthPicker from './MonthPicker';
 import YearsPicker from './YearsPicker';
-
+import styles from './DatePicker.module.scss';
 export interface DatePickerHeaderProps {
   monthDate: Date;
   date: Date;
@@ -34,15 +35,15 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
   return (
     <div className='month-and-yearWrapper'>
       <button
-        aria-label='Previous Month'
+        // aria-label='Previous Month'
         className={'react-datepicker__navigation react-datepicker__navigation--previous'}
         style={customHeaderCount === 1 ? { visibility: 'hidden' } : undefined}
         onClick={decreaseMonth}>
-        <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'}>{'<'}</span>
+        {/* <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'}>{'<'}</span> */}
       </button>
       <div className='month-and-yearWrapper' style={{ display: 'flex', justifyContent: 'center' }}>
         <span
-          className='react-datepicker__current-month'
+          className={classNames('react-datepicker__current-month', styles.CurrentMonth)}
           onClick={() => {
             setMonth(true);
             setYear(false);
@@ -53,7 +54,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
           })}
         </span>
         <span
-          className='react-datepicker__current-month'
+          className={classNames('react-datepicker__current-month', styles.CurrentYear)}
           onClick={() => {
             setMonth(false);
             setYear(true);
@@ -65,11 +66,11 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
         </span>
       </div>
       <button
-        aria-label='Next Month'
+        // aria-label='Next Month'
         className={'react-datepicker__navigation react-datepicker__navigation--next'}
         style={customHeaderCount === 1 ? { visibility: 'hidden' } : undefined}
         onClick={increaseMonth}>
-        <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'}>{'>'}</span>
+        {/* <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'}>{'>'}</span> */}
       </button>
 
       <div>

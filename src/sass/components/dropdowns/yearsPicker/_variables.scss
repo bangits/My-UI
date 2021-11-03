@@ -46,19 +46,14 @@ $datepicker-year-sizes: (
   datePicker-year-header-font-size: 1.6rem,
   datePicker-year-header-font-weight: 500,
   datePicker-year-header-button-margin-top: -1rem,
-  datePicker-year-wrapper-margin-top: 3rem,
-  datePicker-year-button-padding: 1rem 2rem,
+  datePicker-year-wrapper-margin-top: 5.1rem,
+  datePicker-year-button-padding: 1rem 2.5rem,
   datePicker-year-button-font-size: 1.8rem,
   datePicker-year-button-font-weight: 300,
   datePicker-year-button-height: 4.2rem,
   datePicker-year-button-width: 8rem,
   datePicker-year-button-border-radius: 0.4rem,
   datePicker-year-button-margin-bottom: 2.2rem
-);
-
-$datepicker-icons: (
-  next: url('../../../../icons/next.svg'),
-  prev: url('../../../../icons/prev.svg')
 );
 
 $datepicker-colors: (

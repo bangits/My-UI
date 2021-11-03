@@ -1,5 +1,10 @@
 @mixin generate-yearsPicker-styles {
   .DatePicker {
+    .CurrentMonth:hover,
+    .CurrentYear:hover {
+      cursor: pointer;
+      color: #3c54b2;
+    }
     .YearPickerWrapper {
       border-radius: getYearSelectSizes(datePicker-year-button-border-radius);
       width: getYearSelectSizes(datePicker-year-wrapper-width);

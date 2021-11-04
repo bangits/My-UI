@@ -14,6 +14,10 @@
   flex-wrap: $flex-wrap;
 }
 
+@mixin grid() {
+  display: grid;
+}
+
 // Center with position: absolute;
 
 @mixin center-absolute {

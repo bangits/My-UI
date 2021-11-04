@@ -1,68 +1,79 @@
 @mixin generate-monthPicker-styles {
   .DatePicker {
     .MonthPickerWrapper {
+      @include theme(color, black-color);
+      @include theme(background-color, primary--color);
+
       border-radius: getMonthSelectSizes(datePicker-month-wrapper-month-border-radius);
-      width: getMonthSelectSizes(datePicker-month-width);
-      left: getMonthSelectSizes(datePicker-month-left);
       font-size: getMonthSelectSizes(datePicker-month-font-size);
       font-weight: getMonthSelectSizes(datePicker-month-font-weight);
+
       height: getMonthSelectSizes(datePicker-month-height);
+      width: getMonthSelectSizes(datePicker-month-width);
       bottom: getMonthSelectSizes(datePicker-month-bottom);
+      left: getMonthSelectSizes(datePicker-month-left);
+
       z-index: getMonthSelectSizes(datePicker-z-index);
+
       position: absolute;
-      background: white;
       justify-content: space-around;
-      color: #505d6e;
+
       .MonthPickerWrapper__Header {
+        @include theme(color, black-color);
+
         width: getMonthSelectSizes(datePicker-month-header-width);
         padding-top: getMonthSelectSizes(datePicker-month-header-margin-top);
+
         font-size: getMonthSelectSizes(datePicker-month-header-font-size);
         font-weight: getMonthSelectSizes(datePicker-month-header-font-weight);
+
         text-align: center;
-        color: #505d6e;
       }
       button {
         margin-top: getMonthSelectSizes(datePicker-month-header-arrow-margin-top);
       }
       .MonthWrapper {
-        // margin-top: getMonthSelectSizes(datePicker-month-wrapper-margin-top);
-        margin-top: 2rem;
-        display: grid;
+        @include grid;
         grid-template-columns: auto auto auto;
         justify-content: space-evenly;
 
+        margin-top: getMonthSelectSizes(datePicker-month-monthWrapper-margin-top);
+
         .button,
         .selectedYear {
-          padding: getMonthSelectSizes(datePicker-month-wrapper-month-padding);
+          width: getMonthSelectSizes(datePicker-month-selected-year-width);
           height: getMonthSelectSizes(datePicker-month-wrapper-month-height);
+          padding: getMonthSelectSizes(datePicker-month-wrapper-month-padding);
+          margin-top: getMonthSelectSizes(datePicker-month-selected-margin-top);
+          margin-bottom: getMonthSelectSizes(datePicker-month-selected-margin-bottom);
+
           font-size: getMonthSelectSizes(datePicker-month-wrapper-month-font-size);
           font-weight: getMonthSelectSizes(datePicker-month-wrapper-month-font-weight);
+
           border-radius: getMonthSelectSizes(datePicker-month-wrapper-month-border-radius);
-          width: getMonthSelectSizes(datePicker-month-selected-year-width);
-          // margin-bottom: getMonthSelectSizes(datePicker-month-selected-year-margin-bottom);
-          margin-top: 1rem;
-          margin-bottom: 1.4rem;
         }
 
         .button {
+          @include theme(color, black-color);
+
           border: none;
           background: none;
-          color: #505d6e;
           cursor: pointer;
           &:hover {
-            color: white;
-            background: #3c54b2;
+            @include theme(color, primary--color);
+            @include theme(background-color, primary);
           }
           @include flex(center, center);
         }
         .selectedYear {
+          @include theme(background-color, primary);
+          @include theme(color, primary--color);
+
           border: none;
-          color: white;
-          background: #3c54b2;
           cursor: pointer;
           &:hover {
-            color: white;
-            background: #3c54b2;
+            @include theme(color, primary--color);
+            @include theme(background-color, primary);
           }
         }
       }

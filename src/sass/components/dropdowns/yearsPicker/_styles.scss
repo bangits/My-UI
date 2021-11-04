@@ -1,78 +1,98 @@
 @mixin generate-yearsPicker-styles {
   .DatePicker {
+    .CurrentMonth:hover,
+    .CurrentYear:hover {
+      @include theme(color, primary);
+
+      cursor: pointer;
+    }
     .YearPickerWrapper {
+      @include theme(background-color, primary--color);
+      @include theme(color, black-color);
+
       border-radius: getYearSelectSizes(datePicker-year-button-border-radius);
+
       width: getYearSelectSizes(datePicker-year-wrapper-width);
       left: getYearSelectSizes(datePicker-year-wrapper-left);
-      font-size: getYearSelectSizes(datePicker-year-wrapper-font-size);
-      font-weight: getYearSelectSizes(datePicker-year-wrapper-font-weight);
       height: getYearSelectSizes(datePicker-year-wrapper-height);
       bottom: getYearSelectSizes(datePicker-year-wrapper-bottom);
+
+      font-size: getYearSelectSizes(datePicker-year-wrapper-font-size);
+      font-weight: getYearSelectSizes(datePicker-year-wrapper-font-weight);
+
       z-index: getYearSelectSizes(datePicker-year-wrapper-z-index);
+
       position: absolute;
-      background: white;
       justify-content: space-around;
-      color: #505d6e;
       .MonthPickerWrapper__Header {
+        @include theme(color, black-color);
+
         width: getYearSelectSizes(datePicker-year-header-width);
         margin-top: getYearSelectSizes(datePicker-year-header-margin-top);
+
         font-size: getYearSelectSizes(datePicker-year-header-font-size);
         font-weight: getYearSelectSizes(datePicker-year-header-font-weight);
         text-align: center;
-        color: #505d6e;
       }
       .YearHeader button {
         margin-top: getYearSelectSizes(datePicker-year-header-button-margin-top);
       }
       .YearsWrapper {
-        // margin-top: getYearSelectSizes(datePicker-year-wrapper-margin-top);
-        margin-top: 2rem;
-        display: grid;
+        @include grid;
         grid-template-columns: auto auto auto;
         justify-content: space-evenly;
+
+        margin-top: getYearSelectSizes(datePicker-year-yearWrapper-margin-top);
 
         .selectedYear,
         .buttonDisabled,
         .button {
-          padding: getYearSelectSizes(datePicker-year-button-padding);
           font-size: getYearSelectSizes(datePicker-year-button-font-size);
           font-weight: getYearSelectSizes(datePicker-year-button-font-weight);
+
+          padding: getYearSelectSizes(datePicker-year-button-padding);
+          margin-bottom: getYearSelectSizes(datePicker-year-button-all-margin-bottom);
           height: getYearSelectSizes(datePicker-year-button-height);
           width: getYearSelectSizes(datePicker-year-button-width);
+
           border-radius: getYearSelectSizes(datePicker-year-button-border-radius);
-          // margin-bottom: getYearSelectSizes(datePicker-year-button-margin-bottom);
-          margin-bottom: 2.8rem;
           border: none;
+
           background: none;
         }
 
         .button {
-          color: #505d6e;
           cursor: pointer;
+
+          @include theme(color, black-color);
           &:hover {
-            color: white;
-            background: #3c54b2;
+            @include theme(color, primary--color);
+            @include theme(background-color, primary);
           }
           @include flex(center, center);
         }
 
         .buttonDisabled {
-          color: #505d6e;
+          @include theme(color, black-color);
           opacity: 0.1;
+
           cursor: auto;
           &:hover {
-            color: #505d6e;
+            @include theme(color, black-color);
+            @include theme(background-color, primary--color);
             opacity: 0.1;
+
             background: none;
           }
         }
         .selectedYear {
-          color: white;
-          background: #3c54b2;
+          @include theme(color, primary--color);
+          @include theme(background-color, primary);
+
           cursor: pointer;
           &:hover {
-            color: white;
-            background: #3c54b2;
+            @include theme(color, primary--color);
+            @include theme(background-color, primary);
           }
         }
       }

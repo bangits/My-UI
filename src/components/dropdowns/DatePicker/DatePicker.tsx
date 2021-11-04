@@ -41,12 +41,13 @@ const DatePicker: React.FC<DatepickerProps> = ({
           },
           popperClassName
         )}
+        customInput={customInput}
+        renderCustomHeader={renderCustomHeader}
+        fixedHeight
         monthsShown={monthsShown}
         showYearDropdown={withDropdowns}
         showMonthDropdown={withDropdowns}
         useShortMonthInDropdown={withDropdowns}
-        renderCustomHeader={renderCustomHeader}
-        customInput={customInput}
       />
     </>
   );

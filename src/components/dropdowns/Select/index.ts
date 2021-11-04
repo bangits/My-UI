@@ -1,1 +1,8 @@
-export { default as Select, SelectProps } from './Select';
+export {
+  CustomSelectProps,
+  default as Select,
+  GroupBase,
+  SelectOptionType,
+  SelectProps,
+  SelectValueType
+} from './Select';

@@ -19,6 +19,7 @@
         background-color: transparent;
         border: none;
         outline: none;
+        cursor: pointer;
 
         @include theme(color, gray-color);
 
@@ -39,10 +40,9 @@
 
     .TabButtonBg {
       position: absolute;
-      left: getTabSizes(tab-button-bg-position);
       top: getTabSizes(tab-button-bg-position);
 
-      min-width: getTabSizes(tab-button-bg-width);
+      max-width: getTabSizes(tab-button-bg-width);
       height: getTabSizes(tab-button-bg-height);
 
       @include theme(background-color, primary--color);

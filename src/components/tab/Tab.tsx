@@ -1,29 +1,70 @@
+import { useStyles } from '@/helpers';
 import { Typography } from '@/my-ui-core';
 import classNames from 'classnames';
-import React from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import styles from './Tab.module.scss';
+export interface TabProps {
+  options?: {
+    title: string;
+    value: number;
+  }[];
+  value?: number;
+  defaultValue?: number;
+  onChange?: (value: number) => void;
+}
 
-const Tab = () => {
+const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange }) => {
+  const [active, setActive] = useState<number>(defaultValue | value);
+
+  const onActiveChange = useCallback(
+    (value) => {
+      setActive(value);
+      onChange(value);
+    },
+    [active]
+  );
+
+  const activeIndex = useMemo(() => options.findIndex((o) => o.value === active), [active]);
+
+  const indicatorClassnames = useStyles(
+    {
+      tabActiveIndicator: {
+        width: (data) => `${100 / data.options.length}%`,
+        left: (data) => `calc(${(data.activeIndex * 100) / data.options.length}%)`
+      },
+      firstElement: {
+        marginLeft: '.6rem'
+      },
+      lastElement: {
+        left: (data) => `calc(${(data.activeIndex * 100) / data.options.length}% - .6rem)`
+      }
+    },
+    { activeIndex, options }
+  );
+
   return (
     <div className={styles.Tab}>
       <div className={styles.TabContent}>
-        <button className={classNames(styles.TabButton, styles.Active)}>
-          <Typography component='span' variant='p4' className={styles.TabButtonLabel}>
-            Game Information
-          </Typography>
-        </button>
-        <button className={styles.TabButton}>
-          <Typography component='span' variant='p4'>
-            Game Properties
-          </Typography>
-        </button>
-        <button className={styles.TabButton}>
-          <Typography component='span' variant='p4'>
-            Other Details
-          </Typography>
-        </button>
+        {options &&
+          options.map((option) => (
+            <button
+              key={option.value}
+              onClick={() => (!value ? onActiveChange(option.value) : null)}
+              style={{ width: `${100 / options.length}%` }}
+              className={classNames(styles.TabButton, {
+                [styles.Active]: option.value === value || option.value === active
+              })}>
+              <Typography component='span' variant='p4' className={styles.TabButtonLabel}>
+                {option.title}
+              </Typography>
+            </button>
+          ))}
       </div>
-      <span className={styles.TabButtonBg}></span>
+      <span
+        className={classNames(styles.TabButtonBg, indicatorClassnames.tabActiveIndicator, {
+          [indicatorClassnames.firstElement]: activeIndex === 0,
+          [indicatorClassnames.lastElement]: activeIndex === options.length - 1
+        })}></span>
     </div>
   );
 };

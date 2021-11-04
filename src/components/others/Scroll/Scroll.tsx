@@ -8,17 +8,17 @@ import styles from './Scroll.module.scss';
 export interface ScrollProps extends IComponent {
   height: number;
   children?: ReactNode;
-  width: number;
+  width?: number;
   autoHide?: boolean;
   autoHideTimeout?: number;
   autoHideDuration?: number;
 }
 
-const Scroll: FC<ScrollProps> = ({ height = 200, width = 200, children, className, ...scrollProps }) => {
+const Scroll: FC<ScrollProps> = ({ height = 200, width, children, className, ...scrollProps }) => {
   return (
     <Scrollbars
       {...scrollProps}
-      style={{ width, height }}
+      style={{ width: width ?? '100%', height }}
       hideTracksWhenNotNeeded
       //
       className={classNames(styles.ScrollBase, className)}

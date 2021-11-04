@@ -1,14 +1,16 @@
 $pagination-sizes: (
-  // tab-container-width: calculateRem(946px),
-  // tab-container-height: calculateRem(48px),
-  // tab-container-border-radius: calculateRem(24px),
-  // tab-button-bg-width: calculateRem(555.33px),
-  // tab-button-bg-height: calculateRem(36px),
-  // tab-button-bg-border-radius: calculateRem(18px),
-  // tab-button-bg-position: calculateRem(6px),
-  // tab-button-bg-padding: calculateRem(10px) calculateRem(24px) calculateRem(9px) calculateRem(24px),
-  // tab-button-active-font-weight: 500,
-  // tab-active-transition: 300ms
+  select-icon-container-width: calculateRem(24px),
+  select-icon-container-height: calculateRem(24px),
+  select-label-letter-spacing: calculateRem(1.4px),
+  count-container-margin: calculateRem(7px),
+  pagination-list-li-margin: calculateRem(16px),
+  pagination-list-li-font-size: calculateRem(14px),
+  pagination-list-li-selected-width: calculateRem(24px),
+  pagination-list-li-selected-height: calculateRem(24px),
+  pagination-input-jupm-width: calculateRem(44px),
+  pagination-input-jupm-height: calculateRem(24px),
+  pagination-input-jupm-padding: calculateRem(8px),
+  pagination-input-container-margin: calculateRem(16px)
 );
 
 @function getPaginationSizes($property) {

@@ -1,5 +1,54 @@
 @mixin generate-pagination-styles {
   .PaginationWrapper {
-    border: 1px solid red;
+    @include flex(null, center);
+    .SelectLabel {
+      @include theme(color, black-color);
+      letter-spacing: getPaginationSizes(select-label-letter-spacing);
+    }
+    .SelectIconContainer {
+      width: getPaginationSizes(select-icon-container-width);
+      height: getPaginationSizes(select-icon-container-height);
+      @include flex(center, center);
+    }
+    .SelectCountContainer {
+      @include flex(null, center);
+      .CountNumbers {
+        @include theme(color, black-color);
+        letter-spacing: getPaginationSizes(select-label-letter-spacing);
+        margin-left: getPaginationSizes(count-container-margin);
+      }
+    }
+    .PaginationFormContainer {
+      @include flex(null, center);
+      .PaginationList {
+        @include flex(null, center);
+        list-style-type: none;
+        li {
+          margin-left: getPaginationSizes(pagination-list-li-margin);
+          font-size: getPaginationSizes(pagination-list-li-font-size);
+          @include theme(color, black-color);
+          // &--selected {
+          //   width: getPaginationSizes(pagination-list-li-selected-width);
+          //   height: getPaginationSizes(pagination-list-li-selected-height);
+          //   @include flex(center, center);
+          //   @include theme(background-color, gray-color);
+          //   @include theme(color, primary--color);
+          // }
+        }
+      }
+    }
+    .PaginationInputContainer {
+      margin-left: getPaginationSizes(pagination-input-container-margin);
+      @include flex(null, center);
+      .PaginationInputJupm {
+        max-width: getPaginationSizes(pagination-input-jupm-width);
+        height: getPaginationSizes(pagination-input-jupm-height);
+        padding: getPaginationSizes(pagination-input-jupm-padding);
+      }
+      .PaginationInputLabel {
+        letter-spacing: getPaginationSizes(select-label-letter-spacing);
+        @include theme(color, black-color);
+      }
+    }
   }
 }

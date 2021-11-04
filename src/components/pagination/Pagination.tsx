@@ -37,18 +37,16 @@ const Pagination: FC<PaginationProps> = ({
       <Select
         defaultValue={20}
         renderInput={(value, isMenuOpen) => (
-          <>
+          <div className={styles.SelectCountContainer}>
             {console.log([value.label])}
             {showPageSizeSelect && (
               <React.Fragment>
-                <span>Row per page: {[value.label]}</span>
+                <Typography variant='p4' component='span' className={styles.SelectLabel}>
+                  Row per page: {[value.label]}
+                </Typography>
                 <span
+                  className={styles.SelectIconContainer}
                   style={{
-                    width: '2.4rem',
-                    height: '2.4rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
                     transform: isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
                   }}>
                   <DropdownArrowIconUp />
@@ -56,31 +54,34 @@ const Pagination: FC<PaginationProps> = ({
               </React.Fragment>
             )}
             {showTotalCountInfo && (
-              <div>
-                <span>
+              <div className={styles.CountNumbers}>
+                <Typography variant='p4' component='span'>
                   1-{[value.label]} of {totalCount}
-                </span>
+                </Typography>
               </div>
             )}
-          </>
+          </div>
         )}
         options={optionsValue}
       />
 
-      {page >= 1 && (
-        <ReactPaginate
-          onPageChange={onChange}
-          breakLabel='...'
-          nextLabel={page > 1 ? <ArrowNext /> : null}
-          forcePage={goToPage}
-          pageRangeDisplayed={3}
-          pageCount={page}
-          marginPagesDisplayed={1}
-          previousLabel={page > 1 ? <ArrowPrev /> : null}
-          renderOnZeroPageCount={null}
-        />
-      )}
-      {showJumpToPage && <PaginationInput setGoToPage={setGoToPage} />}
+      <div className={styles.PaginationFormContainer}>
+        {page >= 1 && (
+          <ReactPaginate
+            className={styles.PaginationList}
+            onPageChange={onChange}
+            breakLabel='...'
+            nextLabel={page > 1 ? <ArrowNext /> : null}
+            forcePage={goToPage}
+            pageRangeDisplayed={3}
+            pageCount={page}
+            marginPagesDisplayed={1}
+            previousLabel={page > 1 ? <ArrowPrev /> : null}
+            renderOnZeroPageCount={null}
+          />
+        )}
+        {showJumpToPage && <PaginationInput setGoToPage={setGoToPage} />}
+      </div>
     </div>
   );
 };

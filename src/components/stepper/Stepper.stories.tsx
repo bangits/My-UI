@@ -14,7 +14,11 @@ export const Default = () => {
 
   return (
     <Card borderRadius={1.6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 81 }}>
-      <Button style={{ display: value < 2 ? 'none' : '' }} variant='ghost' onClick={() => setValue(value - 1)}>
+      <Button
+        style={{ display: value < 2 ? 'none' : '' }}
+        disabled={value > 3}
+        variant='ghost'
+        onClick={() => setValue(value - 1)}>
         Previous
       </Button>
       <div style={{ width: 582 }}>
@@ -39,8 +43,11 @@ export const Default = () => {
       <Button disabled={value > 2} variant='ghost' onClick={() => setValue(value + 1)}>
         Next
       </Button>
-      <Button style={{ marginLeft: 10 }} onClick={() => setValue(1)}>
+      <Button style={{ marginLeft: 10, display: value < 3 ? 'none' : '' }} onClick={() => setValue(1)}>
         Reset
+      </Button>
+      <Button style={{ marginLeft: 10 }} onClick={() => setValue(4)}>
+        Finish
       </Button>
     </Card>
   );

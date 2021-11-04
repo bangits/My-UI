@@ -28,7 +28,13 @@ const Stepper: FC<StepperProps> = ({ steps, value }) => {
                 </div>
               )}
               <span className={styles.StepperContainer}>
-                {activeIndex > index ? (
+                {value > steps.length ? (
+                  <span className={styles.Step}>
+                    <div className={styles.StepSection}>
+                      <CheckStepperIcon />
+                    </div>
+                  </span>
+                ) : activeIndex > index ? (
                   <span className={styles.Step}>
                     <div className={styles.StepSection}>
                       <CheckStepperIcon />

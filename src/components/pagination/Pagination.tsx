@@ -35,11 +35,13 @@ const Pagination: FC<PaginationProps> = ({
   return (
     <div className={styles.PaginationWrapper}>
       <Select
+        defaultValue={20}
         renderInput={(value, isMenuOpen) => (
           <>
+            {console.log([value.label])}
             {showPageSizeSelect && (
               <React.Fragment>
-                <span>Row per page: {value}</span>
+                <span>Row per page: {[value.label]}</span>
                 <span
                   style={{
                     width: '2.4rem',
@@ -56,7 +58,7 @@ const Pagination: FC<PaginationProps> = ({
             {showTotalCountInfo && (
               <div>
                 <span>
-                  1-{value} of {totalCount}
+                  1-{[value.label]} of {totalCount}
                 </span>
               </div>
             )}

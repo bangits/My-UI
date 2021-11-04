@@ -29,17 +29,17 @@ const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange }) => {
   const indicatorClassnames = useStyles(
     {
       tabActiveIndicator: {
-        width: `${100 / options.length}%`,
-        left: (data) => `calc(${(data.activeIndex * 100) / options.length}%)`
+        width: (data) => `${100 / data.options.length}%`,
+        left: (data) => `calc(${(data.activeIndex * 100) / data.options.length}%)`
       },
       firstElement: {
         marginLeft: '.6rem'
       },
       lastElement: {
-        left: (data) => `calc(${(data.activeIndex * 100) / options.length}% - .6rem)`
+        left: (data) => `calc(${(data.activeIndex * 100) / data.options.length}% - .6rem)`
       }
     },
-    { activeIndex }
+    { activeIndex, options }
   );
 
   return (

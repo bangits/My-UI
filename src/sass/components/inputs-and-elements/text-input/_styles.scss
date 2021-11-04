@@ -195,6 +195,10 @@ $transition-duration: getTextFieldSizes(label-transition);
 
       .TextInputLabelText {
         padding-right: 0;
+
+        &--with-two-start-icon {
+          padding-left: 0rem;
+        }
       }
     }
 

@@ -16,3 +16,6 @@ export { ReactComponent as ClearIcon } from './select-clear.react.svg';
 export { ReactComponent as SettingIcon } from './setting.react.svg';
 export { ReactComponent as ViewIcon } from './view.react.svg';
 export { ReactComponent as FilterIcon } from './filter.react.svg';
+export { ReactComponent as EllipseIcon } from './ellipse.react.svg';
+export { ReactComponent as EllipseColorIcon } from './ellipsecolor.react.svg';
+export { ReactComponent as CheckStepperIcon } from './checkstepper.react.svg';

@@ -1,6 +1,6 @@
 {
   "name": "@my-ui/core",
-  "version": "2.7.1",
+  "version": "2.8.0",
   "scripts": {
     "start": "webpack serve --env development",
     "start-with-storybook": "yarn start && yarn storybook",

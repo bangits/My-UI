@@ -121,6 +121,7 @@
 
           margin-top: getDatePickerSizes(datePicker-navigation--nextSize);
           margin-bottom: getDatePickerSizes(datePicker-weeks-margin-bottom);
+          height: getDatePickerSizes(datePicker-days-height);
 
           font-size: getDatePickerSizes(datePicker-month--size);
 

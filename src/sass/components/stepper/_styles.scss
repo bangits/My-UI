@@ -37,7 +37,7 @@
           }
         }
         .StepTextContainer {
-          width: getBaseSizes(step-text-container);
+          width: getStepperSizes(step-text-container);
           word-break: break-all;
           @include theme(color, primary);
           .StepText {

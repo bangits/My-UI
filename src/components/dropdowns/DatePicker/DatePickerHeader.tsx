@@ -1,8 +1,9 @@
+import { DatepickerArrowIcon } from '@/icons';
 import classNames from 'classnames';
 import React, { FC, useState } from 'react';
+import styles from './DatePicker.module.scss';
 import MonthPicker from './MonthPicker';
 import YearsPicker from './YearsPicker';
-import styles from './DatePicker.module.scss';
 export interface DatePickerHeaderProps {
   monthDate: Date;
   date: Date;
@@ -39,7 +40,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
         className={'react-datepicker__navigation react-datepicker__navigation--previous'}
         style={customHeaderCount === 1 ? { visibility: 'hidden' } : undefined}
         onClick={decreaseMonth}>
-        {/* <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'}>{'<'}</span> */}
+        <DatepickerArrowIcon />
       </button>
       <div className='month-and-yearWrapper' style={{ display: 'flex', justifyContent: 'center' }}>
         <span
@@ -70,7 +71,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
         className={'react-datepicker__navigation react-datepicker__navigation--next'}
         style={customHeaderCount === 1 ? { visibility: 'hidden' } : undefined}
         onClick={increaseMonth}>
-        {/* <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'}>{'>'}</span> */}
+        <DatepickerArrowIcon />
       </button>
 
       <div>

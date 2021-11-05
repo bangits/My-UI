@@ -26,31 +26,35 @@
           position: absolute;
           top: getDatePickerSizes(datepicker-navigation-top);
 
-          height: getDatePickerSizes(datepicker-navigation-height);
           width: getDatePickerSizes(datepicker-navigation-width);
+
+          &,
+          svg {
+            height: getDatePickerSizes(datepicker-navigation-height);
+          }
 
           cursor: pointer;
           border: none;
+          background: none;
 
           z-index: getBaseSizes(z-index);
         }
 
         &__navigation--next {
-          background: getDatePickerIcons(next) no-repeat;
           right: getDatePickerSizes(datepicker-navigation--nextMargin);
 
           &:hover {
-            background: getDatePickerIcons(next-hover) no-repeat;
+            @include theme(color, primary);
           }
         }
 
         &__navigation--previous {
-          background: getDatePickerIcons(prev) no-repeat;
-
           left: getDatePickerSizes(datepicker-navigation--leftMargin);
 
+          transform: rotate(180deg);
+
           &:hover {
-            background: getDatePickerIcons(prev-hover) no-repeat;
+            @include theme(color, primary);
           }
         }
 

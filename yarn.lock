@@ -1485,10 +1485,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@my-ui/react-datepicker@^1.4.0":
-  version "1.4.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-datepicker/-/react-datepicker-1.4.0.tgz#7c7845ec7ec5ce457ff2939de3810e8a56f9569e"
-  integrity sha1-fHhF7H7FzkV/8pOd44EOilb5Vp4=
+"@my-ui/react-datepicker@^1.5.0":
+  version "1.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-datepicker/-/react-datepicker-1.5.0.tgz#1b8def5bd5e04013f976ce03e4f8af14ad1568bc"
+  integrity sha1-G43vW9XgQBP5ds4D5PivFK0VaLw=
   dependencies:
     "@popperjs/core" "^2.9.2"
     classnames "^2.2.6"

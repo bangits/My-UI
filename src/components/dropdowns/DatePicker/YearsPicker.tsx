@@ -1,3 +1,4 @@
+import { DatepickerArrowIcon } from '@/icons';
 import classNames from 'classnames';
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import styles from './DatePicker.module.scss';
@@ -35,9 +36,9 @@ const YearsPicker: FC<any> = ({ years, monthDate, customHeaderCount, onChange })
       <div className={styles.YearHeader}>
         <button
           aria-label='Previous Year'
-          className={'react-datepicker__navigation react-datepicker__navigation--previous aaa'}
+          className={'react-datepicker__navigation react-datepicker__navigation--previous'}
           onClick={() => setYearSelection(calculateYears(yearSelection[2] + 1))}>
-          <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'}>{'<'}</span>
+          <DatepickerArrowIcon />
         </button>
         <div className={styles.MonthPickerWrapper__Header}>
           {yearSelection[1]} - {yearSelection[yearSelection.length - 2]}
@@ -47,7 +48,7 @@ const YearsPicker: FC<any> = ({ years, monthDate, customHeaderCount, onChange })
           aria-label='Next Year'
           className={'react-datepicker__navigation react-datepicker__navigation--next'}
           onClick={() => setYearSelection(calculateYears(yearSelection[0] + 5))}>
-          <span className={'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'}>{'>'}</span>
+          <DatepickerArrowIcon />
         </button>
       </div>
       <div className={styles.YearsWrapper}>

@@ -1,5 +1,6 @@
 import { getMyUIPrefix } from '@/configs';
 import { typedMemo } from '@/helpers';
+import { CheckIcon } from '@/icons';
 import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
 import React from 'react';
@@ -21,7 +22,11 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           `${getMyUIPrefix()}-CheckboxContainer`
         )}
         style={style}>
-        <input {...checkboxProps} className={`${getMyUIPrefix()}-CheckboxInput`} type='checkbox' ref={ref} />
+        <div className={styles.CheckboxContainer}>
+          <input {...checkboxProps} className={`${getMyUIPrefix()}-CheckboxInput`} type='checkbox' ref={ref} />
+
+          <CheckIcon className={styles.CheckboxIcon} />
+        </div>
       </div>
     );
   }

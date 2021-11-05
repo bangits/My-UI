@@ -10,12 +10,12 @@ export default {
 };
 
 export const Default = () => {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState<any>(1);
 
   return (
     <Card borderRadius={1.6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 81 }}>
       <Button
-        style={{ display: value < 2 ? 'none' : '' }}
+        style={{ display: value === 'finished' || value < 2 ? 'none' : '' }}
         disabled={value > 3}
         variant='ghost'
         onClick={() => setValue(value - 1)}>
@@ -46,7 +46,7 @@ export const Default = () => {
       <Button style={{ marginLeft: 10, display: value < 3 ? 'none' : '' }} onClick={() => setValue(1)}>
         Reset
       </Button>
-      <Button style={{ marginLeft: 10 }} onClick={() => setValue(4)}>
+      <Button style={{ marginLeft: 10 }} onClick={() => setValue('finished')}>
         Finish
       </Button>
     </Card>

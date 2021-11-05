@@ -2,18 +2,19 @@ import { CheckStepperIcon, EllipseColorIcon, EllipseIcon } from '@/icons';
 import { Typography } from '@/my-ui-core';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
-import React, { FC, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import styles from './Stepper.module.scss';
 
-export interface StepperProps extends IComponent {
-  steps?: {
-    title: string;
-    value: number;
-  }[];
-  value?: number;
+export type StepType = {
+  title: string;
+  value: string | number;
+};
+export interface StepperProps<T extends StepType[]> extends IComponent {
+  steps?: T;
+  value?: T[number]['value'] | 'finished';
 }
 
-const Stepper: FC<StepperProps> = ({ steps, value }) => {
+function Stepper<T extends StepType[]>({ steps, value }: StepperProps<T>) {
   const activeIndex = useMemo(() => steps.findIndex((o) => o.value === value), [value]);
 
   return (
@@ -28,7 +29,7 @@ const Stepper: FC<StepperProps> = ({ steps, value }) => {
                 </div>
               )}
               <span className={styles.StepperContainer}>
-                {value > steps.length ? (
+                {value === 'finished' ? (
                   <span className={styles.Step}>
                     <div className={styles.StepSection}>
                       <CheckStepperIcon />
@@ -69,5 +70,5 @@ const Stepper: FC<StepperProps> = ({ steps, value }) => {
         })}
     </div>
   );
-};
+}
 export default Stepper;

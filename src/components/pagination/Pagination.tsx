@@ -37,11 +37,11 @@ const Pagination: FC<PaginationProps> = ({
   console.log('count', count);
   return (
     <div className={styles.PaginationWrapper}>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div className={styles.PaginationInputWrapper}>
         {showPageSizeSelect && (
           <>
             <Typography variant='p4' component='span' className={styles.SelectLabel}>
-              Row per page: {count}
+              Row per page:
             </Typography>
             <div style={{ width: 51 }}>
               <Select

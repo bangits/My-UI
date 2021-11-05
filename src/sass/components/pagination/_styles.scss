@@ -4,11 +4,20 @@
       .MyUI-SelectInput {
         padding-right: 0;
         padding-left: 6px;
+        border: none;
+        margin-bottom: 5px;
+        @include theme(color, black-color);
+        &:focus {
+          @include theme(border, primary--color, solid 0.1rem);
+        }
       }
 
       .MyUI-TextInputContainer {
         min-height: initial;
       }
+    }
+    .PaginationInputWrapper {
+      @include flex(null, center);
     }
 
     @include flex(null, center);

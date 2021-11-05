@@ -37,7 +37,8 @@
           }
         }
         .StepTextContainer {
-          width: 100%;
+          width: getBaseSizes(step-text-container);
+          word-break: break-all;
           @include theme(color, primary);
           .StepText {
             margin-top: getStepperSizes(step-text-margin);

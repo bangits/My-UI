@@ -1,3 +1,4 @@
+import { typedMemo } from '@/helpers';
 import { CheckStepperIcon, EllipseColorIcon, EllipseIcon } from '@/icons';
 import { Typography } from '@/my-ui-core';
 import { IComponent } from '@/types';
@@ -71,4 +72,4 @@ function Stepper<T extends StepType[]>({ steps, value }: StepperProps<T>) {
     </div>
   );
 }
-export default Stepper;
+export default typedMemo(Stepper);

@@ -40,7 +40,11 @@ export const Default = () => {
           ])}
         />
       </div>
-      <Button disabled={value > 2} variant='ghost' onClick={() => setValue(value + 1)}>
+      <Button
+        disabled={value > 2}
+        style={{ display: value === 'finished' ? 'none' : '' }}
+        variant='ghost'
+        onClick={() => setValue(value + 1)}>
         Next
       </Button>
       <Button style={{ marginLeft: 10, display: value < 3 ? 'none' : '' }} onClick={() => setValue(1)}>

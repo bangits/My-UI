@@ -31,29 +31,40 @@ const Pagination: FC<PaginationProps> = ({
   pageSize
 }) => {
   const [goToPage, setGoToPage] = useState(1);
+  const [count, setCount] = useState<number>(20);
+
   const optionsValue = useMemo(() => pageSize.map((p) => ({ value: p.value, label: p.label })), [pageSize]);
+  console.log('count', count);
   return (
     <div className={styles.PaginationWrapper}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Typography variant='p4' component='span' className={styles.SelectLabel}>
-          Row per page: 20
-        </Typography>
+        {showPageSizeSelect && (
+          <>
+            <Typography variant='p4' component='span' className={styles.SelectLabel}>
+              Row per page: {count}
+            </Typography>
+            <div style={{ width: 51 }}>
+              <Select
+                inputLabel={null}
+                fullWidth
+                className={styles.SelectWrapper}
+                defaultValue={20}
+                options={optionsValue}
+                onChange={(e) => {
+                  setCount(e);
+                }}
+              />
+            </div>{' '}
+          </>
+        )}
 
-        <div style={{ width: 51 }}>
-          <Select
-            inputLabel={null}
-            fullWidth
-            className={styles.SelectWrapper}
-            defaultValue={20}
-            options={optionsValue}
-          />
-        </div>
-
-        <div className={styles.CountNumbers}>
-          <Typography variant='p4' component='span'>
-            1-20 of {totalCount}
-          </Typography>
-        </div>
+        {showTotalCountInfo && (
+          <div className={styles.CountNumbers}>
+            <Typography variant='p4' component='span'>
+              1-{count} of {totalCount}
+            </Typography>
+          </div>
+        )}
       </div>
 
       <div className={styles.PaginationFormContainer}>

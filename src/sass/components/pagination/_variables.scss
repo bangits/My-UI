@@ -7,9 +7,11 @@ $pagination-sizes: (
   pagination-list-li-font-size: calculateRem(14px),
   pagination-list-li-selected-width: calculateRem(24px),
   pagination-list-li-selected-height: calculateRem(24px),
+  pagination-list-li-first-element-margin: calculateRem(15px),
   pagination-input-jupm-width: calculateRem(44px),
   pagination-input-jupm-height: calculateRem(24px),
   pagination-input-jupm-padding: calculateRem(8px),
+  pagination-input-margin: calculateRem(8px),
   pagination-input-container-margin: calculateRem(16px)
 );
 

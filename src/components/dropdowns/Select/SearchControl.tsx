@@ -81,6 +81,7 @@ export const SearchControl: typeof components.Control = (props) => {
             onClick={menuToggle}
             value={searchValue}
             label={selectProps.inputLabel}
+            className='MyUI-SelectInput'
             endIcon={
               <div className={classNames(styles['Select--icon-container'])}>
                 {isMenuOpen ? <DropdownArrowIconUp /> : <DropdownArrowIconDown />}

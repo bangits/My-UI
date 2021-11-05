@@ -91,6 +91,7 @@ const TextInputs: FC<TextInputProps> = ({
   return (
     <div
       className={classNames(
+        'MyUI-TextInputContainer',
         styles.TextInputContainer,
         {
           [styles['TextInputContainer--full-width']]: fullWidth,

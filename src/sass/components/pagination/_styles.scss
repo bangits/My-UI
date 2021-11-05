@@ -1,6 +1,24 @@
 @mixin generate-pagination-styles {
   .PaginationWrapper {
+    :global {
+      .MyUI-SelectInput {
+        padding-right: 0;
+        padding-left: 6px;
+      }
+
+      .MyUI-TextInputContainer {
+        min-height: initial;
+      }
+    }
+
     @include flex(null, center);
+    .SelectWrapper {
+      width: auto;
+      margin-bottom: 0;
+      .react-select__menu {
+        width: 5.1rem;
+      }
+    }
     .SelectLabel {
       @include theme(color, black-color);
       letter-spacing: getPaginationSizes(select-label-letter-spacing);
@@ -9,6 +27,8 @@
       width: getPaginationSizes(select-icon-container-width);
       height: getPaginationSizes(select-icon-container-height);
       @include flex(center, center);
+      width: auto;
+      margin-bottom: 0;
     }
     .SelectCountContainer {
       @include flex(null, center);
@@ -23,17 +43,28 @@
       .PaginationList {
         @include flex(null, center);
         list-style-type: none;
+        padding: 0;
         li {
           margin-left: getPaginationSizes(pagination-list-li-margin);
           font-size: getPaginationSizes(pagination-list-li-font-size);
           @include theme(color, black-color);
-          // &--selected {
-          //   width: getPaginationSizes(pagination-list-li-selected-width);
-          //   height: getPaginationSizes(pagination-list-li-selected-height);
-          //   @include flex(center, center);
-          //   @include theme(background-color, gray-color);
-          //   @include theme(color, primary--color);
-          // }
+          cursor: pointer;
+
+          &:first-child {
+            margin-left: getPaginationSizes(pagination-list-li-first-element-margin);
+          }
+        }
+
+        :global {
+          li.selected {
+            width: getPaginationSizes(pagination-list-li-selected-width);
+            height: getPaginationSizes(pagination-list-li-selected-height);
+            @include flex(center, center);
+            @include theme(background-color, gray-color);
+            @include theme(color, primary--color);
+            border-radius: 50%;
+            cursor: pointer;
+          }
         }
       }
     }
@@ -44,6 +75,7 @@
         max-width: getPaginationSizes(pagination-input-jupm-width);
         height: getPaginationSizes(pagination-input-jupm-height);
         padding: getPaginationSizes(pagination-input-jupm-padding);
+        margin-left: getPaginationSizes(pagination-input-margin);
       }
       .PaginationInputLabel {
         letter-spacing: getPaginationSizes(select-label-letter-spacing);

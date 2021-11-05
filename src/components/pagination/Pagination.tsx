@@ -34,36 +34,27 @@ const Pagination: FC<PaginationProps> = ({
   const optionsValue = useMemo(() => pageSize.map((p) => ({ value: p.value, label: p.label })), [pageSize]);
   return (
     <div className={styles.PaginationWrapper}>
-      <Select
-        defaultValue={20}
-        renderInput={(value, isMenuOpen) => (
-          <div className={styles.SelectCountContainer}>
-            {console.log([value.label])}
-            {showPageSizeSelect && (
-              <React.Fragment>
-                <Typography variant='p4' component='span' className={styles.SelectLabel}>
-                  Row per page: {[value.label]}
-                </Typography>
-                <span
-                  className={styles.SelectIconContainer}
-                  style={{
-                    transform: isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
-                  }}>
-                  <DropdownArrowIconUp />
-                </span>
-              </React.Fragment>
-            )}
-            {showTotalCountInfo && (
-              <div className={styles.CountNumbers}>
-                <Typography variant='p4' component='span'>
-                  1-{[value.label]} of {totalCount}
-                </Typography>
-              </div>
-            )}
-          </div>
-        )}
-        options={optionsValue}
-      />
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Typography variant='p4' component='span' className={styles.SelectLabel}>
+          Row per page: 20
+        </Typography>
+
+        <div style={{ width: 51 }}>
+          <Select
+            inputLabel={null}
+            fullWidth
+            className={styles.SelectWrapper}
+            defaultValue={20}
+            options={optionsValue}
+          />
+        </div>
+
+        <div className={styles.CountNumbers}>
+          <Typography variant='p4' component='span'>
+            1-20 of {totalCount}
+          </Typography>
+        </div>
+      </div>
 
       <div className={styles.PaginationFormContainer}>
         {page >= 1 && (

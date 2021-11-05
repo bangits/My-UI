@@ -36,7 +36,8 @@ $datepicker-sizes: (
   datePicker-current-day-margin: calculateRem(0px) calculateRem(-1px),
   datePicker-day-padding: calculateRem(9px) calculateRem(0px),
   datePicker-selected-in-range-end: calculateRem(0px) calculateRem(4px) calculateRem(4px) calculateRem(0px),
-  datePicker-selected-in-range-start: calculateRem(4px) calculateRem(0px) calculateRem(0px) calculateRem(4px)
+  datePicker-selected-in-range-start: calculateRem(4px) calculateRem(0px) calculateRem(0px) calculateRem(4px),
+  datePicker-days-height: calculateRem(40px)
 );
 
 @function getDatePickerSizes($property) {

@@ -52,12 +52,12 @@
     }
 
     .StepperChecked {
-      .StepperLine {
-        @include theme(opacity, disabled-opacity);
-      }
       .StepperInactive {
         background-color: transparent !important;
       }
+    }
+    .StepperLineInactive {
+      @include theme(opacity, disabled-opacity);
     }
   }
 }

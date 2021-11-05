@@ -24,10 +24,26 @@ function Stepper<T extends StepType[]>({ steps, value }: StepperProps<T>) {
         steps.map((option, index) => {
           return (
             <div key={option.value} className={classNames(styles.Stepper, styles.StepperChecked)}>
-              {index > 0 && (
-                <div className={styles.StepperLineContainer}>
-                  <span className={styles.StepperLine}></span>
-                </div>
+              {index > 0 ? (
+                value === 'finished' ? (
+                  <div className={styles.StepperLineContainer}>
+                    <span className={classNames(styles.StepperLine)}></span>
+                  </div>
+                ) : activeIndex > index ? (
+                  <div className={styles.StepperLineContainer}>
+                    <span className={classNames(styles.StepperLine)}></span>
+                  </div>
+                ) : activeIndex < index ? (
+                  <div className={styles.StepperLineContainer}>
+                    <span className={classNames(styles.StepperLine, styles.StepperLineInactive)}></span>
+                  </div>
+                ) : (
+                  <div className={styles.StepperLineContainer}>
+                    <span className={classNames(styles.StepperLine)}></span>
+                  </div>
+                )
+              ) : (
+                <> </>
               )}
               <span className={styles.StepperContainer}>
                 {value === 'finished' ? (

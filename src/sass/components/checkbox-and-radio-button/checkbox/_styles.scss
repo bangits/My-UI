@@ -5,6 +5,13 @@
     height: getCheckboxSizes(checkbox-height);
 
     position: relative;
+    cursor: pointer;
+  }
+
+  .CheckboxIcon {
+    display: none;
+
+    width: getCheckboxSizes(checkbox-check-width);
   }
 
   .Checkbox {
@@ -22,6 +29,8 @@
 
       &:checked {
         & + .CheckboxIcon {
+          display: block;
+
           @include center-absolute();
         }
       }

@@ -1,7 +1,7 @@
 import { Select, Typography } from '@/my-ui-core';
 import ReactPaginate from 'react-paginate';
 import classNames from 'classnames';
-import React, { useState, useMemo, FC } from 'react';
+import React, { useState, useMemo, FC, useCallback } from 'react';
 import styles from './Pagination.module.scss';
 import PaginationInput from './PaginationInput';
 import { ArrowNext, ArrowPrev, DropdownArrowIconUp } from '@/icons';
@@ -34,7 +34,11 @@ const Pagination: FC<PaginationProps> = ({
   const [count, setCount] = useState<number>(20);
 
   const optionsValue = useMemo(() => pageSize.map((p) => ({ value: p.value, label: p.label })), [pageSize]);
-  console.log('count', count);
+
+  const handleChange = useCallback((event) => {
+    onChange(event.selected + 1);
+  }, []);
+
   return (
     <div className={styles.PaginationWrapper}>
       <div className={styles.PaginationInputWrapper}>
@@ -72,7 +76,7 @@ const Pagination: FC<PaginationProps> = ({
         {page >= 1 && (
           <ReactPaginate
             className={styles.PaginationList}
-            onPageChange={onChange}
+            onPageChange={handleChange}
             breakLabel='...'
             nextLabel={page > 1 ? <ArrowNext /> : null}
             forcePage={goToPage}

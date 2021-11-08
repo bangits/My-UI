@@ -17,7 +17,7 @@ const PaginationInput = ({ setGoToPage }) => {
         onChange={(e) => setPage(+e.target.value || '')}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            setGoToPage(page);
+            setGoToPage(+page - 1);
           }
         }}
         placeholder='155'

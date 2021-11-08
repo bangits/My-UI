@@ -1,4 +1,5 @@
 import { number, withKnobs, boolean, object } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import React from 'react';
 import Pagination from './Pagination';
 
@@ -16,6 +17,7 @@ export const Default = () => {
       // onChange={(e) => {
       //   alert(e.selected + 1);
       // }}
+      onChange={action('onChange')}
       showPageSizeSelect={boolean('showPageSizeSelect', true)}
       showTotalCountInfo={boolean('showTotalCountInfo', true)}
       showJumpToPage={boolean('showJumpToPage', true)}

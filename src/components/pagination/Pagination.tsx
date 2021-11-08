@@ -43,7 +43,7 @@ const Pagination: FC<PaginationProps> = ({
             <Typography variant='p4' component='span' className={styles.SelectLabel}>
               Row per page:
             </Typography>
-            <div style={{ width: 51 }}>
+            <div className={styles.PaginationSelectWrapper}>
               <Select
                 inputLabel={null}
                 fullWidth
@@ -53,6 +53,7 @@ const Pagination: FC<PaginationProps> = ({
                 onChange={(e) => {
                   setCount(e);
                 }}
+                color='primary'
               />
             </div>{' '}
           </>

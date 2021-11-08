@@ -16,7 +16,7 @@ export interface GroupBase<Option> {
 
 export type SelectOptionType = { value: SelectValueType; label: string };
 
-export interface CustomSelectProps extends BaseTextInputProps {
+export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
   selectAll?: boolean;
   selectAllLabel?: string;
   selectAllValue?: string;
@@ -33,7 +33,7 @@ export interface CustomSelectProps extends BaseTextInputProps {
   dropdownLabel?: string;
   dropdownSearchPlaceholder?: string;
   dropdownIcon?: ReactNode;
-  color?: UIColors;
+  color?: UIColors | 'default';
 
   //
   renderInput?: (value: SelectOptionType, isMenuOpen: boolean) => ReactNode;
@@ -186,7 +186,8 @@ Select.defaultProps = {
   inputLabel: 'Select...',
   inputSelectedLabel: 'Selected items: ',
   renderInputSelectedLabel: (count) => `Selected items: ${count}`,
-  fullWidth: false
+  fullWidth: false,
+  color: 'default'
 };
 
 export default Select;

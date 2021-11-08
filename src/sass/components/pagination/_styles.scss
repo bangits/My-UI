@@ -4,29 +4,57 @@
       .MyUI-SelectInput {
         padding-right: 0;
         padding-left: 6px;
-        border: none;
         margin-bottom: 5px;
+        min-height: 25px;
+        border: none !important;
         @include theme(color, black-color);
+
         &:focus {
-          @include theme(border, primary--color, solid 0.1rem);
+          @include theme(border, primary, $postExtra: solid 0.1rem !important);
         }
+      }
+
+      .MyUI-TextInputBaseInput {
+        @include theme(color, black-color);
+        padding-top: 0;
       }
 
       .MyUI-TextInputContainer {
         min-height: initial;
+
+        svg {
+          transform: scale(0.833);
+          @include theme(color, black-color);
+        }
+      }
+
+      .MyUI-TextInputContainer--focused {
+        svg {
+          @include theme(color, primary);
+        }
+      }
+
+      .MyUI-TextInputEndIcon {
+        top: getPaginationSizes(select-wrapper-svg-position-top);
+        right: getPaginationSizes(select-wrapper-svg-position-right);
       }
     }
     .PaginationInputWrapper {
       @include flex(null, center);
+      .CountNumbers {
+        @include theme(color, black-color);
+        letter-spacing: getPaginationSizes(select-label-letter-spacing);
+        margin-left: getPaginationSizes(count-container-margin);
+      }
+      .PaginationSelectWrapper {
+        width: getPaginationSizes(react-select-menu-width);
+      }
     }
 
     @include flex(null, center);
     .SelectWrapper {
       width: auto;
-      margin-bottom: 0;
-      .react-select__menu {
-        width: 5.1rem;
-      }
+      margin-bottom: getPaginationSizes(select-wrapper-margin);
     }
     .SelectLabel {
       @include theme(color, black-color);
@@ -41,20 +69,17 @@
     }
     .SelectCountContainer {
       @include flex(null, center);
-      .CountNumbers {
-        @include theme(color, black-color);
-        letter-spacing: getPaginationSizes(select-label-letter-spacing);
-        margin-left: getPaginationSizes(count-container-margin);
-      }
     }
     .PaginationFormContainer {
       @include flex(null, center);
+
       .PaginationList {
         @include flex(null, center);
         list-style-type: none;
         padding: 0;
         li {
           margin-left: getPaginationSizes(pagination-list-li-margin);
+          margin-bottom: 0.2rem;
           font-size: getPaginationSizes(pagination-list-li-font-size);
           @include theme(color, black-color);
           cursor: pointer;
@@ -76,18 +101,44 @@
           }
         }
       }
+
+      :global {
+        .MyUI-TextInputBaseInput {
+          @include theme(color, black-color);
+          padding-top: 0;
+
+          transition: opacity 0.2s;
+
+          @include theme(opacity, disabled-opacity);
+
+          &:focus {
+            opacity: 1;
+          }
+        }
+      }
     }
     .PaginationInputContainer {
       margin-left: getPaginationSizes(pagination-input-container-margin);
       @include flex(null, center);
       .PaginationInputJupm {
         max-width: getPaginationSizes(pagination-input-jupm-width);
-        height: getPaginationSizes(pagination-input-jupm-height);
+        min-height: getPaginationSizes(pagination-input-jupm-height);
         padding: getPaginationSizes(pagination-input-jupm-padding);
         margin-left: getPaginationSizes(pagination-input-margin);
+        font-size: getPaginationSizes(pagination-input-font-size);
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
       }
       .PaginationInputLabel {
         letter-spacing: getPaginationSizes(select-label-letter-spacing);
+        margin-top: 0; //getPaginationSizes(pagination-input-container-margin-top);
+
         @include theme(color, black-color);
       }
     }

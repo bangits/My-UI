@@ -94,6 +94,7 @@ const TextInputs: FC<TextInputProps> = ({
         'MyUI-TextInputContainer',
         styles.TextInputContainer,
         {
+          'MyUI-TextInputContainer--focused': isInputFocused,
           [styles['TextInputContainer--full-width']]: fullWidth,
           [styles[`TextInputContainer--${color}`]]: color,
           [styles['TextInputContainer--disabled']]: disabled,
@@ -104,13 +105,16 @@ const TextInputs: FC<TextInputProps> = ({
         },
         containerClassName
       )}>
-      <label className={classNames(styles.TextInputWrapper)}>
+      <label className={classNames('MyUI-TextInputWrapper', styles.TextInputWrapper)}>
         {startIcon && (
-          <div className={styles.StartIcon}>{Array.isArray(startIcon) ? startIcon.slice(0, 2) : startIcon}</div>
+          <div className={classNames(styles.StartIcon, 'MyUI-TextInputStartIcon')}>
+            {Array.isArray(startIcon) ? startIcon.slice(0, 2) : startIcon}
+          </div>
         )}
 
         <input
           className={classNames(
+            'MyUI-TextInputBaseInput',
             styles.TextInputBaseInput,
             {
               [styles[`TextInputBaseInput--filled`]]: !!currentValue,
@@ -141,7 +145,11 @@ const TextInputs: FC<TextInputProps> = ({
           </span>
         )}
 
-        {endIcon && <div className={styles.EndIcon}>{Array.isArray(endIcon) ? endIcon.slice(0, 2) : endIcon}</div>}
+        {endIcon && (
+          <div className={classNames('MyUI-TextInputEndIcon', styles.EndIcon)}>
+            {Array.isArray(endIcon) ? endIcon.slice(0, 2) : endIcon}
+          </div>
+        )}
       </label>
 
       {explanation && (

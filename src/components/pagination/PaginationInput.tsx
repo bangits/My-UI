@@ -3,7 +3,7 @@ import { TextInput, Typography } from '@/components';
 import styles from './Pagination.module.scss';
 
 const PaginationInput = ({ setGoToPage }) => {
-  const [page, setPage] = useState<number | string>(1);
+  const [page, setPage] = useState<number | string>('');
   return (
     <div className={styles.PaginationInputContainer}>
       <Typography variant='p4' component='span' className={styles.PaginationInputLabel}>

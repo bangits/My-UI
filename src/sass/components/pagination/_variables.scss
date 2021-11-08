@@ -1,0 +1,26 @@
+$pagination-sizes: (
+  select-icon-container-width: calculateRem(24px),
+  select-icon-container-height: calculateRem(24px),
+  select-label-letter-spacing: calculateRem(1.4px),
+  select-wrapper-margin: calculateRem(-2px),
+  select-wrapper-svg-position-right: calculateRem(2px),
+  select-wrapper-svg-position-top: calculateRem(6px),
+  count-container-margin: calculateRem(7px),
+  pagination-list-li-margin: calculateRem(16px),
+  pagination-list-li-font-size: calculateRem(14px),
+  pagination-list-li-selected-width: calculateRem(24px),
+  pagination-list-li-selected-height: calculateRem(24px),
+  pagination-list-li-first-element-margin: calculateRem(15px),
+  pagination-input-jupm-width: calculateRem(44px),
+  pagination-input-jupm-height: calculateRem(24px),
+  pagination-input-jupm-padding: 0 0 0 calculateRem(8px),
+  pagination-input-font-size: calculateRem(10px),
+  pagination-input-margin: calculateRem(8px),
+  pagination-input-container-margin: calculateRem(16px),
+  pagination-input-container-margin-top: calculateRem(6px),
+  react-select-menu-width: calculateRem(51px)
+);
+
+@function getPaginationSizes($property) {
+  @return map-get($pagination-sizes, $property);
+}

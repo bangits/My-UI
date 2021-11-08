@@ -49,6 +49,25 @@
       .PaginationSelectWrapper {
         width: getPaginationSizes(react-select-menu-width);
       }
+
+      :global {
+        .react-select {
+          &__menu {
+            min-height: initial;
+            top: getPaginationSizes(react-select-menu-position-top);
+          }
+
+          &__option,
+          &__option:last-child {
+            height: getPaginationSizes(react-select-menu-option-height);
+            border-bottom: none;
+
+            span {
+              margin-left: getPaginationSizes(react-select-menu-option-span-margin);
+            }
+          }
+        }
+      }
     }
 
     @include flex(null, center);
@@ -118,7 +137,7 @@
       }
     }
     .PaginationInputContainer {
-      margin-left: getPaginationSizes(pagination-input-container-margin);
+      margin: getPaginationSizes(pagination-input-container-margin);
       @include flex(null, center);
       .PaginationInputJupm {
         max-width: getPaginationSizes(pagination-input-jupm-width);
@@ -137,7 +156,7 @@
       }
       .PaginationInputLabel {
         letter-spacing: getPaginationSizes(select-label-letter-spacing);
-        margin-top: 0; //getPaginationSizes(pagination-input-container-margin-top);
+        margin-top: getPaginationSizes(pagination-input-container-margin-top);
 
         @include theme(color, black-color);
       }

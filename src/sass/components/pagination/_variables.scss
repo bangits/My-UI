@@ -16,9 +16,12 @@ $pagination-sizes: (
   pagination-input-jupm-padding: 0 calculateRem(8px) 0 calculateRem(8px),
   pagination-input-font-size: calculateRem(10px),
   pagination-input-margin: calculateRem(8px),
-  pagination-input-container-margin: calculateRem(16px),
-  pagination-input-container-margin-top: calculateRem(6px),
-  react-select-menu-width: calculateRem(51px)
+  pagination-input-container-margin: 0 0 calculateRem(6px) calculateRem(16px),
+  pagination-input-container-margin-top: calculateRem(5px),
+  react-select-menu-width: calculateRem(51px),
+  react-select-menu-position-top: calculateRem(39.7px),
+  react-select-menu-option-height: calculateRem(25px),
+  react-select-menu-option-span-margin: calculateRem(4px)
 );
 
 @function getPaginationSizes($property) {

@@ -40,19 +40,8 @@ $datepicker-sizes: (
   datePicker-days-height: calculateRem(40px)
 );
 
-$datepicker-icons: (
-  next: url('../../../../icons/next.svg'),
-  prev: url('../../../../icons/prev.svg'),
-  next-hover: url('../../../../icons/next-blue.svg'),
-  prev-hover: url('../../../../icons/prev-blue.svg')
-);
-
 @function getDatePickerSizes($property) {
   @return map-get($datepicker-sizes, $property);
 }
 
 $datepicker-colors: ();
-
-@function getDatePickerIcons($property) {
-  @return map-get($datepicker-icons, $property);
-}

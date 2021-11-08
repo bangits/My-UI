@@ -1,6 +1,6 @@
 {
   "name": "@my-ui/core",
-  "version": "2.9.1",
+  "version": "2.12.0",
   "scripts": {
     "start": "webpack serve --env development",
     "start-with-storybook": "yarn start && yarn storybook",
@@ -86,7 +86,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@my-ui/react-datepicker": "^1.4.0",
+    "@my-ui/react-datepicker": "^1.5.0",
     "@my-ui/react-select": "1.1.6",
     "@my-ui/react-table": "1.3.0",
     "@my-ui/scrollbar": "^1.0.2",

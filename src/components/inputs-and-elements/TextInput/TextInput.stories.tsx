@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TextInput from './TextInput';
 
 export default {
@@ -10,35 +10,44 @@ export default {
   title: 'components/Inputs And Elements/Text Input'
 } as ComponentMeta<typeof TextInput>;
 
-export const Default = () => (
-  <>
-    <TextInput
-      disabled={boolean('disabled', false)}
-      // label={text('label', 'Default Text Input')}
-      defaultValue={text('defaultValue', undefined)}
-      value={text('defaultValue', 'ui-kit@bangits.com')}
-      maxLength={number('maxLength', 10)}
-      type='text'
-      onChange={action('onChange')}
-      explanation={text('explanation', '')}
-      fullWidth={boolean('fullWidth', false)}
-    />
+export const Default = () => {
+  const [value, setValue] = useState('ads');
 
-    <h1> </h1>
+  useEffect(() => {
+    setTimeout(() => {
+      setValue('');
+    }, 2000);
+  }, []);
 
-    <TextInput
-      disabled={boolean('disabled', false)}
-      label={text('label for number input', 'Default Number Input')}
-      defaultValue={text('defaultValue', undefined)}
-      value={text('defaultValue', 'ui-kit@bangits.com')}
-      maxLength={number('maxLength', 10)}
-      type='number'
-      onChange={action('onChange')}
-      explanation={text('explanation', '')}
-      fullWidth={boolean('fullWidth for number input', false)}
-    />
-  </>
-);
+  return (
+    <>
+      <TextInput
+        disabled={boolean('disabled', false)}
+        // label={text('label', 'Default Text Input')}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        maxLength={number('maxLength', 10)}
+        type='text'
+        explanation={text('explanation', '')}
+        fullWidth={boolean('fullWidth', false)}
+      />
+
+      <h1> </h1>
+
+      <TextInput
+        disabled={boolean('disabled', false)}
+        label={text('label for number input', 'Default Number Input')}
+        defaultValue={text('defaultValue', undefined)}
+        value={text('defaultValue', 'ui-kit@bangits.com')}
+        maxLength={number('maxLength', 10)}
+        type='number'
+        onChange={action('onChange')}
+        explanation={text('explanation', '')}
+        fullWidth={boolean('fullWidth for number input', false)}
+      />
+    </>
+  );
+};
 
 //Input With Icons
 export const WithIcons = () => {

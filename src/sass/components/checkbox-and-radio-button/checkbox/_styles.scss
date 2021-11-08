@@ -1,9 +1,21 @@
 @mixin generate-checkbox-styles {
+  .CheckboxContainer,
+  input {
+    width: getCheckboxSizes(checkbox-width);
+    height: getCheckboxSizes(checkbox-height);
+
+    position: relative;
+    cursor: pointer;
+  }
+
+  .CheckboxIcon {
+    display: none;
+
+    width: getCheckboxSizes(checkbox-check-width);
+  }
+
   .Checkbox {
     input {
-      width: getCheckboxSizes(checkbox-width);
-      height: getCheckboxSizes(checkbox-height);
-
       border-style: solid;
       border-width: getCheckboxSizes(checkbox-border-width);
       border-radius: getCheckboxSizes(checkbox-border-radius);
@@ -16,15 +28,10 @@
       outline: none;
 
       &:checked {
-        &:after {
-          content: '';
+        & + .CheckboxIcon {
+          display: block;
 
           @include center-absolute();
-
-          width: getCheckboxSizes(checkbox-check-width);
-          height: getCheckboxSizes(checkbox-check-height);
-
-          background: getIcon(checkbox-check) no-repeat center / cover;
         }
       }
 

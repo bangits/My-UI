@@ -53,6 +53,7 @@ const Pagination: FC<PaginationProps> = ({
                 fullWidth
                 className={styles.SelectWrapper}
                 defaultValue={20}
+                maxLength={3}
                 options={optionsValue}
                 onChange={(e) => {
                   setCount(e);

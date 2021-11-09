@@ -169,7 +169,8 @@ function Select<
         {
           [styles['Select--fullWidth']]: fullWidth,
           [styles['Select--dropdown']]: dropdown,
-          [styles['Select--with-clear']]: clearButton
+          [styles['Select--with-clear']]: clearButton,
+          [styles['Select--all']]: selectAll && selectAllValue
         },
         'MyUI-Select',
         className

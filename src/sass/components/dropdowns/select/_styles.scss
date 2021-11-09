@@ -35,31 +35,14 @@
         width: 28rem;
         background-color: #ffffff;
         max-height: 28.8rem;
-        overflow: hidden;
-        overflow-y: auto;
         border-radius: 0.8rem;
 
-        &::-webkit-scrollbar {
-          width: 0.4rem;
-        }
-        &::-webkit-scrollbar-track {
-          background-color: #e8edf3;
-          border-radius: 0.8rem;
-          margin-bottom: 0.4rem;
-        }
-        &::-webkit-scrollbar-thumb {
-          background-color: #8ea6c1;
-          border-radius: 0.8rem;
-          min-height: 4rem;
-          max-height: 4rem;
-        }
-
-        div:last-child {
-          div {
-            height: 3.2rem;
-            border-bottom: none;
-          }
-        }
+        // div:last-child {
+        //   div {
+        //     height: 3.2rem;
+        //     border-bottom: none;
+        //   }
+        // }
       }
 
       &__menu-list--is-multi {

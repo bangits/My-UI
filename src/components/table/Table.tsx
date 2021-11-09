@@ -1,4 +1,5 @@
 import { typedMemo } from '@/helpers/typedMemo';
+import { Scroll } from '@/my-ui-core';
 import { ObjectMock } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
@@ -104,78 +105,82 @@ const Table = <T extends ObjectMock>({
   useEffect(() => {
     // @ts-ignore
     setTableHeadWidths(Object.values(tableHeadRef.current.querySelectorAll('th')).map((th) => th.clientWidth));
-  }, [columns]);
+  }, [columns, data]);
 
   useEffect(() => {
     onFetchDataDebounced(typedState);
   }, [onFetchDataDebounced, typedState.sortBy]);
 
-  return (
-    <Component
-      {...getTableProps()}
-      className={classNames(styles.TableContainer, {
-        [styles['TableContainer--withSelection']]: isWithSelection
-      })}>
-      {/* @ts-ignore */}
-      <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
-        {headerGroups.map((headerGroup) => (
-          <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
-            {headerGroup.headers.map((column: Column<T>, index) => (
-              <TableHead
-                data-column-index={index}
-                direction={column.isSortedDesc ? 'desc' : 'asc'}
-                selectedDirection={column.isSorted}
-                hideSortIcon={column.disableSortBy}
-                {...column.getHeaderProps(column.getSortByToggleProps())}
-                color={color}>
-                <span> {column.render('Header')}</span>
-                {/* We will do this part when in UI kit there will be ready resizing part */}
+  if (!tableHeadWidths.length && tableHeadRef.current) return null;
 
-                {/* {isResizing ? (
+  return (
+    <Scroll height={500} className={styles.TableScroll}>
+      <Component
+        {...getTableProps()}
+        className={classNames(styles.TableContainer, {
+          [styles['TableContainer--withSelection']]: isWithSelection
+        })}>
+        {/* @ts-ignore */}
+        <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
+          {headerGroups.map((headerGroup) => (
+            <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
+              {headerGroup.headers.map((column: Column<T>, index) => (
+                <TableHead
+                  data-column-index={index}
+                  direction={column.isSortedDesc ? 'desc' : 'asc'}
+                  selectedDirection={column.isSorted}
+                  hideSortIcon={column.disableSortBy}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                  color={color}>
+                  <span> {column.render('Header')}</span>
+                  {/* We will do this part when in UI kit there will be ready resizing part */}
+
+                  {/* {isResizing ? (
                   <div
                     {...column.getResizerProps()}
                     style={{ width: '4px', height: '20px', backgroundColor: 'red' }}
                     className={`resizer ${column.isResizing ? 'isResizing' : ''}`}
                   />
                 ) : null} */}
-              </TableHead>
-            ))}
-          </TableRow>
-        ))}
-      </THeadComponent>
-      <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
-        {rows.map((row: Row<T>, index) => {
-          prepareRow(row);
-          return (
-            <TableRow hover selected={row.isSelected} {...row.getRowProps()} color={color}>
-              {row.cells.map((cell, index) => {
-                return (
-                  <TableCell
-                    style={{
-                      maxWidth:
-                        typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
-                          ? cell.column.maxWidth
-                          : `${tableHeadWidths[index] / 10}rem`
-                    }}
-                    align={columns[index - 1]?.align}
-                    color={color}>
-                    <div>{cell.render('Cell')}</div>
-                  </TableCell>
-                );
-              })}
-
-              {actions && (
-                <TableCell {...actions} color={color} className={styles.ActionTableCell}>
-                  {actions.map(({ component: Component, onClick, props }) => (
-                    <Component {...props} onClick={(...args: any[]) => onClick(data[index], ...args)} />
-                  ))}
-                </TableCell>
-              )}
+                </TableHead>
+              ))}
             </TableRow>
-          );
-        })}
-      </TBodyComponent>
-    </Component>
+          ))}
+        </THeadComponent>
+        <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
+          {rows.map((row: Row<T>, index) => {
+            prepareRow(row);
+            return (
+              <TableRow hover selected={row.isSelected} {...row.getRowProps()} color={color}>
+                {row.cells.map((cell, index) => {
+                  return (
+                    <TableCell
+                      style={{
+                        maxWidth:
+                          typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                            ? cell.column.maxWidth
+                            : `${tableHeadWidths[index] / 10}rem`
+                      }}
+                      align={columns[index - 1]?.align}
+                      color={color}>
+                      <div>{cell.render('Cell')}</div>
+                    </TableCell>
+                  );
+                })}
+
+                {actions && (
+                  <TableCell {...actions} color={color} className={styles.ActionTableCell}>
+                    {actions.map(({ component: Component, onClick, props }) => (
+                      <Component {...props} onClick={(...args: any[]) => onClick(data[index], ...args)} />
+                    ))}
+                  </TableCell>
+                )}
+              </TableRow>
+            );
+          })}
+        </TBodyComponent>
+      </Component>
+    </Scroll>
   );
 };
 

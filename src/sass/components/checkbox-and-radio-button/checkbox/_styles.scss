@@ -1,6 +1,6 @@
 @mixin generate-checkbox-styles {
   .CheckboxContainer,
-  input {
+  .Checkbox input {
     width: getCheckboxSizes(checkbox-width);
     height: getCheckboxSizes(checkbox-height);
 

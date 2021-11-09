@@ -11,7 +11,7 @@ export type StepType = {
   value: string | number;
 };
 export interface StepperProps<T extends StepType[]> extends IComponent {
-  steps?: T;
+  steps: T;
   value?: T[number]['value'] | 'finished';
 }
 

@@ -6,7 +6,7 @@ import React, { FC, ReactNode } from 'react';
 import styles from './Scroll.module.scss';
 
 export interface ScrollProps extends IComponent {
-  height: number;
+  height?: number | string;
   children?: ReactNode;
   width?: number;
   autoHide?: boolean;
@@ -18,9 +18,12 @@ const Scroll: FC<ScrollProps> = ({ height = 200, width, children, className, ...
   return (
     <Scrollbars
       {...scrollProps}
-      style={{ width: width ?? '100%', height }}
+      style={{ width: width ?? '100%' }}
+      onUpdate={console.log}
+      onScrollStart={console.log}
+      autoHeight
       hideTracksWhenNotNeeded
-      //
+      autoHeightMax={height}
       className={classNames(styles.ScrollBase, className)}
       trackVerticalClassname={styles.TrackVertical}
       thumbVerticalClassname={styles.ThumbVertical}

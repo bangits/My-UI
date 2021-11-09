@@ -20,4 +20,9 @@
   .ThumbHorizontal {
     @include theme(background-color, gray-color);
   }
+
+  .TrackVertical,
+  .TrackHorizontal {
+    z-index: map-get($base-scroll-variables, track-z-index);
+  }
 }

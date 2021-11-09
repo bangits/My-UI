@@ -1,5 +1,6 @@
 import { Select } from '@/components';
 import { FilterIcon } from '@/icons';
+import { action } from '@storybook/addon-actions';
 import { boolean, number, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
@@ -25,7 +26,6 @@ export const Default = () => {
         value={value}
         onChange={setValue}
         inputLabel={text('inputLabelSingle', 'Single Select...')}
-        selectAll
         isSearchable
         maxLength={number('maxLengthSingleSelect', 20)}
         color={optionsKnob(
@@ -84,7 +84,6 @@ export const Default = () => {
         inputLabel={text('inputLabelSingle', 'Single Select...')}
         maxLength={number('maxLengthSingleSelect', 20)}
         isSearchable
-        selectAll={boolean('selectAll1', true)}
         color={optionsKnob(
           'color',
           {
@@ -213,14 +212,11 @@ export const MultiSelect = () => {
       />
 
       <Select
-        selectAll
-        clearButton
         clearButtonLabel={text('clearButtonLabel', 'Clear')}
         inputLabel={text('inputLabelMulti', 'Multi Select...')}
         maxLength={number('maxLengthMultiSelect', 50)}
         inputSelectedLabel={text('inputSelectedLabel', 'Selected ')}
         explanation={text('explanation', '')}
-        isSearchable
         color={optionsKnob(
           'color',
           {
@@ -234,64 +230,7 @@ export const MultiSelect = () => {
           }
         )}
         isMulti={boolean('isMulti', true)}
-        options={object('multiSelectOptions2', [
-          {
-            label: 'Jewels and Gems',
-            value: 2
-          },
-          {
-            label: 'Fantasy',
-            value: 3
-          },
-          {
-            label: 'Halloween',
-            value: 4
-          },
-          {
-            label: 'Luxury',
-            value: 5
-          },
-          {
-            label: 'Fruits / Vegetables',
-            value: 6
-          },
-          {
-            label: 'Asian',
-            value: 7
-          },
-          {
-            label: 'Food',
-            value: 8
-          },
-          {
-            label: 'Branded',
-            value: 9
-          },
-          {
-            label: 'Animals',
-            value: 10
-          },
-          {
-            label: 'Animals 2',
-            value: 11
-          },
-          {
-            label: 'Animals',
-            value: 12
-          },
-          {
-            label: 'Animals 2',
-            value: 13
-          },
-          {
-            label: 'Animals',
-            value: 14
-          },
-          {
-            label: 'Animals 2',
-            value: 15
-          }
-        ])}
+        options={object('multiSelectOptions2', [])}
       />
     </>
   );
@@ -304,6 +243,7 @@ export const Dropdown = () => {
       dropdownIcon={<FilterIcon />}
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
+      onChange={action('onChange')}
       color={optionsKnob(
         'color',
         {
@@ -376,6 +316,7 @@ export const RenderInput = () => {
         </>
       )}
       isSearchable={false}
+      onChange={action('onChange')}
       color={optionsKnob(
         'color',
         {

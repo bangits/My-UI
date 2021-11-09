@@ -58,6 +58,7 @@ const Pagination: FC<PaginationProps> = ({
                 onChange={(e) => {
                   setCount(e);
                 }}
+                isSearchable={false}
                 color='primary'
               />
             </div>{' '}

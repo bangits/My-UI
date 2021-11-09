@@ -31,10 +31,12 @@ export const SearchControl: typeof components.Control = (props) => {
 
   const onSearchValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
+      if (!selectProps.isSearchable) return;
+
       selectProps.onInputChange(e.target.value, null);
       setSearchValue(e.target.value);
     },
-    [currentValue]
+    [currentValue, selectProps.isSearchable]
   );
 
   useEffect(() => {

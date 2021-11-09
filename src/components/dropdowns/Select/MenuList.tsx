@@ -9,8 +9,6 @@ import styles from './Select.module.scss';
 export const MenuList: typeof components.MenuList = (props) => {
   const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
 
-  console.log(props.children);
-
   const arrayOfChildrens = Children.toArray(props.children);
 
   return (

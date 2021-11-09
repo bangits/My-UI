@@ -31,10 +31,12 @@ export const SearchControl: typeof components.Control = (props) => {
 
   const onSearchValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
+      if (!selectProps.isSearchable) return;
+
       selectProps.onInputChange(e.target.value, null);
       setSearchValue(e.target.value);
     },
-    [currentValue]
+    [currentValue, selectProps.isSearchable]
   );
 
   useEffect(() => {
@@ -73,7 +75,7 @@ export const SearchControl: typeof components.Control = (props) => {
         <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
           <TextInput
             fullWidth={selectProps.fullWidth}
-            color={selectProps.color !== 'primary' ? selectProps.color : undefined}
+            color={selectProps.color !== 'default' ? selectProps.color : undefined}
             explanation={selectProps.explanation}
             maxLength={selectProps.maxLength}
             onChange={onSearchValueChange}
@@ -81,6 +83,7 @@ export const SearchControl: typeof components.Control = (props) => {
             onClick={menuToggle}
             value={searchValue}
             label={selectProps.inputLabel}
+            className='MyUI-SelectInput'
             endIcon={
               <div className={classNames(styles['Select--icon-container'])}>
                 {isMenuOpen ? <DropdownArrowIconUp /> : <DropdownArrowIconDown />}

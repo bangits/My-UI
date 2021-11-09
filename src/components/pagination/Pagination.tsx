@@ -88,7 +88,7 @@ const Pagination: FC<PaginationProps> = ({
             renderOnZeroPageCount={null}
           />
         )}
-        {showJumpToPage && <PaginationInput setGoToPage={setGoToPage} />}
+        {showJumpToPage && <PaginationInput pageCount={page} setGoToPage={setGoToPage} />}
       </div>
     </div>
   );

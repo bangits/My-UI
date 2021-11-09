@@ -199,7 +199,7 @@
       }
       .react-datepicker__day.react-datepicker__day--outside-month:hover {
         @include theme(background-color, primary, $opacity: 0.1);
-        @include theme(color, primary--gray, $opacity: 0.5);
+        @include theme(color, primary);
       }
     }
 

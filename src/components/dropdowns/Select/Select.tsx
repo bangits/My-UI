@@ -146,6 +146,7 @@ function Select<
   return (
     <ReactSelect
       {...selectProps}
+      captureMenuScroll={false}
       onChange={onChange}
       classNamePrefix='react-select'
       value={transformedValue === undefined ? selectedOptions : transformedValue}

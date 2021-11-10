@@ -18,7 +18,7 @@ export const MenuList: typeof components.MenuList = (props) => {
       <components.MenuList {...props}>
         {arrayOfChildrens.find((child) => child.props.value === '*')}
 
-        <Scroll height={'25rem'} className={styles.SelectScroll}>
+        <Scroll height={props.isMulti ? '26rem' : '28.8rem'} className={styles.SelectScroll}>
           {arrayOfChildrens.filter((child) => child.props.value !== '*')}
         </Scroll>
 

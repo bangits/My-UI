@@ -118,6 +118,10 @@
             border-radius: 50%;
             cursor: pointer;
           }
+
+          li.disabled {
+            display: none;
+          }
         }
       }
 

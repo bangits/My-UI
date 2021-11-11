@@ -20,10 +20,8 @@ export const MenuList: typeof components.MenuList = (props) => {
           (child) => (child as { props: { value: string } }).props.value === selectProps.selectAllValue
         )}
 
-        <Scroll height='25rem' className={styles.SelectScroll}>
-          {arrayOfChildrens.filter(
-            (child) => (child as { props: { value: string } }).props.value !== selectProps.selectAllValue
-          )}
+        <Scroll height={props.isMulti ? '26rem' : '28.8rem'} className={styles.SelectScroll}>
+          {arrayOfChildrens.filter((child) => child.props.value !== '*')}
         </Scroll>
 
         {selectProps.clearButton && (

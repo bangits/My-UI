@@ -31,11 +31,11 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
       {options &&
         options.map((option) => (
           <div className={styles.SubTabWrapper}>
-            {option.count !== 0 && (
+            {/* {option.count !== 0 && (
               <div className={styles.SubTabCount}>
                 {option.count > 0 && option.count <= 999 ? option.count : '999+'}
               </div>
-            )}
+            )} */}
             <button
               key={option.value}
               onClick={() => (!value ? onActiveChange(option.value) : null)}

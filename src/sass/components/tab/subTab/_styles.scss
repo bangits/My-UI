@@ -1,5 +1,23 @@
 @mixin generate-subTab-styles {
   .SubTab {
-    // border: 1px solid red;
+    .SubTabWrapper {
+      min-width: getTabSizes(sub-tab-wrapper-width);
+      height: getTabSizes(sub-tab-wrapper-height);
+      width: fit-content;
+      width: -moz-fit-content;
+      box-sizing: border-box;
+
+      button {
+        background-color: transparent;
+        width: 100%;
+        border-radius: getTabSizes(sub-tabs-button-border-radius);
+        padding: getTabSizes(sub-tabs-button-padding);
+        font-size: getTabSizes(sub-tabs-button-font-size);
+        @include theme(border, black-color, solid 0.1rem);
+        @include theme(color, black-color);
+        cursor: pointer;
+        text-transform: capitalize;
+      }
+    }
   }
 }

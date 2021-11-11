@@ -1,20 +1,11 @@
 $subTab-sizes: (
-  // tab-container-width: calculateRem(946px),
-  // tab-container-heigth: calculateRem(48px),
-  // tab-container-border-radius: calculateRem(24px),
-  // tab-button-bg-width: calculateRem(555.33px),
-  // tab-button-bg-height: calculateRem(36px),
-  // tab-button-bg-border-radius: calculateRem(18px),
-  // tab-button-bg-position: calculateRem(6px),
-  // tab-button-bg-padding: calculateRem(10px) calculateRem(24px) calculateRem(9px) calculateRem(24px),
-  // tab-button-active-font-weight: 500,
-  // tab-active-transition: 300ms
+  sub-tab-wrapper-width: calculateRem(71px),
+  sub-tab-wrapper-height: calculateRem(32px),
+  sub-tabs-button-border-radius: calculateRem(18px),
+  sub-tabs-button-padding: calculateRem(8px) calculateRem(16px),
+  sub-tabs-button-font-size: calculateRem(14px)
 );
 
 @function getTabSizes($property) {
-  @return map-get($tab-sizes, $property);
+  @return map-get($subTab-sizes, $property);
 }
-
-// $tab-colors: (
-//   tab-background-color: #f9f9f9
-// );

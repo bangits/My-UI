@@ -1,5 +1,6 @@
 @mixin generate-subTab-styles {
   .SubTab {
+    @include flex;
     .SubTabWrapper {
       min-width: getTabSizes(sub-tab-wrapper-width);
       height: getTabSizes(sub-tab-wrapper-height);
@@ -8,6 +9,7 @@
       box-sizing: border-box;
       display: flex;
       position: relative;
+      margin-right: getTabSizes(sub-tabs-margin-right);
       .BadgeWrapper {
         position: absolute;
         width: 100%;

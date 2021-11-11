@@ -28,9 +28,7 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
     [active]
   );
   return (
-    <div
-      className={classNames(styles.SubTab, className)}
-      style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+    <div className={classNames(styles.SubTab, className)}>
       {options &&
         options.map((option) => (
           <div className={styles.SubTabWrapper}>

@@ -22,7 +22,7 @@ const Badge: FC<BadgeProps> = ({ quantity, children, className, badgeSize = 'ms'
           [styles.BadgeNumberSs]: badgeSize === 'ss'
         })}>
         {' '}
-        {quantity > 0 && quantity <= 999 ? quantity : '999+'}
+        {quantity > 0 && quantity <= 99 ? quantity : '99+'}
       </span>
     </div>
   );

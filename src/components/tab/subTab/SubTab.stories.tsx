@@ -17,10 +17,7 @@ export const Default = () => {
         { title: 'Player KPIs', value: 2, badgeCount: 15 },
         { title: 'Documents', value: 3, badgeCount: 0 },
         { title: 'Messages', value: 4, badgeCount: 345 },
-        { title: 'Notes', value: 5, badgeCount: 0 },
-        { title: 'Game Image', value: 6, badgeCount: 1 },
-        { title: 'Game Data', value: 7, badgeCount: 999 },
-        { title: 'Game Name', value: 8, badgeCount: 99999 }
+        { title: 'Notes', value: 5, badgeCount: 99 }
       ])}
       defaultValue={number('defaultValue', 2)}
       onChange={action('onChange')}

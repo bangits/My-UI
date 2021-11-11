@@ -34,18 +34,15 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
       {options &&
         options.map((option) => (
           <div className={styles.SubTabWrapper}>
-            {option.badgeCount !== 0 && (
-              <Badge
-                badgeSize='ss'
-                quantity={option.badgeCount > 0 && option.badgeCount <= 999 ? option.badgeCount : +'999+'}
-                badgeStyle={styles.s}
-              />
-            )}
-            {/* {option.count !== 0 && (
-              <div className={styles.SubTabCount}>
-                {option.count > 0 && option.count <= 999 ? option.count : '999+'}
-              </div>
-            )} */}
+            <div className={styles.BadgeWrapper}>
+              {option.badgeCount !== 0 && (
+                <Badge
+                  badgeSize='ss'
+                  quantity={option.badgeCount > 0 && option.badgeCount <= 999 ? option.badgeCount : +'999+'}
+                  badgeStyle={styles.s}
+                />
+              )}
+            </div>
             <button
               key={option.value}
               onClick={() => (!value ? onActiveChange(option.value) : null)}

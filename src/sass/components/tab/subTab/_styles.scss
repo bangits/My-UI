@@ -6,7 +6,17 @@
       width: fit-content;
       width: -moz-fit-content;
       box-sizing: border-box;
-
+      display: flex;
+      position: relative;
+      .BadgeWrapper {
+        position: absolute;
+        width: 100%;
+        div {
+          position: absolute;
+          right: 0;
+          top: getTabSizes(sub-tabs-badge-top);
+        }
+      }
       button {
         background-color: transparent;
         width: 100%;

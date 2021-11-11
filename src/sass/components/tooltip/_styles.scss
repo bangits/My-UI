@@ -1,69 +1,45 @@
 @mixin generate-tooltip-styles {
-  .TooltipWrapper {
+  .TooltipContainer {
     position: relative;
-    box-sizing: border-box;
-    padding: getTooltipSizes(tooltip-wrapper-padding);
-    border-radius: getTooltipSizes(tooltip-wrapper-border-radius);
-    max-width: getTooltipSizes(tooltip-wrapper-max-width);
-    min-width: getTooltipSizes(tooltip-wrapper-width);
-    min-height: getTooltipSizes(tooltip-wrapper-height);
-    width: fit-content;
-    width: -moz-fit-content; //for Mozilla
-    @include flex(center, center);
-    text-align: left;
-    word-break: break-all;
 
-    &::after {
-      content: '';
-      display: block;
+    .TooltipWrapper {
       position: absolute;
-    }
+      box-sizing: border-box;
+      padding: getTooltipSizes(tooltip-wrapper-padding);
+      border-radius: getTooltipSizes(tooltip-wrapper-border-radius);
+      max-width: getTooltipSizes(tooltip-wrapper-max-width);
+      min-width: getTooltipSizes(tooltip-wrapper-width);
+      min-height: getTooltipSizes(tooltip-wrapper-height);
+      width: fit-content;
+      width: -moz-fit-content; //for Mozilla
+      @include flex(center, center);
+      text-align: left;
+      word-break: break-all;
 
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-    }
-  }
-
-  .Tooltip-top {
-    &:before {
-      top: getTooltipSizes(tooltip-triangle-position-top);
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-left: getTooltipSizes(tolltip-triangle-border-width) solid transparent;
-      border-right: getTooltipSizes(tolltip-triangle-border-width) solid transparent;
-      @include theme(border-bottom, primary, solid 0.5rem);
+      .TooltipTriangle {
+        position: absolute;
+      }
     }
   }
 
-  .Tooltip-right {
-    &::after {
-      left: 100%;
-      border-top: getTooltipSizes(tolltip-triangle-border-width) solid transparent;
-      border-bottom: getTooltipSizes(tolltip-triangle-border-width) solid transparent;
-      @include theme(border-left, primary, solid 0.5rem);
-    }
+  .Tooltip-top .TooltipTriangle {
+    top: -7px;
   }
 
-  .Tooltip-bottom {
-    &:after {
-      top: 100%;
-      border-left: getTooltipSizes(tolltip-triangle-border-width) solid transparent;
-      border-right: getTooltipSizes(tolltip-triangle-border-width) solid transparent;
-      @include theme(border-top, primary, solid 0.5rem);
-    }
+  .Tooltip-right .TooltipTriangle {
+    right: -9px;
+    transform: rotate(90deg);
   }
 
-  .Tooltip-left {
-    &:after {
-      right: 100%;
-      border-top: getTooltipSizes(tolltip-triangle-border-width) solid transparent;
-      border-bottom: getTooltipSizes(tolltip-triangle-border-width) solid transparent;
-      @include theme(border-right, primary, solid 0.5rem);
-    }
+  .Tooltip-bottom .TooltipTriangle {
+    bottom: -8px;
+    transform: rotate(180deg);
   }
 
+  .Tooltip-left .TooltipTriangle {
+    left: -9px;
+    transform: rotate(-90deg);
+  }
   @each $color in $base-colors {
     .TooltipColor--#{$color} {
       @include getTooltipStyles($color);

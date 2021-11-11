@@ -1,4 +1,4 @@
-import { number, withKnobs } from '@storybook/addon-knobs';
+import { number, withKnobs, text } from '@storybook/addon-knobs';
 import React from 'react';
 import AvatarCard from './AvatarCard';
 
@@ -9,5 +9,10 @@ export default {
 };
 
 export const Default = () => {
-  return <AvatarCard></AvatarCard>;
+  return (
+    <AvatarCard
+      imageSize={text('imageSize', 'md')}
+      avatarImg={text('avatarImg', 'https://avatars.design/wp-content/uploads/2016/09/28_GIF.gif')}
+    />
+  );
 };

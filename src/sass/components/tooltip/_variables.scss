@@ -8,7 +8,12 @@ $tooltip-sizes: (
   tooltip-triangle-position-top: calculateRem(-7px),
   tooltip-triangle-position-right: calculateRem(-9px),
   tooltip-triangle-position-bottom: calculateRem(-8px),
-  tooltip-triangle-position-left: calculateRem(-9px)
+  tooltip-triangle-position-left: calculateRem(-9px),
+  tooltip-offset: calculateRem(-8px)
+);
+
+$tooltip-colors: (
+  tooltip-color: color(white)
 );
 
 @function getTooltipSizes($property) {

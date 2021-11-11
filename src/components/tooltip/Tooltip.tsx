@@ -1,28 +1,45 @@
 import { Triangle } from '@/icons';
 import { Typography } from '@/my-ui-core';
 import classNames from 'classnames';
-import React from 'react';
+import React, { FC, useState, ReactNode } from 'react';
 import styles from './Tooltip.module.scss';
+import { IComponent, UIColors } from '@/types';
 
-const Tooltip = () => {
+export interface TooltipProps extends IComponent {
+  text: string;
+  children: ReactNode;
+  variant?: string;
+  color?: UIColors;
+}
+
+const Tooltip: FC<TooltipProps> = ({ text, children, variant = 'left', color = 'primary' }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
   return (
     <div className={styles.TooltipContainer}>
-      <div
-        className={classNames(styles.TooltipWrapper, styles['TooltipColor--primary'], styles['Tooltip-left'])}
-        style={{ marginTop: '3rem' }}>
-        <div className={styles.TooltipTriangle}>
-          <Triangle />
+      {showTooltip && (
+        <div
+          className={classNames(styles.TooltipWrapper, styles[`TooltipColor--${color}`], styles[`Tooltip-${variant}`])}>
+          <div className={styles.TooltipTriangle}>
+            <Triangle />
+          </div>
+          <Typography component='span' variant='p5'>
+            {text}
+          </Typography>
         </div>
-        <Typography component='span' variant='p5'>
-          Edit
-        </Typography>
-      </div>
+      )}
 
-      <button>Click me</button>
+      <div
+        onMouseOver={() => {
+          setShowTooltip(true);
+        }}
+        onMouseOut={() => {
+          setShowTooltip(false);
+        }}>
+        {children}
+      </div>
     </div>
   );
 };
 
 export default Tooltip;
-
-//Remove styles

@@ -23,21 +23,21 @@
   }
 
   .Tooltip-top .TooltipTriangle {
-    top: -7px;
+    top: getTooltipSizes(tooltip-triangle-position-top);
   }
 
   .Tooltip-right .TooltipTriangle {
-    right: -9px;
+    right: getTooltipSizes(tooltip-triangle-position-top);
     transform: rotate(90deg);
   }
 
   .Tooltip-bottom .TooltipTriangle {
-    bottom: -8px;
+    bottom: getTooltipSizes(tooltip-triangle-position-bottom);
     transform: rotate(180deg);
   }
 
   .Tooltip-left .TooltipTriangle {
-    left: -9px;
+    left: getTooltipSizes(tooltip-triangle-position-left);
     transform: rotate(-90deg);
   }
   @each $color in $base-colors {

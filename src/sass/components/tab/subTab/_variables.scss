@@ -1,0 +1,20 @@
+$subTab-sizes: (
+  // tab-container-width: calculateRem(946px),
+  // tab-container-heigth: calculateRem(48px),
+  // tab-container-border-radius: calculateRem(24px),
+  // tab-button-bg-width: calculateRem(555.33px),
+  // tab-button-bg-height: calculateRem(36px),
+  // tab-button-bg-border-radius: calculateRem(18px),
+  // tab-button-bg-position: calculateRem(6px),
+  // tab-button-bg-padding: calculateRem(10px) calculateRem(24px) calculateRem(9px) calculateRem(24px),
+  // tab-button-active-font-weight: 500,
+  // tab-active-transition: 300ms
+);
+
+@function getTabSizes($property) {
+  @return map-get($tab-sizes, $property);
+}
+
+// $tab-colors: (
+//   tab-background-color: #f9f9f9
+// );

@@ -19,7 +19,6 @@ export const TableCell: FC<TableCellProps> = ({
   className,
   ...props
 }) => {
-  console.log(align);
   return (
     <Component
       className={classNames(styles.TableCell, styles[`TableCell--${color}`], styles[`TableCell--${align}`], className)}

@@ -16,10 +16,14 @@ export const MenuList: typeof components.MenuList = (props) => {
       {selectProps.dropdown && <DropdownSearch selectProps={selectProps} />}
 
       <components.MenuList {...props}>
-        {arrayOfChildrens.find((child) => child.props.value === '*')}
+        {arrayOfChildrens.find(
+          (child) => (child as { props: { value: string } }).props.value === selectProps.selectAllValue
+        )}
 
         <Scroll height='25rem' className={styles.SelectScroll}>
-          {arrayOfChildrens.filter((child) => child.props.value !== '*')}
+          {arrayOfChildrens.filter(
+            (child) => (child as { props: { value: string } }).props.value !== selectProps.selectAllValue
+          )}
         </Scroll>
 
         {selectProps.clearButton && (

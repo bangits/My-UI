@@ -1,13 +1,6 @@
 @mixin generate-sidebar-styles {
-  .SidebarWrapper--fixed {
-    position: fixed;
-    width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
-    height: map-get($sidebar-sizes, sidebar-height);
-  }
-  .SidebarWrapper--static {
+  .SidebarWrapper {
     position: static;
-    /*     min-width: map-get($sidebar-sizes, sidebar-collapsed-min-width);
- */
     height: map-get($sidebar-sizes, sidebar-height);
   }
 
@@ -24,6 +17,14 @@
     transition: 0.3s;
     /* overflow: hidden;
     overflow-y: scroll; */
+
+    &--fixed {
+      position: fixed;
+    }
+
+    &--static {
+      position: static;
+    }
 
     &--logo {
       margin: map-get($sidebar-sizes, sidebar-logo-collapsed-margin);
@@ -83,15 +84,9 @@
     }
 
     &--closed {
-      position: absolute;
-      z-index: map-get($sidebar-sizes, sidebar-z-index);
-      display: flex;
-      flex-direction: column;
       width: map-get($sidebar-sizes, sidebar-min-width);
       height: map-get($sidebar-sizes, sidebar-height);
       background-color: map-get($sidebar-colors, sidebar-background-color);
-      box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
-      transition: 0.3s;
 
       &::before {
         position: absolute;

@@ -3,11 +3,21 @@
   max-width: 124.6rem;
 }
 
-.TableContainer {
-  border-collapse: collapse;
+.TableScroll {
   box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
   border-radius: 1.6rem;
+}
+
+.TableContainer {
+  border-collapse: collapse;
   width: 100%;
+  background-color: #fff;
+
+  opacity: 0;
+
+  &--ready {
+    opacity: 1;
+  }
 
   .TableHead tr {
     min-height: 5.5rem;
@@ -36,7 +46,7 @@
           margin: 0;
           background: #eaecf6;
           height: 100%;
-          max-width: 16.3rem;
+          max-width: 14rem;
         }
       }
 

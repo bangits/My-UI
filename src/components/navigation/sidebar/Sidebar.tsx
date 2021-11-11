@@ -27,13 +27,12 @@ const Sidebar: FC<SidebarProps> = ({ width, height, color, position, collapsedWi
   }, [sidebar]);
 
   return (
-    <div
-      style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem`, height }}
-      className={classNames({ [styles[`SidebarWrapper--${position}`]]: position })}>
+    <div style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem`, height }}>
       <div
         className={classNames(styles.SidebarBase, {
           [styles['SidebarBase--closed']]: sidebar,
-          [styles[`SidebarBase--${color}`]]: color
+          [styles[`SidebarBase--${color}`]]: color,
+          [styles[`SidebarBase--${position}`]]: position
         })}
         style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem`, height }}>
         <div className={classNames(styles['SidebarBase--logo'])}>{logoSrc && <img src={logoSrc} alt='Logo' />}</div>

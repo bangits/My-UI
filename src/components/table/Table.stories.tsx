@@ -63,7 +63,8 @@ export const Default = () => {
         },
         {
           Header: 'Version',
-          accessor: 'v'
+          accessor: 'v',
+          maxWidth: '10rem'
         },
         {
           Header: 'Release date and time',
@@ -72,7 +73,8 @@ export const Default = () => {
         },
         {
           Header: 'User status',
-          accessor: 'r'
+          accessor: 'r',
+          disableSortBy: true
         }
       ])}
       actions={[

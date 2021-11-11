@@ -7,14 +7,14 @@ export default function selectionHook<T extends ObjectMock>(hooks: Hooks<T>) {
     {
       id: 'selection',
       Header: ({ getToggleAllRowsSelectedProps }: { getToggleAllRowsSelectedProps: () => CheckboxProps }) => (
-        <div>
+        <>
           <Checkbox {...getToggleAllRowsSelectedProps()} />
-        </div>
+        </>
       ),
       Cell: ({ row }) => (
-        <div>
+        <>
           <Checkbox {...row.getToggleRowSelectedProps()} />
-        </div>
+        </>
       ),
       disableSortBy: true
     },

@@ -1,0 +1,4 @@
+@mixin getTooltipStyles($color-name) {
+  @include theme(background-color, #{$color-name});
+  @include theme(color, #{$color-name}--color);
+}

@@ -1,0 +1,13 @@
+$tooltip-sizes: (
+  tooltip-wrapper-width: calculateRem(76px),
+  tooltip-wrapper-max-width: calculateRem(349px),
+  tooltip-wrapper-height: calculateRem(28.02px),
+  tooltip-wrapper-padding: 0 calculateRem(8px) 0 calculateRem(8px),
+  tooltip-wrapper-border-radius: calculateRem(2px),
+  tolltip-triangle-border-width: calculateRem(5px),
+  tooltip-triangle-position-top: calculateRem(-2px)
+);
+
+@function getTooltipSizes($property) {
+  @return map-get($tooltip-sizes, $property);
+}

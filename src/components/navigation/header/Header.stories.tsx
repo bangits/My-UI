@@ -11,7 +11,7 @@ export default {
 export const Default = () => {
   return (
     <Header
-      notificationProps={{ icon: <NotificationIcon />, quantity: number('quantity', 7) }}
+      notificationProps={{ children: <NotificationIcon />, quantity: number('quantity', 7) }}
       avatarProps={{
         imageSource: text('imageSource', 'https://avatars.design/wp-content/uploads/2016/09/28_GIF.gif'),
         avatarLabel: text('avatarLabel', 'Evgenia'),

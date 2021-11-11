@@ -3,11 +3,14 @@ $badge-sizes: (
   badge-height: calculateRem(24px),
   badge-number-position-top: calculateRem(-3px),
   badge-number-position-left: calculateRem(11.8px),
-  badge-number-width: calculateRem(22.2px),
-  badge-number-height: calculateRem(22.2px),
-  badge-number-size: calculateRem(8px),
+  badge-number-width-ms: calculateRem(22.2px),
+  badge-number-height-ms: calculateRem(22.2px),
+  badge-number-size-ms: calculateRem(8px),
   badge-number-fontWeight: 500,
-  badge-number-borderRadius: 100%
+  badge-number-borderRadius: 100%,
+  badge-number-width-ss: calculateRem(20px),
+  badge-number-height-ss: calculateRem(20px),
+  badge-number-size-ss: calculateRem(9px)
 );
 
 @function getBadgeSizes($property) {

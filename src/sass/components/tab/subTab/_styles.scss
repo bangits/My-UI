@@ -17,6 +17,17 @@
         @include theme(color, black-color);
         cursor: pointer;
         text-transform: capitalize;
+
+        &:hover {
+          @include theme(background-color, primary--lighter);
+          @include theme(color, primary);
+          @include theme(border-color, primary);
+        }
+        &.Selected {
+          @include theme(background-color, primary--lighter);
+          @include theme(color, primary);
+          @include theme(border-color, primary);
+        }
       }
     }
   }

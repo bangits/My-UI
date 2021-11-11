@@ -27,7 +27,9 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
     [active]
   );
   return (
-    <div className={classNames(styles.SubTab, className)}>
+    <div
+      className={classNames(styles.SubTab, className)}
+      style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
       {options &&
         options.map((option) => (
           <div className={styles.SubTabWrapper}>
@@ -40,7 +42,7 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
               key={option.value}
               onClick={() => (!value ? onActiveChange(option.value) : null)}
               className={classNames(styles.SubTabButton, {
-                [styles.Active]: option.value === value || option.value === active
+                [styles.Selected]: option.value === value || option.value === active
               })}>
               {option.title}
             </button>

@@ -24,3 +24,5 @@ const Tooltip = () => {
 };
 
 export default Tooltip;
+
+//Remove styles

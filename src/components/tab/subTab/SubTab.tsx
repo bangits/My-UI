@@ -3,12 +3,13 @@ import styles from './SubTab.module.scss';
 import classNames from 'classnames';
 import { IComponent } from '@/types';
 import { Typography } from '@/my-ui-core';
+import { Badge } from '@/components';
 
 export interface SubTabProps extends IComponent {
   options?: {
     title: string;
     value: number;
-    count: number;
+    badgeCount: number;
   }[];
   className?: string;
   defaultValue?: number;
@@ -31,10 +32,12 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
       {options &&
         options.map((option) => (
           <div className={styles.SubTabWrapper}>
-            {option.count !== 0 && (
-              <div className={styles.SubTabCount}>
-                {option.count > 0 && option.count <= 999 ? option.count : '999+'}
-              </div>
+            {option.badgeCount !== 0 && (
+              <Badge
+                badgeSize='ss'
+                quantity={option.badgeCount > 0 && option.badgeCount <= 999 ? option.badgeCount : +'999+'}
+                badgeStyle={styles.s}
+              />
             )}
             <button
               key={option.value}

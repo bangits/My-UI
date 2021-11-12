@@ -13,15 +13,19 @@ export interface TagProps extends IComponent {
   handleClick?: () => void;
 }
 
-const Tag: FC<TagProps> = ({ title, closeIcon, inactive, color = 'primary', handleClick }) => {
+const Tag: FC<TagProps> = ({ title, closeIcon, inactive, color = 'primary', handleClick, className }) => {
   return (
     <>
       <div
-        className={classNames(styles.Tag, {
-          [styles[`Tag--icon`]]: closeIcon,
-          [styles[`Tag--${color}`]]: !inactive,
-          [styles.TagText]: closeIcon
-        })}>
+        className={classNames(
+          styles.Tag,
+          {
+            [styles[`Tag--icon`]]: closeIcon,
+            [styles[`Tag--${color}`]]: !inactive,
+            [styles.TagText]: closeIcon
+          },
+          className
+        )}>
         <Typography component='span' variant='p4' className={classNames(styles.TagText)}>
           {title}
         </Typography>

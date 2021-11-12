@@ -1,0 +1,18 @@
+$avatarcard-sizes: (
+  avatar-card-wrapper-width: calculateRem(40px),
+  avatar-card-wrapper-height: calculateRem(40px),
+  avatar-card-small-wrapper-width: calculateRem(24px),
+  avatar-card-small-wrapper-height: calculateRem(24px),
+  avatar-offline-state-width: calculateRem(28px),
+  avatar-offline-state-height: calculateRem(28px),
+  avatar-offline-border-radius: 50%,
+  avatar-offline-padding: calculateRem(2px),
+  avatar-status-width: calculateRem(8px),
+  avatar-status-heigth: calculateRem(8px),
+  avatar-status-border-radius: 50%,
+  avatar-position: calculateRem(19px)
+);
+
+@function geAvatarCardSizes($property) {
+  @return map-get($avatarcard-sizes, $property);
+}

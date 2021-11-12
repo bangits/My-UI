@@ -1,5 +1,12 @@
 @mixin generate-popup-styles {
   .PopUpWrapper {
-    position: relative;
+    position: fixed;
+    height: 100%;
+    .PopUp {
+      @include center-absolute();
+    }
+    .Overlay {
+      @include theme(background-color, popup-overlay-bg, $opacity: 0.5);
+    }
   }
 }

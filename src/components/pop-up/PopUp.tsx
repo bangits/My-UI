@@ -4,7 +4,7 @@ import styles from './PopUp.module.scss';
 const PopUp = () => {
   return (
     <div className={styles.PopUpWrapper}>
-      <div></div>
+      <div className={styles.PopUp}></div>
       <div className={styles.Overlay}></div>
     </div>
   );

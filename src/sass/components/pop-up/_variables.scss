@@ -1,5 +1,9 @@
 $popup-sizes: ();
 
+$popup-colors: (
+  popup-overlay-bg: color(dark)
+);
+
 @function getPopUpSizes($property) {
   @return map-get($popup-sizes, $property);
 }

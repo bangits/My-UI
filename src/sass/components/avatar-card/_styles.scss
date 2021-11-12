@@ -1,43 +1,61 @@
 @mixin generate-avatarcard-styles {
-  .AvatarMediumCardWrapper {
+  .AvatarWrapper {
     img {
+      border-radius: geAvatarCardSizes(avatar-status-border-radius);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .AvatarOfflineState {
+      width: geAvatarCardSizes(avatar-offline-state-width);
+      height: geAvatarCardSizes(avatar-offline-state-height);
+      @include flex(center, center);
+      border: solid 1px #4f6c92;
+      border-radius: geAvatarCardSizes(avatar-offline-border-radius);
+      padding: geAvatarCardSizes(avatar-offline-padding);
+      box-sizing: border-box;
+      position: relative;
+
+      .AvatarStateStatus {
+        width: geAvatarCardSizes(avatar-status-width);
+        height: geAvatarCardSizes(avatar-status-heigth);
+        background-color: #4f6c92;
+        border-radius: geAvatarCardSizes(avatar-status-border-radius);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    .AvatarOnlineState {
+      width: geAvatarCardSizes(avatar-offline-state-width);
+      height: geAvatarCardSizes(avatar-offline-state-height);
+      @include flex(center, center);
+      border: solid 1px #00b21e;
+      border-radius: geAvatarCardSizes(avatar-offline-border-radius);
+      padding: geAvatarCardSizes(avatar-offline-padding);
+      box-sizing: border-box;
+      position: relative;
+
+      .AvatarStateStatus {
+        width: geAvatarCardSizes(avatar-status-width);
+        height: geAvatarCardSizes(avatar-status-heigth);
+        background-color: #00b21e;
+        border-radius: geAvatarCardSizes(avatar-status-border-radius);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    .AvatarMediumCardWrapper {
       width: geAvatarCardSizes(avatar-card-wrapper-width);
       height: geAvatarCardSizes(avatar-card-wrapper-height);
-      object-fit: cover;
-      border-radius: geAvatarCardSizes(avatar-status-border-radius);
     }
-  }
-  .AvatarSmallCardWrapper {
-    img {
+    .AvatarSmallCardWrapper {
       width: geAvatarCardSizes(avatar-card-small-wrapper-width);
       height: geAvatarCardSizes(avatar-card-small-wrapper-height);
-      object-fit: cover;
-      border-radius: geAvatarCardSizes(avatar-status-border-radius);
-    }
-  }
-  .AvatarOfflineState {
-    width: geAvatarCardSizes(avatar-offline-state-width);
-    height: geAvatarCardSizes(avatar-offline-state-height);
-    @include flex(center, center);
-    border: solid 1px #4f6c92;
-    border-radius: geAvatarCardSizes(avatar-offline-border-radius);
-    padding: geAvatarCardSizes(avatar-offline-padding);
-    box-sizing: border-box;
-    position: relative;
-    .AvatarStateStatus {
-      width: geAvatarCardSizes(avatar-status-width);
-      height: geAvatarCardSizes(avatar-status-heigth);
-      background-color: #4f6c92;
-      border-radius: geAvatarCardSizes(avatar-status-border-radius);
-      position: absolute;
-      top: geAvatarCardSizes(avatar-position);
-      left: geAvatarCardSizes(avatar-position);
-    }
-  }
-  .AvatarOnlineState {
-    border: solid 1px #00b21e;
-    .AvatarStateStatus {
-      background-color: #00b21e;
     }
   }
 }

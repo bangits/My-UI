@@ -2,27 +2,27 @@
   .SubTab {
     @include flex;
     .SubTabWrapper {
-      min-width: getTabSizes(sub-tab-wrapper-width);
-      height: getTabSizes(sub-tab-wrapper-height);
+      min-width: getSubTabSizes(sub-tab-wrapper-width);
+      height: getSubTabSizes(sub-tab-wrapper-height);
       width: fit-content;
       width: -moz-fit-content;
       box-sizing: border-box;
       display: flex;
       position: relative;
-      margin-right: getTabSizes(sub-tabs-margin-right);
+      margin-right: getSubTabSizes(sub-tabs-margin-right);
       .BadgeWrapper {
         div {
           position: absolute;
           right: 0;
-          top: getTabSizes(sub-tabs-badge-top);
+          top: getSubTabSizes(sub-tabs-badge-top);
         }
       }
       button {
         background-color: transparent;
         width: 100%;
-        border-radius: getTabSizes(sub-tabs-button-border-radius);
-        padding: getTabSizes(sub-tabs-button-padding);
-        font-size: getTabSizes(sub-tabs-button-font-size);
+        border-radius: getSubTabSizes(sub-tabs-button-border-radius);
+        padding: getSubTabSizes(sub-tabs-button-padding);
+        font-size: getSubTabSizes(sub-tabs-button-font-size);
         @include theme(border, black-color, solid 0.1rem);
         @include theme(color, black-color);
         cursor: pointer;

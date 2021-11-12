@@ -6,13 +6,13 @@ $avatarcard-sizes: (
   avatar-offline-state-width: calculateRem(28px),
   avatar-offline-state-height: calculateRem(28px),
   avatar-offline-border-radius: 50%,
-  avatar-offline-padding: calculateRem(2px),
+  avatar-offline-padding: calculateRem(1px),
   avatar-status-width: calculateRem(8px),
   avatar-status-heigth: calculateRem(8px),
   avatar-status-border-radius: 50%,
   avatar-position: calculateRem(19px)
 );
 
-@function geAvatarCardSizes($property) {
+@function getAvatarCardSizes($property) {
   @return map-get($avatarcard-sizes, $property);
 }

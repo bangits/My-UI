@@ -1,0 +1,74 @@
+@mixin generate-tooltip-styles {
+  .TooltipContainer {
+    position: relative;
+    width: fit-content;
+    width: -moz-fit-content;
+
+    .TooltipWrapper {
+      position: absolute;
+      box-sizing: border-box;
+      padding: getTooltipSizes(tooltip-wrapper-padding);
+      border-radius: getTooltipSizes(tooltip-wrapper-border-radius);
+      max-width: getTooltipSizes(tooltip-wrapper-max-width);
+      min-width: getTooltipSizes(tooltip-wrapper-width);
+      min-height: getTooltipSizes(tooltip-wrapper-height);
+      width: fit-content;
+      width: -moz-fit-content; //for Mozilla
+      @include flex(center, center);
+      text-align: left;
+      word-break: break-all;
+
+      .TooltipTriangle {
+        position: absolute;
+      }
+    }
+  }
+
+  .Tooltip-bottom {
+    bottom: getTooltipSizes(tooltip-offset);
+    left: 50%;
+    transform: translate(-50%, 100%);
+
+    .TooltipTriangle {
+      top: getTooltipSizes(tooltip-triangle-position-top);
+    }
+  }
+
+  .Tooltip-left {
+    left: getTooltipSizes(tooltip-offset);
+    transform: translate(-100%, -50%);
+    top: 50%;
+
+    .TooltipTriangle {
+      right: getTooltipSizes(tooltip-triangle-position-right);
+      transform: rotate(90deg);
+    }
+  }
+
+  .Tooltip-top {
+    top: getTooltipSizes(tooltip-offset);
+    left: 50%;
+    transform: translate(-50%, -100%);
+
+    .TooltipTriangle {
+      bottom: getTooltipSizes(tooltip-triangle-position-bottom);
+      transform: rotate(180deg);
+    }
+  }
+
+  .Tooltip-right {
+    right: getTooltipSizes(tooltip-offset);
+    transform: translate(100%, -50%);
+    top: 50%;
+
+    .TooltipTriangle {
+      left: getTooltipSizes(tooltip-triangle-position-left);
+      transform: rotate(-90deg);
+    }
+  }
+  @each $color in $base-colors {
+    .TooltipColor--#{$color} {
+      @include getTooltipStyles($color);
+    }
+  }
+}

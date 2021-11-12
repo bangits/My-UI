@@ -23,3 +23,4 @@ export { ReactComponent as SettingIcon } from './setting.react.svg';
 export { ReactComponent as ViewIcon } from './view.react.svg';
 export { ReactComponent as ArrowPrev } from './arrow-prev.react.svg';
 export { ReactComponent as ArrowNext } from './arrow-next.react.svg';
+export { ReactComponent as Triangle } from './triangle.react.svg';

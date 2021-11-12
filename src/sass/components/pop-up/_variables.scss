@@ -1,0 +1,5 @@
+$popup-sizes: ();
+
+@function getPopUpSizes($property) {
+  @return map-get($popup-sizes, $property);
+}

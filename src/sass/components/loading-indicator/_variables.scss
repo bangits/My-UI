@@ -1,0 +1,5 @@
+$loadingindicator-sizes: ();
+
+@function getLoadingIndicatorSizes($property) {
+  @return map-get($loadingindicator, $property);
+}

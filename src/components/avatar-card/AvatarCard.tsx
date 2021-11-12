@@ -18,6 +18,7 @@ const AvatarCard: FC<AvatarCardProps> = ({ imageSize = 'md', avatarImg, variant 
     <div className={styles.AvatarWrapper}>
       <div
         className={classNames(
+          styles.AvatarBase,
           {
             [styles.AvatarMediumCardWrapper]: imageSize === 'md',
             [styles.AvatarSmallCardWrapper]: imageSize === 'sm'

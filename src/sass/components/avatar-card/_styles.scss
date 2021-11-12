@@ -1,61 +1,55 @@
 @mixin generate-avatarcard-styles {
   .AvatarWrapper {
     img {
-      border-radius: geAvatarCardSizes(avatar-status-border-radius);
+      border-radius: getAvatarCardSizes(avatar-status-border-radius);
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .AvatarOfflineState {
-      width: geAvatarCardSizes(avatar-offline-state-width);
-      height: geAvatarCardSizes(avatar-offline-state-height);
+    .AvatarBase {
+      width: getAvatarCardSizes(avatar-offline-state-width);
+      height: getAvatarCardSizes(avatar-offline-state-height);
       @include flex(center, center);
-      border: solid 1px #4f6c92;
-      border-radius: geAvatarCardSizes(avatar-offline-border-radius);
-      padding: geAvatarCardSizes(avatar-offline-padding);
-      box-sizing: border-box;
+
+      border-radius: getAvatarCardSizes(avatar-offline-border-radius);
+      padding: getAvatarCardSizes(avatar-offline-padding);
+      box-sizing: content-box;
       position: relative;
 
       .AvatarStateStatus {
-        width: geAvatarCardSizes(avatar-status-width);
-        height: geAvatarCardSizes(avatar-status-heigth);
-        background-color: #4f6c92;
-        border-radius: geAvatarCardSizes(avatar-status-border-radius);
+        width: getAvatarCardSizes(avatar-status-width);
+        height: getAvatarCardSizes(avatar-status-heigth);
+        border-radius: getAvatarCardSizes(avatar-status-border-radius);
         position: absolute;
         bottom: 0;
         right: 0;
+      }
+    }
+
+    .AvatarOfflineState {
+      border: solid 1px #4f6c92;
+
+      .AvatarStateStatus {
+        background-color: #4f6c92;
       }
     }
 
     .AvatarOnlineState {
-      width: geAvatarCardSizes(avatar-offline-state-width);
-      height: geAvatarCardSizes(avatar-offline-state-height);
-      @include flex(center, center);
       border: solid 1px #00b21e;
-      border-radius: geAvatarCardSizes(avatar-offline-border-radius);
-      padding: geAvatarCardSizes(avatar-offline-padding);
-      box-sizing: border-box;
-      position: relative;
 
       .AvatarStateStatus {
-        width: geAvatarCardSizes(avatar-status-width);
-        height: geAvatarCardSizes(avatar-status-heigth);
         background-color: #00b21e;
-        border-radius: geAvatarCardSizes(avatar-status-border-radius);
-        position: absolute;
-        bottom: 0;
-        right: 0;
       }
     }
 
     .AvatarMediumCardWrapper {
-      width: geAvatarCardSizes(avatar-card-wrapper-width);
-      height: geAvatarCardSizes(avatar-card-wrapper-height);
+      width: getAvatarCardSizes(avatar-card-wrapper-width);
+      height: getAvatarCardSizes(avatar-card-wrapper-height);
     }
     .AvatarSmallCardWrapper {
-      width: geAvatarCardSizes(avatar-card-small-wrapper-width);
-      height: geAvatarCardSizes(avatar-card-small-wrapper-height);
+      width: getAvatarCardSizes(avatar-card-small-wrapper-width);
+      height: getAvatarCardSizes(avatar-card-small-wrapper-height);
     }
   }
 }

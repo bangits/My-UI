@@ -69,7 +69,8 @@ export const Default = () => {
         {
           Header: 'Release date and time',
           accessor: 'w',
-          align: 'right'
+          align: 'right',
+          sortingId: 'release'
         },
         {
           Header: 'User status',

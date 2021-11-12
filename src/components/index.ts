@@ -8,4 +8,5 @@ export * from './others';
 export * from './stepper';
 export * from './tab';
 export * from './table';
+export * from './tag';
 export * from './typography';

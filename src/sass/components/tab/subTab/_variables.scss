@@ -8,6 +8,6 @@ $subTab-sizes: (
   sub-tabs-margin-right: calculateRem(8px)
 );
 
-@function getTabSizes($property) {
+@function getSubTabSizes($property) {
   @return map-get($subTab-sizes, $property);
 }

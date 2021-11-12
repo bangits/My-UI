@@ -1,4 +1,8 @@
-$popup-sizes: ();
+$popup-sizes: (
+  pop-up-width: calculateRem(388px),
+  pop-up-height: calculateRem(356px),
+  pop-up-border-radius: calculateRem(8px)
+);
 
 $popup-colors: (
   popup-overlay-bg: color(dark)

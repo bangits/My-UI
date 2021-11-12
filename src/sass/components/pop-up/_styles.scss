@@ -1,12 +1,27 @@
 @mixin generate-popup-styles {
   .PopUpWrapper {
     position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     height: 100%;
-    .PopUp {
-      @include center-absolute();
-    }
-    .Overlay {
-      @include theme(background-color, popup-overlay-bg, $opacity: 0.5);
+    .PopUpWrapperParent {
+      position: relative;
+      .PopUpCointainer {
+        @include center-absolute();
+
+        .PopUp {
+          width: getPopUpSizes(pop-up-width);
+          height: getPopUpSizes(pop-up-height);
+          border-radius: getPopUpSizes(pop-up-border-radius);
+          box-shadow: 0px 0px 5px #00000029;
+          background-color: red;
+        }
+      }
+      .Overlay {
+        @include theme(background-color, popup-overlay-bg, $opacity: 0.5);
+      }
     }
   }
 }

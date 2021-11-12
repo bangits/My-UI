@@ -1,9 +1,9 @@
 import { AlertClose } from '@/icons';
 import { Typography } from '@/my-ui-core';
+import { IComponent } from '@/types';
+import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './Tag.module.scss';
-import classNames from 'classnames';
-import { IComponent } from '@/types';
 
 export interface TagProps extends IComponent {
   title: string;
@@ -13,15 +13,19 @@ export interface TagProps extends IComponent {
   handleClick: () => void;
 }
 
-const Tag: FC<TagProps> = ({ title, closeIcon, inactive, color = 'primary', handleClick }) => {
+const Tag: FC<TagProps> = ({ title, closeIcon, inactive, color = 'primary', handleClick, className }) => {
   return (
     <>
       <div
-        className={classNames(styles.Tag, {
-          [styles[`Tag--icon`]]: closeIcon,
-          [styles[`Tag--${color}`]]: !inactive,
-          [styles.TagText]: closeIcon
-        })}>
+        className={classNames(
+          styles.Tag,
+          {
+            [styles[`Tag--icon`]]: closeIcon,
+            [styles[`Tag--${color}`]]: !inactive,
+            [styles.TagText]: closeIcon
+          },
+          className
+        )}>
         <Typography component='span' variant='p4' className={classNames(styles.TagText)}>
           {title}
         </Typography>

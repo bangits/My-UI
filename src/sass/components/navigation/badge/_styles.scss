@@ -7,14 +7,21 @@
       position: absolute;
       top: getBadgeSizes(badge-number-position-top);
       left: getBadgeSizes(badge-number-position-left);
-      width: getBadgeSizes(badge-number-width);
-      height: getBadgeSizes(badge-number-height);
       @include flex(center, center);
       @include theme(background-color, badge-number-background);
       @include theme(color, badge-number-color);
-      font-size: getBadgeSizes(badge-number-size);
       font-weight: getBadgeSizes(badge-number-fontWeight);
       border-radius: getBadgeSizes(badge-number-borderRadius);
+    }
+    .BadgeNumberMs {
+      width: getBadgeSizes(badge-number-width-ms);
+      height: getBadgeSizes(badge-number-height-ms);
+      font-size: getBadgeSizes(badge-number-size-ms);
+    }
+    .BadgeNumberSs {
+      width: getBadgeSizes(badge-number-width-ss);
+      height: getBadgeSizes(badge-number-height-ss);
+      font-size: getBadgeSizes(badge-number-size-ss);
     }
   }
 }

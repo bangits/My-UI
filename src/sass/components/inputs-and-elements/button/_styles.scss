@@ -20,6 +20,7 @@
   .startIcon,
   .endIcon {
     height: 100%;
+    @include flex(center, center);
   }
 
   .startIcon {

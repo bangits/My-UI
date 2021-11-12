@@ -1,16 +1,16 @@
 import { AlertClose } from '@/icons';
 import { Typography } from '@/my-ui-core';
+import { IComponent, UIColors } from '@/types';
+import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './Tag.module.scss';
-import classNames from 'classnames';
-import { IComponent } from '@/types';
 
 export interface TagProps extends IComponent {
   title: string;
-  closeIcon: boolean;
-  inactive: boolean;
-  color: any;
-  handleClick: () => void;
+  closeIcon?: boolean;
+  inactive?: boolean;
+  color?: UIColors;
+  handleClick?: () => void;
 }
 
 const Tag: FC<TagProps> = ({ title, closeIcon, inactive, color = 'primary', handleClick }) => {

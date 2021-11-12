@@ -39,12 +39,10 @@ export interface Row<T extends ObjectMock> extends UseTableRowProps<T> {
 }
 
 export interface State<T extends ObjectMock> extends TableState<T> {
-  sortBy: [
-    {
-      desc?: boolean;
-      id?: string;
-    }
-  ];
+  sortBy: {
+    desc?: boolean;
+    id?: string;
+  };
 }
 
 export interface TableAction<T> {
@@ -59,6 +57,7 @@ export interface TableProps<T extends ObjectMock> extends IComponent {
     Header: string;
     accessor: string;
     disableSortBy?: boolean;
+    sortingId?: string | number;
   } & CustomColumnProps)[];
   color?: UIColors;
   fetch?: (state: State<T>) => any;
@@ -122,7 +121,18 @@ const Table = <T extends ObjectMock>({
   }, [columns, data]);
 
   useEffect(() => {
-    onFetchDataDebounced(typedState);
+    const transformedState = { ...typedState };
+
+    if (transformedState.sortBy && transformedState.sortBy[0]) {
+      const sortingId = columns.find((c) => c.accessor === transformedState.sortBy[0].id)?.sortingId;
+
+      transformedState.sortBy = {
+        id: sortingId || transformedState.sortBy[0].id,
+        desc: transformedState.sortBy[0].desc
+      };
+    } else transformedState.sortBy = null;
+
+    onFetchDataDebounced(transformedState);
   }, [onFetchDataDebounced, typedState.sortBy]);
 
   if (!tableHeadWidths.length && tableHeadRef.current) return null;
@@ -180,7 +190,7 @@ const Table = <T extends ObjectMock>({
                             ? cell.column.maxWidth
                             : `${tableHeadWidths[index] / 10}rem`
                       }}
-                      align={columns[index - 1]?.align}
+                      align={cell.column.align}
                       color={color}>
                       <div>
                         {cell.column.renderColumn ? cell.column.renderColumn(cell.render('Cell')) : cell.render('Cell')}

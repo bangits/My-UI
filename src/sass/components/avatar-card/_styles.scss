@@ -1,15 +1,19 @@
 @mixin generate-avatarcard-styles {
   .AvatarMediumCardWrapper {
-    width: geAvatarCardSizes(avatar-card-wrapper-width);
-    height: geAvatarCardSizes(avatar-card-wrapper-height);
-
     img {
-      width: 100%;
+      width: geAvatarCardSizes(avatar-card-wrapper-width);
+      height: geAvatarCardSizes(avatar-card-wrapper-height);
+      object-fit: cover;
+      border-radius: geAvatarCardSizes(avatar-status-border-radius);
     }
   }
   .AvatarSmallCardWrapper {
-    width: geAvatarCardSizes(avatar-card-small-wrapper-width);
-    height: geAvatarCardSizes(avatar-card-small-wrapper-height);
+    img {
+      width: geAvatarCardSizes(avatar-card-small-wrapper-width);
+      height: geAvatarCardSizes(avatar-card-small-wrapper-height);
+      object-fit: cover;
+      border-radius: geAvatarCardSizes(avatar-status-border-radius);
+    }
   }
   .AvatarOfflineState {
     width: geAvatarCardSizes(avatar-offline-state-width);

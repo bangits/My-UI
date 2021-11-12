@@ -13,18 +13,11 @@ const AvatarCard: FC<AvatarCardProps> = ({ imageSize = 'md', avatarImg }) => {
   return (
     <>
       <div
-      // style={{ display: 'flex', width: '10%', justifyContent: 'space-around', alignItems: 'center' }}
-      >
-        <div
-          className={classNames({
-            [styles.AvatarMediumCardWrapper]: imageSize === 'md',
-            [styles.AvatarSmallCardWrapper]: imageSize === 'sm'
-          })}>
-          {<img src={avatarImg ? avatarImg : AvatarMdImg} />}
-        </div>
-        {/* <div className={styles.AvatarSmallCardWrapper}>
-          <img src={AvatarSmImg} />
-        </div> */}
+        className={classNames({
+          [styles.AvatarMediumCardWrapper]: imageSize === 'md',
+          [styles.AvatarSmallCardWrapper]: imageSize === 'sm'
+        })}>
+        {<img src={avatarImg ? avatarImg : AvatarMdImg} />}
       </div>
 
       <div

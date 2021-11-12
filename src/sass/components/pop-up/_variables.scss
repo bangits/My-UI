@@ -1,11 +1,16 @@
 $popup-sizes: (
   pop-up-width: calculateRem(388px),
   pop-up-height: calculateRem(356px),
-  pop-up-border-radius: calculateRem(8px)
+  pop-up-padding: calculateRem(40px) 0 calculateRem(24px) 0,
+  pop-up-border-radius: calculateRem(8px),
+  pop-up-span-font: 500,
+  pop-up-btns-margin: calculateRem(81px) 0 calculateRem(24px) 0,
+  pop-up-margin: calculateRem(16px)
 );
 
 $popup-colors: (
-  popup-overlay-bg: color(dark)
+  popup-overlay-bg: color(dark),
+  // popup-label-color: color(#2b3674),
 );
 
 @function getPopUpSizes($property) {

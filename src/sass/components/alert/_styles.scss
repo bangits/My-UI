@@ -15,6 +15,13 @@
     }
     .AlertClose {
       margin-left: getAlertSizes(alert-close-marginLeft);
+      cursor: pointer;
     }
+  }
+
+  .AlertContainer {
+    position: fixed;
+    top: 10px;
+    right: 10px;
   }
 }

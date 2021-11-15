@@ -30,8 +30,8 @@ const LoadingIndicator = () => {
       </div>
       <div className={styles.LoadingIndicatorRectangle} style={{ marginTop: '2rem' }}>
         <svg height='40'>
-          <rect x='1' y='1' rx='4'></rect>
           <rect className={styles.SecondRect} x='1' y='1' rx='4'></rect>
+          <rect x='1' y='1' rx='4'></rect>
         </svg>
       </div>
     </>

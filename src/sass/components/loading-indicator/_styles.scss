@@ -1,4 +1,57 @@
 @mixin generate-loadingindicator-styles {
-  .LoadingIndicatorWrapper {
+  .LoadingIndicatorCircle {
+    position: relative;
+    width: getLoadingIndicatorSizes(base-timer-circle-width);
+    height: getLoadingIndicatorSizes(base-timer-circle-height);
+    &__svg {
+      transform: scaleX(1);
+    }
+
+    &__circle {
+      @include theme(stroke, primary);
+      @include theme(fill, primary, $opacity: 0.04);
+      stroke: transparent;
+    }
+
+    &__path-elapsed {
+      stroke-width: getLoadingIndicatorSizes(path-elapsed-width);
+      transition: all 9s;
+      stroke-width: getLoadingIndicatorSizes(path-elapsed-stroke-width);
+      @include theme(fill, primary, $opacity: 0.04);
+    }
+
+    &__path-remaining {
+      stroke-width: getLoadingIndicatorSizes(path-remaining-width);
+      transform: rotate(90deg);
+      transform-origin: center;
+      transition: 0.9s linear all;
+      fill-rule: nonzero;
+      stroke: #fff;
+      stroke-width: getLoadingIndicatorSizes(path-remaining-stroke-width);
+    }
+
+    &__label {
+      @include flex(center, center);
+      font-size: getLoadingIndicatorSizes(base-timer-label-size);
+    }
+    .LoadingIndicatorCirclePercent {
+      @include center-absolute();
+      @include theme(color, primary);
+    }
+  }
+
+  .LoadingIndicatorRectangle {
+    rect {
+      stroke-width: getLoadingIndicatorSizes(rectangle-stroke-width);
+      stroke: #00b21e;
+      fill: transparent;
+      stroke-dasharray: 394 630;
+      width: getLoadingIndicatorSizes(loading-indicator-rectangle-width);
+      height: getLoadingIndicatorSizes(loading-indicator-rectangle-height);
+    }
+    .SecondRect {
+      stroke: #c6d2e0;
+      stroke-dasharray: 630 630;
+    }
   }
 }

@@ -1,0 +1,5 @@
+$loader-sizes: ();
+
+@function getLoaderSizes($property) {
+  @return map-get($loader--sizes, $property);
+}

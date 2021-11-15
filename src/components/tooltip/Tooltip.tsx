@@ -1,44 +1,72 @@
+import React, { useState, useRef, FC, DetailedReactHTMLElement, ReactHTMLElement, cloneElement } from 'react';
+import Portal from '../../shared/Portal';
+import StyledTooltip from './StyledTooltip';
+import Styles from './Tooltip.module.scss';
+import { UIColors } from '@/types';
+import { Typography } from '@/components';
 import { Triangle } from '@/icons';
-import { Typography } from '@/my-ui-core';
 import classNames from 'classnames';
-import React, { FC, useState, ReactNode } from 'react';
-import styles from './Tooltip.module.scss';
-import { IComponent, UIColors } from '@/types';
+import TooltipPosition, { TooltipPlacement } from './TooltipPosition';
 
-export interface TooltipProps extends IComponent {
+export interface TooltipProps {
+  children: Parameters<typeof cloneElement>[0];
   text: string;
-  children: ReactNode;
-  variant?: string;
+  delay?: number;
   color?: UIColors;
+  space?: number;
+  placement?: TooltipPlacement;
+  disabled?: boolean;
 }
 
-const Tooltip: FC<TooltipProps> = ({ text, children, variant = 'left', color = 'primary' }) => {
-  const [showTooltip, setShowTooltip] = useState(false);
+const Tooltip = ({
+  children,
+  text,
+  delay = 0.01,
+  color,
+  space = 12,
+  placement = 'bottom',
+  disabled = false
+}: TooltipProps) => {
+  const [show, setShow] = useState<0 | 1>(0);
+
+  const posRef = useRef({ x: 0, y: 0 });
+
+  const tooltipRef = useRef();
+
+  const handleMOver = (e) => {
+    setShow(1);
+    posRef.current = TooltipPosition(e.currentTarget, tooltipRef.current, placement, space);
+  };
+
+  const handleMOut = () => setShow(0);
 
   return (
-    <div className={styles.TooltipContainer}>
-      {showTooltip && (
-        <div
-          className={classNames(styles.TooltipWrapper, styles[`TooltipColor--${color}`], styles[`Tooltip-${variant}`])}>
-          <div className={styles.TooltipTriangle}>
-            <Triangle />
-          </div>
-          <Typography component='span' variant='p5'>
-            {text}
-          </Typography>
-        </div>
-      )}
+    <>
+      {disabled
+        ? children
+        : cloneElement(children, {
+            // @ts-ignore
+            onMouseOver: handleMOver,
+            onMouseOut: handleMOut
+          })}
 
-      <div
-        onMouseOver={() => {
-          setShowTooltip(true);
-        }}
-        onMouseOut={() => {
-          setShowTooltip(false);
-        }}>
-        {children}
-      </div>
-    </div>
+      {disabled || (
+        <Portal>
+          <StyledTooltip color={color} delay={delay} ref={tooltipRef} posRef={posRef} show={show}>
+            <div>
+              <div className={classNames(Styles.TooltipTriangle, Styles[`Tooltip-${placement}`])}>
+                <div>
+                  <Triangle />
+                </div>
+              </div>
+              <Typography component='span' variant='p5'>
+                {text}
+              </Typography>
+            </div>
+          </StyledTooltip>
+        </Portal>
+      )}
+    </>
   );
 };
 

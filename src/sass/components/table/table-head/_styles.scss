@@ -1,0 +1,43 @@
+@mixin generate-tableHead-styles {
+  .TableHead {
+    @include flex();
+    background-color: transparent;
+    white-space: nowrap;
+    box-sizing: border-box;
+    font-weight: getTableHeadSizes(table-head-font-weight);
+    font-size: getTableHeadSizes(table-head-font-size);
+    @include theme(color, gray-color);
+    text-transform: uppercase;
+    margin: getTableHeadSizes(table-head-margin);
+    min-height: getTableHeadSizes(table-head-height);
+    padding: 0;
+
+    .TableHeadContainer {
+      @include flex();
+      min-height: getTableHeadSizes(table-head-container-height);
+    }
+
+    &:hover {
+      background-color: transparent;
+    }
+    .IconArrow {
+      @include flex(null, center, $direction: column);
+      min-width: getTableHeadSizes(table-arrow-icon-sizes);
+      min-height: getTableHeadSizes(table-arrow-icon-sizes);
+
+      .IconUp {
+        fill: #7c84ab;
+        margin: getTableHeadSizes(table-icon-up-margin);
+      }
+
+      .IconDown {
+        transform: rotate(180deg);
+        fill: #7c84ab;
+      }
+
+      .IconDisabled {
+        opacity: 0.4;
+      }
+    }
+  }
+}

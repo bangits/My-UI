@@ -1,0 +1,7 @@
+$tablerow-sizes: (
+  font-weight-selected: 700
+);
+
+@function getTableRowSizes($property) {
+  @return map-get($tablerow-sizes, $property);
+}

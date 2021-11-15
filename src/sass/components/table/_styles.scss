@@ -1,6 +1,73 @@
-// @mixin generate-table-styles {
-//   .TableScroll,
-//   .TableContainer {
-//     max-width: getTableSizes(table-container-width);
-//   }
-// }
+@mixin generate-table-styles {
+  .TableScroll,
+  .TableContainer {
+    max-width: getTableSizes(table-container-width);
+  }
+
+  .TableScroll {
+    box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
+    border-radius: getTableSizes(table-scroll-border-radius);
+  }
+
+  .TableContainer {
+    border-collapse: collapse;
+    width: 100%;
+    @include theme(background-color, primary--color);
+    opacity: 0;
+
+    &--ready {
+      opacity: 1;
+    }
+
+    .TableHead tr {
+      min-height: getTableSizes(table-head-row-height);
+      th {
+        &:last-child {
+          svg {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .TableBody {
+      tr {
+        height: getTableSizes(table-body-row-height);
+
+        &:hover {
+          .ActionTableCell {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            background-color: #eaecf6;
+            height: 100%;
+            max-width: getTableSizes(table-action-cell-width);
+            @include flex(center, center);
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    &--withSelection {
+      .TableBody,
+      .TableHead {
+        tr td,
+        tr th {
+          &:first-child {
+            max-width: getTableSizes(table-with-selection-width) !important;
+          }
+        }
+      }
+    }
+
+    .ActionTableCell {
+      display: none;
+    }
+  }
+}

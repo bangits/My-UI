@@ -1,7 +1,9 @@
 import { uniqueIdMaker, useAlertPortal } from '@/helpers';
 import { Alert } from '@/my-ui-core';
+import classNames from 'classnames';
 import React, { forwardRef, useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
 import { AlertProps } from './Alert';
 import styles from './Alert.module.scss';
 import { alert } from './AlertService';
@@ -18,8 +20,11 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
   const { loaded, portalId } = useAlertPortal();
   const [removing, setRemoving] = useState('');
 
+  const [showMessage, setShowMessage] = useState(false);
+
   const removeAlert = useCallback(
     (id) => {
+      setRemoving(id);
       setAlerts(alerts.filter((alert) => alert.id !== id));
     },
     [alerts]
@@ -34,6 +39,7 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
   useEffect(() => {
     //@ts-ignore
     alert.subscribe((alert) => {
+      setShowMessage(true);
       setAlerts([...alerts, { ...alert, id: uniqueIdMaker() }]);
     });
 
@@ -51,12 +57,23 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
       <div className={styles.AlertContainer}>
         {alerts.map((alert) => {
           return (
-            <Alert
-              onClose={() => removeAlert(alert.id)}
-              key={alert.id}
-              icon={alert.icon}
-              alertLabel={alert.alertLabel}
-            />
+            <CSSTransition
+              in={showMessage}
+              timeout={autoCloseDelay || 5000}
+              classNames={{
+                ...styles
+              }}
+              unmountOnExit>
+              <Alert
+                onClose={() => {
+                  setShowMessage(false);
+                  removeAlert(alert.id);
+                }}
+                key={alert.id}
+                icon={alert.icon}
+                alertLabel={alert.alertLabel}
+              />
+            </CSSTransition>
           );
         })}
       </div>,

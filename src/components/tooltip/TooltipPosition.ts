@@ -1,5 +1,3 @@
-import { ReactHTMLElement } from 'react';
-
 export type TooltipPlacement = 'right' | 'bottom' | 'left' | 'top';
 
 const position = (currentPosition: string) => ({
@@ -43,7 +41,7 @@ const getPoint = (element: HTMLElement, tooltip: HTMLElement, placement: Tooltip
     bottom: window.innerHeight - (tooltip.clientHeight + space)
   };
   const elRect = element.getBoundingClientRect();
-  // @ts-ignore
+
   return (function recursive(placement) {
     recurCount++;
     const pos = position(placement);

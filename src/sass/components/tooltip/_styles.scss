@@ -37,7 +37,8 @@
 
       .Tooltip-top {
         left: 50%;
-        transform: translate(-50%, 120%);
+        transform: translate(-50%, 100%);
+        bottom: getTooltipSizes(tooltip-triangle-position-top);
 
         div {
           transform: rotate(180deg);

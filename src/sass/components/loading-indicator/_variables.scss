@@ -1,0 +1,16 @@
+$loadingindicator-sizes: (
+  base-timer-circle-width: calculateRem(40px),
+  base-timer-circle-height: calculateRem(40px),
+  base-timer-label-size: calculateRem(12px),
+  path-elapsed-width: calculateRem(4px),
+  path-elapsed-stroke-width: calculateRem(5px),
+  path-remaining-width: calculateRem(4px),
+  path-remaining-stroke-width: calculateRem(6px),
+  loading-indicator-rectangle-width: calculateRem(280px),
+  loading-indicator-rectangle-height: calculateRem(38px),
+  rectangle-stroke-width: calculateRem(1px)
+);
+
+@function getLoadingIndicatorSizes($property) {
+  @return map-get($loadingindicator-sizes, $property);
+}

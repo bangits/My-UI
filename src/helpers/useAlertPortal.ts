@@ -8,6 +8,8 @@ export const useAlertPortal = () => {
   useEffect(() => {
     const div = document.createElement('div');
     div.id = portalId;
+    //@ts-ignore
+    div.style = 'overflow: hidden;';
     document.getElementsByTagName('body')[0].prepend(div);
 
     setLoaded(true);

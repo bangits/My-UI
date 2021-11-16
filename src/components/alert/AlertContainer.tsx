@@ -1,9 +1,8 @@
 import { uniqueIdMaker, useAlertPortal } from '@/helpers';
 import { Alert } from '@/my-ui-core';
-import classNames from 'classnames';
 import React, { forwardRef, useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { AlertProps } from './Alert';
 import styles from './Alert.module.scss';
 import { alert } from './AlertService';
@@ -19,13 +18,12 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
   const [alerts, setAlerts] = useState<AlertProps[]>([]);
   const { loaded, portalId } = useAlertPortal();
   const [removing, setRemoving] = useState('');
-
   const [showMessage, setShowMessage] = useState(false);
 
   const removeAlert = useCallback(
     (id) => {
-      setRemoving(id);
       setAlerts(alerts.filter((alert) => alert.id !== id));
+      setShowMessage(false);
     },
     [alerts]
   );
@@ -39,8 +37,8 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
   useEffect(() => {
     //@ts-ignore
     alert.subscribe((alert) => {
-      setShowMessage(true);
       setAlerts([...alerts, { ...alert, id: uniqueIdMaker() }]);
+      setShowMessage(true);
     });
 
     if (autoClose && alerts.length) {
@@ -55,27 +53,33 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
   return loaded ? (
     ReactDOM.createPortal(
       <div className={styles.AlertContainer}>
-        {alerts.map((alert) => {
-          return (
-            <CSSTransition
-              in={showMessage}
-              timeout={autoCloseDelay || 5000}
-              classNames={{
-                ...styles
-              }}
-              unmountOnExit>
-              <Alert
-                onClose={() => {
-                  setShowMessage(false);
-                  removeAlert(alert.id);
-                }}
+        <TransitionGroup>
+          {alerts.map((alert) => {
+            return (
+              <CSSTransition
+                in={showMessage}
+                timeout={1000}
+                mountOnEnter
+                unmountOnExit
                 key={alert.id}
-                icon={alert.icon}
-                alertLabel={alert.alertLabel}
-              />
-            </CSSTransition>
-          );
-        })}
+                classNames={{
+                  enter: styles.alertEnter,
+                  enterActive: styles.alertEnterActive,
+                  exit: styles.alertExit,
+                  exitActive: styles.alertExitActive
+                }}>
+                <Alert
+                  onClose={() => {
+                    setShowMessage(false);
+                    removeAlert(alert.id);
+                  }}
+                  icon={alert.icon}
+                  alertLabel={alert.alertLabel}
+                />
+              </CSSTransition>
+            );
+          })}
+        </TransitionGroup>
       </div>,
       document.getElementById(portalId)
     )

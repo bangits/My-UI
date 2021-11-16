@@ -1,5 +1,8 @@
 export { ReactComponent as AlertCheck } from './alertcheck.react.svg';
 export { ReactComponent as AlertClose } from './alertclose.react.svg';
+export { ReactComponent as AlertError } from './alerterror.react.svg';
+export { ReactComponent as AlertInfo } from './alertinfo.react.svg';
+export { ReactComponent as AlertWarning } from './alertwarning.react.svg';
 export { ReactComponent as IconButtonLeft } from './arrow-left.react.svg';
 export { ReactComponent as ArrowNext } from './arrow-next.react.svg';
 export { ReactComponent as ArrowPrev } from './arrow-prev.react.svg';
@@ -16,6 +19,7 @@ export { ReactComponent as EditIcon } from './edit.react.svg';
 export { ReactComponent as EllipseIcon } from './ellipse.react.svg';
 export { ReactComponent as EllipseColorIcon } from './ellipsecolor.react.svg';
 export { ReactComponent as FilterIcon } from './filter.react.svg';
+export { ReactComponent as GoToLivePopUp } from './gotolive.react.svg';
 export { ReactComponent as HomeIcon } from './home.react.svg';
 export { ReactComponent as LoopIcon } from './loop.react.svg';
 export { ReactComponent as NotificationIcon } from './notification.react.svg';

@@ -1,0 +1,12 @@
+$table-sizes: (
+  table-container-width: calculateRem(1246px),
+  table-scroll-border-radius: calculateRem(16px),
+  table-head-row-height: calculateRem(55px),
+  table-body-row-height: calculateRem(51px),
+  table-action-cell-width: calculateRem(140px),
+  table-with-selection-width: calculateRem(18px)
+);
+
+@function getTableSizes($property) {
+  @return map-get($table-sizes, $property);
+}

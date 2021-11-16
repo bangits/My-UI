@@ -1,16 +1,25 @@
-import { AlertCheck, AlertClose } from '@/icons';
+import { AlertClose } from '@/icons';
 import { Typography } from '@/my-ui-core';
-import React from 'react';
+import { IComponent } from '@/types';
+import classNames from 'classnames';
+import React, { FC, ReactNode } from 'react';
 import styles from './Alert.module.scss';
 
-const Alert = () => {
+export interface AlertProps extends IComponent {
+  icon?: ReactNode;
+  onClose?: () => void;
+  alertLabel?: string;
+  id?: string;
+}
+
+const Alert: FC<AlertProps> = ({ icon, alertLabel, onClose, className }) => {
   return (
-    <div className={styles.AlertBase}>
-      <AlertCheck />
+    <div className={classNames(styles.AlertBase, className)}>
+      {icon}
       <Typography variant='p4' className={styles.AlertText}>
-        Game Successfully Added!
+        {alertLabel}
       </Typography>
-      <AlertClose className={styles.AlertClose} />
+      <AlertClose onClick={() => onClose()} className={styles.AlertClose} />
     </div>
   );
 };

@@ -14,15 +14,15 @@ export const Default = () => {
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: 500 }}>
       <Tooltip
         text={text('text', 'tooltip')}
-        variant={optionsKnob(
-          'variant',
+        placement={optionsKnob(
+          'placement',
           {
-            left: 'left',
-            top: 'top',
             bottom: 'bottom',
+            top: 'top',
+            left: 'left',
             right: 'right'
           },
-          'left',
+          'bottom',
           {
             display: 'inline-radio'
           }
@@ -40,7 +40,7 @@ export const Default = () => {
             display: 'inline-radio'
           }
         )}>
-        <Button>Hover me</Button>{' '}
+        <Button>Hover me</Button>
       </Tooltip>
     </div>
   );

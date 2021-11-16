@@ -15,6 +15,56 @@
     }
     .AlertClose {
       margin-left: getAlertSizes(alert-close-marginLeft);
+      cursor: pointer;
+    }
+  }
+
+  .AlertContainer {
+    position: fixed;
+    top: getAlertSizes(alert-animation-position);
+    right: getAlertSizes(alert-animation-position);
+    z-index: 999999999999999999;
+  }
+
+  .alertEnter {
+    animation: show_alert 1s ease forwards;
+  }
+  .alertEnterActive {
+    animation: show_alert 1s ease forwards;
+  }
+  .alertExit {
+    animation: hide_alert 1s ease forwards;
+  }
+  .alertExitActive {
+    animation: hide_alert 1s ease forwards;
+  }
+
+  @keyframes hide_alert {
+    0% {
+      /* transform: translateX(-1rem); */
+    }
+    40% {
+      transform: translateX(0%);
+    }
+    80% {
+      transform: translateX(-10%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  @keyframes show_alert {
+    0% {
+      transform: translateX(100%);
+    }
+    40% {
+      transform: translateX(-10%);
+    }
+    80% {
+      transform: translateX(0%);
+    }
+    100% {
+      /* transform: translateX(-1rem); */
     }
   }
 }

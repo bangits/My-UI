@@ -1,4 +1,4 @@
-import { withKnobs, text, boolean, optionsKnob } from '@storybook/addon-knobs';
+import { boolean, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import Tag from './Tag';
 
 export default {

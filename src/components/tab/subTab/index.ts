@@ -1,1 +1,1 @@
-export { default as SubTab } from './SubTab';
+export { default as SubTab, SubTabProps } from './SubTab';

@@ -58,7 +58,7 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
             return (
               <CSSTransition
                 in={showMessage}
-                timeout={1000}
+                timeout={1500}
                 mountOnEnter
                 unmountOnExit
                 key={alert.id}

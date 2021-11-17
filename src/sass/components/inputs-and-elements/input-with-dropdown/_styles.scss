@@ -1,0 +1,97 @@
+@mixin generate-input-width-dropdown-styles {
+  .InputWithDropdownBase {
+    position: relative;
+
+    &--input {
+      input {
+        padding-left: 77px;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          /* display: none; <- Crashes Chrome on hover */
+          -webkit-appearance: none;
+          margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+
+        &[type='number'] {
+          -moz-appearance: textfield; /* Firefox */
+        }
+      }
+    }
+
+    &--dropdown {
+      position: absolute;
+      height: 38px;
+      top: 6px;
+    }
+
+    &--dropdown-input {
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      width: 53px;
+      height: 38px;
+      padding: 0 0 0 16px;
+      margin: 0;
+      background-color: transparent;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+      }
+
+      &[type='number'] {
+        -moz-appearance: textfield; /* Firefox */
+      }
+    }
+
+    &--select {
+      :global {
+        .react-select__menu {
+          top: 41px;
+        }
+      }
+    }
+
+    &--dropdown-control {
+      @include flex(end, center);
+      min-width: 77px;
+      height: 38px;
+    }
+
+    &--dropdown-control-icon-open,
+    &--dropdown-control-icon-closed {
+      cursor: pointer;
+      color: #505d6e;
+      width: 2.4rem;
+      height: 2.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--dropdown-control-icon-open {
+      transform: rotate(0deg);
+    }
+
+    &--dropdown-control-icon-closed {
+      transform: rotate(180deg);
+    }
+
+    &--dropdown-control-label {
+      color: #505d6e;
+      font-size: 14px;
+
+      &::placeholder {
+        color: #8ea6c1;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .isDropdownActive {
+    display: none;
+  }
+}

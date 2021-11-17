@@ -1,9 +1,9 @@
 import { ReactNode, FC } from 'react';
-import styles from './PopUp.module.scss';
+import styles from './Dialog.module.scss';
 import { Typography } from '@/my-ui-core';
 
 export interface DialogHeaderProps {
-  title: string;
+  title: ReactNode;
   className?: string;
   icon: ReactNode;
 }

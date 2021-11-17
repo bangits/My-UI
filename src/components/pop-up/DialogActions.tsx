@@ -1,20 +1,20 @@
 import { Button, ButtonProps } from '@/my-ui-core';
-import React, { FC } from 'react';
-import styles from './PopUp.module.scss';
+import React, { FC, ReactNode } from 'react';
+import styles from './Dialog.module.scss';
 import classNames from 'classnames';
 
-export interface DialogActions {
+export interface DialogActionsProps {
   showCancelButton?: boolean;
-  cancelButtonText?: string;
+  cancelButtonText?: ReactNode;
   showSubmitButton?: boolean;
-  submitButtonText?: string;
+  submitButtonText?: ReactNode;
   cancelButtonProps?: ButtonProps;
   submitButtonProps?: ButtonProps;
   className?: string;
   onClose?: () => void;
 }
 
-const DialogActions: FC<DialogActions> = ({
+const DialogActions: FC<DialogActionsProps> = ({
   showCancelButton = true,
   cancelButtonText,
   showSubmitButton = true,

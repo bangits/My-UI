@@ -1,6 +1,6 @@
 @mixin generate-popup-styles {
   .PopUp {
-    width: getPopUpSizes(pop-up-width);
+    min-width: getPopUpSizes(pop-up-width);
     height: auto;
     min-height: getPopUpSizes(pop-up-height);
     border-radius: getPopUpSizes(pop-up-border-radius);
@@ -35,7 +35,8 @@
       word-break: break-word;
       p {
         margin-bottom: 0;
-        span {
+        b,
+        strong {
           font-weight: getPopUpSizes(pop-up-span-font);
         }
       }

@@ -1,12 +1,10 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import Dialog from './Dialog';
-import DialogHeader from './DialogHeader';
 import { GoToLivePopUp } from '@/icons';
-import DialogBody from './DialogBody';
-import { Button, Typography } from '@/my-ui-core';
-import DialogActions from './DialogActions';
-import { useState } from 'react';
-import { CSSTransition, Transition } from 'react-transition-group';
+import { Button } from '@/my-ui-core';
+import DialogProvider from './DialogProvider';
+import { dialog } from '.';
+import { action } from '@storybook/addon-actions';
 
 export default {
   component: Dialog,
@@ -15,27 +13,36 @@ export default {
 };
 
 export const Default = () => {
-  const [isOpened, setOpened] = useState(false);
-
-  const toggleOpened = () => setOpened(!isOpened);
-
+  const title = text('title', 'Go to Live');
+  const cancelButtonText = text('cancelButtonText', 'Cancel');
+  const submitButtonText = text('submitButtonText', 'Publish');
   return (
     <>
-      <Button type='button' onClick={toggleOpened}>
+      <Button
+        type='button'
+        onClick={() => {
+          dialog.acceptionDialog({
+            title,
+            description: (
+              <>
+                Do you want to publish <strong>"Albatros"</strong> partner ?
+              </>
+            ),
+            icon: <GoToLivePopUp />,
+            cancelButtonText,
+            submitButtonText,
+            onCancel: action('onCancel'),
+            onSubmit: (closeDialog) => {
+              action('onSubmit')();
+
+              closeDialog();
+            }
+          });
+        }}>
         Click to open
       </Button>
 
-      <Dialog onClose={() => setOpened(false)} isOpened={isOpened}>
-        <DialogHeader title='Go to Live' icon={<GoToLivePopUp />} />
-        <DialogBody>
-          {/* <div className={styles.PopUpText}> */}
-          <Typography component='p' variant='p3'>
-            Do you want to publish <span>"Albatros"</span> partner ?
-          </Typography>
-          {/* </div> */}
-        </DialogBody>
-        <DialogActions onClose={toggleOpened} cancelButtonText='Cancel' submitButtonText='Publish' />
-      </Dialog>
+      <DialogProvider />
     </>
   );
 };

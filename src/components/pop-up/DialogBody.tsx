@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { ReactNode, FC } from 'react';
-import styles from './PopUp.module.scss';
+import styles from './Dialog.module.scss';
 
 export interface DialogBodyProps {
   children: ReactNode;

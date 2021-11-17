@@ -38,6 +38,13 @@
         border-radius: getSelectSizes(my-ui-menu-border-radius);
       }
 
+      &__menu-notice {
+        width: getSelectSizes(my-ui-notice-width);
+        padding: getSelectSizes(my-ui-notice-padding);
+        font-size: getSelectSizes(my-ui-notice-font-size);
+        box-sizing: border-box;
+      }
+
       &__menu-list--is-multi {
         max-height: getSelectSizes(my-ui-menu-is-multi-height);
       }
@@ -120,6 +127,13 @@
       &__menu-list {
         width: 100%;
       }
+
+      &__menu-notice {
+        width: getSelectSizes(my-ui-notice-width);
+        padding: getSelectSizes(my-ui-notice-padding);
+        font-size: getSelectSizes(my-ui-notice-font-size);
+        box-sizing: border-box;
+      }
     }
   }
 }
@@ -140,6 +154,13 @@
         max-height: 32.1rem;
         min-height: 9.6rem;
         border-radius: 0 0 0.8rem 0.8rem;
+
+        .react-select__menu-notice {
+          width: getSelectSizes(my-ui-notice-width);
+          padding: getSelectSizes(my-ui-notice-padding);
+          font-size: getSelectSizes(my-ui-notice-font-size);
+          box-sizing: border-box;
+        }
 
         .react-select__option {
           width: 18.4rem;

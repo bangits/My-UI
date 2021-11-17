@@ -27,7 +27,10 @@ $select-sizes: (
   my-ui-multi-value-font-size: calculateRem(14px),
   my-ui-multi-menu-notice-padding: calculateRem(22px) calculateRem(235.6px) calculateRem(21.3px) calculateRem(17.6px),
   my-ui-multi-menu-notice-font-size: calculateRem(14px),
-  my-ui-multi-input-font-size: calculateRem(14px)
+  my-ui-multi-input-font-size: calculateRem(14px),
+  my-ui-notice-width: 100%,
+  my-ui-notice-padding: calculateRem(22px) 0 calculateRem(21.3px) calculateRem(7.6px),
+  my-ui-notice-font-size: calculateRem(14px)
 );
 
 $select-colors: ();

@@ -16,7 +16,7 @@ const Alert: FC<AlertProps> = ({ icon, alertLabel, onClose, className }) => {
   return (
     <div className={classNames(styles.AlertBase, className)}>
       {icon}
-      <Typography variant='p4' className={styles.AlertText}>
+      <Typography variant='p4' component='span' className={styles.AlertText}>
         {alertLabel}
       </Typography>
       <AlertClose onClick={() => onClose()} className={styles.AlertClose} />

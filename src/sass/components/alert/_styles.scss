@@ -40,9 +40,6 @@
   }
 
   @keyframes hide_alert {
-    0% {
-      /* transform: translateX(-1rem); */
-    }
     40% {
       transform: translateX(0%);
     }
@@ -62,9 +59,6 @@
     }
     80% {
       transform: translateX(0%);
-    }
-    100% {
-      /* transform: translateX(-1rem); */
     }
   }
 }

@@ -1,11 +1,11 @@
 import { Select, SelectProps, TextInput, TextInputProps } from '@/components';
+import { typedMemo } from '@/helpers';
+import { IComponent } from '@/types';
 import classNames from 'classnames';
 import React, { DetailedHTMLProps, FC, InputHTMLAttributes, useCallback, useRef, useState } from 'react';
 import styles from './InputWithDropdown.module.scss';
 
-export type InputProps = HTMLInputElement;
-
-export interface InputWithDropdownProps {
+export interface InputWithDropdownProps extends IComponent {
   inputProps?: TextInputProps;
   dropdownProps?: SelectProps<any[], boolean, any>;
   onInputChange?: (value: any) => void;
@@ -18,7 +18,8 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
   dropdownProps,
   onInputChange,
   onDropdownChange,
-  dropdownInputProps
+  dropdownInputProps,
+  className
 }) => {
   const [isDropdown, setIsDropdown] = useState(true);
   const [isInputFocused, setInputFocused] = useState(false);
@@ -60,7 +61,7 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
 
   return (
     <>
-      <div className={styles.InputWithDropdownBase}>
+      <div className={classNames(styles.InputWithDropdownBase, className)}>
         <TextInput
           {...inputProps}
           containerClassName={styles['InputWithDropdownBase--input']}
@@ -97,12 +98,6 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
                   onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                     if (dropdownInputProps.type === 'number') e.target.value = e.target.value.replace(/[^\d.+]/g, '');
                   }}
-                  /* onBlur={(e) => {
-                    if (e.relatedTarget !== inputRef.current) {
-                      setInputFocused(false);
-                      setIsDropdown(true);
-                    }
-                  }} */
                   ref={selectInputRef}
                 />
                 <span
@@ -129,4 +124,4 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
   );
 };
 
-export default InputWithDropdown;
+export default typedMemo(InputWithDropdown);

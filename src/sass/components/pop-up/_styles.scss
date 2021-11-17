@@ -24,6 +24,13 @@
       animation: popup-show-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     }
 
+    .PopUpIconContainer {
+      width: 8rem;
+      height: 8rem;
+
+      margin: 0 auto;
+    }
+
     .PopUpLabel {
       h2 {
         margin-bottom: 0;

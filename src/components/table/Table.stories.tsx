@@ -73,9 +73,11 @@ export const Default = () => {
           sortingId: 'release'
         },
         {
-          Header: 'User status',
+          Header: 'Status',
           accessor: 'r',
-          disableSortBy: true
+          disableSortBy: true,
+          maxWidth: '8rem',
+          dataMaxWidth: '9rem'
         }
       ])}
       actions={[

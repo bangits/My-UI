@@ -13,7 +13,7 @@
     padding: 0;
 
     .TableHeadContainer {
-      @include flex();
+      @include flex(null, center);
       min-height: getTableHeadSizes(table-head-container-height);
     }
 
@@ -21,13 +21,13 @@
       background-color: transparent;
     }
     .IconArrow {
-      @include flex(null, center, $direction: column);
+      @include flex(center, center, $direction: column);
       min-width: getTableHeadSizes(table-arrow-icon-sizes);
       min-height: getTableHeadSizes(table-arrow-icon-sizes);
 
       .IconUp {
         fill: #7c84ab;
-        margin: getTableHeadSizes(table-icon-up-margin);
+        margin-bottom: getTableHeadSizes(table-icon-up-margin);
       }
 
       .IconDown {

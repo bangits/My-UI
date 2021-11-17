@@ -1,5 +1,6 @@
 @mixin generate-alert-styles {
   .AlertBase {
+    @include theme(background-color, primary--color);
     @include flex(null, center);
     min-width: getAlertSizes(alert-width);
     width: -moz-fit-content; //for mozilla
@@ -7,8 +8,10 @@
     height: getAlertSizes(alert-height);
     border-radius: getAlertSizes(alert-radius);
     padding: getAlertSizes(alert-padding);
+    margin-bottom: getAlertSizes(alert-margin-bottom);
     box-sizing: border-box;
     box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.05);
+
     .AlertText {
       color: #8ea6c1;
       margin-left: getAlertSizes(alert-text-marginLeft);
@@ -23,7 +26,6 @@
     position: fixed;
     top: getAlertSizes(alert-animation-position);
     right: getAlertSizes(alert-animation-position);
-    z-index: 999999999999999999;
   }
 
   .alertEnter {
@@ -40,9 +42,6 @@
   }
 
   @keyframes hide_alert {
-    0% {
-      /* transform: translateX(-1rem); */
-    }
     40% {
       transform: translateX(0%);
     }
@@ -62,9 +61,6 @@
     }
     80% {
       transform: translateX(0%);
-    }
-    100% {
-      /* transform: translateX(-1rem); */
     }
   }
 }

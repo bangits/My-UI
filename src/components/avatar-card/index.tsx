@@ -1,1 +1,1 @@
-export { default as AvatarCard } from './AvatarCard';
+export { AvatarCardProps, default as AvatarCard } from './AvatarCard';

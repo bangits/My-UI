@@ -74,6 +74,7 @@ export interface TableProps<T extends ObjectMock> extends IComponent {
 interface CustomColumnProps {
   align?: TableCellProps['align'];
   maxWidth?: string | number;
+  dataMaxWidth?: string | number;
   renderColumn?(value: ReactNode): ReactNode;
 }
 
@@ -185,10 +186,11 @@ const Table = <T extends ObjectMock>({
                     <TableCell
                       key={index}
                       style={{
-                        maxWidth:
-                          typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
-                            ? cell.column.maxWidth
-                            : `${tableHeadWidths[index] / 10}rem`
+                        maxWidth: cell.column.dataMaxWidth
+                          ? cell.column.dataMaxWidth
+                          : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                          ? cell.column.maxWidth
+                          : `${tableHeadWidths[index] / 10}rem`
                       }}
                       align={cell.column.align}
                       color={color}>

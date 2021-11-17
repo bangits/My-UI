@@ -1,11 +1,11 @@
 $tablehead-sizes: (
-  table-head-font-weight: 700,
+  table-head-font-weight: 500,
   table-head-font-size: calculateRem(14px),
   table-head-margin: 0 calculateRem(16px),
-  table-head-height: calculateRem(18px),
-  table-head-container-height: calculateRem(18px),
-  table-arrow-icon-sizes: calculateRem(18px),
-  table-icon-up-margin: calculateRem(2px) 0 calculateRem(1px) 0
+  table-head-height: calculateRem(24px),
+  table-head-container-height: calculateRem(24px),
+  table-arrow-icon-sizes: calculateRem(24px),
+  table-icon-up-margin: calculateRem(6px)
 );
 
 @function getTableHeadSizes($property) {

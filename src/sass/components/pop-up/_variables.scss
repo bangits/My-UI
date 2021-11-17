@@ -5,7 +5,8 @@ $popup-sizes: (
   pop-up-border-radius: calculateRem(8px),
   pop-up-span-font: 500,
   pop-up-btns-margin: calculateRem(81px) 0 calculateRem(24px) 0,
-  pop-up-margin: calculateRem(16px)
+  pop-up-margin: calculateRem(16px),
+  pop-up-z-index: 99999
 );
 
 $popup-colors: (

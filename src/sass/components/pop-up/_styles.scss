@@ -1,66 +1,79 @@
 @mixin generate-popup-styles {
-  .PopUpWrapper {
+  .PopUp {
+    width: getPopUpSizes(pop-up-width);
+    height: auto;
+    min-height: getPopUpSizes(pop-up-height);
+    border-radius: getPopUpSizes(pop-up-border-radius);
+    box-shadow: 0px 0px 5px #00000029;
+    @include flex(null, null, $direction: column);
+    @include theme(background-color, primary--color);
+    color: #2b3674;
+    text-align: center;
+    padding: getPopUpSizes(pop-up-padding);
+    box-sizing: border-box;
+
     position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: background-color 0.2s ease-out;
-    animation: popup-show-animation 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-    opacity: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
-    .PopUpWrapperParent {
-      position: relative;
-      height: 100%;
-      .PopUpCointainer {
-        @include flex(center, center);
-        height: 100%;
+    z-index: getPopUpSizes(pop-up-z-index) + 1;
+    animation: popup-show-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 
-        .PopUp {
-          width: getPopUpSizes(pop-up-width);
-          height: auto;
-          min-height: getPopUpSizes(pop-up-height);
-          border-radius: getPopUpSizes(pop-up-border-radius);
-          box-shadow: 0px 0px 5px #00000029;
-          @include flex(null, null, $direction: column);
-          @include theme(background-color, primary--color);
-          color: #2b3674;
-          text-align: center;
-          padding: getPopUpSizes(pop-up-padding);
-          box-sizing: border-box;
+    &--exit {
+      animation: popup-show-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
 
-          .PopUpLabel {
-            h2 {
-              margin-bottom: 0;
-            }
-          }
-          .PopUpText {
-            @include theme(color, black-color);
-            word-break: break-word;
-            p {
-              margin-bottom: 0;
-              span {
-                font-weight: getPopUpSizes(pop-up-span-font);
-              }
-            }
-          }
-          .PopUpBtnGroup {
-            @include flex(center, null);
-            margin-top: auto;
-            button {
-              // margin: getPopUpSizes(pop-up-btns-margin);
-              &:nth-child(2) {
-                margin-left: getPopUpSizes(pop-up-margin);
-              }
-            }
-          }
+    .PopUpLabel {
+      h2 {
+        margin-bottom: 0;
+      }
+    }
+
+    .PopUpText {
+      @include theme(color, black-color);
+      word-break: break-word;
+      p {
+        margin-bottom: 0;
+        span {
+          font-weight: getPopUpSizes(pop-up-span-font);
         }
       }
-      .Overlay {
-        @include theme(background-color, popup-overlay-bg, $opacity: 0.5);
+    }
+    .PopUpBtnGroup {
+      @include flex(center, null);
+      margin-top: auto;
+      button {
+        // margin: getPopUpSizes(pop-up-btns-margin);
+        &:nth-child(2) {
+          margin-left: getPopUpSizes(pop-up-margin);
+        }
       }
+    }
+  }
+
+  .Overlay {
+    z-index: getPopUpSizes(pop-up-z-index);
+    cursor: pointer;
+  }
+
+  .Overlay,
+  .PopUpWrapperParent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    @include theme(background-color, popup-overlay-bg, $opacity: 0.5);
+  }
+
+  @keyframes popup-show-animation-exit {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 

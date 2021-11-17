@@ -45,13 +45,13 @@
       stroke-width: getLoadingIndicatorSizes(rectangle-stroke-width);
       stroke: #00b21e;
       fill: transparent;
-      stroke-dasharray: 394 630;
+      // stroke-dasharray: 394 630;
       width: getLoadingIndicatorSizes(loading-indicator-rectangle-width);
       height: getLoadingIndicatorSizes(loading-indicator-rectangle-height);
     }
     .SecondRect {
       stroke: #c6d2e0;
-      stroke-dasharray: 630 630;
+      // stroke-dasharray: 630 630;
     }
   }
 }

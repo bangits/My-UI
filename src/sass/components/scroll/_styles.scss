@@ -2,8 +2,8 @@
   .TrackVertical {
     @include theme(background-color, light-gray-color);
 
-    width: map-get($base-scroll-variables, track-vertical-width);
-    border-radius: map-get($base-scroll-variables, track-borderRadius) !important;
+    width: getIconBaseScroll(track-vertical-width);
+    border-radius: getIconBaseScroll(track-border-radius) !important;
   }
 
   .ThumbVertical {
@@ -13,8 +13,8 @@
   .TrackHorizontal {
     @include theme(background-color, light-gray-color);
 
-    height: map-get($base-scroll-variables, track-horizontal-height);
-    border-radius: map-get($base-scroll-variables, track-borderRadius) !important;
+    height: getIconBaseScroll(track-horizontal-height);
+    border-radius: getIconBaseScroll(track-border-radius) !important;
   }
 
   .ThumbHorizontal {
@@ -23,6 +23,6 @@
 
   .TrackVertical,
   .TrackHorizontal {
-    z-index: map-get($base-scroll-variables, track-z-index);
+    z-index: getIconBaseScroll(track-z-index);
   }
 }

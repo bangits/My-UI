@@ -41,7 +41,8 @@ $select-sizes: (
   dropdown-select-option-label-height: calculateRem(17px),
   dropdown-select-option-label-hover-width: calculateRem(192px),
   dropdown-select-option-label-block-margin: calculateRem(4px),
-  clear-select-padding: calculateRem(32px) my-ui-notice-width: 100%,
+  clear-select-padding: calculateRem(32px),
+  my-ui-notice-width: 100%,
   my-ui-notice-padding: calculateRem(22px) 0 calculateRem(21.3px) calculateRem(7.6px),
   my-ui-notice-font-size: calculateRem(14px)
 );

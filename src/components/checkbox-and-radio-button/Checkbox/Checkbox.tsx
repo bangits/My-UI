@@ -22,8 +22,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           `${getMyUIPrefix()}-CheckboxContainer`
         )}
         style={style}>
-        <div className={styles.CheckboxContainer}>
-          <label>
+        <div className={classNames(styles.CheckboxContainer, `${getMyUIPrefix()}-CheckboxContainer`)}>
+          <label className={`${getMyUIPrefix()}-CheckboxLabel`}>
             <input {...checkboxProps} className={`${getMyUIPrefix()}-CheckboxInput`} type='checkbox' ref={ref} />
 
             <CheckIcon className={styles.CheckboxIcon} />

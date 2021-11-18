@@ -1,6 +1,6 @@
 import { uniqueIdMaker, useAlertPortal } from '@/helpers';
 import { Alert } from '@/my-ui-core';
-import React, { forwardRef, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { AlertProps } from './Alert';
@@ -14,7 +14,7 @@ export interface AlertContainerProps {
   autoCloseDelay?: number;
 }
 
-const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, autoCloseDelay = 5000 }, ref) => {
+const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5000 }) => {
   const [alerts, setAlerts] = useState<AlertProps[]>([]);
   const { loaded, portalId } = useAlertPortal();
   const [removing, setRemoving] = useState('');
@@ -86,6 +86,6 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
   ) : (
     <></>
   );
-});
+};
 
 export default AlertContainer;

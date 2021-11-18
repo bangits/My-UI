@@ -3,10 +3,6 @@ import { SubscriptionService } from '@/services';
 import { AlertProps } from './Alert';
 
 class AlertService extends SubscriptionService<AlertProps> {
-  constructor() {
-    super();
-  }
-
   success(alert: AlertProps) {
     super.publish({ ...alert, icon: alert.icon || <AlertCheck /> });
   }

@@ -27,7 +27,21 @@ $select-sizes: (
   my-ui-multi-value-font-size: calculateRem(14px),
   my-ui-multi-menu-notice-padding: calculateRem(22px) calculateRem(235.6px) calculateRem(21.3px) calculateRem(17.6px),
   my-ui-multi-menu-notice-font-size: calculateRem(14px),
-  my-ui-multi-input-font-size: calculateRem(14px)
+  my-ui-multi-input-font-size: calculateRem(14px),
+  dropdown-select-width: calculateRem(192px),
+  dropdown-select-max-height: calculateRem(353px),
+  dropdown-select-min-height: calculateRem(96px),
+  dropdown-select-menu-list-margin: calculateRem(32px),
+  dropdown-select-menu-list-width: calculateRem(192px),
+  dropdown-select-menu-list-max-height: calculateRem(321px),
+  dropdown-select-menu-list-min-height: calculateRem(96px),
+  dropdown-select-menu-list-border-radius: 0 0 calculateRem(8px) calculateRem(8px),
+  dropdown-select-option-width: calculateRem(184px),
+  dropdown-select-option-margin: 0 calculateRem(4px),
+  dropdown-select-option-label-height: calculateRem(17px),
+  dropdown-select-option-label-hover-width: calculateRem(192px),
+  dropdown-select-option-label-block-margin: calculateRem(4px),
+  clear-select-padding: calculateRem(32px)
 );
 
 $select-colors: ();

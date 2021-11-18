@@ -128,29 +128,28 @@
   position: relative;
   :global {
     .react-select__menu {
-      top: 2.8rem; //?
-      width: 19.2rem;
-      max-height: 35.3rem;
-      min-height: 9.6rem;
+      width: getSelectSizes(dropdown-select-width);
+      max-height: getSelectSizes(dropdown-select-max-height);
+      min-height: getSelectSizes(dropdown-select-min-height);
       box-sizing: border-box;
 
       .react-select__menu-list {
-        margin-top: 3.2rem;
-        width: 19.2rem;
-        max-height: 32.1rem;
-        min-height: 9.6rem;
-        border-radius: 0 0 0.8rem 0.8rem;
+        margin-top: getSelectSizes(dropdown-select-menu-list-margin);
+        width: getSelectSizes(dropdown-select-menu-list-width);
+        max-height: getSelectSizes(dropdown-select-menu-list-max-height);
+        min-height: getSelectSizes(dropdown-select-menu-list-in-height);
+        border-radius: getSelectSizes(dropdown-select-menu-list-border-radius);
 
         .react-select__option {
-          width: 18.4rem;
-          margin: 0 0.4rem;
+          width: getSelectSizes(dropdown-select-option-width);
+          margin: getSelectSizes(dropdown-select-option-margin);
           span,
           label {
-            height: 1.7rem;
+            height: getSelectSizes(dropdown-select-option-label-height);
           }
 
           &:hover {
-            width: 19.2rem;
+            width: getSelectSizes(dropdown-select-option-label-hover-width);
             margin: 0;
 
             &:first-child {
@@ -158,7 +157,7 @@
             }
 
             div {
-              margin-left: 0.4rem;
+              margin-left: getSelectSizes(dropdown-select-option-label-block-margin);
             }
           }
         }
@@ -171,7 +170,7 @@
   :global {
     .react-select {
       &__menu-list {
-        padding-bottom: 3.2rem;
+        padding-bottom: getSelectSizes(clear-select-padding);
         box-sizing: border-box;
       }
     }

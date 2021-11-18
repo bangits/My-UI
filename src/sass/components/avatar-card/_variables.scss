@@ -3,6 +3,7 @@ $avatarcard-sizes: (
   avatar-card-wrapper-height: calculateRem(40px),
   avatar-card-small-wrapper-width: calculateRem(24px),
   avatar-card-small-wrapper-height: calculateRem(24px),
+  avatar-small-status-position-bottom: calculateRem(-1px),
   avatar-offline-state-width: calculateRem(28px),
   avatar-offline-state-height: calculateRem(28px),
   avatar-offline-border-radius: 50%,
@@ -10,7 +11,8 @@ $avatarcard-sizes: (
   avatar-status-width: calculateRem(8px),
   avatar-status-heigth: calculateRem(8px),
   avatar-status-border-radius: 50%,
-  avatar-position: calculateRem(19px)
+  avatar-position: calculateRem(19px),
+  avatar-medium-status-position-right: calculateRem(3px)
 );
 
 @function getAvatarCardSizes($property) {

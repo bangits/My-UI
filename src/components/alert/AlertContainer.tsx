@@ -33,7 +33,7 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
   }, [removing]);
 
   useEffect(() => {
-    alert['subscribe']((alert) => {
+    alert.subscribe((alert) => {
       setAlerts([...alerts, { ...alert, id: uniqueIdMaker() }]);
       setShowMessage(true);
     });

@@ -4,6 +4,8 @@ $transition-duration: getTextFieldSizes(label-transition);
   .Explanation {
     display: block;
     margin: getTextFieldSizes(explanation-margin) 0;
+    max-width: getTextFieldSizes(explanation-max-width);
+    word-break: break-word;
     @include theme(color, default-input-color);
   }
 
@@ -182,6 +184,10 @@ $transition-duration: getTextFieldSizes(label-transition);
     min-height: getTextFieldSizes(input-container);
     &--full-width {
       .TextInputWrapper {
+        max-width: initial;
+      }
+
+      .Explanation {
         max-width: initial;
       }
     }

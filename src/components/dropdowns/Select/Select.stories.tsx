@@ -1,5 +1,6 @@
 import { Select } from '@/components';
 import { FilterIcon } from '@/icons';
+import { COLOR_TYPES } from '@/types';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
@@ -28,19 +29,9 @@ export const Default = () => {
         inputLabel={text('inputLabelSingle', 'Single Select...')}
         isSearchable
         maxLength={number('maxLengthSingleSelect', 20)}
-        color={optionsKnob(
-          'color',
-          {
-            danger: 'danger',
-            warning: 'warning',
-            success: 'success',
-            primary: 'primary'
-          },
-          'primary',
-          {
-            display: 'inline-radio'
-          }
-        )}
+        color={optionsKnob('selectColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+          display: 'inline-radio'
+        })}
         options={object('options1', [
           {
             label: 'Jewels and Gems',
@@ -84,19 +75,9 @@ export const Default = () => {
         inputLabel={text('inputLabelSingle', 'Single Select...')}
         maxLength={number('maxLengthSingleSelect', 20)}
         isSearchable
-        color={optionsKnob(
-          'color',
-          {
-            danger: 'danger',
-            warning: 'warning',
-            success: 'success',
-            primary: 'primary'
-          },
-          'primary',
-          {
-            display: 'inline-radio'
-          }
-        )}
+        color={optionsKnob('selectColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+          display: 'inline-radio'
+        })}
         options={object('options2', [
           {
             label: 'Jewels and Gems',
@@ -147,7 +128,6 @@ export const MultiSelect = () => {
     <>
       <Select
         isMulti
-        menuIsOpen
         value={value}
         onChange={setValue}
         selectAll={boolean('selectAll2', true)}
@@ -159,18 +139,9 @@ export const MultiSelect = () => {
         explanation={text('explanation', '')}
         fullWidth={boolean('fullWidth', false)}
         isSearchable
-        color={optionsKnob(
-          'color',
-          {
-            danger: 'danger',
-            warning: 'warning',
-            primary: 'primary'
-          },
-          'primary',
-          {
-            display: 'inline-radio'
-          }
-        )}
+        color={optionsKnob('selectColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+          display: 'inline-radio'
+        })}
         options={object('multiSelectOptions', [
           {
             label: 'Jewels and Gems',
@@ -218,18 +189,9 @@ export const MultiSelect = () => {
         maxLength={number('maxLengthMultiSelect', 50)}
         inputSelectedLabel={text('inputSelectedLabel', 'Selected ')}
         explanation={text('explanation', '')}
-        color={optionsKnob(
-          'color',
-          {
-            danger: 'danger',
-            warning: 'warning',
-            primary: 'primary'
-          },
-          'primary',
-          {
-            display: 'inline-radio'
-          }
-        )}
+        color={optionsKnob('selectColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+          display: 'inline-radio'
+        })}
         isMulti={boolean('isMulti', true)}
         options={object('multiSelectOptions2', [])}
       />
@@ -245,19 +207,9 @@ export const Dropdown = () => {
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
       onChange={action('onChange')}
-      color={optionsKnob(
-        'color',
-        {
-          danger: 'danger',
-          warning: 'warning',
-          primary: 'primary',
-          success: 'success'
-        },
-        'primary',
-        {
-          display: 'inline-radio'
-        }
-      )}
+      color={optionsKnob('selectColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+        display: 'inline-radio'
+      })}
       isMulti={boolean('isMulti', true)}
       options={[
         {
@@ -318,19 +270,9 @@ export const RenderInput = () => {
       )}
       isSearchable={false}
       onChange={action('onChange')}
-      color={optionsKnob(
-        'color',
-        {
-          danger: 'danger',
-          warning: 'warning',
-          primary: 'primary',
-          success: 'success'
-        },
-        'primary',
-        {
-          display: 'inline-radio'
-        }
-      )}
+      color={optionsKnob('selectColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+        display: 'inline-radio'
+      })}
       options={object('dropdownOptions', [
         {
           label: 'Row per page: 20',

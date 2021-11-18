@@ -1,5 +1,6 @@
 import { getComponentName } from '@/configs';
-import { boolean, withKnobs } from '@storybook/addon-knobs';
+import { COLOR_TYPES } from '@/types';
+import { boolean, optionsKnob, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import RadioButton from './RadioButton';
 
@@ -10,5 +11,13 @@ export default {
 };
 
 export const DefaultRadio = () => {
-  return <RadioButton value='default' disabled={boolean('disabled', false)} />;
+  return (
+    <RadioButton
+      color={optionsKnob('radioColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+        display: 'inline-radio'
+      })}
+      value='default'
+      disabled={boolean('disabled', false)}
+    />
+  );
 };

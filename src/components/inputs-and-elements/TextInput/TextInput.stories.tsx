@@ -1,5 +1,6 @@
+import { COLOR_TYPES } from '@/types';
 import { action } from '@storybook/addon-actions';
-import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
 import TextInput from './TextInput';
@@ -30,11 +31,17 @@ export const Default = () => {
         type='text'
         explanation={text('explanation', '')}
         fullWidth={boolean('fullWidth', false)}
+        color={optionsKnob('textInputColor1', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+          display: 'inline-radio'
+        })}
       />
 
       <h1> </h1>
 
       <TextInput
+        color={optionsKnob('textInputColor2', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+          display: 'inline-radio'
+        })}
         disabled={boolean('disabled', false)}
         label={text('label for number input', 'Default Number Input')}
         defaultValue={text('defaultValue', undefined)}
@@ -65,6 +72,9 @@ export const WithIcons = () => {
   return (
     <>
       <TextInput
+        color={optionsKnob('textInputColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+          display: 'inline-radio'
+        })}
         disabled={boolean('disabled', false)}
         label='Input With Start Icon'
         defaultValue={text('defaultValue for start icon', 'Input With Start Icon')}
@@ -102,6 +112,9 @@ export const WithIcons = () => {
       <h1> </h1>
 
       <TextInput
+        color={optionsKnob('textInputColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+          display: 'inline-radio'
+        })}
         disabled={boolean('disabled', false)}
         label='Input With End Icon'
         defaultValue={text('defaultValue for end icon', 'Input With End Icon')}
@@ -126,6 +139,9 @@ export const WithIcons = () => {
       <h1></h1>
 
       <TextInput
+        color={optionsKnob('textInputColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+          display: 'inline-radio'
+        })}
         disabled={boolean('disabled', false)}
         label='Input With Start Icon'
         type='text'
@@ -174,6 +190,9 @@ export const WithIcons = () => {
       <h1></h1>
 
       <TextInput
+        color={optionsKnob('textInputColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+          display: 'inline-radio'
+        })}
         disabled={boolean('disabled', false)}
         label='Input With Start Icon'
         defaultValue={text('defaultValue for start icon', 'Input With Start Icon')}
@@ -225,11 +244,13 @@ export const WithIcons = () => {
 export const WithStates = () => (
   <>
     <TextInput
+      color={optionsKnob('textInputColorDanger', COLOR_TYPES, COLOR_TYPES.DANGER, {
+        display: 'inline-radio'
+      })}
       disabled={boolean('disabled', false)}
       label='Input With Error'
       defaultValue={text('defaultValue for error', 'error@bangits.com')}
       type='text'
-      color={'danger'}
       onChange={action('onChange')}
       explanation={text('Explanation', 'Explanation')}
     />
@@ -241,7 +262,9 @@ export const WithStates = () => (
       label='Input With Success'
       defaultValue={text('defaultValue for success', 'success@bangits.com')}
       type='text'
-      color={'success'}
+      color={optionsKnob('textInputColorSuccess', COLOR_TYPES, COLOR_TYPES.SUCCESS, {
+        display: 'inline-radio'
+      })}
       onChange={action('onChange')}
       explanation={text('Explanation', 'Explanation')}
     />
@@ -253,7 +276,9 @@ export const WithStates = () => (
       label='Input With Warning'
       defaultValue={text('defaultValue for warning', 'warning@bangits.com')}
       type='text'
-      color={'warning'}
+      color={optionsKnob('textInputColorWarning', COLOR_TYPES, COLOR_TYPES.WARNING, {
+        display: 'inline-radio'
+      })}
       onChange={action('onChange')}
       explanation={text('Explanation', 'Explanation')}
     />

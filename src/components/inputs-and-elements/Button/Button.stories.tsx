@@ -1,3 +1,4 @@
+import { COLOR_TYPES } from '@/types';
 import { action } from '@storybook/addon-actions';
 import { boolean, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
@@ -15,6 +16,9 @@ export const Colors = () => (
   <>
     <Button
       type='button'
+      color={optionsKnob('buttonColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+        display: 'inline-radio'
+      })}
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.default, { display: 'inline-radio' })}
       onClick={action('onClick')}
       disabled={boolean('disabled', false)}>
@@ -28,6 +32,9 @@ export const Variants = () => (
   <>
     <Button
       type='button'
+      color={optionsKnob('buttonColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+        display: 'inline-radio'
+      })}
       onClick={action('onClick')}
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.ghost, { display: 'inline-radio' })}
       disabled={boolean('disabled', false)}>
@@ -42,6 +49,9 @@ export const WithIcons = () => (
     <Button
       type='button'
       onClick={action('onClick')}
+      color={optionsKnob('buttonColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+        display: 'inline-radio'
+      })}
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.ghost, { display: 'inline-radio' })}
       disabled={boolean('disabled', false)}
       endIcon={
@@ -62,6 +72,9 @@ export const WithIcons = () => (
     <h1> </h1>
     <Button
       type='button'
+      color={optionsKnob('buttonColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+        display: 'inline-radio'
+      })}
       onClick={action('onClick')}
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.ghost, { display: 'inline-radio' })}
       disabled={boolean('disabled', false)}

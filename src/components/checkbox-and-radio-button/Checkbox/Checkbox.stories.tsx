@@ -1,4 +1,5 @@
 import { getComponentName } from '@/configs';
+import { COLOR_TYPES } from '@/types';
 import { boolean, optionsKnob, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import Checkbox from './Checkbox';
@@ -24,6 +25,9 @@ export const Default = () => (
         display: 'inline-radio'
       }
     )}
+    color={optionsKnob('checkboxColor', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
+      display: 'inline-radio'
+    })}
     defaultChecked
     disabled={boolean('disabled', false)}
   />

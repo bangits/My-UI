@@ -1,3 +1,4 @@
+import { typedMemo } from '@/helpers';
 import { AlertClose } from '@/icons';
 import { Typography } from '@/my-ui-core';
 import { IComponent } from '@/types';
@@ -24,4 +25,4 @@ const Alert: FC<AlertProps> = ({ icon, alertLabel, onClose, className }) => {
   );
 };
 
-export default Alert;
+export default typedMemo(Alert);

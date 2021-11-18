@@ -36,7 +36,7 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
   color?: UIColors | 'default';
 
   //
-  renderInput?: (value: SelectOptionType, isMenuOpen: boolean) => ReactNode;
+  renderInput?: (value: SelectOptionType, isMenuOpen: boolean, onInputChange: (event: any) => void) => ReactNode;
 }
 
 export interface SelectProps<

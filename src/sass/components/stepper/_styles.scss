@@ -23,7 +23,7 @@
 
         .Step {
           flex-shrink: 0;
-          display: flex;
+          @include flex();
 
           .StepSection {
             @include theme(background-color, primary);
@@ -33,7 +33,7 @@
             padding: getStepperSizes(step-section-padding);
             box-sizing: border-box;
             z-index: getBaseSizes(z-index);
-            border-radius: 50%;
+            border-radius: getStepperSizes(step-section-border-radius);
           }
         }
         .StepTextContainer {

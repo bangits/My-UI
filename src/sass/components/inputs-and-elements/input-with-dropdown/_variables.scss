@@ -1,0 +1,22 @@
+$input-with-dropdown-styles: (
+  input-padding: 0 0 0 calculateRem(77px),
+  input-spin-button-margin: 0,
+  dropdown-height: calculateRem(38px),
+  dropdown-top: calculateRem(6px),
+  dropdown-input-width: calculateRem(53px),
+  dropdown-input-height: calculateRem(38px),
+  dropdown-input-padding: 0 0 0 calculateRem(16px),
+  dropdown-input-margin: 0,
+  select-top: calculateRem(41px),
+  dropdown-control-min-width: calculateRem(77px),
+  dropdown-control-height: calculateRem(38px),
+  dropdown-control-icon-width: calculateRem(24px),
+  dropdown-control-icon-height: calculateRem(24px),
+  dropdown-control-icon-transform-open: rotate(0deg),
+  dropdown-control-icon-transform-closed: rotate(180deg),
+  dropdown-control-label-font-size: calculateRem(14px)
+);
+
+@function getInputWithDropdownStyles($key) {
+  @return map-get($input-with-dropdown-styles, $key);
+}

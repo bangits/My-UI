@@ -1,7 +1,7 @@
 export class SubscriptionService<Props> {
   private subscribers: Set<(props: Props) => void> = new Set();
 
-  protected subscribe(cb: (props: Props) => void): () => void {
+  public subscribe(cb: (props: Props) => void): () => void {
     this.subscribers.add(cb);
     return () => {
       this.subscribers.delete(cb);

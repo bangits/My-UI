@@ -12,3 +12,4 @@ export * from './tab/subTab';
 export * from './table';
 export * from './tag';
 export * from './typography';
+export * from './shared';

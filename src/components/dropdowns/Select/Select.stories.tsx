@@ -24,7 +24,6 @@ export const Default = () => {
     <>
       <Select
         value={value}
-        menuIsOpen
         onChange={setValue}
         inputLabel={text('inputLabelSingle', 'Single Select...')}
         isSearchable

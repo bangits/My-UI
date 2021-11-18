@@ -1,0 +1,99 @@
+@mixin generate-input-width-dropdown-styles {
+  .InputWithDropdownBase {
+    position: relative;
+
+    &--input {
+      input {
+        padding: getInputWithDropdownStyles(input-padding);
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          /* display: none; <- Crashes Chrome on hover */
+          -webkit-appearance: none;
+          margin: getInputWithDropdownStyles(
+            input-spin-button-margin
+          ); /* <-- Apparently some margin are still there even though it's hidden */
+        }
+
+        &[type='number'] {
+          -moz-appearance: textfield; /* Firefox */
+        }
+      }
+    }
+
+    &--dropdown {
+      position: absolute;
+      height: getInputWithDropdownStyles(dropdown-height);
+      top: getInputWithDropdownStyles(dropdown-top);
+    }
+
+    &--dropdown-input {
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      width: getInputWithDropdownStyles(dropdown-input-width);
+      height: getInputWithDropdownStyles(dropdown-input-height);
+      padding: getInputWithDropdownStyles(dropdown-input-padding);
+      margin: getInputWithDropdownStyles(dropdown-input-margin);
+      background-color: transparent;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: getInputWithDropdownStyles(
+          input-spin-button-margin
+        ); /* <-- Apparently some margin are still there even though it's hidden */
+      }
+
+      &[type='number'] {
+        -moz-appearance: textfield; /* Firefox */
+      }
+    }
+
+    &--select {
+      :global {
+        .react-select__menu {
+          top: getInputWithDropdownStyles(select-top);
+        }
+      }
+    }
+
+    &--dropdown-control {
+      @include flex(end, center);
+      min-width: getInputWithDropdownStyles(dropdown-control-min-width);
+      height: getInputWithDropdownStyles(dropdown-control-height);
+    }
+
+    &--dropdown-control-icon-open,
+    &--dropdown-control-icon-closed {
+      @include theme(color, black-color);
+      @include flex(center, center);
+      cursor: pointer;
+      width: getInputWithDropdownStyles(dropdown-control-icon-width);
+      height: getInputWithDropdownStyles(dropdown-control-icon-height);
+    }
+
+    &--dropdown-control-icon-open {
+      transform: getInputWithDropdownStyles(dropdown-control-icon-transform-open);
+    }
+
+    &--dropdown-control-icon-closed {
+      transform: getInputWithDropdownStyles(dropdown-control-icon-transform-closed);
+    }
+
+    &--dropdown-control-label {
+      @include theme(color, black-color);
+      font-size: getInputWithDropdownStyles(dropdown-control-label-font-size);
+
+      &::placeholder {
+        @include theme(color, gray-color);
+        font-size: getInputWithDropdownStyles(dropdown-control-label-font-size);
+      }
+    }
+  }
+
+  .isDropdownActive {
+    display: none;
+  }
+}

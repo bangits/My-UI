@@ -11,7 +11,7 @@ const DialogProvider = () => {
   }, []);
 
   useEffect(() => {
-    dialog.subscribe((config) => {
+    dialog['subscribe']((config) => {
       setOpenedDialog(true);
       setDialogConfig(config);
     });

@@ -1,7 +1,6 @@
-import { uniqueIdMaker, useAlertPortal } from '@/helpers';
-import { Alert } from '@/my-ui-core';
+import { uniqueIdMaker } from '@/helpers';
+import { Alert, Portal } from '@/my-ui-core';
 import React, { forwardRef, useCallback, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { AlertProps } from './Alert';
 import styles from './Alert.module.scss';
@@ -16,7 +15,6 @@ export interface AlertContainerProps {
 
 const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, autoCloseDelay = 5000 }, ref) => {
   const [alerts, setAlerts] = useState<AlertProps[]>([]);
-  const { loaded, portalId } = useAlertPortal();
   const [removing, setRemoving] = useState('');
   const [showMessage, setShowMessage] = useState(false);
 
@@ -35,8 +33,7 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
   }, [removing]);
 
   useEffect(() => {
-    //@ts-ignore
-    alert.subscribe((alert) => {
+    alert['subscribe']((alert) => {
       setAlerts([...alerts, { ...alert, id: uniqueIdMaker() }]);
       setShowMessage(true);
     });
@@ -50,8 +47,8 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
     }
   }, [alerts, autoClose, autoCloseDelay]);
 
-  return loaded ? (
-    ReactDOM.createPortal(
+  return (
+    <Portal>
       <div className={styles.AlertContainer}>
         <TransitionGroup>
           {alerts.map((alert) => {
@@ -80,11 +77,8 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
             );
           })}
         </TransitionGroup>
-      </div>,
-      document.getElementById(portalId)
-    )
-  ) : (
-    <></>
+      </div>
+    </Portal>
   );
 });
 

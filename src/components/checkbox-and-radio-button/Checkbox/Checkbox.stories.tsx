@@ -1,5 +1,5 @@
 import { getComponentName } from '@/configs';
-import { boolean, withKnobs } from '@storybook/addon-knobs';
+import { boolean, optionsKnob, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import Checkbox from './Checkbox';
 
@@ -9,4 +9,22 @@ export default {
   title: getComponentName('CHECKBOX_AND_RADIO', 'Checkbox')
 } as ComponentMeta<typeof Checkbox>;
 
-export const Default = () => <Checkbox defaultChecked disabled={boolean('disabled', false)} />;
+export const Default = () => (
+  <Checkbox
+    color={optionsKnob(
+      'color',
+      {
+        danger: 'danger',
+        warning: 'warning',
+        success: 'success',
+        primary: 'primary'
+      },
+      'primary',
+      {
+        display: 'inline-radio'
+      }
+    )}
+    defaultChecked
+    disabled={boolean('disabled', false)}
+  />
+);

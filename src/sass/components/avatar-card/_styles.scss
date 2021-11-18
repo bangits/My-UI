@@ -28,7 +28,7 @@
     }
 
     .AvatarOfflineState {
-      @include theme(border, avatar-offline, solid 0.1rem);
+      @include theme(border, avatar-offline, solid 1px);
 
       .AvatarStateStatus {
         @include theme(background-color, avatar-offline);
@@ -36,10 +36,10 @@
     }
 
     .AvatarOnlineState {
-      border: solid 1px #00b21e;
+      @include theme(border, success, solid 1px);
 
       .AvatarStateStatus {
-        background-color: #00b21e;
+        @include theme(background-color, success);
       }
     }
 

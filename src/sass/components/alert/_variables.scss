@@ -9,6 +9,10 @@ $alert-sizes: (
   alert-animation-position: calculateRem(10px)
 );
 
+$alert-colors: (
+  alert-background-color: color(white)
+);
+
 @function getAlertSizes($property) {
   @return map-get($alert-sizes, $property);
 }

@@ -19,7 +19,7 @@ function Stepper<T extends StepType[]>({ steps, value }: StepperProps<T>) {
   const activeIndex = useMemo(() => steps.findIndex((o) => o.value === value), [value]);
 
   return (
-    <div className={styles.SteeperWrapper}>
+    <div className={classNames(styles.SteeperWrapper, styles['SteeperWrapper--primary'])}>
       {steps &&
         steps.map((option, index) => {
           return (

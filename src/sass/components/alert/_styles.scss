@@ -1,6 +1,6 @@
 @mixin generate-alert-styles {
   .AlertBase {
-    @include theme(background-color, primary--color);
+    @include theme(background-color, alert-background-color);
     @include flex(null, center);
     min-width: getAlertSizes(alert-width);
     width: -moz-fit-content; // for mozilla
@@ -10,10 +10,10 @@
     padding: getAlertSizes(alert-padding);
     margin-bottom: getAlertSizes(alert-margin-bottom);
     box-sizing: border-box;
-    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.05);
+    @include theme(box-shadow, box-shadow-color, 2px 2px 5px 0);
 
     .AlertText {
-      color: #8ea6c1;
+      @include theme(color, gray-color);
       margin-left: getAlertSizes(alert-text-marginLeft);
     }
 

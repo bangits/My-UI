@@ -6,6 +6,8 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { AlertProps } from './Alert';
 import styles from './Alert.module.scss';
 import { alert } from './AlertService';
+import { getMyUIPrefix } from '@/configs';
+import classNames from 'classnames';
 
 export type RefType = HTMLDivElement;
 
@@ -52,7 +54,7 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
 
   return loaded ? (
     ReactDOM.createPortal(
-      <div className={styles.AlertContainer}>
+      <div className={classNames(styles.AlertContainer, `${getMyUIPrefix()}-AlertContainer`)}>
         <TransitionGroup>
           {alerts.map((alert) => {
             return (

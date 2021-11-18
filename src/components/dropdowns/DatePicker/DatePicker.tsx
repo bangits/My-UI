@@ -1,7 +1,7 @@
 import { getMyUIPrefix } from '@/configs';
 import ReactDatePicker, { ReactDatePickerProps } from '@my-ui/react-datepicker';
 import classNames from 'classnames';
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import styles from './DatePicker.module.scss';
 import DatePickerHeader from './DatePickerHeader';
 import DatePickerInput from './DatePickerInput';
@@ -26,7 +26,7 @@ const DatePicker: React.FC<DatepickerProps> = ({
   const renderCustomHeader = useCallback((params) => <DatePickerHeader {...params} />, []);
 
   const customInput = useMemo(() => <DatePickerInput placeholderText={placeholderText} />, [placeholderText]);
-
+  const [date, setDate] = useState<Date | null>(null);
   return (
     <>
       <ReactDatePicker
@@ -41,6 +41,8 @@ const DatePicker: React.FC<DatepickerProps> = ({
           },
           popperClassName
         )}
+        onChange={(date: Date) => setDate(date)}
+        selected={date}
         customInput={customInput}
         renderCustomHeader={renderCustomHeader}
         fixedHeight

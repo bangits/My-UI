@@ -23,6 +23,7 @@ import styles from './Table.module.scss';
 import TableCell, { TableCellProps } from './TableCell';
 import TableHead from './TableHead';
 import TableRow from './TableRow';
+import { getMyUIPrefix } from '@/configs';
 
 // This interface used for react-table useSortBy hook
 export interface Column<T extends ObjectMock> extends HeaderGroup<T> {
@@ -139,15 +140,15 @@ const Table = <T extends ObjectMock>({
   if (!tableHeadWidths.length && tableHeadRef.current) return null;
 
   return (
-    <Scroll height={500} className={styles.TableScroll}>
+    <Scroll height={500} className={classNames(styles.TableScroll, `${getMyUIPrefix()}-TableScroll`)}>
       <Component
         {...getTableProps()}
-        className={classNames(styles.TableContainer, {
+        className={classNames(styles.TableContainer, `${getMyUIPrefix()}-TableContainer`, {
           [styles['TableContainer--withSelection']]: isWithSelection,
           [styles['TableContainer--ready']]: tableHeadWidths.length
         })}>
         {/* @ts-ignore Ignoring typescript cause for automatic component they're error related with ref prop */}
-        <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
+        <THeadComponent className={classNames(styles.TableHead, `${getMyUIPrefix()}-TableHead`)} ref={tableHeadRef}>
           {headerGroups.map((headerGroup) => (
             <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
               {headerGroup.headers.map((column: Column<T>, index) => (
@@ -162,7 +163,7 @@ const Table = <T extends ObjectMock>({
                     ...column.getHeaderProps(column.getSortByToggleProps()).style,
                     ...(typeof column.maxWidth === 'string' ? { width: column.maxWidth } : {})
                   }}>
-                  <span>{column.render('Header')}</span>
+                  <span className={`${getMyUIPrefix()}-TableHeadSpan`}>{column.render('Header')}</span>
 
                   {/* {isResizing ? (
                   <div
@@ -176,7 +177,9 @@ const Table = <T extends ObjectMock>({
             </TableRow>
           ))}
         </THeadComponent>
-        <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
+        <TBodyComponent
+          {...getTableBodyProps()}
+          className={classNames(styles.TableBody, `${getMyUIPrefix()}-TableBody`)}>
           {rows.map((row: Row<T>, index) => {
             prepareRow(row);
             return (
@@ -194,7 +197,7 @@ const Table = <T extends ObjectMock>({
                       }}
                       align={cell.column.align}
                       color={color}>
-                      <div>
+                      <div className={`${getMyUIPrefix()}-TableCell`}>
                         {cell.column.renderColumn ? cell.column.renderColumn(cell.render('Cell')) : cell.render('Cell')}
                       </div>
                     </TableCell>
@@ -202,7 +205,10 @@ const Table = <T extends ObjectMock>({
                 })}
 
                 {actions && (
-                  <TableCell {...actions} color={color} className={styles.ActionTableCell}>
+                  <TableCell
+                    {...actions}
+                    color={color}
+                    className={classNames(styles.ActionTableCell, `${getMyUIPrefix()}-ActionTableCell`)}>
                     {actions.map(({ component: Component, onClick, props }, index) => (
                       <Component key={index} {...props} onClick={(...args: any[]) => onClick(data[index], ...args)} />
                     ))}

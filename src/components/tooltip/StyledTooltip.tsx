@@ -3,6 +3,7 @@ import { FC, forwardRef, MutableRefObject, PropsWithChildren } from 'react';
 import { useStyles } from '@/helpers';
 import Styles from './Tooltip.module.scss';
 import classNames from 'classnames';
+import { getMyUIPrefix } from '@/configs';
 
 export interface StyledTooltipProps {
   delay?: number;
@@ -32,8 +33,22 @@ const StyledTooltip = forwardRef<HTMLDivElement, PropsWithChildren<StyledTooltip
     );
 
     return (
-      <div ref={ref} className={classNames(tooltipClassNames.root, Styles.TooltipContainer)}>
-        <div className={classNames(Styles.TooltipWrapper, Styles[`TooltipColor--${color}`])}>{children}</div>
+      <div
+        ref={ref}
+        className={classNames(
+          tooltipClassNames.root,
+          Styles.TooltipContainer,
+          `${getMyUIPrefix()}-root`,
+          `${getMyUIPrefix()}-TooltipContainer`
+        )}>
+        <div
+          className={classNames(
+            Styles.TooltipWrapper,
+            `${getMyUIPrefix()}-TooltipWrapper`,
+            Styles[`TooltipColor--${color}`]
+          )}>
+          {children}
+        </div>
       </div>
     );
   }

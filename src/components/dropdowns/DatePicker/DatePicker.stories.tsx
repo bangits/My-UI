@@ -19,8 +19,8 @@ export const Default = () => {
       <DatePicker
         placeholderText='dd/mm/yyyy Without Range'
         dateFormat={'dd/MM/yyyy'}
-        onChange={(date: Date) => setDate(date)}
-        selected={date}
+        // onChange={(date: Date) => setDate(date)}
+        // selected={date}
         withDropdowns={boolean('withDropdowns', true)}
         disabled={boolean('disabled', false)}
       />

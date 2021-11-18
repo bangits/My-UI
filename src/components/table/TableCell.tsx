@@ -4,6 +4,7 @@ import { UIColors } from '@/types/ui';
 import classNames from 'classnames';
 import { CSSProperties, FC } from 'react';
 import styles from './TableCell.module.scss';
+import { getMyUIPrefix } from '@/configs';
 export interface TableCellProps extends IComponent {
   component?: ComponentType;
   align?: 'left' | 'right' | 'center';
@@ -21,7 +22,13 @@ export const TableCell: FC<TableCellProps> = ({
 }) => {
   return (
     <Component
-      className={classNames(styles.TableCell, styles[`TableCell--${color}`], styles[`TableCell--${align}`], className)}
+      className={classNames(
+        styles.TableCell,
+        styles[`TableCell--${color}`],
+        styles[`TableCell--${align}`],
+        className,
+        `${getMyUIPrefix()}-TableCell`
+      )}
       {...props}>
       {children}
     </Component>

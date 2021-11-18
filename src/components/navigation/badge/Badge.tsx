@@ -3,7 +3,7 @@ import { IComponent } from '@/types';
 import styles from './Badge.module.scss';
 import classNames from 'classnames';
 import { typedMemo } from '@/helpers';
-
+import { getMyUIPrefix } from '@/configs';
 export interface BadgeProps extends IComponent {
   quantity?: number;
   children?: ReactNode;
@@ -13,14 +13,20 @@ export interface BadgeProps extends IComponent {
 
 const Badge: FC<BadgeProps> = ({ quantity, children, className, badgeSize = 'ms', badgeStyle }) => {
   return (
-    <div className={classNames(styles.BadgeContainer, className)}>
+    <div className={classNames(styles.BadgeContainer, className, `${getMyUIPrefix()}-BadgeContainer`)}>
       {children}
 
       <span
-        className={classNames(styles.BadgeNumber, badgeStyle, {
-          [styles.BadgeNumberMs]: badgeSize === 'ms',
-          [styles.BadgeNumberSs]: badgeSize === 'ss'
-        })}>
+        className={classNames(
+          styles.BadgeNumber,
+          badgeStyle,
+          `${getMyUIPrefix()}-BadgeNumber`,
+          `${getMyUIPrefix()}-badgeStyle`,
+          {
+            [styles.BadgeNumberMs]: badgeSize === 'ms',
+            [styles.BadgeNumberSs]: badgeSize === 'ss'
+          }
+        )}>
         {' '}
         {quantity > 0 && quantity <= 99 ? quantity : '99+'}
       </span>

@@ -1,7 +1,7 @@
 import { TextInput } from '@/components';
 import React, { FC } from 'react';
 
-interface DatePickerInputProps {
+export interface DatePickerInputProps {
   onClick?: () => void;
   value?: string;
   placeholderText?: string;

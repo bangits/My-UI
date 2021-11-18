@@ -13,6 +13,7 @@ $base-text-field-variables: (
   icon-margin-left: calculateRem(9px),
   icon-margin-right: calculateRem(8px),
   explanation-margin: 0,
+  explanation-max-width: calculateRem(280px),
   input-label-offset: calculateRem(5.3px),
   input-label-offset--with-icons: calculateRem(27px),
   label-transition: 0.2s,

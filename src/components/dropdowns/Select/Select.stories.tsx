@@ -128,7 +128,6 @@ export const MultiSelect = () => {
     <>
       <Select
         isMulti
-        menuIsOpen
         value={value}
         onChange={setValue}
         selectAll={boolean('selectAll2', true)}

@@ -3,7 +3,7 @@
     @include theme(background-color, primary--color);
     @include flex(null, center);
     min-width: getAlertSizes(alert-width);
-    width: -moz-fit-content; //for mozilla
+    width: -moz-fit-content; // for mozilla
     width: fit-content;
     height: getAlertSizes(alert-height);
     border-radius: getAlertSizes(alert-radius);
@@ -16,9 +16,11 @@
       color: #8ea6c1;
       margin-left: getAlertSizes(alert-text-marginLeft);
     }
+
     .AlertClose {
-      margin-left: getAlertSizes(alert-close-marginLeft);
       cursor: pointer;
+
+      margin-left: getAlertSizes(alert-close-marginLeft);
     }
   }
 
@@ -28,20 +30,17 @@
     right: getAlertSizes(alert-animation-position);
   }
 
-  .alertEnter {
-    animation: show_alert 1s ease forwards;
-  }
-  .alertEnterActive {
-    animation: show_alert 1s ease forwards;
-  }
-  .alertExit {
-    animation: hide_alert 1s ease forwards;
-  }
-  .alertExitActive {
-    animation: hide_alert 1s ease forwards;
+  .AlertEnter,
+  .AlertEnterActive {
+    animation: showAlert 1s ease forwards;
   }
 
-  @keyframes hide_alert {
+  .AlertExit,
+  .AlertExitActive {
+    animation: hideAlert 1s ease forwards;
+  }
+
+  @keyframes hideAlert {
     40% {
       transform: translateX(0%);
     }
@@ -52,7 +51,8 @@
       transform: translateX(100%);
     }
   }
-  @keyframes show_alert {
+
+  @keyframes showAlert {
     0% {
       transform: translateX(100%);
     }

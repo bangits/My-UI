@@ -8,6 +8,7 @@ import DatePickerInput from './DatePickerInput';
 
 export interface DatepickerProps extends ReactDatePickerProps {
   withDropdowns?: boolean;
+  fullWidth?: boolean;
 }
 
 const DatePicker: React.FC<DatepickerProps> = ({
@@ -19,13 +20,17 @@ const DatePicker: React.FC<DatepickerProps> = ({
   monthsShown,
   popperClassName,
   wrapperClassName,
+  fullWidth,
   ...datePickerProps
 }) => {
   const defaultWeekDayFormating = useCallback((weekDay) => weekDay.substr(0, 3), []);
 
   const renderCustomHeader = useCallback((params) => <DatePickerHeader {...params} />, []);
 
-  const customInput = useMemo(() => <DatePickerInput placeholderText={placeholderText} />, [placeholderText]);
+  const customInput = useMemo(
+    () => <DatePickerInput fullWidth={fullWidth} placeholderText={placeholderText} />,
+    [placeholderText]
+  );
 
   return (
     <>

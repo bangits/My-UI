@@ -1,19 +1,17 @@
 import { uniqueIdMaker } from '@/helpers';
 import { Alert, Portal } from '@/my-ui-core';
-import React, { forwardRef, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { AlertProps } from './Alert';
 import styles from './Alert.module.scss';
 import { alert } from './AlertService';
-
-export type RefType = HTMLDivElement;
 
 export interface AlertContainerProps {
   autoClose?: boolean;
   autoCloseDelay?: number;
 }
 
-const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, autoCloseDelay = 5000 }, ref) => {
+const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5000 }) => {
   const [alerts, setAlerts] = useState<AlertProps[]>([]);
   const [removing, setRemoving] = useState('');
   const [showMessage, setShowMessage] = useState(false);
@@ -54,16 +52,15 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
           {alerts.map((alert) => {
             return (
               <CSSTransition
-                in={showMessage}
                 timeout={1500}
                 mountOnEnter
                 unmountOnExit
                 key={alert.id}
                 classNames={{
-                  enter: styles.alertEnter,
-                  enterActive: styles.alertEnterActive,
-                  exit: styles.alertExit,
-                  exitActive: styles.alertExitActive
+                  enter: styles.AlertEnter,
+                  enterActive: styles.AlertEnterActive,
+                  exit: styles.AlertExit,
+                  exitActive: styles.AlertExitActive
                 }}>
                 <Alert
                   onClose={() => {
@@ -80,6 +77,6 @@ const AlertContainer = forwardRef<RefType, AlertContainerProps>(({ autoClose, au
       </div>
     </Portal>
   );
-});
+};
 
 export default AlertContainer;

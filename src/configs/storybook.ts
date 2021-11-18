@@ -1,5 +1,6 @@
 export const STORYBOOK_SECTIONS = {
   CHECKBOX_AND_RADIO: 'Checkbox and Radio Button',
+  ALERT: 'Alert',
   DROPDOWN: 'Dropdown'
 };
 

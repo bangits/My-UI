@@ -1,3 +1,4 @@
+import { getComponentName } from '@/configs';
 import { AlertCheck, AlertError, AlertInfo, AlertWarning } from '@/icons';
 import { Button } from '@/my-ui-core';
 import { boolean, number, withKnobs } from '@storybook/addon-knobs';
@@ -9,7 +10,7 @@ import { alert } from './AlertService';
 export default {
   component: Alert,
   decorators: [withKnobs],
-  title: 'components/Alert/Alert'
+  title: getComponentName('ALERT', 'Alert')
 };
 
 export const Default = () => {
@@ -57,9 +58,3 @@ export const Default = () => {
     </div>
   );
 };
-
-/* class AlertService extends SubcriptionService {
-  error() {
-    super.publish();
-  }
-} */

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
+import { object, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import InputWithDropdown from './InputWithDropdown';
 
@@ -14,10 +14,11 @@ export const Default = () => {
     <InputWithDropdown
       onInputChange={action('onInputChange')}
       onDropdownChange={action('onDropdownChange')}
-      dropdownInputProps={{
+      dropdownInputProps={object('dropdownInputProps', {
         type: 'number'
-      }}
-      dropdownProps={{
+      })}
+      dropdownProps={object('dropdownProps', {
+        noOptionsMessage: ({ inputValue }) => (!inputValue ? '' : 'Try Again'),
         options: [
           {
             label: '+374',
@@ -57,7 +58,7 @@ export const Default = () => {
           }
         ],
         defaultValue: 2
-      }}
+      })}
       inputProps={{
         label: 'Mobile Number',
         type: 'number'

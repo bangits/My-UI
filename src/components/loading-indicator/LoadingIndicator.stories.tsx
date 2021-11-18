@@ -1,5 +1,4 @@
 import { number, withKnobs, optionsKnob } from '@storybook/addon-knobs';
-import React from 'react';
 import LoadingIndicator from './LoadingIndicator';
 
 export default {

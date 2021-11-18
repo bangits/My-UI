@@ -1,6 +1,6 @@
 @mixin generate-popup-styles {
   .PopUp {
-    width: getPopUpSizes(pop-up-width);
+    min-width: getPopUpSizes(pop-up-width);
     height: auto;
     min-height: getPopUpSizes(pop-up-height);
     border-radius: getPopUpSizes(pop-up-border-radius);
@@ -24,6 +24,13 @@
       animation: popup-show-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     }
 
+    .PopUpIconContainer {
+      width: 8rem;
+      height: 8rem;
+
+      margin: 0 auto;
+    }
+
     .PopUpLabel {
       h2 {
         margin-bottom: 0;
@@ -35,7 +42,8 @@
       word-break: break-word;
       p {
         margin-bottom: 0;
-        span {
+        b,
+        strong {
           font-weight: getPopUpSizes(pop-up-span-font);
         }
       }

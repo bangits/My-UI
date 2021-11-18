@@ -4,13 +4,15 @@
 
     &--input {
       input {
-        padding-left: 77px;
+        padding: getInputWithDropdownStyles(input-padding);
 
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
           /* display: none; <- Crashes Chrome on hover */
           -webkit-appearance: none;
-          margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+          margin: getInputWithDropdownStyles(
+            input-spin-button-margin
+          ); /* <-- Apparently some margin are still there even though it's hidden */
         }
 
         &[type='number'] {
@@ -21,25 +23,27 @@
 
     &--dropdown {
       position: absolute;
-      height: 38px;
-      top: 6px;
+      height: getInputWithDropdownStyles(dropdown-height);
+      top: getInputWithDropdownStyles(dropdown-top);
     }
 
     &--dropdown-input {
       box-sizing: border-box;
       border: none;
       outline: none;
-      width: 53px;
-      height: 38px;
-      padding: 0 0 0 16px;
-      margin: 0;
+      width: getInputWithDropdownStyles(dropdown-input-width);
+      height: getInputWithDropdownStyles(dropdown-input-height);
+      padding: getInputWithDropdownStyles(dropdown-input-padding);
+      margin: getInputWithDropdownStyles(dropdown-input-margin);
       background-color: transparent;
 
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {
         /* display: none; <- Crashes Chrome on hover */
         -webkit-appearance: none;
-        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        margin: getInputWithDropdownStyles(
+          input-spin-button-margin
+        ); /* <-- Apparently some margin are still there even though it's hidden */
       }
 
       &[type='number'] {
@@ -50,43 +54,41 @@
     &--select {
       :global {
         .react-select__menu {
-          top: 41px;
+          top: getInputWithDropdownStyles(select-top);
         }
       }
     }
 
     &--dropdown-control {
       @include flex(end, center);
-      min-width: 77px;
-      height: 38px;
+      min-width: getInputWithDropdownStyles(dropdown-control-min-width);
+      height: getInputWithDropdownStyles(dropdown-control-height);
     }
 
     &--dropdown-control-icon-open,
     &--dropdown-control-icon-closed {
+      @include theme(color, black-color);
+      @include flex(center, center);
       cursor: pointer;
-      color: #505d6e;
-      width: 2.4rem;
-      height: 2.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: getInputWithDropdownStyles(dropdown-control-icon-width);
+      height: getInputWithDropdownStyles(dropdown-control-icon-height);
     }
 
     &--dropdown-control-icon-open {
-      transform: rotate(0deg);
+      transform: getInputWithDropdownStyles(dropdown-control-icon-transform-open);
     }
 
     &--dropdown-control-icon-closed {
-      transform: rotate(180deg);
+      transform: getInputWithDropdownStyles(dropdown-control-icon-transform-closed);
     }
 
     &--dropdown-control-label {
-      color: #505d6e;
-      font-size: 14px;
+      @include theme(color, black-color);
+      font-size: getInputWithDropdownStyles(dropdown-control-label-font-size);
 
       &::placeholder {
-        color: #8ea6c1;
-        font-size: 14px;
+        @include theme(color, gray-color);
+        font-size: getInputWithDropdownStyles(dropdown-control-label-font-size);
       }
     }
   }

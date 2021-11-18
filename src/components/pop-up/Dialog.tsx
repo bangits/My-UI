@@ -1,8 +1,14 @@
-import styles from './PopUp.module.scss';
 import { Portal } from '@/components';
+import { FC } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import styles from './Dialog.module.scss';
 
-const Dialog = ({ onClose, isOpened, children }) => {
+export interface DialogProps {
+  isOpened?: boolean;
+  onClose?(): void;
+}
+
+const Dialog: FC<DialogProps> = ({ onClose, isOpened, children }) => {
   return (
     <Portal>
       <CSSTransition in={isOpened} timeout={500} classNames={{ exit: styles['PopUp--exit'] }} unmountOnExit>

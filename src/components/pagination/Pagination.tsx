@@ -49,6 +49,29 @@ const Pagination: FC<PaginationProps> = ({
             </Typography>
             <div className={styles.PaginationSelectWrapper}>
               <Select
+                renderInput={(value, isMenuOpen) => (
+                  <div>
+                    <span>{value.label}</span>
+                    <span
+                      style={{
+                        color: '#505D6E',
+                        width: '2.4rem',
+                        height: '2.4rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transform: isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
+                      }}>
+                      <svg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 10 5'>
+                        <path
+                          id='Shape'
+                          d='M.122,4.383,4.657.123a.572.572,0,0,1,.71,0l4.512,4.26c.273.239.056.617-.355.617H.476C.066,5-.152,4.622.122,4.383Z'
+                          fill='currentColor'
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                )}
                 inputLabel={null}
                 fullWidth
                 className={styles.SelectWrapper}

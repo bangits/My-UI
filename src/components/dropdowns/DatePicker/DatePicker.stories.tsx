@@ -11,16 +11,11 @@ export default {
 } as ComponentMeta<typeof DatePicker>;
 
 export const Default = () => {
-  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
-  // const [date, setDate] = useState<Date | null>(null);
-
   return (
     <>
       <DatePicker
         placeholderText='dd/mm/yyyy Without Range'
         dateFormat={'dd/MM/yyyy'}
-        // onChange={(date: Date) => setDate(date)}
-        // selected={date}
         withDropdowns={boolean('withDropdowns', true)}
         disabled={boolean('disabled', false)}
       />

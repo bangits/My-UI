@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { TextInput, Typography } from '@/components';
 import styles from './Pagination.module.scss';
 
-const PaginationInput = ({ setGoToPage, pageCount }) => {
+const PaginationInput = ({ setGoToPage, pageCount, inputTitle }) => {
   const [page, setPage] = useState<number | string>('');
   return (
     <div className={styles.PaginationInputContainer}>
       <Typography variant='p4' component='span' className={styles.PaginationInputLabel}>
+        {inputTitle}
         Jump to Page
       </Typography>
       <TextInput

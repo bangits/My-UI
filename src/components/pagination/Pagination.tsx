@@ -19,6 +19,8 @@ export interface PaginationProps extends IComponent {
   }[];
   bottomButtonLabel?: string;
   onChange: (e: any) => void;
+  dropDownTitle: string;
+  inputTitle: string;
 }
 
 const Pagination: FC<PaginationProps> = ({
@@ -28,7 +30,9 @@ const Pagination: FC<PaginationProps> = ({
   showPageSizeSelect,
   showTotalCountInfo,
   showJumpToPage,
-  pageSize
+  pageSize,
+  dropDownTitle,
+  inputTitle
 }) => {
   const [goToPage, setGoToPage] = useState(1);
   const [count, setCount] = useState<number>(20);
@@ -45,13 +49,20 @@ const Pagination: FC<PaginationProps> = ({
         {showPageSizeSelect && (
           <>
             <Typography variant='p4' component='span' className={styles.SelectLabel}>
-              Row per page:
+              {dropDownTitle}
             </Typography>
             <div className={styles.PaginationSelectWrapper}>
               <Select
                 renderInput={(value, isMenuOpen) => (
-                  <div>
-                    <span>{value.label}</span>
+                  <div
+                    style={{
+                      display: 'flex',
+                      color: '#505d6e',
+                      fontSize: '14px',
+                      justifyContent: 'center',
+                      alignItems: 'baseline'
+                    }}>
+                    <div>{value.label}</div>
                     <span
                       style={{
                         color: '#505D6E',
@@ -112,7 +123,7 @@ const Pagination: FC<PaginationProps> = ({
             renderOnZeroPageCount={null}
           />
         )}
-        {showJumpToPage && <PaginationInput pageCount={page} setGoToPage={setGoToPage} />}
+        {showJumpToPage && <PaginationInput pageCount={page} setGoToPage={setGoToPage} inputTitle={inputTitle} />}
       </div>
     </div>
   );

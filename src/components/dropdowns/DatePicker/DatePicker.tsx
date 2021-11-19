@@ -65,7 +65,11 @@ const DatePicker: React.FC<DatepickerProps> = ({
         selected={selected !== undefined ? selected : date}
         startDate={startDate !== undefined ? startDate : dateRange[0]}
         endDate={endDate !== undefined ? endDate : dateRange[1]}
-        onChange={onChange || defaultOnChange}
+        onChange={(value, event) => {
+          defaultOnChange(value);
+
+          if (onChange) onChange(value, event);
+        }}
         monthsShown={monthsShown}
         showYearDropdown={withDropdowns}
         showMonthDropdown={withDropdowns}

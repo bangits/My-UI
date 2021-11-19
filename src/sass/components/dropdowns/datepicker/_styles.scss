@@ -216,88 +216,88 @@
     }
   }
 
-  @each $color in $base-colors {
-    // .DatePicker {
-    //   :global {
-    //     .react-datepicker {
-    //       @include theme(background-color, #{$color});
+  // @each $color in $base-colors {
+  // .DatePicker {
+  //   :global {
+  //     .react-datepicker {
+  //       @include theme(background-color, #{$color});
 
-    //       &__navigation--next {
-    //         &:hover {
-    //           @include theme(color, #{$color});
-    //         }
-    //       }
+  //       &__navigation--next {
+  //         &:hover {
+  //           @include theme(color, #{$color});
+  //         }
+  //       }
 
-    //       &__navigation--previous {
-    //         &:hover {
-    //           @include theme(color, #{$color});
-    //         }
-    //       }
+  //       &__navigation--previous {
+  //         &:hover {
+  //           @include theme(color, #{$color});
+  //         }
+  //       }
 
-    //       &__day--range-start,
-    //       &__day--range-end {
-    //         @include theme(color, #{$color});
-    //         @include theme(background-color, #{$color});
-    //       }
+  //       &__day--range-start,
+  //       &__day--range-end {
+  //         @include theme(color, #{$color});
+  //         @include theme(background-color, #{$color});
+  //       }
 
-    //       &__day--in-range {
-    //         @include theme(background-color, #{$color}, $opacity: 0.1);
-    //         @include theme(color, #{$color});
-    //       }
+  //       &__day--in-range {
+  //         @include theme(background-color, #{$color}, $opacity: 0.1);
+  //         @include theme(color, #{$color});
+  //       }
 
-    //       &__day--selecting-range-start {
-    //         @include theme(background-color, #{$color}--color);
-    //       }
+  //       &__day--selecting-range-start {
+  //         @include theme(background-color, #{$color}--color);
+  //       }
 
-    //       &__day--in-selecting-range {
-    //         @include theme(background-color, #{$color}, $opacity: 0.1);
-    //         @include theme(color, #{$color});
-    //       }
+  //       &__day--in-selecting-range {
+  //         @include theme(background-color, #{$color}, $opacity: 0.1);
+  //         @include theme(color, #{$color});
+  //       }
 
-    //       &__day-names {
-    //         @include theme(color, #{$color});
-    //       }
+  //       &__day-names {
+  //         @include theme(color, #{$color});
+  //       }
 
-    //       &__week {
-    //         .react-datepicker__day:hover,
-    //         .react-datepicker__day--selected {
-    //           @include theme(color, #{$color});
-    //           @include theme(background-color, #{$color});
-    //         }
-    //       }
-    //       &__day--today {
-    //         @include generateBorderWithBoxShadow(#{$color}, 1px);
-    //         @include theme(color, #{$color});
-    //       }
-    //       &__day--outside-month {
-    //         @include theme(color, #{$color}, $opacity: 0.5);
-    //       }
+  //       &__week {
+  //         .react-datepicker__day:hover,
+  //         .react-datepicker__day--selected {
+  //           @include theme(color, #{$color});
+  //           @include theme(background-color, #{$color});
+  //         }
+  //       }
+  //       &__day--today {
+  //         @include generateBorderWithBoxShadow(#{$color}, 1px);
+  //         @include theme(color, #{$color});
+  //       }
+  //       &__day--outside-month {
+  //         @include theme(color, #{$color}, $opacity: 0.5);
+  //       }
 
-    //       &__day--selecting-range-start,
-    //       &__day--range-start,
-    //       &__day--range-end,
-    //       &__day:hover {
-    //         @include theme(color, #{$color});
-    //         @include theme(background-color, #{$color});
-    //       }
-    //     }
-    //     .react-datepicker__day.react-datepicker__day--range-end.react-datepicker__day--outside-month,
-    //     .react-datepicker__day.react-datepicker__day--range-start.react-datepicker__day--outside-month {
-    //       @include theme(color, #{$color}, $opacity: 0.5);
-    //       &:hover {
-    //         @include theme(color, #{$color});
-    //         @include theme(background-color, #{$color});
-    //       }
-    //     }
+  //       &__day--selecting-range-start,
+  //       &__day--range-start,
+  //       &__day--range-end,
+  //       &__day:hover {
+  //         @include theme(color, #{$color});
+  //         @include theme(background-color, #{$color});
+  //       }
+  //     }
+  //     .react-datepicker__day.react-datepicker__day--range-end.react-datepicker__day--outside-month,
+  //     .react-datepicker__day.react-datepicker__day--range-start.react-datepicker__day--outside-month {
+  //       @include theme(color, #{$color}, $opacity: 0.5);
+  //       &:hover {
+  //         @include theme(color, #{$color});
+  //         @include theme(background-color, #{$color});
+  //       }
+  //     }
 
-    //     .react-datepicker__day.react-datepicker__day--in-selecting-range.react-datepicker__day--outside-month:hover {
-    //       @include theme(color, #{$color}, $opacity: 0.5);
-    //     }
-    //     .react-datepicker__day.react-datepicker__day--outside-month:hover {
-    //       @include theme(background-color, #{$color}, $opacity: 0.1);
-    //       @include theme(color, #{$color});
-    //     }
-    //   }
-    // }
-  }
+  //     .react-datepicker__day.react-datepicker__day--in-selecting-range.react-datepicker__day--outside-month:hover {
+  //       @include theme(color, #{$color}, $opacity: 0.5);
+  //     }
+  //     .react-datepicker__day.react-datepicker__day--outside-month:hover {
+  //       @include theme(background-color, #{$color}, $opacity: 0.1);
+  //       @include theme(color, #{$color});
+  //     }
+  //   }
+  // }
+  // }
 }

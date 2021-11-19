@@ -13,7 +13,7 @@
 
     &__path-elapsed {
       stroke-width: getLoadingIndicatorSizes(path-elapsed-width);
-      transition: all 9s;
+      transition: getLoadingIndicatorSizes(transition-all-indicator);
       stroke-width: getLoadingIndicatorSizes(path-elapsed-stroke-width);
       @include theme(fill, primary, $opacity: 0.04);
     }
@@ -22,7 +22,7 @@
       stroke-width: getLoadingIndicatorSizes(path-remaining-width);
       transform: rotate(90deg);
       transform-origin: center;
-      transition: 0.9s linear all;
+      transition: getLoadingIndicatorSizes(transition-circle-path-remaining) linear all;
       fill-rule: nonzero;
       @include theme(stroke, circle-indicator-remaining-color);
       stroke-width: getLoadingIndicatorSizes(path-remaining-stroke-width);
@@ -41,6 +41,7 @@
   .LoadingIndicatorRectangle {
     rect {
       stroke-width: getLoadingIndicatorSizes(rectangle-stroke-width);
+      transition: getLoadingIndicatorSizes(transition-all-indicator);
       fill: transparent;
       width: getLoadingIndicatorSizes(loading-indicator-rectangle-width);
       height: getLoadingIndicatorSizes(loading-indicator-rectangle-height);

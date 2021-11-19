@@ -1,14 +1,15 @@
 import { getMyUIPrefix } from '@/configs';
 import ReactDatePicker, { ReactDatePickerProps } from '@my-ui/react-datepicker';
 import classNames from 'classnames';
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import styles from './DatePicker.module.scss';
 import DatePickerHeader from './DatePickerHeader';
 import DatePickerInput from './DatePickerInput';
 
-export interface DatepickerProps extends ReactDatePickerProps {
+export interface DatepickerProps extends Omit<ReactDatePickerProps, 'onChange'> {
   withDropdowns?: boolean;
   fullWidth?: boolean;
+  onChange?: ReactDatePickerProps['onChange'];
 }
 
 const DatePicker: React.FC<DatepickerProps> = ({
@@ -21,8 +22,15 @@ const DatePicker: React.FC<DatepickerProps> = ({
   popperClassName,
   wrapperClassName,
   fullWidth,
+  selected,
+  startDate,
+  endDate,
+  onChange,
   ...datePickerProps
 }) => {
+  const [date, setDate] = useState<Date | null>(null);
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+
   const defaultWeekDayFormating = useCallback((weekDay) => weekDay.substr(0, 3), []);
 
   const renderCustomHeader = useCallback((params) => <DatePickerHeader {...params} />, []);
@@ -31,6 +39,11 @@ const DatePicker: React.FC<DatepickerProps> = ({
     () => <DatePickerInput fullWidth={fullWidth} placeholderText={placeholderText} />,
     [placeholderText]
   );
+
+  const defaultOnChange = useCallback((date: Date | [Date, Date]) => {
+    if (Array.isArray(date)) setDateRange(date);
+    else setDate(date);
+  }, []);
 
   return (
     <>
@@ -49,6 +62,10 @@ const DatePicker: React.FC<DatepickerProps> = ({
         customInput={customInput}
         renderCustomHeader={renderCustomHeader}
         fixedHeight
+        selected={selected !== undefined ? selected : date}
+        startDate={startDate !== undefined ? startDate : dateRange[0]}
+        endDate={endDate !== undefined ? endDate : dateRange[1]}
+        onChange={onChange || defaultOnChange}
         monthsShown={monthsShown}
         showYearDropdown={withDropdowns}
         showMonthDropdown={withDropdowns}

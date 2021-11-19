@@ -95,10 +95,10 @@ $transition-duration: getTextFieldSizes(label-transition);
     }
 
     &--with-two-start-icon {
-      padding-left: 6.3rem !important;
+      padding-left: getTextFieldSizes(input-with-two-icon-padding) !important;
     }
     &--with-two-end-icon {
-      padding-right: 6.3rem !important;
+      padding-right: getTextFieldSizes(input-with-two-icon-padding) !important;
     }
   }
 
@@ -148,15 +148,15 @@ $transition-duration: getTextFieldSizes(label-transition);
   }
 
   .TextInputLabelText {
-    min-height: 3.8rem;
+    min-height: getTextFieldSizes(input-label-text-height);
     padding-right: getTextFieldSizes(input-label-icon-offset);
     @include dots-after-text;
 
     &--with-two-start-icon {
-      padding-left: 2.4rem;
+      padding-left: getTextFieldSizes(input-label-with-two-start-icon-padding);
     }
     &--with-two-end-icon {
-      padding-right: 4rem;
+      padding-right: getTextFieldSizes(input-label-with-two-end-icon-padding);
     }
   }
 
@@ -203,7 +203,7 @@ $transition-duration: getTextFieldSizes(label-transition);
         padding-right: 0;
 
         &--with-two-start-icon {
-          padding-left: 0rem;
+          padding-left: 0;
         }
       }
     }

@@ -1,7 +1,7 @@
 $base-scroll-variables: (
   track-vertical-width: calculateRem(4px),
   track-horizontal-height: calculateRem(4px),
-  track-border-radius: calculateRem(8px),
+  track-border-radius: 8px,
   track-z-index: 10000000
 );
 

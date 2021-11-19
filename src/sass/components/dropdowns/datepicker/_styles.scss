@@ -9,9 +9,7 @@
 
         padding-bottom: getDatePickerSizes(datePicker-wrapper-padding-bottom);
         padding: getDatePickerSizes(datePicker-padding);
-
-        box-shadow: 3px 3px 6px 0 rgba(46, 46, 46, 0.1); // TO DO Armen please fix, immediately
-
+        @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
         width: getDatePickerSizes(datePicker-wrapper-width);
         min-height: getDatePickerSizes(datePicker-wrapper-min-heigh);
         height: getDatePickerSizes(datePicker-month-container-min-height);
@@ -25,7 +23,6 @@
         &__navigation--previous {
           position: absolute;
           top: getDatePickerSizes(datepicker-navigation-top);
-
           width: getDatePickerSizes(datepicker-navigation-width);
 
           &,
@@ -95,25 +92,16 @@
         }
 
         &__day-names {
-          @include theme(color, primary--silver);
-          @include flex;
-
+          @include theme(color, datepicker-day-names-color);
+          @include flex(space-around, null);
           font-size: getDatePickerSizes(datePicker-day--name);
-
           margin-bottom: getDatePickerSizes(datePicker-week-font-size);
-
-          justify-content: space-around;
-
           text-transform: uppercase;
 
           div {
-            @include flex;
-
+            @include flex(center, null);
             font-size: getDatePickerSizes(datePicker-week-name-font-size);
-
             min-width: getDatePickerSizes(datePicker-week-name-min-width);
-
-            justify-content: center;
           }
         }
         &__week:first-child {
@@ -121,20 +109,15 @@
         }
         &__week {
           @include theme(color, black-color);
-          @include flex;
-
+          @include flex(space-around, null);
           margin-top: getDatePickerSizes(datePicker-navigation--nextSize);
           margin-bottom: getDatePickerSizes(datePicker-weeks-margin-bottom);
           height: getDatePickerSizes(datePicker-days-height);
-
           font-size: getDatePickerSizes(datePicker-month--size);
 
-          justify-content: space-around;
           div {
             min-width: getDatePickerSizes(datePicker-day-width);
-
             padding: getDatePickerSizes(datePicker-day-padding);
-
             cursor: pointer;
             text-align: center;
           }
@@ -143,7 +126,6 @@
           .react-datepicker__day--selected {
             @include theme(color, primary--color);
             @include theme(background-color, primary);
-
             border-radius: getDatePickerSizes(datePicker-month-container--borderRadius);
           }
         }
@@ -155,7 +137,7 @@
           margin: getDatePickerSizes(datePicker-current-day-margin);
         }
         &__day--outside-month {
-          @include theme(color, primary--gray, $opacity: 0.5);
+          @include theme(color, datepicker-day-color, $opacity: 0.5);
         }
 
         &__day--selecting-range-end {
@@ -180,7 +162,7 @@
       }
       .react-datepicker__day.react-datepicker__day--range-end.react-datepicker__day--outside-month,
       .react-datepicker__day.react-datepicker__day--range-start.react-datepicker__day--outside-month {
-        @include theme(color, primary--gray, $opacity: 0.5);
+        @include theme(color, datepicker-day-color, $opacity: 0.5);
         &:hover {
           @include theme(color, primary--color);
           @include theme(background-color, primary);
@@ -195,7 +177,7 @@
       }
       .react-datepicker__day.react-datepicker__day--in-selecting-range.react-datepicker__day--outside-month:hover {
         background: none;
-        @include theme(color, primary--gray, $opacity: 0.5);
+        @include theme(color, datepicker-day-color, $opacity: 0.5);
       }
       .react-datepicker__day.react-datepicker__day--outside-month:hover {
         @include theme(background-color, primary, $opacity: 0.1);

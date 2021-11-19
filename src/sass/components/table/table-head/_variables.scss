@@ -5,7 +5,8 @@ $tablehead-sizes: (
   table-head-height: calculateRem(24px),
   table-head-container-height: calculateRem(24px),
   table-arrow-icon-sizes: calculateRem(24px),
-  table-icon-up-margin: calculateRem(6px)
+  table-icon-up-margin: calculateRem(6px),
+  icon-disabled-opacity: 0.4
 );
 
 @function getTableHeadSizes($property) {

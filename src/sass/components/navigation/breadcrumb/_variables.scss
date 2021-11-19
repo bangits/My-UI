@@ -1,14 +1,14 @@
 $breadcrumb-sizes: (
-  breadcrumbBase-font-size: 1.4rem,
+  breadcrumbBase-font-size: calculateRem(14px),
   breadcrumbBase-padding: 0,
-  breadcrumb-item-icon-margin: 0.8rem,
-  next-icon-size: 2.4rem,
+  breadcrumb-item-icon-margin: calculateRem(8px),
+  next-icon-size: calculateRem(24px),
   breadcrumb-item-opacity: 0.5,
   breadcrumb-item-first-child-margin-left: 0,
   breadcrumb-item-active-opacity: 1,
-  breadcrumb-item-arrow-width: 0.3rem,
-  breadcrumb-item-arrow-height: 0.3rem,
-  breadcrumb-item-arrow-margin-left: -3rem,
+  breadcrumb-item-arrow-width: calculateRem(3px),
+  breadcrumb-item-arrow-height: calculateRem(3px),
+  breadcrumb-item-arrow-margin-left: calculateRem(-30px),
   breadcrumb-hover-transition: 0.3s
 );
 

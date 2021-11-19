@@ -12,8 +12,8 @@
     @include flex(null, null, $direction: column);
     width: getSideBarSizes(sidebar-collapsed-min-width);
     height: getSideBarSizes(sidebar-height);
-    box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
-    transition: 0.3s;
+    @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
+    transition: getSideBarSizes(sidebar-transition);
 
     &--fixed {
       position: fixed;
@@ -28,7 +28,7 @@
       width: getSideBarSizes(sidebar-logo-width);
       height: getSideBarSizes(sidebar-logo-height);
       border-radius: getSideBarSizes(sidebar-logo-borderRadius);
-      transition: 0.3s;
+      transition: getSideBarSizes(sidebar-transition);
 
       @include theme(background-color, sidebar-logo-background-color);
 
@@ -97,13 +97,13 @@
 
       .SidebarBase--logo {
         margin: getSideBarSizes(sidebar-logo-margin);
-        transition: 0.3s;
+        transition: getSideBarSizes(sidebar-transition);
       }
 
       .SidebarBase--menu-item {
         > a {
           display: none;
-          transition: 0.3s;
+          transition: getSideBarSizes(sidebar-transition);
         }
       }
     }

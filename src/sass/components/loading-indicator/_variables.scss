@@ -11,6 +11,10 @@ $loadingindicator-sizes: (
   rectangle-stroke-width: calculateRem(1px)
 );
 
+$loadingindicator-colors: (
+  circle-indicator-remaining-color: color(white)
+);
+
 @function getLoadingIndicatorSizes($property) {
   @return map-get($loadingindicator-sizes, $property);
 }

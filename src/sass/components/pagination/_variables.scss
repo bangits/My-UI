@@ -21,7 +21,11 @@ $pagination-sizes: (
   react-select-menu-width: calculateRem(51px),
   react-select-menu-position-top: calculateRem(39.7px),
   react-select-menu-option-height: calculateRem(25px),
-  react-select-menu-option-span-margin: calculateRem(4px)
+  react-select-menu-option-span-margin: calculateRem(4px),
+  //global
+  select-input-padding-left: calculateRem(6px),
+  select-input-margin: calculateRem(5px),
+  select-input-height: calculateRem(25px)
 );
 
 @function getPaginationSizes($property) {

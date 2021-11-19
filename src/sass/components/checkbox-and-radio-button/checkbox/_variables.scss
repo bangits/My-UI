@@ -1,8 +1,8 @@
 $checkbox-sizes: (
   checkbox-width: calculateRem(16px),
   checkbox-height: calculateRem(16px),
-  checkbox-border-width: calculateRem(1px),
-  checkbox-border-radius: calculateRem(4px),
+  checkbox-border-width: 1px,
+  checkbox-border-radius: 4px,
   checkbox-check-width: calculateRem(9.1px)
 );
 

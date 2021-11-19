@@ -1,7 +1,6 @@
 $cardimg-sizes: (
   card-img-height: calculateRem(64px),
-  card-img-border-radius: calculateRem(4px) calculateRem(4px) 0 0,
-  card-img-box-shadow: 0 0 calculateRem(4px) 0,
+  card-img-border-radius: 4px 4px 0 0,
   card-text-container-height: calculateRem(26px),
   card-text-container-padding: calculateRem(7px) calculateRem(6px) calculateRem(7px) calculateRem(6px),
   card-text-container-border-radius: 0 0 calculateRem(4px) calculateRem(4px),

@@ -5,8 +5,7 @@
     height: 100%;
 
     .AvatarWrapper {
-      display: flex;
-      align-items: center;
+      @include flex(null, center);
       width: fit-content;
     }
 
@@ -45,7 +44,7 @@
       right: getAvatarSizes(avatar-dropdown-card-positionRight);
       top: getAvatarSizes(avatar-dropdown-card-positionTop);
       height: fit-content;
-      box-shadow: 0 3px 6px 0 rgba(32, 32, 32, 0.1);
+      @include theme(box-shadow, box-shadow-color, 0 3px 6px 0);
       box-sizing: border-box;
       @include theme(background-color, avatar-dropdown-bg);
 

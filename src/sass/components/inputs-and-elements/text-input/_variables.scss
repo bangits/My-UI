@@ -17,7 +17,7 @@ $base-text-field-variables: (
   input-label-offset: calculateRem(5.3px),
   input-label-offset--with-icons: calculateRem(27px),
   label-transition: 0.2s,
-  input-border-radius: calculateRem(4px),
+  input-border-radius: 4px,
   input-type-offset: calculateRem(16px),
   input-type-offset--with-icons: calculateRem(41px),
   input-label-line-height: calculateRem(50px),
@@ -26,7 +26,11 @@ $base-text-field-variables: (
   input-corner-offset: calculateRem(6px),
   input-border-width: calculateRem(0.5px),
   input-hover-border-width: calculateRem(1px),
-  input-label-icon-offset: calculateRem(20px)
+  input-label-icon-offset: calculateRem(20px),
+  input-with-two-icon-padding: calculateRem(63px),
+  input-label-text-height: calculateRem(38px),
+  input-label-with-two-start-icon-padding: calculateRem(24px),
+  input-label-with-two-end-icon-padding: calculateRem(40px)
 );
 
 @function getTextFieldSizes($property) {

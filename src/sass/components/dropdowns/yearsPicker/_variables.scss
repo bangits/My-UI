@@ -58,22 +58,6 @@ $datepicker-year-sizes: (
   datePicker-year-button-all-margin-bottom: calculateRem(28px)
 );
 
-$datepicker-colors: (
-  datepicker-container-bg: color(white),
-  datepicker-input-border--primary: color(stratos),
-  datepicker-bg-color--primary: color(pelorous),
-  datepicker-secondary-bg-color--primary: color(aqua-spring),
-  datepicker-color--primary: color(white),
-  datepicker-text-color--primary: color(gray),
-  datepicker-day-color--primary: color(silver),
-  datepicker-box-shadow--primary: color(carbon-fiber),
-  datepicker-current-day--primary: color(oxford-blue),
-  datepicker-day--primary: color(azure-approx),
-  datepicker-day-selected-row--primary: color(azure-approx-opacity-10),
-  datepicker-selected-days--primary: color(shuttl-gray),
-  datepicker-week-color--primary: color(silver)
-);
-
 @function getYearSelectSizes($property) {
   @return map-get($datepicker-year-sizes, $property);
 }

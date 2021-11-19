@@ -3,9 +3,9 @@
     :global {
       .MyUI-SelectInput {
         padding-right: 0;
-        padding-left: 6px;
-        margin-bottom: 5px;
-        min-height: 25px;
+        padding-left: getPaginationSizes(select-input-padding-left);
+        margin-bottom: getPaginationSizes(select-input-margin);
+        min-height: getPaginationSizes(select-input-height);
         border: none !important;
         @include theme(color, black-color);
 

@@ -1,67 +1,67 @@
 $sidebar-menu-item-sizes: (
   sidebar-menu-item-width: 100%,
-  sidebar-menu-item-height: 5.3rem,
+  sidebar-menu-item-height: calculateRem(53px),
+  sidebar-menu-item-transition: 0.3s,
   //isActive
-  sidebar-menu-item-isActive-height: 5.3rem,
-  sidebar-menu-item-isActive-borderRadius: 0.8rem,
+  sidebar-menu-item-isActive-height: calculateRem(53px),
+  sidebar-menu-item-isActive-borderRadius: 8px,
   sidebar-menu-item-isActive-after-left: 0,
   sidebar-menu-item-isActive-after-top: 0,
-  sidebar-menu-item-isActive-after-width: 0.8rem,
-  sidebar-menu-item-isActive-after-height: 5.3rem,
-  sidebar-menu-item-isActive-after-borderRadius: 3.2rem 0 0 3.2rem,
-  sidebar-menu-item-isActive-icon-margin: 0 0 0 2.4rem,
-  sidebar-menu-item-isActive-icon-width: 2.4rem,
-  sidebar-menu-item-isActive-icon-height: 2.4rem,
-  sidebar-menu-item-isActive-icon-padding: 0.4rem,
+  sidebar-menu-item-isActive-after-width: calculateRem(8px),
+  sidebar-menu-item-isActive-after-height: calculateRem(53px),
+  sidebar-menu-item-isActive-after-borderRadius: 32px 0 0 32px,
+  sidebar-menu-item-isActive-icon-margin: 0 0 0 calculateRem(24px),
+  sidebar-menu-item-isActive-icon-width: calculateRem(24px),
+  sidebar-menu-item-isActive-icon-height: calculateRem(24px),
+  sidebar-menu-item-isActive-icon-padding: calculateRem(4px),
   sidebar-menu-item-isActive-icon-opacity: 1,
-  sidebar-menu-item-isActive-label-margin: 0 0 0 1.6rem,
+  sidebar-menu-item-isActive-label-margin: 0 0 0 calculateRem(16px),
   sidebar-menu-item-isActive-label-padding: 0 0 0 0,
-  sidebar-menu-item-isActive-label-font-size: 1.6rem,
-  sidebar-menu-item-isActive-label-letter-spacing: 0.032rem,
+  sidebar-menu-item-isActive-label-font-size: calculateRem(16px),
+  sidebar-menu-item-isActive-label-letter-spacing: calculateRem(0.32px),
   sidebar-menu-item-isActive-label-opacity: 1,
   //hover
-  sidebar-menu-item-hover-height: 5.3rem,
-  sidebar-menu-item-hover-borderRadius: 0.8rem,
+  sidebar-menu-item-hover-height: calculateRem(53px),
+  sidebar-menu-item-hover-borderRadius: 8px,
   sidebar-menu-item-hover-marginB: 0,
-  sidebar-menu-item-hover-icon-marginL: 2.4rem,
-  sidebar-menu-item-hover-icon-width: 2.4rem,
-  sidebar-menu-item-hover-icon-height: 2.4rem,
-  sidebar-menu-item-hover-icon-padding: 0.4rem,
+  sidebar-menu-item-hover-icon-marginL: calculateRem(24px),
+  sidebar-menu-item-hover-icon-width: calculateRem(24px),
+  sidebar-menu-item-hover-icon-height: calculateRem(24px),
+  sidebar-menu-item-hover-icon-padding: calculateRem(4px),
   sidebar-menu-item-hover-icon-opacity: 1,
-  sidebar-menu-item-hover-label-marginL: 1.6rem,
+  sidebar-menu-item-hover-label-marginL: calculateRem(16px),
   sidebar-menu-item-hover-label-padding: 0 0 0 0,
-  sidebar-menu-item-hover-label-font-size: 1.6rem,
-  sidebar-menu-item-hover-label-letter-spacing: 0.032rem,
+  sidebar-menu-item-hover-label-font-size: calculateRem(16px),
+  sidebar-menu-item-hover-label-letter-spacing: calculateRem(0.32px),
   sidebar-menu-item-hover-label-opacity: 1,
   //hover sub menu
   hover-sub-menu-top: 0,
-  hover-sub-menu-right: -18.1rem,
-  hover-sub-menu-width: 18.1rem,
-  hover-sub-menu-borderRadius: 0.8rem,
-  hover-sub-menu-header-marginL: 2.4rem,
-  hover-sub-menu-header-font-size: 1.2rem,
+  hover-sub-menu-right: calculateRem(-181px),
+  hover-sub-menu-width: calculateRem(181px),
+  hover-sub-menu-borderRadius: 8px,
+  hover-sub-menu-header-marginL: calculateRem(24px),
+  hover-sub-menu-header-font-size: calculateRem(12px),
   hover-sub-menu-header-font-weight: 500,
   //icon
-  sidebar-menu-item-icon-marginL: 2.4rem,
-  sidebar-menu-item-icon-min-width: 1.6rem,
-  sidebar-menu-item-icon-width: 2.4rem,
-  sidebar-menu-item-icon-height: 2.4rem,
-  sidebar-menu-item-icon-padding: 0.4rem,
+  sidebar-menu-item-icon-marginL: calculateRem(24px),
+  sidebar-menu-item-icon-min-width: calculateRem(16px),
+  sidebar-menu-item-icon-width: calculateRem(24px),
+  sidebar-menu-item-icon-height: calculateRem(24px),
+  sidebar-menu-item-icon-padding: calculateRem(4px),
   sidebar-menu-item-icon-opacity: 0.5,
   //labels
-  sidebar-menu-item-label-marginL: 1.6rem,
+  sidebar-menu-item-label-marginL: calculateRem(16px),
   sidebar-menu-item-label-padding: 0 0 0 0,
-  sidebar-menu-item-label-font-size: 1.6rem,
+  sidebar-menu-item-label-font-size: calculateRem(16px),
   sidebar-menu-item-label-font-weight: 500,
-  sidebar-menu-item-label-letter-spacing: 0.032rem,
+  sidebar-menu-item-label-letter-spacing: calculateRem(0.32px),
   sidebar-menu-item-label-opacity: 0.5,
-  sidebar-menu-item-label-min-width: 13.7rem
+  sidebar-menu-item-label-min-width: calculateRem(137px)
 );
 
 $sidebar-menu-item-colors: (
   //isActive
   sidebar-menu-item-isActive-after-background-color: color(night-in-manchester),
-  sidebar-menu-item-isActive-background-color: color(ma-white),
   sidebar-menu-item-isActive-icon-color: color(night-in-manchester),
   sidebar-menu-item-isActive-label-color: color(night-in-manchester),
   //hover
@@ -76,3 +76,7 @@ $sidebar-menu-item-colors: (
   //label
   sidebar-menu-item-label-color: color(nordland-light-blue)
 );
+
+@function getMenuItemSizes($property) {
+  @return map-get($sidebar-menu-item-sizes, $property);
+}

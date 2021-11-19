@@ -18,7 +18,8 @@ $sidebar-sizes: (
   sidebar-base-before-positon-top: 6%,
   sidebar-base-before-width: calculateRem(1px),
   sidebar-base-before-min-height: 94%,
-  sidebar-logo-border-radius: 4px
+  sidebar-logo-border-radius: 4px,
+  sidebar-transition: 0.3s
 );
 
 $sidebar-colors: (

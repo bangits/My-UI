@@ -17,7 +17,7 @@ const Badge: FC<BadgeProps> = ({ quantity, children, className, badgeSize = 'ms'
       {children}
 
       <span
-        className={classNames(styles.BadgeNumber, badgeStyle, {
+        className={classNames(styles.BadgeNumber, styles['BadgeNumber--primary'], badgeStyle, {
           [styles.BadgeNumberMs]: badgeSize === 'ms',
           [styles.BadgeNumberSs]: badgeSize === 'ss'
         })}>

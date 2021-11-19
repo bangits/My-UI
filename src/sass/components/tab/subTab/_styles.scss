@@ -7,7 +7,7 @@
       width: fit-content;
       width: -moz-fit-content;
       box-sizing: border-box;
-      display: flex;
+      @include flex();
       position: relative;
       margin-right: getSubTabSizes(sub-tabs-margin-right);
       .BadgeWrapper {
@@ -29,12 +29,12 @@
         text-transform: capitalize;
 
         &:hover {
-          @include theme(background-color, primary--lighter);
+          @include theme(background-color, primary, $opacity: 0.1);
           @include theme(color, primary);
           @include theme(border-color, primary);
         }
         &.Selected {
-          @include theme(background-color, primary--lighter);
+          @include theme(background-color, primary, $opacity: 0.1);
           @include theme(color, primary);
           @include theme(border-color, primary);
         }

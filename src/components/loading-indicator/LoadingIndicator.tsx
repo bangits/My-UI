@@ -12,7 +12,12 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
   return (
     <>
       {variant === 'circle' ? (
-        <div className={classNames(styles['LoadingIndicatorCircle'], 'Timer_LoadingIndicator')}>
+        <div
+          className={classNames(
+            styles['LoadingIndicatorCircle'],
+            styles['LoadingIndicatorCircle--success'],
+            'Timer_LoadingIndicator'
+          )}>
           <svg
             className={styles['LoadingIndicatorCircle__svg']}
             viewBox='0 0 100 100'
@@ -35,7 +40,7 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
           </div>
         </div>
       ) : (
-        <div className={styles.LoadingIndicatorRectangle} style={{ marginTop: '2rem' }}>
+        <div className={classNames(styles.LoadingIndicatorRectangle, styles['LoadingIndicatorRectangle--danger'])}>
           <svg height='40'>
             <rect className={styles.SecondRect} x='1' y='1' rx='4'></rect>
             <rect

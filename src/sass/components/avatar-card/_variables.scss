@@ -15,6 +15,10 @@ $avatarcard-sizes: (
   avatar-medium-status-position-right: calculateRem(3px)
 );
 
+$avatarcard-colors: (
+  avatar-offline: color(kashmir-blue)
+);
+
 @function getAvatarCardSizes($property) {
   @return map-get($avatarcard-sizes, $property);
 }

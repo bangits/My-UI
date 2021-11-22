@@ -51,12 +51,13 @@
 
       &__option {
         height: getSelectSizes(select-menu-option-height);
+        cursor: pointer;
         @include flex(null, center);
         @include theme(border-bottom, select-option-divider-color, solid 1px);
 
         &:hover {
           margin: 0;
-          @include theme(color, primary, $opacity: 0.1);
+          @include theme(background-color, primary, $opacity: 0.1);
         }
 
         label {

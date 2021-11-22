@@ -14,9 +14,6 @@ export const Default = () => {
     <Pagination
       page={number('page', 94)}
       totalCount={number('totalCount', 365)}
-      // onChange={(e) => {
-      //   alert(e.selected + 1);
-      // }}
       onChange={action('onChange')}
       showPageSizeSelect={boolean('showPageSizeSelect', true)}
       showTotalCountInfo={boolean('showTotalCountInfo', true)}

@@ -3,6 +3,7 @@ import { optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import Typography from './Typography';
 import TYPOGRAPHY_TYPES from './typography-types';
+import { getColorKnobs } from '@/configs';
 
 export default {
   component: Typography,
@@ -12,9 +13,7 @@ export default {
 
 export const H1 = () => (
   <Typography
-    color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-      display: 'inline-radio'
-    })}
+    color={getColorKnobs()}
     variant={optionsKnob('variant', TYPOGRAPHY_TYPES, TYPOGRAPHY_TYPES.H1, {
       display: 'inline-radio'
     })}>
@@ -24,9 +23,7 @@ export const H1 = () => (
 
 export const H2 = () => (
   <Typography
-    color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-      display: 'inline-radio'
-    })}
+    color={getColorKnobs()}
     variant={optionsKnob('variant', TYPOGRAPHY_TYPES, TYPOGRAPHY_TYPES.H2, {
       display: 'inline-radio'
     })}>
@@ -36,9 +33,7 @@ export const H2 = () => (
 
 export const H3 = () => (
   <Typography
-    color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-      display: 'inline-radio'
-    })}
+    color={getColorKnobs()}
     variant={optionsKnob('variant', TYPOGRAPHY_TYPES, TYPOGRAPHY_TYPES.H3, {
       display: 'inline-radio'
     })}>
@@ -48,9 +43,7 @@ export const H3 = () => (
 
 export const H4 = () => (
   <Typography
-    color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-      display: 'inline-radio'
-    })}
+    color={getColorKnobs()}
     variant={optionsKnob('variant', TYPOGRAPHY_TYPES, TYPOGRAPHY_TYPES.H4, {
       display: 'inline-radio'
     })}>
@@ -60,9 +53,7 @@ export const H4 = () => (
 
 export const H5 = () => (
   <Typography
-    color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-      display: 'inline-radio'
-    })}
+    color={getColorKnobs()}
     variant={optionsKnob('variant', TYPOGRAPHY_TYPES, TYPOGRAPHY_TYPES.H5, {
       display: 'inline-radio'
     })}>
@@ -72,9 +63,7 @@ export const H5 = () => (
 
 export const H6 = () => (
   <Typography
-    color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-      display: 'inline-radio'
-    })}
+    color={getColorKnobs()}
     variant={optionsKnob('variant', TYPOGRAPHY_TYPES, TYPOGRAPHY_TYPES.H6, {
       display: 'inline-radio'
     })}>
@@ -84,9 +73,7 @@ export const H6 = () => (
 
 export const P1 = () => (
   <Typography
-    color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-      display: 'inline-radio'
-    })}
+    color={getColorKnobs()}
     variant={optionsKnob('variant', TYPOGRAPHY_TYPES, TYPOGRAPHY_TYPES.P1, {
       display: 'inline-radio'
     })}>
@@ -96,9 +83,7 @@ export const P1 = () => (
 
 export const P2 = () => (
   <Typography
-    color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-      display: 'inline-radio'
-    })}
+    color={getColorKnobs()}
     variant={optionsKnob('variant', TYPOGRAPHY_TYPES, TYPOGRAPHY_TYPES.P2, {
       display: 'inline-radio'
     })}>
@@ -108,9 +93,7 @@ export const P2 = () => (
 
 export const P3 = () => (
   <Typography
-    color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-      display: 'inline-radio'
-    })}
+    color={getColorKnobs()}
     variant={optionsKnob('variant', TYPOGRAPHY_TYPES, TYPOGRAPHY_TYPES.P3, {
       display: 'inline-radio'
     })}>
@@ -120,9 +103,7 @@ export const P3 = () => (
 
 export const P4 = () => (
   <Typography
-    color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-      display: 'inline-radio'
-    })}
+    color={getColorKnobs()}
     variant={optionsKnob('variant', TYPOGRAPHY_TYPES, TYPOGRAPHY_TYPES.P4, {
       display: 'inline-radio'
     })}>

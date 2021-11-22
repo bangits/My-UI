@@ -2,6 +2,7 @@ import { DustbinIcon, PenIcon } from '@/icons';
 import { optionsKnob, withKnobs } from '@storybook/addon-knobs';
 import { ICON_BUTTON_VARIANTS } from './icon-button-types';
 import IconButton from './IconButton';
+import { getColorKnobs } from '@/configs';
 
 export default {
   component: IconButton,
@@ -12,21 +13,11 @@ export default {
 export const Default = () => {
   return (
     <>
-      <IconButton
-        icon={<PenIcon />}
-        variant={optionsKnob('variantsDark', ICON_BUTTON_VARIANTS, ICON_BUTTON_VARIANTS.dark, {
-          display: 'inline-radio'
-        })}
-      />
+      <IconButton icon={<PenIcon />} color={getColorKnobs()} />
 
       <h1></h1>
 
-      <IconButton
-        icon={<DustbinIcon />}
-        variant={optionsKnob('variantsLight', ICON_BUTTON_VARIANTS, ICON_BUTTON_VARIANTS.light, {
-          display: 'inline-radio'
-        })}
-      />
+      <IconButton icon={<DustbinIcon />} color={getColorKnobs()} />
     </>
   );
 };

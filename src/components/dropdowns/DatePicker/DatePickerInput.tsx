@@ -1,4 +1,5 @@
 import { TextInput } from '@/components';
+import { UIColors } from '@/types';
 import React, { FC } from 'react';
 
 interface DatePickerInputProps {
@@ -7,9 +8,10 @@ interface DatePickerInputProps {
   placeholderText?: string;
   disabled?: boolean;
   fullWidth?: boolean;
+  color?: UIColors;
 }
 
-const DatePickerInput: FC<DatePickerInputProps> = ({ onClick, value, placeholderText, disabled, fullWidth }) => (
+const DatePickerInput: FC<DatePickerInputProps> = ({ onClick, value, placeholderText, disabled, fullWidth, color }) => (
   <>
     <TextInput
       type='text'
@@ -19,6 +21,7 @@ const DatePickerInput: FC<DatePickerInputProps> = ({ onClick, value, placeholder
       label={placeholderText}
       onChange={(e) => e.preventDefault()}
       fullWidth={fullWidth}
+      color={color}
       endIcon={
         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
           <g id='Group_2364' data-name='Group 2364' transform='translate(-5400 -2651)'>

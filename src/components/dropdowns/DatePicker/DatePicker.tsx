@@ -36,7 +36,7 @@ const DatePicker: React.FC<DatepickerProps> = ({
   const renderCustomHeader = useCallback((params) => <DatePickerHeader {...params} />, []);
 
   const customInput = useMemo(
-    () => <DatePickerInput fullWidth={fullWidth} placeholderText={placeholderText} />,
+    () => <DatePickerInput color='primary' fullWidth={fullWidth} placeholderText={placeholderText} />,
     [placeholderText]
   );
 
@@ -50,9 +50,15 @@ const DatePicker: React.FC<DatepickerProps> = ({
       <ReactDatePicker
         formatWeekDay={defaultWeekDayFormating}
         {...datePickerProps}
-        wrapperClassName={classNames(styles.DatePicker, wrapperClassName, `${getMyUIPrefix()}-Datepicker`)}
+        wrapperClassName={classNames(
+          styles.DatePicker,
+          styles['DatePicker--primary'],
+          wrapperClassName,
+          `${getMyUIPrefix()}-Datepicker`
+        )}
         popperClassName={classNames(
           styles.DatePicker,
+          styles['DatePicker--primary'],
           {
             [styles['DatePicker--withDropdowns']]: withDropdowns,
             [styles['DatePicker--withTwoMonths']]: monthsShown === 2

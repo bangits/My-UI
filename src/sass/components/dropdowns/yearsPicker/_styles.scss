@@ -2,10 +2,9 @@
   .DatePicker {
     .CurrentMonth:hover,
     .CurrentYear:hover {
-      @include theme(color, primary);
-
       cursor: pointer;
     }
+
     .YearPickerWrapper {
       @include theme(background-color, primary--color);
       @include theme(color, black-color);

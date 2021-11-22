@@ -4,6 +4,7 @@ import { boolean, number, optionsKnob, text, withKnobs } from '@storybook/addon-
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
 import TextInput from './TextInput';
+import { getColorKnobs } from '@/configs';
 
 export default {
   component: TextInput,
@@ -31,17 +32,13 @@ export const Default = () => {
         type='text'
         explanation={text('explanation', '')}
         fullWidth={boolean('fullWidth', false)}
-        color={optionsKnob('textInputColor1', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-          display: 'inline-radio'
-        })}
+        color={getColorKnobs()}
       />
 
       <h1> </h1>
 
       <TextInput
-        color={optionsKnob('textInputColor2', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-          display: 'inline-radio'
-        })}
+        color={getColorKnobs()}
         disabled={boolean('disabled', false)}
         label={text('label for number input', 'Default Number Input')}
         defaultValue={text('defaultValue', undefined)}

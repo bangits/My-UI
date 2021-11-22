@@ -1,5 +1,6 @@
 import { number, withKnobs, optionsKnob } from '@storybook/addon-knobs';
 import LoadingIndicator from './LoadingIndicator';
+import { getColorKnobs } from '@/configs';
 
 export default {
   component: LoadingIndicator,
@@ -22,6 +23,7 @@ export const Default = () => {
           display: 'inline-radio'
         }
       )}
+      color={getColorKnobs()}
     />
   );
 };

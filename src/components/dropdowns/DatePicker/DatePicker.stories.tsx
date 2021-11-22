@@ -1,8 +1,9 @@
 import { getComponentName } from '@/configs';
-import { boolean, withKnobs } from '@storybook/addon-knobs';
+import { boolean, withKnobs, optionsKnob } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useState } from 'react';
 import DatePicker from './DatePicker';
+import { getColorKnobs } from '@/configs';
 
 export default {
   component: DatePicker,
@@ -18,6 +19,7 @@ export const Default = () => {
         dateFormat={'dd/MM/yyyy'}
         withDropdowns={boolean('withDropdowns', true)}
         disabled={boolean('disabled', false)}
+        color={getColorKnobs()}
       />
 
       <DatePicker
@@ -26,6 +28,7 @@ export const Default = () => {
         dateFormat={'dd/MM/yyyy'}
         withDropdowns={boolean('withDropdowns', true)}
         disabled={boolean('disabled', false)}
+        color={getColorKnobs()}
       />
     </>
   );
@@ -45,6 +48,7 @@ export const WithTwoMonth = () => {
       onChange={(range: [Date, Date]) => setDateRange(range)}
       withDropdowns={boolean('withDropdowns', true)}
       disabled={boolean('disabled', false)}
+      color={getColorKnobs()}
     />
   );
 };

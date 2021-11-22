@@ -1,6 +1,7 @@
 import { withKnobs, text, number, optionsKnob } from '@storybook/addon-knobs';
 import Badge from './Badge';
 import { NotificationIcon } from '@/icons';
+import { getColorKnobs } from '@/configs';
 
 export default {
   component: Badge,
@@ -14,6 +15,7 @@ export const Default = () => {
       <Badge
         children={<NotificationIcon />}
         quantity={number('quantity', 7)}
+        color={getColorKnobs()}
         badgeSize={optionsKnob(
           'badgeSize',
           {

@@ -1,11 +1,10 @@
 import { Select } from '@/components';
+import { getColorKnobs } from '@/configs';
 import { FilterIcon } from '@/icons';
-import { COLOR_TYPES } from '@/types';
 import { action } from '@storybook/addon-actions';
-import { boolean, number, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, object, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
-import { getColorKnobs } from '@/configs';
 
 export default {
   component: Select,
@@ -26,7 +25,13 @@ export const Default = () => {
     <>
       <Select
         value={value}
-        onChange={setValue}
+        onChange={(value) => {
+          setValue(value);
+
+          setTimeout(() => {
+            setValue(null);
+          }, 2000);
+        }}
         inputLabel={text('inputLabelSingle', 'Single Select...')}
         isSearchable
         maxLength={number('maxLengthSingleSelect', 20)}
@@ -120,6 +125,50 @@ export const Default = () => {
 
 export const MultiSelect = () => {
   const [value, setValue] = useState([2]);
+  const [options, setOptions] = useState([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setOptions([
+        {
+          label: 'Jewels and Gems',
+          value: 2
+        },
+        {
+          label: 'Fantasy',
+          value: 3
+        },
+        {
+          label: 'Halloween',
+          value: 4
+        },
+        {
+          label: 'Luxury',
+          value: 5
+        },
+        {
+          label: 'Fruits / Vegetables',
+          value: 6
+        },
+        {
+          label: 'Asian',
+          value: 7
+        },
+        {
+          label: 'Food',
+          value: 8
+        },
+        {
+          label: 'Branded',
+          value: 9
+        },
+        {
+          label: 'Animals',
+          value: 10
+        }
+      ]);
+    }, 2000);
+  }, []);
 
   return (
     <>
@@ -137,44 +186,7 @@ export const MultiSelect = () => {
         fullWidth={boolean('fullWidth', false)}
         isSearchable
         color={getColorKnobs()}
-        options={object('multiSelectOptions', [
-          {
-            label: 'Jewels and Gems',
-            value: 2
-          },
-          {
-            label: 'Fantasy',
-            value: 3
-          },
-          {
-            label: 'Halloween',
-            value: 4
-          },
-          {
-            label: 'Luxury',
-            value: 5
-          },
-          {
-            label: 'Fruits / Vegetables',
-            value: 6
-          },
-          {
-            label: 'Asian',
-            value: 7
-          },
-          {
-            label: 'Food',
-            value: 8
-          },
-          {
-            label: 'Branded',
-            value: 9
-          },
-          {
-            label: 'Animals',
-            value: 10
-          }
-        ])}
+        options={options}
         defaultValue={[2, 3, 4, 5, 6, 7, 8, 9, 10]}
       />
 

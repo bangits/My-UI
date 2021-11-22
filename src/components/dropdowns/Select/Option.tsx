@@ -21,7 +21,17 @@ export const Option: typeof components.Option = (props) => {
       <components.Option {...props}>
         {selectProps.isMulti ? (
           <>
-            <Checkbox checked={props.isSelected} onChange={() => null} /> <label>{props.label}</label>
+            <Checkbox
+              checkboxContainerProps={{
+                onClick: (e) => {
+                  e.stopPropagation();
+                  props.selectOption(props.data);
+                }
+              }}
+              checked={props.isSelected}
+              labelComponent='div'
+            />
+            <label>{props.label}</label>
           </>
         ) : (
           <span>{props.label}</span>

@@ -61,7 +61,11 @@ function Select<
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = { options: [] }
 >({ isMulti, defaultValue, value, className, ...selectProps }: SelectProps<Option, IsMulti, Group>) {
-  const { clearButton, dropdown, selectAllValue, selectAllLabel, fullWidth, selectAll } = selectProps;
+  const { clearButton, dropdown, selectAllValue, selectAllLabel, fullWidth } = selectProps;
+
+  let { selectAll } = selectProps;
+
+  if (!selectProps.options.length) selectAll = false;
 
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
 

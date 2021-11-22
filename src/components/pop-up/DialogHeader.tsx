@@ -11,9 +11,9 @@ export interface DialogHeaderProps {
 const DialogHeader: FC<DialogHeaderProps> = ({ title, className, icon }) => {
   return (
     <>
-      {icon && <div className={styles.PopUpIconContainer}>{icon}</div>}
+      {icon && <div className={styles.DialogIconContainer}>{icon}</div>}
       {title && (
-        <div className={styles.PopUpLabel}>
+        <div className={styles.DialogLabel}>
           <Typography component='h2' variant='h2'>
             {title}
           </Typography>

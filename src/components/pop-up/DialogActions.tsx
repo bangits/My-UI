@@ -25,7 +25,7 @@ const DialogActions: FC<DialogActionsProps> = ({
   className
 }) => {
   return (
-    <div className={classNames(styles.PopUpBtnGroup, className)}>
+    <div className={classNames(styles.DialogBtnGroup, className)}>
       {showCancelButton && (
         <Button variant='ghost' {...cancelButtonProps} onClick={cancelButtonProps.onClick || onClose}>
           {cancelButtonText}

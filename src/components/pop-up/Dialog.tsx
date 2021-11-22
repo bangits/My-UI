@@ -11,9 +11,9 @@ export interface DialogProps {
 const Dialog: FC<DialogProps> = ({ onClose, isOpened, children }) => {
   return (
     <Portal>
-      <CSSTransition in={isOpened} timeout={500} classNames={{ exit: styles['PopUp--exit'] }} unmountOnExit>
+      <CSSTransition in={isOpened} timeout={500} classNames={{ exit: styles['Dialog--exit'] }} unmountOnExit>
         <div>
-          <div className={styles.PopUp}>{children}</div>
+          <div className={styles.Dialog}>{children}</div>
           <div className={styles.Overlay} tabIndex={0} role='button' onClick={onClose} />
         </div>
       </CSSTransition>

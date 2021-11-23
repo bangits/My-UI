@@ -7,6 +7,9 @@ import { Typography } from '@/components';
 import { Triangle } from '@/icons';
 import classNames from 'classnames';
 import TooltipPosition, { TooltipPlacement } from './TooltipPosition';
+import { CSSTransition } from 'react-transition-group';
+import styles from './Tooltip.module.scss';
+export type showEventType = 'click' | 'hover';
 
 export interface TooltipProps {
   children: Parameters<typeof cloneElement>[0];
@@ -16,6 +19,7 @@ export interface TooltipProps {
   space?: number;
   placement?: TooltipPlacement;
   disabled?: boolean;
+  showEvent: showEventType;
 }
 
 const Tooltip = ({
@@ -25,7 +29,8 @@ const Tooltip = ({
   color,
   space = 12,
   placement = 'bottom',
-  disabled = false
+  disabled = false,
+  showEvent
 }: TooltipProps) => {
   const [show, setShow] = useState<0 | 1>(0);
 
@@ -40,30 +45,54 @@ const Tooltip = ({
 
   const handleMOut = () => setShow(0);
 
+  const handleClick = (e) => {
+    if (!show) {
+      setShow(1);
+      posRef.current = TooltipPosition(e.currentTarget, tooltipRef.current, placement, space);
+    } else {
+      setShow(0);
+    }
+  };
+
   return (
     <>
       {disabled
         ? children
-        : cloneElement(children, {
-            // @ts-ignore
+        : showEvent === 'hover'
+        ? cloneElement(children, {
+            // @ts-expect-error Ignoring typescript for children dynamic usage
             onMouseOver: handleMOver,
             onMouseOut: handleMOut
+          })
+        : cloneElement(children, {
+            // @ts-expect-error Ignoring typescript for children dynamic usage
+            onClick: handleClick
           })}
 
       {disabled || (
         <Portal>
-          <StyledTooltip color={color} delay={delay} ref={tooltipRef} posRef={posRef} show={show}>
-            <div>
-              <div className={classNames(Styles.TooltipTriangle, Styles[`Tooltip-${placement}`])}>
-                <div>
-                  <Triangle />
+          <CSSTransition
+            in={!!show}
+            timeout={300}
+            classNames={{
+              appear: styles['TooltipContainer--appear'],
+              exit: styles['TooltipContainer--exit'],
+              exitActive: styles['TooltipContainer--exit']
+            }}
+            unmountOnExit>
+            <StyledTooltip color={color} delay={delay} ref={tooltipRef} posRef={posRef}>
+              <div>
+                <div className={classNames(Styles.TooltipTriangle, Styles[`Tooltip-${placement}`])}>
+                  <div>
+                    <Triangle />
+                  </div>
                 </div>
+                <Typography component='span' variant='p5'>
+                  {text}
+                </Typography>
               </div>
-              <Typography component='span' variant='p5'>
-                {text}
-              </Typography>
-            </div>
-          </StyledTooltip>
+            </StyledTooltip>
+          </CSSTransition>
         </Portal>
       )}
     </>

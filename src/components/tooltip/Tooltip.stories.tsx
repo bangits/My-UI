@@ -27,6 +27,17 @@ export const Default = () => {
             display: 'inline-radio'
           }
         )}
+        showEvent={optionsKnob(
+          'showEvent',
+          {
+            click: 'click',
+            hover: 'hover'
+          },
+          'click',
+          {
+            display: 'inline-radio'
+          }
+        )}
         color={optionsKnob(
           'color',
           {

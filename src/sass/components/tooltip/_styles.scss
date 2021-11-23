@@ -2,6 +2,23 @@
   .TooltipContainer {
     position: fixed;
 
+    opacity: 1;
+
+    &--appear,
+    & {
+      .TooltipWrapper {
+        // animation: dialog-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        @include animation-start;
+      }
+    }
+
+    &--exit {
+      .TooltipWrapper {
+        // animation: dialog-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
+        @include animation-exit;
+      }
+    }
+
     .TooltipWrapper {
       box-sizing: border-box;
       padding: getTooltipSizes(tooltip-wrapper-padding);

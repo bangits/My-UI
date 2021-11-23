@@ -4,6 +4,7 @@ import { Scrollbars } from '@my-ui/scrollbar';
 import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './Scroll.module.scss';
+import { getMyUIPrefix } from '@/configs';
 
 export interface ScrollProps extends IComponent {
   height?: number | string;
@@ -22,11 +23,11 @@ const Scroll: FC<ScrollProps> = ({ height = 200, width, children, className, ...
       autoHeight
       hideTracksWhenNotNeeded
       autoHeightMax={height}
-      className={classNames(styles.ScrollBase, className)}
-      trackVerticalClassname={styles.TrackVertical}
-      thumbVerticalClassname={styles.ThumbVertical}
-      trackHorizontalClassname={styles.TrackHorizontal}
-      thumbHorizontalClassname={styles.ThumbHorizontal}>
+      className={classNames(styles.ScrollBase, className, `${getMyUIPrefix()}-ScrollBase`)}
+      trackVerticalClassname={classNames(styles.TrackVertical, `${getMyUIPrefix()}-TrackVertical`)}
+      thumbVerticalClassname={classNames(styles.ThumbVertical, `${getMyUIPrefix()}-ThumbVertical`)}
+      trackHorizontalClassname={classNames(styles.TrackHorizontal, `${getMyUIPrefix()}-TrackHorizontal`)}
+      thumbHorizontalClassname={classNames(styles.ThumbHorizontal, `${getMyUIPrefix()}-ThumbHorizontal`)}>
       {children}
     </Scrollbars>
   );

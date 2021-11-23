@@ -2,6 +2,7 @@ import { Button, Card } from '@/my-ui-core';
 import { object, withKnobs } from '@storybook/addon-knobs';
 import React, { useState } from 'react';
 import Stepper from './Stepper';
+import { getColorKnobs } from '@/configs';
 
 export default {
   component: Stepper,
@@ -38,6 +39,7 @@ export const Default = () => {
               value: 3
             }
           ])}
+          color={getColorKnobs()}
         />
       </div>
       <Button

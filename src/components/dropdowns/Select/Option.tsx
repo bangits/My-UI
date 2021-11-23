@@ -1,4 +1,5 @@
 import { Checkbox, CustomSelectProps } from '@/components';
+import { getMyUIPrefix } from '@/configs';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
 import { useCallback } from 'react';
@@ -13,7 +14,7 @@ export const Option: typeof components.Option = (props) => {
 
   return (
     <div
-      className={classNames({
+      className={classNames(`${getMyUIPrefix()}-SelectOption`, {
         [styles['AllOption']]: selectProps.selectAll,
         [styles['Select--custom-option']]: !selectProps?.dropdown
       })}
@@ -21,10 +22,20 @@ export const Option: typeof components.Option = (props) => {
       <components.Option {...props}>
         {selectProps.isMulti ? (
           <>
-            <Checkbox checked={props.isSelected} onChange={() => null} /> <label>{props.label}</label>
+            <Checkbox
+              checkboxContainerProps={{
+                onClick: (e) => {
+                  e.stopPropagation();
+                  props.selectOption(props.data);
+                }
+              }}
+              checked={props.isSelected}
+              labelComponent='div'
+            />
+            <label>{props.label}</label>
           </>
         ) : (
-          <span>{props.label}</span>
+          <span className={`${getMyUIPrefix()}-SelectLabelText`}>{props.label}</span>
         )}
       </components.Option>
     </div>

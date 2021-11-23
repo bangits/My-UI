@@ -1,12 +1,12 @@
+import { getMyUIPrefix } from '@/configs';
+import { ArrowNext, ArrowPrev } from '@/icons';
 import { Select, Typography } from '@/my-ui-core';
-import ReactPaginate from 'react-paginate';
-import classNames from 'classnames';
-import React, { useState, useMemo, FC, useCallback } from 'react';
-import styles from './Pagination.module.scss';
-import PaginationInput from './PaginationInput';
-import { ArrowNext, ArrowPrev, DropdownArrowIconUp } from '@/icons';
 import { IComponent } from '@/types';
-
+import classNames from 'classnames';
+import React, { FC, useCallback, useMemo, useState } from 'react';
+import ReactPaginate from 'react-paginate';
+import { PaginationInput } from '.';
+import styles from './Pagination.module.scss';
 export interface PaginationProps extends IComponent {
   page: number;
   totalCount: number;
@@ -34,7 +34,7 @@ const Pagination: FC<PaginationProps> = ({
   dropDownTitle,
   inputTitle
 }) => {
-  const [goToPage, setGoToPage] = useState(1);
+  const [goToPage, setGoToPage] = useState<number | string>(1);
   const [count, setCount] = useState<number>(20);
 
   const optionsValue = useMemo(() => pageSize.map((p) => ({ value: p.value, label: p.label })), [pageSize]);
@@ -44,14 +44,17 @@ const Pagination: FC<PaginationProps> = ({
   }, []);
 
   return (
-    <div className={styles.PaginationWrapper}>
-      <div className={styles.PaginationInputWrapper}>
+    <div className={classNames(styles.PaginationWrapper, `${getMyUIPrefix()}-PaginationWrapper`)}>
+      <div className={classNames(styles.PaginationInputWrapper, `${getMyUIPrefix()}-PaginationInputWrapper`)}>
         {showPageSizeSelect && (
           <>
-            <Typography variant='p4' component='span' className={styles.SelectLabel}>
+            <Typography
+              variant='p4'
+              component='span'
+              className={classNames(styles.SelectLabel, `${getMyUIPrefix()}-SelectLabel`)}>
               {dropDownTitle}
             </Typography>
-            <div className={styles.PaginationSelectWrapper}>
+            <div className={classNames(styles.PaginationSelectWrapper, `${getMyUIPrefix()}-PaginationSelectWrapper`)}>
               <Select
                 renderInput={(value, isMenuOpen) => (
                   <div
@@ -85,7 +88,7 @@ const Pagination: FC<PaginationProps> = ({
                 )}
                 inputLabel={null}
                 fullWidth
-                className={styles.SelectWrapper}
+                className={classNames(styles.SelectWrapper, `${getMyUIPrefix()}-SelectWrapper`)}
                 defaultValue={20}
                 maxLength={3}
                 options={optionsValue}
@@ -100,7 +103,7 @@ const Pagination: FC<PaginationProps> = ({
         )}
 
         {showTotalCountInfo && (
-          <div className={styles.CountNumbers}>
+          <div className={classNames(styles.CountNumbers, `${getMyUIPrefix()}-CountNumbers`)}>
             <Typography variant='p4' component='span'>
               1-{count} of {totalCount}
             </Typography>
@@ -108,10 +111,10 @@ const Pagination: FC<PaginationProps> = ({
         )}
       </div>
 
-      <div className={styles.PaginationFormContainer}>
+      <div className={classNames(styles.PaginationFormContainer, `${getMyUIPrefix()}-PaginationFormContainer`)}>
         {page >= 1 && (
           <ReactPaginate
-            className={styles.PaginationList}
+            className={classNames(styles.PaginationList, `${getMyUIPrefix()}-PaginationList`)}
             onPageChange={handleChange}
             breakLabel='...'
             nextLabel={page > 1 ? <ArrowNext /> : null}

@@ -23,7 +23,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
                   [styles[`RadioButton--${color}`]]: color
                 },
                 className,
-                `${getMyUIPrefix()}-RadioButtonContainer`
+                `${getMyUIPrefix()}-RadioButton`
               )}
               style={style}>
               <input

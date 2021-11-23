@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import React, { FC, ReactNode, useEffect, useState } from 'react';
 import SubMenuItems from '../sidebar/sidebar-components/SubMenuItems';
 import styles from './Avatar.module.scss';
+import { getMyUIPrefix } from '@/configs';
 export interface AvatarProps extends IComponent {
   imageSource?: string;
   avatarLabel: string;
@@ -44,38 +45,51 @@ const Avatar: FC<AvatarProps> = ({
   }, []);
 
   return (
-    <div className={classNames(styles.Avatar, className)}>
-      <div className={classNames(styles.AvatarWrapper, className, 'AvatarWrapper')}>
-        <span className={styles.AvatarLabel} onClick={() => setOpen(!open)}>
+    <div className={classNames(styles.Avatar, className, `${getMyUIPrefix()}-Avatar`)}>
+      <div className={classNames(styles.AvatarWrapper, className, 'AvatarWrapper', `${getMyUIPrefix()}-AvatarWrapper`)}>
+        <span
+          className={classNames(styles.AvatarLabel, `${getMyUIPrefix()}-AvatarLabel`)}
+          onClick={() => setOpen(!open)}>
           {avatarLabel}
         </span>
-        <div className={styles.AvatarImg}>
-          <img src={imageSource} alt='avatar' onClick={() => setOpen(!open)} />
+        <div className={classNames(styles.AvatarImg, `${getMyUIPrefix()}-AvatarImg`)}>
+          <img
+            src={imageSource}
+            alt='avatar'
+            onClick={() => setOpen(!open)}
+            className={`${getMyUIPrefix()}-AvatarImgSize`}
+          />
         </div>
       </div>
       <div
-        className={classNames({
+        className={classNames(`${getMyUIPrefix()}-AvatarDropDownCardToggle`, {
           [styles.DropDownShow]: open,
           [styles.DropDownHide]: !open
         })}>
-        <Card borderRadius={0.8} className={styles.AvatarDropdownCard}>
-          <Typography component='span' className={styles.AvatarDropdownTitle} variant='p5' color='primary'>
+        <Card
+          borderRadius={0.8}
+          className={classNames(styles.AvatarDropdownCard, `${getMyUIPrefix()}-AvatarDropdownCard`)}>
+          <Typography
+            component='span'
+            className={classNames(styles.AvatarDropdownTitle, `${getMyUIPrefix()}-AvatarDropdownTitle`)}
+            variant='p5'
+            color='primary'>
             {dropdownTitle}
           </Typography>
           <SubMenuItems
-            className={styles.SubMenuItems}
+            className={classNames(styles.SubMenuItems, `${getMyUIPrefix()}-SubMenuItems`)}
             label={topButtonLabel}
             onClick={onTopButtonClick}
             style={{ marginLeft: '0' }}
           />
 
-          <hr className={styles.AvatarDropdownDivider} />
+          <hr className={classNames(styles.AvatarDropdownDivider, `${getMyUIPrefix()}-AvatarDropdownDivider`)} />
 
-          <ul className={styles.AvatarDropdownMenu}>
+          <ul className={classNames(styles.AvatarDropdownMenu, `${getMyUIPrefix()}-AvatarDropdownMenu`)}>
             {dropdownLinks.map((items, idx) => (
               <li key={idx}>
                 <SubMenuItems
-                  className={styles.SubMenuItems}
+                  className={classNames(styles.SubMenuItems, `${getMyUIPrefix()}-SubMenuItems`)}
                   onClick={items.onClick}
                   icon={items.icon}
                   label={items.label}
@@ -84,9 +98,9 @@ const Avatar: FC<AvatarProps> = ({
             ))}
           </ul>
 
-          <hr className={styles.AvatarDropdownDivider} />
+          <hr className={classNames(styles.AvatarDropdownDivider, `${getMyUIPrefix()}-AvatarDropdownDivider`)} />
           <SubMenuItems
-            className={styles.SubMenuItems}
+            className={classNames(styles.SubMenuItems, `${getMyUIPrefix()}-SubMenuItems`)}
             label={bottomButtonLabel}
             onClick={onBottomButtonClick}
             style={{ marginLeft: '0' }}

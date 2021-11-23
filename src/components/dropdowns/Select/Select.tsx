@@ -6,6 +6,7 @@ import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import { DropdownIcon, MenuList, Option, SearchControl } from './Controls';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
+import { getMyUIPrefix } from '@/configs';
 
 export type SelectValueType = number | string;
 
@@ -61,7 +62,11 @@ function Select<
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = { options: [] }
 >({ isMulti, defaultValue, value, className, ...selectProps }: SelectProps<Option, IsMulti, Group>) {
-  const { clearButton, dropdown, selectAllValue, selectAllLabel, fullWidth, selectAll } = selectProps;
+  const { clearButton, dropdown, selectAllValue, selectAllLabel, fullWidth } = selectProps;
+
+  let { selectAll } = selectProps;
+
+  if (!selectProps.options.length) selectAll = false;
 
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
 
@@ -167,6 +172,7 @@ function Select<
       backspaceRemovesValue={false}
       className={classNames(
         styles.Select,
+        `${getMyUIPrefix()}-Select`,
         {
           [styles['Select--fullWidth']]: fullWidth,
           [styles['Select--dropdown']]: dropdown,

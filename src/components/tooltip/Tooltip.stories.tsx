@@ -3,6 +3,7 @@ import { COLOR_TYPES } from '@/types';
 import { optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import Tooltip from './Tooltip';
+import { getColorKnobs } from '@/configs';
 
 export default {
   component: Tooltip,
@@ -28,9 +29,7 @@ export const Default = () => {
             display: 'inline-radio'
           }
         )}
-        color={optionsKnob('color', COLOR_TYPES, COLOR_TYPES.PRIMARY, {
-          display: 'inline-radio'
-        })}>
+        color={getColorKnobs()}>
         <Button>Hover me</Button>
       </Tooltip>
     </div>

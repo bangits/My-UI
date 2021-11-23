@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import styles from './LoadingIndicator.module.scss';
 import { UIColors } from '@/types';
 import { typedMemo } from '@/helpers';
+import { GameIndicator, TrashIndicator } from '@/icons';
 
 export type IndicatorVariant = 'circle' | 'square';
 export interface LoadingIndicatorProps {
@@ -51,7 +52,12 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
           </div>
         </div>
       ) : (
-        <div className={classNames(styles.LoadingIndicatorRectangle, styles[`LoadingIndicatorRectangle--${color}`])}>
+        <div
+          className={classNames(
+            styles.LoadingIndicatorRectangle,
+            styles['LoadingDropIndicator'],
+            styles[`LoadingIndicatorRectangle--${color}`]
+          )}>
           <svg height='40'>
             <rect className={styles.SecondRect} x='1' y='1' rx='4'></rect>
             <rect
@@ -60,6 +66,20 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
               rx='4'
               stroke-dasharray={`${percent > 100 ? 628 : percent < 0 ? 0 : (628 * percent) / 100} 628`}></rect>
           </svg>
+          <div className={styles.UploadWrapper}>
+            <div className={styles.GameIndicatorIconWrapper}>
+              <span className={styles.GameIndicatorIcon}>
+                <GameIndicator />
+              </span>
+              <span className={styles.ImageFormatLabel}>XXXX_Icon_50*50.png</span>
+            </div>
+            <div className={styles.PerconWrapper}>
+              <span className={styles.PercentUpload}>55%</span>
+              <span className={styles.TrashUploadIcon}>
+                <TrashIndicator />
+              </span>
+            </div>
+          </div>
         </div>
       )}
     </>

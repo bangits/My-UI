@@ -10,11 +10,18 @@ $loadingindicator-sizes: (
   loading-indicator-rectangle-height: calculateRem(38px),
   rectangle-stroke-width: calculateRem(1px),
   transition-all-indicator: all 9s,
-  transition-circle-path-remaining: 0.9s
+  transition-circle-path-remaining: 0.9s,
+  upload-wrapper-position: calculateRem(8px),
+  game-icon-margin: calculateRem(8px),
+  icon-label-margin: calculateRem(8px),
+  icon-label-max-width: calculateRem(120px),
+  percent-upload-margin: calculateRem(8px),
+  trash-icon-margin: calculateRem(6px)
 );
 
 $loadingindicator-colors: (
-  circle-indicator-remaining-color: color(white)
+  circle-indicator-remaining-color: color(white),
+  indicator-trash-color: color(comet)
 );
 
 @function getLoadingIndicatorSizes($property) {

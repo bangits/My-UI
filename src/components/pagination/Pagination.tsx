@@ -34,7 +34,7 @@ const Pagination: FC<PaginationProps> = ({
   dropDownTitle,
   inputTitle
 }) => {
-  const [goToPage, setGoToPage] = useState(1);
+  const [goToPage, setGoToPage] = useState<number | string>(1);
   const [count, setCount] = useState<number>(20);
 
   const optionsValue = useMemo(() => pageSize.map((p) => ({ value: p.value, label: p.label })), [pageSize]);

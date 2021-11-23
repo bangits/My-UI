@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { TextInput, Typography } from '@/components';
 import styles from './Pagination.module.scss';
 
-const PaginationInput = ({ setGoToPage, pageCount, inputTitle }) => {
+export interface PaginationInputProps {
+  setGoToPage: (page: number) => number | string;
+  pageCount: number;
+  inputTitle?: string;
+}
+
+const PaginationInput: FC<PaginationInputProps> = ({ setGoToPage, pageCount, inputTitle }) => {
   const [page, setPage] = useState<number | string>('');
   return (
     <div className={styles.PaginationInputContainer}>

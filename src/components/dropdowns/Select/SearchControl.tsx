@@ -4,6 +4,7 @@ import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import styles from './Select.module.scss';
+import { getMyUIPrefix } from '@/configs';
 
 export const SearchControl: typeof components.Control = (props) => {
   const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
@@ -67,12 +68,18 @@ export const SearchControl: typeof components.Control = (props) => {
   return (
     <components.Control {...props}>
       {selectProps.renderInput ? (
-        <div onClick={selectProps.onMenuOpen}>
+        <div onClick={selectProps.onMenuOpen} className={`${getMyUIPrefix()}-SearchControl`}>
           {/* @ts-ignore ignoring typescript for typecast */}
           {selectProps.renderInput(selectProps.value, props.selectProps.menuIsOpen, props.selectProps.onInputChange)}
         </div>
       ) : (
-        <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
+        <div
+          className={classNames(
+            styles['Select--search'],
+            `${getMyUIPrefix()}-SelectSearch`,
+            `${getMyUIPrefix()}-MyUISelectInput`,
+            'MyUI-Select-Input'
+          )}>
           <TextInput
             fullWidth={selectProps.fullWidth}
             color={selectProps.color !== 'default' ? selectProps.color : undefined}
@@ -83,9 +90,9 @@ export const SearchControl: typeof components.Control = (props) => {
             onClick={menuToggle}
             value={searchValue}
             label={selectProps.inputLabel}
-            className='MyUI-SelectInput'
+            className={classNames('MyUI-SelectInput', `${getMyUIPrefix()}-MyUISelectInput`)}
             endIcon={
-              <div className={classNames(styles['Select--icon-container'])}>
+              <div className={classNames(`${getMyUIPrefix()}-SelectIconContainer`, styles['Select--icon-container'])}>
                 {isMenuOpen ? <DropdownArrowIconUp /> : <DropdownArrowIconDown />}
               </div>
             }

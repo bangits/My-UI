@@ -3,6 +3,9 @@
     position: relative;
     width: getLoaderSizes(loader-wrapper-sizes);
     height: getLoaderSizes(loader-wrapper-sizes);
+
+    @include theme(color, primary);
+
     .Loader {
       @include center-absolute();
       width: getLoaderSizes(loader-width);
@@ -51,6 +54,7 @@
           -3em 0em 0 0, -2em -2em 0 0.2em;
       }
     }
+
     @keyframes loader {
       0%,
       100% {

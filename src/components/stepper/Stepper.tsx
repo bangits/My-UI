@@ -1,3 +1,4 @@
+import { getMyUIPrefix } from '@/configs';
 import { typedMemo } from '@/helpers';
 import { CheckStepperIcon, EllipseColorIcon, EllipseIcon } from '@/icons';
 import { Typography } from '@/my-ui-core';
@@ -24,55 +25,74 @@ function Stepper<T extends StepType[]>({ steps, value, color }: StepperProps<T>)
       className={classNames(
         styles.SteeperWrapper,
         styles[`SteeperWrapper--${color}`],
-        styles['SteeperWrapper--primary']
+        `${getMyUIPrefix()}-SteeperWrapper`
       )}>
       {steps &&
         steps.map((option, index) => {
           return (
-            <div key={option.value} className={classNames(styles.Stepper, styles.StepperChecked)}>
+            <div
+              key={option.value}
+              className={classNames(
+                styles.Stepper,
+                styles.StepperChecked,
+                `${getMyUIPrefix()}-Stepper`,
+                `${getMyUIPrefix()}-StepperChecked`
+              )}>
               {index > 0 ? (
                 value === 'finished' ? (
-                  <div className={styles.StepperLineContainer}>
-                    <span className={classNames(styles.StepperLine)}></span>
+                  <div className={classNames(styles.StepperLineContainer, `${getMyUIPrefix()}-StepperLineContainer`)}>
+                    <span className={classNames(styles.StepperLine, `${getMyUIPrefix()}-StepperLine`)}></span>
                   </div>
                 ) : activeIndex > index ? (
-                  <div className={styles.StepperLineContainer}>
-                    <span className={classNames(styles.StepperLine)}></span>
+                  <div className={classNames(styles.StepperLineContainer, `${getMyUIPrefix()}-StepperLineContainer`)}>
+                    <span className={classNames(styles.StepperLine, `${getMyUIPrefix()}-StepperLine`)}></span>
                   </div>
                 ) : activeIndex < index ? (
-                  <div className={styles.StepperLineContainer}>
-                    <span className={classNames(styles.StepperLine, styles.StepperLineInactive)}></span>
+                  <div className={classNames(styles.StepperLineContainer, `${getMyUIPrefix()}-StepperLineContainer`)}>
+                    <span
+                      className={classNames(
+                        styles.StepperLine,
+                        styles.StepperLineInactive,
+                        `${getMyUIPrefix()}-StepperLine`,
+                        `${getMyUIPrefix()}-StepperLineInactive`
+                      )}></span>
                   </div>
                 ) : (
-                  <div className={styles.StepperLineContainer}>
-                    <span className={classNames(styles.StepperLine)}></span>
+                  <div className={classNames(styles.StepperLineContainer, `${getMyUIPrefix()}-StepperLineContainer`)}>
+                    <span className={classNames(styles.StepperLine, `${getMyUIPrefix()}-StepperLine`)}></span>
                   </div>
                 )
               ) : (
                 <> </>
               )}
-              <span className={styles.StepperContainer}>
+              <span className={classNames(styles.StepperContainer, `${getMyUIPrefix()}-StepperContainer`)}>
                 {value === 'finished' ? (
-                  <span className={styles.Step}>
-                    <div className={styles.StepSection}>
+                  <span className={classNames(styles.Step, `${getMyUIPrefix()}-Step`)}>
+                    <div className={classNames(styles.StepSection, `${getMyUIPrefix()}-StepSection`)}>
                       <CheckStepperIcon />
                     </div>
                   </span>
                 ) : activeIndex > index ? (
-                  <span className={styles.Step}>
-                    <div className={styles.StepSection}>
+                  <span className={classNames(styles.Step, `${getMyUIPrefix()}-Step`)}>
+                    <div className={classNames(styles.StepSection, `${getMyUIPrefix()}-StepSection`)}>
                       <CheckStepperIcon />
                     </div>
                   </span>
                 ) : activeIndex < index ? (
-                  <span className={styles.Step}>
-                    <div className={classNames(styles.StepSection, styles.StepperInactive)}>
+                  <span className={classNames(styles.Step, `${getMyUIPrefix()}-Step`)}>
+                    <div
+                      className={classNames(
+                        styles.StepSection,
+                        styles.StepperInactive,
+                        `${getMyUIPrefix()}-StepSection`,
+                        `${getMyUIPrefix()}-StepperInactive`
+                      )}>
                       <EllipseColorIcon />
                     </div>
                   </span>
                 ) : (
-                  <span className={styles.Step}>
-                    <div className={styles.StepSection}>
+                  <span className={classNames(styles.Step, `${getMyUIPrefix()}-Step`)}>
+                    <div className={classNames(styles.StepSection, `${getMyUIPrefix()}-StepSection`)}>
                       <EllipseIcon />
                     </div>
                   </span>
@@ -80,10 +100,13 @@ function Stepper<T extends StepType[]>({ steps, value, color }: StepperProps<T>)
                 <Typography
                   variant='p5'
                   component='span'
-                  className={classNames(styles.StepTextContainer, {
+                  className={classNames(styles.StepTextContainer, `${getMyUIPrefix()}-StepTextContainer`, {
                     [styles.StepTextInactive]: activeIndex < index
                   })}>
-                  <Typography variant='p5' component='span' className={styles.StepText}>
+                  <Typography
+                    variant='p5'
+                    component='span'
+                    className={classNames(styles.StepText, `${getMyUIPrefix()}-StepText`)}>
                     {option.title}
                   </Typography>
                 </Typography>

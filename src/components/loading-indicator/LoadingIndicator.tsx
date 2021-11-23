@@ -1,8 +1,9 @@
+import { getMyUIPrefix } from '@/configs';
+import { typedMemo } from '@/helpers';
+import { UIColors } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './LoadingIndicator.module.scss';
-import { UIColors } from '@/types';
-import { typedMemo } from '@/helpers';
 
 export type IndicatorVariant = 'circle' | 'square';
 export interface LoadingIndicatorProps {
@@ -19,11 +20,16 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
           className={classNames(
             styles['LoadingIndicatorCircle'],
             styles[`LoadingIndicatorCircle--${color}`],
-            styles['LoadingIndicatorCircle--success'],
+            'Timer_LoadingIndicator',
+            `${getMyUIPrefix()}-LoadingIndicatorCircle`,
+            `${getMyUIPrefix()}-TimerLoadingIndicator`,
             'Timer_LoadingIndicator'
           )}>
           <svg
-            className={styles['LoadingIndicatorCircle__svg']}
+            className={classNames(
+              styles['LoadingIndicatorCircle__svg'],
+              `${getMyUIPrefix()}-LoadingIndicatorCircleSvg`
+            )}
             viewBox='0 0 100 100'
             xmlns='http://www.w3.org/2000/svg'>
             <g className={styles['LoadingIndicatorCircle__circle']}>
@@ -46,12 +52,23 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
                    '></path>
             </g>
           </svg>
-          <div className={styles.LoadingIndicatorCirclePercent}>
-            <span>{percent > 100 ? 100 : percent < 0 || percent == undefined || percent == null ? 0 : percent}%</span>
+          <div
+            className={classNames(
+              styles.LoadingIndicatorCirclePercent,
+              `${getMyUIPrefix()}-LoadingIndicatorCirclePercent`
+            )}>
+            <span className={`${getMyUIPrefix()}-LoadingIndicatorCirclePercentNumber`}>
+              {percent > 100 ? 100 : percent < 0 || percent == undefined || percent == null ? 0 : percent}%
+            </span>
           </div>
         </div>
       ) : (
-        <div className={classNames(styles.LoadingIndicatorRectangle, styles[`LoadingIndicatorRectangle--${color}`])}>
+        <div
+          className={classNames(
+            styles.LoadingIndicatorRectangle,
+            styles[`LoadingIndicatorRectangle--${color}`],
+            styles[`LoadingIndicatorRectangle--${color}`]
+          )}>
           <svg height='40'>
             <rect className={styles.SecondRect} x='1' y='1' rx='4'></rect>
             <rect

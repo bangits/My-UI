@@ -5,6 +5,7 @@ import { UIColors } from '@/types/ui';
 import classNames from 'classnames';
 import React, { CSSProperties, FC } from 'react';
 import styles from './TableHead.module.scss';
+import { getMyUIPrefix } from '@/configs';
 
 export interface TableHeadProps extends IComponent {
   component?: ComponentType;
@@ -24,18 +25,18 @@ export const TableHead: FC<TableHeadProps> = ({
   ...props
 }) => {
   return (
-    <Component className={styles.TableHead} {...props}>
-      <div className={styles.TableHeadContainer}>
+    <Component className={classNames(styles.TableHead, `${getMyUIPrefix()}-TableHead`)} {...props}>
+      <div className={classNames(styles.TableHeadContainer, `${getMyUIPrefix()}-TableHeadContainer`)}>
         {children}
         {!hideSortIcon && (
-          <div className={styles.IconArrow}>
+          <div className={classNames(styles.IconArrow, `${getMyUIPrefix()}-IconArrow`)}>
             <ArrowIcon
-              className={classNames(styles.IconUp, {
+              className={classNames(styles.IconUp, `${getMyUIPrefix()}-IconUp`, {
                 [styles.IconDisabled]: !selectedDirection || direction === 'asc'
               })}
             />
             <ArrowIcon
-              className={classNames(styles.IconDown, {
+              className={classNames(styles.IconDown, `${getMyUIPrefix()}-IconDown`, {
                 [styles.IconDisabled]: !selectedDirection || direction === 'desc'
               })}
             />

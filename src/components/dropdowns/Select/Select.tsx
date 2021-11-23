@@ -6,6 +6,7 @@ import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import { DropdownIcon, MenuList, Option, SearchControl } from './Controls';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
+import { getMyUIPrefix } from '@/configs';
 
 export type SelectValueType = number | string;
 
@@ -171,6 +172,7 @@ function Select<
       backspaceRemovesValue={false}
       className={classNames(
         styles.Select,
+        `${getMyUIPrefix()}-Select`,
         {
           [styles['Select--fullWidth']]: fullWidth,
           [styles['Select--dropdown']]: dropdown,

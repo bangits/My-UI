@@ -1,8 +1,8 @@
+import { getMyUIPrefix } from '@/configs';
 import { Button, ButtonProps } from '@/my-ui-core';
+import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './Dialog.module.scss';
-import classNames from 'classnames';
-
 export interface DialogActionsProps {
   showCancelButton?: boolean;
   cancelButtonText?: ReactNode;
@@ -25,7 +25,7 @@ const DialogActions: FC<DialogActionsProps> = ({
   className
 }) => {
   return (
-    <div className={classNames(styles.DialogBtnGroup, className)}>
+    <div className={classNames(styles.DialogBtnGroup, className, `${getMyUIPrefix()}-DialogBtnGroup`)}>
       {showCancelButton && (
         <Button variant='ghost' {...cancelButtonProps} onClick={cancelButtonProps.onClick || onClose}>
           {cancelButtonText}

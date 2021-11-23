@@ -4,6 +4,7 @@ import React, { FC, useState } from 'react';
 import styles from './DatePicker.module.scss';
 import MonthPicker from './MonthPicker';
 import YearsPicker from './YearsPicker';
+import { getMyUIPrefix } from '@/configs';
 export interface DatePickerHeaderProps {
   monthDate: Date;
   date: Date;
@@ -34,17 +35,29 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
   const [month, setMonth] = useState(false);
 
   return (
-    <div className='month-and-yearWrapper'>
+    <div className={classNames('month-and-yearWrapper', `${getMyUIPrefix()}-month-and-yearWrapper`)}>
       <button
         // aria-label='Previous Month'
-        className={'react-datepicker__navigation react-datepicker__navigation--previous'}
+        className={classNames(
+          'react-datepicker__navigation',
+          'react-datepicker__navigation--previous',
+          `${getMyUIPrefix()}-ReactDatepickerNavigation`,
+          `${getMyUIPrefix()}-ReactDatepickerNavigationPrevious`
+        )}
         style={customHeaderCount === 1 ? { visibility: 'hidden' } : undefined}
         onClick={decreaseMonth}>
         <DatepickerArrowIcon />
       </button>
-      <div className='month-and-yearWrapper' style={{ display: 'flex', justifyContent: 'center' }}>
+      <div
+        className={classNames('month-and-yearWrapper', `${getMyUIPrefix()}-MonthAndYearWrapper`)}
+        style={{ display: 'flex', justifyContent: 'center' }}>
         <span
-          className={classNames('react-datepicker__current-month', styles.CurrentMonth)}
+          className={classNames(
+            'react-datepicker__current-month',
+            styles.CurrentMonth,
+            `${getMyUIPrefix()}-ReactDatepickerCurrentMonth`,
+            `${getMyUIPrefix()}-CurrentMonth`
+          )}
           onClick={() => {
             setMonth(true);
             setYear(false);
@@ -55,7 +68,12 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
           })}
         </span>
         <span
-          className={classNames('react-datepicker__current-month', styles.CurrentYear)}
+          className={classNames(
+            'react-datepicker__current-month',
+            styles.CurrentYear,
+            `${getMyUIPrefix()}-ReactDatepickerCurrentMonth`,
+            `${getMyUIPrefix()}-CurrentYear`
+          )}
           onClick={() => {
             setMonth(false);
             setYear(true);
@@ -68,7 +86,12 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
       </div>
       <button
         // aria-label='Next Month'
-        className={'react-datepicker__navigation react-datepicker__navigation--next'}
+        className={classNames(
+          'react-datepicker__navigation',
+          'react-datepicker__navigation--next',
+          `${getMyUIPrefix()}-ReactDatepickerNavigation`,
+          `${getMyUIPrefix()}-ReactDatepickerNavigationNext`
+        )}
         style={customHeaderCount === 1 ? { visibility: 'hidden' } : undefined}
         onClick={increaseMonth}>
         <DatepickerArrowIcon />

@@ -1,6 +1,7 @@
 import { Typography, TypographyProps } from '@/components';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
+import { getMyUIPrefix } from '@/configs';
 import {
   DetailedHTMLProps,
   FC,
@@ -106,6 +107,8 @@ const TextInputs: FC<TextInputProps> = forwardRef(
     return (
       <div
         className={classNames(
+          `${getMyUIPrefix()}-MyUITextInputContainer`,
+          `${getMyUIPrefix()}-TextInputContainer`,
           'MyUI-TextInputContainer',
           styles.TextInputContainer,
           {
@@ -122,9 +125,21 @@ const TextInputs: FC<TextInputProps> = forwardRef(
           },
           containerClassName
         )}>
-        <label className={classNames('MyUI-TextInputWrapper', styles.TextInputWrapper)}>
+        <label
+          className={classNames(
+            'MyUI-TextInputWrapper',
+            styles.TextInputWrapper,
+            `${getMyUIPrefix()}-MyUITextInputWrapper`,
+            `${getMyUIPrefix()}-TextInputWrapper`
+          )}>
           {startIcon && (
-            <div className={classNames(styles.StartIcon, 'MyUI-TextInputStartIcon')}>
+            <div
+              className={classNames(
+                styles.StartIcon,
+                'MyUI-TextInputStartIcon',
+                `${getMyUIPrefix()}-StartIcon`,
+                `${getMyUIPrefix()}-MyUITextInputStartIcon`
+              )}>
               {Array.isArray(startIcon) ? startIcon.slice(0, 2) : startIcon}
             </div>
           )}
@@ -133,6 +148,8 @@ const TextInputs: FC<TextInputProps> = forwardRef(
             className={classNames(
               'MyUI-TextInputBaseInput',
               styles.TextInputBaseInput,
+              `${getMyUIPrefix()}-MyUITextInputBaseInput`,
+              `${getMyUIPrefix()}-TextInputBaseInput`,
               {
                 [styles[`TextInputBaseInput--filled`]]:
                   forceFocused !== undefined ? forceFocused || !!currentValue : !!currentValue,
@@ -153,9 +170,9 @@ const TextInputs: FC<TextInputProps> = forwardRef(
             onBlur={onBlur}
           />
           {label && (
-            <span className={styles.TextInputLabelContainer}>
+            <span className={classNames(styles.TextInputLabelContainer, `${getMyUIPrefix()}-TextInputLabelContainer`)}>
               <span
-                className={classNames(styles.TextInputLabelText, {
+                className={classNames(styles.TextInputLabelText, `${getMyUIPrefix()}-TextInputLabelText`, {
                   [styles['TextInputLabelText--with-two-start-icon']]: Array.isArray(startIcon) && startIcon.length > 1,
                   [styles['TextInputLabelText--with-two-end-icon']]: Array.isArray(endIcon) && endIcon.length > 1
                 })}>
@@ -165,14 +182,23 @@ const TextInputs: FC<TextInputProps> = forwardRef(
           )}
 
           {endIcon && (
-            <div className={classNames('MyUI-TextInputEndIcon', styles.EndIcon)}>
+            <div
+              className={classNames(
+                'MyUI-TextInputEndIcon',
+                styles.EndIcon,
+                `${getMyUIPrefix()}-MyUITextInputEndIcon`,
+                `${getMyUIPrefix()}-EndIcon`
+              )}>
               {Array.isArray(endIcon) ? endIcon.slice(0, 2) : endIcon}
             </div>
           )}
         </label>
 
         {explanation && (
-          <Typography className={styles.Explanation} variant='p5' component='span'>
+          <Typography
+            className={classNames(styles.Explanation, `${getMyUIPrefix()}-Explanation`)}
+            variant='p5'
+            component='span'>
             {explanation}
           </Typography>
         )}

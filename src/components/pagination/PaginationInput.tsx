@@ -1,5 +1,8 @@
 import React, { FC, useState } from 'react';
 import { TextInput, Typography } from '@/components';
+import { getMyUIPrefix } from '@/configs';
+import classNames from 'classnames';
+
 import styles from './Pagination.module.scss';
 
 export interface PaginationInputProps {
@@ -17,7 +20,7 @@ const PaginationInput: FC<PaginationInputProps> = ({ setGoToPage, pageCount, inp
         Jump to Page
       </Typography>
       <TextInput
-        className={styles.PaginationInputJupm}
+        className={classNames(styles.PaginationInputJupm, `${getMyUIPrefix()}-PaginationInputJump`)}
         value={page}
         maxLength={6}
         type='number'

@@ -31,7 +31,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             [styles[`Checkbox--${color}`]]: color
           },
           className,
-          `${getMyUIPrefix()}-CheckboxContainer`
+          `${getMyUIPrefix()}-Checkbox`
         )}
         style={style}
         {...checkboxContainerProps}>

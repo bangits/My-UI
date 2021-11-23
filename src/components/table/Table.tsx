@@ -75,7 +75,7 @@ interface CustomColumnProps {
   align?: TableCellProps['align'];
   maxWidth?: string | number;
   dataMaxWidth?: string | number;
-  renderColumn?(value: ReactNode): ReactNode;
+  renderColumn?(value: ReactNode, columnValue: any): ReactNode;
 }
 
 export interface CellType<T extends object = {}> extends Cell<T, any> {
@@ -195,7 +195,9 @@ const Table = <T extends ObjectMock>({
                       align={cell.column.align}
                       color={color}>
                       <div>
-                        {cell.column.renderColumn ? cell.column.renderColumn(cell.render('Cell')) : cell.render('Cell')}
+                        {cell.column.renderColumn
+                          ? cell.column.renderColumn(cell.render('Cell'), cell.value)
+                          : cell.render('Cell')}
                       </div>
                     </TableCell>
                   );

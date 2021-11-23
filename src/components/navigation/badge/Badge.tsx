@@ -22,6 +22,8 @@ const Badge: FC<BadgeProps> = ({ quantity, children, className, badgeSize = 'ms'
           styles.BadgeNumber,
           styles[`BadgeNumber--${color}`],
           styles['BadgeNumber--primary'],
+          styles['BandgeNumberThreeNumbers'],
+          styles['BandgeNumbers'],
           badgeStyle,
           {
             [styles.BadgeNumberMs]: badgeSize === 'ms',

@@ -11,20 +11,12 @@
       @include flex(center, center);
       @include theme(color, badge-number-color);
       font-weight: getBadgeSizes(badge-number-fontWeight);
-      border-radius: getBadgeSizes(badge-number-borderRadius);
-      transition: width getBadgeSizes(badge-transition) ease-in-out;
+      border-radius: getBadgeSizes(badge-number-border-radius);
+      transition: min-width getBadgeSizes(badge-transition) ease-in-out;
+      width: getBadgeSizes(badge-number-min-width);
+      padding: getBadgeSizes(badge-padding);
+      box-sizing: border-box;
 
-      &:hover {
-        transition: getBadgeSizes(badge-transition) ease-in-out;
-        width: getBadgeSizes(badge-hover-width);
-        cursor: pointer;
-      }
-    }
-
-    .BandgeNumberThreeNumbers {
-      width: getBadgeSizes(badge-three-numbers-width);
-      height: getBadgeSizes(badge-three-numbers-height);
-      border-radius: getBadgeSizes(badge-three-numbers-border-radius);
       &:hover {
         transition: width getBadgeSizes(badge-transition) ease-in-out;
         width: getBadgeSizes(badge-hover-width);
@@ -32,28 +24,21 @@
       }
     }
 
-    .BandgeNumbers {
-      width: getBadgeSizes(badge-three-numbers-width);
-      height: getBadgeSizes(badge-three-numbers-height);
-      border-radius: getBadgeSizes(badge-three-numbers-border-radius);
-      &:hover {
-        transition: width getBadgeSizes(badge-transition) ease-in-out;
-        width: getBadgeSizes(badge-hover-width);
-        cursor: pointer;
-      }
-    }
+    //this code was written by Vardan
 
-    .BadgeNumberMs {
-      width: getBadgeSizes(badge-number-sizes);
-      height: getBadgeSizes(badge-number-sizes);
-      font-size: getBadgeSizes(badge-number-size-ms);
-    }
+    // .BadgeNumberMs {
+    //   min-width: getBadgeSizes(badge-number-sizes);
+    //   width: fit-content;
+    //   width: -moz-fit-content;
+    //   font-size: getBadgeSizes(badge-number-size-ms);
+    //   border-radius: getBadgeSizes(badge-three-numbers-border-radius);
+    // }
 
-    .BadgeNumberSs {
-      width: getBadgeSizes(badge-number-width-ss);
-      height: getBadgeSizes(badge-number-height-ss);
-      font-size: getBadgeSizes(badge-number-size-ss);
-    }
+    // .BadgeNumberSs {
+    //   width: getBadgeSizes(badge-number-width-ss);
+    //   height: getBadgeSizes(badge-number-height-ss);
+    //   font-size: getBadgeSizes(badge-number-size-ss);
+    // }
 
     @each $color in $base-colors {
       .BadgeNumber--#{$color} {

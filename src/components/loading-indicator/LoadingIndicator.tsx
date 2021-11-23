@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './LoadingIndicator.module.scss';
+import { getMyUIPrefix } from '@/configs';
 
 export type IndicatorVariant = 'circle' | 'square';
 export interface LoadingIndicatorProps {
@@ -12,9 +13,18 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
   return (
     <>
       {variant === 'circle' ? (
-        <div className={classNames(styles['LoadingIndicatorCircle'], 'Timer_LoadingIndicator')}>
+        <div
+          className={classNames(
+            styles['LoadingIndicatorCircle'],
+            'Timer_LoadingIndicator',
+            `${getMyUIPrefix()}-LoadingIndicatorCircle`,
+            `${getMyUIPrefix()}-TimerLoadingIndicator`
+          )}>
           <svg
-            className={styles['LoadingIndicatorCircle__svg']}
+            className={classNames(
+              styles['LoadingIndicatorCircle__svg'],
+              `${getMyUIPrefix()}-LoadingIndicatorCircleSvg`
+            )}
             viewBox='0 0 100 100'
             xmlns='http://www.w3.org/2000/svg'>
             <g className={styles['LoadingIndicatorCircle__circle']}>
@@ -30,12 +40,20 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
                    '></path>
             </g>
           </svg>
-          <div className={styles.LoadingIndicatorCirclePercent}>
-            <span>{percent > 100 ? 100 : percent < 0 || percent == undefined || percent == null ? 0 : percent}%</span>
+          <div
+            className={classNames(
+              styles.LoadingIndicatorCirclePercent,
+              `${getMyUIPrefix()}-LoadingIndicatorCirclePercent`
+            )}>
+            <span className={`${getMyUIPrefix()}-LoadingIndicatorCirclePercentNumber`}>
+              {percent > 100 ? 100 : percent < 0 || percent == undefined || percent == null ? 0 : percent}%
+            </span>
           </div>
         </div>
       ) : (
-        <div className={styles.LoadingIndicatorRectangle} style={{ marginTop: '2rem' }}>
+        <div
+          className={classNames(styles.LoadingIndicatorRectangle, `${getMyUIPrefix()}-LoadingIndicatorRectangle`)}
+          style={{ marginTop: '2rem' }}>
           <svg height='40'>
             <rect className={styles.SecondRect} x='1' y='1' rx='4'></rect>
             <rect

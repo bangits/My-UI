@@ -1,14 +1,8 @@
 import { DatepickerArrowIcon } from '@/icons';
-import classNames from 'classnames';
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import styles from './DatePicker.module.scss';
-
-// export interface YearsPickerProps {
-//   years;
-//   monthDate;
-//   customHeaderCount;
-//   onChange;
-// }
+import classNames from 'classnames';
+import { getMyUIPrefix } from '@/configs';
 
 const YearsPicker: FC<any> = ({ years, monthDate, customHeaderCount, onChange }) => {
   const [yearSelection, setYearSelection] = useState(years);
@@ -36,29 +30,39 @@ const YearsPicker: FC<any> = ({ years, monthDate, customHeaderCount, onChange })
       <div className={styles.YearHeader}>
         <button
           aria-label='Previous Year'
-          className={'react-datepicker__navigation react-datepicker__navigation--previous'}
+          className={classNames(
+            'react-datepicker__navigation',
+            'react-datepicker__navigation--previous',
+            `${getMyUIPrefix()}-ReactDatepickerNavigation`,
+            `${getMyUIPrefix()}-ReactDatepickerNavigationNext`
+          )}
           onClick={() => setYearSelection(calculateYears(yearSelection[2] + 1))}>
           <DatepickerArrowIcon />
         </button>
-        <div className={styles.MonthPickerWrapper__Header}>
+        <div className={classNames(styles.MonthPickerWrapper__Header, `${getMyUIPrefix()}-MonthPickerWrapperHeader`)}>
           {yearSelection[1]} - {yearSelection[yearSelection.length - 2]}
         </div>
 
         <button
           aria-label='Next Year'
-          className={'react-datepicker__navigation react-datepicker__navigation--next'}
+          className={classNames(
+            'react-datepicker__navigation',
+            'react-datepicker__navigation--next',
+            `${getMyUIPrefix()}-ReactDatepickerNavigation`,
+            `${getMyUIPrefix()}-ReactDatepickerNavigationNext`
+          )}
           onClick={() => setYearSelection(calculateYears(yearSelection[0] + 5))}>
           <DatepickerArrowIcon />
         </button>
       </div>
-      <div className={styles.YearsWrapper}>
+      <div className={classNames(styles.YearsWrapper, `${getMyUIPrefix()}-YearsWrapper`)}>
         {yearSelection.map((y, idx) => (
           <button
             onClick={() => {
               onChange(y);
             }}
             disabled={!idx || idx === yearSelection.length - 1}
-            className={classNames(styles.button, {
+            className={classNames(styles.button, `${getMyUIPrefix()}-Button`, {
               [styles.buttonDisabled]: !idx || idx === yearSelection.length - 1,
               [styles.selectedYear]: monthDate.getFullYear() === +y
             })}>

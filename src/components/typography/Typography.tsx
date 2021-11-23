@@ -2,6 +2,7 @@ import { ComponentType, IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './Typography.module.scss';
+import { getMyUIPrefix } from '@/configs';
 
 export type TypographyVariants = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p1' | 'p2' | 'p3' | 'p4' | 'p5';
 
@@ -23,6 +24,8 @@ const Typography: FC<TypographyProps> = ({
       className={classNames(
         styles.Typography,
         styles[variant],
+        `${getMyUIPrefix()}-Typography`,
+        `${getMyUIPrefix()}-Variant`,
         {
           [styles[`Typography--${color}`]]: color
         },

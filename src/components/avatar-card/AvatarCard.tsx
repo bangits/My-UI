@@ -2,6 +2,7 @@ import { IComponent } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './AvatarCard.module.scss';
+import { getMyUIPrefix } from '@/configs';
 
 export type AvatarImgSizes = 'md' | 'sm';
 export type AvatarVariant = 'online' | 'offline' | 'default';
@@ -12,7 +13,7 @@ export interface AvatarCardProps extends IComponent {
 }
 const AvatarCard: FC<AvatarCardProps> = ({ imageSize = 'md', avatarImg, variant = 'online' }) => {
   return (
-    <div className={styles.AvatarWrapper}>
+    <div className={classNames(styles.AvatarWrapper, `${getMyUIPrefix()}-AvatarWrapper`)}>
       <div
         className={classNames(
           styles.AvatarBase,
@@ -24,10 +25,11 @@ const AvatarCard: FC<AvatarCardProps> = ({ imageSize = 'md', avatarImg, variant 
             [styles.AvatarOfflineState]: variant === 'offline',
             [styles.AvatarOnlineState]: variant === 'online',
             [styles.AvatarDefaultState]: variant === 'default'
-          }
+          },
+          `${getMyUIPrefix()}-AvatarBase`
         )}>
-        <img src={avatarImg} />
-        <span className={styles.AvatarStateStatus}></span>
+        <img src={avatarImg} className={`${getMyUIPrefix()}-AvatarImg`} />
+        <span className={classNames(styles.AvatarStateStatus, `${getMyUIPrefix()}-AvatarStateStatus`)}></span>
       </div>
     </div>
   );

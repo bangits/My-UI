@@ -6,7 +6,7 @@ import styles from './Pagination.module.scss';
 import PaginationInput from './PaginationInput';
 import { ArrowNext, ArrowPrev, DropdownArrowIconUp } from '@/icons';
 import { IComponent } from '@/types';
-
+import { getMyUIPrefix } from '@/configs';
 export interface PaginationProps extends IComponent {
   page: number;
   totalCount: number;
@@ -40,18 +40,21 @@ const Pagination: FC<PaginationProps> = ({
   }, []);
 
   return (
-    <div className={styles.PaginationWrapper}>
-      <div className={styles.PaginationInputWrapper}>
+    <div className={classNames(styles.PaginationWrapper, `${getMyUIPrefix()}-PaginationWrapper`)}>
+      <div className={classNames(styles.PaginationInputWrapper, `${getMyUIPrefix()}-PaginationInputWrapper`)}>
         {showPageSizeSelect && (
           <>
-            <Typography variant='p4' component='span' className={styles.SelectLabel}>
+            <Typography
+              variant='p4'
+              component='span'
+              className={classNames(styles.SelectLabel, `${getMyUIPrefix()}-SelectLabel`)}>
               Row per page:
             </Typography>
-            <div className={styles.PaginationSelectWrapper}>
+            <div className={classNames(styles.PaginationSelectWrapper, `${getMyUIPrefix()}-PaginationSelectWrapper`)}>
               <Select
                 inputLabel={null}
                 fullWidth
-                className={styles.SelectWrapper}
+                className={classNames(styles.SelectWrapper, `${getMyUIPrefix()}-SelectWrapper`)}
                 defaultValue={20}
                 maxLength={3}
                 options={optionsValue}
@@ -66,7 +69,7 @@ const Pagination: FC<PaginationProps> = ({
         )}
 
         {showTotalCountInfo && (
-          <div className={styles.CountNumbers}>
+          <div className={classNames(styles.CountNumbers, `${getMyUIPrefix()}-CountNumbers`)}>
             <Typography variant='p4' component='span'>
               1-{count} of {totalCount}
             </Typography>
@@ -74,10 +77,10 @@ const Pagination: FC<PaginationProps> = ({
         )}
       </div>
 
-      <div className={styles.PaginationFormContainer}>
+      <div className={classNames(styles.PaginationFormContainer, `${getMyUIPrefix()}-PaginationFormContainer`)}>
         {page >= 1 && (
           <ReactPaginate
-            className={styles.PaginationList}
+            className={classNames(styles.PaginationList, `${getMyUIPrefix()}-PaginationList`)}
             onPageChange={handleChange}
             breakLabel='...'
             nextLabel={page > 1 ? <ArrowNext /> : null}

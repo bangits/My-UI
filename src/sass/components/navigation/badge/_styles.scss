@@ -13,7 +13,9 @@
       font-weight: getBadgeSizes(badge-number-fontWeight);
       border-radius: getBadgeSizes(badge-number-border-radius);
       transition: min-width getBadgeSizes(badge-transition) ease-in-out;
-      width: getBadgeSizes(badge-number-min-width);
+      min-width: getBadgeSizes(badge-number-min-width);
+      width: fit-content;
+      width: -moz-fit-content;
       padding: getBadgeSizes(badge-padding);
       box-sizing: border-box;
 

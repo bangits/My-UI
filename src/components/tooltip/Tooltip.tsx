@@ -1,4 +1,12 @@
-import React, { useState, useRef, FC, DetailedReactHTMLElement, ReactHTMLElement, cloneElement } from 'react';
+import React, {
+  useState,
+  useRef,
+  FC,
+  DetailedReactHTMLElement,
+  ReactHTMLElement,
+  cloneElement,
+  ReactNode
+} from 'react';
 import Portal from '../../shared/Portal';
 import StyledTooltip from './StyledTooltip';
 import Styles from './Tooltip.module.scss';
@@ -38,17 +46,17 @@ const Tooltip = ({
 
   const tooltipRef = useRef();
 
-  const handleMOver = (e) => {
+  const handleMOver = (e: Event) => {
     setShow(1);
-    posRef.current = TooltipPosition(e.currentTarget, tooltipRef.current, placement, space);
+    posRef.current = TooltipPosition(e.currentTarget as HTMLElement, tooltipRef.current, placement, space);
   };
 
   const handleMOut = () => setShow(0);
 
-  const handleClick = (e) => {
+  const handleClick = (e: Event) => {
     if (!show) {
       setShow(1);
-      posRef.current = TooltipPosition(e.currentTarget, tooltipRef.current, placement, space);
+      posRef.current = TooltipPosition(e.currentTarget as HTMLElement, tooltipRef.current, placement, space);
     } else {
       setShow(0);
     }

@@ -1,6 +1,6 @@
 $datepicker-sizes: (
   datepicker-width: calculateRem(276px),
-  datepicker-border-radius: calculateRem(4px),
+  datepicker-border-radius: 4px,
   datepicker-min-height: calculateRem(322px),
   datepicker-shadow-sizes: 3px 3px 6px 0,
   datepicker-margin-top: calculateRem(8px),
@@ -14,7 +14,7 @@ $datepicker-sizes: (
   //
   datepicker-navigation--nextMargin: calculateRem(25px),
   datepicker-navigation--leftMargin: calculateRem(25px),
-  datePicker-month-container--borderRadius: calculateRem(4px),
+  datePicker-month-container--borderRadius: 4px,
   datePicker-wrapper-two-month-min-width: calculateRem(585px),
   datePicker-month-container--leftMargin: calculateRem(25px),
   datePicker-month-container-min-height: calculateRem(375px),
@@ -35,8 +35,8 @@ $datepicker-sizes: (
   datePicker-last-week-margin-top: calculateRem(10px),
   datePicker-current-day-margin: calculateRem(0px) calculateRem(-1px),
   datePicker-day-padding: calculateRem(9px) calculateRem(0px),
-  datePicker-selected-in-range-end: calculateRem(0px) calculateRem(4px) calculateRem(4px) calculateRem(0px),
-  datePicker-selected-in-range-start: calculateRem(4px) calculateRem(0px) calculateRem(0px) calculateRem(4px),
+  datePicker-selected-in-range-end: 0 4px 4px 0,
+  datePicker-selected-in-range-start: 4px 0 0 4px,
   datePicker-days-height: calculateRem(40px)
 );
 
@@ -44,4 +44,20 @@ $datepicker-sizes: (
   @return map-get($datepicker-sizes, $property);
 }
 
-$datepicker-colors: ();
+$datepicker-colors: (
+  datepicker-day-names-color: color(silver-color),
+  datepicker-day-color: color(gray-color),
+  datepicker-container-bg: color(white),
+  datepicker-input-border--primary: color(stratos),
+  datepicker-bg-color--primary: color(pelorous),
+  datepicker-secondary-bg-color--primary: color(aqua-spring),
+  datepicker-color--primary: color(white),
+  datepicker-text-color--primary: color(gray),
+  datepicker-day-color--primary: color(silver),
+  datepicker-box-shadow--primary: color(carbon-fiber),
+  datepicker-current-day--primary: color(oxford-blue),
+  datepicker-day--primary: color(azure-approx),
+  datepicker-day-selected-row--primary: color(azure-approx-opacity-10),
+  datepicker-selected-days--primary: color(shuttl-gray),
+  datepicker-week-color--primary: color(silver)
+);

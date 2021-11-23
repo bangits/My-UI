@@ -1,7 +1,8 @@
 import { Select } from '@/components';
+import { getColorKnobs } from '@/configs';
 import { FilterIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
-import { boolean, number, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, object, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
 
@@ -24,23 +25,17 @@ export const Default = () => {
     <>
       <Select
         value={value}
-        onChange={setValue}
+        onChange={(value) => {
+          setValue(value);
+
+          setTimeout(() => {
+            setValue(null);
+          }, 2000);
+        }}
         inputLabel={text('inputLabelSingle', 'Single Select...')}
         isSearchable
         maxLength={number('maxLengthSingleSelect', 20)}
-        color={optionsKnob(
-          'color',
-          {
-            danger: 'danger',
-            warning: 'warning',
-            success: 'success',
-            primary: 'primary'
-          },
-          'primary',
-          {
-            display: 'inline-radio'
-          }
-        )}
+        color={getColorKnobs()}
         options={object('options1', [
           {
             label: 'Jewels and Gems',
@@ -84,19 +79,7 @@ export const Default = () => {
         inputLabel={text('inputLabelSingle', 'Single Select...')}
         maxLength={number('maxLengthSingleSelect', 20)}
         isSearchable
-        color={optionsKnob(
-          'color',
-          {
-            danger: 'danger',
-            warning: 'warning',
-            success: 'success',
-            primary: 'primary'
-          },
-          'primary',
-          {
-            display: 'inline-radio'
-          }
-        )}
+        color={getColorKnobs()}
         options={object('options2', [
           {
             label: 'Jewels and Gems',
@@ -142,12 +125,55 @@ export const Default = () => {
 
 export const MultiSelect = () => {
   const [value, setValue] = useState([2]);
+  const [options, setOptions] = useState([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setOptions([
+        {
+          label: 'Jewels and Gems',
+          value: 2
+        },
+        {
+          label: 'Fantasy',
+          value: 3
+        },
+        {
+          label: 'Halloween',
+          value: 4
+        },
+        {
+          label: 'Luxury',
+          value: 5
+        },
+        {
+          label: 'Fruits / Vegetables',
+          value: 6
+        },
+        {
+          label: 'Asian',
+          value: 7
+        },
+        {
+          label: 'Food',
+          value: 8
+        },
+        {
+          label: 'Branded',
+          value: 9
+        },
+        {
+          label: 'Animals',
+          value: 10
+        }
+      ]);
+    }, 2000);
+  }, []);
 
   return (
     <>
       <Select
         isMulti
-        menuIsOpen
         value={value}
         onChange={setValue}
         selectAll={boolean('selectAll2', true)}
@@ -159,56 +185,8 @@ export const MultiSelect = () => {
         explanation={text('explanation', '')}
         fullWidth={boolean('fullWidth', false)}
         isSearchable
-        color={optionsKnob(
-          'color',
-          {
-            danger: 'danger',
-            warning: 'warning',
-            primary: 'primary'
-          },
-          'primary',
-          {
-            display: 'inline-radio'
-          }
-        )}
-        options={object('multiSelectOptions', [
-          {
-            label: 'Jewels and Gems',
-            value: 2
-          },
-          {
-            label: 'Fantasy',
-            value: 3
-          },
-          {
-            label: 'Halloween',
-            value: 4
-          },
-          {
-            label: 'Luxury',
-            value: 5
-          },
-          {
-            label: 'Fruits / Vegetables',
-            value: 6
-          },
-          {
-            label: 'Asian',
-            value: 7
-          },
-          {
-            label: 'Food',
-            value: 8
-          },
-          {
-            label: 'Branded',
-            value: 9
-          },
-          {
-            label: 'Animals',
-            value: 10
-          }
-        ])}
+        color={getColorKnobs()}
+        options={options}
         defaultValue={[2, 3, 4, 5, 6, 7, 8, 9, 10]}
       />
 
@@ -218,18 +196,7 @@ export const MultiSelect = () => {
         maxLength={number('maxLengthMultiSelect', 50)}
         inputSelectedLabel={text('inputSelectedLabel', 'Selected ')}
         explanation={text('explanation', '')}
-        color={optionsKnob(
-          'color',
-          {
-            danger: 'danger',
-            warning: 'warning',
-            primary: 'primary'
-          },
-          'primary',
-          {
-            display: 'inline-radio'
-          }
-        )}
+        color={getColorKnobs()}
         isMulti={boolean('isMulti', true)}
         options={object('multiSelectOptions2', [])}
       />
@@ -245,19 +212,7 @@ export const Dropdown = () => {
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
       onChange={action('onChange')}
-      color={optionsKnob(
-        'color',
-        {
-          danger: 'danger',
-          warning: 'warning',
-          primary: 'primary',
-          success: 'success'
-        },
-        'primary',
-        {
-          display: 'inline-radio'
-        }
-      )}
+      color={getColorKnobs()}
       isMulti={boolean('isMulti', true)}
       options={[
         {
@@ -318,19 +273,7 @@ export const RenderInput = () => {
       )}
       isSearchable={false}
       onChange={action('onChange')}
-      color={optionsKnob(
-        'color',
-        {
-          danger: 'danger',
-          warning: 'warning',
-          primary: 'primary',
-          success: 'success'
-        },
-        'primary',
-        {
-          display: 'inline-radio'
-        }
-      )}
+      color={getColorKnobs()}
       options={object('dropdownOptions', [
         {
           label: 'Row per page: 20',

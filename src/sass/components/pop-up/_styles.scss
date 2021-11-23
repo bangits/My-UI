@@ -1,82 +1,78 @@
 @mixin generate-popup-styles {
-  .PopUp {
-    min-width: getPopUpSizes(pop-up-width);
+  .Dialog {
+    min-width: getDialogSizes(dialog-width);
     height: auto;
-    min-height: getPopUpSizes(pop-up-height);
-    border-radius: getPopUpSizes(pop-up-border-radius);
-    box-shadow: 0px 0px 5px #00000029;
+    min-height: getDialogSizes(dialog-height);
+    border-radius: getDialogSizes(dialog-border-radius);
+    @include theme(box-shadow, box-shadow-color, 0 0 5px);
     @include flex(null, null, $direction: column);
     @include theme(background-color, primary--color);
-    color: #2b3674;
+    @include theme(color, dialog-label-color);
     text-align: center;
-    padding: getPopUpSizes(pop-up-padding);
+    padding: getDialogSizes(dialog-padding);
     box-sizing: border-box;
-
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-
-    z-index: getPopUpSizes(pop-up-z-index) + 1;
-    animation: popup-show-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    z-index: getDialogSizes(dialog-z-index) + 1;
+    animation: dialog-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 
     &--exit {
-      animation: popup-show-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+      animation: dialog-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     }
 
-    .PopUpIconContainer {
-      width: 8rem;
-      height: 8rem;
-
+    .DialogIconContainer {
+      width: getDialogSizes(dialog-container-sizes);
+      height: getDialogSizes(dialog-container-sizes);
       margin: 0 auto;
     }
 
-    .PopUpLabel {
+    .DialogLabel {
       h2 {
         margin-bottom: 0;
       }
     }
 
-    .PopUpText {
+    .DialogText {
       @include theme(color, black-color);
       word-break: break-word;
       p {
         margin-bottom: 0;
         b,
         strong {
-          font-weight: getPopUpSizes(pop-up-span-font);
+          font-weight: getDialogSizes(dialog-span-font);
         }
       }
     }
-    .PopUpBtnGroup {
+    .DialogBtnGroup {
       @include flex(center, null);
       margin-top: auto;
       button {
-        // margin: getPopUpSizes(pop-up-btns-margin);
         &:nth-child(2) {
-          margin-left: getPopUpSizes(pop-up-margin);
+          margin-left: getDialogSizes(dialog-margin);
         }
       }
     }
   }
 
   .Overlay {
-    z-index: getPopUpSizes(pop-up-z-index);
+    z-index: getDialogSizes(dialog-z-index);
     cursor: pointer;
   }
 
   .Overlay,
-  .PopUpWrapperParent {
+  .DialogWrapperParent {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 
-    @include theme(background-color, popup-overlay-bg, $opacity: 0.5);
+    @include theme(background-color, dialog-overlay-bg, $opacity: 0.5);
   }
 
-  @keyframes popup-show-animation-exit {
+  @keyframes dialog-animation-exit {
     from {
       opacity: 1;
     }
@@ -85,7 +81,7 @@
     }
   }
 
-  @keyframes popup-show-animation {
+  @keyframes dialog-animation {
     from {
       opacity: 0;
     }

@@ -8,7 +8,6 @@
       top: getBadgeSizes(badge-number-position-top);
       left: getBadgeSizes(badge-number-position-left);
       @include flex(center, center);
-      @include theme(background-color, badge-number-background);
       @include theme(color, badge-number-color);
       font-weight: getBadgeSizes(badge-number-fontWeight);
       border-radius: getBadgeSizes(badge-number-borderRadius);
@@ -22,6 +21,11 @@
       width: getBadgeSizes(badge-number-width-ss);
       height: getBadgeSizes(badge-number-height-ss);
       font-size: getBadgeSizes(badge-number-size-ss);
+    }
+    @each $color in $base-colors {
+      .BadgeNumber--#{$color} {
+        @include theme(background-color, #{$color});
+      }
     }
   }
 }

@@ -2,13 +2,18 @@ $button-sizes: (
   button-font-size: calculateRem(16px),
   button-height: calculateRem(38px),
   button-padding: calculateRem(9px) calculateRem(42px) calculateRem(9px),
-  button-border-radius: calculateRem(4px),
+  button-border-radius: 4px,
   icon-margin: calculateRem(10px),
-  button-border-width: calculateRem(1px)
+  button-border-width: 1px
 );
 
 @function getButtonSizes($property) {
   @return map-get($button-sizes, $property);
 }
 
-$button-colors: ();
+$button-colors: (
+  button-primary--active: color(blue-ovlivion),
+  button-success--active: color(emerald),
+  button-danger--active: color(red-orange),
+  button-warning--active: color(sunglow)
+);

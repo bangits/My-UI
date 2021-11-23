@@ -8,14 +8,12 @@
     }
 
     &__circle {
-      @include theme(stroke, primary);
-      @include theme(fill, primary, $opacity: 0.04);
       stroke: transparent;
     }
 
     &__path-elapsed {
       stroke-width: getLoadingIndicatorSizes(path-elapsed-width);
-      transition: all 9s;
+      transition: getLoadingIndicatorSizes(transition-all-indicator);
       stroke-width: getLoadingIndicatorSizes(path-elapsed-stroke-width);
       @include theme(fill, primary, $opacity: 0.04);
     }
@@ -24,9 +22,9 @@
       stroke-width: getLoadingIndicatorSizes(path-remaining-width);
       transform: rotate(90deg);
       transform-origin: center;
-      transition: 0.9s linear all;
+      transition: getLoadingIndicatorSizes(transition-circle-path-remaining) linear all;
       fill-rule: nonzero;
-      stroke: #fff;
+      @include theme(stroke, circle-indicator-remaining-color);
       stroke-width: getLoadingIndicatorSizes(path-remaining-stroke-width);
     }
 
@@ -34,24 +32,44 @@
       @include flex(center, center);
       font-size: getLoadingIndicatorSizes(base-timer-label-size);
     }
+
     .LoadingIndicatorCirclePercent {
       @include center-absolute();
-      @include theme(color, primary);
     }
   }
 
   .LoadingIndicatorRectangle {
     rect {
       stroke-width: getLoadingIndicatorSizes(rectangle-stroke-width);
-      stroke: #00b21e;
+      transition: getLoadingIndicatorSizes(transition-all-indicator);
       fill: transparent;
-      // stroke-dasharray: 394 630;
       width: getLoadingIndicatorSizes(loading-indicator-rectangle-width);
       height: getLoadingIndicatorSizes(loading-indicator-rectangle-height);
     }
-    .SecondRect {
-      stroke: #c6d2e0;
-      // stroke-dasharray: 630 630;
+  }
+
+  @each $color in $base-colors {
+    .LoadingIndicatorCircle--#{$color} {
+      .LoadingIndicatorCircle {
+        &__circle {
+          @include theme(stroke, #{$color});
+          @include theme(fill, #{$color}, $opacity: 0.1);
+        }
+      }
+
+      .LoadingIndicatorCirclePercent {
+        @include theme(color, #{$color});
+      }
+    }
+
+    .LoadingIndicatorRectangle--#{$color} {
+      rect {
+        @include theme(stroke, #{$color});
+      }
+
+      .SecondRect {
+        @include theme(stroke, #{$color}, $opacity: 0.1);
+      }
     }
   }
 }

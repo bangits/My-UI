@@ -1,24 +1,29 @@
+import { getMyUIPrefix } from '@/configs';
+import { typedMemo } from '@/helpers';
+import { UIColors } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './LoadingIndicator.module.scss';
-import { getMyUIPrefix } from '@/configs';
 
 export type IndicatorVariant = 'circle' | 'square';
 export interface LoadingIndicatorProps {
   percent: number;
   variant: IndicatorVariant;
+  color?: UIColors;
 }
 
-const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circle' }) => {
+const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circle', color }) => {
   return (
     <>
       {variant === 'circle' ? (
         <div
           className={classNames(
             styles['LoadingIndicatorCircle'],
+            styles[`LoadingIndicatorCircle--${color}`],
             'Timer_LoadingIndicator',
             `${getMyUIPrefix()}-LoadingIndicatorCircle`,
-            `${getMyUIPrefix()}-TimerLoadingIndicator`
+            `${getMyUIPrefix()}-TimerLoadingIndicator`,
+            'Timer_LoadingIndicator'
           )}>
           <svg
             className={classNames(
@@ -28,7 +33,14 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
             viewBox='0 0 100 100'
             xmlns='http://www.w3.org/2000/svg'>
             <g className={styles['LoadingIndicatorCircle__circle']}>
-              <circle className={styles['LoadingIndicatorCircle__path-elapsed']} cx='50' cy='50' r='45'></circle>
+              <circle
+                className={classNames(
+                  styles['LoadingIndicatorCircle__path-elapsed'],
+                  styles[`LoadingIndicatorCircle--${color}`]
+                )}
+                cx='50'
+                cy='50'
+                r='45'></circle>
               <path
                 strokeDasharray={`${percent > 100 ? 0 : percent < 0 ? 283 : 283 - (283 * percent) / 100} 283`}
                 className={classNames(styles['LoadingIndicatorCircle__path-remaining'], 'arc')}
@@ -52,8 +64,11 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
         </div>
       ) : (
         <div
-          className={classNames(styles.LoadingIndicatorRectangle, `${getMyUIPrefix()}-LoadingIndicatorRectangle`)}
-          style={{ marginTop: '2rem' }}>
+          className={classNames(
+            styles.LoadingIndicatorRectangle,
+            styles[`LoadingIndicatorRectangle--${color}`],
+            styles[`LoadingIndicatorRectangle--${color}`]
+          )}>
           <svg height='40'>
             <rect className={styles.SecondRect} x='1' y='1' rx='4'></rect>
             <rect
@@ -68,4 +83,4 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
   );
 };
 
-export default LoadingIndicator;
+export default typedMemo(LoadingIndicator);

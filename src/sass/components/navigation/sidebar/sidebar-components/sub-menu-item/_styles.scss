@@ -1,43 +1,40 @@
 @mixin generate-sub-menu-items-styles {
   .SubMenuItemsBase {
     box-sizing: border-box;
-    width: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-width);
+    width: getSubMenuItemSizes(sidebar-sub-menu-item-width);
     font-family: $base-font-family;
-    font-weight: 500;
-    line-height: 1.6rem;
-    font-size: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-font-size);
-    color: #95acc5;
-    height: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-height);
+    font-weight: getSubMenuItemSizes(sidebar-sub-menu-item-font-weight);
+    line-height: getSubMenuItemSizes(sidebar-sub-menu-item-line-height);
+    font-size: getSubMenuItemSizes(sidebar-sub-menu-item-font-size);
+    @include theme(color, sub-menu-items-base-colors);
+    height: getSubMenuItemSizes(sidebar-sub-menu-item-height);
     text-align: left;
-    padding: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-padding);
-    display: flex;
-    align-items: center;
+    padding: getSubMenuItemSizes(sidebar-sub-menu-item-padding);
+    @include flex(null, center);
 
     a {
       @include dots-after-text;
+      @include flex(null, center);
       width: 100%;
-      display: flex;
-      align-items: center;
       height: 100%;
     }
 
     &:hover {
-      height: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-height);
-      border-radius: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-borderRadius);
-      background-color: #f4f7fe;
-      color: #3c54b2;
-      font-weight: map-get($sidebar-sub-menu-item-sizes, sidebar-sub-menu-item-hover-font-weight);
-      line-height: 2.4rem;
+      height: getSubMenuItemSizes(sidebar-sub-menu-item-hover-height);
+      border-radius: getSubMenuItemSizes(sidebar-sub-menu-item-hover-borderRadius);
+      @include theme(background-color, sub-menu-items-base-colors-hover);
+      @include theme(color, primary);
+      font-weight: getSubMenuItemSizes(sidebar-sub-menu-item-hover-font-weight);
+      line-height: getSubMenuItemSizes(sidebar-sub-menu-item-line-height-hover);
       cursor: pointer;
     }
     .SubMenuItemsIcon {
-      display: flex;
-      align-items: center;
-      margin-left: map-get($sidebar-sub-menu-item-sizes, sub-menu-items-icon-marginLeft);
+      @include flex(null, center);
+      margin-left: getSubMenuItemSizes(sub-menu-items-icon-marginLeft);
 
       svg {
-        width: map-get($sidebar-sub-menu-item-sizes, sub-menu-items-iconWidth);
-        height: map-get($sidebar-sub-menu-item-sizes, sub-menu-items-iconHeight);
+        width: getSubMenuItemSizes(sub-menu-items-iconWidth);
+        height: getSubMenuItemSizes(sub-menu-items-iconHeight);
       }
     }
   }

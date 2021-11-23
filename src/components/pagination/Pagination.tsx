@@ -1,12 +1,12 @@
-import { Select, Typography } from '@/my-ui-core';
-import ReactPaginate from 'react-paginate';
-import classNames from 'classnames';
-import React, { useState, useMemo, FC, useCallback } from 'react';
-import styles from './Pagination.module.scss';
-import PaginationInput from './PaginationInput';
-import { ArrowNext, ArrowPrev, DropdownArrowIconUp } from '@/icons';
-import { IComponent } from '@/types';
 import { getMyUIPrefix } from '@/configs';
+import { ArrowNext, ArrowPrev } from '@/icons';
+import { Select, Typography } from '@/my-ui-core';
+import { IComponent } from '@/types';
+import classNames from 'classnames';
+import React, { FC, useCallback, useMemo, useState } from 'react';
+import ReactPaginate from 'react-paginate';
+import { PaginationInput } from '.';
+import styles from './Pagination.module.scss';
 export interface PaginationProps extends IComponent {
   page: number;
   totalCount: number;
@@ -19,6 +19,8 @@ export interface PaginationProps extends IComponent {
   }[];
   bottomButtonLabel?: string;
   onChange: (e: any) => void;
+  dropDownTitle: string;
+  inputTitle: string;
 }
 
 const Pagination: FC<PaginationProps> = ({
@@ -28,7 +30,9 @@ const Pagination: FC<PaginationProps> = ({
   showPageSizeSelect,
   showTotalCountInfo,
   showJumpToPage,
-  pageSize
+  pageSize,
+  dropDownTitle,
+  inputTitle
 }) => {
   const [goToPage, setGoToPage] = useState(1);
   const [count, setCount] = useState<number>(20);
@@ -48,10 +52,40 @@ const Pagination: FC<PaginationProps> = ({
               variant='p4'
               component='span'
               className={classNames(styles.SelectLabel, `${getMyUIPrefix()}-SelectLabel`)}>
-              Row per page:
+              {dropDownTitle}
             </Typography>
             <div className={classNames(styles.PaginationSelectWrapper, `${getMyUIPrefix()}-PaginationSelectWrapper`)}>
               <Select
+                renderInput={(value, isMenuOpen) => (
+                  <div
+                    style={{
+                      display: 'flex',
+                      color: '#505d6e',
+                      fontSize: '14px',
+                      justifyContent: 'center',
+                      alignItems: 'baseline'
+                    }}>
+                    <div>{value.label}</div>
+                    <span
+                      style={{
+                        color: '#505D6E',
+                        width: '2.4rem',
+                        height: '2.4rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transform: isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
+                      }}>
+                      <svg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 10 5'>
+                        <path
+                          id='Shape'
+                          d='M.122,4.383,4.657.123a.572.572,0,0,1,.71,0l4.512,4.26c.273.239.056.617-.355.617H.476C.066,5-.152,4.622.122,4.383Z'
+                          fill='currentColor'
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                )}
                 inputLabel={null}
                 fullWidth
                 className={classNames(styles.SelectWrapper, `${getMyUIPrefix()}-SelectWrapper`)}
@@ -92,7 +126,7 @@ const Pagination: FC<PaginationProps> = ({
             renderOnZeroPageCount={null}
           />
         )}
-        {showJumpToPage && <PaginationInput pageCount={page} setGoToPage={setGoToPage} />}
+        {showJumpToPage && <PaginationInput pageCount={page} setGoToPage={setGoToPage} inputTitle={inputTitle} />}
       </div>
     </div>
   );

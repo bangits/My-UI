@@ -1,50 +1,49 @@
 @mixin generate-menu-item-styles {
   .MenuItemBase {
     position: relative;
-    display: flex;
-    align-items: center;
-    list-style: none;
-    width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-width);
-    height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-height);
+    @include flex(null, center);
+    list-style-type: none;
+    width: getMenuItemSizes(sidebar-menu-item-width);
+    height: getMenuItemSizes(sidebar-menu-item-height);
     cursor: pointer;
 
     &--isActive {
-      height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-height);
-      background-color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-background-color);
-      border-radius: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-borderRadius);
+      height: getMenuItemSizes(sidebar-menu-item-isActive-height);
+      @include theme(background-color, primary, $opacity: 0.05);
+      border-radius: getMenuItemSizes(sidebar-menu-item-isActive-borderRadius);
 
       &::after {
         content: '';
         position: absolute;
-        top: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-after-top);
-        left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-after-left);
+        top: getMenuItemSizes(sidebar-menu-item-isActive-after-top);
+        left: getMenuItemSizes(sidebar-menu-item-isActive-after-left);
         display: block;
-        width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-after-width);
-        height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-after-height);
-        background-color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-after-background-color);
-        border-radius: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-after-borderRadius);
+        width: getMenuItemSizes(sidebar-menu-item-isActive-after-width);
+        height: getMenuItemSizes(sidebar-menu-item-isActive-after-height);
+        @include theme(background-color, sidebar-menu-item-isActive-after-background-color);
+        border-radius: getMenuItemSizes(sidebar-menu-item-isActive-after-borderRadius);
       }
 
       .MenuItemBase--icon {
-        margin: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-margin);
-        width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-width);
-        height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-height);
-        padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-padding);
-        color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-icon-color);
-        opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-icon-opacity);
+        margin: getMenuItemSizes(sidebar-menu-item-isActive-icon-margin);
+        width: getMenuItemSizes(sidebar-menu-item-isActive-icon-width);
+        height: getMenuItemSizes(sidebar-menu-item-isActive-icon-height);
+        padding: getMenuItemSizes(sidebar-menu-item-isActive-icon-padding);
+        @include theme(color, sidebar-menu-item-isActive-icon-color);
+        opacity: getMenuItemSizes(sidebar-menu-item-isActive-icon-opacity);
         svg {
-          fill: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-icon-color);
+          @include theme(fill, sidebar-menu-item-isActive-icon-color);
         }
       }
       .MenuItemBase--label {
-        margin: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-margin);
-        padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-padding);
+        margin: getMenuItemSizes(sidebar-menu-item-isActive-label-margin);
+        padding: getMenuItemSizes(sidebar-menu-item-isActive-label-padding);
         font-family: $base-font-family;
-        font-size: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-font-size);
-        font-weight: bold;
-        letter-spacing: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-letter-spacing);
-        color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-label-color);
-        opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-isActive-label-opacity);
+        font-size: getMenuItemSizes(sidebar-menu-item-isActive-label-font-size);
+        font-weight: 700;
+        letter-spacing: getMenuItemSizes(sidebar-menu-item-isActive-label-letter-spacing);
+        @include theme(color, sidebar-menu-item-isActive-label-color);
+        opacity: getMenuItemSizes(sidebar-menu-item-isActive-label-opacity);
       }
     }
 
@@ -56,87 +55,83 @@
     }
 
     &:hover {
-      height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-height);
-      background-color: map-get($sidebar-menu-item-colors, sidebar-menu-item-hover-background-color);
-      border-radius: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-borderRadius);
-      margin-bottom: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-marginB);
+      height: getMenuItemSizes(sidebar-menu-item-hover-height);
+      @include theme(background-color, primary, $opacity: 0.05);
+      border-radius: getMenuItemSizes(sidebar-menu-item-hover-borderRadius);
+      margin-bottom: getMenuItemSizes(sidebar-menu-item-hover-marginB);
 
       .MenuItemBase--icon {
-        margin-left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-marginL);
-        width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-width);
-        height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-height);
-        padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-padding);
-        color: map-get($sidebar-menu-item-colors, sidebar-menu-item-hover-icon-color);
-        opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-icon-opacity);
-        transition: 0.3s;
+        margin-left: getMenuItemSizes(sidebar-menu-item-hover-icon-marginL);
+        width: getMenuItemSizes(sidebar-menu-item-hover-icon-width);
+        height: getMenuItemSizes(sidebar-menu-item-hover-icon-height);
+        padding: getMenuItemSizes(sidebar-menu-item-hover-icon-padding);
+        @include theme(color, sidebar-menu-item-hover-icon-color);
+        opacity: getMenuItemSizes(sidebar-menu-item-hover-icon-opacity);
+        transition: getMenuItemSizes(sidebar-menu-item-transition);
 
         svg {
-          fill: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-icon-color);
+          @include theme(fill, sidebar-menu-item-isActive-icon-color);
         }
       }
       .MenuItemBase--label {
-        margin-left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-marginL);
-        padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-padding);
+        margin-left: getMenuItemSizes(sidebar-menu-item-hover-label-marginL);
+        padding: getMenuItemSizes(sidebar-menu-item-hover-label-padding);
         font-family: $base-font-family;
-        font-size: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-font-size);
+        font-size: getMenuItemSizes(sidebar-menu-item-hover-label-font-size);
         font-weight: bold;
-        letter-spacing: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-letter-spacing);
-        color: map-get($sidebar-menu-item-colors, sidebar-menu-item-isActive-label-color);
-        opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-hover-label-opacity);
-        transition: 0.3s;
+        letter-spacing: getMenuItemSizes(sidebar-menu-item-hover-label-letter-spacing);
+        @include theme(color, sidebar-menu-item-isActive-label-color);
+        opacity: getMenuItemSizes(sidebar-menu-item-hover-label-opacity);
+        transition: getMenuItemSizes(sidebar-menu-item-transition);
       }
 
       .MenuItemBase--sub {
         position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        top: map-get($sidebar-menu-item-sizes, hover-sub-menu-top);
-        right: map-get($sidebar-menu-item-sizes, hover-sub-menu-right);
-        width: map-get($sidebar-menu-item-sizes, hover-sub-menu-width);
-        /* height: 16.6rem; */
-        box-shadow: 0 3px 6px 0 rgba(32, 32, 32, 0.1);
-        background-color: map-get($sidebar-menu-item-colors, hover-sub-menu-background-color);
-        border-radius: map-get($sidebar-menu-item-sizes, hover-sub-menu-borderRadius);
+        @include flex(center, center, $direction: column);
+        top: getMenuItemSizes(hover-sub-menu-top);
+        right: getMenuItemSizes(hover-sub-menu-right);
+        width: getMenuItemSizes(hover-sub-menu-width);
+        @include theme(box-shadow, box-shadow-color, 0 3px 6px 0);
+        @include theme(background-color, hover-sub-menu-background-color);
+        border-radius: getMenuItemSizes(hover-sub-menu-borderRadius);
 
         .MenuItemBase--sub-header {
           display: block;
           align-self: flex-start;
-          margin-left: map-get($sidebar-menu-item-sizes, hover-sub-menu-header-marginL);
-          font-size: map-get($sidebar-menu-item-sizes, hover-sub-menu-header-font-size);
-          font-weight: map-get($sidebar-menu-item-sizes, hover-sub-menu-header-font-weight);
-          color: map-get($sidebar-menu-item-colors, hover-sub-menu-header-color);
+          margin-left: getMenuItemSizes(hover-sub-menu-header-marginL);
+          font-size: getMenuItemSizes(hover-sub-menu-header-font-size);
+          font-weight: getMenuItemSizes(hover-sub-menu-header-font-weight);
+          @include theme(color, hover-sub-menu-header-color);
         }
       }
     }
 
     &--icon {
-      margin-left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-marginL);
-      min-width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-min-width);
-      width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-width);
-      height: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-height);
-      padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-padding);
-      color: map-get($sidebar-menu-item-colors, sidebar-menu-item-icon-color);
-      opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-icon-opacity);
-      transition: 0.3s;
+      margin-left: getMenuItemSizes(sidebar-menu-item-icon-marginL);
+      min-width: getMenuItemSizes(sidebar-menu-item-icon-min-width);
+      width: getMenuItemSizes(sidebar-menu-item-icon-width);
+      height: getMenuItemSizes(sidebar-menu-item-icon-height);
+      padding: getMenuItemSizes(sidebar-menu-item-icon-padding);
+      @include theme(color, sidebar-menu-item-icon-color);
+      opacity: getMenuItemSizes(sidebar-menu-item-icon-opacity);
+      transition: getMenuItemSizes(sidebar-menu-item-transition);
 
       svg {
-        fill: map-get($sidebar-menu-item-colors, sidebar-menu-item-icon-color);
+        @include theme(fill, sidebar-menu-item-icon-color);
       }
     }
 
     &--label {
       font-family: $base-font-family;
-      margin-left: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-marginL);
-      padding: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-padding);
+      margin-left: getMenuItemSizes(sidebar-menu-item-label-marginL);
+      padding: getMenuItemSizes(sidebar-menu-item-label-padding);
       font-family: $base-font-family;
-      font-size: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-font-size);
-      font-weight: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-font-weight);
-      color: map-get($sidebar-menu-item-colors, sidebar-menu-item-label-color);
-      opacity: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-opacity);
-      min-width: map-get($sidebar-menu-item-sizes, sidebar-menu-item-label-min-width);
-      transition: 0.3s;
+      font-size: getMenuItemSizes(sidebar-menu-item-label-font-size);
+      font-weight: getMenuItemSizes(sidebar-menu-item-label-font-weight);
+      @include theme(color, sidebar-menu-item-label-color);
+      opacity: getMenuItemSizes(sidebar-menu-item-label-opacity);
+      min-width: getMenuItemSizes(sidebar-menu-item-label-min-width);
+      transition: getMenuItemSizes(sidebar-menu-item-transition);
     }
   }
 } ;

@@ -7,69 +7,70 @@
 
     .react-select {
       &__indicator {
-        color: #00194c;
-        margin: getSelectSizes(my-ui-select-margin);
+        margin: getSelectSizes(select-margin);
         position: absolute;
         top: 0;
         right: 0;
       }
+
       &__single-value {
-        font-size: getSelectSizes(my-ui-single-value-font-size);
-        margin: getSelectSizes(my-ui-single-value-margin);
+        font-size: getSelectSizes(select-single-value-font-size);
+        margin: getSelectSizes(select-single-value-margin);
       }
 
       &__menu {
         position: absolute;
-        top: getSelectSizes(my-ui-menu-position-top);
+        top: getSelectSizes(select-menu-position-top);
         box-sizing: border-box;
         z-index: 9999;
-        width: getSelectSizes(my-ui-menu-width);
-        max-height: getSelectSizes(my-ui-menu-max-height);
-        min-height: getSelectSizes(my-ui-menu-min-height);
+        width: getSelectSizes(select-menu-width);
+        max-height: getSelectSizes(select-menu-max-height);
+        min-height: getSelectSizes(select-menu-min-height);
         @include theme(background-color, primary--color);
-        box-shadow: 0.3rem 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.05);
-        border-radius: getSelectSizes(my-ui-menu-border-radius);
+        @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
+        border-radius: getSelectSizes(select-menu-border-radius);
       }
 
       &__menu-list {
-        width: getSelectSizes(my-ui-menu-list-width);
+        width: getSelectSizes(select-menu-list-width);
         @include theme(background-color, primary--color);
-        max-height: getSelectSizes(my-ui-menu-list-height);
-        border-radius: getSelectSizes(my-ui-menu-border-radius);
+        max-height: getSelectSizes(select-menu-list-height);
+        border-radius: getSelectSizes(select-menu-border-radius);
       }
 
       &__menu-notice {
-        width: getSelectSizes(my-ui-notice-width);
-        padding: getSelectSizes(my-ui-notice-padding);
-        font-size: getSelectSizes(my-ui-notice-font-size);
+        width: getSelectSizes(select-notice-width);
+        padding: getSelectSizes(select-notice-padding);
+        font-size: getSelectSizes(select-notice-font-size);
         box-sizing: border-box;
       }
 
       &__menu-list--is-multi {
-        max-height: getSelectSizes(my-ui-menu-is-multi-height);
+        max-height: getSelectSizes(select-menu-is-multi-height);
       }
 
       &__option {
-        height: getSelectSizes(my-ui-menu-option-height);
+        height: getSelectSizes(select-menu-option-height);
+        cursor: pointer;
         @include flex(null, center);
-        border-bottom: solid 1px #f9f9f9;
+        @include theme(border-bottom, select-option-divider-color, solid 1px);
 
         &:hover {
           margin: 0;
-          background-color: rgba(60, 84, 178, 0.1);
+          @include theme(background-color, primary, $opacity: 0.1);
         }
 
         label {
-          height: getSelectSizes(my-ui-menu-option-label-height);
+          height: getSelectSizes(select-menu-option-label-height);
           @include flex(null, center);
           @include theme(color, black-color);
-          margin-left: getSelectSizes(my-ui-menu-option-label-margin-left);
-          font-size: getSelectSizes(my-ui-menu-option-label-font-size);
+          margin-left: getSelectSizes(select-menu-option-label-margin-left);
+          font-size: getSelectSizes(select-menu-option-label-font-size);
         }
         span {
-          height: getSelectSizes(my-ui-menu-option-label-span-height);
-          margin-left: getSelectSizes(my-ui-menu-option-label-span-margin);
-          font-size: getSelectSizes(my-ui-menu-option-label-span-font-size);
+          height: getSelectSizes(select-menu-option-label-span-height);
+          margin-left: getSelectSizes(select-menu-option-label-span-margin);
+          font-size: getSelectSizes(select-menu-option-label-span-font-size);
           @include flex(null, center);
           @include theme(color, black-color);
         }
@@ -77,15 +78,16 @@
         label,
         span {
           word-break: break-all;
-          width: getSelectSizes(my-ui-menu-option-label-span-width);
+          width: getSelectSizes(select-menu-option-label-span-width);
           @include dots-after-text();
           display: inline-block;
+          cursor: pointer;
         }
 
         div {
           @include flex(center, center);
-          width: getSelectSizes(my-ui-menu-option-block-width);
-          height: getSelectSizes(my-ui-menu-option-block-height);
+          width: getSelectSizes(select-menu-option-block-width);
+          height: getSelectSizes(select-menu-option-block-height);
         }
       }
 
@@ -93,23 +95,22 @@
         @include flex();
         position: absolute;
         top: 0;
-        margin: getSelectSizes(my-ui-value-container-margin);
+        margin: getSelectSizes(select-value-container-margin);
       }
       &__multi-value {
-        margin-left: getSelectSizes(my-ui-multi-value-margin);
-        font-size: getSelectSizes(my-ui-multi-value-font-size);
-        background-color: gray;
+        margin-left: getSelectSizes(select-multi-value-margin);
+        font-size: getSelectSizes(select-multi-value-font-size);
         @include flex();
       }
 
       &__menu-notice {
         width: 100%;
-        padding: getSelectSizes(my-ui-multi-menu-notice-padding);
-        font-size: getSelectSizes(my-ui-multi-menu-notice-font-size);
+        padding: getSelectSizes(select-multi-menu-notice-padding);
+        font-size: getSelectSizes(select-multi-menu-notice-font-size);
       }
 
       &__input {
-        font-size: getSelectSizes(my-ui-multi-input-font-size) !important;
+        font-size: getSelectSizes(select-multi-input-font-size) !important;
       }
     }
   }
@@ -129,9 +130,9 @@
       }
 
       &__menu-notice {
-        width: getSelectSizes(my-ui-notice-width);
-        padding: getSelectSizes(my-ui-notice-padding);
-        font-size: getSelectSizes(my-ui-notice-font-size);
+        width: getSelectSizes(select-notice-width);
+        padding: getSelectSizes(select-notice-padding);
+        font-size: getSelectSizes(select-notice-font-size);
         box-sizing: border-box;
       }
     }
@@ -155,15 +156,17 @@
         border-radius: getSelectSizes(dropdown-select-menu-list-border-radius);
 
         .react-select__menu-notice {
-          width: getSelectSizes(my-ui-notice-width);
-          padding: getSelectSizes(my-ui-notice-padding);
-          font-size: getSelectSizes(my-ui-notice-font-size);
+          width: getSelectSizes(select-notice-width);
+          padding: getSelectSizes(select-notice-padding);
+          font-size: getSelectSizes(select-notice-font-size);
           box-sizing: border-box;
         }
 
         .react-select__option {
           width: getSelectSizes(dropdown-select-option-width);
           margin: getSelectSizes(dropdown-select-option-margin);
+          box-sizing: border-box;
+
           span,
           label {
             height: getSelectSizes(dropdown-select-option-label-height);
@@ -172,13 +175,10 @@
           &:hover {
             width: getSelectSizes(dropdown-select-option-label-hover-width);
             margin: 0;
+            padding-left: getSelectSizes(dropdown-select-option-label-block-margin);
 
             &:first-child {
               border-radius: none;
-            }
-
-            div {
-              margin-left: getSelectSizes(dropdown-select-option-label-block-margin);
             }
           }
         }

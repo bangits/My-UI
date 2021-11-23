@@ -28,28 +28,35 @@
     }
 
     .AvatarOfflineState {
-      border: solid 1px #4f6c92;
+      @include theme(border, avatar-offline, solid 1px);
 
       .AvatarStateStatus {
-        background-color: #4f6c92;
+        @include theme(background-color, avatar-offline);
       }
     }
 
     .AvatarOnlineState {
-      border: solid 1px #00b21e;
+      @include theme(border, success, solid 1px);
 
       .AvatarStateStatus {
-        background-color: #00b21e;
+        @include theme(background-color, success);
       }
     }
 
     .AvatarMediumCardWrapper {
       width: getAvatarCardSizes(avatar-card-wrapper-width);
       height: getAvatarCardSizes(avatar-card-wrapper-height);
+
+      .AvatarStateStatus {
+        right: getAvatarCardSizes(avatar-medium-status-position-right);
+      }
     }
     .AvatarSmallCardWrapper {
       width: getAvatarCardSizes(avatar-card-small-wrapper-width);
       height: getAvatarCardSizes(avatar-card-small-wrapper-height);
+      .AvatarStateStatus {
+        bottom: getAvatarCardSizes(avatar-small-status-position-bottom);
+      }
     }
   }
 }

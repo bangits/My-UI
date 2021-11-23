@@ -1,7 +1,9 @@
 import { Button } from '@/my-ui-core';
-import { number, withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
+import { COLOR_TYPES } from '@/types';
+import { optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import Tooltip from './Tooltip';
+import { getColorKnobs } from '@/configs';
 
 export default {
   component: Tooltip,
@@ -27,19 +29,7 @@ export const Default = () => {
             display: 'inline-radio'
           }
         )}
-        color={optionsKnob(
-          'color',
-          {
-            danger: 'danger',
-            warning: 'warning',
-            success: 'success',
-            primary: 'primary'
-          },
-          'primary',
-          {
-            display: 'inline-radio'
-          }
-        )}>
+        color={getColorKnobs()}>
         <Button>Hover me</Button>
       </Tooltip>
     </div>

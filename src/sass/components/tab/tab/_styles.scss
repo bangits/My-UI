@@ -20,15 +20,12 @@
         border: none;
         outline: none;
         cursor: pointer;
-
         @include theme(color, gray-color);
-
         flex-grow: 1;
         z-index: 2;
         box-sizing: border-box;
         max-width: getTabSizes(tab-button-bg-width);
-
-        padding: 0 2.4rem;
+        padding: getTabSizes(tab-button-padding);
         @include dots-after-text;
 
         &.Active {
@@ -41,18 +38,12 @@
     .TabButtonBg {
       position: absolute;
       top: getTabSizes(tab-button-bg-position);
-
       max-width: getTabSizes(tab-button-bg-width);
       height: getTabSizes(tab-button-bg-height);
-
       @include theme(background-color, primary--color);
-
       z-index: 1;
-
       border-radius: getTabSizes(tab-button-bg-border-radius);
-
       box-sizing: border-box;
-
       transition: all getTabSizes(tab-active-transition) cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     }
   }

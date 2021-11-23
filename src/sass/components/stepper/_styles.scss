@@ -12,7 +12,6 @@
         left: calc(-50%);
         right: calc(50%);
         .StepperLine {
-          @include theme(background-color, primary);
           height: getStepperSizes(stepper-line-height);
           border: 0;
           display: block;
@@ -26,7 +25,6 @@
           @include flex();
 
           .StepSection {
-            @include theme(background-color, primary);
             @include flex(center, center);
             width: getStepperSizes(step-section-width);
             height: getStepperSizes(step-section-height);
@@ -39,7 +37,7 @@
         .StepTextContainer {
           width: getStepperSizes(step-text-container);
           word-break: break-all;
-          @include theme(color, primary);
+
           .StepText {
             margin-top: getStepperSizes(step-text-margin);
             text-align: center;
@@ -59,6 +57,20 @@
     }
     .StepperLineInactive {
       @include theme(opacity, disabled-opacity);
+    }
+  }
+
+  @each $color in $base-colors {
+    .SteeperWrapper--#{$color} {
+      .StepperLine,
+      .StepSection {
+        @include theme(background-color, #{$color});
+      }
+
+      .StepTextContainer,
+      .StepSection {
+        @include theme(color, #{$color});
+      }
     }
   }
 }

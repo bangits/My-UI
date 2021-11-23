@@ -1,12 +1,17 @@
 @mixin generate-loader-styles {
-  .LoadWrapper {
+  .LoaderWrapper {
+    position: relative;
+    width: getLoaderSizes(loader-wrapper-sizes);
+    height: getLoaderSizes(loader-wrapper-sizes);
+
+    @include theme(color, primary);
+
     .Loader {
-      position: relative;
+      @include center-absolute();
       width: getLoaderSizes(loader-width);
       height: getLoaderSizes(loader-height);
       font-size: getLoaderSizes(loader-font-size);
       border-radius: getLoaderSizes(loader-border-radius);
-      @include theme(color, primary);
       -webkit-animation: loader 1.3s infinite linear;
       animation: loader 1.3s infinite linear;
       -webkit-transform: translateZ(0);
@@ -49,6 +54,7 @@
           -3em 0em 0 0, -2em -2em 0 0.2em;
       }
     }
+
     @keyframes loader {
       0%,
       100% {
@@ -83,6 +89,12 @@
         box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0,
           -3em 0em 0 0, -2em -2em 0 0.2em;
       }
+    }
+  }
+
+  @each $color in $base-colors {
+    .Loader--#{$color} {
+      @include theme(color, #{$color});
     }
   }
 }

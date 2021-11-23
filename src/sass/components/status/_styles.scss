@@ -1,0 +1,43 @@
+@mixin generate-status-styles {
+  .Status {
+    width: fit-content;
+    width: -moz-fit-content; //for mozilla
+    min-width: getStatusSizes(status-min-width);
+    box-sizing: border-box;
+    height: getStatusSizes(status-height);
+    border-radius: getStatusSizes(status-border-radius);
+    @include flex(center, center);
+    padding: getStatusSizes(status-padding);
+
+    .StatusLabel {
+      font-size: getStatusSizes(status-label-font-size);
+      font-weight: getStatusSizes(status-label-font-weight);
+      margin-left: getStatusSizes(status-label-margin-left);
+      letter-spacing: getStatusSizes(status-label-letter-spacing);
+    }
+
+    .StatusCircle {
+      border-radius: getStatusSizes(status-circle-border-radius);
+      width: getStatusSizes(status-circle-sizes);
+      height: getStatusSizes(status-circle-sizes);
+    }
+  }
+
+  .Status--blocked {
+    @include theme(background-color, status-blocked-bg-color);
+    @include theme(color, status-blocked-color);
+
+    .StatusCircle {
+      @include theme(background-color, status-blocked-color);
+    }
+  }
+
+  .Status--active {
+    @include theme(background-color, status-active-bg-color, $opacity: 0.1);
+    @include theme(color, status-active-color);
+
+    .StatusCircle {
+      @include theme(background-color, status-active-bg-color);
+    }
+  }
+}

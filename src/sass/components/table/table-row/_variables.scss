@@ -2,6 +2,10 @@ $tablerow-sizes: (
   font-weight-selected: 700
 );
 
+$tablerow-colors: (
+  table-row-divider-color: color(cornflower-blue)
+);
+
 @function getTableRowSizes($property) {
   @return map-get($tablerow-sizes, $property);
 }

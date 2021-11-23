@@ -28,8 +28,7 @@
 
     &--light {
       @include theme(background-color, primary--color);
-
-      box-shadow: getIconButtonSizes(light-box-shadow);
+      @include theme(box-shadow, box-shadow-color, 0 2px 4px 0);
 
       &:hover {
         @include theme(border, primary, getIconButtonSizes(light-border-size) solid);

@@ -26,17 +26,17 @@
       min-height: getTableHeadSizes(table-arrow-icon-sizes);
 
       .IconUp {
-        fill: #7c84ab;
+        @include theme(fill, gray-color, $opacity: 0.4);
         margin-bottom: getTableHeadSizes(table-icon-up-margin);
       }
 
       .IconDown {
         transform: rotate(180deg);
-        fill: #7c84ab;
+        @include theme(fill, gray-color, $opacity: 0.4);
       }
 
       .IconDisabled {
-        opacity: 0.4;
+        opacity: getTableHeadSizes(icon-disabled-opacity);
       }
     }
   }

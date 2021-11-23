@@ -1,3 +1,4 @@
+import { getMyUIPrefix } from '@/configs';
 import { typedMemo } from '@/helpers';
 import { CheckStepperIcon, EllipseColorIcon, EllipseIcon } from '@/icons';
 import { Typography } from '@/my-ui-core';
@@ -5,7 +6,6 @@ import { IComponent } from '@/types';
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import styles from './Stepper.module.scss';
-import { getMyUIPrefix } from '@/configs';
 
 export type StepType = {
   title: string;
@@ -20,7 +20,12 @@ function Stepper<T extends StepType[]>({ steps, value }: StepperProps<T>) {
   const activeIndex = useMemo(() => steps.findIndex((o) => o.value === value), [value]);
 
   return (
-    <div className={classNames(styles.SteeperWrapper, `${getMyUIPrefix()}-SteeperWrapper`)}>
+    <div
+      className={classNames(
+        styles.SteeperWrapper,
+        styles['SteeperWrapper--primary'],
+        `${getMyUIPrefix()}-SteeperWrapper`
+      )}>
       {steps &&
         steps.map((option, index) => {
           return (

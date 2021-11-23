@@ -3,12 +3,12 @@
     @include flex(space-between, center);
     font-weight: normal;
     position: relative;
-    border-bottom: solid 1px rgba(43, 54, 116, 0.1);
+    @include theme(border-bottom, table-row-divider-color, solid 1px);
   }
 
   .TableRow--hover,
   .TableRow--selected {
-    background-color: #eaecf6;
+    @include theme(background-color, primary, $opacity: 0.1);
   }
   .TableRow--selected {
     div {

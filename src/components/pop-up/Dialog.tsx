@@ -13,9 +13,9 @@ export interface DialogProps {
 const Dialog: FC<DialogProps> = ({ onClose, isOpened, children }) => {
   return (
     <Portal>
-      <CSSTransition in={isOpened} timeout={500} classNames={{ exit: styles['PopUp--exit'] }} unmountOnExit>
+      <CSSTransition in={isOpened} timeout={500} classNames={{ exit: styles['Dialog--exit'] }} unmountOnExit>
         <div className={`${getMyUIPrefix()}-PopupWrapper`}>
-          <div className={classNames(styles.PopUp, `${getMyUIPrefix()}-PopUp`)}>{children}</div>
+          <div className={classNames(styles.Dialog, `${getMyUIPrefix()}-Dialog`)}>{children}</div>
           <div
             className={classNames(styles.Overlay, `${getMyUIPrefix()}-Overlay`)}
             tabIndex={0}

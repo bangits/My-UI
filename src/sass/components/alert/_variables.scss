@@ -1,12 +1,16 @@
 $alert-sizes: (
   alert-width: calculateRem(252px),
   alert-height: calculateRem(42px),
-  alert-radius: calculateRem(4px),
+  alert-radius: 4px,
   alert-padding: calculateRem(9px) calculateRem(6px) calculateRem(9px) calculateRem(12px),
   alert-margin-bottom: calculateRem(10px),
   alert-text-marginLeft: calculateRem(4px),
   alert-close-marginLeft: calculateRem(16px),
   alert-animation-position: calculateRem(10px)
+);
+
+$alert-colors: (
+  alert-background-color: color(white)
 );
 
 @function getAlertSizes($property) {

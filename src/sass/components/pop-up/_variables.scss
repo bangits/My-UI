@@ -1,18 +1,20 @@
-$popup-sizes: (
-  pop-up-width: calculateRem(388px),
-  pop-up-height: calculateRem(356px),
-  pop-up-padding: calculateRem(40px) calculateRem(34px) calculateRem(24px) calculateRem(34px),
-  pop-up-border-radius: calculateRem(8px),
-  pop-up-span-font: 500,
-  pop-up-btns-margin: calculateRem(81px) 0 calculateRem(24px) 0,
-  pop-up-margin: calculateRem(16px),
-  pop-up-z-index: 99999
+$dialog-sizes: (
+  dialog-width: calculateRem(388px),
+  dialog-height: calculateRem(356px),
+  dialog-container-sizes: calculateRem(80px),
+  dialog-padding: calculateRem(40px) calculateRem(34px) calculateRem(24px) calculateRem(34px),
+  dialog-border-radius: calculateRem(8px),
+  dialog-span-font: 500,
+  dialog-btns-margin: calculateRem(81px) 0 calculateRem(24px) 0,
+  dialog-margin: calculateRem(16px),
+  dialog-z-index: 99999
 );
 
-$popup-colors: (
-  popup-overlay-bg: color(dark)
+$dialog-colors: (
+  dialog-overlay-bg: color(dark),
+  dialog-label-color: color(astronaut)
 );
 
-@function getPopUpSizes($property) {
-  @return map-get($popup-sizes, $property);
+@function getDialogSizes($property) {
+  @return map-get($dialog-sizes, $property);
 }

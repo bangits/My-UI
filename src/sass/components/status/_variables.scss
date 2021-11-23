@@ -1,0 +1,23 @@
+$status-sizes: (
+  status-min-width: calculateRem(90px),
+  status-height: calculateRem(24px),
+  status-border-radius: 16px,
+  status-padding: 0 calculateRem(11px),
+  status-label-font-size: calculateRem(14px),
+  status-label-font-weight: 500,
+  status-label-margin-left: calculateRem(7px),
+  status-label-letter-spacing: calculateRem(0.14px),
+  status-circle-sizes: calculateRem(8px),
+  status-circle-border-radius: 50%
+);
+
+$status-colors: (
+  status-blocked-bg-color: color(pippin),
+  status-blocked-color: color(guardsman-red),
+  status-active-bg-color: color(emerald),
+  status-active-color: color(emerald)
+);
+
+@function getStatusSizes($property) {
+  @return map-get($status-sizes, $property);
+}

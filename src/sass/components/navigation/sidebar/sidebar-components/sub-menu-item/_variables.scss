@@ -1,20 +1,25 @@
 $sidebar-sub-menu-item-sizes: (
-  sidebar-sub-menu-item-width: 17.3rem,
-  sidebar-sub-menu-item-height: 3.1rem,
-  sidebar-sub-menu-item-font-size: 1.2rem,
-  sidebar-sub-menu-item-padding: 0 0 0 2.8rem,
-  sub-menu-items-iconWidth: 2.4rem,
-  sub-menu-items-iconHeight: 2.4rem,
-  sub-menu-items-icon-marginLeft: -0.8rem,
+  sidebar-sub-menu-item-width: calculateRem(173px),
+  sidebar-sub-menu-item-height: calculateRem(31px),
+  sidebar-sub-menu-item-font-size: calculateRem(12px),
+  sidebar-sub-menu-item-padding: 0 0 0 calculateRem(28px),
+  sidebar-sub-menu-item-font-weight: 500,
+  sidebar-sub-menu-item-line-height: calculateRem(16px),
+  sidebar-sub-menu-item-line-height-hover: calculateRem(24px),
+  sub-menu-items-iconWidth: calculateRem(24px),
+  sub-menu-items-iconHeight: calculateRem(24px),
+  sub-menu-items-icon-marginLeft: calculateRem(-8px),
   //hover
-  sidebar-sub-menu-item-hover-height: 3.1rem,
-  sidebar-sub-menu-item-hover-borderRadius: 0.8rem,
+  sidebar-sub-menu-item-hover-height: calculateRem(31px),
+  sidebar-sub-menu-item-hover-borderRadius: 8px,
   sidebar-sub-menu-item-hover-font-weight: 500
 );
 
 $sidebar-sub-menu-item-colors: (
-  sidebar-sub-menu-item-color: color(lite-mocha),
-  //hover
-  sidebar-sub-menu-item-hover-background-color: color(ma-white),
-  sidebar-sub-menu-item-hover-color: color(night-in-manchester)
+  sub-menu-items-base-colors: color(nepal),
+  sub-menu-items-base-colors-hover: color(selago)
 );
+
+@function getSubMenuItemSizes($property) {
+  @return map-get($sidebar-sub-menu-item-sizes, $property);
+}

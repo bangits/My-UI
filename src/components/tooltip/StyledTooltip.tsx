@@ -14,7 +14,7 @@ export interface StyledTooltipProps {
 }
 
 const StyledTooltip = forwardRef<HTMLDivElement, PropsWithChildren<StyledTooltipProps>>(
-  ({ children, posRef, color = 'primary' }, ref) => {
+  ({ children, posRef, color = 'primary' }, tooltipRef) => {
     const tooltipClassNames = useStyles(
       {
         root: {
@@ -29,7 +29,7 @@ const StyledTooltip = forwardRef<HTMLDivElement, PropsWithChildren<StyledTooltip
     );
 
     return (
-      <div ref={ref} className={classNames(tooltipClassNames.root, Styles.TooltipContainer)}>
+      <div ref={tooltipRef} className={classNames(tooltipClassNames.root, Styles.TooltipContainer)}>
         <div className={classNames(Styles.TooltipWrapper, Styles[`TooltipColor--${color}`])}>{children}</div>
       </div>
     );

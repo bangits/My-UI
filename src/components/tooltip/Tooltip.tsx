@@ -36,7 +36,7 @@ const Tooltip = ({
 
   const posRef = useRef({ x: 0, y: 0 });
 
-  const tooltipRef = useRef();
+  const tooltipRef = useRef<HTMLDivElement>(null);
 
   const handleMOver = (e: Event) => {
     setShow(1);
@@ -75,11 +75,15 @@ const Tooltip = ({
             in={!!show}
             timeout={300}
             classNames={{
-              appear: styles['TooltipContainer--appear'],
-              exit: styles['TooltipContainer--exit'],
-              exitActive: styles['TooltipContainer--exit']
-            }}
-            unmountOnExit>
+              // enter: 'TooltipContainer--enter',
+              // enterActive: styles['TooltipContainer--enterActive'],
+              // appear: styles['TooltipContainer--appear'],
+              enterDone: styles['TooltipContainer--enterDone'],
+              // appearDone: 'TooltipContainer--appearDone',
+              // exit: 'TooltipContainer--exit',
+              // exitActive: 'TooltipContainer--exitActive',
+              exitDone: styles['TooltipContainer--exitDone']
+            }}>
             <StyledTooltip color={color} delay={delay} ref={tooltipRef} posRef={posRef}>
               <div>
                 <div className={classNames(Styles.TooltipTriangle, Styles[`Tooltip-${placement}`])}>

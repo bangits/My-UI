@@ -1,18 +1,18 @@
 @mixin generate-tooltip-styles {
   .TooltipContainer {
     position: fixed;
+    // display: none;
 
-    opacity: 1;
-
-    &--appear,
+    &--enterDone,
     & {
+      // display: block;
       .TooltipWrapper {
         // animation: dialog-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
         @include animation-start;
       }
     }
 
-    &--exit {
+    &--exitDone {
       .TooltipWrapper {
         // animation: dialog-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
         @include animation-exit;
@@ -31,7 +31,6 @@
       @include flex(center, center);
       text-align: left;
       word-break: break-all;
-
       .TooltipTriangle {
         position: absolute;
       }

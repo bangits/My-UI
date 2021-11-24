@@ -1,8 +1,8 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 import { IComponent, UIColors } from '@/types';
 import styles from './Badge.module.scss';
 import classNames from 'classnames';
-import { typedMemo } from '@/helpers';
+import { typedMemo, useStyles } from '@/helpers';
 
 export interface BadgeProps extends IComponent {
   quantity?: number;
@@ -10,29 +10,78 @@ export interface BadgeProps extends IComponent {
   badgeSize?: string;
   badgeStyle?: string;
   color?: UIColors;
+  maxNumber?: number;
 }
 
-const Badge: FC<BadgeProps> = ({ quantity, children, className, badgeSize = 'ms', badgeStyle, color }) => {
+const Badge: FC<BadgeProps> = ({
+  quantity,
+  // quantity: propsQuantity,
+  children,
+  className,
+  badgeSize = 'ms',
+  badgeStyle,
+  color,
+  maxNumber
+}) => {
+  // const [quantity, setQuantity] = useState(propsQuantity);
+
+  const [hovered, setHovered] = useState(false);
+
+  const toggleHovered = useCallback(() => setHovered((prevHovered) => !prevHovered), []);
+
+  const quantityWithMax = hovered ? quantity : quantity <= maxNumber ? quantity : maxNumber + '+';
+
+  const badge = useStyles(
+    {
+      badgeWidth: {
+        width: (data) => `${7 * (data.quantityWithMax?.toString().length || 0)}px`
+      }
+    },
+
+    { quantityWithMax, hovered }
+  );
+
+  // useEffect(() => {
+  //   if (propsQuantity > maxNumber) return setQuantity(propsQuantity);
+
+  //   let remaining = propsQuantity < quantity ? quantity : propsQuantity - quantity;
+
+  //   const isMinused = propsQuantity < quantity;
+
+  //   const interval = setInterval(() => {
+  //     if (isMinused ? remaining <= propsQuantity : !remaining) return clearInterval(interval);
+
+  //     remaining--;
+  //     setQuantity(isMinused ? remaining : (prev) => prev + 1);
+  //   }, 50);
+
+  //   return () => clearInterval(interval);
+  // }, [propsQuantity]);
+
   return (
     <div className={classNames(styles.BadgeContainer, className)}>
       {children}
 
-      <span
-        className={classNames(
-          styles.BadgeNumber,
-          styles[`BadgeNumber--${color}`],
-          styles['BadgeNumber--primary'],
-          styles['BandgeNumberThreeNumbers'],
-          styles['BandgeNumbers'],
-          badgeStyle,
-          {
-            [styles.BadgeNumberMs]: badgeSize === 'ms',
-            [styles.BadgeNumberSs]: badgeSize === 'ss'
-          }
-        )}>
-        {' '}
-        {quantity > 0 && quantity <= 99 ? quantity : '99+'}
-      </span>
+      {quantity > 0 && maxNumber > 0 && (
+        <span
+          className={classNames(
+            styles.Badge,
+            styles[`Badge--${color}`],
+            styles['Badge--primary'],
+            styles['BandgeNumberThreeNumbers'],
+            styles['BandgeNumbers'],
+            badgeStyle,
+            badge.badgeWidth,
+            {
+              [styles.BadgeMs]: badgeSize === 'ms',
+              [styles.BadgeSs]: badgeSize === 'ss'
+            }
+          )}
+          onMouseEnter={toggleHovered}
+          onMouseLeave={toggleHovered}>
+          <span className={classNames(styles.BadgeNumber)}>{quantityWithMax}</span>
+        </span>
+      )}
     </div>
   );
 };

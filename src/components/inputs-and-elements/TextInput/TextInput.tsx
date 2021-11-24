@@ -1,7 +1,7 @@
 import { Typography, TypographyProps } from '@/components';
+import { getMyUIPrefix } from '@/configs';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
-import { getMyUIPrefix } from '@/configs';
 import {
   DetailedHTMLProps,
   FC,
@@ -79,7 +79,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
 
         if (props.onInput) props.onInput(evt);
       },
-      [props.onInput]
+      [props.onInput, maxLength]
     );
 
     const onFocus: TextInputProps['onFocus'] = useCallback(

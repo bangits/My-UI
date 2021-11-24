@@ -4,6 +4,7 @@ import styles from './LoadingIndicator.module.scss';
 import { UIColors } from '@/types';
 import { typedMemo } from '@/helpers';
 import { GameIndicator, TrashIndicator } from '@/icons';
+import { Typography } from '@/my-ui-core';
 
 export type IndicatorVariant = 'circle' | 'square';
 export interface LoadingIndicatorProps {
@@ -82,6 +83,11 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
           </div>
         </div>
       )}
+      <div className={styles.DropIndicator}>
+        <Typography component='span' variant='p4'>
+          Drag file here
+        </Typography>
+      </div>
     </>
   );
 };

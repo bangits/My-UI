@@ -16,7 +16,9 @@ $loadingindicator-sizes: (
   icon-label-margin: calculateRem(8px),
   icon-label-max-width: calculateRem(120px),
   percent-upload-margin: calculateRem(8px),
-  trash-icon-margin: calculateRem(6px)
+  trash-icon-margin: calculateRem(6px),
+  dropzone-width: calculateRem(284px),
+  dropzone-height: calculateRem(42px)
 );
 
 $loadingindicator-colors: (

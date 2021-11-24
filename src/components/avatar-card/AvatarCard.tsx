@@ -1,10 +1,7 @@
-import { Typography } from '@/my-ui-core';
+import { IComponent } from '@/types';
+import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './AvatarCard.module.scss';
-import AvatarMdImg from '../../images/md-avatar.png';
-import AvatarSmImg from '../../images/small-avatar.png';
-import classNames from 'classnames';
-import { IComponent } from '@/types';
 
 export type AvatarImgSizes = 'md' | 'sm';
 export type AvatarVariant = 'online' | 'offline' | 'default';
@@ -29,7 +26,7 @@ const AvatarCard: FC<AvatarCardProps> = ({ imageSize = 'md', avatarImg, variant 
             [styles.AvatarDefaultState]: variant === 'default'
           }
         )}>
-        <img src={avatarImg ? avatarImg : AvatarSmImg} />
+        <img src={avatarImg} />
         <span className={styles.AvatarStateStatus}></span>
       </div>
     </div>

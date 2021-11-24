@@ -3,9 +3,9 @@
     :global {
       .MyUI-SelectInput {
         padding-right: 0;
-        padding-left: 6px;
-        margin-bottom: 5px;
-        min-height: 25px;
+        padding-left: getPaginationSizes(select-input-padding-left);
+        margin-bottom: getPaginationSizes(select-input-margin);
+        min-height: getPaginationSizes(select-input-height);
         border: none !important;
         @include theme(color, black-color);
 
@@ -38,6 +38,10 @@
         top: getPaginationSizes(select-wrapper-svg-position-top);
         right: getPaginationSizes(select-wrapper-svg-position-right);
       }
+      .SelectWrapper {
+        width: auto;
+        margin-bottom: getPaginationSizes(select-wrapper-margin);
+      }
     }
     .PaginationInputWrapper {
       @include flex(null, center);
@@ -54,13 +58,16 @@
         .react-select {
           &__menu {
             min-height: initial;
-            top: getPaginationSizes(react-select-menu-position-top);
+            // top: getPaginationSizes(react-select-menu-position-top);
+            top: 2.5rem;
+            right: 0.2rem;
           }
 
           &__option,
           &__option:last-child {
             height: getPaginationSizes(react-select-menu-option-height);
             border-bottom: none;
+            cursor: pointer;
 
             span {
               margin-left: getPaginationSizes(react-select-menu-option-span-margin);
@@ -110,7 +117,8 @@
 
         :global {
           li.selected {
-            width: getPaginationSizes(pagination-list-li-selected-width);
+            min-width: getPaginationSizes(pagination-list-li-selected-width);
+            padding: 0.2rem;
             height: getPaginationSizes(pagination-list-li-selected-height);
             @include flex(center, center);
             @include theme(background-color, gray-color);

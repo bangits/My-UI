@@ -1,0 +1,18 @@
+@mixin generate-tableRow-styles {
+  .TableRow {
+    @include flex(space-between, center);
+    font-weight: normal;
+    position: relative;
+    @include theme(border-bottom, table-row-divider-color, solid 1px);
+  }
+
+  .TableRow--hover,
+  .TableRow--selected {
+    @include theme(background-color, primary, $opacity: 0.1);
+  }
+  .TableRow--selected {
+    div {
+      font-weight: getTableRowSizes(font-weight-selected);
+    }
+  }
+}

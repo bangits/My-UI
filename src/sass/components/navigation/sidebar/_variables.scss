@@ -1,19 +1,25 @@
 $sidebar-sizes: (
-  sidebar-min-width: 7.2rem,
-  sidebar-collapsed-min-width: 21.5rem,
-  sidebar-height: 76.8rem,
+  sidebar-min-width: calculateRem(72px),
+  sidebar-collapsed-min-width: calculateRem(215px),
+  sidebar-height: calculateRem(768px),
   sidebar-z-index: 1000,
-  sidebar-logo-margin: 3.2rem 1.6rem 0 1.6rem,
-  sidebar-logo-collapsed-margin: 3.2rem 0 0 1.6rem,
-  sidebar-logo-width: 4rem,
-  sidebar-logo-height: 4rem,
-  sidebar-logo-borderRadius: 0.4rem,
-  sidebar-button-container-width: 2.4rem,
-  sidebar-button-container-height: 2.4rem,
-  sidebar-button-container-borderRadius: 2.6rem,
-  sidebar-button-container-top: 4rem,
-  sidebar-button-container-right: -1.4rem,
-  sidebar-item-container-margin-top: 6.65rem
+  sidebar-logo-margin: calculateRem(32px) calculateRem(16px) 0 calculateRem(16px),
+  sidebar-logo-collapsed-margin: calculateRem(32px) 0 0 calculateRem(16px),
+  sidebar-logo-width: calculateRem(40px),
+  sidebar-logo-height: calculateRem(40px),
+  sidebar-logo-borderRadius: calculateRem(4px),
+  sidebar-button-container-width: calculateRem(24px),
+  sidebar-button-container-height: calculateRem(24px),
+  sidebar-button-container-borderRadius: calculateRem(26px),
+  sidebar-button-container-top: calculateRem(40px),
+  sidebar-button-container-right: calculateRem(-14px),
+  sidebar-item-container-margin-top: calculateRem(66.5px),
+  sidebar-base-before-positon-right: calculateRem(-1px),
+  sidebar-base-before-positon-top: 6%,
+  sidebar-base-before-width: calculateRem(1px),
+  sidebar-base-before-min-height: 94%,
+  sidebar-logo-border-radius: 4px,
+  sidebar-transition: 0.3s
 );
 
 $sidebar-colors: (
@@ -22,3 +28,11 @@ $sidebar-colors: (
   sidebar-button-container-background-color: color(white),
   sidebar-line-color: color(mercury)
 );
+
+@function getSideBarSizes($property) {
+  @return map-get($sidebar-sizes, $property);
+}
+
+@function getSideBarColors($property) {
+  @return map-get($sidebar-colors, $property);
+}

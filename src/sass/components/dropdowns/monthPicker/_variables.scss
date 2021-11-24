@@ -1,6 +1,6 @@
 $datepicker-month-sizes: (
   datePicker-z-index: 10000,
-  datePicker-month-width: 30.8rem,
+  datePicker-month-width: calculateRem(308px),
   datePicker-month-left: 0,
   datePicker-month-bottom: 0,
   datePicker-month-font-size: calculateRem(18px),
@@ -17,7 +17,7 @@ $datepicker-month-sizes: (
   datePicker-month-wrapper-month-height: calculateRem(42px),
   datePicker-month-wrapper-month-font-size: calculateRem(18px),
   datePicker-month-wrapper-month-font-weight: 300,
-  datePicker-month-wrapper-month-border-radius: calculateRem(4px),
+  datePicker-month-wrapper-month-border-radius: 4px,
   datePicker-month-selected-year-width: calculateRem(30px),
   datePicker-month-selected-year-margin-bottom: calculateRem(23px),
   datePicker-month-monthWrapper-margin-top: calculateRem(20px),

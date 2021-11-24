@@ -1,0 +1,109 @@
+@mixin generate-loadingindicator-styles {
+  .LoadingIndicatorCircle {
+    position: relative;
+    width: getLoadingIndicatorSizes(base-timer-circle-width);
+    height: getLoadingIndicatorSizes(base-timer-circle-height);
+    &__svg {
+      transform: scaleX(1);
+    }
+
+    &__circle {
+      stroke: transparent;
+    }
+
+    &__path-elapsed {
+      stroke-width: getLoadingIndicatorSizes(path-elapsed-width);
+      transition: getLoadingIndicatorSizes(transition-all-indicator);
+      stroke-width: getLoadingIndicatorSizes(path-elapsed-stroke-width);
+      @include theme(fill, primary, $opacity: 0.04);
+    }
+
+    &__path-remaining {
+      stroke-width: getLoadingIndicatorSizes(path-remaining-width);
+      transform: rotate(90deg);
+      transform-origin: center;
+      transition: getLoadingIndicatorSizes(transition-circle-path-remaining) linear all;
+      fill-rule: nonzero;
+      @include theme(stroke, circle-indicator-remaining-color);
+      stroke-width: getLoadingIndicatorSizes(path-remaining-stroke-width);
+    }
+
+    &__label {
+      @include flex(center, center);
+      font-size: getLoadingIndicatorSizes(base-timer-label-size);
+    }
+
+    .LoadingIndicatorCirclePercent {
+      @include center-absolute();
+    }
+  }
+
+  .LoadingIndicatorRectangle {
+    position: relative;
+    width: getLoadingIndicatorSizes(loading-indicator-rectangle-width);
+    rect {
+      stroke-width: getLoadingIndicatorSizes(rectangle-stroke-width);
+      transition: getLoadingIndicatorSizes(transition-all-indicator);
+      fill: transparent;
+      width: getLoadingIndicatorSizes(loading-indicator-rectangle-width);
+      height: getLoadingIndicatorSizes(loading-indicator-rectangle-height);
+    }
+    .UploadWrapper {
+      @include flex(space-between, null);
+      position: absolute;
+      top: getLoadingIndicatorSizes(upload-wrapper-position);
+      width: 100%;
+      .GameIndicatorIconWrapper {
+        @include flex(null, center);
+        .GameIndicatorIcon {
+          margin-left: getLoadingIndicatorSizes(game-icon-margin);
+        }
+        .ImageFormatLabel {
+          @include theme(color, black-color);
+          @include dots-after-text;
+          margin-left: getLoadingIndicatorSizes(icon-label-margin);
+          max-width: getLoadingIndicatorSizes(icon-label-max-width);
+        }
+      }
+      .PerconWrapper {
+        @include flex(null, center);
+        .PercentUpload {
+          margin-right: getLoadingIndicatorSizes(percent-upload-margin);
+        }
+        .TrashUploadIcon {
+          @include theme(color, indicator-trash-color);
+          margin-right: getLoadingIndicatorSizes(trash-icon-margin);
+        }
+      }
+    }
+  }
+
+  .LoadingDropIndicator {
+    background-image: url('../../../icons/dropzone.react.svg');
+  }
+
+  @each $color in $base-colors {
+    .LoadingIndicatorCircle--#{$color} {
+      .LoadingIndicatorCircle {
+        &__circle {
+          @include theme(stroke, #{$color});
+          @include theme(fill, #{$color}, $opacity: 0.1);
+        }
+      }
+
+      .LoadingIndicatorCirclePercent {
+        @include theme(color, #{$color});
+      }
+    }
+
+    .LoadingIndicatorRectangle--#{$color} {
+      rect {
+        @include theme(stroke, #{$color});
+      }
+
+      .SecondRect {
+        @include theme(stroke, #{$color}, $opacity: 0.1);
+      }
+    }
+  }
+}

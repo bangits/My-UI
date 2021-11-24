@@ -1,0 +1,11 @@
+$loader-sizes: (
+  loader-wrapper-sizes: calculateRem(80px),
+  loader-width: calculateRem(10px),
+  loader-height: calculateRem(10px),
+  loader-font-size: calculateRem(10px),
+  loader-border-radius: 50%
+);
+
+@function getLoaderSizes($property) {
+  @return map-get($loader-sizes, $property);
+}

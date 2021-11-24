@@ -1,3 +1,56 @@
-$select-sizes: ();
+$select-sizes: (
+  select-global-width: calculateRem(280px),
+  select-global-margin-bottom: calculateRem(2px),
+  select-margin: calculateRem(10px) calculateRem(12px) 0 calculateRem(20px),
+  select-single-value-font-size: calculateRem(14px),
+  select-single-value-margin: 0 calculateRem(16px) 0 calculateRem(9px),
+  select-menu-position-top: calculateRem(47.3px),
+  select-menu-width: calculateRem(280px),
+  select-menu-max-height: calculateRem(320px),
+  select-menu-min-height: calculateRem(96px),
+  select-menu-border-radius: 8px,
+  select-menu-list-width: calculateRem(280px),
+  select-menu-list-height: calculateRem(288px),
+  select-menu-is-multi-height: calculateRem(320px),
+  select-menu-option-height: calculateRem(31px),
+  select-menu-option-label-height: calculateRem(17px),
+  select-menu-option-label-margin-left: calculateRem(4px),
+  select-menu-option-label-font-size: calculateRem(14px),
+  select-menu-option-label-span-height: calculateRem(17px),
+  select-menu-option-label-span-margin: calculateRem(12px),
+  select-menu-option-label-span-font-size: calculateRem(14px),
+  select-menu-option-label-span-width: calculateRem(140px),
+  select-menu-option-block-width: calculateRem(24px),
+  select-menu-option-block-height: calculateRem(24px),
+  select-value-container-margin: calculateRem(10px) calculateRem(5px) calculateRem(10px) calculateRem(10px),
+  select-multi-value-margin: calculateRem(5px),
+  select-multi-value-font-size: calculateRem(14px),
+  select-multi-menu-notice-padding: calculateRem(22px) calculateRem(235.6px) calculateRem(21.3px) calculateRem(17.6px),
+  select-multi-menu-notice-font-size: calculateRem(14px),
+  select-multi-input-font-size: calculateRem(14px),
+  dropdown-select-width: calculateRem(192px),
+  dropdown-select-max-height: calculateRem(353px),
+  dropdown-select-min-height: calculateRem(96px),
+  dropdown-select-menu-list-margin: calculateRem(32px),
+  dropdown-select-menu-list-width: calculateRem(192px),
+  dropdown-select-menu-list-max-height: calculateRem(321px),
+  dropdown-select-menu-list-min-height: calculateRem(96px),
+  dropdown-select-menu-list-border-radius: 0 0 8px 8px,
+  dropdown-select-option-width: calculateRem(184px),
+  dropdown-select-option-margin: 0 calculateRem(4px),
+  dropdown-select-option-label-height: calculateRem(17px),
+  dropdown-select-option-label-hover-width: calculateRem(192px),
+  dropdown-select-option-label-block-margin: calculateRem(4px),
+  clear-select-padding: calculateRem(32px),
+  select-notice-width: 100%,
+  select-notice-padding: calculateRem(22px) 0 calculateRem(21.3px) calculateRem(7.6px),
+  select-notice-font-size: calculateRem(14px)
+);
 
-$select-colors: ();
+$select-colors: (
+  select-option-divider-color: color(alabaster)
+);
+
+@function getSelectSizes($property) {
+  @return map-get($select-sizes, $property);
+}

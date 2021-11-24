@@ -19,8 +19,6 @@ const Scroll: FC<ScrollProps> = ({ height = 200, width, children, className, ...
     <Scrollbars
       {...scrollProps}
       style={{ width: width ?? '100%' }}
-      onUpdate={console.log}
-      onScrollStart={console.log}
       autoHeight
       hideTracksWhenNotNeeded
       autoHeightMax={height}

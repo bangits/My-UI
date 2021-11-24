@@ -1,6 +1,10 @@
 $base-scroll-variables: (
-  track-vertical-width: 0.4rem,
-  track-horizontal-height: 0.4rem,
-  track-borderRadius: 0.8rem,
+  track-vertical-width: calculateRem(4px),
+  track-horizontal-height: calculateRem(4px),
+  track-border-radius: 8px,
   track-z-index: 10000000
 );
+
+@function getIconBaseScroll($property) {
+  @return map-get($base-scroll-variables, $property);
+}

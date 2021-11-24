@@ -1,13 +1,5 @@
-import React, {
-  useState,
-  useRef,
-  FC,
-  DetailedReactHTMLElement,
-  ReactHTMLElement,
-  cloneElement,
-  ReactNode
-} from 'react';
-import Portal from '../../shared/Portal';
+import { Portal } from '@/components';
+import React, { useState, useRef, cloneElement } from 'react';
 import StyledTooltip from './StyledTooltip';
 import Styles from './Tooltip.module.scss';
 import { UIColors } from '@/types';

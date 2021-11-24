@@ -5,11 +5,11 @@
   @include theme(color, #{$color-name}--color);
 
   &:hover {
-    @include theme(background-color, #{$color-name}--light);
+    @include theme(background-color, #{$color-name}, $opacity: 0.9);
   }
 
   &:active {
-    @include theme(background-color, #{$color-name}--bold);
+    @include theme(background-color, button-#{$color-name}--active);
   }
 
   &:disabled {
@@ -28,7 +28,7 @@
   @include theme(border-color, #{$color-name});
 
   &:hover {
-    @include theme(background-color, #{$color-name}--transparent);
+    @include theme(background-color, #{$color-name}, $opacity: 0.1);
   }
 
   &:disabled {
@@ -39,6 +39,6 @@
   }
 
   &:active {
-    @include theme(background-color, #{$color-name}--pressed);
+    @include theme(background-color, #{$color-name}, $opacity: 0.2);
   }
 }

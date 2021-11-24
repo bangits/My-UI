@@ -4,7 +4,7 @@
     .CardImg {
       width: 100%;
       height: getCardImgSizes(card-img-height);
-      box-shadow: getCardImgSizes(card-img-box-shadow) #0000000d;
+      @include theme(box-shadow, box-shadow-color, 0 0 4px 0);
       border-radius: getCardImgSizes(card-img-border-radius);
 
       @include theme(background-color, black-color);
@@ -23,7 +23,7 @@
       @include theme(color, gray-color);
       box-sizing: border-box;
       border-radius: getCardImgSizes(card-text-container-border-radius);
-      box-shadow: getCardImgSizes(card-img-box-shadow) rgba(0, 0, 0, 0.05);
+      @include theme(box-shadow, box-shadow-color, 0 0 4px 0);
       height: getCardImgSizes(card-text-container-height);
       padding: getCardImgSizes(card-text-container-padding);
 

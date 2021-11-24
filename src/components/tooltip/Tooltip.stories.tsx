@@ -1,5 +1,4 @@
 import { Button } from '@/my-ui-core';
-import { COLOR_TYPES } from '@/types';
 import { optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import Tooltip from './Tooltip';

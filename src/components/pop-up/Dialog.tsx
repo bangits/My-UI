@@ -1,6 +1,4 @@
 import { Portal } from '@/components';
-import { getMyUIPrefix } from '@/configs';
-import classNames from 'classnames';
 import { FC } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './Dialog.module.scss';
@@ -14,14 +12,9 @@ const Dialog: FC<DialogProps> = ({ onClose, isOpened, children }) => {
   return (
     <Portal>
       <CSSTransition in={isOpened} timeout={500} classNames={{ exit: styles['Dialog--exit'] }} unmountOnExit>
-        <div className={`${getMyUIPrefix()}-PopupWrapper`}>
-          <div className={classNames(styles.Dialog, `${getMyUIPrefix()}-Dialog`)}>{children}</div>
-          <div
-            className={classNames(styles.Overlay, `${getMyUIPrefix()}-Overlay`)}
-            tabIndex={0}
-            role='button'
-            onClick={onClose}
-          />
+        <div>
+          <div className={styles.Dialog}>{children}</div>
+          <div className={styles.Overlay} tabIndex={0} role='button' onClick={onClose} />
         </div>
       </CSSTransition>
     </Portal>

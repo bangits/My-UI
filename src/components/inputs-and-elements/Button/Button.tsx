@@ -1,8 +1,7 @@
 import { UIColors } from '@/types';
+import classNames from 'classnames';
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC, ReactNode } from 'react';
 import styles from './Button.module.scss';
-import classNames from 'classnames';
-import { getMyUIPrefix } from '@/configs';
 
 export type ButtonVariants = 'ghost' | 'default';
 
@@ -27,7 +26,6 @@ const Button: FC<ButtonProps> = ({
     <button
       className={classNames(
         styles.ButtonBase,
-        `${getMyUIPrefix()}-ButtonBase`,
         {
           [styles[`ButtonVariant--${color}__${variant}`]]: variant !== 'default',
           [styles[`ButtonColor--${color}`]]: color
@@ -35,11 +33,11 @@ const Button: FC<ButtonProps> = ({
         className
       )}
       {...props}>
-      <div className={classNames(styles.startIcon, `${getMyUIPrefix()}-StartIcon`)}>{startIcon}</div>
+      <div className={styles.startIcon}>{startIcon}</div>
 
       {children}
 
-      <div className={classNames(styles.endIcon, `${getMyUIPrefix()}-EndIcon`)}>{endIcon}</div>
+      <div className={styles.endIcon}>{endIcon}</div>
     </button>
   </>
 );

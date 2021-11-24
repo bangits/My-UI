@@ -1,6 +1,6 @@
 @mixin generate-avatar-styles {
   .Avatar {
-    @include flex(null, center);
+    @include flex(flex-end, center);
     position: relative;
     height: 100%;
 

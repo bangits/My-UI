@@ -4,7 +4,6 @@ import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import styles from './Select.module.scss';
-import { getMyUIPrefix } from '@/configs';
 
 export const SearchControl: typeof components.Control = (props) => {
   const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
@@ -17,6 +16,7 @@ export const SearchControl: typeof components.Control = (props) => {
   const menuToggle = useCallback(() => {
     if (!isMenuOpen) {
       selectProps.onMenuOpen();
+      setSearchValue('');
 
       setIsMenuOpen(!isMenuOpen);
     }
@@ -27,7 +27,7 @@ export const SearchControl: typeof components.Control = (props) => {
     selectProps.onMenuClose();
 
     if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue.label);
-  }, [currentValue]);
+  }, []);
 
   const onSearchValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -51,8 +51,7 @@ export const SearchControl: typeof components.Control = (props) => {
       if (currentValue.length === 1) return setSearchValue(currentValue[0].label);
 
       // Show all value
-      if (selectProps.options.length && currentValue.length === selectProps.options.length)
-        return setSearchValue(selectProps.selectAllLabel);
+      if (currentValue.length === selectProps.options.length) return setSearchValue(selectProps.selectAllLabel);
 
       // Show selected values count
       if (currentValue.length > 1) setSearchValue(selectProps.renderInputSelectedLabel(currentValue.length));
@@ -62,24 +61,18 @@ export const SearchControl: typeof components.Control = (props) => {
   }, [currentValue, isMenuOpen]);
 
   useEffect(() => {
-    if (!props.selectProps.inputValue && searchValue && !currentValue) setSearchValue('');
+    if (!props.selectProps.inputValue && searchValue) setSearchValue('');
   }, [props.selectProps.inputValue]);
 
   return (
     <components.Control {...props}>
       {selectProps.renderInput ? (
-        <div onClick={selectProps.onMenuOpen} className={`${getMyUIPrefix()}-SearchControl`}>
+        <div onClick={selectProps.onMenuOpen}>
           {/* @ts-ignore ignoring typescript for typecast */}
           {selectProps.renderInput(selectProps.value, props.selectProps.menuIsOpen, props.selectProps.onInputChange)}
         </div>
       ) : (
-        <div
-          className={classNames(
-            styles['Select--search'],
-            `${getMyUIPrefix()}-SelectSearch`,
-            `${getMyUIPrefix()}-MyUISelectInput`,
-            'MyUI-Select-Input'
-          )}>
+        <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
           <TextInput
             fullWidth={selectProps.fullWidth}
             color={selectProps.color !== 'default' ? selectProps.color : undefined}
@@ -90,9 +83,9 @@ export const SearchControl: typeof components.Control = (props) => {
             onClick={menuToggle}
             value={searchValue}
             label={selectProps.inputLabel}
-            className={classNames('MyUI-SelectInput', `${getMyUIPrefix()}-MyUISelectInput`)}
+            className='MyUI-SelectInput'
             endIcon={
-              <div className={classNames(`${getMyUIPrefix()}-SelectIconContainer`, styles['Select--icon-container'])}>
+              <div className={classNames(styles['Select--icon-container'])}>
                 {isMenuOpen ? <DropdownArrowIconUp /> : <DropdownArrowIconDown />}
               </div>
             }

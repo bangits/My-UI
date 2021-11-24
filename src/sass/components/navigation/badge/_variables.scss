@@ -1,16 +1,18 @@
 $badge-sizes: (
   badge-width: calculateRem(24px),
   badge-height: calculateRem(24px),
-  badge-number-position-top: calculateRem(-3px),
+  badge-number-position-top: calculateRem(1px),
   badge-number-position-left: calculateRem(11.8px),
-  badge-number-width-ms: calculateRem(22.2px),
-  badge-number-height-ms: calculateRem(22.2px),
-  badge-number-size-ms: calculateRem(8px),
+  badge-number-min-width: calculateRem(17px),
+  badge-number-size-ms: calculateRem(10px),
   badge-number-fontWeight: 500,
-  badge-number-borderRadius: 100%,
   badge-number-width-ss: calculateRem(20px),
   badge-number-height-ss: calculateRem(20px),
-  badge-number-size-ss: calculateRem(9px)
+  badge-number-size-ss: calculateRem(9px),
+  badge-hover-width: calculateRem(70px),
+  badge-transition: 0.1s,
+  badge-padding: calculateRem(2px) calculateRem(3px) calculateRem(2px) calculateRem(3px),
+  badge-number-border-radius: 10px
 );
 
 @function getBadgeSizes($property) {

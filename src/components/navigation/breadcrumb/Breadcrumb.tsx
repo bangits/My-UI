@@ -4,7 +4,7 @@ import { ComponentType, IComponent } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './Breadcrumb.module.scss';
-import { getMyUIPrefix } from '@/configs';
+
 export interface BreadcrumbProps extends IComponent {
   links: {
     isRedirect?: boolean;
@@ -22,20 +22,18 @@ const Breadcrumb: FC<BreadcrumbProps> = ({
   itemComponent: ItemComponent = 'li'
 }) => {
   return (
-    <Component className={classNames(styles.BreadcrumbBase, `${getMyUIPrefix()}-BreadcrumbBase`)}>
+    <Component className={classNames(styles.BreadcrumbBase)}>
       {links.map(({ linkComponent: LinkComponent = 'a', label, componentProps = {}, isRedirect }, index) => (
         <>
-          <ItemComponent key={index} className={classNames(styles.BreadcrumbItem, `${getMyUIPrefix()}-BreadcrumbItem`)}>
+          <ItemComponent key={index} className={styles.BreadcrumbItem}>
             <LinkComponent
               {...componentProps}
-              className={classNames(styles.BreadcrumbText, `${getMyUIPrefix()}-BreadcrumbText`, {
-                [styles.BreadcrumbLink]: isRedirect
-              })}>
+              className={classNames(styles.BreadcrumbText, { [styles.BreadcrumbLink]: isRedirect })}>
               {label}
             </LinkComponent>
           </ItemComponent>
           {index !== links.length - 1 && (
-            <div className={classNames(styles.BreadcrumbIconContainer, `${getMyUIPrefix()}-BreadcrumbIconContainer`)}>
+            <div className={styles.BreadcrumbIconContainer}>
               <BreadcrumbNext />
             </div>
           )}

@@ -1,9 +1,9 @@
-import { getMyUIPrefix } from '@/configs';
-import { typedMemo } from '@/helpers';
-import { IComponent, UIColors } from '@/types';
-import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
+import { IComponent, UIColors } from '@/types';
 import styles from './Badge.module.scss';
+import classNames from 'classnames';
+import { typedMemo } from '@/helpers';
+
 export interface BadgeProps extends IComponent {
   quantity?: number;
   children?: ReactNode;
@@ -14,17 +14,16 @@ export interface BadgeProps extends IComponent {
 
 const Badge: FC<BadgeProps> = ({ quantity, children, className, badgeSize = 'ms', badgeStyle, color }) => {
   return (
-    <div className={classNames(styles.BadgeContainer, className, `${getMyUIPrefix()}-BadgeContainer`)}>
+    <div className={classNames(styles.BadgeContainer, className)}>
       {children}
 
       <span
         className={classNames(
           styles.BadgeNumber,
-          badgeStyle,
-          `${getMyUIPrefix()}-BadgeNumber`,
-          `${getMyUIPrefix()}-badgeStyle`,
           styles[`BadgeNumber--${color}`],
           styles['BadgeNumber--primary'],
+          styles['BandgeNumberThreeNumbers'],
+          styles['BandgeNumbers'],
           badgeStyle,
           {
             [styles.BadgeNumberMs]: badgeSize === 'ms',

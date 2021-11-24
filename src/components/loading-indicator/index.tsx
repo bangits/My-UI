@@ -1,1 +1,1 @@
-export { default as LoadingIndicator, LoadingIndicatorProps, IndicatorVariant } from './LoadingIndicator';
+export { default as LoadingIndicator } from './LoadingIndicator';

@@ -1,9 +1,10 @@
-import { getMyUIPrefix } from '@/configs';
-import { typedMemo } from '@/helpers';
-import { UIColors } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './LoadingIndicator.module.scss';
+import { UIColors } from '@/types';
+import { typedMemo } from '@/helpers';
+import { GameIndicator, TrashIndicator } from '@/icons';
+import { Typography } from '@/my-ui-core';
 
 export type IndicatorVariant = 'circle' | 'square';
 export interface LoadingIndicatorProps {
@@ -20,16 +21,11 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
           className={classNames(
             styles['LoadingIndicatorCircle'],
             styles[`LoadingIndicatorCircle--${color}`],
-            'Timer_LoadingIndicator',
-            `${getMyUIPrefix()}-LoadingIndicatorCircle`,
-            `${getMyUIPrefix()}-TimerLoadingIndicator`,
+            styles['LoadingIndicatorCircle--success'],
             'Timer_LoadingIndicator'
           )}>
           <svg
-            className={classNames(
-              styles['LoadingIndicatorCircle__svg'],
-              `${getMyUIPrefix()}-LoadingIndicatorCircleSvg`
-            )}
+            className={styles['LoadingIndicatorCircle__svg']}
             viewBox='0 0 100 100'
             xmlns='http://www.w3.org/2000/svg'>
             <g className={styles['LoadingIndicatorCircle__circle']}>
@@ -52,21 +48,15 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
                    '></path>
             </g>
           </svg>
-          <div
-            className={classNames(
-              styles.LoadingIndicatorCirclePercent,
-              `${getMyUIPrefix()}-LoadingIndicatorCirclePercent`
-            )}>
-            <span className={`${getMyUIPrefix()}-LoadingIndicatorCirclePercentNumber`}>
-              {percent > 100 ? 100 : percent < 0 || percent == undefined || percent == null ? 0 : percent}%
-            </span>
+          <div className={styles.LoadingIndicatorCirclePercent}>
+            <span>{percent > 100 ? 100 : percent < 0 || percent == undefined || percent == null ? 0 : percent}%</span>
           </div>
         </div>
       ) : (
         <div
           className={classNames(
             styles.LoadingIndicatorRectangle,
-            styles[`LoadingIndicatorRectangle--${color}`],
+            styles['LoadingDropIndicator'],
             styles[`LoadingIndicatorRectangle--${color}`]
           )}>
           <svg height='40'>
@@ -77,8 +67,27 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
               rx='4'
               stroke-dasharray={`${percent > 100 ? 628 : percent < 0 ? 0 : (628 * percent) / 100} 628`}></rect>
           </svg>
+          <div className={styles.UploadWrapper}>
+            <div className={styles.GameIndicatorIconWrapper}>
+              <span className={styles.GameIndicatorIcon}>
+                <GameIndicator />
+              </span>
+              <span className={styles.ImageFormatLabel}>XXXX_Icon_50*50.png</span>
+            </div>
+            <div className={styles.PerconWrapper}>
+              <span className={styles.PercentUpload}>55%</span>
+              <span className={styles.TrashUploadIcon}>
+                <TrashIndicator />
+              </span>
+            </div>
+          </div>
         </div>
       )}
+      <div className={styles.DropIndicator}>
+        <Typography component='span' variant='p4'>
+          Drag file here
+        </Typography>
+      </div>
     </>
   );
 };

@@ -1,1 +1,1 @@
-export { default as CardImg, CardImgProps } from './CardImg';
+export { default as CardImg } from './CardImg';

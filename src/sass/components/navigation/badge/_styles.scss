@@ -3,6 +3,7 @@
     position: relative;
     width: getBadgeSizes(badge-width);
     height: getBadgeSizes(badge-height);
+
     .BadgeNumber {
       position: absolute;
       top: getBadgeSizes(badge-number-position-top);
@@ -10,18 +11,37 @@
       @include flex(center, center);
       @include theme(color, badge-number-color);
       font-weight: getBadgeSizes(badge-number-fontWeight);
-      border-radius: getBadgeSizes(badge-number-borderRadius);
+      border-radius: getBadgeSizes(badge-number-border-radius);
+      transition: min-width getBadgeSizes(badge-transition) ease-in-out;
+      min-width: getBadgeSizes(badge-number-min-width);
+      width: fit-content;
+      width: -moz-fit-content;
+      padding: getBadgeSizes(badge-padding);
+      box-sizing: border-box;
+
+      &:hover {
+        transition: width getBadgeSizes(badge-transition) ease-in-out;
+        width: getBadgeSizes(badge-hover-width);
+        cursor: pointer;
+      }
     }
-    .BadgeNumberMs {
-      width: getBadgeSizes(badge-number-width-ms);
-      height: getBadgeSizes(badge-number-height-ms);
-      font-size: getBadgeSizes(badge-number-size-ms);
-    }
-    .BadgeNumberSs {
-      width: getBadgeSizes(badge-number-width-ss);
-      height: getBadgeSizes(badge-number-height-ss);
-      font-size: getBadgeSizes(badge-number-size-ss);
-    }
+
+    //this code was written by Vardan
+
+    // .BadgeNumberMs {
+    //   min-width: getBadgeSizes(badge-number-sizes);
+    //   width: fit-content;
+    //   width: -moz-fit-content;
+    //   font-size: getBadgeSizes(badge-number-size-ms);
+    //   border-radius: getBadgeSizes(badge-three-numbers-border-radius);
+    // }
+
+    // .BadgeNumberSs {
+    //   width: getBadgeSizes(badge-number-width-ss);
+    //   height: getBadgeSizes(badge-number-height-ss);
+    //   font-size: getBadgeSizes(badge-number-size-ss);
+    // }
+
     @each $color in $base-colors {
       .BadgeNumber--#{$color} {
         @include theme(background-color, #{$color});

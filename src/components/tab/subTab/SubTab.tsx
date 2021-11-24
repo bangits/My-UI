@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { IComponent } from '@/types';
 import { Typography } from '@/my-ui-core';
 import { Badge } from '@/components';
-import { getMyUIPrefix } from '@/configs';
 
 export interface SubTabProps extends IComponent {
   options?: {
@@ -29,17 +28,17 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
     [active]
   );
   return (
-    <div className={classNames(styles.SubTab, className, `${getMyUIPrefix()}-SubTab`)}>
+    <div className={classNames(styles.SubTab, className)}>
       {options &&
         options.map((option) => (
-          <div className={classNames(styles.SubTabWrapper, `${getMyUIPrefix()}-SubTabWrapper`)}>
-            <div className={classNames(styles.BadgeWrapper, `${getMyUIPrefix()}-BadgeWrapper`)}>
+          <div className={styles.SubTabWrapper}>
+            <div className={styles.BadgeWrapper}>
               {option.badgeCount !== 0 && <Badge badgeSize='ss' quantity={option.badgeCount} />}
             </div>
             <button
               key={option.value}
               onClick={() => (!value ? onActiveChange(option.value) : null)}
-              className={classNames(styles.SubTabButton, `${getMyUIPrefix()}-SubTabButton`, {
+              className={classNames(styles.SubTabButton, {
                 [styles.Selected]: option.value === value || option.value === active
               })}>
               {option.title}

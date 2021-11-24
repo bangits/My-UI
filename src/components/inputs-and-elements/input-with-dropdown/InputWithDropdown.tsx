@@ -4,7 +4,6 @@ import { IComponent } from '@/types';
 import classNames from 'classnames';
 import React, { DetailedHTMLProps, FC, InputHTMLAttributes, useCallback, useRef, useState } from 'react';
 import styles from './InputWithDropdown.module.scss';
-import { getMyUIPrefix } from '@/configs';
 
 export interface InputWithDropdownProps extends IComponent {
   inputProps?: TextInputProps;
@@ -62,7 +61,7 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
 
   return (
     <>
-      <div className={classNames(styles.InputWithDropdownBase, className, `${getMyUIPrefix()}-InputWithDropdownBase`)}>
+      <div className={classNames(styles.InputWithDropdownBase, className)}>
         <TextInput
           {...inputProps}
           containerClassName={styles['InputWithDropdownBase--input']}
@@ -75,31 +74,18 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
         />
 
         <div
-          className={classNames(
-            styles['InputWithDropdownBase--dropdown'],
-            `${getMyUIPrefix()}-InputWithDropdownBaseDropdown`,
-            {
-              [styles.isDropdownActive]: isDropdown
-            }
-          )}>
+          className={classNames(styles['InputWithDropdownBase--dropdown'], {
+            [styles.isDropdownActive]: isDropdown
+          })}>
           <Select
-            className={classNames(
-              styles['InputWithDropdownBase--select'],
-              `${getMyUIPrefix()}-InputWithDropdownBaseSelect`
-            )}
+            className={classNames(styles['InputWithDropdownBase--select'])}
             isSearchable
             onChange={(e) => onSelectChange(e)}
             renderInput={(value, isMenuOpen, onDropdownInputChange) => (
-              <div
-                className={classNames(
-                  styles['InputWithDropdownBase--dropdown-control'],
-                  `${getMyUIPrefix()}-InputWithDropdownBaseDropdownControl`
-                )}>
+              <div className={styles['InputWithDropdownBase--dropdown-control']}>
                 <input
                   {...dropdownInputProps}
                   className={classNames(
-                    `${getMyUIPrefix()}-InputWithDropdownBaseDropdownInput`,
-                    `${getMyUIPrefix()}-InputWithDropdownBaseDropdownControlLabel`,
                     styles['InputWithDropdownBase--dropdown-input'],
                     styles['InputWithDropdownBase--dropdown-control-label']
                   )}
@@ -115,7 +101,7 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
                   ref={selectInputRef}
                 />
                 <span
-                  className={classNames(`${getMyUIPrefix()}-InputWithDropdownBaseDropdownControlLiconToggle`, {
+                  className={classNames({
                     [styles['InputWithDropdownBase--dropdown-control-icon-open']]: isMenuOpen,
                     [styles['InputWithDropdownBase--dropdown-control-icon-closed']]: !isMenuOpen
                   })}>

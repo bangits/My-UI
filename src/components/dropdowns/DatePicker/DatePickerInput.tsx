@@ -2,7 +2,7 @@ import { TextInput } from '@/components';
 import { UIColors } from '@/types';
 import React, { FC } from 'react';
 
-export interface DatePickerInputProps {
+interface DatePickerInputProps {
   onClick?: () => void;
   value?: string;
   placeholderText?: string;

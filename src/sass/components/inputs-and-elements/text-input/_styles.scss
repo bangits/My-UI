@@ -149,7 +149,7 @@ $transition-duration: getTextFieldSizes(label-transition);
 
   .TextInputLabelText {
     min-height: getTextFieldSizes(input-label-text-height);
-    // padding-right: getTextFieldSizes(input-label-icon-offset);
+    padding-right: getTextFieldSizes(input-label-icon-offset);
     @include dots-after-text;
 
     &--with-two-start-icon {
@@ -200,7 +200,7 @@ $transition-duration: getTextFieldSizes(label-transition);
       }
 
       .TextInputLabelText {
-        // padding-right: 0;
+        padding-right: 0;
 
         &--with-two-start-icon {
           padding-left: 0;

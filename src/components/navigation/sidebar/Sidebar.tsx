@@ -7,7 +7,6 @@ import classNames from 'classnames';
 import React, { FC, useCallback, useState } from 'react';
 import { MenuItem, MenuItemProps } from './sidebar-components/MenuItem';
 import styles from './Sidebar.module.scss';
-import { getMyUIPrefix } from '@/configs';
 
 export type SidebarPositions = 'fixed' | 'static';
 export interface SidebarProps extends IComponent {
@@ -28,38 +27,28 @@ const Sidebar: FC<SidebarProps> = ({ width, height, color, position, collapsedWi
   }, [sidebar]);
 
   return (
-    <div
-      style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem`, height }}
-      className={`${getMyUIPrefix()}-SidebarWrapper`}>
+    <div style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem`, height }}>
       <div
-        className={classNames(styles.SidebarBase, `${getMyUIPrefix()}-SidebarBase`, {
+        className={classNames(styles.SidebarBase, {
           [styles['SidebarBase--closed']]: sidebar,
           [styles[`SidebarBase--${color}`]]: color,
           [styles[`SidebarBase--${position}`]]: position
         })}
         style={{ width: sidebar ? `${collapsedWidth}rem` : `${width}rem`, height }}>
-        <div className={classNames(styles['SidebarBase--logo'], `${getMyUIPrefix()}-SidebarBaseLogo`)}>
-          {logoSrc && <img src={logoSrc} alt='Logo' className={`${getMyUIPrefix()}-SidebarBaseLogoImg`} />}
-        </div>
+        <div className={classNames(styles['SidebarBase--logo'])}>{logoSrc && <img src={logoSrc} alt='Logo' />}</div>
 
-        <div
-          className={classNames(
-            styles['SidebarBase--button-container'],
-            `${getMyUIPrefix()}-SidebarBaseButtonContainer`
-          )}
-          onClick={toggleSidebar}>
+        <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}>
           <IconButton
             icon={sidebar ? <IconButtonRight /> : <IconButtonLeft />}
-            className={classNames(styles['SidebarBase--button'], `${getMyUIPrefix()}-SidebarBaseButton`)}
+            className={classNames(styles['SidebarBase--button'])}
           />
         </div>
 
-        <ul
-          className={classNames(styles['SidebarBase--item-container'], `${getMyUIPrefix()}-SidebarBaseItemContainer`)}>
+        <ul className={classNames(styles['SidebarBase--item-container'])}>
           {menuItems.map((item, key) => (
             <MenuItem
               key={key}
-              className={classNames(styles['SidebarBase--menu-item'], `${getMyUIPrefix()}-SidebarBaseMenuItem`)}
+              className={classNames(styles['SidebarBase--menu-item'])}
               label={item.label}
               icon={item.icon}
               onClick={item.onClick}

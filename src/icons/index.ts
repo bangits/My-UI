@@ -29,3 +29,6 @@ export { ReactComponent as ClearIcon } from './select-clear.react.svg';
 export { ReactComponent as SettingIcon } from './setting.react.svg';
 export { ReactComponent as Triangle } from './triangle.react.svg';
 export { ReactComponent as ViewIcon } from './view.react.svg';
+export { ReactComponent as DropZone } from './dropzone.react.svg';
+export { ReactComponent as TrashIndicator } from './trash-indicator.react.svg';
+export { ReactComponent as GameIndicator } from './game-indicator.react.svg';

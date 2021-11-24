@@ -1,11 +1,11 @@
 import { getMyUIPrefix } from '@/configs';
-import { UIColors } from '@/types';
 import ReactDatePicker, { ReactDatePickerProps } from '@my-ui/react-datepicker';
 import classNames from 'classnames';
 import React, { useCallback, useMemo, useState } from 'react';
 import styles from './DatePicker.module.scss';
 import DatePickerHeader from './DatePickerHeader';
 import DatePickerInput from './DatePickerInput';
+import { UIColors } from '@/types';
 
 export interface DatepickerProps extends Omit<ReactDatePickerProps, 'onChange'> {
   withDropdowns?: boolean;

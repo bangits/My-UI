@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { Children } from 'react';
 import { DropdownSearch } from './Dropdown';
 import styles from './Select.module.scss';
-import { getMyUIPrefix } from '@/configs';
 
 export const MenuList: typeof components.MenuList = (props) => {
   const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
@@ -26,11 +25,9 @@ export const MenuList: typeof components.MenuList = (props) => {
         </Scroll>
 
         {selectProps.clearButton && (
-          <div
-            onClick={props.clearValue}
-            className={classNames(styles[`Select--clear-button`], `${getMyUIPrefix()}-SelectClearButton`)}>
-            <div className={`${getMyUIPrefix()}-SelectClearButtonIcon`}>{selectProps.clearIcon || <ClearIcon />}</div>
-            <span className={`${getMyUIPrefix()}-SelectClearButtonLabel`}>{selectProps.clearButtonLabel}</span>
+          <div onClick={props.clearValue} className={classNames(styles[`Select--clear-button`])}>
+            <div>{selectProps.clearIcon || <ClearIcon />}</div>
+            <span>{selectProps.clearButtonLabel}</span>
           </div>
         )}
       </components.MenuList>

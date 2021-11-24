@@ -3,7 +3,6 @@ import { Typography } from '@/my-ui-core';
 import classNames from 'classnames';
 import React, { FC, useCallback, useMemo, useState } from 'react';
 import styles from './Tab.module.scss';
-import { getMyUIPrefix } from '@/configs';
 export interface TabProps {
   options?: {
     title: string;
@@ -44,37 +43,28 @@ const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange }) => {
   );
 
   return (
-    <div className={classNames(styles.Tab, `${getMyUIPrefix()}-Tab`)}>
-      <div className={classNames(styles.TabContent, `${getMyUIPrefix()}-TabContent`)}>
+    <div className={styles.Tab}>
+      <div className={styles.TabContent}>
         {options &&
           options.map((option) => (
             <button
               key={option.value}
               onClick={() => (!value ? onActiveChange(option.value) : null)}
               style={{ width: `${100 / options.length}%` }}
-              className={classNames(styles.TabButton, `${getMyUIPrefix()}-TabButton`, {
+              className={classNames(styles.TabButton, {
                 [styles.Active]: option.value === value || option.value === active
               })}>
-              <Typography
-                component='span'
-                variant='p4'
-                className={classNames(styles.TabButtonLabel, `${getMyUIPrefix()}-TabButtonLabel`)}>
+              <Typography component='span' variant='p4' className={styles.TabButtonLabel}>
                 {option.title}
               </Typography>
             </button>
           ))}
       </div>
       <span
-        className={classNames(
-          styles.TabButtonBg,
-          indicatorClassnames.tabActiveIndicator,
-          `${getMyUIPrefix()}-TabButtonBg`,
-          `${getMyUIPrefix()}-tabActiveIndicator`,
-          {
-            [indicatorClassnames.firstElement]: activeIndex === 0,
-            [indicatorClassnames.lastElement]: activeIndex === options.length - 1
-          }
-        )}></span>
+        className={classNames(styles.TabButtonBg, indicatorClassnames.tabActiveIndicator, {
+          [indicatorClassnames.firstElement]: activeIndex === 0,
+          [indicatorClassnames.lastElement]: activeIndex === options.length - 1
+        })}></span>
     </div>
   );
 };

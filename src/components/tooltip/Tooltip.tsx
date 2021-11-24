@@ -7,7 +7,6 @@ import { Typography } from '@/components';
 import { Triangle } from '@/icons';
 import classNames from 'classnames';
 import TooltipPosition, { TooltipPlacement } from './TooltipPosition';
-import { getMyUIPrefix } from '@/configs';
 
 export interface TooltipProps {
   children: Parameters<typeof cloneElement>[0];
@@ -54,13 +53,8 @@ const Tooltip = ({
       {disabled || (
         <Portal>
           <StyledTooltip color={color} delay={delay} ref={tooltipRef} posRef={posRef} show={show}>
-            <div className={`${getMyUIPrefix()}-TooltipWrapper`}>
-              <div
-                className={classNames(
-                  Styles.TooltipTriangle,
-                  `${getMyUIPrefix()}-TooltipTriangle`,
-                  Styles[`Tooltip-${placement}`]
-                )}>
+            <div>
+              <div className={classNames(Styles.TooltipTriangle, Styles[`Tooltip-${placement}`])}>
                 <div>
                   <Triangle />
                 </div>

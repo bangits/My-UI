@@ -1,1 +1,1 @@
-export { default as Scroll, ScrollProps } from './Scroll';
+export { default as Scroll } from './Scroll';

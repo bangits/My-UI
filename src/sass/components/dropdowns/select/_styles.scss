@@ -51,13 +51,12 @@
 
       &__option {
         height: getSelectSizes(select-menu-option-height);
-        cursor: pointer;
         @include flex(null, center);
         @include theme(border-bottom, select-option-divider-color, solid 1px);
 
         &:hover {
           margin: 0;
-          @include theme(background-color, primary, $opacity: 0.1);
+          @include theme(color, primary, $opacity: 0.1);
         }
 
         label {
@@ -81,7 +80,6 @@
           width: getSelectSizes(select-menu-option-label-span-width);
           @include dots-after-text();
           display: inline-block;
-          cursor: pointer;
         }
 
         div {
@@ -165,8 +163,6 @@
         .react-select__option {
           width: getSelectSizes(dropdown-select-option-width);
           margin: getSelectSizes(dropdown-select-option-margin);
-          box-sizing: border-box;
-
           span,
           label {
             height: getSelectSizes(dropdown-select-option-label-height);
@@ -175,10 +171,13 @@
           &:hover {
             width: getSelectSizes(dropdown-select-option-label-hover-width);
             margin: 0;
-            padding-left: getSelectSizes(dropdown-select-option-label-block-margin);
 
             &:first-child {
               border-radius: none;
+            }
+
+            div {
+              margin-left: getSelectSizes(dropdown-select-option-label-block-margin);
             }
           }
         }

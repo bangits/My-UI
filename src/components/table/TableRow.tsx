@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { CSSProperties, FC, useCallback, useState } from 'react';
 import { UIColors } from '../../types/ui';
 import styles from './TableRow.module.scss';
-import { getMyUIPrefix } from '@/configs';
 export interface TableRowProps extends IComponent {
   hover?: boolean;
   selected?: boolean;
@@ -27,7 +26,7 @@ export const TableRow: FC<TableRowProps> = ({ children, hover, color, selected, 
     <Component
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      className={classNames(styles.TableRow, `${getMyUIPrefix()}-TableRow`, {
+      className={classNames(styles.TableRow, {
         [`${styles['TableRow--hover']}`]: hoverRow,
         [`${styles['TableRow--selected']}`]: selected,
         [`${styles[`TableRow--${color}`]}`]: color

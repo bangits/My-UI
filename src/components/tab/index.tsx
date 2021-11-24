@@ -1,1 +1,1 @@
-export { default as Tab, TabProps } from './Tab';
+export { default as Tab } from './Tab';

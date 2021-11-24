@@ -5,7 +5,6 @@ import { components, InputActionMeta } from '@my-ui/react-select';
 import classNames from 'classnames';
 import React, { FC, useCallback, useRef } from 'react';
 import styles from './Select.module.scss';
-import { getMyUIPrefix } from '@/configs';
 
 export const DropdownIcon: typeof components.Control = (props) => {
   const wrapperRef = useRef(null);
@@ -23,23 +22,13 @@ export const DropdownIcon: typeof components.Control = (props) => {
       <div
         ref={wrapperRef}
         onClick={menuToggle}
-        className={classNames(styles['Select--dropdown-control'], `${getMyUIPrefix()}-SelectDropdownControl`, {
+        className={classNames(styles['Select--dropdown-control'], {
           [styles[`Select--dropdown-control--${selectProps.color}`]]: selectProps.color
         })}>
-        <span
-          className={classNames(
-            styles['Select--dropdown-control-icon'],
-            `${getMyUIPrefix()}-SelectDropdownControlIcon`
-          )}>
+        <span className={classNames(styles['Select--dropdown-control-icon'])}>
           {selectProps.dropdownIcon || <SettingIcon />}
         </span>
-        <span
-          className={classNames(
-            styles['Select--dropdown-control-label'],
-            `${getMyUIPrefix()}-SelectDropdownControlLabel`
-          )}>
-          {selectProps.dropdownLabel}
-        </span>
+        <span className={classNames(styles['Select--dropdown-control-label'])}>{selectProps.dropdownLabel}</span>
       </div>
     </components.Control>
   );
@@ -59,15 +48,14 @@ export const DropdownSearch: FC<{
 
   return (
     <>
-      <div className={classNames(styles['Select--dropdown--input'], `${getMyUIPrefix()}-SelectDropdownInput`)}>
+      <div className={classNames(styles['Select--dropdown--input'])}>
         <input
           type='text'
           onMouseDown={inputMouseDownHandler}
           placeholder={selectProps.dropdownSearchPlaceholder}
           onChange={inputChangeHandler}
-          className={`${getMyUIPrefix()}-SelectDropdownInputText`}
         />
-        <span className={`${getMyUIPrefix()}-SelectIcon`}>
+        <span>
           <LoopIcon />
         </span>
       </div>

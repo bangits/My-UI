@@ -25,6 +25,7 @@ export const Default = () => {
   return (
     <>
       <Select
+        menuIsOpen
         value={value}
         onChange={setValue}
         inputLabel={text('inputLabelSingle', 'Single Select...')}

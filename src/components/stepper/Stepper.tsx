@@ -15,11 +15,11 @@ export interface StepperProps<T extends StepType[]> extends IComponent {
   value?: T[number]['value'] | 'finished';
 }
 
-function Stepper<T extends StepType[]>({ steps, value }: StepperProps<T>) {
+function Stepper<T extends StepType[]>({ steps, value, className }: StepperProps<T>) {
   const activeIndex = useMemo(() => steps.findIndex((o) => o.value === value), [value]);
 
   return (
-    <div className={classNames(styles.SteeperWrapper, styles['SteeperWrapper--primary'])}>
+    <div className={classNames(styles.SteeperWrapper, styles['SteeperWrapper--primary'], className)}>
       {steps &&
         steps.map((option, index) => {
           return (

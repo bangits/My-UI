@@ -36,7 +36,7 @@
         }
         .StepTextContainer {
           width: getStepperSizes(step-text-container);
-          word-break: break-all;
+          word-break: break-word;
 
           .StepText {
             margin-top: getStepperSizes(step-text-margin);

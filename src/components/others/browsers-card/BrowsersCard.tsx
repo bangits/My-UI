@@ -30,12 +30,6 @@ const BrowsersCard = () => {
           <span className={classNames(styles['BrowsersCard__Label'])}>Chrome</span>
         </div>
       </div>
-      <div className={classNames(styles['BrowsersCard'], styles['BrowsersCard--active'])}>
-        <div className={classNames(styles['BrowsersCard__ElementsGroup'])}>
-          <ChromeIcon width='30px' />
-          <span className={classNames(styles['BrowsersCard__Label'])}>Chrome</span>
-        </div>
-      </div>
     </div>
   );
 };

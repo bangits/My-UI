@@ -2,7 +2,6 @@
   .BrowsersCardList {
     display: flex;
     flex-wrap: wrap;
-    max-width: getBrowsersCardSizes(browsers-card-list-max-width);
   }
 
   .BrowsersCard {
@@ -24,7 +23,6 @@
     }
 
     &--selected-disable {
-      background: rgba(60, 84, 178, 0.1);
       opacity: getBrowsersCardSizes(browser-card-opacity--selected-disable);
       @include theme(background, browser-card-bg-color--selected-disable);
       @include theme(border, browser-card-border-color--selected-disable, solid 1px);

@@ -29,3 +29,5 @@ export { ReactComponent as ClearIcon } from './select-clear.react.svg';
 export { ReactComponent as SettingIcon } from './setting.react.svg';
 export { ReactComponent as Triangle } from './triangle.react.svg';
 export { ReactComponent as ViewIcon } from './view.react.svg';
+export { ReactComponent as ChromeIcon } from './chrome.react.svg';
+export { ReactComponent as OperaIcon } from './opera.react.svg';

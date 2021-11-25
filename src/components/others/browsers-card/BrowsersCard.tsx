@@ -1,13 +1,23 @@
 import classNames from 'classnames';
+import { getMyUIPrefix } from '@/configs';
 import React from 'react';
 import styles from './BrowsersCard.module.scss';
 import { OperaIcon, ChromeIcon } from '@/icons';
 
 const BrowsersCard = () => {
   return (
-    <div className={classNames(styles['BrowsersCardList'])}>
-      <div className={classNames(styles['BrowsersCard'], styles['BrowsersCard--selected'])}>
-        <div className={classNames(styles['BrowsersCard__ElementsGroup'])}>
+    <div className={classNames(styles['BrowsersCardList'], `${getMyUIPrefix()}-BrowsersCardList`)}>
+      <div
+        className={classNames(
+          styles['BrowsersCard'],
+          styles['BrowsersCard--selected'],
+          `${getMyUIPrefix()}-BrowsersCard`
+        )}>
+        <div
+          className={classNames(
+            styles['BrowsersCard__ElementsGroup'],
+            `${getMyUIPrefix()}-BrowsersCard__ElementsGroup`
+          )}>
           <OperaIcon width='30px' />
           <span className={classNames(styles['BrowsersCard__Label'])}>Opera</span>
         </div>

@@ -10,7 +10,7 @@
         padding-bottom: getDatePickerSizes(datePicker-wrapper-padding-bottom);
         padding: getDatePickerSizes(datePicker-padding);
         @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
-        width: getDatePickerSizes(datePicker-wrapper-width);
+        min-width: getDatePickerSizes(datePicker-wrapper-width);
         min-height: getDatePickerSizes(datePicker-wrapper-min-heigh);
         height: getDatePickerSizes(datePicker-month-container-min-height);
 

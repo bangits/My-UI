@@ -1,10 +1,10 @@
+import { getMyUIPrefix } from '@/configs';
 import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import { Scrollbars } from '@my-ui/scrollbar';
 import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './Scroll.module.scss';
-import { getMyUIPrefix } from '@/configs';
 
 export interface ScrollProps extends IComponent {
   height?: number | string;

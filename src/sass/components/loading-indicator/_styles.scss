@@ -95,6 +95,17 @@
     }
   }
 
+  .DropzoneBase {
+    background-image: svgToDataUrl(
+      '<?xml version="1.0" encoding="UTF-8"?><svg viewBox="0 0 284 42" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#8EA6C1" stroke-dasharray="8" stroke-width=".5"><rect width="280" height="38" rx="3" stroke="none"/><rect x=".25" y=".25" width="280" height="38" rx="2.75" fill="none"/></g></svg>'
+    );
+    background-repeat: no-repeat;
+    width: getLoadingIndicatorSizes(dropzone-width);
+    height: getLoadingIndicatorSizes(dropzone-base-height);
+    @include theme(color, dropzone-base-color);
+    @include flex(center, center);
+  }
+
   @each $color in $base-colors {
     .LoadingIndicatorCircle--#{$color} {
       .LoadingIndicatorCircle {

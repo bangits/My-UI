@@ -83,7 +83,7 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
           </div>
         </div>
       )}
-      <div className={styles.DropIndicator}>
+      <div className={classNames(styles.DropIndicator, styles['DropzoneBase'])}>
         <Typography component='span' variant='p4'>
           Drag file here
         </Typography>

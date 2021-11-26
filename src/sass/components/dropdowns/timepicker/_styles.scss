@@ -1,0 +1,13 @@
+@mixin generate-datetimepicker-styles {
+  .TimePickerWrapper {
+    @include flex();
+    position: relative;
+    .TimeContainer {
+      width: getDateTimePickerSizes(time-container-width);
+      height: getDateTimePickerSizes(time-container-height);
+      position: absolute;
+      top: getDateTimePickerSizes(time-container-position);
+      @include theme(background-color, primary, $opacity: 0.1);
+    }
+  }
+}

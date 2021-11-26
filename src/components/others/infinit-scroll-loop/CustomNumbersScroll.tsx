@@ -41,10 +41,12 @@ const CustomNumbersScroll: FC<CustomNumbersScrollProps> = ({
               style={{
                 color: i === 4 ? 'red' : '',
                 fontSize: 18,
-                height: 38,
-                width: '100%',
-                display: 'block',
-                textAlign: 'center'
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginBottom: '0.8rem',
+                height: '3.8rem'
               }}>
               {i + 1}
             </span>

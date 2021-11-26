@@ -1,6 +1,7 @@
 import { Button, CustomNumbersScroll, DatePicker, DatepickerProps } from '@/components';
 import { typedMemo } from '@/helpers';
 import React, { FC, useState } from 'react';
+import styles from './DateTimePicker.module.scss';
 
 export interface CustomTimePickerProps extends DatepickerProps {
   onChange?: (value: any) => void;
@@ -20,16 +21,8 @@ const DateTimePicker: FC<CustomTimePickerProps> = ({ onChange, ...datePickerProp
 
   const CustomTimePicker = () => {
     return (
-      <div style={{ display: 'flex', position: 'relative' }}>
-        <div
-          style={{
-            width: 84,
-            height: 38,
-            position: 'absolute',
-            top: 114,
-            backgroundColor: '#3C54B2',
-            opacity: 0.1
-          }}></div>
+      <div className={styles.TimePickerWrapper}>
+        <div className={styles.TimeContainer}></div>
         <CustomNumbersScroll quantity={24} adjustPlace={20} /* onValueChange={(value) => console.log(value)} */ />
         <CustomNumbersScroll quantity={60} adjustPlace={56} />
         <CustomNumbersScroll quantity={60} adjustPlace={56} /* onValueChange={(value) => console.log(value)} */ />

@@ -1,0 +1,9 @@
+$datetimepicker-sizes: (
+  time-container-width: calculateRem(84px),
+  time-container-height: calculateRem(38px),
+  time-container-position: calculateRem(114px)
+);
+
+@function getDateTimePickerSizes($property) {
+  @return map-get($datetimepicker-sizes, $property);
+}

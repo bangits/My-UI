@@ -21,7 +21,7 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
           className={classNames(
             styles['LoadingIndicatorCircle'],
             styles[`LoadingIndicatorCircle--${color}`],
-            styles['LoadingIndicatorCircle--success'],
+            // styles['LoadingIndicatorCircle--success'], // WB-190 bug was appeared from this line of code
             'Timer_LoadingIndicator'
           )}>
           <svg
@@ -30,10 +30,7 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
             xmlns='http://www.w3.org/2000/svg'>
             <g className={styles['LoadingIndicatorCircle__circle']}>
               <circle
-                className={classNames(
-                  styles['LoadingIndicatorCircle__path-elapsed'],
-                  styles[`LoadingIndicatorCircle--${color}`]
-                )}
+                className={classNames(styles['LoadingIndicatorCircle__path-elapsed'])}
                 cx='50'
                 cy='50'
                 r='45'></circle>

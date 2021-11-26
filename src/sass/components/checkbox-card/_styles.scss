@@ -12,7 +12,7 @@
     margin-right: getCheckboxCardSizes(checkbox-card-margin-right);
     font-size: getCheckboxCardSizes(checkbox-card-font-size);
     box-sizing: border-box;
-    cursor: getCheckboxCardSizes(checkbox-card-cursor-pointer);
+    cursor: pointer;
     @include flex(center, center);
     @include theme(border, primary, solid 1px, $opacity: 0.1);
 
@@ -25,6 +25,7 @@
     }
 
     &--disable {
+      cursor: default;
       opacity: getCheckboxCardSizes(checkbox-card-opacity--disable);
     }
 

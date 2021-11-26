@@ -34,7 +34,7 @@ const Badge: FC<BadgeProps> = ({
   const badge = useStyles(
     {
       badgeWidth: {
-        width: (data) => `${7 * (data.quantityWithMax?.toString().length || 0)}px`
+        width: (data) => `${5.68 * (data.quantityWithMax?.toString().length || 0)}px` //7
       }
     },
 

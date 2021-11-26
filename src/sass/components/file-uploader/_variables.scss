@@ -1,0 +1,14 @@
+$file-uploader-sizes: (
+  dropzone-width: calculateRem(284px),
+  dropzone-height: calculateRem(42px),
+  dropzone-base-height: calculateRem(38px),
+  dropzone-base-width: calculateRem(280px)
+);
+
+$file-uploader-colors: (
+  dropzone-base-color: color(gray-transparent)
+);
+
+@function getFileUploaderSizes($key) {
+  @return map-get($file-uploader-sizes, $key);
+} ;

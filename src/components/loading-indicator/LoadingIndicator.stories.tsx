@@ -1,6 +1,6 @@
-import { number, withKnobs, optionsKnob } from '@storybook/addon-knobs';
-import LoadingIndicator from './LoadingIndicator';
 import { getColorKnobs } from '@/configs';
+import { number, optionsKnob, withKnobs } from '@storybook/addon-knobs';
+import LoadingIndicator from './LoadingIndicator';
 
 export default {
   component: LoadingIndicator,
@@ -11,6 +11,7 @@ export default {
 export const Default = () => {
   return (
     <LoadingIndicator
+      label='XXXX_Icon_50*50.png'
       percent={number('percent', 75)}
       variant={optionsKnob(
         'variant',

@@ -1,19 +1,21 @@
+import { typedMemo } from '@/helpers';
+import { GameIndicator, TrashIndicator } from '@/icons';
+import { UIColors } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './LoadingIndicator.module.scss';
-import { UIColors } from '@/types';
-import { typedMemo } from '@/helpers';
-import { GameIndicator, TrashIndicator } from '@/icons';
-import { Typography } from '@/my-ui-core';
 
 export type IndicatorVariant = 'circle' | 'square';
 export interface LoadingIndicatorProps {
   percent: number;
   variant: IndicatorVariant;
   color?: UIColors;
+  onClick?: () => void;
+  imageSrc?: string;
+  label?: string;
 }
 
-const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circle', color }) => {
+const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circle', color, onClick, label }) => {
   return (
     <>
       {variant === 'circle' ? (
@@ -69,22 +71,17 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
               <span className={styles.GameIndicatorIcon}>
                 <GameIndicator />
               </span>
-              <span className={styles.ImageFormatLabel}>XXXX_Icon_50*50.png</span>
+              <span className={styles.ImageFormatLabel}>{label}</span>
             </div>
             <div className={styles.PerconWrapper}>
-              <span className={styles.PercentUpload}>55%</span>
-              <span className={styles.TrashUploadIcon}>
+              <span className={styles.PercentUpload}>{percent}%</span>
+              <span onClick={onClick} className={styles.TrashUploadIcon}>
                 <TrashIndicator />
               </span>
             </div>
           </div>
         </div>
       )}
-      <div className={classNames(styles.DropIndicator, styles['DropzoneBase'])}>
-        <Typography component='span' variant='p4'>
-          Drag file here
-        </Typography>
-      </div>
     </>
   );
 };

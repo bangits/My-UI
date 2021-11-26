@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import CheckboxCard from './CheckboxCard';
 
 export default {

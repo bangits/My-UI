@@ -86,5 +86,4 @@ const CheckboxCard = () => {
     </>
   );
 };
-
 export default CheckboxCard;

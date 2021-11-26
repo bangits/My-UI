@@ -45,13 +45,9 @@
   }
 
   @each $color in $base-colors {
-    .CheckboxCardList--#{$color} {
-      .CheckboxCard {
-        &--selected {
-          @include theme(background, $color, $opacity: 0.1);
-          @include theme(border, $color, solid 1px);
-        }
-      }
+    .CheckboxCard--#{$color} {
+      @include theme(background, $color, $opacity: 0.1);
+      @include theme(border, $color, solid 1px);
     }
   }
 }

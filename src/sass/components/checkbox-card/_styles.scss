@@ -4,7 +4,7 @@
   }
 
   .CheckboxCard {
-    padding: 8px 8px 8px 5px;
+    padding: getCheckboxCardSizes(checkbox-card-padding);
     word-break: break-word;
     border-radius: getCheckboxCardSizes(checkbox-card-border-radius);
     width: getCheckboxCardSizes(checkbox-card-width);
@@ -14,7 +14,7 @@
     box-sizing: border-box;
     cursor: getCheckboxCardSizes(checkbox-card-cursor-pointer);
     @include flex(center, center);
-    @include theme(border, checkbox-card-border-color, solid 1px);
+    @include theme(border, primary, solid 1px, $opacity: 0.1);
 
     &:last-child {
       margin-right: 0;
@@ -35,14 +35,11 @@
       font-family: inherit;
       padding-top: getCheckboxCardSizes(checkbox-card-label-padding-top);
       display: inline-block;
-      @include theme(color, checkbox-card-label-color);
+      @include theme(color, gray-color);
     }
 
     &__ElementsGroup {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      align-items: center;
+      @include flex(null, center, column, wrap);
     }
   }
 

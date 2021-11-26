@@ -1,5 +1,4 @@
 import { withKnobs } from '@storybook/addon-knobs';
-import React from 'react';
 import CheckboxCard from './CheckboxCard';
 
 export default {

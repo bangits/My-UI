@@ -1,0 +1,59 @@
+@mixin generate-checkbox-card-styles {
+  .CheckboxCardList {
+    @include flex($flex-wrap: wrap);
+  }
+
+  .CheckboxCard {
+    padding: 8px 8px 8px 5px;
+    word-break: break-word;
+    border-radius: getCheckboxCardSizes(checkbox-card-border-radius);
+    width: getCheckboxCardSizes(checkbox-card-width);
+    min-height: getCheckboxCardSizes(checkbox-card-height);
+    margin-right: getCheckboxCardSizes(checkbox-card-margin-right);
+    font-size: getCheckboxCardSizes(checkbox-card-font-size);
+    box-sizing: border-box;
+    cursor: getCheckboxCardSizes(checkbox-card-cursor-pointer);
+    @include flex(center, center);
+    @include theme(border, checkbox-card-border-color, solid 1px);
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--selected {
+      cursor: getCheckboxCardSizes(checkbox-card-cursor-pointer);
+    }
+
+    &--disable {
+      opacity: getCheckboxCardSizes(checkbox-card-opacity--disable);
+    }
+
+    &__Label {
+      text-align: center;
+      font-size: getCheckboxCardSizes(checkbox-card-label-font-size);
+      line-height: getCheckboxCardSizes(checkbox-card-label-line-height);
+      font-family: inherit;
+      padding-top: getCheckboxCardSizes(checkbox-card-label-padding-top);
+      display: inline-block;
+      @include theme(color, checkbox-card-label-color);
+    }
+
+    &__ElementsGroup {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  }
+
+  @each $color in $base-colors {
+    .CheckboxCardList--#{$color} {
+      .CheckboxCard {
+        &--selected {
+          @include theme(background, $color, $opacity: 0.1);
+          @include theme(border, $color, solid 1px);
+        }
+      }
+    }
+  }
+}

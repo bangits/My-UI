@@ -1,13 +1,13 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
-import BrowsersCard from './BrowsersCard';
+import CheckboxCard from './CheckboxCard';
 
 export default {
-  component: BrowsersCard,
+  component: CheckboxCard,
   decorators: [withKnobs],
-  title: 'components/Others/Browsers Card'
+  title: 'components/Others/Checkbox Card'
 };
 
 export const Default = () => {
-  return <BrowsersCard />;
+  return <CheckboxCard />;
 };

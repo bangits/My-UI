@@ -77,6 +77,18 @@
       }
     }
 
+    .PaginationPageSizeWrapper {
+      @include flex(center, baseline);
+
+      font-size: getPaginationSizes(page-size-option-font-size);
+      @include theme(color, black-color);
+    }
+
+    .PaginationPageSizeIcon {
+      @include flex(center, center);
+      width: getPaginationSizes(page-size-arrow-size);
+    }
+
     @include flex(null, center);
     .SelectWrapper {
       width: auto;

@@ -1,129 +1,132 @@
-import { Select, Typography } from '@/my-ui-core';
+import { ArrowNext, ArrowPrev } from '@/icons';
+import { Select, SelectOptionType, Typography } from '@/my-ui-core';
+import { IComponent } from '@/types';
+import React, { FC, useCallback } from 'react';
 import ReactPaginate from 'react-paginate';
-import classNames from 'classnames';
-import React, { useState, useMemo, FC, useCallback } from 'react';
 import styles from './Pagination.module.scss';
 import PaginationInput from './PaginationInput';
-import { ArrowNext, ArrowPrev, DropdownArrowIconUp } from '@/icons';
-import { IComponent } from '@/types';
 
 export interface PaginationProps extends IComponent {
+  pageSizeSelect?: {
+    options: SelectOptionType[];
+    dropdownLabel: string;
+    defaultValue?: SelectOptionType['value'];
+    onChange: (value: SelectOptionType['value']) => void;
+  };
+
   page: number;
-  totalCount: number;
-  showPageSizeSelect: boolean;
-  showTotalCountInfo: boolean;
-  showJumpToPage: boolean;
-  pageSize?: {
-    label: string;
-    value: number;
-  }[];
-  bottomButtonLabel?: string;
-  onChange: (e: any) => void;
-  dropDownTitle: string;
-  inputTitle: string;
+  totalPagesCount: number;
+  onChange: (updatedPage: number) => void;
+
+  totalCountInfo?: string;
+  breakLabel?: string;
+  pageRangeDisplayed?: number;
+  marginPagesDisplayed?: number;
+
+  jumpToPage?: {
+    inputTitle?: string;
+    placeholder?: string;
+  };
 }
 
 const Pagination: FC<PaginationProps> = ({
-  page,
-  totalCount,
+  page = 1,
+  totalPagesCount,
   onChange,
-  showPageSizeSelect,
-  showTotalCountInfo,
-  showJumpToPage,
-  pageSize,
-  dropDownTitle,
-  inputTitle
+  pageSizeSelect,
+  totalCountInfo,
+  breakLabel = '...',
+  pageRangeDisplayed = 3,
+  marginPagesDisplayed = 1,
+  jumpToPage
 }) => {
-  const [goToPage, setGoToPage] = useState(1);
-  const [count, setCount] = useState<number>(20);
-
-  const optionsValue = useMemo(() => pageSize.map((p) => ({ value: p.value, label: p.label })), [pageSize]);
-
-  const handleChange = useCallback((event) => {
-    onChange(event.selected + 1);
-  }, []);
+  const handlePaginationChange = useCallback(
+    (event: { selected: number }) => {
+      onChange(event.selected + 1);
+    },
+    [onChange]
+  );
 
   return (
     <div className={styles.PaginationWrapper}>
-      <div className={styles.PaginationInputWrapper}>
-        {showPageSizeSelect && (
-          <>
-            <Typography variant='p4' component='span' className={styles.SelectLabel}>
-              {dropDownTitle}
-            </Typography>
-            <div className={styles.PaginationSelectWrapper}>
-              <Select
-                renderInput={(value, isMenuOpen) => (
-                  <div
-                    style={{
-                      display: 'flex',
-                      color: '#505d6e',
-                      fontSize: '14px',
-                      justifyContent: 'center',
-                      alignItems: 'baseline'
-                    }}>
-                    <div>{value.label}</div>
-                    <span
-                      style={{
-                        color: '#505D6E',
-                        width: '2.4rem',
-                        height: '2.4rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        transform: isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
-                      }}>
-                      <svg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 10 5'>
-                        <path
-                          id='Shape'
-                          d='M.122,4.383,4.657.123a.572.572,0,0,1,.71,0l4.512,4.26c.273.239.056.617-.355.617H.476C.066,5-.152,4.622.122,4.383Z'
-                          fill='currentColor'
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                )}
-                inputLabel={null}
-                fullWidth
-                className={styles.SelectWrapper}
-                defaultValue={20}
-                maxLength={3}
-                options={optionsValue}
-                onChange={(e) => {
-                  setCount(e);
-                }}
-                isSearchable={false}
-                color='primary'
-              />
-            </div>{' '}
-          </>
-        )}
+      {(pageSizeSelect || totalCountInfo) && (
+        <div className={styles.PaginationInputWrapper}>
+          {pageSizeSelect && (
+            <>
+              <Typography variant='p4' component='span' className={styles.SelectLabel}>
+                {pageSizeSelect.dropdownLabel}
+              </Typography>
+              <div className={styles.PaginationSelectWrapper}>
+                <Select
+                  renderInput={(value, isMenuOpen) => (
+                    <div className={styles.PaginationPageSizeWrapper}>
+                      <div>{value?.label}</div>
+                      <span
+                        className={styles.PaginationPageSizeIcon}
+                        style={{
+                          transform: isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
+                        }}>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 10 5'>
+                          <path
+                            id='Shape'
+                            d='M.122,4.383,4.657.123a.572.572,0,0,1,.71,0l4.512,4.26c.273.239.056.617-.355.617H.476C.066,5-.152,4.622.122,4.383Z'
+                            fill='currentColor'
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  )}
+                  inputLabel={null}
+                  fullWidth
+                  className={styles.SelectWrapper}
+                  defaultValue={pageSizeSelect.defaultValue}
+                  options={pageSizeSelect.options}
+                  onChange={pageSizeSelect.onChange}
+                  isSearchable={false}
+                  color='primary'
+                />
+              </div>
+            </>
+          )}
 
-        {showTotalCountInfo && (
-          <div className={styles.CountNumbers}>
-            <Typography variant='p4' component='span'>
-              1-{count} of {totalCount}
-            </Typography>
-          </div>
-        )}
-      </div>
+          {totalCountInfo && (
+            <div className={styles.CountNumbers}>
+              <Typography variant='p4' component='span'>
+                {totalCountInfo}
+              </Typography>
+            </div>
+          )}
+        </div>
+      )}
 
       <div className={styles.PaginationFormContainer}>
         {page >= 1 && (
           <ReactPaginate
             className={styles.PaginationList}
-            onPageChange={handleChange}
-            breakLabel='...'
-            nextLabel={page > 1 ? <ArrowNext /> : null}
-            forcePage={goToPage}
-            pageRangeDisplayed={3}
-            pageCount={page}
-            marginPagesDisplayed={1}
-            previousLabel={page > 1 ? <ArrowPrev /> : null}
+            onPageChange={handlePaginationChange}
+            breakLabel={breakLabel}
+            nextLabel={<ArrowNext />}
+            forcePage={page - 1}
+            pageRangeDisplayed={pageRangeDisplayed}
+            pageCount={totalPagesCount}
+            marginPagesDisplayed={marginPagesDisplayed}
+            previousLabel={<ArrowPrev />}
             renderOnZeroPageCount={null}
           />
         )}
-        {showJumpToPage && <PaginationInput pageCount={page} setGoToPage={setGoToPage} inputTitle={inputTitle} />}
+
+        {jumpToPage && (
+          <PaginationInput
+            totalPagesCount={totalPagesCount}
+            onChange={(value) => {
+              handlePaginationChange({
+                selected: value
+              });
+            }}
+            inputTitle={jumpToPage.inputTitle}
+            placeholder={jumpToPage.placeholder}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
-import { number, withKnobs, boolean, object, text } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
-import React from 'react';
+import { number, object, withKnobs } from '@storybook/addon-knobs';
+import React, { useState } from 'react';
 import Pagination from './Pagination';
 
 export default {
@@ -10,30 +9,38 @@ export default {
 };
 
 export const Default = () => {
+  const [page, setPage] = useState(1);
+  const [rowPerPage, setRowPerPage] = useState<string | number>(20);
+
   return (
     <Pagination
-      page={number('page', 94)}
-      totalCount={number('totalCount', 365)}
-      onChange={action('onChange')}
-      showPageSizeSelect={boolean('showPageSizeSelect', true)}
-      showTotalCountInfo={boolean('showTotalCountInfo', true)}
-      showJumpToPage={boolean('showJumpToPage', true)}
-      pageSize={object('pageSize', [
-        {
-          label: '20',
-          value: 20
-        },
-        {
-          label: '30',
-          value: 30
-        },
-        {
-          label: '40',
-          value: 40
-        }
-      ])}
-      dropDownTitle={text('dropDownTitle', 'Row per page:')}
-      inputTitle={text('inputTitle', 'Jump to Page')}
+      page={page}
+      onChange={setPage}
+      totalPagesCount={number('totalPagesCount', 365)}
+      pageSizeSelect={object('pageSizeSelect', {
+        dropdownLabel: 'Row per page: ',
+        options: [
+          {
+            label: '20',
+            value: 20
+          },
+          {
+            label: '30',
+            value: 30
+          },
+          {
+            label: '40',
+            value: 40
+          }
+        ],
+        defaultValue: rowPerPage,
+        onChange: setRowPerPage
+      })}
+      jumpToPage={object('jumpToPage', {
+        inputTitle: 'Jump to page',
+        placeholder: '155'
+      })}
+      totalCountInfo={`1-${rowPerPage} of ${number('totalPagesCount', 365)}`}
     />
   );
 };

@@ -16,7 +16,6 @@ export const SearchControl: typeof components.Control = (props) => {
   const menuToggle = useCallback(() => {
     if (!isMenuOpen) {
       selectProps.onMenuOpen();
-      setSearchValue('');
 
       setIsMenuOpen(!isMenuOpen);
     }
@@ -27,7 +26,7 @@ export const SearchControl: typeof components.Control = (props) => {
     selectProps.onMenuClose();
 
     if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue.label);
-  }, []);
+  }, [currentValue]);
 
   const onSearchValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +50,8 @@ export const SearchControl: typeof components.Control = (props) => {
       if (currentValue.length === 1) return setSearchValue(currentValue[0].label);
 
       // Show all value
-      if (currentValue.length === selectProps.options.length) return setSearchValue(selectProps.selectAllLabel);
+      if (selectProps.options.length && currentValue.length === selectProps.options.length)
+        return setSearchValue(selectProps.selectAllLabel);
 
       // Show selected values count
       if (currentValue.length > 1) setSearchValue(selectProps.renderInputSelectedLabel(currentValue.length));
@@ -61,7 +61,7 @@ export const SearchControl: typeof components.Control = (props) => {
   }, [currentValue, isMenuOpen]);
 
   useEffect(() => {
-    if (!props.selectProps.inputValue && searchValue) setSearchValue('');
+    if (!props.selectProps.inputValue && searchValue && !currentValue) setSearchValue('');
   }, [props.selectProps.inputValue]);
 
   return (

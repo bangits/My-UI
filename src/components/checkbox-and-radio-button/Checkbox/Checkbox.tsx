@@ -1,16 +1,28 @@
 import { getMyUIPrefix } from '@/configs';
 import { typedMemo } from '@/helpers';
 import { CheckIcon } from '@/icons';
-import { IComponent, UIColors } from '@/types';
+import { ComponentType, IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
 import React from 'react';
 import styles from './Checkbox.module.scss';
 export interface CheckboxProps extends IComponent, React.InputHTMLAttributes<HTMLInputElement> {
   color?: UIColors;
+  checkboxContainerProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+  labelComponent?: ComponentType;
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ color = 'primary', className, style, ...checkboxProps }, ref) => {
+  (
+    {
+      color = 'primary',
+      className,
+      style,
+      labelComponent: LabelComponent = 'label',
+      checkboxContainerProps = {},
+      ...checkboxProps
+    },
+    ref
+  ) => {
     return (
       <div
         className={classNames(
@@ -21,13 +33,14 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           className,
           `${getMyUIPrefix()}-CheckboxContainer`
         )}
-        style={style}>
+        style={style}
+        {...checkboxContainerProps}>
         <div className={classNames(styles.CheckboxContainer, `${getMyUIPrefix()}-CheckboxContainer`)}>
-          <label className={`${getMyUIPrefix()}-CheckboxLabel`}>
+          <LabelComponent className={`${getMyUIPrefix()}-CheckboxLabel`}>
             <input {...checkboxProps} className={`${getMyUIPrefix()}-CheckboxInput`} type='checkbox' ref={ref} />
 
             <CheckIcon className={styles.CheckboxIcon} />
-          </label>
+          </LabelComponent>
         </div>
       </div>
     );

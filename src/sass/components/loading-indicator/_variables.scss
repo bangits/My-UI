@@ -19,7 +19,8 @@ $loadingindicator-sizes: (
   trash-icon-margin: calculateRem(6px),
   dropzone-width: calculateRem(284px),
   dropzone-height: calculateRem(42px),
-  dropzone-base-height: calculateRem(38px)
+  dropzone-base-height: calculateRem(38px),
+  game-indicator-sizes: calculateRem(24px)
 );
 
 $loadingindicator-colors: (

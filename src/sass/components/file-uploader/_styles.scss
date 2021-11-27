@@ -13,6 +13,7 @@
     @include flex(center, center);
     @include theme(color, black-color);
     @include theme(stroke, black-color);
+    transition: 0.2s;
 
     &:disabled {
       @include theme(color, black-color, $opacity: 0.4);
@@ -31,6 +32,7 @@
     height: getFileUploaderSizes(dropzone-base-height);
     @include theme(color, dropzone-base-color);
     @include flex(center, center);
+    transition: 0.2s ease-out;
 
     &--upload {
       position: absolute;

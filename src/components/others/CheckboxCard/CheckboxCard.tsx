@@ -1,84 +1,53 @@
 import { getMyUIPrefix } from '@/configs';
-import { ChromeIcon, OperaIcon } from '@/icons';
+import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
-import React from 'react';
+import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 import styles from './CheckboxCard.module.scss';
 
-const CheckboxCard = () => {
+export interface CheckboxCard extends IComponent {
+  icon?: ReactNode;
+  label?: string;
+  color?: UIColors;
+  disabled?: boolean;
+  defaultSelected?: boolean;
+  onChange?: (value: boolean) => void;
+}
+
+const CheckboxCard: FC<CheckboxCard> = ({ color, label, icon, disabled, defaultSelected = false, onChange }) => {
+  const [selected, setSelected] = useState<boolean>(defaultSelected);
+
+  useEffect(() => {
+    if (onChange) onChange(selected);
+  }, [selected]);
+
+  const onClickHandler = useCallback(() => {
+    setSelected(!selected);
+  }, [selected, setSelected]);
+
   return (
     <>
       <div
+        onClick={!disabled ? onClickHandler : null}
         className={classNames(
           styles['CheckboxCardList'],
-          styles['CheckboxCardList--primary'],
-          `${getMyUIPrefix()}-CheckboxCardList--primary`,
+          styles[`CheckboxCardList--${color}`],
+          `${getMyUIPrefix()}-CheckboxCardList--${color}`,
           `${getMyUIPrefix()}-CheckboxCardList`
         )}>
         <div
-          className={classNames(
-            styles['CheckboxCard'],
-            styles['CheckboxCard--selected'],
-            `${getMyUIPrefix()}-CheckboxCard`,
-            `${getMyUIPrefix()}-CheckboxCard--selected`
-          )}>
+          className={classNames(styles['CheckboxCard'], `${getMyUIPrefix()}-CheckboxCard`, {
+            [styles[`CheckboxCard--disable`]]: disabled,
+            [styles['CheckboxCard--selected']]: selected,
+            [`${getMyUIPrefix()}-CheckboxCard--selected`]: selected
+          })}>
           <div
             className={classNames(
               styles['CheckboxCard__ElementsGroup'],
               `${getMyUIPrefix()}-CheckboxCard__ElementsGroup`
             )}>
-            <OperaIcon width='30px' />
+            {icon}
             <span className={classNames(styles['CheckboxCard__Label'], `${getMyUIPrefix()}-CheckboxCard__Label`)}>
-              Opera
-            </span>
-          </div>
-        </div>
-        <div
-          className={classNames(
-            styles['CheckboxCard'],
-            styles['CheckboxCard--selected'],
-            styles['CheckboxCard--disable'],
-            `${getMyUIPrefix()}-CheckboxCard`,
-            `${getMyUIPrefix()}-CheckboxCard--selected`,
-            `${getMyUIPrefix()}-CheckboxCard--disable`
-          )}>
-          <div
-            className={classNames(
-              styles['CheckboxCard__ElementsGroup'],
-              `${getMyUIPrefix()}-CheckboxCard__ElementsGroup`
-            )}>
-            <OperaIcon width='30px' />
-            <span className={classNames(styles['CheckboxCard__Label'], `${getMyUIPrefix()}-CheckboxCard__Label`)}>
-              Opera
-            </span>
-          </div>
-        </div>
-        <div
-          className={classNames(
-            styles['CheckboxCard'],
-            styles['CheckboxCard--disable'],
-            `${getMyUIPrefix()}-CheckboxCard`,
-            `${getMyUIPrefix()}-CheckboxCard--disable`
-          )}>
-          <div
-            className={classNames(
-              styles['CheckboxCard__ElementsGroup'],
-              `${getMyUIPrefix()}-CheckboxCard__ElementsGroup`
-            )}>
-            <ChromeIcon width='30px' />
-            <span className={classNames(styles['CheckboxCard__Label'], `${getMyUIPrefix()}-CheckboxCard__Label`)}>
-              Chrome
-            </span>
-          </div>
-        </div>
-        <div className={classNames(styles['CheckboxCard'], `${getMyUIPrefix()}-CheckboxCard`)}>
-          <div
-            className={classNames(
-              styles['CheckboxCard__ElementsGroup'],
-              `${getMyUIPrefix()}-CheckboxCard__ElementsGroup`
-            )}>
-            <ChromeIcon width='30px' />
-            <span className={classNames(styles['CheckboxCard__Label'], `${getMyUIPrefix()}-CheckboxCard__Label`)}>
-              Chrome
+              {label}
             </span>
           </div>
         </div>

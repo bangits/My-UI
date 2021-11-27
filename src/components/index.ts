@@ -3,6 +3,7 @@ export * from './avatar-card';
 export * from './card-img';
 export * from './checkbox-and-radio-button';
 export * from './dropdowns';
+export * from './file-uploader';
 export * from './inputs-and-elements';
 export * from './loading-indicator';
 export * from './navigation';

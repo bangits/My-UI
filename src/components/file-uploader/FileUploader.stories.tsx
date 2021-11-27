@@ -1,5 +1,6 @@
 import CardImg from '@/components/card-img/CardImg';
-import { withKnobs } from '@storybook/addon-knobs';
+import { FileUploaderErrors, Typography } from '@/my-ui-core';
+import { number, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import FileUploader from './FileUploader';
 
@@ -24,7 +25,9 @@ export const Default = () => {
             reader.onload = () => {
               const fileRes = btoa(reader.result as string);
 
-              setPreview(`data:image/jpg;base64,${fileRes}`);
+              setTimeout(() => {
+                setPreview(`data:image/jpg;base64,${fileRes}`);
+              }, 2000);
             };
 
             reader.onerror = () => {
@@ -37,15 +40,44 @@ export const Default = () => {
         onError={(error) => {
           setError(error);
         }}
-        loadingPercent={70}
+        loadingPercent={75}
+        imageURL={
+          !preview
+            ? 'https://cutewallpaper.org/21/loading-gif-transparent-background/Download-Loading-Gif-Generator-Transparent-Background-PNG-.gif'
+            : preview
+        }
+        minWidth={number('minWidth', 40)}
+        maxWidth={number('maxWidth', 2000)}
+        minHeight={number('minHeight', 40)}
+        maxHeight={number('maxHeight', 2000)}
+        minSize={number('minSize', 1000)}
+        maxSize={number('maxSize', 5000000)}
+        accept={text('accept', 'image')}
       />
 
       <br />
       <br />
 
       <div style={{ width: 280 }}>
-        <CardImg title='Uploaded Image' image={error ? '' : preview} />
+        <CardImg title='Uploaded Image' image={preview} />
       </div>
+      <br />
+      <br />
+      <Typography color='danger'>
+        {error && error.type === FileUploaderErrors.MAX_HEIGHT
+          ? 'Height is big!'
+          : error?.type === FileUploaderErrors.MAX_HEIGHT
+          ? 'Height is small!'
+          : error?.type === FileUploaderErrors.MAX_WIDTH
+          ? 'Width is big!'
+          : error?.type === FileUploaderErrors.MIN_WIDTH
+          ? 'Width is small!'
+          : error?.type === FileUploaderErrors.MIN_SIZE
+          ? 'Size is small!'
+          : error?.type === FileUploaderErrors.MAX_SIZE
+          ? 'Size is big!'
+          : ''}
+      </Typography>
     </>
   );
 };

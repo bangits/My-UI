@@ -1,7 +1,7 @@
 import { LoadingIndicator, Typography } from '@/my-ui-core';
 import classNames from 'classnames';
 import React, { FC, useCallback, useState } from 'react';
-import { FileUploaderErrors } from '.';
+import { FileUploaderErrors } from './file-uploader-enums';
 import styles from './FileUploader.module.scss';
 
 export interface FileUploaderProps {
@@ -15,6 +15,7 @@ export interface FileUploaderProps {
   onChange?: (file: File) => void;
   onError?: (error: { type: FileUploaderErrors; file: File }) => void;
   loadingPercent?: number;
+  imageURL?: string;
 }
 
 const FileUploader: FC<FileUploaderProps> = ({
@@ -22,16 +23,18 @@ const FileUploader: FC<FileUploaderProps> = ({
   maxWidth = 2000,
   minHeight = 40,
   maxHeight = 2000,
-  minSize,
-  maxSize,
+  minSize = 1000,
+  maxSize = 5000000,
   accept = 'image/*',
   loadingPercent,
+  imageURL,
   onChange,
   onError
 }) => {
   const [highlight, setHighlight] = useState<boolean>(false);
   const [drop, setDrop] = useState<boolean>(false);
   const [uploadedFile, setUploadedFile] = useState<any>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleEnter = useCallback(
     (e) => {
@@ -62,33 +65,6 @@ const FileUploader: FC<FileUploaderProps> = ({
     [setHighlight]
   );
 
-  function readImage(file) {
-    const reader = new FileReader();
-    const image = new Image();
-
-    reader.readAsDataURL(file);
-    reader.onload = (_file): void => {
-      image.src = _file.target.result as string;
-      image.onload = function () {
-        //@ts-ignore
-        if (this.width > maxWidth && onError) {
-          onError({ type: FileUploaderErrors.MAX_WIDTH, file: file });
-        } //@ts-ignore
-        else if (this.width < minWidth && onError) {
-          onError({ type: FileUploaderErrors.MIN_WIDTH, file: file });
-        }
-        //@ts-ignore
-        else if (this.height > maxHeight && onError) {
-          onError({ type: FileUploaderErrors.MAX_HEIGHT, file: file });
-        }
-        //@ts-ignore
-        else if (this.height < minHeight && onError) {
-          onError({ type: FileUploaderErrors.MIN_HEIGHT, file: file });
-        }
-      };
-    };
-  }
-
   const handleUpload = useCallback(
     (e) => {
       e.preventDefault();
@@ -99,25 +75,51 @@ const FileUploader: FC<FileUploaderProps> = ({
 
       const [file] = e.target.files || e.dataTransfer.files;
 
-      if (file.size > maxSize && onError) {
-        onError({ type: FileUploaderErrors.MAX_SIZE, file: file });
-      } else if (file.size < minSize && onError) {
-        onError({ type: FileUploaderErrors.MIN_SIZE, file: file });
-      }
       if (accept.includes('image')) {
-        readImage(file);
+        const reader = new FileReader();
+        const image = new Image();
+
+        reader.readAsDataURL(file);
+        reader.onload = (_file): void => {
+          image.src = _file.target.result as string;
+          image.onload = function () {
+            if (image.width > maxWidth && onError) {
+              return onError({ type: FileUploaderErrors.MAX_WIDTH, file: file });
+            } else if (image.width < minWidth && onError) {
+              return onError({ type: FileUploaderErrors.MIN_WIDTH, file: file });
+            } else if (image.height > maxHeight && onError) {
+              return onError({ type: FileUploaderErrors.MAX_HEIGHT, file: file });
+            } else if (image.height < minHeight && onError) {
+              return onError({ type: FileUploaderErrors.MIN_HEIGHT, file: file });
+            } else if (file.size > maxSize && onError) {
+              return onError({ type: FileUploaderErrors.MAX_SIZE, file: file });
+            } else if (file.size < minSize && onError) {
+              return onError({ type: FileUploaderErrors.MIN_SIZE, file: file });
+            } else {
+              onChange(file);
+              setIsLoading(true);
+            }
+          };
+        };
+      }
+
+      if (file.size > maxSize && onError && !accept.includes('image')) {
+        return onError({ type: FileUploaderErrors.MAX_SIZE, file: file });
+      } else if (file.size < minSize && onError && !accept.includes('image')) {
+        return onError({ type: FileUploaderErrors.MIN_SIZE, file: file });
+      } else if (!accept.includes('image')) {
+        onChange(file);
+        setIsLoading(true);
       }
 
       setUploadedFile(file);
-      onError(null);
-      onChange(file);
     },
     [onChange, setHighlight, setDrop, drop, onError]
   );
 
   return (
     <>
-      {!drop ? (
+      {!isLoading ? (
         <div
           onDragEnter={(e) => handleEnter(e)}
           onDragLeave={(e) => handleLeave(e)}
@@ -151,8 +153,10 @@ const FileUploader: FC<FileUploaderProps> = ({
           onClick={() => {
             setDrop(false);
             onChange(null);
+            setIsLoading(false);
           }}
           label={uploadedFile?.name}
+          imageSrc={imageURL}
         />
       )}
     </>

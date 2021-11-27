@@ -1,5 +1,5 @@
 import { typedMemo } from '@/helpers';
-import { GameIndicator, TrashIndicator } from '@/icons';
+import { TrashIndicator } from '@/icons';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';
@@ -15,7 +15,14 @@ export interface LoadingIndicatorProps {
   label?: string;
 }
 
-const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circle', color, onClick, label }) => {
+const LoadingIndicator: FC<LoadingIndicatorProps> = ({
+  percent,
+  variant = 'circle',
+  color,
+  onClick,
+  label,
+  imageSrc
+}) => {
   return (
     <>
       {variant === 'circle' ? (
@@ -69,7 +76,7 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
           <div className={styles.UploadWrapper}>
             <div className={styles.GameIndicatorIconWrapper}>
               <span className={styles.GameIndicatorIcon}>
-                <GameIndicator />
+                <img src={imageSrc} alt='' />
               </span>
               <span className={styles.ImageFormatLabel}>{label}</span>
             </div>

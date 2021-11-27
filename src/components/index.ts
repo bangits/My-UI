@@ -4,6 +4,7 @@ export * from './card-img';
 export * from './checkbox-and-radio-button';
 export * from './dropdowns';
 export * from './inputs-and-elements';
+export * from './loading-indicator';
 export * from './navigation';
 export * from './others';
 export * from './shared';

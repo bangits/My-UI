@@ -1,7 +1,7 @@
 import { Typography } from '@/my-ui-core';
+import { IComponent } from '@/types';
 import React, { FC } from 'react';
 import styles from './CardImg.module.scss';
-import { IComponent } from '@/types';
 export interface CardImgProps extends IComponent {
   title: string;
   image?: string;

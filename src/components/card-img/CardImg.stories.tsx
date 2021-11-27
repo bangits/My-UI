@@ -1,7 +1,6 @@
-import { number, withKnobs, text } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import CardImg from './CardImg';
-import styles from './CardImg.module.scss';
 
 export default {
   component: CardImg,

@@ -2,7 +2,7 @@ import { getComponentName, getColorKnobs } from '@/configs';
 import { boolean, withKnobs, text } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import TestCheckboxCard from './TestCheckboxCard';
-import { ChromeIcon, OperaIcon } from '@/icons';
+import { ChromeIcon, OperaIcon, FirefoxIcon, SafariIcon, EdgeIcon } from '@/icons';
 import styles from './TestCheckboxCard.module.scss';
 
 export default {
@@ -24,6 +24,24 @@ export const Default = () => {
         icon={<ChromeIcon width='30px' />}
         color={getColorKnobs()}
         cardLabel={text('label', 'Chrome')}
+        disabled={boolean('disabled', false)}
+      />
+      <TestCheckboxCard
+        icon={<SafariIcon width='30px' />}
+        color={getColorKnobs()}
+        cardLabel={text('label', 'Safari')}
+        disabled={boolean('disabled', false)}
+      />
+      <TestCheckboxCard
+        icon={<FirefoxIcon width='30px' />}
+        color={getColorKnobs()}
+        cardLabel={text('label', 'Firefox')}
+        disabled={boolean('disabled', false)}
+      />
+      <TestCheckboxCard
+        icon={<EdgeIcon width='30px' />}
+        color={getColorKnobs()}
+        cardLabel={text('label', 'Edge')}
         disabled={boolean('disabled', false)}
       />
     </div>

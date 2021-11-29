@@ -1,7 +1,7 @@
 import { getColorKnobs } from '@/configs';
 import { ChromeIcon, OperaIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
-import { boolean, withKnobs } from '@storybook/addon-knobs';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import CheckboxCard from './CheckboxCard';
 
 export default {
@@ -17,7 +17,7 @@ export const Default = () => {
         <CheckboxCard
           color={getColorKnobs()}
           disabled={boolean('disabledOpera', false)}
-          label='Opera'
+          label={text('labelOpera', 'Opera')}
           icon={<OperaIcon width='30px' />}
           onChange={action('onChangeOpera')}
         />
@@ -25,7 +25,7 @@ export const Default = () => {
       <CheckboxCard
         color={getColorKnobs()}
         disabled={boolean('disabledChrome', false)}
-        label='Chrome'
+        label={text('labelChrome', 'Chrome')}
         icon={<ChromeIcon width='30px' />}
         onChange={action('onChangeChrome')}
       />

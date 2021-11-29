@@ -24,25 +24,28 @@ const DateTimePicker: FC<CustomTimePickerProps> = ({ onChange, ...datePickerProp
       <div className={styles.TimePickerWrapper}>
         <div className={styles.TimeContainer}></div>
         <CustomNumbersScroll quantity={24} adjustPlace={20} /* onValueChange={(value) => console.log(value)} */ />
-        <CustomNumbersScroll quantity={60} adjustPlace={56} />
+        <CustomNumbersScroll quantity={60} adjustPlace={56} className={styles.ScrollContent} />
         <CustomNumbersScroll quantity={60} adjustPlace={56} /* onValueChange={(value) => console.log(value)} */ />
       </div>
     );
   };
 
   return (
-    <DatePicker
-      {...datePickerProps}
-      shouldCloseOnSelect={onClose}
-      dateFormat={datePickerProps.dateFormat || "dd-MM-yyyy' 'HH:mm:ss"}
-      showTimeInput
-      selected={startDate}
-      onChange={(date: Date) => {
-        setStartDate(addTime(date, getHour, getMinute, getSeconds));
-      }}
-      customTimeInput={<CustomTimePicker />}>
-      <Button>Ok</Button>
-    </DatePicker>
+    <div className={styles.TimePickerBase}>
+      <DatePicker
+        {...datePickerProps}
+        shouldCloseOnSelect={onClose}
+        dateFormat={datePickerProps.dateFormat || "dd-MM-yyyy' 'HH:mm:ss"}
+        showTimeInput
+        selected={startDate}
+        onChange={(date: Date) => {
+          setStartDate(addTime(date, getHour, getMinute, getSeconds));
+        }}
+        customTimeInput={<CustomTimePicker />}>
+        <hr className={styles.TimePickerDivider} />
+        <Button className={styles.TimePickerButton}>Ok</Button>
+      </DatePicker>
+    </div>
   );
 };
 

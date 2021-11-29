@@ -1,0 +1,38 @@
+@mixin generate-infiniteloop-styles {
+  .InfiniteScrollLoopWrapper {
+    width: getInfiniteLoopScrollSizes(infinite-scroll-loop-wrapper-width);
+    height: getInfiniteLoopScrollSizes(infinite-scroll-loop-wrapper-height);
+    overflow-y: hidden;
+    box-sizing: border-box;
+    @include theme(border, border-color, solid 1px);
+    border-radius: getInfiniteLoopScrollSizes(infinite-scroll-loop-wrapper-border-radius);
+
+    .InfiniteNumberContainer {
+      @include flex(center, center, $direction: column);
+      font-size: getInfiniteLoopScrollSizes(infinite-number-font-size);
+      height: getInfiniteLoopScrollSizes(infinite-number-height);
+      margin-bottom: getInfiniteLoopScrollSizes(infinite-number-margin);
+    }
+  }
+  .InfiniteScrollLoop {
+    &-outer {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+    &-inner {
+      overflow-y: scroll;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

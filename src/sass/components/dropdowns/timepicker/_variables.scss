@@ -1,7 +1,20 @@
 $datetimepicker-sizes: (
   time-container-width: calculateRem(84px),
   time-container-height: calculateRem(38px),
-  time-container-position: calculateRem(114px)
+  time-container-position: calculateRem(114px),
+  timepicker-button-position: calculateRem(24px),
+  timepicker-button-width: calculateRem(131px),
+  time-picker-wrapper-margin: calculateRem(24px) calculateRem(8px) 0 calculateRem(37px),
+  react-datepicker-height: calculateRem(453px),
+  react-datepicker-navigation-next-position-left: calculateRem(269px),
+  divider-position-bottom: calculateRem(78px),
+  divider-position-left: calculateRem(30px),
+  divider-position-width: calculateRem(560px),
+  scroll-content-margin: 0 calculateRem(4px)
+);
+
+$datetimepicker-colors: (
+  divider-color: color(alabaster)
 );
 
 @function getDateTimePickerSizes($property) {

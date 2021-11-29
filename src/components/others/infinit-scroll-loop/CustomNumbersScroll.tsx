@@ -1,8 +1,11 @@
 import { typedMemo } from '@/helpers';
+import { IComponent } from '@/types';
+import classNames from 'classnames';
 import React, { FC, useCallback, useState } from 'react';
 import InfiniteScrollLoop from './InfiniteScrollLoop';
+import styles from './InfiniteScrollLoop.module.scss';
 
-export interface CustomNumbersScrollProps {
+export interface CustomNumbersScrollProps extends IComponent {
   quantity: number;
   adjustPlace: number;
   onValueChange?: (value: number) => void;
@@ -13,7 +16,8 @@ const CustomNumbersScroll: FC<CustomNumbersScrollProps> = ({
   quantity,
   adjustPlace,
   onValueChange,
-  surroundingBackup
+  surroundingBackup,
+  className
 }) => {
   const [value, setValue] = useState<any>();
 
@@ -24,29 +28,16 @@ const CustomNumbersScroll: FC<CustomNumbersScrollProps> = ({
   }, []);
 
   return (
-    <div
-      style={{
-        border: '1px solid #8EA6C1',
-        borderRadius: 16,
-        width: 84,
-        height: 293,
-        overflowY: 'hidden'
-      }}>
+    <div className={classNames(styles.InfiniteScrollLoopWrapper, className)}>
       <InfiniteScrollLoop surroundingBackup={surroundingBackup} onScrollChange={onScrollHandler}>
         {Array(quantity)
           .fill(null)
           .map((h, i) => (
             <span
+              className={styles.InfiniteNumberContainer}
               key={i}
               style={{
-                color: i === 4 ? 'red' : '',
-                fontSize: 18,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginBottom: '0.8rem',
-                height: '3.8rem'
+                color: i === 4 ? 'red' : ''
               }}>
               {i + 1}
             </span>

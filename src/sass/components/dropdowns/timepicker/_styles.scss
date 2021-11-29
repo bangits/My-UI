@@ -1,7 +1,26 @@
 @mixin generate-datetimepicker-styles {
+  .TimePickerBase {
+    :global {
+      .react-datepicker {
+        height: getDateTimePickerSizes(react-datepicker-height);
+        &__navigation--next {
+          left: getDateTimePickerSizes(react-datepicker-navigation-next-position-left);
+        }
+      }
+    }
+    .TimePickerDivider {
+      position: absolute;
+      width: getDateTimePickerSizes(divider-position-width);
+      bottom: getDateTimePickerSizes(divider-position-bottom);
+      left: getDateTimePickerSizes(divider-position-left);
+      @include theme(border, divider-color, solid 1px);
+    }
+  }
+
   .TimePickerWrapper {
     @include flex();
     position: relative;
+    margin: getDateTimePickerSizes(time-picker-wrapper-margin);
     .TimeContainer {
       width: getDateTimePickerSizes(time-container-width);
       height: getDateTimePickerSizes(time-container-height);
@@ -9,5 +28,15 @@
       top: getDateTimePickerSizes(time-container-position);
       @include theme(background-color, primary, $opacity: 0.1);
     }
+    .ScrollContent {
+      margin: getDateTimePickerSizes(scroll-content-margin);
+    }
+  }
+
+  .TimePickerButton {
+    position: absolute;
+    width: getDateTimePickerSizes(timepicker-button-width);
+    bottom: getDateTimePickerSizes(timepicker-button-position);
+    right: getDateTimePickerSizes(timepicker-button-position);
   }
 }

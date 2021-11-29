@@ -6,6 +6,7 @@
       .react-datepicker {
         @include theme(background-color, primary--color);
         @include flex;
+        position: relative;
 
         padding-bottom: getDatePickerSizes(datePicker-wrapper-padding-bottom);
         padding: getDatePickerSizes(datePicker-padding);
@@ -15,6 +16,7 @@
         height: getDatePickerSizes(datePicker-month-container-min-height);
 
         &__navigation-icon--previous,
+        &-time__caption,
         &__navigation-icon--next {
           display: none;
         }

@@ -4,5 +4,6 @@ export enum FileUploaderErrors {
   MAX_HEIGHT = 'MAX_HEIGHT',
   MIN_HEIGHT = 'MIN_HEIGHT',
   MAX_SIZE = 'MAX_SIZE',
-  MIN_SIZE = 'MIN_SIZE'
+  MIN_SIZE = 'MIN_SIZE',
+  TYPE = 'WRONG_TYPE'
 }

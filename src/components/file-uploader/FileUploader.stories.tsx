@@ -14,11 +14,34 @@ export const Default = () => {
   const [preview, setPreview] = React.useState('');
   const [error, setError] = React.useState<any>();
 
+  /*   useEffect(() => {}, [error]); */
+
+  const showErrors = (error) => (
+    <>
+      {error && error.type === FileUploaderErrors.MAX_HEIGHT
+        ? 'Height is big!'
+        : error?.type === FileUploaderErrors.MAX_HEIGHT
+        ? 'Height is small!'
+        : error?.type === FileUploaderErrors.MAX_WIDTH
+        ? 'Width is big!'
+        : error?.type === FileUploaderErrors.MIN_WIDTH
+        ? 'Width is small!'
+        : error?.type === FileUploaderErrors.MIN_SIZE
+        ? 'Size is small!'
+        : error?.type === FileUploaderErrors.MAX_SIZE
+        ? 'Size is big!'
+        : error?.type === FileUploaderErrors.TYPE
+        ? 'Wrong Type !'
+        : ''}
+    </>
+  );
+
   return (
     <>
       <FileUploader
         onChange={(file) => {
           if (file) {
+            setError('');
             const reader = new FileReader();
             reader.readAsBinaryString(file);
 
@@ -52,7 +75,7 @@ export const Default = () => {
         maxHeight={number('maxHeight', 2000)}
         minSize={number('minSize', 1000)}
         maxSize={number('maxSize', 5000000)}
-        accept={text('accept', 'image')}
+        accept={text('accept', 'image/*')}
       />
 
       <br />
@@ -63,21 +86,7 @@ export const Default = () => {
       </div>
       <br />
       <br />
-      <Typography color='danger'>
-        {error && error.type === FileUploaderErrors.MAX_HEIGHT
-          ? 'Height is big!'
-          : error?.type === FileUploaderErrors.MAX_HEIGHT
-          ? 'Height is small!'
-          : error?.type === FileUploaderErrors.MAX_WIDTH
-          ? 'Width is big!'
-          : error?.type === FileUploaderErrors.MIN_WIDTH
-          ? 'Width is small!'
-          : error?.type === FileUploaderErrors.MIN_SIZE
-          ? 'Size is small!'
-          : error?.type === FileUploaderErrors.MAX_SIZE
-          ? 'Size is big!'
-          : ''}
-      </Typography>
+      <Typography color='danger'>{error ? showErrors(error) : ''}</Typography>
     </>
   );
 };

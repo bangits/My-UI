@@ -138,7 +138,16 @@ const FileUploader: FC<FileUploaderProps> = ({
                   type='file'
                   title=''
                   accept={accept}
-                  onChange={(e) => handleUpload(e)}
+                  onChange={(e) => {
+                    if (new RegExp(e.target?.accept?.replace('*', '.*')).test(e.target?.files[0]?.type)) {
+                      handleUpload(e);
+                    } else {
+                      onError({
+                        type: FileUploaderErrors.TYPE,
+                        file: e.target.files[0]
+                      });
+                    }
+                  }}
                   className={styles['DropzoneBase--upload']}
                 />
               )}

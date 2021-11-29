@@ -81,6 +81,7 @@
         .TrashUploadIcon {
           @include theme(color, indicator-trash-color);
           margin-right: getLoadingIndicatorSizes(trash-icon-margin);
+          cursor: pointer;
         }
       }
     }

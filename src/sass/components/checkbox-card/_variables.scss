@@ -11,7 +11,7 @@ $checkbox-card-sizes: (
   checkbox-card-label-font-size: calculateRem(14px),
   checkbox-card-label-line-height: calculateRem(17px),
   checkbox-card-label-padding-top: calculateRem(8px),
-  checkbox-card-padding: calculateRem(8px) calculateRem(8px) calculateRem(8px) calculateRem(5px)
+  checkbox-card-padding: calculateRem(8px)
 );
 
 @function getCheckboxCardSizes($property) {

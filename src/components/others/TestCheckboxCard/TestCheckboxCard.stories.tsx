@@ -3,6 +3,7 @@ import { boolean, withKnobs, text } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import TestCheckboxCard from './TestCheckboxCard';
 import { ChromeIcon, OperaIcon } from '@/icons';
+import styles from './TestCheckboxCard.module.scss';
 
 export default {
   component: TestCheckboxCard,
@@ -12,11 +13,19 @@ export default {
 
 export const Default = () => {
   return (
-    <TestCheckboxCard
-      icon={<OperaIcon width='30px' />}
-      color={getColorKnobs()}
-      cardLabel={text('label', 'Opera')}
-      disabled={boolean('disabled', false)}
-    />
+    <div className={styles['CheckboxCardList']}>
+      <TestCheckboxCard
+        icon={<OperaIcon width='30px' />}
+        color={getColorKnobs()}
+        cardLabel={text('label', 'Opera')}
+        disabled={boolean('disabled', false)}
+      />
+      <TestCheckboxCard
+        icon={<ChromeIcon width='30px' />}
+        color={getColorKnobs()}
+        cardLabel={text('label', 'Chrome')}
+        disabled={boolean('disabled', false)}
+      />
+    </div>
   );
 };

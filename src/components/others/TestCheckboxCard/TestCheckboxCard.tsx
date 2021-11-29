@@ -1,7 +1,7 @@
 import { getMyUIPrefix } from '@/configs';
 import { ChromeIcon, OperaIcon } from '@/icons';
 import classNames from 'classnames';
-import React, { FC, HTMLAttributes, DetailedHTMLProps } from 'react';
+import React, { FC, HTMLAttributes, DetailedHTMLProps, useState } from 'react';
 import styles from './TestCheckboxCard.module.scss';
 import { UIColors } from '@/types';
 import { withKnobs, text } from '@storybook/addon-knobs';
@@ -10,23 +10,23 @@ export interface TestCheckboxCardProps extends DetailedHTMLProps<HTMLAttributes<
   color?: UIColors;
   cardLabel?: string;
   icon?: any;
-  disabled?: any;
+  disabled?: boolean;
 }
 
 const TestCheckboxCard: FC<TestCheckboxCardProps> = ({ color, icon, children, cardLabel, disabled, ...props }) => {
+  const [active, setActive] = useState(false);
   return (
     <>
       <div
+        onClick={() => setActive(!active)}
         {...props}
         className={classNames(
           styles['CheckboxCard'],
-          styles['CheckboxCard'],
-          styles[`CheckboxCard--${color}`],
-          styles[`CheckboxCard--${disabled}`],
+          active ? styles[`CheckboxCard--${color}`] : null,
+          disabled ? styles[`CheckboxCard--disable`] : null,
           `${getMyUIPrefix()}-CheckboxCard`,
-          `${getMyUIPrefix()}-CheckboxCard--selected`,
           `${getMyUIPrefix()}-CheckboxCard--${color}`,
-          `${getMyUIPrefix()}-CheckboxCard--${disabled}`
+          disabled ? `${getMyUIPrefix()}-CheckboxCard--disable` : null
         )}>
         <div
           className={classNames(

@@ -4,6 +4,7 @@
   }
 
   .CheckboxCard {
+    $block: &;
     padding: getCheckboxCardSizes(checkbox-card-padding);
     word-break: break-word;
     border-radius: getCheckboxCardSizes(checkbox-card-border-radius);
@@ -40,7 +41,12 @@
     }
 
     &__ElementsGroup {
-      @include flex(null, center, column, wrap);
+      @include flex($justify-content: center, $flex-wrap: wrap);
+      #{$block}__Label {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
     }
   }
 

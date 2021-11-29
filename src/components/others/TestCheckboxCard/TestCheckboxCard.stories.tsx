@@ -18,37 +18,37 @@ export const Default = () => {
         icon={<OperaIcon width='30px' />}
         color={getColorKnobs()}
         cardLabel={text('Opera label', 'Opera')}
-        disabled={boolean('disabled', false)}
+        disabled={boolean('Opera disabled', false)}
       />
       <TestCheckboxCard
         icon={<ChromeIcon width='30px' />}
         color={getColorKnobs()}
         cardLabel={text('Chrome label', 'Chrome')}
-        disabled={boolean('disabled', false)}
+        disabled={boolean('Chrome disabled', false)}
       />
       <TestCheckboxCard
         icon={<FirefoxIcon width='30px' />}
         color={getColorKnobs()}
         cardLabel={text('Firefox label', 'Firefox')}
-        disabled={boolean('disabled', false)}
+        disabled={boolean('Firefox disabled', false)}
       />
       <TestCheckboxCard
         icon={<SafariIcon width='30px' />}
         color={getColorKnobs()}
         cardLabel={text('Safari label', 'Safari')}
-        disabled={boolean('disabled', false)}
+        disabled={boolean('Safari disabled', false)}
       />
       <TestCheckboxCard
         icon={<EdgeIcon width='30px' />}
         color={getColorKnobs()}
         cardLabel={text('Edge label', 'Edge')}
-        disabled={boolean('disabled', false)}
+        disabled={boolean('Safari disabled', false)}
       />
       <TestCheckboxCard
         icon={<IEIcon width='30px' />}
         color={getColorKnobs()}
         cardLabel={text('IE label', 'IE')}
-        disabled={boolean('disabled', false)}
+        disabled={boolean('IE disabled', false)}
       />
     </div>
   );

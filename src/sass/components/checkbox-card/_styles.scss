@@ -14,6 +14,8 @@
     font-size: getCheckboxCardSizes(checkbox-card-font-size);
     box-sizing: border-box;
     cursor: pointer;
+    transition: border 0.12s linear, background 0.12s linear, opacity 0.12s linear;
+    will-change: background, border, opacity;
     @include flex(center, center);
     @include theme(border, primary, solid 1px, $opacity: 0.1);
 

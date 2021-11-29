@@ -18,15 +18,16 @@ const TestCheckboxCard: FC<TestCheckboxCardProps> = ({ color, icon, children, ca
   return (
     <>
       <div
-        onClick={() => setActive(!active)}
+        onClick={() => (!disabled ? setActive(!active) : null)}
         {...props}
         className={classNames(
           styles['CheckboxCard'],
-          active ? styles[`CheckboxCard--${color}`] : null,
-          disabled ? styles[`CheckboxCard--disable`] : null,
           `${getMyUIPrefix()}-CheckboxCard`,
           `${getMyUIPrefix()}-CheckboxCard--${color}`,
-          disabled ? `${getMyUIPrefix()}-CheckboxCard--disable` : null
+          {
+            [styles[`CheckboxCard--${color}`]]: active,
+            [styles[`CheckboxCard--disable`]]: disabled
+          }
         )}>
         <div
           className={classNames(

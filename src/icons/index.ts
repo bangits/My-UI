@@ -30,6 +30,7 @@ export { ReactComponent as NotificationIcon } from './notification-icon.react.sv
 export { ReactComponent as OperaIcon } from './opera.react.svg';
 export { ReactComponent as FirefoxIcon } from './firefox.react.svg';
 export { ReactComponent as EdgeIcon } from './edge.react.svg';
+export { ReactComponent as IEIcon } from './ie.react.svg';
 export { ReactComponent as SafariIcon } from './safari.react.svg';
 export { ReactComponent as PenIcon } from './pen.react.svg';
 export { ReactComponent as PlusCircle } from './plus-circle.react.svg';

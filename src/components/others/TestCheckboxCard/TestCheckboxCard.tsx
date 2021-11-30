@@ -1,11 +1,8 @@
 import { getMyUIPrefix } from '@/configs';
-import { ChromeIcon, OperaIcon } from '@/icons';
 import classNames from 'classnames';
 import React, { FC, HTMLAttributes, DetailedHTMLProps, useState } from 'react';
 import styles from './TestCheckboxCard.module.scss';
 import { UIColors } from '@/types';
-import { withKnobs, text } from '@storybook/addon-knobs';
-
 export interface TestCheckboxCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, null> {
   color?: UIColors;
   cardLabel?: string;

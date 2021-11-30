@@ -1,5 +1,4 @@
 import { Button } from '@/my-ui-core';
-import { COLOR_TYPES } from '@/types';
 import { optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import Tooltip from './Tooltip';
@@ -25,6 +24,17 @@ export const Default = () => {
             right: 'right'
           },
           'bottom',
+          {
+            display: 'inline-radio'
+          }
+        )}
+        showEvent={optionsKnob(
+          'showEvent',
+          {
+            click: 'click',
+            hover: 'hover'
+          },
+          'click',
           {
             display: 'inline-radio'
           }

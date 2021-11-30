@@ -1,6 +1,23 @@
 @mixin generate-tooltip-styles {
   .TooltipContainer {
     position: fixed;
+    // display: none;
+
+    &--enterDone,
+    & {
+      // display: block;
+      .TooltipWrapper {
+        // animation: dialog-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        @include animation-start;
+      }
+    }
+
+    &--exitDone {
+      .TooltipWrapper {
+        // animation: dialog-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
+        @include animation-exit;
+      }
+    }
 
     .TooltipWrapper {
       box-sizing: border-box;
@@ -14,7 +31,6 @@
       @include flex(center, center);
       text-align: left;
       word-break: break-all;
-
       .TooltipTriangle {
         position: absolute;
       }

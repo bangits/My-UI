@@ -11,28 +11,25 @@ export interface StyledTooltipProps {
     x: number;
     y: number;
   }>;
-  show?: 0 | 1;
 }
 
 const StyledTooltip = forwardRef<HTMLDivElement, PropsWithChildren<StyledTooltipProps>>(
-  ({ children, show = 0, posRef, color = 'primary' }, ref) => {
+  ({ children, posRef, color = 'primary' }, tooltipRef) => {
     const tooltipClassNames = useStyles(
       {
         root: {
           top: (data) => `${data.y}px`,
-          left: (data) => `${data.x}px`,
-          opacity: (data) => data.show
+          left: (data) => `${data.x}px`
         }
       },
       {
         y: posRef.current.y,
-        x: posRef.current.x,
-        show
+        x: posRef.current.x
       }
     );
 
     return (
-      <div ref={ref} className={classNames(tooltipClassNames.root, Styles.TooltipContainer)}>
+      <div ref={tooltipRef} className={classNames(tooltipClassNames.root, Styles.TooltipContainer)}>
         <div className={classNames(Styles.TooltipWrapper, Styles[`TooltipColor--${color}`])}>{children}</div>
       </div>
     );

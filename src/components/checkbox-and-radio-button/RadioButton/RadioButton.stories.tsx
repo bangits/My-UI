@@ -6,11 +6,11 @@ import RadioButton from './RadioButton';
 import { getColorKnobs } from '@/configs';
 
 export default {
-  component: RadioButton,
-  decorators: [withKnobs],
-  title: getComponentName('CHECKBOX_AND_RADIO', 'Radio Button')
+	component: RadioButton,
+	decorators: [withKnobs],
+	title: getComponentName('CHECKBOX_AND_RADIO', 'Radio Button')
 };
 
 export const DefaultRadio = () => {
-  return <RadioButton color={getColorKnobs()} value='default' disabled={boolean('disabled', false)} />;
+	return <RadioButton color={getColorKnobs()} value='default' disabled={boolean('disabled', false)} />;
 };

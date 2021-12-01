@@ -1,8 +1,8 @@
 @mixin getTooltipStyles($color-name) {
-  @include theme(background-color, #{$color-name});
-  @include theme(color, tooltip-color);
+	@include theme(background-color, #{$color-name});
+	@include theme(color, tooltip-color);
 
-  svg {
-    @include theme(color, #{$color-name});
-  }
+	svg {
+		@include theme(color, #{$color-name});
+	}
 }

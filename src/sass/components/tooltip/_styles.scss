@@ -1,65 +1,65 @@
 @mixin generate-tooltip-styles {
-  .TooltipContainer {
-    position: fixed;
+	.TooltipContainer {
+		position: fixed;
 
-    .TooltipWrapper {
-      box-sizing: border-box;
-      padding: getTooltipSizes(tooltip-wrapper-padding);
-      border-radius: getTooltipSizes(tooltip-wrapper-border-radius);
-      max-width: getTooltipSizes(tooltip-wrapper-max-width);
-      min-width: getTooltipSizes(tooltip-wrapper-width);
-      min-height: getTooltipSizes(tooltip-wrapper-height);
-      width: fit-content;
-      width: -moz-fit-content; //for Mozilla
-      @include flex(center, center);
-      text-align: left;
-      word-break: break-all;
+		.TooltipWrapper {
+			@include flex(center, center);
 
-      .TooltipTriangle {
-        position: absolute;
-      }
+			border-radius: gettooltipsizes(tooltip-wrapper-border-radius);
+			padding: gettooltipsizes(tooltip-wrapper-padding);
+			width: fit-content;
+			min-width: gettooltipsizes(tooltip-wrapper-width);
+			min-height: gettooltipsizes(tooltip-wrapper-height);
+			max-width: gettooltipsizes(tooltip-wrapper-max-width);
+			box-sizing: border-box;
+			word-break: break-all;
+			text-align: left;
 
-      .Tooltip-bottom {
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
+			.TooltipTriangle {
+				position: absolute;
+			}
 
-      .Tooltip-left {
-        transform: translate(0%, -50%) rotate(90deg);
-        top: 50%;
-        right: getTooltipSizes(tooltip-offset);
+			.Tooltip-bottom {
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
 
-        .div {
-          right: 0;
-          transform: rotate(90deg);
-        }
-      }
+			.Tooltip-left {
+				right: gettooltipsizes(tooltip-offset);
+				top: 50%;
+				transform: translate(0%, -50%) rotate(90deg);
 
-      .Tooltip-top {
-        left: 50%;
-        transform: translate(-50%, 100%);
-        bottom: getTooltipSizes(tooltip-triangle-position-top);
+				.div {
+					right: 0;
+					transform: rotate(90deg);
+				}
+			}
 
-        div {
-          transform: rotate(180deg);
-        }
-      }
+			.Tooltip-top {
+				left: 50%;
+				bottom: gettooltipsizes(tooltip-triangle-position-top);
+				transform: translate(-50%, 100%);
 
-      .Tooltip-right {
-        transform: translate(0%, -50%) rotate(-90deg);
-        left: getTooltipSizes(tooltip-offset);
-        top: 50%;
+				div {
+					transform: rotate(180deg);
+				}
+			}
 
-        .div {
-          transform: rotate(-90deg);
-        }
-      }
-    }
-  }
+			.Tooltip-right {
+				left: gettooltipsizes(tooltip-offset);
+				top: 50%;
+				transform: translate(0%, -50%) rotate(-90deg);
 
-  @each $color in $base-colors {
-    .TooltipColor--#{$color} {
-      @include getTooltipStyles($color);
-    }
-  }
+				.div {
+					transform: rotate(-90deg);
+				}
+			}
+		}
+	}
+
+	@each $color in $base-colors {
+		.TooltipColor--#{$color} {
+			@include getTooltipStyles($color);
+		}
+	}
 }

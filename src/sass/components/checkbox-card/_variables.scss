@@ -1,21 +1,21 @@
 $checkbox-card-sizes: (
-  checkbox-card-list-max-width: calculateRem(382px),
-  checkbox-card-border-radius: calculateRem(4px),
-  checkbox-card-width: calculateRem(82px),
-  checkbox-card-height: calculateRem(82px),
-  checkbox-card-margin-right: calculateRem(16px),
-  checkbox-card-margin-bottom: calculateRem(16px),
-  checkbox-card-font-size: calculateRem(14px),
-  checkbox-card-opacity--selected-disable: 0.5,
-  checkbox-card-opacity--disable: 0.5,
-  checkbox-card-label-font-size: calculateRem(14px),
-  checkbox-card-label-line-height: calculateRem(17px),
-  checkbox-card-label-padding-top: calculateRem(8px),
-  checkbox-card-padding: calculateRem(8px) calculateRem(8px) calculateRem(8px) calculateRem(5px)
+	checkbox-card-list-max-width: calculateRem(382px),
+	checkbox-card-border-radius: calculateRem(4px),
+	checkbox-card-width: calculateRem(82px),
+	checkbox-card-height: calculateRem(82px),
+	checkbox-card-margin-right: calculateRem(16px),
+	checkbox-card-margin-bottom: calculateRem(16px),
+	checkbox-card-font-size: calculateRem(14px),
+	checkbox-card-opacity--selected-disable: 0.5,
+	checkbox-card-opacity--disable: 0.5,
+	checkbox-card-label-font-size: calculateRem(14px),
+	checkbox-card-label-line-height: calculateRem(17px),
+	checkbox-card-label-padding-top: calculateRem(8px),
+	checkbox-card-padding: calculateRem(8px) calculateRem(8px) calculateRem(8px) calculateRem(5px)
 );
 
 @function getCheckboxCardSizes($property) {
-  @return map-get($checkbox-card-sizes, $property);
+	@return map-get($checkbox-card-sizes, $property);
 }
 
 $checkbox-card-colors: ();

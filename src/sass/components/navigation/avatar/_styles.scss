@@ -1,81 +1,81 @@
 @mixin generate-avatar-styles {
-  .Avatar {
-    @include flex(flex-end, center);
-    position: relative;
-    height: 100%;
+	.Avatar {
+		@include flex(flex-end, center);
+		position: relative;
+		height: 100%;
 
-    .AvatarWrapper {
-      @include flex(null, center);
-      width: fit-content;
-    }
+		.AvatarWrapper {
+			@include flex(null, center);
+			width: fit-content;
+		}
 
-    .AvatarLabel {
-      @include theme(color, avatar-label-color);
-      font-size: getAvatarSizes(avatar-label-size);
-      font-weight: getAvatarSizes(avatar-label-fontWeight);
-      margin-right: getAvatarSizes(avatar-label-margin-right);
-      margin-left: getAvatarSizes(avatar-label-margin-left);
-      cursor: pointer;
-    }
-    .AvatarImg {
-      width: getAvatarSizes(avatar-img-width);
-      height: getAvatarSizes(avatar-img-height);
-      @include theme(border, avatar-border-color, 1px solid);
-      border-radius: getAvatarSizes(avatar-border-radius);
-      margin-left: getAvatarSizes(avatar-img-margin);
-      cursor: pointer;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: getAvatarSizes(avatar-border-radius);
-      }
-    }
+		.AvatarLabel {
+			@include theme(color, avatar-label-color);
+			font-size: getAvatarSizes(avatar-label-size);
+			font-weight: getAvatarSizes(avatar-label-fontWeight);
+			margin-right: getAvatarSizes(avatar-label-margin-right);
+			margin-left: getAvatarSizes(avatar-label-margin-left);
+			cursor: pointer;
+		}
+		.AvatarImg {
+			width: getAvatarSizes(avatar-img-width);
+			height: getAvatarSizes(avatar-img-height);
+			@include theme(border, avatar-border-color, 1px solid);
+			border-radius: getAvatarSizes(avatar-border-radius);
+			margin-left: getAvatarSizes(avatar-img-margin);
+			cursor: pointer;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: getAvatarSizes(avatar-border-radius);
+			}
+		}
 
-    .AvatarDropdownTitle {
-      font-weight: getAvatarSizes(avatar-dropdown-title-fontWeight);
-      margin: getAvatarSizes(avatar-dropdown-title);
-    }
+		.AvatarDropdownTitle {
+			font-weight: getAvatarSizes(avatar-dropdown-title-fontWeight);
+			margin: getAvatarSizes(avatar-dropdown-title);
+		}
 
-    .AvatarDropdownCard {
-      position: absolute;
-      width: getAvatarSizes(avatar-dropdown-card-width);
-      padding: getAvatarSizes(avatar-dropdown-card-padding);
-      right: getAvatarSizes(avatar-dropdown-card-positionRight);
-      top: getAvatarSizes(avatar-dropdown-card-positionTop);
-      height: fit-content;
-      @include theme(box-shadow, box-shadow-color, 0 3px 6px 0);
-      box-sizing: border-box;
-      @include theme(background-color, avatar-dropdown-bg);
+		.AvatarDropdownCard {
+			position: absolute;
+			width: getAvatarSizes(avatar-dropdown-card-width);
+			padding: getAvatarSizes(avatar-dropdown-card-padding);
+			right: getAvatarSizes(avatar-dropdown-card-positionRight);
+			top: getAvatarSizes(avatar-dropdown-card-positionTop);
+			height: fit-content;
+			@include theme(box-shadow, box-shadow-color, 0 3px 6px 0);
+			box-sizing: border-box;
+			@include theme(background-color, avatar-dropdown-bg);
 
-      @include dots-after-text;
+			@include dots-after-text;
 
-      .AvatarDropdownDivider {
-        width: getAvatarSizes(avatar-dropdown-divider-width);
-        @include theme(border, avatar-divider-borderColor, solid 1px);
-        @include theme(background-color, avatar-divider-borderColor);
-      }
+			.AvatarDropdownDivider {
+				width: getAvatarSizes(avatar-dropdown-divider-width);
+				@include theme(border, avatar-divider-borderColor, solid 1px);
+				@include theme(background-color, avatar-divider-borderColor);
+			}
 
-      .AvatarDropdownMenu {
-        list-style-type: none;
-        margin: getAvatarSizes(avatar-dropdown-menu-margin);
-        padding: getAvatarSizes(avatar-dropdown-menu-padding);
-      }
-    }
-    .DropDownHide {
-      display: none;
-    }
-    .DropDownShow {
-      display: block;
-    }
+			.AvatarDropdownMenu {
+				list-style-type: none;
+				margin: getAvatarSizes(avatar-dropdown-menu-margin);
+				padding: getAvatarSizes(avatar-dropdown-menu-padding);
+			}
+		}
+		.DropDownHide {
+			display: none;
+		}
+		.DropDownShow {
+			display: block;
+		}
 
-    .SubMenuItems {
-      padding: getAvatarSizes(avatar-sub-menu-items);
-      width: getAvatarSizes(avatar-sub-menu-items-width);
-      height: getAvatarSizes(avatar-sub-menu-items-height);
-      a {
-        margin-left: getAvatarSizes(avatar-sub-menu-items-marginLeft);
-      }
-    }
-  }
+		.SubMenuItems {
+			padding: getAvatarSizes(avatar-sub-menu-items);
+			width: getAvatarSizes(avatar-sub-menu-items-width);
+			height: getAvatarSizes(avatar-sub-menu-items-height);
+			a {
+				margin-left: getAvatarSizes(avatar-sub-menu-items-marginLeft);
+			}
+		}
+	}
 }

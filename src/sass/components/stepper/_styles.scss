@@ -1,76 +1,76 @@
 @mixin generate-stepper-styles {
-  .SteeperWrapper {
-    @include flex(null, start, row);
+	.SteeperWrapper {
+		@include flex(null, start, row);
 
-    .Stepper {
-      position: relative;
-      flex: 1;
-      .StepperLineContainer {
-        flex: 1 1 auto;
-        position: absolute;
-        top: getStepperSizes(stepper-line-container-position-top);
-        left: calc(-50%);
-        right: calc(50%);
-        .StepperLine {
-          height: getStepperSizes(stepper-line-height);
-          border: 0;
-          display: block;
-        }
-      }
-      .StepperContainer {
-        @include flex(null, center, column);
+		.Stepper {
+			position: relative;
+			flex: 1;
+			.StepperLineContainer {
+				flex: 1 1 auto;
+				position: absolute;
+				top: getStepperSizes(stepper-line-container-position-top);
+				left: calc(-50%);
+				right: calc(50%);
+				.StepperLine {
+					height: getStepperSizes(stepper-line-height);
+					border: 0;
+					display: block;
+				}
+			}
+			.StepperContainer {
+				@include flex(null, center, column);
 
-        .Step {
-          flex-shrink: 0;
-          @include flex();
+				.Step {
+					flex-shrink: 0;
+					@include flex();
 
-          .StepSection {
-            @include flex(center, center);
-            width: getStepperSizes(step-section-width);
-            height: getStepperSizes(step-section-height);
-            padding: getStepperSizes(step-section-padding);
-            box-sizing: border-box;
-            z-index: getBaseSizes(z-index);
-            border-radius: getStepperSizes(step-section-border-radius);
-          }
-        }
-        .StepTextContainer {
-          width: getStepperSizes(step-text-container);
-          word-break: break-word;
+					.StepSection {
+						@include flex(center, center);
+						width: getStepperSizes(step-section-width);
+						height: getStepperSizes(step-section-height);
+						padding: getStepperSizes(step-section-padding);
+						box-sizing: border-box;
+						z-index: getBaseSizes(z-index);
+						border-radius: getStepperSizes(step-section-border-radius);
+					}
+				}
+				.StepTextContainer {
+					width: getStepperSizes(step-text-container);
+					word-break: break-word;
 
-          .StepText {
-            margin-top: getStepperSizes(step-text-margin);
-            text-align: center;
-            display: block;
-          }
-        }
-        .StepTextInactive {
-          @include theme(opacity, disabled-opacity);
-        }
-      }
-    }
+					.StepText {
+						margin-top: getStepperSizes(step-text-margin);
+						text-align: center;
+						display: block;
+					}
+				}
+				.StepTextInactive {
+					@include theme(opacity, disabled-opacity);
+				}
+			}
+		}
 
-    .StepperChecked {
-      .StepperInactive {
-        background-color: transparent !important;
-      }
-    }
-    .StepperLineInactive {
-      @include theme(opacity, disabled-opacity);
-    }
-  }
+		.StepperChecked {
+			.StepperInactive {
+				background-color: transparent !important;
+			}
+		}
+		.StepperLineInactive {
+			@include theme(opacity, disabled-opacity);
+		}
+	}
 
-  @each $color in $base-colors {
-    .SteeperWrapper--#{$color} {
-      .StepperLine,
-      .StepSection {
-        @include theme(background-color, #{$color});
-      }
+	@each $color in $base-colors {
+		.SteeperWrapper--#{$color} {
+			.StepperLine,
+			.StepSection {
+				@include theme(background-color, #{$color});
+			}
 
-      .StepTextContainer,
-      .StepSection {
-        @include theme(color, #{$color});
-      }
-    }
-  }
+			.StepTextContainer,
+			.StepSection {
+				@include theme(color, #{$color});
+			}
+		}
+	}
 }

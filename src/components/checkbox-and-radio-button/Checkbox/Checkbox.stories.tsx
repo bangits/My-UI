@@ -6,9 +6,9 @@ import Checkbox from './Checkbox';
 import { getColorKnobs } from '@/configs';
 
 export default {
-  component: Checkbox,
-  decorators: [withKnobs],
-  title: getComponentName('CHECKBOX_AND_RADIO', 'Checkbox')
+	component: Checkbox,
+	decorators: [withKnobs],
+	title: getComponentName('CHECKBOX_AND_RADIO', 'Checkbox')
 } as ComponentMeta<typeof Checkbox>;
 
 export const Default = () => <Checkbox color={getColorKnobs()} defaultChecked disabled={boolean('disabled', false)} />;

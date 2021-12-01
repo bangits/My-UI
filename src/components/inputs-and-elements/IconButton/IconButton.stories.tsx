@@ -5,19 +5,19 @@ import IconButton from './IconButton';
 import { getColorKnobs } from '@/configs';
 
 export default {
-  component: IconButton,
-  decorators: [withKnobs],
-  title: 'components/Inputs And Elements/Icon Button'
+	component: IconButton,
+	decorators: [withKnobs],
+	title: 'components/Inputs And Elements/Icon Button'
 };
 
 export const Default = () => {
-  return (
-    <>
-      <IconButton icon={<PenIcon />} color={getColorKnobs()} />
+	return (
+		<>
+			<IconButton icon={<PenIcon />} color={getColorKnobs()} />
 
-      <h1></h1>
+			<h1></h1>
 
-      <IconButton icon={<DustbinIcon />} color={getColorKnobs()} />
-    </>
-  );
+			<IconButton icon={<DustbinIcon />} color={getColorKnobs()} />
+		</>
+	);
 };

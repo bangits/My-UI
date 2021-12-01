@@ -3,24 +3,24 @@
 // Sizes
 
 $base-sizes: (
-  z-index: 10
+	z-index: 10
 );
 
 // Colors
 
 $base-colors-map: (
-  primary: color(night-in-manchester),
-  primary--color: color(white),
-  success: color(emerald),
-  success--color: color(white),
-  warning: color(sunglow),
-  warning--color: color(white),
-  danger: color(red-orange),
-  danger--color: color(white),
-  black-color: color(midnight-sun),
-  gray-color: color(gray-transparent),
-  light-gray-color: color(walls-of-santorini),
-  black-color--transparent: rgba(color(midnight-sun), 0.1),
-  disabled-opacity: 0.4,
-  box-shadow-color: rgba(color(dark), 0.05)
+	primary: color(night-in-manchester),
+	primary--color: color(white),
+	success: color(emerald),
+	success--color: color(white),
+	warning: color(sunglow),
+	warning--color: color(white),
+	danger: color(red-orange),
+	danger--color: color(white),
+	black-color: color(midnight-sun),
+	gray-color: color(gray-transparent),
+	light-gray-color: color(walls-of-santorini),
+	black-color--transparent: rgba(color(midnight-sun), 0.1),
+	disabled-opacity: 0.4,
+	box-shadow-color: rgba(color(dark), 0.05)
 );

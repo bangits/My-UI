@@ -1,0 +1,10 @@
+{
+	"stylelint.syntax": "scss",
+	"stylelint.configBasedir": "ClientApp",
+	"stylelint.validate": ["html", "css", "sass", "scss"],
+	"stylelint.configFile": ".stylelintrc",
+	"stylelint.enable": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.stylelint": true
+	}
+}

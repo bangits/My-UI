@@ -1,17 +1,17 @@
 $cardimg-sizes: (
-  card-img-height: calculateRem(64px),
-  card-img-border-radius: 4px 4px 0 0,
-  card-text-container-height: calculateRem(26px),
-  card-text-container-padding: calculateRem(7px) calculateRem(6px) calculateRem(7px) calculateRem(6px),
-  card-text-container-border-radius: 0 0 4px 4px,
-  card-text-width: calculateRem(88px)
+	card-img-height: calculateRem(64px),
+	card-img-border-radius: 4px 4px 0 0,
+	card-text-container-height: calculateRem(26px),
+	card-text-container-padding: calculateRem(7px) calculateRem(6px) calculateRem(7px) calculateRem(6px),
+	card-text-container-border-radius: 0 0 4px 4px,
+	card-text-width: calculateRem(88px)
 );
 
 $cardimg-colors: (
-  card-img-border-color: color(athens-gray),
-  card-background-color: color(alabaster)
+	card-img-border-color: color(athens-gray),
+	card-background-color: color(alabaster)
 );
 
 @function getCardImgSizes($property) {
-  @return map-get($cardimg-sizes, $property);
+	@return map-get($cardimg-sizes, $property);
 }

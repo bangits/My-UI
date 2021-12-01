@@ -5,31 +5,31 @@ import { getColorKnobs } from '@/configs';
 import { useState } from 'React';
 
 export default {
-  component: Badge,
-  decorators: [withKnobs],
-  title: 'components/Navigation/Badge'
+	component: Badge,
+	decorators: [withKnobs],
+	title: 'components/Navigation/Badge'
 };
 
 export const Default = () => {
-  return (
-    <>
-      <Badge
-        children={<NotificationIconRotated />}
-        quantity={number('quantity', 7)}
-        maxNumber={number('maxNumber', 100)}
-        color={getColorKnobs()}
-        // badgeSize={optionsKnob(
-        //   'badgeSize',
-        //   {
-        //     medium: 'ms',
-        //     small: 'ss'
-        //   },
-        //   'ms',
-        //   {
-        //     display: 'inline-radio'
-        //   }
-        // )}
-      />
-    </>
-  );
+	return (
+		<>
+			<Badge
+				children={<NotificationIconRotated />}
+				quantity={number('quantity', 7)}
+				maxNumber={number('maxNumber', 100)}
+				color={getColorKnobs()}
+				// badgeSize={optionsKnob(
+				//   'badgeSize',
+				//   {
+				//     medium: 'ms',
+				//     small: 'ss'
+				//   },
+				//   'ms',
+				//   {
+				//     display: 'inline-radio'
+				//   }
+				// )}
+			/>
+		</>
+	);
 };

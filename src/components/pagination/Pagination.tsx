@@ -1,6 +1,7 @@
 import { ArrowNext, ArrowPrev } from '@/icons';
 import { Select, SelectOptionType, Typography } from '@/my-ui-core';
 import { IComponent } from '@/types';
+import classNames from 'classnames';
 import React, { FC, useCallback } from 'react';
 import ReactPaginate from 'react-paginate';
 import styles from './Pagination.module.scss';
@@ -38,7 +39,8 @@ const Pagination: FC<PaginationProps> = ({
   breakLabel = '...',
   pageRangeDisplayed = 3,
   marginPagesDisplayed = 1,
-  jumpToPage
+  jumpToPage,
+  className
 }) => {
   const handlePaginationChange = useCallback(
     (event: { selected: number }) => {
@@ -48,7 +50,7 @@ const Pagination: FC<PaginationProps> = ({
   );
 
   return (
-    <div className={styles.PaginationWrapper}>
+    <div className={classNames(styles.PaginationWrapper, className)}>
       {(pageSizeSelect || totalCountInfo) && (
         <div className={styles.PaginationInputWrapper}>
           {pageSizeSelect && (
@@ -100,7 +102,7 @@ const Pagination: FC<PaginationProps> = ({
       )}
 
       <div className={styles.PaginationFormContainer}>
-        {page >= 1 && (
+        {page >= 1 && totalPagesCount > 1 && (
           <ReactPaginate
             className={styles.PaginationList}
             onPageChange={handlePaginationChange}

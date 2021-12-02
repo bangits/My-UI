@@ -1,5 +1,4 @@
 import { Typography, TypographyProps } from '@/components';
-import { getMyUIPrefix } from '@/configs';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
 import {
@@ -26,6 +25,7 @@ export interface BaseTextInputProps {
   explanationProps?: TypographyProps;
   label?: string;
   forceFocused?: boolean;
+  isDecimal?: boolean;
 }
 
 type InputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
@@ -46,6 +46,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
       explanationProps,
       label,
       forceFocused,
+      isDecimal,
       ...props
     },
     ref
@@ -75,11 +76,13 @@ const TextInputs: FC<TextInputProps> = forwardRef(
 
     const onInput: TextInputProps['onInput'] = useCallback(
       (evt) => {
-        evt.target['value'] = evt.target['value'].slice(0, maxLength);
+        if (maxLength) evt.target['value'] = evt.target['value'].slice(0, maxLength);
+
+        if (type === 'number' && !isDecimal) evt.target['value'] = evt.target['value'].replace('.', '');
 
         if (props.onInput) props.onInput(evt);
       },
-      [props.onInput, maxLength]
+      [props.onInput, maxLength, isDecimal]
     );
 
     const onFocus: TextInputProps['onFocus'] = useCallback(

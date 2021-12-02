@@ -50,6 +50,7 @@ export interface TableAction<T> {
   component: React.ComponentType<{ onClick?: (...args: any[]) => void }>;
   onClick: (column: T, ...onClickEvent: any[]) => void;
   props: ObjectMock;
+  shouldShow?: (column: T) => boolean;
 }
 export interface TableProps<T extends ObjectMock> extends IComponent {
   component?: ComponentType;
@@ -61,7 +62,8 @@ export interface TableProps<T extends ObjectMock> extends IComponent {
     sortingId?: string | number;
   } & CustomColumnProps)[];
   color?: UIColors;
-  fetch?: (state: State<T>) => any;
+  fetch?: (state: State<T>) => void;
+  onSelectedColumnsChange?: (state: Row<T>[]) => void;
   gridLayout?: boolean;
   isWithSelection?: boolean;
   absoluteLayout?: boolean;
@@ -93,7 +95,8 @@ const Table = <T extends ObjectMock>({
   theadComponent: THeadComponent = 'thead',
   tbodyComponent: TBodyComponent = 'tbody',
   isWithSelection = true,
-  actions
+  actions,
+  onSelectedColumnsChange
 }: TableProps<T>) => {
   const tableHeadRef = useRef<HTMLElement>(null);
 
@@ -101,11 +104,9 @@ const Table = <T extends ObjectMock>({
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable<T>(
     {
-      // @ts-ignore Ignoring because react-table doesn't provide string type for maxWidth
+      // @ts-expect-error Ignoring because react-table doesn't provide string type for maxWidth
       columns,
       data,
-
-      // @ts-ignore Ignoring because react-table doesn't provide automatic type detection for sorting
       manualSortBy: true
     },
     useSortBy,
@@ -114,7 +115,7 @@ const Table = <T extends ObjectMock>({
     ...(isWithSelection ? [selectionHook] : [])
   );
 
-  const typedState = state as State<T>;
+  const typedState = state as State<T> & { selectedRowIds: Record<number, boolean> };
 
   const onFetchDataDebounced = useAsyncDebounce(fetch, 100);
 
@@ -137,6 +138,12 @@ const Table = <T extends ObjectMock>({
     onFetchDataDebounced(transformedState);
   }, [onFetchDataDebounced, typedState.sortBy]);
 
+  useEffect(() => {
+    if (!onSelectedColumnsChange) return;
+
+    onSelectedColumnsChange(rows.filter((row) => typedState.selectedRowIds[row.id]));
+  }, [typedState.selectedRowIds]);
+
   if (!tableHeadWidths.length && tableHeadRef.current) return null;
 
   return (
@@ -147,7 +154,7 @@ const Table = <T extends ObjectMock>({
           [styles['TableContainer--withSelection']]: isWithSelection,
           [styles['TableContainer--ready']]: tableHeadWidths.length
         })}>
-        {/* @ts-ignore Ignoring typescript cause for automatic component they're error related with ref prop */}
+        {/* @ts-expect-error Ignoring typescript cause for automatic component they're error related with ref prop */}
         <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
           {headerGroups.map((headerGroup) => (
             <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
@@ -181,7 +188,7 @@ const Table = <T extends ObjectMock>({
           {rows.map((row: Row<T>, index) => {
             prepareRow(row);
             return (
-              <TableRow hover selected={row.isSelected} {...row.getRowProps()} color={color}>
+              <TableRow key={index} hover selected={row.isSelected} {...row.getRowProps()} color={color}>
                 {row.cells.map((cell: CellType<T>, index) => {
                   return (
                     <TableCell
@@ -206,9 +213,16 @@ const Table = <T extends ObjectMock>({
 
                 {actions && (
                   <TableCell {...actions} color={color} className={styles.ActionTableCell}>
-                    {actions.map(({ component: Component, onClick, props }, index) => (
-                      <Component key={index} {...props} onClick={(...args: any[]) => onClick(data[index], ...args)} />
-                    ))}
+                    {actions.map(
+                      ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
+                        shouldShow(data[index]) && (
+                          <Component
+                            key={index}
+                            {...props}
+                            onClick={(...args: any[]) => onClick(data[index], ...args)}
+                          />
+                        )
+                    )}
                   </TableCell>
                 )}
               </TableRow>

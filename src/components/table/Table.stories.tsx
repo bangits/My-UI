@@ -26,6 +26,7 @@ export const Default = () => {
 
   return (
     <Table
+      onSelectedColumnsChange={console.log}
       fetch={action('fetch')}
       data={[
         ...data.map((d) => ({

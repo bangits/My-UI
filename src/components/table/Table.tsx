@@ -185,10 +185,10 @@ const Table = <T extends ObjectMock>({
           ))}
         </THeadComponent>
         <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
-          {rows.map((row: Row<T>, index) => {
+          {rows.map((row: Row<T>, rowIndex) => {
             prepareRow(row);
             return (
-              <TableRow key={index} hover selected={row.isSelected} {...row.getRowProps()} color={color}>
+              <TableRow key={rowIndex} hover selected={row.isSelected} {...row.getRowProps()} color={color}>
                 {row.cells.map((cell: CellType<T>, index) => {
                   return (
                     <TableCell
@@ -215,7 +215,7 @@ const Table = <T extends ObjectMock>({
                   <TableCell {...actions} color={color} className={styles.ActionTableCell}>
                     {actions.map(
                       ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
-                        shouldShow(data[index]) && (
+                        shouldShow(data[rowIndex]) && (
                           <Component
                             key={index}
                             {...props}

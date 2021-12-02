@@ -94,6 +94,11 @@ export const Default = () => {
           onClick: () => {},
           props: {
             icon: <EditIcon />
+          },
+          shouldShow: (column) => {
+            console.log(column);
+
+            return true;
           }
         }
       ]}

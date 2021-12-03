@@ -1,5 +1,6 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import { Scroll } from '@/my-ui-core';
+import { IllustrationIcon } from '@/icons';
+import { Scroll, Typography } from '@/my-ui-core';
 import { ObjectMock } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
@@ -232,8 +233,19 @@ const Table = <T extends ObjectMock>({
             );
           })}
         </TBodyComponent>
+
+        <div className={styles.IllustrationWrapper} style={{ display: 'none' }}>
+          <div className={styles.Illustration}>
+            <IllustrationIcon />
+          </div>
+          <Typography component='p' variant='p4' className={styles.IllustrationText}>
+            You don’t have any users added! Please add a user.
+          </Typography>
+        </div>
       </Component>
     </Scroll>
+
+    // Remove style for IllustrationWrapper
   );
 };
 

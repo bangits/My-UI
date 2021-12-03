@@ -9,7 +9,7 @@ import { getColorKnobs } from '@/configs';
 import classNames from 'classnames';
 import styles from './Select.module.scss';
 import { getMyUIPrefix } from '@/configs';
-import { TreeSelect } from './Select';
+import TreeSelect from './TreeSelectTest';
 
 export default {
   component: Select,
@@ -359,6 +359,6 @@ export const RenderInput = () => {
   );
 };
 
-export const TreeSelectD = () => {
+export const TreeSelectVariant = () => {
   return <TreeSelect />;
 };

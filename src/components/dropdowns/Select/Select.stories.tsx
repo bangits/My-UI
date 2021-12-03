@@ -6,6 +6,10 @@ import { boolean, number, object, optionsKnob, text, withKnobs } from '@storyboo
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
 import { getColorKnobs } from '@/configs';
+import classNames from 'classnames';
+import styles from './Select.module.scss';
+import { getMyUIPrefix } from '@/configs';
+import { TreeSelect } from './Select';
 
 export default {
   component: Select,
@@ -25,7 +29,6 @@ export const Default = () => {
   return (
     <>
       <Select
-        menuIsOpen
         value={value}
         onChange={setValue}
         inputLabel={text('inputLabelSingle', 'Single Select...')}
@@ -115,6 +118,81 @@ export const Default = () => {
           }
         ])}
       />
+
+      {/* SELECT TREE */}
+      {/* <div className={classNames(styles['Select-Tree'], `${getMyUIPrefix()}-Select-Tree`)}> */}
+      <Select
+        menuIsOpen
+        value={value}
+        onChange={setValue}
+        inputLabel={text('inputLabelSingle', 'Single Select...')}
+        isSearchable
+        maxLength={number('maxLengthSingleSelect', 20)}
+        color={getColorKnobs()}
+        options={object('options3', [
+          {
+            label: 'Jewels and Gems',
+            value: 2
+          },
+          {
+            label: 'Fantasy',
+            value: 3
+          },
+          {
+            label: 'Halloween',
+            value: 4
+          },
+          {
+            label: 'Luxury',
+            value: 5
+          },
+          {
+            label: 'Fruits / Vegetables',
+            value: 6
+          },
+          {
+            label: 'Asian',
+            value: 7
+          },
+          {
+            label: 'Food',
+            value: 8
+          },
+          {
+            label: 'Branded',
+            value: 9
+          },
+          {
+            label: 'Animals',
+            value: 10
+          }
+        ])}
+      />
+      <div className='react-select__menu css-aey3sy-Menu' id='react-select-4-listbox'>
+        <div className='react-select__menu-list css-1atlt6n-MenuList'>
+          <div
+            className='K9BBSDk_idl7G44NXGsr'
+            style={{
+              position: 'relative',
+              overflow: 'hidden',
+              width: '100%',
+              height: 'auto',
+              minHeight: '0px',
+              maxHeight: '28.8rem'
+            }}>
+            <div
+              style={{
+                position: 'relative',
+                overflow: 'scroll',
+                marginRight: '-17px',
+                marginBottom: '-17px',
+                minHeight: '17px',
+                maxHeight: 'calc(28.8rem + 17px)'
+              }}></div>
+          </div>
+        </div>
+      </div>
+      {/* </div> */}
     </>
   );
 };
@@ -279,4 +357,8 @@ export const RenderInput = () => {
       ])}
     />
   );
+};
+
+export const TreeSelectD = () => {
+  return <TreeSelect />;
 };

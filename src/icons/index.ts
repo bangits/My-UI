@@ -6,6 +6,8 @@ export { ReactComponent as AlertWarning } from './alertwarning.react.svg';
 export { ReactComponent as IconButtonLeft } from './arrow-left.react.svg';
 export { ReactComponent as ArrowNext } from './arrow-next.react.svg';
 export { ReactComponent as ArrowPrev } from './arrow-prev.react.svg';
+export { ReactComponent as ArrowTop } from './arrow-top.react.svg';
+export { ReactComponent as ArrowBottom } from './arrow-bottom.react.svg';
 export { ReactComponent as IconButtonRight } from './arrow-right.react.svg';
 export { ReactComponent as ArrowIcon } from './arrow.react.svg';
 export { ReactComponent as BreadcrumbNext } from './breadcrumb-next.react.svg';

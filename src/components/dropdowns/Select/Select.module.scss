@@ -1,7 +1,136 @@
 .Select {
   position: relative;
+
   .Select--search {
     width: 28rem;
+  }
+
+  &-Tree {
+    display: block;
+    width: 280px;
+    height: 288px;
+    // background: url(../../../icons/select-tree-tmp.jpg);
+    * {
+      cursor: default;
+    }
+  }
+
+  &-Tree-List {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &-Tree-List__Item {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    font-family: inherity;
+    font: normal normal normal 14px/17px Roboto;
+    letter-spacing: 0px;
+    color: #505d6e;
+    opacity: 1;
+    font-size: 14px;
+    padding: 8px 0 6px 15px;
+    border-top: solid #f4f5f8 1px;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.16s linear;
+    // &:hover {
+    //   background: #f4f5f8;
+    // }
+
+    &-parent {
+      & > span {
+        &,
+        span,
+        i,
+        i + i {
+          cursor: pointer;
+        }
+        padding-right: 40px;
+      }
+      padding-bottom: 0 !important;
+    }
+
+    ul {
+      padding-top: 6px;
+      padding-left: 10px;
+      li {
+        overflow: hidden;
+        border-left: solid #f4f5fa 1px;
+        position: relative;
+        top: 0;
+        left: 0;
+        &:after {
+          display: block;
+          content: '';
+          width: 1;
+          position: absolute;
+          top: 50%;
+          transform: translate(0, 50%);
+          left: 0px;
+          width: 11px;
+          height: 1px;
+          background: #f4f5fa;
+          transform: rotate(180deg);
+
+          // background: #f4f5fa;
+        }
+      }
+    }
+  }
+
+  &-Tree-List__Item-Inner {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    // transition: all 0.16s linear;
+    // &:hover {
+    //   background: #f4f5f8;
+    // }
+  }
+
+  &-Tree-List__Item-arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 31px;
+    height: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &-Tree-List__Item-number {
+    color: #505d6e;
+    font-size: 12;
+    list-style: normal;
+    font-style: normal;
+    opacity: 0.5;
+    display: inline-block;
+    margin-left: 3px;
+  }
+
+  &-Tree-List__Item-label {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  &-Tree-List__Item-label-inner {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+    max-width: 100%;
   }
 
   &--dropdown-control {
@@ -16,6 +145,7 @@
       }
     }
   }
+
   .Select--dropdown-control-icon {
     width: 2.4rem;
     height: 2.4rem;

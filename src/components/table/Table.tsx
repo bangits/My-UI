@@ -201,7 +201,10 @@ const Table = <T extends ObjectMock>({
                           : `${tableHeadWidths[index] / 10}rem`
                       }}
                       align={cell.column.align}
-                      color={color}>
+                      color={color}
+                      className={classNames({
+                        [styles.LastTableCell]: index === row.cells.length - 1
+                      })}>
                       <div>
                         {cell.column.renderColumn
                           ? cell.column.renderColumn(cell.render('Cell'), cell.value)

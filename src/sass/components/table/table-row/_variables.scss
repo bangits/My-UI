@@ -1,5 +1,8 @@
 $tablerow-sizes: (
-  font-weight-selected: 700
+  font-weight-selected: 700,
+  table-td-th-first-child-margin: 0 calculateRem(16px),
+  table-td-th-child-two-margin-left: calculateRem(16px),
+  table-td-th-last-child-margin-right: calculateRem(16px)
 );
 
 $tablerow-colors: (

@@ -30,6 +30,10 @@
       }
     }
 
+    .LastTableCell {
+      margin-right: getTableSizes(last-table-cell-margin);
+    }
+
     .TableBody {
       tr {
         height: getTableSizes(table-body-row-height);

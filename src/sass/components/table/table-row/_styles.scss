@@ -1,9 +1,22 @@
 @mixin generate-tableRow-styles {
   .TableRow {
-    @include flex(space-between, center);
+    @include flex(null, center);
     font-weight: normal;
     position: relative;
     @include theme(border-bottom, table-row-divider-color, solid 1px);
+
+    th,
+    td {
+      &:first-child {
+        margin: getTableRowSizes(table-td-th-first-child-margin);
+      }
+      &:nth-child(2) {
+        margin-left: getTableRowSizes(table-td-th-child-two-margin-left);
+      }
+      &:last-child {
+        margin-right: getTableRowSizes(table-td-th-last-child-margin-right);
+      }
+    }
   }
 
   .TableRow--hover,

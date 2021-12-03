@@ -4,7 +4,8 @@ $table-sizes: (
   table-head-row-height: calculateRem(55px),
   table-body-row-height: calculateRem(51px),
   table-action-cell-width: calculateRem(140px),
-  table-with-selection-width: calculateRem(18px)
+  table-with-selection-width: calculateRem(18px),
+  last-table-cell-margin: calculateRem(16px)
 );
 
 $table-colors: (

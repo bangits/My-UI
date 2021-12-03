@@ -5,10 +5,14 @@
     &-Tree {
       display: block;
       width: 280px;
-      height: 288px;
       // background: url(../../../icons/select-tree-tmp.jpg);
       * {
         cursor: default;
+      }
+      ul {
+        ul {
+          padding-top: 3px;
+        }
       }
     }
 

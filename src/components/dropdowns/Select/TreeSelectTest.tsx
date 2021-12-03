@@ -1,7 +1,6 @@
+import { ArrowTop } from '@/icons';
 import classNames from 'classnames';
 import styles from './TreeSelect.module.scss';
-import { getMyUIPrefix } from '@/configs';
-import { ArrowTop, ArrowBottom } from '@/icons';
 
 const TreeSelect = () => {
   return (

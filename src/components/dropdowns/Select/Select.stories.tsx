@@ -1,15 +1,10 @@
 import { Select } from '@/components';
+import { getColorKnobs } from '@/configs';
 import { FilterIcon } from '@/icons';
-import { COLOR_TYPES } from '@/types';
 import { action } from '@storybook/addon-actions';
-import { boolean, number, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, object, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
-import { getColorKnobs } from '@/configs';
-import classNames from 'classnames';
-import styles from './Select.module.scss';
-import { getMyUIPrefix } from '@/configs';
-import TreeSelect from './TreeSelectTest';
 
 export default {
   component: Select,
@@ -359,6 +354,112 @@ export const RenderInput = () => {
   );
 };
 
-export const TreeSelectVariant = () => {
-  return <TreeSelect />;
+export const TreeView = () => {
+  const [treeValue, setTreeValue] = useState<number | string>();
+
+  /*  console.log(treeValue);
+   */
+
+  return (
+    <Select
+      onChange={(value) => console.log(value)}
+      menuIsOpen
+      isSearchable
+      isTree
+      treeData={[
+        {
+          label: 'Document 1',
+          value: '1',
+          children: [
+            {
+              label: 'Document 1-2',
+              value: '1-1',
+              children: [
+                {
+                  label: 'Document 1-2',
+                  value: '1-2',
+                  children: [
+                    {
+                      label: 'Document 1-2',
+                      value: '1-1-2',
+                      children: [
+                        {
+                          label: 'Document 1-2',
+                          value: '1-2',
+                          children: [
+                            {
+                              label: 'Document 1-2',
+                              value: '1-1-2',
+                              children: [
+                                {
+                                  label: 'Document 1-2',
+                                  value: '1-2',
+                                  children: [
+                                    {
+                                      label: 'Document 1-2',
+                                      value: '1-1-2'
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              label: 'Document 1-2',
+              value: '1-2',
+              children: [
+                {
+                  label: 'Document 1-2',
+                  value: '1-2-1',
+                  children: [
+                    {
+                      label: 'Document 1-2',
+                      value: '1-2-2'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              label: 'Document 1-3',
+              value: '1-3'
+            },
+            {
+              label: 'Document 1-4',
+              value: '1-4'
+            }
+          ]
+        },
+        {
+          label: 'Document 2',
+          value: '2',
+          children: [
+            {
+              label: 'Document 2-1',
+              value: '2-1',
+              children: [
+                {
+                  label: 'Document 2-1',
+                  value: '2-1-1',
+                  children: [
+                    {
+                      label: 'Document 2-1',
+                      value: '2-1-2'
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]}
+    />
+  );
 };

@@ -17,6 +17,38 @@
         margin-right: getTableRowSizes(table-td-th-last-child-margin-right);
       }
     }
+
+    &--loading {
+      position: relative;
+      overflow-x: hidden;
+
+      &:before {
+        content: '';
+        position: absolute;
+        overflow: hidden;
+        height: 100%;
+        animation: left-to-right 1.5s alternate infinite linear;
+        @include theme(background, primary, 'linear-gradient(to right, transparent,', ', transparent)');
+        opacity: 0.1;
+        top: 0;
+        right: 0;
+        left: 0;
+      }
+
+      & > * {
+        @include theme(opacity, disabled-opacity);
+        filter: blur(getTableRowSizes(filter-blur));
+      }
+
+      @keyframes left-to-right {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+    }
   }
 
   .TableRow--hover,

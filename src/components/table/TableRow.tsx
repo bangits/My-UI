@@ -26,7 +26,7 @@ export const TableRow: FC<TableRowProps> = ({ children, hover, color, selected, 
     <Component
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      className={classNames(styles.TableRow, {
+      className={classNames(styles.TableRow, styles['TableRow--loading'], {
         [`${styles['TableRow--hover']}`]: hoverRow,
         [`${styles['TableRow--selected']}`]: selected,
         [`${styles[`TableRow--${color}`]}`]: color

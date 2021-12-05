@@ -1,8 +1,8 @@
 import { SelectProps, Tree } from '@/components';
 import { getFlatMap } from '@/helpers';
-import { ArrowTop, ArrowBottom } from '@/icons';
+import { ArrowBottom, ArrowTop } from '@/icons';
 import classNames from 'classnames';
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import TreeSelect from './TreeSelect';
 import styles from './TreeSelect.module.scss';
 
@@ -22,20 +22,25 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
     return getFlatMap(node)?.length;
   }, [node]);
 
+  const closeMenuOnClick = useCallback((e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    (e.target as Element).closest('.MyUI-Select').querySelector('input').blur();
+  }, []);
+
   return (
     <li
       className={classNames(styles['Select-Tree-List__Item'], 'Select-Tree-List__Item', {
         [styles['Select-Tree-List__Item-Parent']]: index === 0,
         'Select-Tree-List__Item-Parent': index === 0
-      })}
-      onClick={() => {
-        if (onChange) onChange(node.value, !childVisible);
-        setInput?.(node.label, null);
-      }}>
+      })}>
       <i className={classNames(styles['Select-Tree-List__Item-Chain'], 'Select-Tree-List__Item-Chain')}></i>
       <span className={classNames(styles['Select-Tree-List__Item-Inner'], 'Select-Tree-List__Item-Inner')}>
         <span className={classNames(styles['Select-Tree-List__Item-Label'], 'Select-Tree-List__Item-Label')}>
           <span
+            onClick={(e) => {
+              if (onChange) onChange(node.value, !childVisible);
+              setInput?.(node.label, null);
+              closeMenuOnClick(e);
+            }}
             className={classNames(styles['Select-Tree-List__Item-Label-Inner'], 'Select-Tree-List__Item-Label-Inner')}>
             {node.label}
           </span>
@@ -58,8 +63,6 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
         <i
           onClick={() => {
             setChildVisible((v) => !v);
-
-            if (onChange) onChange(node.value, !childVisible);
           }}
           className={classNames(styles['Select-Tree-List__Item-Arrow'], 'Select-Tree-List__Item-Arrow')}>
           {!childVisible ? <ArrowBottom width='9' /> : <ArrowTop width='9' />}
@@ -69,7 +72,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
       {hasChild && childVisible && (
         <div className={classNames(styles['Select-Tree'], 'Select-Tree')}>
           <ul className={classNames(styles['Select-Tree-List'], 'Select-Tree-List')}>
-            <TreeSelect data={node.children} onChange={onChange} />
+            <TreeSelect data={node.children} onChange={onChange} setInput={setInput} />
           </ul>
         </div>
       )}

@@ -10,8 +10,6 @@ export const Menu: typeof components.Menu = (props) => {
       onInputChangeOriginal?: SelectProps<any, false, any>['onInputChange'];
     } = props.selectProps;
 
-  console.log(props);
-
   return (
     <>
       <components.Menu {...props}>
@@ -25,7 +23,11 @@ export const Menu: typeof components.Menu = (props) => {
                   }
                 }}
                 data={selectProps.treeData}
-                setInput={selectProps.onInputChangeOriginal}
+                setInput={(value) => {
+                  if (!selectProps.isMulti) {
+                    selectProps.onInputChange?.(value, null);
+                  }
+                }}
               />
             ) : (
               props.children

@@ -362,8 +362,7 @@ export const TreeView = () => {
 
   return (
     <Select
-      onChange={(value) => console.log(value)}
-      menuIsOpen
+      onChange={action('onChange')}
       isSearchable
       isTree
       treeData={[

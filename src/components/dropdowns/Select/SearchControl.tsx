@@ -58,7 +58,11 @@ export const SearchControl: typeof components.Control = (props) => {
     }
 
     if (!isMenuOpen && (!currentValue || (isMulti && !currentValue.length))) setSearchValue('');
-  }, [currentValue, isMenuOpen]);
+
+    if (!isMenuOpen && (!currentValue || (isMulti && !currentValue.length))) setSearchValue('');
+
+    if (isMenuOpen && selectProps.isTree) selectProps.onInputChange('', null);
+  }, [currentValue, isMenuOpen, selectProps.isTree]);
 
   useEffect(() => {
     if (!props.selectProps.inputValue && searchValue) setSearchValue('');
@@ -81,7 +85,7 @@ export const SearchControl: typeof components.Control = (props) => {
             onChange={onSearchValueChange}
             onBlur={onInputBlur}
             onClick={menuToggle}
-            value={searchValue}
+            value={selectProps.isTree ? selectProps.inputValue : searchValue}
             label={selectProps.inputLabel}
             className='MyUI-SelectInput'
             endIcon={

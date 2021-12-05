@@ -1,6 +1,7 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, optionsKnob, text } from '@storybook/addon-knobs';
 import React from 'react';
 import Status from './Status';
+import STATUS_TYPES from './status-types';
 
 export default {
   component: Status,
@@ -11,11 +12,9 @@ export default {
 export const Default = () => {
   return (
     <>
-      <Status variant='active'>Active</Status>
-
-      <h1></h1>
-
-      <Status variant='blocked'>Blocked</Status>
+      <Status variant={optionsKnob('variant', STATUS_TYPES, STATUS_TYPES.ACTIVE, { display: 'inline-radio' })}>
+        {text('childe', 'active')}
+      </Status>
     </>
   );
 };

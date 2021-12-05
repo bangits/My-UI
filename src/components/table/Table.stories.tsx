@@ -1,7 +1,7 @@
 import { IconButton, Status } from '@/components';
-import { EditIcon, ViewIcon } from '@/icons';
+import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
-import { object, withKnobs } from '@storybook/addon-knobs';
+import { object, text, withKnobs } from '@storybook/addon-knobs';
 import Table from './Table';
 
 export default {
@@ -37,6 +37,7 @@ export const Default = () => {
           ...d
         }))
       ]}
+      loadingRowsIds={object('loadingRowsIds', [])}
       columns={object('columns', [
         {
           Header: 'Icon',
@@ -102,6 +103,8 @@ export const Default = () => {
           }
         }
       ]}
+      illustrationIcon={<IllustrationIcon />}
+      emptyText='You don’t have any users added! Please add a user.'
     />
   );
 };

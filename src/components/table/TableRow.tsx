@@ -10,9 +10,17 @@ export interface TableRowProps extends IComponent {
   color?: UIColors;
   component?: ComponentType;
   style?: CSSProperties;
+  isLoading?: boolean;
 }
 
-export const TableRow: FC<TableRowProps> = ({ children, hover, color, selected, component: Component = 'tr' }) => {
+export const TableRow: FC<TableRowProps> = ({
+  children,
+  hover,
+  color,
+  selected,
+  component: Component = 'tr',
+  isLoading = false
+}) => {
   const [hoverRow, setHoverRow] = useState<boolean>(false);
 
   const handleMouseOver = useCallback(() => {
@@ -26,9 +34,10 @@ export const TableRow: FC<TableRowProps> = ({ children, hover, color, selected, 
     <Component
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      className={classNames(styles.TableRow, styles['TableRow--loading'], {
-        [`${styles['TableRow--hover']}`]: hoverRow,
-        [`${styles['TableRow--selected']}`]: selected,
+      className={classNames(styles.TableRow, {
+        [styles['TableRow--loading']]: isLoading,
+        [styles['TableRow--hover']]: hoverRow,
+        [styles['TableRow--selected']]: selected,
         [`${styles[`TableRow--${color}`]}`]: color
       })}>
       {children}

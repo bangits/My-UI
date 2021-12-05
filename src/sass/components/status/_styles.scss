@@ -40,4 +40,20 @@
       @include theme(background-color, status-active-bg-color);
     }
   }
+  .Status--expired {
+    @include theme(background-color, status-expired-color, $opacity: 0.2);
+    @include theme(color, status-expired-color);
+
+    .StatusCircle {
+      @include theme(background-color, status-expired-color, $opacity: 0.8);
+    }
+  }
+  .Status--inactive {
+    @include theme(background-color, status-inactive-bg-color);
+    @include theme(color, status-inactive-color);
+
+    .StatusCircle {
+      @include theme(background-color, status-inactive-color, $opacity: 0.8);
+    }
+  }
 }

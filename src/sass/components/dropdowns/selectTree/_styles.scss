@@ -8,7 +8,7 @@
       width: 100%;
       padding-right: 10px;
       padding-bottom: 10px;
-      // cursor: default;
+      cursor: default;
       .Select-Tree-List__Item-chain {
         display: none;
       }
@@ -23,6 +23,27 @@
       // background: url(../../../icons/select-tree-tmp.jpg);
 
       ul {
+        li {
+          cursor: pointer;
+
+          i.Select-Tree-List__Item-number {
+            transition: opacity 0.16s linear;
+            will-change: opacity;
+          }
+          span.Select-Tree-List__Item-label-inner {
+            transition: color 0.16s linear;
+            will-change: color;
+          }
+
+          span.Select-Tree-List__Item-Inner:hover {
+            span.Select-Tree-List__Item-label-inner {
+              color: #1ea7fd;
+            }
+            i.Select-Tree-List__Item-number {
+              opacity: 1;
+            }
+          }
+        }
         ul {
           padding-top: 3px;
         }
@@ -47,7 +68,7 @@
       color: #505d6e;
       opacity: 1;
       font-size: 13px;
-      padding: 8px 0 0 15px;
+      padding: 8px 0 0 12px;
       min-height: 31px;
       position: relative;
       top: 0;
@@ -73,7 +94,8 @@
         right: 0;
         z-index: -1;
         opacity: 0;
-        transition: all 0.16s linear;
+        transition: opacity 0.16s linear;
+        will-change: opacity;
       }
       &:before {
         display: block;
@@ -88,20 +110,12 @@
 
       &-parent {
         & > span {
-          &,
-          span,
-          i,
-          i + i {
-            // cursor: pointer;
-          }
           padding-right: 40px;
         }
-        // padding-bottom: 10px !important;
       }
 
       ul {
         padding-top: 6px;
-        // padding-left: 10px;
         li {
           position: relative;
           top: 0;
@@ -171,6 +185,7 @@
       justify-content: center;
       align-items: center;
       transition: background 0.16s linear;
+      will-change: background;
       &:hover {
         background: rgba(#f4f5f8, 1);
       }
@@ -185,7 +200,7 @@
 
     &-Tree-List__Item-number {
       color: #505d6e;
-      font-size: 12px;
+      font-size: 11px;
       list-style: normal;
       font-style: normal;
       opacity: 0.5;

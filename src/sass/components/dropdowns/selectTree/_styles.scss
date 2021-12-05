@@ -9,10 +9,16 @@
       padding-right: 10px;
       padding-bottom: 10px;
       cursor: default;
+      .Select-Tree-List__Item-chain {
+        display: none;
+      }
       .Select-Tree {
         width: 100%;
         padding-right: 0;
         padding-bottom: 0;
+        .Select-Tree-List__Item-chain {
+          display: block;
+        }
       }
       // background: url(../../../icons/select-tree-tmp.jpg);
 
@@ -168,6 +174,9 @@
       svg {
         cursor: pointer;
       }
+      svg {
+        fill: #8ea6c1;
+      }
     }
 
     &-Tree-List__Item-number {
@@ -197,3 +206,5 @@
     // TREE END
   }
 }
+
+// rS1sXDzXK_0n3zUvh_NR Select-Tree Select-Tree--Main

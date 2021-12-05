@@ -49,7 +49,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
               setChildVisible((v) => !v);
             }}
             className={classNames(styles['Select-Tree-List__Item-arrow'], 'Select-Tree-List__Item-arrow')}>
-            <ArrowTop width='10' />
+            <ArrowTop width='9' />
           </i>
         )}
       </span>
@@ -62,7 +62,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
             if (onChange) onChange(node.value, !childVisible);
           }}
           className={classNames(styles['Select-Tree-List__Item-arrow'], 'Select-Tree-List__Item-arrow')}>
-          <ArrowTop width='10' />
+          <ArrowTop width='9' />
         </i>
       )}
 

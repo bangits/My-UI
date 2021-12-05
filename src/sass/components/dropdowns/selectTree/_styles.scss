@@ -18,7 +18,7 @@
         }
       }
 
-      .Select-Tree-List__Item-chain {
+      .Select-Tree-List__Item-Chain {
         display: none;
       }
 
@@ -27,7 +27,7 @@
         padding-bottom: 0;
         width: 100%;
 
-        .Select-Tree-List__Item-chain {
+        .Select-Tree-List__Item-Chain {
           display: block;
         }
 
@@ -40,28 +40,26 @@
         }
       }
 
-      // background: url(../../../icons/select-tree-tmp.jpg);
-
       ul {
         li {
           cursor: pointer;
 
-          i.Select-Tree-List__Item-number {
+          i.Select-Tree-List__Item-Number {
             transition: opacity 0.16s linear;
             will-change: opacity;
           }
 
-          span.Select-Tree-List__Item-label-inner {
+          span.Select-Tree-List__Item-Label-Inner {
             transition: color 0.16s linear;
             will-change: color;
           }
 
           span.Select-Tree-List__Item-Inner:hover {
-            span.Select-Tree-List__Item-label-inner {
+            span.Select-Tree-List__Item-Label-Inner {
               color: #1ea7fd;
             }
 
-            i.Select-Tree-List__Item-number {
+            i.Select-Tree-List__Item-Number {
               opacity: 1;
             }
           }
@@ -126,7 +124,7 @@
         will-change: opacity;
       }
 
-      &-parent {
+      &-Parent {
         & > span {
           padding-right: 40px;
         }
@@ -142,7 +140,7 @@
         }
 
         li:last-child {
-          .Select-Tree-List__Item-chain {
+          .Select-Tree-List__Item-Chain {
             &::before {
               content: '';
               position: absolute;
@@ -162,9 +160,9 @@
       }
     }
 
-    &-Tree-List__Item-chain {
+    &-Tree-List__Item-Chain {
       position: absolute;
-      left: 0;
+      left: -3px;
       top: 0;
       display: block;
       width: 15px;
@@ -174,7 +172,7 @@
         content: '';
         position: absolute;
         left: 0;
-        top: 2px;
+        top: 0;
         display: block;
         width: 1px;
         height: 31px;
@@ -199,7 +197,7 @@
       width: 86%;
     }
 
-    &-Tree-List__Item-arrow {
+    &-Tree-List__Item-Arrow {
       position: absolute;
       right: 0;
       top: 0;
@@ -225,7 +223,7 @@
       }
     }
 
-    &-Tree-List__Item-number {
+    &-Tree-List__Item-Number {
       display: inline-block;
       list-style: normal;
       margin-left: 3px;
@@ -235,12 +233,12 @@
       opacity: 0.5;
     }
 
-    &-Tree-List__Item-label {
+    &-Tree-List__Item-Label {
       display: inline-block;
       overflow: hidden;
     }
 
-    &-Tree-List__Item-label-inner {
+    &-Tree-List__Item-Label-Inner {
       display: block;
       overflow: hidden;
       width: 100%;

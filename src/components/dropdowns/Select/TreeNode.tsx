@@ -25,22 +25,22 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
   return (
     <li
       className={classNames(styles['Select-Tree-List__Item'], 'Select-Tree-List__Item', {
-        [styles['Select-Tree-List__Item-parent']]: index === 0,
-        'Select-Tree-List__Item-parent': index === 0
+        [styles['Select-Tree-List__Item-Parent']]: index === 0,
+        'Select-Tree-List__Item-Parent': index === 0
       })}
       onClick={() => {
         if (onChange) onChange(node.value, !childVisible);
         setInput?.(node.label, null);
       }}>
-      <i className={classNames(styles['Select-Tree-List__Item-chain'], 'Select-Tree-List__Item-chain')}></i>
+      <i className={classNames(styles['Select-Tree-List__Item-Chain'], 'Select-Tree-List__Item-Chain')}></i>
       <span className={classNames(styles['Select-Tree-List__Item-Inner'], 'Select-Tree-List__Item-Inner')}>
-        <span className={classNames(styles['Select-Tree-List__Item-label'], 'Select-Tree-List__Item-label')}>
+        <span className={classNames(styles['Select-Tree-List__Item-Label'], 'Select-Tree-List__Item-Label')}>
           <span
-            className={classNames(styles['Select-Tree-List__Item-label-inner'], 'Select-Tree-List__Item-label-inner')}>
+            className={classNames(styles['Select-Tree-List__Item-Label-Inner'], 'Select-Tree-List__Item-Label-Inner')}>
             {node.label}
           </span>
         </span>
-        <i className={classNames(styles['Select-Tree-List__Item-number'], 'Select-Tree-List__Item-number')}>
+        <i className={classNames(styles['Select-Tree-List__Item-Number'], 'Select-Tree-List__Item-Number')}>
           ({quantityOfChildren})
         </i>
         {hasChild && (
@@ -48,7 +48,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
             onClick={() => {
               setChildVisible((v) => !v);
             }}
-            className={classNames(styles['Select-Tree-List__Item-arrow'], 'Select-Tree-List__Item-arrow')}>
+            className={classNames(styles['Select-Tree-List__Item-Arrow'], 'Select-Tree-List__Item-Arrow')}>
             {!childVisible ? <ArrowBottom width='9' /> : <ArrowTop width='9' />}
           </i>
         )}
@@ -61,7 +61,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
 
             if (onChange) onChange(node.value, !childVisible);
           }}
-          className={classNames(styles['Select-Tree-List__Item-arrow'], 'Select-Tree-List__Item-arrow')}>
+          className={classNames(styles['Select-Tree-List__Item-Arrow'], 'Select-Tree-List__Item-Arrow')}>
           {!childVisible ? <ArrowBottom width='9' /> : <ArrowTop width='9' />}
         </i>
       )}

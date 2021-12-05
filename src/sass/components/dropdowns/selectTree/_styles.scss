@@ -4,11 +4,18 @@
 
     &-Tree {
       display: block;
+      box-sizing: border-box;
       width: 280px;
-      // background: url(../../../icons/select-tree-tmp.jpg);
-      * {
-        cursor: default;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      cursor: default;
+      .Select-Tree {
+        width: 100%;
+        padding-right: 0;
+        padding-bottom: 0;
       }
+      // background: url(../../../icons/select-tree-tmp.jpg);
+
       ul {
         ul {
           padding-top: 3px;
@@ -34,7 +41,8 @@
       color: #505d6e;
       opacity: 1;
       font-size: 14px;
-      padding: 8px 0 6px 15px;
+      padding: 8px 0 0 15px;
+      min-height: 31px;
       position: relative;
       top: 0;
       left: 0;
@@ -46,13 +54,13 @@
       left: 0;
       z-index: 10;
       &:hover:after {
-        opacity: 1;
+        opacity: 0.4;
       }
       &:after {
         display: block;
         content: '';
         width: 280px;
-        height: 30px;
+        height: 31px;
         background: #f4f5f8;
         position: absolute;
         top: 0;
@@ -82,12 +90,12 @@
           }
           padding-right: 40px;
         }
-        padding-bottom: 0 !important;
+        // padding-bottom: 10px !important;
       }
 
       ul {
         padding-top: 6px;
-        padding-left: 10px;
+        // padding-left: 10px;
         li {
           position: relative;
           top: 0;
@@ -99,10 +107,10 @@
               content: '';
               display: block;
               width: 1px;
-              height: 10px;
+              height: 16px;
               background: #f4f5fa;
               position: absolute;
-              top: 2px;
+              top: 0;
               left: 0;
             }
           }
@@ -156,7 +164,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      cursor: pointer;
+      &,
+      svg {
+        cursor: pointer;
+      }
     }
 
     &-Tree-List__Item-number {

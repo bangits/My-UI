@@ -18,8 +18,8 @@ export interface TreeSelectProps {
 
 const TreeSelect: FC<TreeSelectProps> = ({ data, onChange, setInput }) => {
   return (
-    <div className={classNames(styles['Select-Tree'])}>
-      <ul className={classNames(styles['Select-Tree-List'])}>
+    <div className={classNames(styles['Select-Tree'], 'Select-Tree', 'Select-Tree--Main')}>
+      <ul className={classNames(styles['Select-Tree-List'], 'Select-Tree-List')}>
         {data?.map((tree, idx) => (
           <TreeNode key={idx} node={tree} index={idx} onChange={onChange} setInput={setInput} />
         ))}

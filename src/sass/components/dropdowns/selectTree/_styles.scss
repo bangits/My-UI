@@ -9,15 +9,31 @@
       padding-right: 10px;
       padding-bottom: 10px;
       cursor: default;
+      & > ul:nth-child(1) {
+        & > li.Select-Tree-List__Item:nth-child(1) {
+          &:before {
+            display: none;
+          }
+        }
+      }
+
       .Select-Tree-List__Item-chain {
         display: none;
       }
+
       .Select-Tree {
         width: 100%;
         padding-right: 0;
         padding-bottom: 0;
         .Select-Tree-List__Item-chain {
           display: block;
+        }
+        & > ul:nth-child(1) {
+          & > li.Select-Tree-List__Item:nth-child(1) {
+            &:before {
+              display: block;
+            }
+          }
         }
       }
       // background: url(../../../icons/select-tree-tmp.jpg);
@@ -67,7 +83,7 @@
       letter-spacing: 0px;
       color: #505d6e;
       opacity: 1;
-      font-size: 13px;
+      font-size: 14px;
       padding: 8px 0 0 12px;
       min-height: 31px;
       position: relative;
@@ -200,7 +216,7 @@
 
     &-Tree-List__Item-number {
       color: #505d6e;
-      font-size: 11px;
+      font-size: 12px;
       list-style: normal;
       font-style: normal;
       opacity: 0.5;

@@ -4,14 +4,15 @@
 
     &-Tree {
       display: block;
-      box-sizing: border-box;
-      width: 100%;
       padding-right: 10px;
       padding-bottom: 10px;
+      width: 100%;
+      box-sizing: border-box;
       cursor: default;
-      & > ul:nth-child(1) {
-        & > li.Select-Tree-List__Item:nth-child(1) {
-          &:before {
+
+      > ul:nth-child(1) {
+        > li.Select-Tree-List__Item:nth-child(1) {
+          &::before {
             display: none;
           }
         }
@@ -22,20 +23,23 @@
       }
 
       .Select-Tree {
-        width: 100%;
         padding-right: 0;
         padding-bottom: 0;
+        width: 100%;
+
         .Select-Tree-List__Item-chain {
           display: block;
         }
-        & > ul:nth-child(1) {
-          & > li.Select-Tree-List__Item:nth-child(1) {
-            &:before {
+
+        ul:nth-child(1) {
+          li.Select-Tree-List__Item:nth-child(1) {
+            &::before {
               display: block;
             }
           }
         }
       }
+
       // background: url(../../../icons/select-tree-tmp.jpg);
 
       ul {
@@ -46,6 +50,7 @@
             transition: opacity 0.16s linear;
             will-change: opacity;
           }
+
           span.Select-Tree-List__Item-label-inner {
             transition: color 0.16s linear;
             will-change: color;
@@ -55,11 +60,13 @@
             span.Select-Tree-List__Item-label-inner {
               color: #1ea7fd;
             }
+
             i.Select-Tree-List__Item-number {
               opacity: 1;
             }
           }
         }
+
         ul {
           padding-top: 3px;
         }
@@ -67,61 +74,56 @@
     }
 
     &-Tree-List {
+      list-style: none;
       margin: 0;
       padding: 0;
-      list-style: none;
       width: 100%;
       box-sizing: border-box;
     }
 
     &-Tree-List__Item {
+      position: relative;
+      top: 0;
+      z-index: 10;
       display: flex;
       flex-wrap: wrap;
+      padding: 8px 0 0 12px;
+      width: 100%;
+      min-height: 31px;
+      box-sizing: border-box;
+      font-family: 'Roboto';
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0;
       text-align: left;
-      font-family: inherity;
-      font: normal normal normal 14px/17px Roboto;
-      letter-spacing: 0px;
       color: #505d6e;
       opacity: 1;
-      font-size: 14px;
-      padding: 8px 0 0 12px;
-      min-height: 31px;
-      position: relative;
-      top: 0;
-      left: 0;
-      width: 100%;
-      box-sizing: border-box;
       transition: all 0.16s linear;
-      position: relative;
-      top: 0;
-      left: 0;
-      z-index: 10;
-      &:hover:after {
-        opacity: 0.4;
-      }
-      &:after {
-        display: block;
+
+      &::before {
         content: '';
-        width: 280px;
-        height: 31px;
-        background: #f4f5f8;
         position: absolute;
-        top: 0;
         right: 0;
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.16s linear;
-        will-change: opacity;
-      }
-      &:before {
+        top: 0;
         display: block;
-        content: '';
         width: 280px;
         height: 1px;
         background: #f4f5f8;
+      }
+
+      &::after {
+        content: '';
         position: absolute;
-        top: 0;
         right: 0;
+        top: 0;
+        z-index: -1;
+        display: block;
+        width: 280px;
+        height: 31px;
+        background: #f4f5f8;
+        opacity: 0;
+        transition: opacity 0.16s linear;
+        will-change: opacity;
       }
 
       &-parent {
@@ -132,96 +134,105 @@
 
       ul {
         padding-top: 6px;
+
         li {
           position: relative;
-          top: 0;
           left: 0;
+          top: 0;
         }
+
         li:last-child {
           .Select-Tree-List__Item-chain {
-            &:before {
+            &::before {
               content: '';
+              position: absolute;
+              left: 0;
+              top: 0;
               display: block;
               width: 1px;
               height: 16px;
               background: #f4f5fa;
-              position: absolute;
-              top: 0;
-              left: 0;
             }
           }
         }
       }
+
+      &:hover::after {
+        opacity: 0.4;
+      }
     }
 
     &-Tree-List__Item-chain {
+      position: absolute;
+      left: 0;
+      top: 0;
       display: block;
       width: 15px;
       height: 31px;
-      position: absolute;
-      top: 0;
-      left: 0;
 
-      &:after {
+      &::before {
         content: '';
-        display: block;
-        width: 11px;
-        height: 1px;
-        background: #f4f5fa;
         position: absolute;
-        top: 50%;
         left: 0;
-      }
-
-      &:before {
-        content: '';
+        top: 2px;
         display: block;
         width: 1px;
         height: 31px;
         background: #f4f5fa;
+      }
+
+      &::after {
+        content: '';
         position: absolute;
-        top: 2px;
         left: 0;
+        top: 50%;
+        display: block;
+        width: 11px;
+        height: 1px;
+        background: #f4f5fa;
       }
     }
 
     &-Tree-List__Item-Inner {
+      display: flex;
       overflow: hidden;
       width: 86%;
-      display: flex;
     }
 
     &-Tree-List__Item-arrow {
       position: absolute;
-      top: 0;
       right: 0;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 31px;
       height: 31px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       transition: background 0.16s linear;
       will-change: background;
-      &:hover {
-        background: rgba(#f4f5f8, 1);
-      }
+
       &,
       svg {
         cursor: pointer;
       }
+
       svg {
         fill: #8ea6c1;
+      }
+
+      &:hover {
+        background: rgba(#f4f5f8, 1);
       }
     }
 
     &-Tree-List__Item-number {
-      color: #505d6e;
-      font-size: 12px;
-      list-style: normal;
-      font-style: normal;
-      opacity: 0.5;
       display: inline-block;
+      list-style: normal;
       margin-left: 3px;
+      font-style: normal;
+      font-size: 12px;
+      color: #505d6e;
+      opacity: 0.5;
     }
 
     &-Tree-List__Item-label {
@@ -230,16 +241,14 @@
     }
 
     &-Tree-List__Item-label-inner {
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       display: block;
+      overflow: hidden;
       width: 100%;
       max-width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
+
     // TREE END
   }
 }
-
-// rS1sXDzXK_0n3zUvh_NR Select-Tree Select-Tree--Main

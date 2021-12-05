@@ -1,6 +1,6 @@
 import { SelectProps, Tree } from '@/components';
 import { getFlatMap } from '@/helpers';
-import { ArrowTop } from '@/icons';
+import { ArrowTop, ArrowBottom } from '@/icons';
 import classNames from 'classnames';
 import React, { FC, useMemo, useState } from 'react';
 import TreeSelect from './TreeSelect';
@@ -49,7 +49,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
               setChildVisible((v) => !v);
             }}
             className={classNames(styles['Select-Tree-List__Item-arrow'], 'Select-Tree-List__Item-arrow')}>
-            <ArrowTop width='9' />
+            {!childVisible ? <ArrowBottom width='9' /> : <ArrowTop width='9' />}
           </i>
         )}
       </span>
@@ -62,7 +62,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
             if (onChange) onChange(node.value, !childVisible);
           }}
           className={classNames(styles['Select-Tree-List__Item-arrow'], 'Select-Tree-List__Item-arrow')}>
-          <ArrowTop width='9' />
+          {!childVisible ? <ArrowBottom width='9' /> : <ArrowTop width='9' />}
         </i>
       )}
 

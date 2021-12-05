@@ -530,7 +530,7 @@ export const TreeView = () => {
           ]
         },
         {
-          label: 'Document 1 Document 1 Document 1 Document 1 Document 1 Document 1',
+          label: 'New Document 1 Document 1 Document 1 Document 1 Document 1 Document 1',
           value: '145454',
           children: [
             {

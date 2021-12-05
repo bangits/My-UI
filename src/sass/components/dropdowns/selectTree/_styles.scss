@@ -141,7 +141,7 @@
     &-Tree-List__Item-chain {
       display: block;
       width: 15px;
-      height: 30px;
+      height: 31px;
       position: absolute;
       top: 0;
       left: 0;
@@ -161,7 +161,7 @@
         content: '';
         display: block;
         width: 1px;
-        height: 29px;
+        height: 31px;
         background: #f4f5fa;
         position: absolute;
         top: 2px;
@@ -171,7 +171,7 @@
 
     &-Tree-List__Item-Inner {
       overflow: hidden;
-      width: 88%;
+      width: 86%;
       display: flex;
     }
 

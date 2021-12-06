@@ -284,6 +284,7 @@ export const TreeView = () => {
   return (
     <Select
       onChange={action('onChange')}
+      onBlur={action('onBlur')}
       isSearchable
       isDisabled={boolean('isDisabled', false)}
       isTree

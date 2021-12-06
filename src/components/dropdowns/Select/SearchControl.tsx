@@ -22,10 +22,10 @@ export const SearchControl: typeof components.Control = (props) => {
     }
   }, [isMenuOpen]);
 
-  const onInputBlur = useCallback(() => {
+  const onInputBlur = useCallback((e) => {
     setIsMenuOpen(false);
     selectProps.onMenuClose();
-
+    selectProps.onBlur(e);
     if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue.label);
   }, []);
 

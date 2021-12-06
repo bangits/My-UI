@@ -30,6 +30,10 @@
       }
     }
 
+    .LastTableCell {
+      margin-right: getTableSizes(last-table-cell-margin);
+    }
+
     .TableBody {
       tr {
         height: getTableSizes(table-body-row-height);
@@ -68,6 +72,21 @@
 
     .ActionTableCell {
       display: none;
+    }
+  }
+  .IllustrationWrapper {
+    .Illustration {
+      width: getTableSizes(illustration-wrapper-width);
+      height: getTableSizes(illustration-wrapper-height);
+      margin: auto;
+      margin-top: getTableSizes(illustration-wrapper-margin);
+    }
+    .IllustrationText {
+      width: getTableSizes(illustration-text-width);
+      margin: auto;
+      margin-top: getTableSizes(illustration-text-margin-top);
+      text-align: center;
+      word-break: break-word;
     }
   }
 }

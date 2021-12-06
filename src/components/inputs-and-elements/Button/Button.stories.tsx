@@ -5,6 +5,7 @@ import { ComponentMeta } from '@storybook/react';
 import Button from './Button';
 import BUTTON_TYPES from './button-types';
 import { getColorKnobs } from '@/configs';
+import { EditIcon } from '@/icons';
 
 export default {
   component: Button,
@@ -86,5 +87,35 @@ export const WithIcons = () => (
       }>
       {text('start icon', 'Start Icon')}
     </Button>
+    <h1></h1>
+    <Button
+      type='button'
+      color={getColorKnobs()}
+      onClick={action('onClick')}
+      variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.ghost, { display: 'inline-radio' })}
+      disabled={boolean('disabled', false)}
+      startIcon={
+        <svg data-name='Component 61 – 1' xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
+          <path data-name='Rectangle 919' style={{ fill: 'none' }} d='M0 0h24v24H0z' />
+          <g transform='translate(6.001 5.754)'>
+            <path
+              data-name='Path 1944'
+              style={{ fill: 'none', stroke: 'currentColor', strokeLinecap: 'round', strokeLinejoin: 'round' }}
+              d='m7.41 82.473-6.6 6.6a.263.263 0 0 0-.069.121l-.734 2.94a.26.26 0 0 0 .252.323.258.258 0 0 0 .063-.008l2.937-.732a.26.26 0 0 0 .121-.069l6.6-6.6zm0 0'
+              transform='translate(0 -80.223)'
+            />
+            <path
+              data-name='Path 1945'
+              style={{ fill: 'none', stroke: 'currentColor', strokeLinecap: 'round', strokeLinejoin: 'round' }}
+              d='m337.8 1.35-.735-.735a1.331 1.331 0 0 0-1.838 0l-.9.9 2.573 2.573.9-.9a1.3 1.3 0 0 0 0-1.838zm0 0'
+              transform='translate(-326.182)'
+            />
+          </g>
+        </svg>
+      }>
+      {text('Edit', 'Edit')}
+    </Button>
   </>
+
+  //remove  h1
 );

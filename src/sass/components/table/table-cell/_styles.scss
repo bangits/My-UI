@@ -10,7 +10,7 @@
     font-weight: getTableCellSizes(table-cell-font-weight-selected);
     font-weight: getTableCellSizes(table-cell-font-weight);
     text-align: left;
-    margin: getTableCellSizes(table-cell-margin);
+    margin: 0 auto;
 
     &:last-child {
       border-bottom: none;
@@ -19,6 +19,7 @@
     div {
       max-width: 100%;
       @include dots-after-text;
+      overflow: inherit;
 
       img {
         width: getTableCellSizes(table-cell-img-width);

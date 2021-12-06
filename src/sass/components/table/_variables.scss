@@ -3,7 +3,13 @@ $table-sizes: (
   table-head-row-height: calculateRem(55px),
   table-body-row-height: calculateRem(51px),
   table-action-cell-width: calculateRem(140px),
-  table-with-selection-width: calculateRem(18px)
+  table-with-selection-width: calculateRem(18px),
+  last-table-cell-margin: calculateRem(16px),
+  illustration-wrapper-width: calculateRem(209.74px),
+  illustration-wrapper-height: calculateRem(135.83px),
+  illustration-wrapper-margin: calculateRem(81px),
+  illustration-text-width: calculateRem(201px),
+  illustration-text-margin-top: calculateRem(24px)
 );
 
 $table-colors: (

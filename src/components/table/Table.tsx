@@ -1,5 +1,5 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import { Scroll } from '@/my-ui-core';
+import { Scroll, Typography } from '@/my-ui-core';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
 import {
@@ -72,6 +72,11 @@ export interface TableProps<T extends {}> extends IComponent {
   theadComponent?: ComponentType;
   tbodyComponent?: ComponentType;
   actions?: TableAction<T>[];
+  illustrationIcon?: ReactNode;
+  emptyText?: string;
+
+  loadingRowsIds?: (number | string)[];
+  loadingRowColumnProperty?: keyof T;
 }
 
 interface CustomColumnProps {
@@ -96,8 +101,12 @@ const Table = <T extends {}>({
   tbodyComponent: TBodyComponent = 'tbody',
   isWithSelection = true,
   actions,
+  emptyValue,
+  illustrationIcon,
+  emptyText,
   onSelectedColumnsChange,
-  emptyValue
+  loadingRowsIds,
+  loadingRowColumnProperty
 }: TableProps<T>) => {
   const tableHeadRef = useRef<HTMLElement>(null);
 
@@ -188,54 +197,84 @@ const Table = <T extends {}>({
             </TableRow>
           ))}
         </THeadComponent>
-        <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
-          {rows.map((row: Row<T>, rowIndex) => {
-            prepareRow(row);
-            return (
-              <TableRow key={rowIndex} hover selected={row.isSelected} {...row.getRowProps()} color={color}>
-                {row.cells.map((cell: CellType<T>, index) => {
-                  return (
-                    <TableCell
-                      key={index}
-                      style={{
-                        maxWidth: cell.column.dataMaxWidth
-                          ? cell.column.dataMaxWidth
-                          : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
-                          ? cell.column.maxWidth
-                          : `${tableHeadWidths[index] / 10}rem`
-                      }}
-                      align={cell.column.align}
-                      color={color}>
-                      <div>
-                        {cell.column.renderColumn
-                          ? cell.column.renderColumn(cell.render('Cell'), cell.value)
-                          : cell.render('Cell')}
-                      </div>
-                    </TableCell>
-                  );
-                })}
+        {data.length ? (
+          <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
+            {rows.map((row: Row<T>, rowIndex: number) => {
+              prepareRow(row);
 
-                {actions && (
-                  <TableCell {...actions} color={color} className={styles.ActionTableCell}>
-                    {actions.map(
-                      ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
-                        shouldShow(data[rowIndex]) && (
-                          <Component
-                            key={index}
-                            {...props}
-                            onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
-                          />
-                        )
-                    )}
-                  </TableCell>
-                )}
-              </TableRow>
-            );
-          })}
-        </TBodyComponent>
+              const rowLoadingPropertyValue = loadingRowColumnProperty
+                ? // @ts-expect-error Ignored typescript, cause loadingRowColumnProperty should be string or number
+                  (row.original[loadingRowColumnProperty] as string | number)
+                : rowIndex + 1;
+
+              const isLoading = loadingRowsIds.includes(rowLoadingPropertyValue);
+
+              return (
+                <TableRow
+                  isLoading={isLoading}
+                  key={rowIndex}
+                  hover
+                  selected={row.isSelected}
+                  {...row.getRowProps()}
+                  color={color}>
+                  {row.cells.map((cell: CellType<T>, index) => {
+                    return (
+                      <TableCell
+                        key={index}
+                        style={{
+                          maxWidth: cell.column.dataMaxWidth
+                            ? cell.column.dataMaxWidth
+                            : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                            ? cell.column.maxWidth
+                            : `${tableHeadWidths[index] / 10}rem`
+                        }}
+                        align={cell.column.align}
+                        color={color}
+                        className={classNames({
+                          [styles.LastTableCell]: index === row.cells.length - 1
+                        })}>
+                        <div>
+                          {cell.column.renderColumn
+                            ? cell.column.renderColumn(cell.render('Cell'), cell.value)
+                            : cell.render('Cell')}
+                        </div>
+                      </TableCell>
+                    );
+                  })}
+
+                  {actions && !isLoading && (
+                    <TableCell {...actions} color={color} className={styles.ActionTableCell}>
+                      {actions.map(
+                        ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
+                          shouldShow(data[rowIndex]) && (
+                            <Component
+                              key={index}
+                              {...props}
+                              onClick={(...args: any[]) => onClick(data[index], ...args)}
+                            />
+                          )
+                      )}
+                    </TableCell>
+                  )}
+                </TableRow>
+              );
+            })}
+          </TBodyComponent>
+        ) : (
+          <div className={styles.IllustrationWrapper}>
+            <div className={styles.Illustration}>{illustrationIcon}</div>
+            <Typography component='p' variant='p4' className={styles.IllustrationText}>
+              {emptyText}
+            </Typography>
+          </div>
+        )}
       </Component>
     </Scroll>
   );
+};
+
+Table.defaultProps = {
+  loadingRowsIds: []
 };
 
 export default typedMemo(Table);

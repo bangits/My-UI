@@ -1,9 +1,10 @@
 @mixin generate-copyfield-styles {
   .CopyFieldWrapper {
     @include theme(background-color, copy-field-background);
-    @include flex(space-between, center);
+    @include flex(null, center);
     max-width: getCopyFieldSizes(copy-field-wrapper-max-width);
-    width: 100%;
+    width: fit-content;
+    width: -moz-fit-content;
     height: getCopyFieldSizes(copy-field-wrapper-height);
     box-sizing: border-box;
     padding: getCopyFieldSizes(copy-field-wrapper-padding);
@@ -15,6 +16,7 @@
     .Copy {
       width: getCopyFieldSizes(copy-url-sizes);
       height: getCopyFieldSizes(copy-url-sizes);
+      margin-left: getCopyFieldSizes(copy-url-margin);
       svg {
         width: 100%;
         height: 100%;

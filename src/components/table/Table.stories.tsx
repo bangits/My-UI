@@ -104,7 +104,7 @@ export const Default = () => {
         }
       ]}
       illustrationIcon={<IllustrationIcon />}
-      emptyText='You don’t have any users added! Please add a user.'
+      emptyText={text('input your text', 'You don’t have any users added! Please add a user.')}
     />
   );
 };

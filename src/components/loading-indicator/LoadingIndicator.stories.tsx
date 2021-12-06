@@ -11,7 +11,6 @@ export default {
 export const Default = () => {
   return (
     <LoadingIndicator
-      label='XXXX_Icon_50*50.png'
       percent={number('percent', 75)}
       variant={optionsKnob(
         'variant',

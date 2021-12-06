@@ -41,6 +41,7 @@
   .LoadingIndicatorRectangle {
     position: relative;
     width: getLoadingIndicatorSizes(loading-indicator-rectangle-width);
+
     rect {
       stroke-width: getLoadingIndicatorSizes(rectangle-stroke-width);
       transition: getLoadingIndicatorSizes(transition-all-indicator);
@@ -48,42 +49,14 @@
       width: getLoadingIndicatorSizes(loading-indicator-rectangle-width);
       height: getLoadingIndicatorSizes(loading-indicator-rectangle-height);
     }
-    .UploadWrapper {
-      @include flex(space-between, null);
-      position: absolute;
-      top: getLoadingIndicatorSizes(upload-wrapper-position);
-      width: 100%;
-      .GameIndicatorIconWrapper {
-        @include flex(null, center);
-        .GameIndicatorIcon {
-          margin-left: getLoadingIndicatorSizes(game-icon-margin);
-          @include theme(background-color, black-color);
-          width: getLoadingIndicatorSizes(game-indicator-sizes);
-          height: getLoadingIndicatorSizes(game-indicator-sizes);
 
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-        .ImageFormatLabel {
-          @include theme(color, black-color);
-          @include dots-after-text;
-          margin-left: getLoadingIndicatorSizes(icon-label-margin);
-          max-width: getLoadingIndicatorSizes(icon-label-max-width);
-        }
-      }
-      .PerconWrapper {
-        @include flex(null, center);
-        .PercentUpload {
-          margin-right: getLoadingIndicatorSizes(percent-upload-margin);
-        }
-        .TrashUploadIcon {
-          @include theme(color, indicator-trash-color);
-          margin-right: getLoadingIndicatorSizes(trash-icon-margin);
-          cursor: pointer;
-        }
-      }
+    .LoadingIndicatorContent {
+      @include flex(space-between, null);
+
+      position: absolute;
+      top: getLoadingIndicatorSizes(loading-indicator-top);
+
+      width: 100%;
     }
   }
 

@@ -2,8 +2,8 @@ import { IconButton, Status } from '@/components';
 import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { useState } from 'react';
 import Table from './Table';
-import { useState } from 'React';
 
 export default {
   component: Table,
@@ -39,7 +39,7 @@ export const Default = () => {
           ...d
         }))
       ]}
-      loadingRowsIds={object('loadingRowsIds', loadingRowsIds)}
+      loadingRowsIds={loadingRowsIds}
       columns={object('columns', [
         {
           Header: 'Icon',
@@ -103,7 +103,7 @@ export const Default = () => {
         }
       ]}
       illustrationIcon={<IllustrationIcon />}
-      emptyText={text('input your text', 'You don’t have any users added! Please add a user.')}
+      emptyText={text('emptyText', 'You don’t have any users added! Please add a user.')}
     />
   );
 };

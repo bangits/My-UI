@@ -11,16 +11,7 @@ $loadingindicator-sizes: (
   rectangle-stroke-width: calculateRem(1px),
   transition-all-indicator: all 9s,
   transition-circle-path-remaining: 0.9s,
-  upload-wrapper-position: calculateRem(8px),
-  game-icon-margin: calculateRem(8px),
-  icon-label-margin: calculateRem(8px),
-  icon-label-max-width: calculateRem(120px),
-  percent-upload-margin: calculateRem(8px),
-  trash-icon-margin: calculateRem(6px),
-  dropzone-width: calculateRem(284px),
-  dropzone-height: calculateRem(42px),
-  dropzone-base-height: calculateRem(38px),
-  game-indicator-sizes: calculateRem(24px)
+  loading-indicator-top: calculateRem(8px)
 );
 
 $loadingindicator-colors: (

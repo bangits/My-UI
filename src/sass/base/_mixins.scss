@@ -49,6 +49,13 @@
   animation: dialog-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
 }
 
+@mixin reset-button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+
 :global {
   @keyframes dialog-animation {
     from {

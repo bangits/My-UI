@@ -1,3 +1,5 @@
+import { getImageByFile } from '@/helpers';
+import { TrashIndicator } from '@/icons';
 import { LoadingIndicator, Typography } from '@/my-ui-core';
 import classNames from 'classnames';
 import React, { FC, useCallback, useState } from 'react';
@@ -12,10 +14,12 @@ export interface FileUploaderProps {
   minSize?: number;
   maxSize?: number;
   accept?: string;
-  onChange?: (file: File) => void;
-  onError?: (error: { type: FileUploaderErrors; file: File }) => void;
+  onChange?: (file) => void;
+  onError?: (error: { type: FileUploaderErrors; file }) => void;
   loadingPercent?: number;
-  imageURL?: string;
+  dragFileText?: string;
+  browseText?: string;
+  imageSrc?: string;
 }
 
 const FileUploader: FC<FileUploaderProps> = ({
@@ -27,17 +31,20 @@ const FileUploader: FC<FileUploaderProps> = ({
   maxSize = 5000000,
   accept = 'image/*',
   loadingPercent,
-  imageURL,
   onChange,
-  onError
+  onError,
+  dragFileText = 'Drag file here ',
+  browseText = 'Browse',
+  imageSrc
 }) => {
   const [highlight, setHighlight] = useState<boolean>(false);
-  const [drop, setDrop] = useState<boolean>(false);
-  const [uploadedFile, setUploadedFile] = useState<any>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const [uploadedFile, setUploadedFile] = useState<File>(null);
+
+  const [uploadedImageSource, setUploadedImageSource] = useState('');
 
   const handleEnter = useCallback(
-    (e) => {
+    (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       e.stopPropagation();
 
@@ -47,7 +54,7 @@ const FileUploader: FC<FileUploaderProps> = ({
   );
 
   const handleOver = useCallback(
-    (e) => {
+    (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       e.stopPropagation();
 
@@ -57,97 +64,85 @@ const FileUploader: FC<FileUploaderProps> = ({
   );
 
   const handleLeave = useCallback(
-    (e) => {
+    (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       e.stopPropagation();
+
       setHighlight(false);
     },
     [setHighlight]
   );
 
   const handleUpload = useCallback(
-    (e) => {
+    async (e: React.DragEvent<HTMLDivElement> | React.ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
       e.stopPropagation();
 
       setHighlight(false);
-      setDrop(true);
 
-      const [file] = e.target.files || e.dataTransfer.files;
+      // @ts-expect-error Expectng ts error, cause the event type is input change event or drag event
+      const uploadedFiles: FileList = (e.target as HTMLInputElement).files || e.dataTransfer.files;
+
+      const file = uploadedFiles[0];
+
+      let error: { type: FileUploaderErrors; file };
+
+      if (!new RegExp(accept?.replace('*', '.*')).test(file.type) && onError)
+        return onError({ type: FileUploaderErrors.TYPE, file });
 
       if (accept.includes('image')) {
-        const reader = new FileReader();
-        const image = new Image();
+        const { width, height, imageSrc } = await getImageByFile(file);
 
-        reader.readAsDataURL(file);
-        reader.onload = (_file): void => {
-          image.src = _file.target.result as string;
-          image.onload = function () {
-            if (image.width > maxWidth && onError) {
-              return onError({ type: FileUploaderErrors.MAX_WIDTH, file: file });
-            } else if (image.width < minWidth && onError) {
-              return onError({ type: FileUploaderErrors.MIN_WIDTH, file: file });
-            } else if (image.height > maxHeight && onError) {
-              return onError({ type: FileUploaderErrors.MAX_HEIGHT, file: file });
-            } else if (image.height < minHeight && onError) {
-              return onError({ type: FileUploaderErrors.MIN_HEIGHT, file: file });
-            } else if (file.size > maxSize && onError) {
-              return onError({ type: FileUploaderErrors.MAX_SIZE, file: file });
-            } else if (file.size < minSize && onError) {
-              return onError({ type: FileUploaderErrors.MIN_SIZE, file: file });
-            } else {
-              onChange(file);
-              setIsLoading(true);
-            }
-          };
-        };
+        if (width > maxWidth) error = { type: FileUploaderErrors.MAX_WIDTH, file };
+
+        if (width < minWidth && onError) error = { type: FileUploaderErrors.MIN_WIDTH, file };
+
+        if (height > maxHeight && onError) error = { type: FileUploaderErrors.MAX_HEIGHT, file };
+
+        if (height < minHeight && onError) error = { type: FileUploaderErrors.MIN_HEIGHT, file };
+
+        if (file.size > maxSize && onError) error = { type: FileUploaderErrors.MAX_SIZE, file };
+
+        if (file.size < minSize && onError) error = { type: FileUploaderErrors.MIN_SIZE, file };
+
+        if (!error) setUploadedImageSource(imageSrc);
       }
 
-      if (file.size > maxSize && onError && !accept.includes('image')) {
-        return onError({ type: FileUploaderErrors.MAX_SIZE, file: file });
-      } else if (file.size < minSize && onError && !accept.includes('image')) {
-        return onError({ type: FileUploaderErrors.MIN_SIZE, file: file });
-      } else if (!accept.includes('image')) {
-        onChange(file);
-        setIsLoading(true);
-      }
+      if (file.size > maxSize && onError) error = { type: FileUploaderErrors.MAX_SIZE, file };
+
+      if (file.size < minSize && onError) error = { type: FileUploaderErrors.MIN_SIZE, file };
+
+      if (error && onError) return onError(error);
 
       setUploadedFile(file);
+
+      onChange(file);
     },
-    [onChange, setHighlight, setDrop, drop, onError]
+    [onChange, onError]
   );
 
   return (
     <>
-      {!isLoading ? (
+      {!uploadedFile ? (
         <div
-          onDragEnter={(e) => handleEnter(e)}
-          onDragLeave={(e) => handleLeave(e)}
-          onDragOver={(e) => handleOver(e)}
-          onDrop={(e) => handleUpload(e)}
+          onDragEnter={handleEnter}
+          onDragLeave={handleLeave}
+          onDragOver={handleOver}
+          onDrop={handleUpload}
           className={classNames({
             [styles.DropzoneBase]: !highlight,
             [styles.DropIndicator]: highlight
           })}>
           <Typography component='span' variant='p4'>
-            Drag file here{' '}
+            {dragFileText}
             <div className={styles['DropzoneBase--browse']}>
-              Browse
+              {browseText}
               {!highlight && (
                 <input
                   type='file'
                   title=''
                   accept={accept}
-                  onChange={(e) => {
-                    if (new RegExp(e.target?.accept?.replace('*', '.*')).test(e.target?.files[0]?.type)) {
-                      handleUpload(e);
-                    } else {
-                      onError({
-                        type: FileUploaderErrors.TYPE,
-                        file: e.target.files[0]
-                      });
-                    }
-                  }}
+                  onChange={handleUpload}
                   className={styles['DropzoneBase--upload']}
                 />
               )}
@@ -155,18 +150,25 @@ const FileUploader: FC<FileUploaderProps> = ({
           </Typography>
         </div>
       ) : (
-        <LoadingIndicator
-          variant='square'
-          color='primary'
-          percent={loadingPercent}
-          onClick={() => {
-            setDrop(false);
-            onChange(null);
-            setIsLoading(false);
-          }}
-          label={uploadedFile?.name}
-          imageSrc={imageURL}
-        />
+        <LoadingIndicator variant='square' color='success' percent={loadingPercent}>
+          <div className={styles.GameIndicatorIconWrapper}>
+            <span className={styles.GameIndicatorIcon}>
+              <img src={imageSrc || uploadedImageSource} alt={uploadedFile.name} />
+            </span>
+            <span className={styles.ImageFormatLabel}>{uploadedFile.name}</span>
+          </div>
+          <div className={styles.PerconWrapper}>
+            <span className={styles.PercentUpload}>{loadingPercent}%</span>
+            <button
+              type='button'
+              onClick={() => {
+                setUploadedFile(null);
+              }}
+              className={styles.TrashUploadIcon}>
+              <TrashIndicator />
+            </button>
+          </div>
+        </LoadingIndicator>
       )}
     </>
   );

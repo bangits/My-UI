@@ -50,7 +50,7 @@ export const WithIcons = () => (
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.ghost, { display: 'inline-radio' })}
       disabled={boolean('disabled', false)}
       endIcon={
-        <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' style={{ transform: 'rotate(180deg)' }}>
+        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' style={{ transform: 'rotate(180deg)' }}>
           <g data-name='Group 111'>
             <path
               data-name='Path 15'

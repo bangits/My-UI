@@ -3,6 +3,7 @@ import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import Table from './Table';
+import { useState } from 'React';
 
 export default {
   component: Table,
@@ -11,6 +12,8 @@ export default {
 };
 
 export const Default = () => {
+  const [loadingRowsIds, setLoadingRowsIds] = useState<number[]>([]);
+
   const data = object('data', [
     {
       y: 'ID1234567',
@@ -26,7 +29,6 @@ export const Default = () => {
 
   return (
     <Table
-      onSelectedColumnsChange={console.log}
       fetch={action('fetch')}
       data={[
         ...data.map((d) => ({
@@ -37,7 +39,7 @@ export const Default = () => {
           ...d
         }))
       ]}
-      loadingRowsIds={object('loadingRowsIds', [])}
+      loadingRowsIds={object('loadingRowsIds', loadingRowsIds)}
       columns={object('columns', [
         {
           Header: 'Icon',
@@ -85,7 +87,9 @@ export const Default = () => {
       actions={[
         {
           component: IconButton,
-          onClick: () => {},
+          onClick: () => {
+            setLoadingRowsIds([1, 2, 3]);
+          },
           props: {
             icon: <ViewIcon />
           }
@@ -95,11 +99,6 @@ export const Default = () => {
           onClick: () => {},
           props: {
             icon: <EditIcon />
-          },
-          shouldShow: (column) => {
-            console.log(column);
-
-            return true;
           }
         }
       ]}

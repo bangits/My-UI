@@ -7,7 +7,7 @@ import styles from './Select.module.scss';
 
 export const SearchControl: typeof components.Control = (props) => {
   const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
-  // @ts-ignore
+  // @ts-expect-error ignoring typescript for typecast
   const currentValue = selectProps?.value as SelectOptionType | SelectOptionType[];
 
   const [searchValue, setSearchValue] = useState('');
@@ -21,12 +21,15 @@ export const SearchControl: typeof components.Control = (props) => {
     }
   }, [isMenuOpen]);
 
-  const onInputBlur = useCallback(() => {
-    setIsMenuOpen(false);
-    selectProps.onMenuClose();
-
-    if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue.label);
-  }, [currentValue]);
+  const onInputBlur = useCallback(
+    (e) => {
+      setIsMenuOpen(false);
+      selectProps.onMenuClose();
+      selectProps.onBlur(e);
+      if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue.label);
+    },
+    [currentValue]
+  );
 
   const onSearchValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +61,11 @@ export const SearchControl: typeof components.Control = (props) => {
     }
 
     if (!isMenuOpen && (!currentValue || (isMulti && !currentValue.length))) setSearchValue('');
-  }, [currentValue, isMenuOpen]);
+
+    if (!isMenuOpen && (!currentValue || (isMulti && !currentValue.length))) setSearchValue('');
+
+    if (isMenuOpen && selectProps.isTree) selectProps.onInputChange('', null);
+  }, [currentValue, isMenuOpen, selectProps.isTree]);
 
   useEffect(() => {
     if (!props.selectProps.inputValue && searchValue && !currentValue) setSearchValue('');
@@ -68,12 +75,13 @@ export const SearchControl: typeof components.Control = (props) => {
     <components.Control {...props}>
       {selectProps.renderInput ? (
         <div onClick={selectProps.onMenuOpen}>
-          {/* @ts-ignore ignoring typescript for typecast */}
+          {/*  @ts-expect-error ignoring typescript for typecast */}
           {selectProps.renderInput(selectProps.value, props.selectProps.menuIsOpen, props.selectProps.onInputChange)}
         </div>
       ) : (
         <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
           <TextInput
+            disabled={selectProps.isDisabled}
             fullWidth={selectProps.fullWidth}
             color={selectProps.color !== 'default' ? selectProps.color : undefined}
             explanation={selectProps.explanation}
@@ -81,7 +89,7 @@ export const SearchControl: typeof components.Control = (props) => {
             onChange={onSearchValueChange}
             onBlur={onInputBlur}
             onClick={menuToggle}
-            value={searchValue}
+            value={selectProps.isTree ? selectProps.inputValue : searchValue}
             label={selectProps.inputLabel}
             className='MyUI-SelectInput'
             endIcon={

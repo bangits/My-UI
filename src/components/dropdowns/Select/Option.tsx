@@ -7,9 +7,13 @@ import styles from './Select.module.scss';
 export const Option: typeof components.Option = (props) => {
   const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
 
-  const closeMenuOnClick = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    (e.target as Element).closest('.MyUI-Select').querySelector('input')?.blur();
-  }, []);
+  const closeMenuOnClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      (e.target as Element).closest('.MyUI-Select').querySelector('input').blur();
+      if (selectProps.isTree && !selectProps.isMulti) selectProps.onInputChange(props.label, null);
+    },
+    [selectProps.isTree, selectProps.isMulti, props.label]
+  );
 
   return (
     <div

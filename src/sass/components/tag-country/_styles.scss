@@ -1,0 +1,27 @@
+@mixin generate-tagcountry-styles {
+  .TagCountryWrapper {
+    width: fit-content;
+    width: -moz-fit-content;
+    min-width: getTagCountrySizes(tag-country-wrapper-min-width);
+    height: getTagCountrySizes(tag-country-wrapper-height);
+    border-radius: getTagCountrySizes(tag-country-wrapper-border-radius);
+    padding: getTagCountrySizes(tag-country-wrapper-padding);
+    @include flex(center, center);
+    @include theme(background-color, tag-country-background);
+    box-sizing: border-box;
+
+    .Flag {
+      width: getTagCountrySizes(flag-sizes);
+      height: getTagCountrySizes(flag-sizes);
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: getTagCountrySizes(flag-border-radius);
+      }
+    }
+    .Country {
+      @include theme(color, tag-country-color);
+      margin-left: getTagCountrySizes(country-margin);
+    }
+  }
+}

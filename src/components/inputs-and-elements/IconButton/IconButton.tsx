@@ -12,7 +12,7 @@ export interface IconButtonProps extends Omit<ButtonProps, 'variant'>, IComponen
   variant?: IconButtonVariants;
 }
 
-const IconButton: FC<IconButtonProps> = ({ icon, variant = 'dark', className }) => {
+const IconButton: FC<IconButtonProps> = ({ icon, variant = 'dark', className, ...props }) => {
   return (
     <button
       className={classNames(
@@ -21,7 +21,8 @@ const IconButton: FC<IconButtonProps> = ({ icon, variant = 'dark', className }) 
           [styles[`IconButtonBase--${variant}`]]: variant
         },
         className
-      )}>
+      )}
+      {...props}>
       <span className={styles['IconButtonBase--icon']}>{icon}</span>
     </button>
   );

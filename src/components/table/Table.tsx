@@ -1,7 +1,5 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import { IllustrationIcon } from '@/icons';
 import { Scroll, Typography } from '@/my-ui-core';
-import { ObjectMock } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
 import {
@@ -27,7 +25,7 @@ import TableHead from './TableHead';
 import TableRow from './TableRow';
 
 // This interface used for react-table useSortBy hook
-export interface Column<T extends ObjectMock> extends HeaderGroup<T> {
+export interface Column<T extends {}> extends HeaderGroup<T> {
   isSorted: boolean;
   isSortedDesc: boolean;
   disableSortBy: boolean;
@@ -36,11 +34,11 @@ export interface Column<T extends ObjectMock> extends HeaderGroup<T> {
   getResizerProps: () => void;
 }
 
-export interface Row<T extends ObjectMock> extends UseTableRowProps<T> {
+export interface Row<T extends {}> extends UseTableRowProps<T> {
   isSelected?: boolean;
 }
 
-export interface State<T extends ObjectMock> extends TableState<T> {
+export interface State<T extends {}> extends TableState<T> {
   sortBy: {
     desc?: boolean;
     id?: string;
@@ -50,10 +48,10 @@ export interface State<T extends ObjectMock> extends TableState<T> {
 export interface TableAction<T> {
   component: React.ComponentType<{ onClick?: (...args: any[]) => void }>;
   onClick: (column: T, ...onClickEvent: any[]) => void;
-  props: ObjectMock;
+  props: {};
   shouldShow?: (column: T) => boolean;
 }
-export interface TableProps<T extends ObjectMock> extends IComponent {
+export interface TableProps<T extends {}> extends IComponent {
   component?: ComponentType;
   data?: T[];
   columns?: ({
@@ -70,6 +68,7 @@ export interface TableProps<T extends ObjectMock> extends IComponent {
   absoluteLayout?: boolean;
   blockLayout?: boolean;
   isResizing?: boolean;
+  emptyValue?: string;
   theadComponent?: ComponentType;
   tbodyComponent?: ComponentType;
   actions?: TableAction<T>[];
@@ -91,7 +90,7 @@ export interface CellType<T extends object = {}> extends Cell<T, any> {
   column: Cell<T, any>['column'] & CustomColumnProps;
 }
 
-const Table = <T extends ObjectMock>({
+const Table = <T extends {}>({
   data,
   columns,
   color,
@@ -102,6 +101,7 @@ const Table = <T extends ObjectMock>({
   tbodyComponent: TBodyComponent = 'tbody',
   isWithSelection = true,
   actions,
+  emptyValue,
   illustrationIcon,
   emptyText,
   onSelectedColumnsChange,
@@ -117,7 +117,10 @@ const Table = <T extends ObjectMock>({
       // @ts-expect-error Ignoring because react-table doesn't provide string type for maxWidth
       columns,
       data,
-      manualSortBy: true
+      manualSortBy: true,
+      defaultColumn: {
+        Cell: (x) => x.cell.value || emptyValue || 'N/A'
+      }
     },
     useSortBy,
     ...(isResizing ? [useFlexLayout, useResizeColumns] : []),
@@ -200,7 +203,8 @@ const Table = <T extends ObjectMock>({
               prepareRow(row);
 
               const rowLoadingPropertyValue = loadingRowColumnProperty
-                ? (row.original[loadingRowColumnProperty] as string | number)
+                ? // @ts-expect-error Ignored typescript, cause loadingRowColumnProperty should be string or number
+                  (row.original[loadingRowColumnProperty] as string | number)
                 : rowIndex + 1;
 
               const isLoading = loadingRowsIds.includes(rowLoadingPropertyValue);
@@ -246,7 +250,7 @@ const Table = <T extends ObjectMock>({
                             <Component
                               key={index}
                               {...props}
-                              onClick={(...args: any[]) => onClick(data[index], ...args)}
+                              onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
                             />
                           )
                       )}

@@ -1,0 +1,18 @@
+$tagcountry-sizes: (
+  tag-country-wrapper-min-width: calculateRem(30px),
+  tag-country-wrapper-height: calculateRem(32px),
+  tag-country-wrapper-border-radius: 16px,
+  tag-country-wrapper-padding: 0 calculateRem(8px),
+  flag-sizes: calculateRem(20px),
+  flag-border-radius: 50%,
+  country-margin: calculateRem(8px)
+);
+
+$tagcountry-colors: (
+  tag-country-background: color(selago-light),
+  tag-country-color: color(wild-blue-yonder)
+);
+
+@function getTagCountrySizes($property) {
+  @return map-get($tagcountry-sizes, $property);
+}

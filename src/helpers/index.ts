@@ -1,3 +1,4 @@
+export * from './flatMap';
 export * from './typedMemo';
 export * from './uniqueIdMaker';
 export * from './useOutsideClickEvent';

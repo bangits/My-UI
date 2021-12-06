@@ -1,7 +1,7 @@
 @mixin generate-table-styles {
   .TableScroll,
   .TableContainer {
-    max-width: getTableSizes(table-container-width);
+    max-width: 100%;
   }
 
   .TableScroll {

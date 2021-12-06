@@ -8,7 +8,7 @@ import styles from './TreeSelect.module.scss';
 
 export interface TreeNodeProps {
   node: Tree;
-  onChange?: (value: number | string, isSelected: boolean) => void;
+  onChange?: (value: number | string) => void;
   index?: number;
   setInput: SelectProps<any, false, any>['onInputChange'];
 }
@@ -37,7 +37,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
         <span className={classNames(styles['Select-Tree-List__Item-Label'], 'Select-Tree-List__Item-Label')}>
           <span
             onClick={(e) => {
-              if (onChange) onChange(node.value, !childVisible);
+              if (onChange) onChange(node.value);
               setInput?.(node.label, null);
               closeMenuOnClick(e);
             }}

@@ -113,81 +113,6 @@ export const Default = () => {
           }
         ])}
       />
-
-      {/* SELECT TREE */}
-      {/* <div className={classNames(styles['Select-Tree'], `${getMyUIPrefix()}-Select-Tree`)}> */}
-      <Select
-        menuIsOpen
-        value={value}
-        onChange={setValue}
-        inputLabel={text('inputLabelSingle', 'Single Select...')}
-        isSearchable
-        maxLength={number('maxLengthSingleSelect', 20)}
-        color={getColorKnobs()}
-        options={object('options3', [
-          {
-            label: 'Jewels and Gems',
-            value: 2
-          },
-          {
-            label: 'Fantasy',
-            value: 3
-          },
-          {
-            label: 'Halloween',
-            value: 4
-          },
-          {
-            label: 'Luxury',
-            value: 5
-          },
-          {
-            label: 'Fruits / Vegetables',
-            value: 6
-          },
-          {
-            label: 'Asian',
-            value: 7
-          },
-          {
-            label: 'Food',
-            value: 8
-          },
-          {
-            label: 'Branded',
-            value: 9
-          },
-          {
-            label: 'Animals',
-            value: 10
-          }
-        ])}
-      />
-      <div className='react-select__menu css-aey3sy-Menu' id='react-select-4-listbox'>
-        <div className='react-select__menu-list css-1atlt6n-MenuList'>
-          <div
-            className='K9BBSDk_idl7G44NXGsr'
-            style={{
-              position: 'relative',
-              overflow: 'hidden',
-              width: '100%',
-              height: 'auto',
-              minHeight: '0px',
-              maxHeight: '28.8rem'
-            }}>
-            <div
-              style={{
-                position: 'relative',
-                overflow: 'scroll',
-                marginRight: '-17px',
-                marginBottom: '-17px',
-                minHeight: '17px',
-                maxHeight: 'calc(28.8rem + 17px)'
-              }}></div>
-          </div>
-        </div>
-      </div>
-      {/* </div> */}
     </>
   );
 };
@@ -270,6 +195,7 @@ export const Dropdown = () => {
   return (
     <Select
       dropdown
+      isDisabled={boolean('isDisabled', false)}
       dropdownIcon={<FilterIcon />}
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
@@ -355,15 +281,11 @@ export const RenderInput = () => {
 };
 
 export const TreeView = () => {
-  const [treeValue, setTreeValue] = useState<number | string>();
-
-  /*  console.log(treeValue);
-   */
-
   return (
     <Select
       onChange={action('onChange')}
       isSearchable
+      isDisabled={boolean('isDisabled', false)}
       isTree
       treeData={[
         {
@@ -395,7 +317,7 @@ export const TreeView = () => {
                                   value: '1-2',
                                   children: [
                                     {
-                                      label: 'Document 1-2',
+                                      label: 'Document 1-2Document 1-2Document 1-2Document 1-2Document 1-2Document 1-2',
                                       value: '1-1-2'
                                     }
                                   ]

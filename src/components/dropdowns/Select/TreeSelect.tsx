@@ -12,7 +12,7 @@ export interface Tree {
 
 export interface TreeSelectProps {
   data: Tree[];
-  onChange?: (value: number | string, isSelected: boolean) => void;
+  onChange?: (value: number | string) => void;
   setInput?: SelectProps<any, false, any>['onInputChange'];
 }
 

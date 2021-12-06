@@ -7,7 +7,7 @@ import styles from './Select.module.scss';
 
 export const SearchControl: typeof components.Control = (props) => {
   const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
-  // @ts-ignore
+  // @ts-expect-error ignoring typescript for typecast
   const currentValue = selectProps?.value as SelectOptionType | SelectOptionType[];
 
   const [searchValue, setSearchValue] = useState('');
@@ -72,12 +72,13 @@ export const SearchControl: typeof components.Control = (props) => {
     <components.Control {...props}>
       {selectProps.renderInput ? (
         <div onClick={selectProps.onMenuOpen}>
-          {/* @ts-ignore ignoring typescript for typecast */}
+          {/*  @ts-expect-error ignoring typescript for typecast */}
           {selectProps.renderInput(selectProps.value, props.selectProps.menuIsOpen, props.selectProps.onInputChange)}
         </div>
       ) : (
         <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
           <TextInput
+            disabled={selectProps.isDisabled}
             fullWidth={selectProps.fullWidth}
             color={selectProps.color !== 'default' ? selectProps.color : undefined}
             explanation={selectProps.explanation}

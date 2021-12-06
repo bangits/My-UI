@@ -1,10 +1,11 @@
 .Select {
   position: relative;
 
+  // TREE END
   .Select--search {
     width: 28rem;
   }
-
+  //
   &--dropdown-control {
     display: flex;
     align-items: center;
@@ -17,6 +18,7 @@
       }
     }
   }
+
   .Select--dropdown-control-icon {
     width: 2.4rem;
     height: 2.4rem;

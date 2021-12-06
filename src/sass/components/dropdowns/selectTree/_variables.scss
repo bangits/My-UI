@@ -1,0 +1,7 @@
+$select-tree-sizes: ();
+
+$select-tree-colors: ();
+
+@function getSelectTreeSizes($property) {
+  @return map-get($select-tree-sizes, $property);
+}

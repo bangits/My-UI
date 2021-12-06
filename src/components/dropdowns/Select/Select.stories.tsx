@@ -1,11 +1,10 @@
 import { Select } from '@/components';
+import { getColorKnobs } from '@/configs';
 import { FilterIcon } from '@/icons';
-import { COLOR_TYPES } from '@/types';
 import { action } from '@storybook/addon-actions';
-import { boolean, number, object, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, object, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
-import { getColorKnobs } from '@/configs';
 
 export default {
   component: Select,
@@ -25,7 +24,6 @@ export const Default = () => {
   return (
     <>
       <Select
-        menuIsOpen
         value={value}
         onChange={setValue}
         inputLabel={text('inputLabelSingle', 'Single Select...')}
@@ -197,6 +195,7 @@ export const Dropdown = () => {
   return (
     <Select
       dropdown
+      isDisabled={boolean('isDisabled', false)}
       dropdownIcon={<FilterIcon />}
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
@@ -277,6 +276,344 @@ export const RenderInput = () => {
           value: 4
         }
       ])}
+    />
+  );
+};
+
+export const TreeView = () => {
+  return (
+    <Select
+      onChange={action('onChange')}
+      onBlur={action('onBlur')}
+      isSearchable
+      isDisabled={boolean('isDisabled', false)}
+      isTree
+      treeData={[
+        {
+          label: 'Document 1',
+          value: '1',
+          children: [
+            {
+              label: 'Document 1-2',
+              value: '1-1',
+              children: [
+                {
+                  label: 'Document 1-2',
+                  value: '1-2',
+                  children: [
+                    {
+                      label: 'Document 1-2',
+                      value: '1-1-2',
+                      children: [
+                        {
+                          label: 'Document 1-2',
+                          value: '1-2',
+                          children: [
+                            {
+                              label: 'Document 1-2',
+                              value: '1-1-2',
+                              children: [
+                                {
+                                  label: 'Document 1-2',
+                                  value: '1-2',
+                                  children: [
+                                    {
+                                      label: 'Document 1-2Document 1-2Document 1-2Document 1-2Document 1-2Document 1-2',
+                                      value: '1-1-2'
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              label: 'Document 1-2',
+              value: '1-2',
+              children: [
+                {
+                  label: 'Document 1-2',
+                  value: '1-2-1',
+                  children: [
+                    {
+                      label: 'Document 1-2',
+                      value: '1-2-2'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              label: 'Document 1-3',
+              value: '1-3'
+            },
+            {
+              label: 'Document 1-4',
+              value: '1-4'
+            }
+          ]
+        },
+        {
+          label: 'Document 2',
+          value: '2',
+          children: [
+            {
+              label: 'Document 2-1',
+              value: '2-1',
+              children: [
+                {
+                  label: 'Document 2-1',
+                  value: '2-1-1',
+                  children: [
+                    {
+                      label: 'Document 2-1',
+                      value: '2-1-2'
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Document 1',
+          value: '1',
+          children: [
+            {
+              label: 'Document 1-2',
+              value: '1-1',
+              children: [
+                {
+                  label: 'Document 1-2',
+                  value: '1-2',
+                  children: [
+                    {
+                      label: 'Document 1-2',
+                      value: '1-1-2',
+                      children: [
+                        {
+                          label: 'Document 1-2',
+                          value: '1-2',
+                          children: [
+                            {
+                              label: 'Document 1-2',
+                              value: '1-1-2',
+                              children: [
+                                {
+                                  label: 'Document 1-2',
+                                  value: '1-2',
+                                  children: [
+                                    {
+                                      label: 'Document 1-2',
+                                      value: '1-1-2'
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              label: 'Document 1-2',
+              value: '1-2',
+              children: [
+                {
+                  label: 'Document 1-2',
+                  value: '1-2-1',
+                  children: [
+                    {
+                      label: 'Document 1-2',
+                      value: '1-2-2'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              label: 'Document 1-3',
+              value: '1-3'
+            },
+            {
+              label: 'Document 1-4',
+              value: '1-4'
+            }
+          ]
+        },
+        {
+          label: 'New Document 1 Document 1 Document 1 Document 1 Document 1 Document 1',
+          value: '145454',
+          children: [
+            {
+              label: 'Document 1-2',
+              value: '1-1',
+              children: [
+                {
+                  label: 'Document 1-2',
+                  value: '1-2',
+                  children: [
+                    {
+                      label: 'Document 1-2',
+                      value: '1-1-2',
+                      children: [
+                        {
+                          label: 'Document 1-2',
+                          value: '1-2',
+                          children: [
+                            {
+                              label: 'Document 1-2',
+                              value: '1-1-2',
+                              children: [
+                                {
+                                  label: 'Document 1-2',
+                                  value: '1-2',
+                                  children: [
+                                    {
+                                      label: 'Document 1-2',
+                                      value: '1-1-2'
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              label: 'Document 1-2',
+              value: '1-2',
+              children: [
+                {
+                  label: 'Document 1-2',
+                  value: '1-2-1',
+                  children: [
+                    {
+                      label: 'Document 1-2',
+                      value: '1-2-2'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              label: 'Document 1-3',
+              value: '1-3'
+            },
+            {
+              label: 'Document 1-4',
+              value: '1-4'
+            }
+          ]
+        },
+        {
+          label: 'Document 2',
+          value: '2',
+          children: [
+            {
+              label: 'Document 2-1',
+              value: '2-1',
+              children: [
+                {
+                  label: 'Document 2-1',
+                  value: '2-1-1',
+                  children: [
+                    {
+                      label: 'Document 2-1',
+                      value: '2-1-2'
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Document 1',
+          value: '1',
+          children: [
+            {
+              label: 'Document 1-2',
+              value: '1-1',
+              children: [
+                {
+                  label: 'Document 1-2',
+                  value: '1-2',
+                  children: [
+                    {
+                      label: 'Document 1-2',
+                      value: '1-1-2',
+                      children: [
+                        {
+                          label: 'Document 1-2',
+                          value: '1-2',
+                          children: [
+                            {
+                              label: 'Document 1-2',
+                              value: '1-1-2',
+                              children: [
+                                {
+                                  label: 'Document 1-2',
+                                  value: '1-2',
+                                  children: [
+                                    {
+                                      label: 'Document 1-2',
+                                      value: '1-1-2'
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              label: 'Document 1-2',
+              value: '1-2',
+              children: [
+                {
+                  label: 'Document 1-2',
+                  value: '1-2-1',
+                  children: [
+                    {
+                      label: 'Document 1-2',
+                      value: '1-2-2'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              label: 'Document 1-3',
+              value: '1-3'
+            },
+            {
+              label: 'Document 1-4',
+              value: '1-4'
+            }
+          ]
+        }
+      ]}
     />
   );
 };

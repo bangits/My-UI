@@ -1,9 +1,9 @@
-import { BaseTextInputProps } from '@/components';
+import { BaseTextInputProps, Tree } from '@/components';
 import { UIColors } from '@/types';
 import ReactSelect, { ActionMeta, Props } from '@my-ui/react-select';
 import classNames from 'classnames';
 import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
-import { DropdownIcon, MenuList, Option, SearchControl } from './Controls';
+import { DropdownIcon, Menu, MenuList, Option, SearchControl } from './Controls';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
 
@@ -36,6 +36,10 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
   color?: UIColors | 'default';
 
   //
+  isTree?: boolean;
+  treeData?: Tree[];
+
+  //
   renderInput?: (value: SelectOptionType, isMenuOpen: boolean, onInputChange: (event: any) => void) => ReactNode;
 }
 
@@ -48,7 +52,7 @@ export interface SelectProps<
   defaultValue?: IsMulti extends true ? SelectValueType[] : SelectValueType;
   value?: IsMulti extends true ? SelectValueType[] : SelectValueType;
   isMulti?: IsMulti;
-  options: Option;
+  options?: Option;
 
   onChange?: (
     updatedOptions: IsMulti extends true ? Option[number]['value'][] : Option[number]['value'],
@@ -60,12 +64,12 @@ function Select<
   Option extends SelectOptionType[],
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = { options: [] }
->({ isMulti, defaultValue, value, className, ...selectProps }: SelectProps<Option, IsMulti, Group>) {
+>({ isMulti, defaultValue, value, className, isTree, treeData, ...selectProps }: SelectProps<Option, IsMulti, Group>) {
   const { clearButton, dropdown, selectAllValue, selectAllLabel, fullWidth } = selectProps;
 
   let { selectAll } = selectProps;
 
-  if (!selectProps.options.length) selectAll = false;
+  if (selectProps.options && !selectProps.options.length) selectAll = false;
 
   const allOption = useMemo(() => ({ label: selectAllLabel, value: selectAllValue }), [selectAllLabel, selectAllValue]);
 
@@ -103,9 +107,25 @@ function Select<
     return new Set([...currentOptions, ...selectProps.options]);
   }, [transformedValue, selectAllValue, selectProps.options, selectedOptions]);
 
+  function getFlatMap({ value, label, children = [] }) {
+    return [
+      {
+        value,
+        label
+      }
+    ].concat(...children?.map(getFlatMap));
+  }
+
+  const allList = treeData
+    ?.map((node) => {
+      return getFlatMap(node);
+    })
+    .flat();
+
   const options = useMemo(
-    () => (isMulti ? [...(selectAll ? [allOption] : []), ...sortedOptions] : selectProps.options),
-    [isMulti, sortedOptions, selectProps.options, selectAll]
+    () =>
+      isMulti ? [...(selectAll ? [allOption] : []), ...sortedOptions] : isTree ? [...allList] : selectProps.options,
+    [isMulti, sortedOptions, selectProps.options, selectAll, isTree, allList]
   );
 
   const onChange = useCallback<Props['onChange']>(
@@ -133,7 +153,7 @@ function Select<
 
       if (selectProps.onChange)
         selectProps.onChange(
-          // @ts-ignore ignoring typescript for typecast
+          // @ts-expect-error ignoring typescript for typecast
           Array.isArray(updatedOptions)
             ? updatedOptions.filter((o) => o.value !== selectAllValue).map((o) => o.value)
             : updatedOptions.value,
@@ -150,20 +170,28 @@ function Select<
   return (
     <ReactSelect
       {...selectProps}
+      isTree={isTree}
+      treeData={treeData}
       captureMenuScroll={false}
       onChange={onChange}
+      onChangeOriginal={selectProps.onChange}
+      onInputChangeOriginal={selectProps.onInputChange}
       classNamePrefix='react-select'
       value={transformedValue === undefined ? selectedOptions : transformedValue}
       defaultValue={transformedDefaultValue}
-      // @ts-ignore ignored because we need to reset all css styles
+      // @ts-expect-error ignored because we need to reset all css styles
       styles={resetStyles}
       isClearable={true}
       hideSelectedOptions={false}
-      components={{
-        Option,
-        Control: !dropdown ? SearchControl : DropdownIcon,
-        MenuList
-      }}
+      components={
+        !isTree
+          ? {
+              Option,
+              Control: !dropdown ? SearchControl : DropdownIcon,
+              MenuList
+            }
+          : { Option, Control: !dropdown ? SearchControl : DropdownIcon, Menu }
+      }
       option
       isMulti={isMulti}
       closeMenuOnSelect={isMulti ? false : true}

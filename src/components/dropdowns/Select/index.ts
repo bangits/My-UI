@@ -6,3 +6,4 @@ export {
   SelectProps,
   SelectValueType
 } from './Select';
+export { Tree, TreeSelectProps } from './TreeSelect';

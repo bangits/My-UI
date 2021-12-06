@@ -1,0 +1,15 @@
+$copyfield-sizes: (
+  copy-field-wrapper-max-width: calculateRem(600px),
+  copy-field-wrapper-height: calculateRem(38px),
+  copy-field-wrapper-padding: 0 calculateRem(6px) 0 calculateRem(16px),
+  copy-url-sizes: calculateRem(24px),
+  url-max-width: calculateRem(428px)
+);
+
+$copyfield-colors: (
+  copy-field-background: color(selago-light)
+);
+
+@function getCopyFieldSizes($property) {
+  @return map-get($copyfield-sizes, $property);
+}

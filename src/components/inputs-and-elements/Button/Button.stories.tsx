@@ -5,6 +5,7 @@ import { ComponentMeta } from '@storybook/react';
 import Button from './Button';
 import BUTTON_TYPES from './button-types';
 import { getColorKnobs } from '@/configs';
+import { EditIcon } from '@/icons';
 
 export default {
   component: Button,
@@ -115,4 +116,6 @@ export const WithIcons = () => (
       {text('Edit', 'Edit')}
     </Button>
   </>
+
+  //remove  h1
 );

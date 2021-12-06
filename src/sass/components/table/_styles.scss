@@ -75,6 +75,7 @@
     }
   }
   .IllustrationWrapper {
+    min-height: getTableSizes(illustration-wrapper-min-height);
     .Illustration {
       width: getTableSizes(illustration-wrapper-width);
       height: getTableSizes(illustration-wrapper-height);
@@ -87,6 +88,8 @@
       margin-top: getTableSizes(illustration-text-margin-top);
       text-align: center;
       word-break: break-word;
+      letter-spacing: getTableSizes(illustration-text-letter-spacing);
+      @include theme(color, black-color);
     }
   }
 }

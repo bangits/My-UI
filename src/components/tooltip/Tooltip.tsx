@@ -1,19 +1,17 @@
-import { Portal } from '@/components';
-import React, { useState, useRef, cloneElement } from 'react';
-import StyledTooltip from './StyledTooltip';
-import Styles from './Tooltip.module.scss';
-import { UIColors } from '@/types';
-import { Typography } from '@/components';
+import { Portal, Typography } from '@/components';
 import { Triangle } from '@/icons';
+import { UIColors } from '@/types';
 import classNames from 'classnames';
-import TooltipPosition, { TooltipPlacement } from './TooltipPosition';
+import React, { cloneElement, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import styles from './Tooltip.module.scss';
+import StyledTooltip from './StyledTooltip';
+import { default as Styles, default as styles } from './Tooltip.module.scss';
+import TooltipPosition, { TooltipPlacement } from './TooltipPosition';
 export type showEventType = 'click' | 'hover';
 
 export interface TooltipProps {
   children: Parameters<typeof cloneElement>[0];
-  text: string;
+  text?: string;
   delay?: number;
   color?: UIColors;
   space?: number;
@@ -53,6 +51,8 @@ const Tooltip = ({
       setShow(0);
     }
   };
+
+  if (!text) return children;
 
   return (
     <>

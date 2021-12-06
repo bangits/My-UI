@@ -15,9 +15,11 @@ export default {
 
 export const Default = () => {
   const successAdd = () => {
-    alert.success({
-      alertLabel: 'You are successful person!'
-    });
+    setTimeout(() => {
+      alert.success({
+        alertLabel: 'You are successful person!'
+      });
+    }, 1000);
   };
 
   const errorAdd = () => {

@@ -13,37 +13,19 @@ export interface AlertContainerProps {
 
 const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5000 }) => {
   const [alerts, setAlerts] = useState<AlertProps[]>([]);
-  const [removing, setRemoving] = useState('');
-  const [showMessage, setShowMessage] = useState(false);
 
   const removeAlert = useCallback(
     (id) => {
-      setAlerts(alerts.filter((alert) => alert.id !== id));
-      setShowMessage(false);
+      setAlerts((prevAlerts) => prevAlerts.filter((alert) => alert.id !== id));
     },
     [alerts]
   );
 
   useEffect(() => {
-    if (removing) {
-      setAlerts((alert) => alert.filter((a) => a.id !== removing));
-    }
-  }, [removing]);
-
-  useEffect(() => {
     alert.subscribe((alert) => {
-      setAlerts([...alerts, { ...alert, id: uniqueIdMaker() }]);
-      setShowMessage(true);
+      setAlerts((prevAlerts) => [...prevAlerts, { ...alert, id: uniqueIdMaker() }]);
     });
-
-    if (autoClose && alerts.length) {
-      const id = alerts[alerts.length - 1].id;
-
-      setTimeout(() => {
-        setRemoving(id);
-      }, autoCloseDelay);
-    }
-  }, [alerts, autoClose, autoCloseDelay]);
+  }, []);
 
   return (
     <Portal>
@@ -53,7 +35,6 @@ const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5
             return (
               <CSSTransition
                 timeout={1500}
-                mountOnEnter
                 unmountOnExit
                 key={alert.id}
                 classNames={{
@@ -63,8 +44,9 @@ const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5
                   exitActive: styles.AlertExitActive
                 }}>
                 <Alert
+                  autoClose={alert.autoClose || autoClose}
+                  autoCloseDelay={alert.autoCloseDelay || autoCloseDelay}
                   onClose={() => {
-                    setShowMessage(false);
                     removeAlert(alert.id);
                   }}
                   icon={alert.icon}

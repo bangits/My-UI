@@ -1,6 +1,7 @@
 @mixin generate-popup-styles {
   .Dialog {
-    min-width: getDialogSizes(dialog-width);
+    width: 100%;
+    max-width: getDialogSizes(dialog-width);
     height: auto;
     min-height: getDialogSizes(dialog-height);
     border-radius: getDialogSizes(dialog-border-radius);

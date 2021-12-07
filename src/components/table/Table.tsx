@@ -73,7 +73,7 @@ export interface TableProps<T extends {}> extends IComponent {
   tbodyComponent?: ComponentType;
   actions?: TableAction<T>[];
   illustrationIcon?: ReactNode;
-  emptyText?: string;
+  emptyText?: ReactNode;
 
   loadingRowsIds?: (number | string)[];
   loadingRowColumnProperty?: keyof T;

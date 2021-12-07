@@ -12,7 +12,7 @@ export default {
 };
 
 export const Default = () => {
-  const [loadingRowsIds, setLoadingRowsIds] = useState<number[]>([]);
+  const [loadingRowsIds, setLoadingRowsIds] = useState<(number | string)[]>([]);
 
   const data = object('data', [
     {
@@ -40,6 +40,7 @@ export const Default = () => {
         }))
       ]}
       loadingRowsIds={loadingRowsIds}
+      loadingRowColumnProperty='y'
       columns={object('columns', [
         {
           Header: 'Icon',
@@ -87,8 +88,12 @@ export const Default = () => {
       actions={[
         {
           component: IconButton,
-          onClick: () => {
-            setLoadingRowsIds([1, 2, 3]);
+          onClick: (column) => {
+            setLoadingRowsIds([...loadingRowsIds, column.y]);
+
+            setTimeout(() => {
+              setLoadingRowsIds((prevLoadingRows) => prevLoadingRows.filter((row) => row !== column.y));
+            }, 2000);
           },
           props: {
             icon: <ViewIcon />

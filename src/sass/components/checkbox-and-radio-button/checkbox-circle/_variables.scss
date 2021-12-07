@@ -1,0 +1,16 @@
+$checkbox-circle-sizes: (
+  checkbox-circle-wrapper-sizes: calculateRem(24px),
+  checkbox-border-radius: 50%,
+  checkbox-sizes: calculateRem(14px),
+  checkbox-label-margin: calculateRem(3px) 0 0 calculateRem(60px),
+  checkbox-after-width: calculateRem(9.1px),
+  checkbox-after-height: calculateRem(6.93px)
+);
+
+@function getCheckboxCircleSizes($property) {
+  @return map-get($checkbox-circle-sizes, $property);
+}
+
+$checkbox-circle-colors: (
+  checkbox-background: color(white)
+);

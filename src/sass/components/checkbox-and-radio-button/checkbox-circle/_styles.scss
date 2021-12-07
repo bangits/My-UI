@@ -1,0 +1,60 @@
+@mixin generate-checkbox-circle-styles {
+  .CheckboxCircle {
+    position: relative;
+    width: getCheckboxCircleSizes(checkbox-circle-wrapper-sizes);
+    height: getCheckboxCircleSizes(checkbox-circle-wrapper-sizes);
+    label {
+      @include theme(background-color, checkbox-background);
+      @include theme(border, black-color, solid 2px);
+      @include flex(center, center);
+      border-radius: getCheckboxCircleSizes(checkbox-border-radius);
+      width: getCheckboxCircleSizes(checkbox-sizes);
+      height: getCheckboxCircleSizes(checkbox-sizes);
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+
+      span {
+        margin: getCheckboxCircleSizes(checkbox-label-margin);
+      }
+      &:after {
+        content: '';
+        width: getCheckboxCircleSizes(checkbox-after-width);
+        height: getCheckboxCircleSizes(checkbox-after-height);
+        @include center-absolute();
+        background-image: svgToDataUrl(
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M504.502 75.496c-9.997-9.998-26.205-9.998-36.204 0L161.594 382.203 43.702 264.311c-9.997-9.998-26.205-9.997-36.204 0-9.998 9.997-9.998 26.205 0 36.203l135.994 135.992c9.994 9.997 26.214 9.99 36.204 0L504.502 111.7c9.998-9.997 9.997-26.206 0-36.204z"/></svg>'
+        );
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100%;
+      }
+    }
+    input[type='checkbox'] {
+      visibility: hidden;
+      &:checked {
+        + {
+          label {
+            @include theme(background-color, primary);
+            @include theme(border-color, primary);
+
+            &:after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  //   @each $color in $base-colors {
+  //     .Checkboxcircle--#{$color} {
+  //       input {
+  //         &:checked {
+  //           @include theme(border-color, #{$color});
+  //           @include theme(background-color, #{$color});
+  //         }
+  //       }
+  //     }
+  //   }
+}

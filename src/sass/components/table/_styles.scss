@@ -32,6 +32,8 @@
 
     .LastTableCell {
       margin-right: getTableSizes(last-table-cell-margin);
+
+      padding: 0;
     }
 
     .TableBody {
@@ -65,6 +67,11 @@
         tr th {
           &:first-child {
             max-width: getTableSizes(table-with-selection-width) !important;
+
+            padding-left: 0;
+            padding-right: 0;
+
+            box-sizing: content-box;
           }
         }
       }

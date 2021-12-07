@@ -11,7 +11,7 @@
         margin: getTableRowSizes(table-td-th-first-child-margin);
       }
       &:nth-child(2) {
-        margin-left: getTableRowSizes(table-td-th-child-two-margin-left);
+        margin-left: 0;
       }
       &:last-child {
         margin-right: getTableRowSizes(table-td-th-last-child-margin-right);

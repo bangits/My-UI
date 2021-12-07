@@ -75,16 +75,10 @@ const Tooltip = ({
             in={!!show}
             timeout={300}
             classNames={{
-              // enter: 'TooltipContainer--enter',
-              // enterActive: styles['TooltipContainer--enterActive'],
-              // appear: styles['TooltipContainer--appear'],
               enterDone: styles['TooltipContainer--enterDone'],
-              // appearDone: 'TooltipContainer--appearDone',
-              // exit: 'TooltipContainer--exit',
-              // exitActive: 'TooltipContainer--exitActive',
               exitDone: styles['TooltipContainer--exitDone']
             }}>
-            <StyledTooltip color={color} delay={delay} ref={tooltipRef} posRef={posRef}>
+            <StyledTooltip show={!!show} color={color} delay={delay} ref={tooltipRef} posRef={posRef}>
               <div>
                 <div className={classNames(Styles.TooltipTriangle, Styles[`Tooltip-${placement}`])}>
                   <div>

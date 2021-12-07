@@ -2,9 +2,8 @@ import { IconButton, Status } from '@/components';
 import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Table from './Table';
-import { useState, useEffect } from 'react';
 
 export default {
   component: Table,

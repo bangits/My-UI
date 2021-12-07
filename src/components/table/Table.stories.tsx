@@ -3,7 +3,7 @@ import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import Table from './Table';
-import { useState } from 'React';
+import { useState, useEffect } from 'react';
 
 export default {
   component: Table,
@@ -12,7 +12,14 @@ export default {
 };
 
 export const Default = () => {
-  const [loadingRowsIds, setLoadingRowsIds] = useState<number[]>([]);
+  const [loadingRowsIds, setLoadingRowsIds] = useState<(number | string)[]>();
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setLoadingRowsIds([]);
+    }, 4000);
+    return () => clearTimeout(timerId);
+  }, [loadingRowsIds]);
 
   const data = object('data', [
     {
@@ -39,7 +46,8 @@ export const Default = () => {
           ...d
         }))
       ]}
-      loadingRowsIds={object('loadingRowsIds', loadingRowsIds)}
+      loadingRowsIds={loadingRowsIds}
+      loadingRowColumnProperty='y'
       columns={object('columns', [
         {
           Header: 'Icon',
@@ -87,8 +95,8 @@ export const Default = () => {
       actions={[
         {
           component: IconButton,
-          onClick: () => {
-            setLoadingRowsIds([1, 2, 3]);
+          onClick: (column) => {
+            setLoadingRowsIds([...loadingRowsIds, column.y]);
           },
           props: {
             icon: <ViewIcon />

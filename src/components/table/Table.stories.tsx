@@ -2,7 +2,7 @@ import { IconButton, Status } from '@/components';
 import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Table from './Table';
 
 export default {
@@ -12,14 +12,7 @@ export default {
 };
 
 export const Default = () => {
-  const [loadingRowsIds, setLoadingRowsIds] = useState<(number | string)[]>();
-
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-      setLoadingRowsIds([]);
-    }, 4000);
-    return () => clearTimeout(timerId);
-  }, [loadingRowsIds]);
+  const [loadingRowsIds, setLoadingRowsIds] = useState<(number | string)[]>([]);
 
   const data = object('data', [
     {
@@ -97,6 +90,10 @@ export const Default = () => {
           component: IconButton,
           onClick: (column) => {
             setLoadingRowsIds([...loadingRowsIds, column.y]);
+
+            setTimeout(() => {
+              setLoadingRowsIds((prevLoadingRows) => prevLoadingRows.filter((row) => row !== column.y));
+            }, 2000);
           },
           props: {
             icon: <ViewIcon />

@@ -1,5 +1,4 @@
 import { typedMemo } from '@/helpers';
-import { TrashIndicator } from '@/icons';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
 import React, { FC } from 'react';
@@ -10,19 +9,9 @@ export interface LoadingIndicatorProps {
   percent: number;
   variant: IndicatorVariant;
   color?: UIColors;
-  onClick?: () => void;
-  imageSrc?: string;
-  label?: string;
 }
 
-const LoadingIndicator: FC<LoadingIndicatorProps> = ({
-  percent,
-  variant = 'circle',
-  color,
-  onClick,
-  label,
-  imageSrc
-}) => {
+const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circle', color, children }) => {
   return (
     <>
       {variant === 'circle' ? (
@@ -73,20 +62,7 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({
               rx='4'
               stroke-dasharray={`${percent > 100 ? 628 : percent < 0 ? 0 : (628 * percent) / 100} 628`}></rect>
           </svg>
-          <div className={styles.UploadWrapper}>
-            <div className={styles.GameIndicatorIconWrapper}>
-              <span className={styles.GameIndicatorIcon}>
-                <img src={imageSrc} alt='' />
-              </span>
-              <span className={styles.ImageFormatLabel}>{label}</span>
-            </div>
-            <div className={styles.PerconWrapper}>
-              <span className={styles.PercentUpload}>{percent}%</span>
-              <span onClick={onClick} className={styles.TrashUploadIcon}>
-                <TrashIndicator />
-              </span>
-            </div>
-          </div>
+          <div className={styles.LoadingIndicatorContent}>{children}</div>
         </div>
       )}
     </>

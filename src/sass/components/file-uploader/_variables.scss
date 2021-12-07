@@ -2,7 +2,13 @@ $file-uploader-sizes: (
   dropzone-width: calculateRem(284px),
   dropzone-height: calculateRem(42px),
   dropzone-base-height: calculateRem(38px),
-  dropzone-base-width: calculateRem(280px)
+  dropzone-base-width: calculateRem(280px),
+  game-icon-margin: calculateRem(8px),
+  icon-label-margin: calculateRem(8px),
+  icon-label-max-width: calculateRem(120px),
+  percent-upload-margin: calculateRem(8px),
+  trash-icon-margin: calculateRem(6px),
+  game-indicator-sizes: calculateRem(24px)
 );
 
 $file-uploader-colors: (
@@ -11,4 +17,4 @@ $file-uploader-colors: (
 
 @function getFileUploaderSizes($key) {
   @return map-get($file-uploader-sizes, $key);
-} ;
+}

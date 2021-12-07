@@ -6,10 +6,7 @@ const TagCountry = () => {
   return (
     <div className={styles.TagCountryWrapper}>
       <div className={styles.Flag}>
-        <img
-          src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/1024px-Flag_of_Armenia.svg.png'
-          alt=''
-        />
+        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/1024px-Flag_of_Armenia.svg.png' />
       </div>
       <div className={styles.Country}>
         <Typography component='span' variant='p4'>

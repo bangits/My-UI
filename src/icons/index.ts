@@ -37,3 +37,6 @@ export { ReactComponent as SettingIcon } from './setting.react.svg';
 export { ReactComponent as TrashIndicator } from './trash-indicator.react.svg';
 export { ReactComponent as Triangle } from './triangle.react.svg';
 export { ReactComponent as ViewIcon } from './view.react.svg';
+export { ReactComponent as DesktopIcon } from './desktop.react.svg';
+export { ReactComponent as TabletIcon } from './tablet.react.svg';
+export { ReactComponent as MobileIcon } from './mobile.react.svg';

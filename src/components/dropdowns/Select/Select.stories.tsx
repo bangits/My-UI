@@ -290,6 +290,33 @@ export const TreeView = () => {
       isTree
       treeData={[
         {
+          label: 'Partner 1',
+          value: 'Partner 1',
+          children: [
+            {
+              label: 'Partner 1 1',
+              value: 'Partner 1 1'
+            },
+            {
+              label: 'Partner 1 2',
+              value: 'Partner 1 2'
+            },
+            {
+              label: 'Partner 1 3',
+              value: 'Partner 1 3'
+            },
+            {
+              label: 'Partner 1 4',
+              value: 'Partner 1 4'
+            },
+            {
+              label: 'Partner 1 5',
+              value: 'Partner 1 5'
+            }
+          ]
+        },
+
+        {
           label: 'Document 1',
           value: '1',
           children: [

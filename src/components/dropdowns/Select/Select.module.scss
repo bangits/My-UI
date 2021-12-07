@@ -19,6 +19,16 @@
     }
   }
 
+  //this so that the filter is closed, the label and icon must be of this color
+
+  // .Select--iconClose {
+  //   @include theme(color, black-color);
+  // }
+
+  // .Select--labelClose {
+  //   @include theme(color, black-color);
+  // }
+
   .Select--dropdown-control-icon {
     width: 2.4rem;
     height: 2.4rem;

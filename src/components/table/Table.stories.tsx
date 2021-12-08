@@ -3,7 +3,7 @@ import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import Table from './Table';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default {
   component: Table,

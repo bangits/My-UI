@@ -262,6 +262,7 @@ const Table = <T extends {}>({
           </TBodyComponent>
         ) : (
           <div className={styles.IllustrationWrapper}>
+            {console.log(data)}
             <div className={styles.Illustration}>{illustrationIcon}</div>
             <Typography component='p' variant='p4' className={styles.IllustrationText}>
               {emptyText}

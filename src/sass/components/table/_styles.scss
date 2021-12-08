@@ -81,8 +81,14 @@
       display: none;
     }
   }
+
+  // .Table--dataNull {
+  //   min-height: getTableSizes(table-data-null);
+  // }
+
   .IllustrationWrapper {
-    min-height: getTableSizes(illustration-wrapper-min-height);
+    min-height: getTableSizes(illustration-wrapper-min-height); //remove class
+    @include center-absolute();
     .Illustration {
       width: getTableSizes(illustration-wrapper-width);
       height: getTableSizes(illustration-wrapper-height);

@@ -8,10 +8,11 @@ $table-sizes: (
   illustration-wrapper-width: calculateRem(209.74px),
   illustration-wrapper-height: calculateRem(135.83px),
   illustration-wrapper-min-height: calculateRem(320px),
-  illustration-wrapper-margin: calculateRem(81px),
+  illustration-wrapper-margin: calculateRem(60px),
   illustration-text-width: calculateRem(251px),
   illustration-text-margin-top: calculateRem(24px),
-  illustration-text-letter-spacing: calculateRem(1.4px)
+  illustration-text-letter-spacing: calculateRem(1.4px),
+  table-data-null: calculateRem(440px)
 );
 
 $table-colors: (

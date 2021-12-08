@@ -1,22 +1,29 @@
 @mixin generate-tooltip-styles {
   .TooltipContainer {
     position: fixed;
-    // display: none;
+    z-index: getTooltipSizes(tooltip-z-index);
 
-    &--enterDone,
+    &.TooltipContainerClosed {
+      z-index: -(getTooltipSizes(tooltip-z-index));
+    }
+
+    &--exitDone,
     & {
-      // display: block;
-      .TooltipWrapper {
-        // animation: dialog-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+      .TooltipWrapper,
+      .TooltipContainer {
+        @include animation-exit;
+      }
+    }
+
+    &--enterDone {
+      .TooltipWrapper,
+      .TooltipContainer {
         @include animation-start;
       }
     }
 
-    &--exitDone {
-      .TooltipWrapper {
-        // animation: dialog-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
-        @include animation-exit;
-      }
+    .TooltipContainer {
+      opacity: 0;
     }
 
     .TooltipWrapper {
@@ -31,6 +38,8 @@
       @include flex(center, center);
       text-align: left;
       word-break: break-all;
+      position: relative;
+
       .TooltipTriangle {
         position: absolute;
       }

@@ -9,9 +9,16 @@ export interface LoadingIndicatorProps {
   percent: number;
   variant: IndicatorVariant;
   color?: UIColors;
+  dividerSize?: number;
 }
 
-const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circle', color, children }) => {
+const LoadingIndicator: FC<LoadingIndicatorProps> = ({
+  percent,
+  variant = 'circle',
+  color,
+  dividerSize = 10,
+  children
+}) => {
   return (
     <>
       {variant === 'circle' ? (
@@ -60,7 +67,9 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({ percent, variant = 'circl
               x='1'
               y='1'
               rx='4'
-              stroke-dasharray={`${percent > 100 ? 628 : percent < 0 ? 0 : (628 * percent) / 100} 628`}></rect>
+              stroke-dasharray={`${(percent > 100 ? 628 : percent < 0 ? 0 : (628 * percent) / 100) / dividerSize}rem ${
+                628 / dividerSize
+              }rem`}></rect>
           </svg>
           <div className={styles.LoadingIndicatorContent}>{children}</div>
         </div>

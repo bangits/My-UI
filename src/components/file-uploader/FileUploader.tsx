@@ -1,6 +1,7 @@
 import { getImageByFile } from '@/helpers';
 import { TrashIndicator } from '@/icons';
 import { LoadingIndicator, Typography } from '@/my-ui-core';
+import { UIColors } from '@/types';
 import classNames from 'classnames';
 import React, { FC, useCallback, useState } from 'react';
 import { FileUploaderErrors } from './file-uploader-enums';
@@ -14,12 +15,14 @@ export interface FileUploaderProps {
   minSize?: number;
   maxSize?: number;
   accept?: string;
-  onChange?: (file) => void;
+  onChange?: (file: File) => void;
   onError?: (error: { type: FileUploaderErrors; file }) => void;
   loadingPercent?: number;
   dragFileText?: string;
   browseText?: string;
   imageSrc?: string;
+  indicatorColor?: UIColors;
+  forceShowUploader?: boolean;
 }
 
 const FileUploader: FC<FileUploaderProps> = ({
@@ -35,7 +38,9 @@ const FileUploader: FC<FileUploaderProps> = ({
   onError,
   dragFileText = 'Drag file here ',
   browseText = 'Browse',
-  imageSrc
+  imageSrc,
+  indicatorColor = 'success',
+  forceShowUploader
 }) => {
   const [highlight, setHighlight] = useState<boolean>(false);
 
@@ -123,7 +128,7 @@ const FileUploader: FC<FileUploaderProps> = ({
 
   return (
     <>
-      {!uploadedFile ? (
+      {!uploadedFile && !forceShowUploader ? (
         <div
           onDragEnter={handleEnter}
           onDragLeave={handleLeave}
@@ -150,7 +155,7 @@ const FileUploader: FC<FileUploaderProps> = ({
           </Typography>
         </div>
       ) : (
-        <LoadingIndicator variant='square' color='success' percent={loadingPercent}>
+        <LoadingIndicator variant='square' color={indicatorColor} percent={loadingPercent}>
           <div className={styles.GameIndicatorIconWrapper}>
             <span className={styles.GameIndicatorIcon}>
               <img src={imageSrc || uploadedImageSource} alt={uploadedFile.name} />
@@ -163,6 +168,7 @@ const FileUploader: FC<FileUploaderProps> = ({
               type='button'
               onClick={() => {
                 setUploadedFile(null);
+                onChange(null);
               }}
               className={styles.TrashUploadIcon}>
               <TrashIndicator />

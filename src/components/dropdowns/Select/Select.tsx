@@ -118,7 +118,7 @@ function Select<
 
   const allList = treeData
     ?.map((node) => {
-      return getFlatMap(node);
+      return getFlatMap({ value: node.id, children: node.children, label: node.name });
     })
     .flat();
 

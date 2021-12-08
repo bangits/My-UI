@@ -19,7 +19,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
   const hasChild = node.children ? true : false;
 
   const quantityOfChildren = useMemo(() => {
-    return getFlatMap(node)?.length;
+    return getFlatMap({ value: node.id, children: node.children })?.length;
   }, [node]);
 
   const closeMenuOnClick = useCallback((e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
@@ -37,12 +37,12 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
         <span className={classNames(styles['Select-Tree-List__Item-Label'], 'Select-Tree-List__Item-Label')}>
           <span
             onClick={(e) => {
-              if (onChange) onChange(node.value);
-              setInput?.(node.label, null);
+              if (onChange) onChange(node.id);
+              setInput?.(node.name, null);
               closeMenuOnClick(e);
             }}
             className={classNames(styles['Select-Tree-List__Item-Label-Inner'], 'Select-Tree-List__Item-Label-Inner')}>
-            {node.label}
+            {node.name}
           </span>
         </span>
         <i className={classNames(styles['Select-Tree-List__Item-Number'], 'Select-Tree-List__Item-Number')}>

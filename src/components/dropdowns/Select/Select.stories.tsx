@@ -221,31 +221,31 @@ export const Dropdown = () => {
         },
         {
           label: 'Provider',
-          value: 8
-        },
-        {
-          label: 'Theme',
-          value: 9
-        },
-        {
-          label: 'Type',
-          value: 10
-        },
-        {
-          label: 'Subtype',
           value: 11
         },
         {
-          label: 'Provider',
-          value: 8
-        },
-        {
           label: 'Theme',
-          value: 9
+          value: 12
         },
         {
           label: 'Type',
-          value: 10
+          value: 13
+        },
+        {
+          label: 'Subtype',
+          value: 14
+        },
+        {
+          label: 'Provider',
+          value: 15
+        },
+        {
+          label: 'Theme',
+          value: 16
+        },
+        {
+          label: 'Type',
+          value: 17
         }
       ]}
       selectAll

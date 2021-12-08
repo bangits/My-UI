@@ -5,8 +5,8 @@ import TreeNode from './TreeNode';
 import styles from './TreeSelect.module.scss';
 
 export interface Tree {
-  value: number | string;
-  label: string;
+  id: number | string;
+  name: string;
   children?: Tree[];
 }
 

@@ -158,9 +158,9 @@ const FileUploader: FC<FileUploaderProps> = ({
         <LoadingIndicator variant='square' color={indicatorColor} percent={loadingPercent}>
           <div className={styles.GameIndicatorIconWrapper}>
             <span className={styles.GameIndicatorIcon}>
-              <img src={imageSrc || uploadedImageSource} alt={uploadedFile.name} />
+              <img src={imageSrc || uploadedImageSource} alt={uploadedFile?.name} />
             </span>
-            <span className={styles.ImageFormatLabel}>{uploadedFile.name}</span>
+            <span className={styles.ImageFormatLabel}>{uploadedFile?.name}</span>
           </div>
           <div className={styles.PerconWrapper}>
             <span className={styles.PercentUpload}>{loadingPercent}%</span>

@@ -31,7 +31,7 @@
     }
 
     .LastTableCell {
-      margin-right: getTableSizes(last-table-cell-margin);
+      margin-right: getTableSizes(last-table-cell-margin) !important;
 
       padding: 0;
     }
@@ -81,16 +81,23 @@
       display: none;
     }
   }
+
+  .Table--no-result {
+    min-height: getTableSizes(table-no-result);
+  }
+
   .IllustrationWrapper {
+    min-height: getTableSizes(illustration-wrapper-min-height); //remove class
+    @include center-absolute();
     min-height: getTableSizes(illustration-wrapper-min-height);
+
     .Illustration {
-      width: getTableSizes(illustration-wrapper-width);
-      height: getTableSizes(illustration-wrapper-height);
+      max-width: getTableSizes(illustration-wrapper-width);
       margin: auto;
       margin-top: getTableSizes(illustration-wrapper-margin);
     }
+
     .IllustrationText {
-      width: getTableSizes(illustration-text-width);
       margin: auto;
       margin-top: getTableSizes(illustration-text-margin-top);
       text-align: center;

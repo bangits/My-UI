@@ -27,6 +27,8 @@
     position: fixed;
     top: getAlertSizes(alert-animation-position);
     right: getAlertSizes(alert-animation-position);
+
+    z-index: getAlertSizes(alert-container-z-index);
   }
 
   .AlertEnter,

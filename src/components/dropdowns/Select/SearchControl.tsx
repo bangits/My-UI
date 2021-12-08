@@ -25,7 +25,9 @@ export const SearchControl: typeof components.Control = (props) => {
     (e) => {
       setIsMenuOpen(false);
       selectProps.onMenuClose();
-      selectProps.onBlur(e);
+
+      if (selectProps.onBlur) selectProps.onBlur(e);
+
       if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue.label);
     },
     [currentValue]

@@ -9,8 +9,8 @@
     @include theme(color, gray-color);
     text-transform: uppercase;
     margin: 0 auto;
+    padding: 0 1.6rem;
     min-height: getTableHeadSizes(table-head-height);
-    padding: 0;
 
     .TableHeadContainer {
       @include flex(null, center);

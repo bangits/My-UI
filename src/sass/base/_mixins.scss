@@ -42,11 +42,11 @@
 }
 
 @mixin animation-start {
-  animation: dialog-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  animation: dialog-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
 }
 
 @mixin animation-exit {
-  animation: dialog-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
+  animation: dialog-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 @mixin reset-button {
@@ -71,6 +71,7 @@
     }
     to {
       opacity: 0;
+      z-index: -1;
     }
   }
 }

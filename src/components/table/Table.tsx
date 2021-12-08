@@ -165,7 +165,8 @@ const Table = <T extends {}>({
         {...getTableProps()}
         className={classNames(styles.TableContainer, {
           [styles['TableContainer--withSelection']]: isWithSelection,
-          [styles['TableContainer--ready']]: tableHeadWidths.length
+          [styles['TableContainer--ready']]: tableHeadWidths.length,
+          [styles['Table--no-result']]: !data.length
         })}>
         {/* @ts-expect-error Ignoring typescript cause for automatic component they're error related with ref prop */}
         <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
@@ -262,7 +263,6 @@ const Table = <T extends {}>({
           </TBodyComponent>
         ) : (
           <div className={styles.IllustrationWrapper}>
-            {console.log(data)}
             <div className={styles.Illustration}>{illustrationIcon}</div>
             <Typography component='p' variant='p4' className={styles.IllustrationText}>
               {emptyText}

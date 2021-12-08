@@ -17,10 +17,20 @@ export interface SidebarProps extends IComponent {
   logoSrc?: string;
   menuItems?: MenuItemProps[];
   height?: string | number;
+  defaultClosed?: boolean;
 }
 
-const Sidebar: FC<SidebarProps> = ({ width, height, color, position, collapsedWidth, logoSrc, menuItems }) => {
-  const [sidebar, setSidebar] = useState(false);
+const Sidebar: FC<SidebarProps> = ({
+  width,
+  height,
+  color,
+  position,
+  collapsedWidth,
+  logoSrc,
+  menuItems,
+  defaultClosed = false
+}) => {
+  const [sidebar, setSidebar] = useState(defaultClosed);
 
   const toggleSidebar = useCallback(() => {
     setSidebar(!sidebar);

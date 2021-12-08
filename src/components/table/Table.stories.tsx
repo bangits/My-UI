@@ -2,8 +2,8 @@ import { IconButton, Status } from '@/components';
 import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
-import Table from './Table';
 import { useState } from 'react';
+import Table from './Table';
 
 export default {
   component: Table,
@@ -108,7 +108,7 @@ export const Default = () => {
         }
       ]}
       illustrationIcon={<IllustrationIcon />}
-      emptyText={text('emptyText', 'You don’t have any users added! Please add a user.')}
+      emptyText={text('emptyText', `You don’t have any users added! Please add a user.`)}
     />
   );
 };

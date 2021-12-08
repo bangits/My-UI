@@ -1,8 +1,8 @@
-import { UIColors } from '@/types';
-import { FC, forwardRef, MutableRefObject, PropsWithChildren } from 'react';
 import { useStyles } from '@/helpers';
-import Styles from './Tooltip.module.scss';
+import { UIColors } from '@/types';
 import classNames from 'classnames';
+import { forwardRef, MutableRefObject, PropsWithChildren } from 'react';
+import Styles from './Tooltip.module.scss';
 
 export interface StyledTooltipProps {
   delay?: number;
@@ -11,10 +11,11 @@ export interface StyledTooltipProps {
     x: number;
     y: number;
   }>;
+  show?: boolean;
 }
 
 const StyledTooltip = forwardRef<HTMLDivElement, PropsWithChildren<StyledTooltipProps>>(
-  ({ children, posRef, color = 'primary' }, tooltipRef) => {
+  ({ children, posRef, color = 'primary', show = false }, tooltipRef) => {
     const tooltipClassNames = useStyles(
       {
         root: {
@@ -29,7 +30,11 @@ const StyledTooltip = forwardRef<HTMLDivElement, PropsWithChildren<StyledTooltip
     );
 
     return (
-      <div ref={tooltipRef} className={classNames(tooltipClassNames.root, Styles.TooltipContainer)}>
+      <div
+        ref={tooltipRef}
+        className={classNames(tooltipClassNames.root, Styles.TooltipContainer, {
+          [Styles.TooltipContainerClosed]: !show
+        })}>
         <div className={classNames(Styles.TooltipWrapper, Styles[`TooltipColor--${color}`])}>{children}</div>
       </div>
     );

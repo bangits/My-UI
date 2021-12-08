@@ -23,7 +23,8 @@ export const DropdownIcon: typeof components.Control = (props) => {
         ref={wrapperRef}
         onClick={menuToggle}
         className={classNames(styles['Select--dropdown-control'], {
-          [styles[`Select--dropdown-control--${selectProps.color}`]]: selectProps.color
+          [styles[`Select--dropdown-control--${selectProps.color}`]]: selectProps.color,
+          [styles['Select--iconClose']]: !selectProps.menuIsOpen
         })}>
         <span className={classNames(styles['Select--dropdown-control-icon'])}>
           {selectProps.dropdownIcon || <SettingIcon />}

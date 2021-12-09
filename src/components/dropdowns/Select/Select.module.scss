@@ -195,4 +195,10 @@
       margin-top: 3.1rem;
     }
   }
+
+  :global {
+    .MyUI-TextInputEndIcon {
+      cursor: pointer;
+    }
+  }
 }

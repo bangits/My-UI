@@ -16,7 +16,7 @@ export interface TreeNodeProps {
 const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
   const [childVisible, setChildVisible] = useState<boolean>();
 
-  const hasChild = node.children ? true : false;
+  const hasChild = node.children && node.children.length ? true : false;
 
   const quantityOfChildren = useMemo(() => {
     return getFlatMap({ value: node.id, children: node.children })?.length;

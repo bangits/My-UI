@@ -55,7 +55,21 @@
   .TableRow--selected {
     @include theme(background-color, primary, $opacity: 0.1);
   }
+
   .TableRow--selected {
+    position: relative;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+
+      width: getTableRowSizes(table-row-selected-border-width);
+      height: 100%;
+
+      @include theme(background, primary);
+    }
+
     div {
       font-weight: getTableRowSizes(font-weight-selected);
     }

@@ -3,6 +3,7 @@ $tablerow-sizes: (
   table-td-th-first-child-margin: 0 calculateRem(16px),
   table-td-th-child-two-margin-left: calculateRem(16px),
   table-td-th-last-child-margin-right: calculateRem(26px),
+  table-row-selected-border-width: calculateRem(3px),
   filter-blur: 0.5px
 );
 

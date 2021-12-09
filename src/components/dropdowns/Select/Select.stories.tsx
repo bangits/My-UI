@@ -397,7 +397,8 @@ export const TreeView = () => {
                   children: [
                     {
                       name: 'Document 2-1',
-                      id: '2-1-2'
+                      id: '2-1-2',
+                      children: []
                     }
                   ]
                 }

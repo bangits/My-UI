@@ -6,6 +6,8 @@
     border-radius: getButtonSizes(button-border-radius);
     font-size: getButtonSizes(button-font-size);
 
+    min-width: getButtonSizes(button-min-width);
+
     // Reset
     font-family: inherit;
     border: none;

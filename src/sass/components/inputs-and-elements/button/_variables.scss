@@ -1,10 +1,11 @@
 $button-sizes: (
   button-font-size: calculateRem(16px),
   button-height: calculateRem(38px),
-  button-padding: calculateRem(9px) calculateRem(42px) calculateRem(9px),
+  button-padding: calculateRem(9px) calculateRem(22px) calculateRem(9px),
   button-border-radius: 4px,
   icon-margin: calculateRem(10px),
-  button-border-width: 1px
+  button-border-width: 1px,
+  button-min-width: calculateRem(130px)
 );
 
 @function getButtonSizes($property) {

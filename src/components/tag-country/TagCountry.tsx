@@ -9,8 +9,8 @@ const TagCountry = () => {
       <div className={styles.Flag}>
         <img
           src={text(
-            'city flag',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_ of_Armenia.svg/1024px-Flag_of_Armenia.svg.png'
+            'Flag',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/1024px-Flag_of_Armenia.svg.png'
           )}
         />
       </div>

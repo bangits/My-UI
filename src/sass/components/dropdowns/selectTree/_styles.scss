@@ -58,7 +58,7 @@
             }
 
             i.Select-Tree-List__Item-Number {
-              opacity: 1;
+              opacity: getSelectTreeSizes(select-tree-list-item-svg-fill-hover-opacity);
             }
           }
         }

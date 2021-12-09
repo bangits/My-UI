@@ -4,8 +4,7 @@
 
     &-Tree {
       display: block;
-      padding-right: 10px;
-      padding-bottom: 10px;
+      padding: getSelectTreeSizes(select-tree-padding);
       width: 100%;
       box-sizing: border-box;
       cursor: default;
@@ -23,8 +22,7 @@
       }
 
       .Select-Tree {
-        padding-right: 0;
-        padding-bottom: 0;
+        padding: 0;
         width: 100%;
 
         .Select-Tree-List__Item-Chain {
@@ -45,18 +43,18 @@
           cursor: pointer;
 
           i.Select-Tree-List__Item-Number {
-            transition: opacity 0.16s linear;
+            transition: opacity getSelectTreeSizes(select-tree-list-item-number-transition) linear;
             will-change: opacity;
           }
 
           span.Select-Tree-List__Item-Label-Inner {
-            transition: color 0.16s linear;
+            transition: color getSelectTreeSizes(select-tree-list-item-number-transition) linear;
             will-change: color;
           }
 
           span.Select-Tree-List__Item-Inner:hover {
             span.Select-Tree-List__Item-Label-Inner {
-              color: #1ea7fd;
+              @include theme(color, select-tree-list-item-label-inner-color);
             }
 
             i.Select-Tree-List__Item-Number {
@@ -66,7 +64,7 @@
         }
 
         ul {
-          padding-top: 3px;
+          padding-top: getSelectTreeSizes(select-tree-ul-padding-top);
         }
       }
     }
@@ -82,21 +80,20 @@
     &-Tree-List__Item {
       position: relative;
       top: 0;
-      z-index: 10;
-      display: flex;
-      flex-wrap: wrap;
-      padding: 8px 0 0 12px;
+      z-index: getSelectTreeSizes(select-tree-list-item-z-index);
+      @include flex(null, null, $flex-wrap: wrap);
       width: 100%;
-      min-height: 31px;
+      min-height: getSelectTreeSizes(select-tree-list-item-min-height);
       box-sizing: border-box;
+      padding: getSelectTreeSizes(select-tree-list-item-padding);
       font-family: 'Roboto';
-      font-size: 14px;
-      line-height: 17px;
+      font-size: getSelectTreeSizes(select-tree-list-item-font-size);
+      line-height: getSelectTreeSizes(select-tree-list-item-line-height);
       letter-spacing: 0;
       text-align: left;
-      color: #505d6e;
-      opacity: 1;
-      transition: all 0.16s linear;
+      @include theme(color, tree-list-item-color);
+      opacity: getSelectTreeSizes(select-tree-list-item-opacity);
+      transition: all getSelectTreeSizes(select-tree-list-item-number-transition) linear;
 
       &::before {
         content: '';
@@ -104,9 +101,9 @@
         right: 0;
         top: 0;
         display: block;
-        width: 280px;
-        height: 1px;
-        background: #f4f5f8;
+        width: getSelectTreeSizes(select-tree-list-item-before-width);
+        height: getSelectTreeSizes(select-tree-list-item-before-height);
+        @include theme(background-color, select-tree-list-item-before-background);
       }
 
       &::after {
@@ -114,24 +111,24 @@
         position: absolute;
         right: 0;
         top: 0;
-        z-index: -1;
+        z-index: getSelectTreeSizes(select-tree-list-item-after-z-index);
         display: block;
-        width: 280px;
-        height: 31px;
-        background: #f4f5f8;
+        width: getSelectTreeSizes(select-tree-list-item-after-width);
+        height: getSelectTreeSizes(select-tree-list-item-after-height);
+        @include theme(background-color, select-tree-list-item-before-background);
         opacity: 0;
-        transition: opacity 0.16s linear;
+        transition: opacity getSelectTreeSizes(select-tree-list-item-number-transition) linear;
         will-change: opacity;
       }
 
       &-Parent {
         & > span {
-          padding-right: 40px;
+          padding-right: getSelectTreeSizes(select-tree-list-item-parent-padding-right);
         }
       }
 
       ul {
-        padding-top: 6px;
+        padding-top: getSelectTreeSizes(select-tree-list-item-after-ul-padding-top);
 
         li {
           position: relative;
@@ -147,26 +144,26 @@
               left: 0;
               top: 0;
               display: block;
-              width: 1px;
-              height: 16px;
-              background: #f4f5fa;
+              width: getSelectTreeSizes(select-tree-list-item-li-item-chain-width);
+              height: getSelectTreeSizes(select-tree-list-item-li-item-chain-height);
+              @include theme(background-color, select-tree-list-item-li-item-chain-background);
             }
           }
         }
       }
 
       &:hover::after {
-        opacity: 0.4;
+        @include theme(opacity, disabled-opacity);
       }
     }
 
     &-Tree-List__Item-Chain {
       position: absolute;
-      left: -3px;
+      left: getSelectTreeSizes(select-tree-list-item-chain-position-left);
       top: 0;
       display: block;
-      width: 15px;
-      height: 31px;
+      width: getSelectTreeSizes(select-tree-list-item-chain-width);
+      height: getSelectTreeSizes(select-tree-list-item-chain-height);
 
       &::before {
         content: '';
@@ -174,9 +171,9 @@
         left: 0;
         top: 0;
         display: block;
-        width: 1px;
-        height: 31px;
-        background: #f4f5fa;
+        width: getSelectTreeSizes(select-tree-list-item-chain-width-before);
+        height: getSelectTreeSizes(select-tree-list-item-chain-height);
+        @include theme(background-color, select-tree-list-item-li-item-chain-background);
       }
 
       &::after {
@@ -185,28 +182,26 @@
         left: 0;
         top: 50%;
         display: block;
-        width: 11px;
-        height: 1px;
-        background: #f4f5fa;
+        width: getSelectTreeSizes(select-tree-list-item-chain-after-width);
+        height: getSelectTreeSizes(select-tree-list-item-chain-after-height);
+        @include theme(background-color, select-tree-list-item-li-item-chain-background);
       }
     }
 
     &-Tree-List__Item-Inner {
-      display: flex;
+      @include flex();
       overflow: hidden;
-      width: 86%;
+      width: getSelectTreeSizes(select-tree-list-inner-width);
     }
 
     &-Tree-List__Item-Arrow {
       position: absolute;
       right: 0;
       top: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 31px;
-      height: 31px;
-      transition: background 0.16s linear;
+      @include flex(center, center);
+      width: getSelectTreeSizes(select-tree-list-item-arrow-sizes);
+      height: getSelectTreeSizes(select-tree-list-item-arrow-sizes);
+      transition: background getSelectTreeSizes(select-tree-list-item-number-transition) linear;
       will-change: background;
 
       &,
@@ -215,22 +210,22 @@
       }
 
       svg {
-        fill: #8ea6c1;
+        @include theme(fill, select-tree-list-item-svg-fill);
       }
 
       &:hover {
-        background: rgba(#f4f5f8, 1);
+        @include theme(background-color, select-tree-list-item-svg-fill-hover-background);
+        opacity: getSelectTreeSizes(select-tree-list-item-svg-fill-hover-opacity);
       }
     }
 
     &-Tree-List__Item-Number {
       display: inline-block;
       list-style: normal;
-      margin-left: 3px;
-      font-style: normal;
-      font-size: 12px;
-      color: #505d6e;
-      opacity: 0.5;
+      margin-left: getSelectTreeSizes(select-tree-list-item-number-margin-left);
+      font-size: getSelectTreeSizes(select-tree-list-item-number-font-size);
+      @include theme(color, select-tree-list-item-number-color);
+      opacity: getSelectTreeSizes(select-tree-list-item-number-opacity);
     }
 
     &-Tree-List__Item-Label {
@@ -240,11 +235,9 @@
 
     &-Tree-List__Item-Label-Inner {
       display: block;
-      overflow: hidden;
       width: 100%;
       max-width: 100%;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      @include dots-after-text;
     }
 
     // TREE END

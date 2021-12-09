@@ -7,13 +7,23 @@ import styles from './TimePicker.module.scss';
 export interface TimePickerProps {
   elementsHeight?: number;
   numbersCount?: number;
+  defaultValue?: number;
+  maxValue?: number;
+  minValue?: number;
   onChange?(selectedNumber: number): void;
 }
 
 const SCROLL_COPY_COUNT = 8;
 const SCROLL_CENTER_COUNT = 5;
 
-const TimePicker: FC<TimePickerProps> = ({ elementsHeight = 38, numbersCount = 24, onChange }) => {
+const TimePicker: FC<TimePickerProps> = ({
+  elementsHeight = 38,
+  numbersCount = 24,
+  onChange,
+  defaultValue,
+  maxValue,
+  minValue
+}) => {
   const scrollElementRef = useRef<HTMLDivElement>(null);
 
   const [currentScroll, setCurrentScroll] = useState(elementsHeight * SCROLL_CENTER_COUNT);
@@ -60,6 +70,12 @@ const TimePicker: FC<TimePickerProps> = ({ elementsHeight = 38, numbersCount = 2
 
       const updatedScroll = scrollTop > currentScroll ? currentScroll + elementsHeight : currentScroll - elementsHeight;
 
+      if (
+        (maxValue && getSelectedTime(updatedScroll) > maxValue) ||
+        (minValue && getSelectedTime(updatedScroll) < minValue)
+      )
+        return (scroller.scrollTop = currentScroll);
+
       if (updatedScroll >= MAX_SIZE) {
         setCurrentScroll(elementsHeight * SCROLL_COPY_COUNT + 1);
 
@@ -76,7 +92,7 @@ const TimePicker: FC<TimePickerProps> = ({ elementsHeight = 38, numbersCount = 2
 
       onChange?.(getSelectedTime(updatedScroll));
     },
-    [elementsHeight, numbersCount, currentScroll, getSelectedTime, onChange]
+    [elementsHeight, numbersCount, currentScroll, getSelectedTime, onChange, maxValue, minValue]
   );
 
   const indicatorClassnames = useStyles(
@@ -110,14 +126,46 @@ const TimePicker: FC<TimePickerProps> = ({ elementsHeight = 38, numbersCount = 2
     () => (scrollElementRef.current.scrollTop = currentScroll - elementsHeight),
     100
   );
+
   const nextButtonEvents = useLongPress(
     () => (scrollElementRef.current.scrollTop = currentScroll + elementsHeight),
     100
   );
 
   useEffect(() => {
-    scrollElementRef.current.scrollTop = elementsHeight * SCROLL_CENTER_COUNT;
+    setTimeout(() => {
+      if (minValue && defaultValue && defaultValue < minValue) {
+        setCurrentScroll((minValue + SCROLL_CENTER_COUNT) * elementsHeight);
+
+        scrollElementRef.current.scrollTop = (minValue + SCROLL_CENTER_COUNT) * elementsHeight;
+
+        onChange?.(getSelectedTime((minValue + SCROLL_CENTER_COUNT) * elementsHeight));
+
+        return;
+      }
+
+      if (defaultValue) {
+        setCurrentScroll((defaultValue + SCROLL_CENTER_COUNT) * elementsHeight);
+
+        scrollElementRef.current.scrollTop = (defaultValue + SCROLL_CENTER_COUNT) * elementsHeight;
+
+        onChange?.(getSelectedTime((defaultValue + SCROLL_CENTER_COUNT) * elementsHeight));
+      } else scrollElementRef.current.scrollTop = elementsHeight * SCROLL_CENTER_COUNT;
+    });
   }, []);
+
+  useEffect(() => {
+    if (maxValue && selectedTime > maxValue) {
+      setCurrentScroll(elementsHeight * (SCROLL_CENTER_COUNT + 1));
+      scrollElementRef.current.scrollTop = elementsHeight * (SCROLL_CENTER_COUNT + 1);
+    }
+
+    if (minValue && selectedTime < minValue) {
+      setCurrentScroll((minValue + SCROLL_CENTER_COUNT) * elementsHeight);
+
+      scrollElementRef.current.scrollTop = (minValue + SCROLL_CENTER_COUNT) * elementsHeight;
+    }
+  }, [maxValue, minValue]);
 
   return (
     <div className={styles.TimePickerLoopWrapper}>
@@ -143,6 +191,7 @@ const TimePicker: FC<TimePickerProps> = ({ elementsHeight = 38, numbersCount = 2
             className={classNames(styles.TimePickerNumber, indicatorClassnames.timeElementStyles, {
               [styles.TimePickerNumberSelected]: num === selectedTime
             })}
+            style={{ opacity: (maxValue && num > maxValue) || (minValue && num < minValue) ? 0.1 : 1 }}
             key={index}>
             {num}
           </span>

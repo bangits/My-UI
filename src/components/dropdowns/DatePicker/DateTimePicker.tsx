@@ -21,7 +21,14 @@ const DateTimePicker: FC<CustomTimePickerProps> = ({ onChange, defaultOpened = f
         dateFormat={datePickerProps.dateFormat || 'dd-MM-yyyy HH:mm:ss'}
         showTimeInput
         open={isOpenedDateTimePicker}
-        customTimeInput={<TimeSelection onTimeChange={setSelectedDateTime} currentDate={selectedDateTime} />}
+        customTimeInput={
+          <TimeSelection
+            onTimeChange={setSelectedDateTime}
+            currentDate={selectedDateTime}
+            maxDate={datePickerProps.maxDate}
+            minDate={datePickerProps.minDate}
+          />
+        }
         onFocus={() => setOpenedDateTimePicker(true)}
         onClickOutside={() => setOpenedDateTimePicker(false)}
         selected={selectedDateTime}

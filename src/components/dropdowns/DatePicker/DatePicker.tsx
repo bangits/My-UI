@@ -39,7 +39,15 @@ const DatePicker: React.FC<DatepickerProps> = ({
   const renderCustomHeader = useCallback((params) => <DatePickerHeader {...params} />, []);
 
   const customInput = useMemo(
-    () => <DatePickerInput color={color} fullWidth={fullWidth} placeholderText={placeholderText} />,
+    () => (
+      <DatePickerInput
+        onBlur={datePickerProps.onBlur}
+        onFocus={datePickerProps.onFocus}
+        color={color}
+        fullWidth={fullWidth}
+        placeholderText={placeholderText}
+      />
+    ),
     [placeholderText, color]
   );
 

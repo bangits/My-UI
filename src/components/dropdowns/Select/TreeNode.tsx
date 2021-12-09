@@ -46,7 +46,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
           </span>
         </span>
         <i className={classNames(styles['Select-Tree-List__Item-Number'], 'Select-Tree-List__Item-Number')}>
-          ({quantityOfChildren})
+          {quantityOfChildren === 1 ? '' : `(${quantityOfChildren})`}
         </i>
         {hasChild && (
           <i

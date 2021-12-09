@@ -132,6 +132,9 @@ const Table = <T extends {}>({
 
   const onFetchDataDebounced = useAsyncDebounce(fetch, 100);
 
+  const rootFontSize =
+    Number(window.getComputedStyle(document.body).getPropertyValue('font-size').replace('px', '')) || 10;
+
   useEffect(() => {
     setTableHeadWidths(Object.values(tableHeadRef.current.querySelectorAll('th')).map((th) => th.clientWidth));
   }, [columns, data]);
@@ -227,7 +230,7 @@ const Table = <T extends {}>({
                             ? cell.column.dataMaxWidth
                             : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
                             ? cell.column.maxWidth
-                            : `${tableHeadWidths[index] / 10}rem`
+                            : `${tableHeadWidths[index] / rootFontSize}rem`
                         }}
                         align={cell.column.align}
                         color={color}

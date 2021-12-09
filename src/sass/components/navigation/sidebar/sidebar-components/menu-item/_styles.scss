@@ -35,7 +35,9 @@
           @include theme(fill, sidebar-menu-item-isActive-icon-color);
         }
       }
+
       .MenuItemBase--label {
+        min-width: getMenuItemSizes(sidebar-menu-item-label-min-width);
         margin: getMenuItemSizes(sidebar-menu-item-isActive-label-margin);
         padding: getMenuItemSizes(sidebar-menu-item-isActive-label-padding);
         font-family: $base-font-family;

@@ -9,5 +9,13 @@ export default {
 };
 
 export const Default = () => {
-  return <TagCountry />;
+  return (
+    <TagCountry
+      children={text('country', 'Armenia')}
+      imgSrc={text(
+        'Flag',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/1024px-Flag_of_Armenia.svg.png'
+      )}
+    />
+  );
 };

@@ -7,7 +7,7 @@ export interface DialogBodyProps {
   className?: string;
 }
 const DialogBody: FC<DialogBodyProps> = ({ children, className }) => {
-  return <div className={classNames(className, styles.DialogText)}>{children}</div>;
+  return <div className={classNames(className, styles['DialogText'])}>{children}</div>;
 };
 
 export default DialogBody;

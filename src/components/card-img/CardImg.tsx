@@ -5,6 +5,7 @@ import { IComponent } from '@/types';
 export interface CardImgProps extends IComponent {
   title: string;
   image?: string;
+  className?: string;
   handleClick?: () => void;
 }
 const CardImg: FC<CardImgProps> = ({ title, image, handleClick }) => {

@@ -4,6 +4,8 @@ import React, { FC } from 'react';
 
 interface DatePickerInputProps {
   onClick?: () => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement, Element>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement, Element>) => void;
   value?: string;
   placeholderText?: string;
   disabled?: boolean;
@@ -11,13 +13,24 @@ interface DatePickerInputProps {
   color?: UIColors;
 }
 
-const DatePickerInput: FC<DatePickerInputProps> = ({ onClick, value, placeholderText, disabled, fullWidth, color }) => (
+const DatePickerInput: FC<DatePickerInputProps> = ({
+  onClick,
+  value,
+  placeholderText,
+  disabled,
+  fullWidth,
+  color,
+  onBlur,
+  onFocus
+}) => (
   <>
     <TextInput
       type='text'
       disabled={disabled}
       value={value}
       onClick={onClick}
+      onBlur={onBlur}
+      onFocus={onFocus}
       label={placeholderText}
       onChange={(e) => e.preventDefault()}
       fullWidth={fullWidth}

@@ -18,12 +18,26 @@
         }
       }
     }
+
     .TimePickerDivider {
       position: absolute;
       width: getDateTimePickerSizes(divider-position-width);
       bottom: getDateTimePickerSizes(divider-position-bottom);
       left: getDateTimePickerSizes(divider-position-left);
       @include theme(border, divider-color, solid 1px);
+    }
+
+    .TimePickerDividerCloseState {
+      display: none;
+    }
+
+    &.TimePickerBaseWithoutTime {
+      :global {
+        .react-datepicker {
+          width: getDateTimePickerSizes(time-picker-base-without-time-width);
+          height: getDateTimePickerSizes(time-picker-base-without-time-height);
+        }
+      }
     }
   }
 

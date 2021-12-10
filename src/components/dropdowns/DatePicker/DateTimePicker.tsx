@@ -1,5 +1,6 @@
 import { Button, DatePicker, DatepickerProps } from '@/components';
 import { typedMemo } from '@/helpers';
+import classNames from 'classnames';
 import React, { FC, useState } from 'react';
 import styles from './DateTimePicker.module.scss';
 import { TimeSelection } from './TimeSelection';
@@ -15,7 +16,7 @@ const DateTimePicker: FC<CustomTimePickerProps> = ({ onChange, defaultOpened = f
   const [isOpenedDateTimePicker, setOpenedDateTimePicker] = useState(defaultOpened);
 
   return (
-    <div className={styles.TimePickerBase}>
+    <div className={classNames(styles.TimePickerBase, styles.TimePickerBaseWithoutTime)}>
       <DatePicker
         {...datePickerProps}
         dateFormat={datePickerProps.dateFormat || 'dd-MM-yyyy HH:mm:ss'}

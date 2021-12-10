@@ -2,9 +2,19 @@
   .TimePickerBase {
     :global {
       .react-datepicker {
+        padding: getDateTimePickerSizes(react-datepicker-padding);
+        box-sizing: border-box;
         height: getDateTimePickerSizes(react-datepicker-height);
         &__navigation--next {
           left: getDateTimePickerSizes(react-datepicker-navigation-next-position-left);
+        }
+        &-time__input {
+          @include flex();
+          margin: getDateTimePickerSizes(react-time-input-margin);
+
+          > div {
+            margin: getDateTimePickerSizes(react-time-picker-input-column);
+          }
         }
       }
     }

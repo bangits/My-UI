@@ -93,7 +93,10 @@ export const TimeSelection: FC<TimeSelectionProps> = ({ onTimeChange, currentDat
       <TimePicker
         numbersCount={60}
         onChange={(seconds) => {
+          const currentDateMinutes = currentDate.getMinutes();
+
           currentDate.setSeconds(seconds);
+          currentDate.setMinutes(currentDateMinutes);
 
           onChange(`${currentDate.getHours()}:${currentDate.getMinutes()}`);
 

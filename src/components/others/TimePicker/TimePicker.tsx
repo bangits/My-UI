@@ -193,7 +193,7 @@ const TimePicker: FC<TimePickerProps> = ({
             })}
             style={{ opacity: (maxValue && num > maxValue) || (minValue && num < minValue) ? 0.1 : 1 }}
             key={index}>
-            {num}
+            {num === numbersCount ? '00' : num <= 9 ? `${0}${num}` : num}
           </span>
         ))}
 

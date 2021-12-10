@@ -16,7 +16,10 @@ const DateTimePicker: FC<CustomTimePickerProps> = ({ onChange, defaultOpened = f
   const [isOpenedDateTimePicker, setOpenedDateTimePicker] = useState(defaultOpened);
 
   return (
-    <div className={classNames(styles.TimePickerBase, styles.TimePickerBaseWithoutTime)}>
+    <div
+      className={classNames(styles.TimePickerBase, {
+        [styles.TimePickerBaseWithoutTime]: !selectedDateTime
+      })}>
       <DatePicker
         {...datePickerProps}
         dateFormat={datePickerProps.dateFormat || 'dd-MM-yyyy HH:mm:ss'}
@@ -42,10 +45,14 @@ const DateTimePicker: FC<CustomTimePickerProps> = ({ onChange, defaultOpened = f
             onChange?.(date);
           }
         }}>
-        <hr className={styles.TimePickerDivider} />
-        <Button className={styles.TimePickerButton} onClick={() => setOpenedDateTimePicker(false)}>
-          OK
-        </Button>
+        {selectedDateTime && (
+          <>
+            <hr className={styles.TimePickerDivider} />
+            <Button className={styles.TimePickerButton} onClick={() => setOpenedDateTimePicker(false)}>
+              OK
+            </Button>
+          </>
+        )}
       </DatePicker>
     </div>
   );

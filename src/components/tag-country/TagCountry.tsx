@@ -1,7 +1,7 @@
 import { Typography } from '@/my-ui-core';
-import styles from './TagCountry.module.scss';
 import classNames from 'classnames';
-import React, { HTMLAttributes, DetailedHTMLProps, FC, ReactNode } from 'react';
+import React, { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from 'react';
+import styles from './TagCountry.module.scss';
 export interface TagCountryProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, null> {
   imgSrc?: string;
   tagName?: ReactNode;

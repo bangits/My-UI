@@ -5,7 +5,7 @@ $button-sizes: (
   button-border-radius: 4px,
   icon-margin: calculateRem(10px),
   button-border-width: 1px,
-  button-min-width: calculateRem(130px)
+  button-min-width: calculateRem(157px)
 );
 
 @function getButtonSizes($property) {

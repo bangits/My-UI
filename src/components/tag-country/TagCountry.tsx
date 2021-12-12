@@ -1,14 +1,14 @@
 import { Typography } from '@/my-ui-core';
-import styles from './TagCountry.module.scss';
 import classNames from 'classnames';
-import React, { HTMLAttributes, DetailedHTMLProps, FC, ReactNode } from 'react';
+import React, { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from 'react';
+import styles from './TagCountry.module.scss';
 export interface TagCountryProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, null> {
   imgSrc?: string;
-  children?: ReactNode;
+  tagName?: ReactNode;
   className?: string;
 }
 
-const TagCountry: FC<TagCountryProps> = ({ children, imgSrc, className }) => {
+const TagCountry: FC<TagCountryProps> = ({ tagName, imgSrc, className }) => {
   return (
     <div className={classNames(styles['TagCountryWrapper'], className)}>
       <div className={styles.Flag}>
@@ -16,7 +16,7 @@ const TagCountry: FC<TagCountryProps> = ({ children, imgSrc, className }) => {
       </div>
       <div className={styles.Country}>
         <Typography component='span' variant='p4'>
-          {children}
+          {tagName}
         </Typography>
       </div>
     </div>

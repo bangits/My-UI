@@ -1,15 +1,14 @@
-import React, { FC, useState, useCallback } from 'react';
-import styles from './SubTab.module.scss';
-import classNames from 'classnames';
-import { IComponent } from '@/types';
-import { Typography } from '@/my-ui-core';
 import { Badge } from '@/components';
+import { IComponent } from '@/types';
+import classNames from 'classnames';
+import React, { FC, useCallback, useState } from 'react';
+import styles from './SubTab.module.scss';
 
 export interface SubTabProps extends IComponent {
   options?: {
     title: string;
     value: number;
-    badgeCount: number;
+    badgeCount?: number;
   }[];
   className?: string;
   defaultValue?: number;
@@ -33,7 +32,7 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
         options.map((option) => (
           <div className={styles.SubTabWrapper}>
             <div className={styles.BadgeWrapper}>
-              {option.badgeCount !== 0 && <Badge badgeSize='ss' quantity={option.badgeCount} />}
+              {option.badgeCount && <Badge badgeSize='ss' quantity={option.badgeCount} />}
             </div>
             <button
               key={option.value}

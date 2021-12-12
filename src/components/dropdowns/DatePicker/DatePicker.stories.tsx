@@ -54,5 +54,11 @@ export const WithTwoMonth = () => {
 };
 
 export const DateTimePicker = () => {
-  return <DateTimePickerComponent />;
+  const [x, setX] = useState(null);
+
+  return (
+    <>
+      <DateTimePickerComponent onChange={setX} selected={x} />
+    </>
+  );
 };

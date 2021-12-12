@@ -1,11 +1,11 @@
 $infiniteloop-sizes: (
   time-picker-wrapper-width: calculateRem(84px),
-  time-picker-content-height: calculateRem(293px),
+  time-picker-content-height: 293px,
   time-picker-content-border-radius: 16px,
   time-picker-number-font-size: calculateRem(18px),
   time-picker-number-height: calculateRem(46px),
   time-picker-content-padding-bottom: calculateRem(30px),
-  time-picker-selected-layer-offset: calculateRem(12px),
+  time-picker-selected-layer-offset: 12px,
   time-picker-buttons-hover-transition: 0.1s
 );
 

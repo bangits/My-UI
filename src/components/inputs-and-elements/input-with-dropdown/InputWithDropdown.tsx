@@ -8,8 +8,8 @@ import styles from './InputWithDropdown.module.scss';
 export interface InputWithDropdownProps extends IComponent {
   inputProps?: TextInputProps;
   dropdownProps?: SelectProps<any[], boolean, any>;
-  onInputChange?: (value: any) => void;
-  onDropdownChange?: (value: any) => void;
+  onInputChange?: (value: string) => void;
+  onDropdownChange?: (value: number) => void;
   dropdownInputProps?: DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 }
 
@@ -23,7 +23,7 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
 }) => {
   const [isDropdown, setIsDropdown] = useState(true);
   const [isInputFocused, setInputFocused] = useState(false);
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>(inputProps?.value?.toString() || '');
 
   const selectInputRef = useRef<HTMLInputElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -35,14 +35,19 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
       inputValue.length > 0 ? setIsDropdown(false) : setIsDropdown(true);
 
       setInputFocused(false);
+
+      inputProps?.onBlur?.(e);
     },
-    [inputValue, selectInputRef]
+    [inputValue, selectInputRef, inputProps?.onBlur]
   );
 
-  const onTextInputChange = useCallback((e) => {
-    setInputValue(e.target.value);
-    onInputChange(e.target.value);
-  }, []);
+  const onTextInputChange = useCallback(
+    (e) => {
+      setInputValue(e.target.value);
+      onInputChange(e.target.value);
+    },
+    [onInputChange]
+  );
 
   const onTextInputFocus = useCallback(() => {
     inputValue.length === 0 ? setIsDropdown(false) : setIsDropdown(false);
@@ -56,7 +61,7 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
 
       onDropdownChange(e);
     },
-    [inputRef]
+    [inputRef, onDropdownChange]
   );
 
   return (
@@ -80,9 +85,12 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
           <Select
             className={classNames(styles['InputWithDropdownBase--select'])}
             isSearchable
-            onChange={(e) => onSelectChange(e)}
-            renderInput={(value, isMenuOpen, onDropdownInputChange) => (
-              <div className={styles['InputWithDropdownBase--dropdown-control']}>
+            onChange={onSelectChange}
+            renderInput={(value, isMenuOpen, onDropdownInputChange, onInputBlur) => (
+              <div
+                className={classNames(styles['InputWithDropdownBase--dropdown-control'], {
+                  [styles[`InputWithDropdownBase--dropdown-input--${dropdownProps?.color}`]]: dropdownProps?.color
+                })}>
                 <input
                   {...dropdownInputProps}
                   className={classNames(
@@ -98,6 +106,7 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
                   onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                     if (dropdownInputProps.type === 'number') e.target.value = e.target.value.replace(/[^\d.+]/g, '');
                   }}
+                  onBlur={onInputBlur}
                   ref={selectInputRef}
                 />
                 <span

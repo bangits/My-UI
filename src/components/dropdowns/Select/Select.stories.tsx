@@ -194,6 +194,8 @@ export const MultiSelect = () => {
 export const Dropdown = () => {
   return (
     <Select
+      clearButton
+      clearButtonLabel='Clear'
       dropdown
       isDisabled={boolean('isDisabled', false)}
       dropdownIcon={<FilterIcon />}
@@ -307,6 +309,7 @@ export const RenderInput = () => {
 export const TreeView = () => {
   return (
     <Select
+      menuIsOpen
       onChange={action('onChange')}
       onBlur={action('onBlur')}
       isSearchable

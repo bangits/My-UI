@@ -40,7 +40,12 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
   treeData?: Tree[];
 
   //
-  renderInput?: (value: SelectOptionType, isMenuOpen: boolean, onInputChange: (event: any) => void) => ReactNode;
+  renderInput?: (
+    value: SelectOptionType,
+    isMenuOpen: boolean,
+    onInputChange: (event: any) => void,
+    onInputBlur: () => void
+  ) => ReactNode;
 }
 
 export interface SelectProps<
@@ -160,7 +165,7 @@ function Select<
           event
         );
     },
-    [selectAllValue, options, allOption, selectedOptions, selectProps.options, isMulti]
+    [selectProps.onChange, selectAllValue, options, allOption, selectedOptions, selectProps.options, isMulti]
   );
 
   useEffect(() => {

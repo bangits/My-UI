@@ -1,0 +1,7 @@
+.RootTreeSelect {
+  .RootTreeSelect__Child {
+    & > ul > li > span > span {
+      font-weight: 700;
+    }
+  }
+}

@@ -1,9 +1,9 @@
-import { getComponentName } from '@/configs';
-import { boolean, withKnobs, optionsKnob } from '@storybook/addon-knobs';
+import { getColorKnobs, getComponentName } from '@/configs';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useState } from 'react';
 import DatePicker from './DatePicker';
-import { getColorKnobs } from '@/configs';
+import DateTimePickerComponent from './DateTimePicker';
 
 export default {
   component: DatePicker,
@@ -50,5 +50,15 @@ export const WithTwoMonth = () => {
       disabled={boolean('disabled', false)}
       color={getColorKnobs()}
     />
+  );
+};
+
+export const DateTimePicker = () => {
+  const [x, setX] = useState(null);
+
+  return (
+    <>
+      <DateTimePickerComponent onChange={setX} selected={x} />
+    </>
   );
 };

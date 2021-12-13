@@ -9,5 +9,14 @@ export default {
 };
 
 export const Default = () => {
-  return <CopyFiled />;
+  return (
+    <CopyFiled
+      label={`Glossary":{"Title":"Example Glossary","Glossdiv": {"Title":"S","Glosslist":`}
+      tooltip={{
+        text: 'Copy Current Field',
+        showEvent: 'hover',
+        placement: 'right'
+      }}
+    />
+  );
 };

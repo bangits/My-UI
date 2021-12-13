@@ -17,6 +17,7 @@
       width: getCopyFieldSizes(copy-url-sizes);
       height: getCopyFieldSizes(copy-url-sizes);
       margin-left: getCopyFieldSizes(copy-url-margin);
+      cursor: pointer;
       svg {
         width: 100%;
         height: 100%;

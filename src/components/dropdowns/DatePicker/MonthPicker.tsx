@@ -35,14 +35,14 @@ const MonthPicker: FC<any> = ({ years, monthDate, customHeaderCount, onChange })
   return (
     <div className={styles.MonthPickerWrapper}>
       <button
-        aria-label='Previous Month'
+        type='button'
         className={'react-datepicker__navigation react-datepicker__navigation--previous'}
         onClick={() => setYearSelection(calculateYears(yearSelection[2] - 2))}>
         <DatepickerArrowIcon />
       </button>
       <div className={styles.MonthPickerWrapper__Header}>{yearSelection[1]}</div>
       <button
-        aria-label='Next Month'
+        type='button'
         className={'react-datepicker__navigation react-datepicker__navigation--next'}
         onClick={() => setYearSelection(calculateYears(yearSelection[0] + 2))}>
         <DatepickerArrowIcon />

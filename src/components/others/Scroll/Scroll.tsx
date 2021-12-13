@@ -1,3 +1,4 @@
+import { getMyUIPrefix } from '@/configs';
 import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import { Scrollbars } from '@my-ui/scrollbar';

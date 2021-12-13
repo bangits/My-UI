@@ -10,10 +10,11 @@ export interface TagProps extends IComponent {
   closeIcon?: boolean;
   inactive?: boolean;
   color?: UIColors;
-  handleClick?: () => void;
+  onClose?: () => void;
+  onClick?: () => void;
 }
 
-const Tag: FC<TagProps> = ({ title, closeIcon, inactive, color = 'primary', handleClick, className }) => {
+const Tag: FC<TagProps> = ({ title, closeIcon, inactive, color = 'primary', onClose, onClick, className }) => {
   return (
     <>
       <div
@@ -25,11 +26,12 @@ const Tag: FC<TagProps> = ({ title, closeIcon, inactive, color = 'primary', hand
             [styles.TagText]: closeIcon
           },
           className
-        )}>
+        )}
+        onClick={onClick}>
         <Typography component='span' variant='p4' className={classNames(styles.TagText)}>
           {title}
         </Typography>
-        {closeIcon && <span className={styles.IconContainer}>{closeIcon && <AlertClose onClick={handleClick} />}</span>}
+        {closeIcon && <span className={styles.IconContainer}>{closeIcon && <AlertClose onClick={onClose} />}</span>}
       </div>
     </>
   );

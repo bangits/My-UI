@@ -94,4 +94,15 @@
   .isDropdownActive {
     display: none;
   }
+
+  @each $color in $base-colors {
+    .InputWithDropdownBase {
+      &--dropdown-input--#{$color} {
+        input,
+        svg {
+          @include theme(color, $color);
+        }
+      }
+    }
+  }
 }

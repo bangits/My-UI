@@ -1,4 +1,3 @@
-import { Typography } from '@/my-ui-core';
 import classNames from 'classnames';
 import React from 'react';
 import styles from './Loader.module.scss';
@@ -12,5 +11,3 @@ const Loader = () => {
 };
 
 export default Loader;
-
-//remove style

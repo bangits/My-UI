@@ -1,10 +1,10 @@
+import { getColorKnobs } from '@/configs';
 import { COLOR_TYPES } from '@/types';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
 import TextInput from './TextInput';
-import { getColorKnobs } from '@/configs';
 
 export default {
   component: TextInput,

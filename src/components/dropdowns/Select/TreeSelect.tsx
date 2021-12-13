@@ -14,7 +14,7 @@ export interface TreeSelectProps {
   data: Tree[];
   onChange?: (value: number | string) => void;
   setInput?: SelectProps<any, false, any>['onInputChange'];
-  className: string;
+  className?: string;
 }
 
 const TreeSelect: FC<TreeSelectProps> = ({ data, onChange, setInput, className }) => {

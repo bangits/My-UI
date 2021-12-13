@@ -194,6 +194,8 @@ export const MultiSelect = () => {
 export const Dropdown = () => {
   return (
     <Select
+      clearButton
+      clearButtonLabel='Clear'
       dropdown
       isDisabled={boolean('isDisabled', false)}
       dropdownIcon={<FilterIcon />}

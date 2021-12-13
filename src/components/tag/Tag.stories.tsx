@@ -1,6 +1,6 @@
-import { boolean, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
-import Tag from './Tag';
 import { getColorKnobs } from '@/configs';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import Tag from './Tag';
 
 export default {
   component: Tag,
@@ -16,7 +16,7 @@ export const Default = () => {
         closeIcon={boolean('closeIcon', true)}
         inactive={boolean('inactive', false)}
         color={getColorKnobs()}
-        handleClick={() => {
+        onClose={() => {
           alert('close');
         }}
       />

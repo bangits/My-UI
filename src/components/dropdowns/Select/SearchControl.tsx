@@ -77,8 +77,13 @@ export const SearchControl: typeof components.Control = (props) => {
     <components.Control {...props}>
       {selectProps.renderInput ? (
         <div onClick={selectProps.onMenuOpen}>
-          {/*  @ts-expect-error ignoring typescript for typecast */}
-          {selectProps.renderInput(selectProps.value, props.selectProps.menuIsOpen, props.selectProps.onInputChange)}
+          {selectProps.renderInput(
+            // @ts-expect-error ignoring typescript for typecast
+            selectProps.value,
+            props.selectProps.menuIsOpen,
+            props.selectProps.onInputChange,
+            onInputBlur
+          )}
         </div>
       ) : (
         <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>

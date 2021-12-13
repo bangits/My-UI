@@ -4,6 +4,5 @@
     height: getCardSizes(card-height);
     border-radius: getCardSizes(card-border-radius);
     @include theme(box-shadow, box-shadow-color, 0 0 4px 0);
-    transition: all getCardSizes(animation-height) ease-in-out;
   }
 }

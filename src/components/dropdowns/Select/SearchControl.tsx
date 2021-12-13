@@ -1,8 +1,9 @@
 import { CustomSelectProps, SelectOptionType, TextInput } from '@/components';
+import { useOutsideClickWithRef } from '@/helpers';
 import { DropdownArrowIconDown, DropdownArrowIconUp } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
-import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import styles from './Select.module.scss';
 
 export const SearchControl: typeof components.Control = (props) => {
@@ -73,10 +74,14 @@ export const SearchControl: typeof components.Control = (props) => {
     if (!props.selectProps.inputValue && searchValue && !currentValue) setSearchValue('');
   }, [props.selectProps.inputValue]);
 
+  const wrapperRef = useRef(null);
+
+  useOutsideClickWithRef(wrapperRef, () => props.selectProps.onMenuClose());
+
   return (
     <components.Control {...props}>
       {selectProps.renderInput ? (
-        <div onClick={selectProps.onMenuOpen}>
+        <div onClick={selectProps.onMenuOpen} ref={wrapperRef}>
           {selectProps.renderInput(
             // @ts-expect-error ignoring typescript for typecast
             selectProps.value,

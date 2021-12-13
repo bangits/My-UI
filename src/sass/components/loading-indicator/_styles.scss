@@ -60,6 +60,10 @@
     }
   }
 
+  .SecondRectContainer {
+    height: getLoadingIndicatorSizes(second-rect-container-height);
+  }
+
   @each $color in $base-colors {
     .LoadingIndicatorCircle--#{$color} {
       .LoadingIndicatorCircle {

@@ -91,12 +91,12 @@
 
   .AllOption {
     &:first-child {
-      position: absolute;
+      /*  position: absolute;
       z-index: 100;
       width: 100%;
       left: 0rem;
       background-color: #ffffff;
-      top: 0;
+      top: 0; */
       // border-radius: 0.8rem 0.8rem 0 0;
       > div {
         border-bottom: none;
@@ -108,10 +108,10 @@
         }
       }
     }
-    &:nth-child(2) {
+    /* &:nth-child(2) {
       margin-top: 3.1rem;
       border-top: solid 1px rgba(43, 54, 116, 0.05);
-    }
+    } */
   }
 
   &--custom-option {
@@ -142,7 +142,7 @@
     z-index: 999999;
     // bottom: 0;
     bottom: -0.5rem;
-    width: 28rem;
+    width: 100%;
     height: 3.1rem;
     border-radius: 0 0 0.6rem 0.6rem;
     background-color: #ffffff;
@@ -192,7 +192,7 @@
 
   &--all {
     .SelectScroll {
-      margin-top: 3.1rem;
+      /* margin-top: 3.1rem; */
     }
   }
 

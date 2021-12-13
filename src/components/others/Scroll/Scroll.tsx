@@ -13,16 +13,17 @@ export interface ScrollProps extends IComponent {
   autoHide?: boolean;
   autoHideTimeout?: number;
   autoHideDuration?: number;
+  autoHeight?: boolean;
 }
 
 const Scroll: FC<ScrollProps> = ({ height = 200, width, children, className, ...scrollProps }) => {
   return (
     <Scrollbars
-      {...scrollProps}
-      style={{ width: width ?? '100%' }}
       autoHeight
       hideTracksWhenNotNeeded
       autoHeightMax={height}
+      {...scrollProps}
+      style={{ width: width ?? '100%' }}
       className={classNames(styles.ScrollBase, className)}
       trackVerticalClassname={styles.TrackVertical}
       thumbVerticalClassname={styles.ThumbVertical}

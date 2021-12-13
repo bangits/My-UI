@@ -1,0 +1,123 @@
+@mixin generate-timepicker-styles {
+  .TimePickerLoopWrapper {
+    position: relative;
+  }
+
+  .ScrollButton {
+    display: none;
+
+    cursor: pointer;
+
+    @include theme(background, primary, $opacity: 0.1);
+
+    transition: background getTimePickerSizes(time-picker-buttons-hover-transition);
+
+    &:hover {
+      @include theme(background, primary, $opacity: 0.2);
+    }
+
+    position: absolute;
+
+    width: 100%;
+
+    left: 0;
+    top: 0;
+    border: none;
+    z-index: 1;
+
+    border-radius: getTimePickerSizes(time-picker-content-border-radius)
+      getTimePickerSizes(time-picker-content-border-radius) 0 0;
+    padding: 0;
+
+    &.ScrollButtonNext {
+      bottom: 0;
+      top: initial;
+
+      svg {
+        transform: rotate(180deg);
+      }
+
+      border-radius: 0 0 getTimePickerSizes(time-picker-content-border-radius)
+        getTimePickerSizes(time-picker-content-border-radius);
+    }
+  }
+
+  .ScrollButtonBg {
+    position: absolute;
+
+    // Used pixels here, cause it doesnt depend on layout sizes
+    bottom: 1px;
+    left: 5px;
+    width: calc(100% - 7px);
+
+    &.PrevScrollButtonBg {
+      bottom: initial;
+
+      top: 1px;
+    }
+
+    @include theme(background, primary--color);
+
+    border-radius: getTimePickerSizes(time-picker-content-border-radius);
+
+    display: none;
+  }
+
+  .TimePickerLoopWrapper,
+  .TimePickerLoopContent {
+    width: getTimePickerSizes(time-picker-wrapper-width);
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    & {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+
+  .TimePickerLoopContent {
+    height: getTimePickerSizes(time-picker-content-height);
+    overflow-y: scroll;
+    box-sizing: border-box;
+    @include theme(border, border-color, solid 1px);
+    border-radius: getTimePickerSizes(time-picker-content-border-radius);
+
+    .TimePickerNumber {
+      @include flex(center, center, $direction: column);
+      font-size: getTimePickerSizes(time-picker-number-font-size);
+
+      &.TimePickerNumberSelected {
+        @include theme(color, primary);
+      }
+    }
+
+    .SelectedTimeBg {
+      content: '';
+      position: absolute;
+      width: 100%;
+
+      @include theme(background, primary, $opacity: 0.1);
+
+      top: 50%;
+      transform: translate(0%, -50%);
+
+      margin-top: -(getTimePickerSizes(time-picker-selected-layer-offset));
+    }
+
+    &:hover {
+      .TimePickerNumber:first-child,
+      .TimePickerNumber:last-child {
+        display: none;
+      }
+
+      .ScrollButton,
+      .ScrollButtonBg {
+        display: block;
+      }
+    }
+  }
+}

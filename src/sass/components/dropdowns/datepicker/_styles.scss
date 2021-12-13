@@ -6,15 +6,17 @@
       .react-datepicker {
         @include theme(background-color, primary--color);
         @include flex;
+        position: relative;
 
         padding-bottom: getDatePickerSizes(datePicker-wrapper-padding-bottom);
         padding: getDatePickerSizes(datePicker-padding);
         @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
-        width: getDatePickerSizes(datePicker-wrapper-width);
+        min-width: getDatePickerSizes(datePicker-wrapper-width);
         min-height: getDatePickerSizes(datePicker-wrapper-min-heigh);
         height: getDatePickerSizes(datePicker-month-container-min-height);
 
         &__navigation-icon--previous,
+        &-time__caption,
         &__navigation-icon--next {
           display: none;
         }
@@ -159,7 +161,8 @@
         }
       }
       .react-datepicker__day.react-datepicker__day--range-end.react-datepicker__day--outside-month,
-      .react-datepicker__day.react-datepicker__day--range-start.react-datepicker__day--outside-month {
+      .react-datepicker__day.react-datepicker__day--range-start.react-datepicker__day--outside-month,
+      .react-datepicker__day.react-datepicker__day--disabled {
         @include theme(color, datepicker-day-color, $opacity: 0.5);
         &:hover {
           @include theme(color, primary--color);
@@ -177,7 +180,8 @@
         background: none;
         @include theme(color, datepicker-day-color, $opacity: 0.5);
       }
-      .react-datepicker__day.react-datepicker__day--outside-month:hover {
+      .react-datepicker__day.react-datepicker__day--outside-month:hover,
+      .react-datepicker__day.react-datepicker__day--disabled:hover {
         @include theme(background-color, primary, $opacity: 0.1);
         @include theme(color, primary);
       }
@@ -276,7 +280,8 @@
         .react-datepicker__day.react-datepicker__day--in-selecting-range.react-datepicker__day--outside-month:hover {
           @include theme(color, #{$color}, $opacity: 0.5);
         }
-        .react-datepicker__day.react-datepicker__day--outside-month:hover {
+        .react-datepicker__day.react-datepicker__day--outside-month:hover,
+        .react-datepicker__day.react-datepicker__day--disabled:hover {
           @include theme(background-color, #{$color}, $opacity: 0.1);
           @include theme(color, #{$color});
         }

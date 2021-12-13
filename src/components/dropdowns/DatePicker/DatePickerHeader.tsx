@@ -36,7 +36,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
   return (
     <div className='month-and-yearWrapper'>
       <button
-        // aria-label='Previous Month'
+        type='button'
         className={'react-datepicker__navigation react-datepicker__navigation--previous'}
         style={customHeaderCount === 1 ? { visibility: 'hidden' } : undefined}
         onClick={decreaseMonth}>
@@ -67,7 +67,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
         </span>
       </div>
       <button
-        // aria-label='Next Month'
+        type='button'
         className={'react-datepicker__navigation react-datepicker__navigation--next'}
         style={customHeaderCount === 1 ? { visibility: 'hidden' } : undefined}
         onClick={increaseMonth}>

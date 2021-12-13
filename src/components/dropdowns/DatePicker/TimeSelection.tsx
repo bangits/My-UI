@@ -11,7 +11,7 @@ export interface TimeSelectionProps {
 
 export const TimeSelection: FC<TimeSelectionProps> = ({ onTimeChange, currentDate, onChange, maxDate, minDate }) => {
   const { maxSeconds, maxMinutes, maxHours } = useMemo(() => {
-    if (!currentDate) return {};
+    if (!currentDate || !maxDate) return {};
 
     const needToCheckHours =
       maxDate &&
@@ -27,13 +27,13 @@ export const TimeSelection: FC<TimeSelectionProps> = ({ onTimeChange, currentDat
 
     const needToCheckSeconds = needToCheckMinutes && maxMinutes <= currentDate.getMinutes();
 
-    const maxSeconds = needToCheckSeconds && maxDate.getSeconds();
+    const maxSeconds = needToCheckSeconds && maxDate?.getSeconds();
 
     return { maxSeconds, maxMinutes, maxHours };
   }, [maxDate, currentDate?.getHours(), currentDate?.getMinutes(), currentDate?.getSeconds()]);
 
   const { minMinutes, minHours, minSeconds } = useMemo(() => {
-    if (!currentDate) return {};
+    if (!currentDate || !minDate) return {};
 
     const needToCheckHours =
       minDate &&
@@ -49,7 +49,7 @@ export const TimeSelection: FC<TimeSelectionProps> = ({ onTimeChange, currentDat
 
     const needToCheckSeconds = needToCheckMinutes && minMinutes >= currentDate.getMinutes();
 
-    const minSeconds = needToCheckSeconds && maxDate.getSeconds();
+    const minSeconds = needToCheckSeconds && minDate?.getSeconds();
 
     return { minMinutes, minHours, minSeconds };
   }, [minDate, currentDate?.getHours(), currentDate?.getMinutes(), currentDate?.getSeconds()]);

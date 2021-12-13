@@ -98,10 +98,10 @@ const TimePicker: FC<TimePickerProps> = ({
   const indicatorClassnames = useStyles(
     {
       timeElementStyles: {
-        height: (data) => data.elementRemHeight
+        height: (data) => data.elementsHeight
       }
     },
-    { elementRemHeight }
+    { elementsHeight }
   );
 
   const numbers = useMemo(

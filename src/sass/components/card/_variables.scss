@@ -1,7 +1,8 @@
 $card-sizes: (
   card-width: 100%,
   card-height: 100%,
-  card-border-radius: 26px
+  card-border-radius: 26px,
+  animation-height: 0.3s
 );
 
 @function getCardSizes($property) {

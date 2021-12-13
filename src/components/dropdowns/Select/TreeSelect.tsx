@@ -14,11 +14,19 @@ export interface TreeSelectProps {
   data: Tree[];
   onChange?: (value: number | string) => void;
   setInput?: SelectProps<any, false, any>['onInputChange'];
+  className: string;
 }
 
-const TreeSelect: FC<TreeSelectProps> = ({ data, onChange, setInput }) => {
+const TreeSelect: FC<TreeSelectProps> = ({ data, onChange, setInput, className }) => {
   return (
-    <div className={classNames(styles['Select-Tree'], 'Select-Tree', 'Select-Tree--Main')}>
+    <div
+      className={classNames(
+        styles['Select-Tree'],
+        styles['Select-Tree--Main'],
+        'Select-Tree',
+        'Select-Tree--Main',
+        className
+      )}>
       <ul className={classNames(styles['Select-Tree-List'], 'Select-Tree-List')}>
         {data?.map((tree, idx) => (
           <TreeNode key={idx} node={tree} index={idx} onChange={onChange} setInput={setInput} />

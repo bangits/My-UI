@@ -309,6 +309,7 @@ export const RenderInput = () => {
 export const TreeView = () => {
   return (
     <Select
+      menuIsOpen
       onChange={action('onChange')}
       onBlur={action('onBlur')}
       isSearchable

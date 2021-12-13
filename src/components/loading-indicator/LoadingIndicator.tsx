@@ -61,7 +61,7 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({
             styles['LoadingDropIndicator'],
             styles[`LoadingIndicatorRectangle--${color}`]
           )}>
-          <svg height='40'>
+          <svg className={styles.SecondRectContainer}>
             <rect className={styles.SecondRect} x='1' y='1' rx='4'></rect>
             <rect
               x='1'

@@ -11,7 +11,8 @@ $loadingindicator-sizes: (
   rectangle-stroke-width: calculateRem(1px),
   transition-all-indicator: all 0.1s,
   transition-circle-path-remaining: 0.1s,
-  loading-indicator-top: calculateRem(8px)
+  loading-indicator-top: calculateRem(8px),
+  second-rect-container-height: calculateRem(40px)
 );
 
 $loadingindicator-colors: (

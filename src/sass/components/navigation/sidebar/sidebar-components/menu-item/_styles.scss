@@ -152,7 +152,7 @@
       display: block;
       padding: 9px 8px 9px 38px;
       font-family: inherit;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 19px;
       color: #95acc5;
       cursor: pointer;
@@ -247,11 +247,11 @@
   }
   .ParentCatIcon {
     display: block;
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     position: absolute;
-    top: calc(50% - 9px);
-    left: 11px;
+    top: calc(50% - 8px);
+    left: 13px;
     svg {
       transition: fill 0.16s linear;
       fill: #dfe6f1;

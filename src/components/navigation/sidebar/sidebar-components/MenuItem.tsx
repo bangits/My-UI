@@ -37,7 +37,7 @@ export const MenuItem: FC<MenuItemProps> = ({
         <li className={classNames(styles['ParentList__Item'], 'ParentList__Item')}>
           <a className={classNames(styles['ParentList__Item-Link'], 'ParentList__Item-Link')}>
             <i className={classNames(styles['ParentCatIcon'], 'ParentCatIcon')}>
-              <HomeSidebar width='16px' />
+              <HomeSidebar width='15px' />
             </i>
             Dashboard
             <i className={classNames(styles['ArrowTopCell'], 'ArrowTopCell')}>
@@ -45,20 +45,22 @@ export const MenuItem: FC<MenuItemProps> = ({
             </i>
           </a>
           <div className={classNames(styles['ChildListCell'], 'ChildListCell')}>
-            <ul className={classNames(styles['ChildList'], 'ChildList')}>
-              <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
-                <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
-              </li>
-              <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
-                <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
-              </li>
-              <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
-                <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
-              </li>
-              <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
-                <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
-              </li>
-            </ul>
+            <div className={classNames(styles['ChildListCell-Height-Detect'], 'ChildListCell-Height-Detect')}>
+              <ul className={classNames(styles['ChildList'], 'ChildList')}>
+                <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
+                  <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
+                </li>
+                <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
+                  <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
+                </li>
+                <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
+                  <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
+                </li>
+                <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
+                  <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </li>
       ) : (

@@ -136,4 +136,126 @@
       transition: getMenuItemSizes(sidebar-menu-item-transition);
     }
   }
-} ;
+
+  .ParentList {
+    padding: 0;
+    list-style: none;
+    margin-left: -10px;
+    &__Item {
+      list-style: none;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+
+    &__Item-Link {
+      display: block;
+      padding: 9px 8px 9px 38px;
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 19px;
+      color: #95acc5;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.16s linear, color 0.16s linear;
+      position: relative;
+      top: 0;
+      left: 0;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 36px;
+        background: #3c54b2;
+        z-index: 10;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        opacity: 0;
+        transition: opacity 0.16s linear;
+      }
+      &--Current,
+      &:hover {
+        background: rgba(60, 84, 178, 0.05);
+        color: #3c54b2;
+
+        .ParentCatIcon {
+          svg {
+            fill: #3c54b2;
+          }
+        }
+        .ArrowTopCell {
+          svg {
+            fill: #3c54b2;
+          }
+        }
+
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .ChildList {
+    padding: 0 0 0 10px;
+    list-style: none;
+    &__Item {
+      padding-left: 15px;
+      padding-right: 20px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      list-style: none;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    &__Item-Link {
+      display: block;
+      padding: 8px 8px 8px 20px;
+      list-style: none;
+      font-family: inherit;
+      font-size: 12px;
+      line-height: 14px;
+      color: #95acc5;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.16s linear, color 0.16s linear;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      &--Current,
+      &:hover {
+        background: rgba(60, 84, 178, 0.05);
+        color: #3c54b2;
+      }
+    }
+  }
+
+  .ArrowTopCell {
+    display: block;
+    width: 11px;
+    height: 7px;
+    position: absolute;
+    top: calc(50% - 11px);
+    right: 20px;
+    svg {
+      transition: fill 0.16s linear;
+      fill: #dfe6f1;
+    }
+  }
+  .ParentCatIcon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: calc(50% - 9px);
+    left: 11px;
+    svg {
+      transition: fill 0.16s linear;
+      fill: #dfe6f1;
+    }
+  }
+}
+// fill: #3c54b2 !important;

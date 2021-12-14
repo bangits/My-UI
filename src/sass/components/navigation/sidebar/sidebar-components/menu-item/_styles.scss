@@ -4,11 +4,12 @@
     @include flex(null, center);
     list-style-type: none;
     width: getMenuItemSizes(sidebar-menu-item-width);
-    height: getMenuItemSizes(sidebar-menu-item-height);
+    height: calc(getMenuItemSizes(sidebar-menu-item-height) - 10px);
     cursor: pointer;
+    margin-bottom: 3px;
 
     &--isActive {
-      height: getMenuItemSizes(sidebar-menu-item-isActive-height);
+      // height: getMenuItemSizes(sidebar-menu-item-isActive-height);
       @include theme(background-color, primary, $opacity: 0.05);
       border-radius: getMenuItemSizes(sidebar-menu-item-isActive-borderRadius);
 
@@ -19,7 +20,8 @@
         left: getMenuItemSizes(sidebar-menu-item-isActive-after-left);
         display: block;
         width: getMenuItemSizes(sidebar-menu-item-isActive-after-width);
-        height: getMenuItemSizes(sidebar-menu-item-isActive-after-height);
+        // height: getMenuItemSizes(sidebar-menu-item-isActive-after-height);
+        height: 100%;
         @include theme(background-color, sidebar-menu-item-isActive-after-background-color);
         border-radius: getMenuItemSizes(sidebar-menu-item-isActive-after-borderRadius);
       }
@@ -27,7 +29,8 @@
       .MenuItemBase--icon {
         margin: getMenuItemSizes(sidebar-menu-item-isActive-icon-margin);
         width: getMenuItemSizes(sidebar-menu-item-isActive-icon-width);
-        height: getMenuItemSizes(sidebar-menu-item-isActive-icon-height);
+        // height: getMenuItemSizes(sidebar-menu-item-isActive-icon-height);
+        height: 100%;
         padding: getMenuItemSizes(sidebar-menu-item-isActive-icon-padding);
         @include theme(color, sidebar-menu-item-isActive-icon-color);
         opacity: getMenuItemSizes(sidebar-menu-item-isActive-icon-opacity);
@@ -57,10 +60,10 @@
     }
 
     &:hover {
-      height: getMenuItemSizes(sidebar-menu-item-hover-height);
+      // height: calc(getMenuItemSizes(sidebar-menu-item-hover-height) - 10px);
       @include theme(background-color, primary, $opacity: 0.05);
       border-radius: getMenuItemSizes(sidebar-menu-item-hover-borderRadius);
-      margin-bottom: getMenuItemSizes(sidebar-menu-item-hover-marginB);
+      // margin-bottom: getMenuItemSizes(sidebar-menu-item-hover-marginB);
 
       .MenuItemBase--icon {
         margin-left: getMenuItemSizes(sidebar-menu-item-hover-icon-marginL);
@@ -117,9 +120,19 @@
       @include theme(color, sidebar-menu-item-icon-color);
       opacity: getMenuItemSizes(sidebar-menu-item-icon-opacity);
       transition: getMenuItemSizes(sidebar-menu-item-transition);
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
       svg {
-        @include theme(fill, sidebar-menu-item-icon-color);
+        fill: #95acc5;
+        height: 15px;
+        width: 15px;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        top: -1px;
+        left: 0;
+        transform: translate(0, 0);
       }
     }
 
@@ -161,6 +174,7 @@
       position: relative;
       top: 0;
       left: 0;
+      user-select: none;
       &:after {
         content: '';
         position: absolute;
@@ -225,6 +239,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      user-select: none;
       &--Current,
       &:hover {
         background: rgba(60, 84, 178, 0.05);
@@ -240,6 +255,7 @@
     position: absolute;
     top: calc(50% - 11px);
     right: 20px;
+    z-index: 10;
     svg {
       transition: fill 0.16s linear;
       fill: #dfe6f1;
@@ -259,3 +275,9 @@
   }
 }
 // fill: #3c54b2 !important;
+
+.ChildListCell {
+  &--Hidden {
+    display: none;
+  }
+}

@@ -2,7 +2,7 @@ import { typedMemo } from '@/helpers';
 import { UIColors } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 import styles from './MenuItem.module.scss';
 import SubMenuItems from './SubMenuItems';
 import { SidebarArrowTop, SidebarArrowBottom, HomeSidebar } from '@/icons';
@@ -31,20 +31,32 @@ export const MenuItem: FC<MenuItemProps> = ({
   isSidebarOpened,
   ...menuItemProps
 }) => {
+  const [isOpen, isOpenCount] = useState(false);
+
+  const handleArrowClick = () => {
+    isOpenCount(!isOpen);
+    console.log(isOpen);
+  };
+
   return (
     <ul className={classNames(styles['ParentList'], 'ParentList')}>
       {isSidebarOpened ? (
         <li className={classNames(styles['ParentList__Item'], 'ParentList__Item')}>
-          <a className={classNames(styles['ParentList__Item-Link'], 'ParentList__Item-Link')}>
+          <a
+            className={classNames(styles['ParentList__Item-Link'], 'ParentList__Item-Link')}
+            onClick={handleArrowClick}>
             <i className={classNames(styles['ParentCatIcon'], 'ParentCatIcon')}>
               <HomeSidebar width='15px' />
             </i>
             Dashboard
             <i className={classNames(styles['ArrowTopCell'], 'ArrowTopCell')}>
-              <SidebarArrowBottom width='11px' />
+              {!isOpen ? <SidebarArrowBottom width='11px' /> : <SidebarArrowTop width='11px' />}
             </i>
           </a>
-          <div className={classNames(styles['ChildListCell'], 'ChildListCell')}>
+          <div
+            className={classNames(styles.ChildListCell, {
+              [styles[`ChildListCell--Hidden`]]: !isOpen
+            })}>
             <div className={classNames(styles['ChildListCell-Height-Detect'], 'ChildListCell-Height-Detect')}>
               <ul className={classNames(styles['ChildList'], 'ChildList')}>
                 <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>

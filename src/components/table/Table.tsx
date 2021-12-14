@@ -163,44 +163,44 @@ const Table = <T extends {}>({
   if (!tableHeadWidths.length && tableHeadRef.current) return null;
 
   return (
-    <Scroll height={500} className={styles.TableScroll}>
-      <Component
-        {...getTableProps()}
-        className={classNames(styles.TableContainer, {
-          [styles['TableContainer--withSelection']]: isWithSelection,
-          [styles['TableContainer--ready']]: tableHeadWidths.length,
-          [styles['Table--no-result']]: !data.length
-        })}>
-        {/* @ts-expect-error Ignoring typescript cause for automatic component they're error related with ref prop */}
-        <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
-          {headerGroups.map((headerGroup) => (
-            <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
-              {headerGroup.headers.map((column: Column<T>, index) => (
-                <TableHead
-                  data-column-index={index}
-                  direction={column.isSortedDesc ? 'desc' : 'asc'}
-                  selectedDirection={column.isSorted}
-                  hideSortIcon={column.disableSortBy}
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                  color={color}
-                  style={{
-                    ...column.getHeaderProps(column.getSortByToggleProps()).style,
-                    ...(typeof column.maxWidth === 'string' ? { width: column.maxWidth } : {})
-                  }}>
-                  <span>{column.render('Header')}</span>
+    <Component
+      {...getTableProps()}
+      className={classNames(styles.TableContainer, {
+        [styles['TableContainer--withSelection']]: isWithSelection,
+        [styles['TableContainer--ready']]: tableHeadWidths.length,
+        [styles['Table--no-result']]: !data.length
+      })}>
+      {/* @ts-expect-error Ignoring typescript cause for automatic component they're error related with ref prop */}
+      <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
+        {headerGroups.map((headerGroup) => (
+          <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
+            {headerGroup.headers.map((column: Column<T>, index) => (
+              <TableHead
+                data-column-index={index}
+                direction={column.isSortedDesc ? 'desc' : 'asc'}
+                selectedDirection={column.isSorted}
+                hideSortIcon={column.disableSortBy}
+                {...column.getHeaderProps(column.getSortByToggleProps())}
+                color={color}
+                style={{
+                  ...column.getHeaderProps(column.getSortByToggleProps()).style,
+                  ...(typeof column.maxWidth === 'string' ? { width: column.maxWidth } : {})
+                }}>
+                <span>{column.render('Header')}</span>
 
-                  {/* {isResizing ? (
+                {/* {isResizing ? (
                   <div
                     {...column.getResizerProps()}
                     style={{ width: '4px', height: '20px', backgroundColor: 'red' }}
                     className={`resizer ${column.isResizing ? 'isResizing' : ''}`}
                   />
                 ) : null} */}
-                </TableHead>
-              ))}
-            </TableRow>
-          ))}
-        </THeadComponent>
+              </TableHead>
+            ))}
+          </TableRow>
+        ))}
+      </THeadComponent>
+      <Scroll height={500} className={styles.TableScroll}>
         {data.length ? (
           <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
             {rows.map((row: Row<T>, rowIndex: number) => {
@@ -272,8 +272,8 @@ const Table = <T extends {}>({
             </Typography>
           </div>
         )}
-      </Component>
-    </Scroll>
+      </Scroll>
+    </Component>
   );
 };
 

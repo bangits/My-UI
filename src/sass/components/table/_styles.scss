@@ -1,4 +1,19 @@
 @mixin generate-table-styles {
+  .TableScroll {
+    display: block;
+  }
+
+  .TableHead {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+  }
+
+  .TableBody {
+    display: block !important;
+  }
+
   .TableScroll,
   .TableContainer {
     max-width: 100%;
@@ -9,12 +24,18 @@
     border-radius: getTableSizes(table-scroll-border-radius);
   }
 
+  .TableScrollVertical {
+    display: block;
+  }
+
   .TableContainer {
     border-collapse: collapse;
     width: 100%;
     @include theme(background-color, primary--color);
     opacity: 0;
-
+    // tr {
+    //   // transition: all 0.16s linear;
+    // }
     &--ready {
       opacity: 1;
     }
@@ -32,8 +53,9 @@
 
     .LastTableCell {
       margin-right: getTableSizes(last-table-cell-margin) !important;
-
       padding: 0;
+      opacity: 1;
+      // transition: all 0.16s linear;
     }
 
     .TableBody {
@@ -41,16 +63,24 @@
         height: getTableSizes(table-body-row-height);
 
         &:hover {
+          .LastTableCell {
+            opacity: 0;
+            div {
+              display: none !important;
+            }
+          }
           .ActionTableCell {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 0;
-            padding: 0;
-            @include theme(background-color, action-table-cell-bg-color);
-            height: 100%;
-            max-width: getTableSizes(table-action-cell-width);
+            // top: 0;
+            // right: 0;
+            // margin: 0;
+            // padding: 0;
+            // @include theme(background-color, action-table-cell-bg-color);
+
             @include flex(center, center);
+            // height: 100px;
+            // max-width: getTableSizes(table-action-cell-width);
+            // width: 200px;
+            // background: aqua;
           }
         }
 
@@ -67,10 +97,8 @@
         tr th {
           &:first-child {
             max-width: getTableSizes(table-with-selection-width) !important;
-
             padding-left: 0;
             padding-right: 0;
-
             box-sizing: content-box;
           }
         }

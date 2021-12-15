@@ -11,7 +11,7 @@ export interface AvatarProps extends IComponent {
   dropdownTitle?: string;
   topButtonLabel?: string;
   onTopButtonClick?: () => void;
-  dropdownLinks?: {
+  dropdownLinks: {
     label?: string;
     icon?: ReactNode;
     onClick?: () => void;
@@ -59,32 +59,42 @@ const Avatar: FC<AvatarProps> = ({
           [styles.DropDownHide]: !open
         })}>
         <Card borderRadius={0.8} className={styles.AvatarDropdownCard}>
-          <Typography component='span' className={styles.AvatarDropdownTitle} variant='p5' color='primary'>
-            {dropdownTitle}
-          </Typography>
-          <SubMenuItems
-            className={styles.SubMenuItems}
-            label={topButtonLabel}
-            onClick={onTopButtonClick}
-            style={{ marginLeft: '0' }}
-          />
+          {dropdownTitle && (
+            <Typography component='span' className={styles.AvatarDropdownTitle} variant='p5' color='primary'>
+              {dropdownTitle}
+            </Typography>
+          )}
+          {topButtonLabel && (
+            <>
+              <SubMenuItems
+                className={styles.SubMenuItems}
+                label={topButtonLabel}
+                onClick={onTopButtonClick}
+                style={{ marginLeft: '0' }}
+              />
 
-          <hr className={styles.AvatarDropdownDivider} />
+              <hr className={styles.AvatarDropdownDivider} />
+            </>
+          )}
 
-          <ul className={styles.AvatarDropdownMenu}>
-            {dropdownLinks.map((items, idx) => (
-              <li key={idx}>
-                <SubMenuItems
-                  className={styles.SubMenuItems}
-                  onClick={items.onClick}
-                  icon={items.icon}
-                  label={items.label}
-                />
-              </li>
-            ))}
-          </ul>
+          {dropdownLinks.length > 0 && (
+            <>
+              <ul className={styles.AvatarDropdownMenu}>
+                {dropdownLinks.map((items, idx) => (
+                  <li key={idx}>
+                    <SubMenuItems
+                      className={styles.SubMenuItems}
+                      onClick={items.onClick}
+                      icon={items.icon}
+                      label={items.label}
+                    />
+                  </li>
+                ))}
+              </ul>
 
-          <hr className={styles.AvatarDropdownDivider} />
+              <hr className={styles.AvatarDropdownDivider} />
+            </>
+          )}
           <SubMenuItems
             className={styles.SubMenuItems}
             label={bottomButtonLabel}

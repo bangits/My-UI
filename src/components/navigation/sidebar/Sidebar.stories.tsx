@@ -13,7 +13,7 @@ export default {
 
 export const Default = () => {
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', position: 'relative', top: 0, left: 0 }}>
       <Sidebar
         logoSrc={text('logoSrc', 'https://pbs.twimg.com/profile_images/1220044684791308288/xGeuSMdZ.jpg')}
         position={optionsKnob('position', SidebarPositions, SidebarPositions.static, {

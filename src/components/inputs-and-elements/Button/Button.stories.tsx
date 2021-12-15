@@ -115,6 +115,28 @@ export const WithIcons = () => (
       }>
       {text('Edit', 'Edit')}
     </Button>
+    <h1></h1>
+    <Button
+      type='button'
+      color={getColorKnobs()}
+      onClick={action('onClick')}
+      variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.link, { display: 'inline-radio' })}
+      disabled={boolean('disabled', false)}
+      startIcon={
+        <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'>
+          <g data-name='Group 111'>
+            <path
+              data-name='Path 15'
+              d='M552 123h-14m0 0 7 7m-7-7 7-7'
+              transform='translate(-536 -114)'
+              style={{ fill: 'none', stroke: 'currentColor', strokeLinecap: 'round', strokeLinejoin: 'round' }}
+            />
+            <path data-name='Rectangle 677' style={{ fill: 'none' }} d='M0 0h18v18H0z' />
+          </g>
+        </svg>
+      }>
+      {text('start icon', 'Start Icon')}
+    </Button>
   </>
 
   //remove  h1

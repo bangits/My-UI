@@ -1,6 +1,6 @@
 import { Typography } from '@/components';
 import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
-import { DialogBody, DialogHeader, Dialog, DialogActions, BaseDialogProps } from '..';
+import { DialogBody, DialogHeader, Dialog, DialogFooter, BaseDialogProps } from '..';
 
 export interface AcceptionDialogProps {
   icon?: ReactNode;
@@ -32,7 +32,7 @@ const AcceptionDialog: FC<AcceptionDialogProps & BaseDialogProps> = ({
           {description}
         </Typography>
       </DialogBody>
-      <DialogActions
+      <DialogFooter
         onClose={() => {
           onClose();
           onCancel();

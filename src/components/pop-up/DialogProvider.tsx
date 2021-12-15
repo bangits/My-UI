@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { DialogTypes } from '.';
 import { AcceptionDialog } from './AcceptionDialog';
 import { dialog, DialogConfig } from './DialogService';
+import { DialogWithActions } from './DialogWithActions';
 
 const DialogProvider = () => {
   const [dialogConfig, setDialogConfig] = useState<DialogConfig>(null);
@@ -17,8 +19,17 @@ const DialogProvider = () => {
     });
   }, []);
 
-  // There should be switch case when adding more dialog options
-  return <AcceptionDialog {...(dialogConfig?.config || {})} isOpened={isOpenedDialog} onClose={onClose} />;
+  if (!dialogConfig) return null;
+
+  console.log(dialogConfig.type);
+
+  switch (dialogConfig.type) {
+    case DialogTypes.ACCEPTION_DIALOG:
+      return <AcceptionDialog {...(dialogConfig?.config || {})} isOpened={isOpenedDialog} onClose={onClose} />;
+
+    case DialogTypes.DIALOG_WITH_ACTIONS:
+      return <DialogWithActions {...(dialogConfig?.config || {})} isOpened={isOpenedDialog} onClose={onClose} />;
+  }
 };
 
 export default DialogProvider;

@@ -12,7 +12,8 @@ $dialog-sizes: (
 
 $dialog-colors: (
   dialog-overlay-bg: color(dark),
-  dialog-label-color: color(astronaut)
+  dialog-label-color: color(astronaut),
+  dialog-dark-label-color: color(selago)
 );
 
 @function getDialogSizes($property) {

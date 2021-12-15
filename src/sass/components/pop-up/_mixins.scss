@@ -1,0 +1,34 @@
+@mixin getDialogWithActionsStyles {
+  .DialogHeaderWithClose {
+    @include flex(space-between, center);
+    .HeaderTitle {
+      h3 {
+        @include theme(color, dialog-dark-label-color);
+        font-weight: normal;
+      }
+    }
+  }
+  .DialogContent {
+    width: 312px;
+    height: 213px;
+    margin: auto;
+    img {
+      width: 100%;
+    }
+  }
+
+  .DialogActions {
+    @include flex(space-between, center);
+    .BtnsActions {
+      @include flex();
+      button {
+        background-color: transparent;
+        border: none;
+        @include flex(null, null, $direction: column);
+        .BtnLabel {
+          @include theme(color, dialog-dark-label-color);
+        }
+      }
+    }
+  }
+}

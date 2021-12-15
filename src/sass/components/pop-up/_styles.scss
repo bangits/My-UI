@@ -1,3 +1,5 @@
+@import './mixins';
+
 @mixin generate-popup-styles {
   .Dialog {
     width: 100%;
@@ -90,4 +92,6 @@
       opacity: 1;
     }
   }
+
+  @include getDialogWithActionsStyles();
 }

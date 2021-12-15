@@ -1,11 +1,30 @@
+import { EditIcon, TrashIndicator } from '@/icons';
+import styles from './Dialog.module.scss';
+
 const DialogActions = () => {
   return (
-    <div>
-      <div>
-        <button>icon Upload</button>
+    <div className={styles.DialogActions}>
+      <div className={styles.BtnsActions}>
+        <button>
+          <span>
+            <EditIcon />
+          </span>
+          <span className={styles.BtnLabel}>Edit</span>
+        </button>
+        <button>
+          <span>
+            <EditIcon />
+          </span>
+          <span className={styles.BtnLabel}>Upload</span>
+        </button>
       </div>
-      <div>
-        <button>icon Edit</button>
+      <div className={styles.BtnsActions}>
+        <button>
+          <span>
+            <TrashIndicator />
+          </span>
+          <span className={styles.BtnLabel}>Delete</span>
+        </button>
       </div>
     </div>
   );

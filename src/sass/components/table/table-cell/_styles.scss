@@ -11,7 +11,7 @@
     font-weight: getTableCellSizes(table-cell-font-weight);
     text-align: left;
     margin: 0 auto;
-    padding: 0 1.6rem;
+    padding: getTableCellSizes(table-cell-padding);
 
     &:last-child {
       border-bottom: none;
@@ -22,19 +22,19 @@
       @include dots-after-text;
 
       img {
-        width: getTableCellSizes(table-cell-img-width);
-        height: getTableCellSizes(table-cell-img-height);
+        width: getTableCellSizes(table-cell-img-sizes);
+        height: getTableCellSizes(table-cell-img-sizes);
       }
     }
-  }
 
-  .TableCell--center {
-    justify-content: center;
-  }
-  .TableCell--left {
-    justify-content: start;
-  }
-  .TableCell--right {
-    justify-content: flex-end;
+    .TableCell--center {
+      justify-content: center;
+    }
+    .TableCell--left {
+      justify-content: start;
+    }
+    .TableCell--right {
+      justify-content: flex-end;
+    }
   }
 }

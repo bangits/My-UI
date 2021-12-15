@@ -14,6 +14,7 @@ export { ReactComponent as BlockButtonIcon } from './block-button.react.svg';
 export { ReactComponent as BreadcrumbNext } from './breadcrumb-next.react.svg';
 export { ReactComponent as CheckButtonIcon } from './check-button.react.svg';
 export { ReactComponent as CheckIcon } from './check.react.svg';
+export { ReactComponent as CloseIcon } from './close.react.svg';
 export { ReactComponent as CheckStepperIcon } from './checkstepper.react.svg';
 export { ReactComponent as ChromeIcon } from './chrome.react.svg';
 export { ReactComponent as CopyButtonIcon } from './copy-button.react.svg';

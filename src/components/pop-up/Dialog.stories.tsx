@@ -42,6 +42,16 @@ export const Default = () => {
         Click to open
       </Button>
 
+      <Button
+        type='button'
+        onClick={() => {
+          dialog.dialogWithActions({
+            title
+          });
+        }}>
+        Click to open dialog with actions
+      </Button>
+
       <DialogProvider />
     </>
   );

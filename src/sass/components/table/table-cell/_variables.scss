@@ -2,9 +2,10 @@ $tablecell-sizes: (
   table-cell-font-size: calculateRem(14px),
   table-cell-font-weight-selected: 700,
   table-cell-font-weight: 300,
+  table-cell-padding: 0 calculateRem(16px),
   table-cell-width: 20%,
-  table-cell-img-width: calculateRem(24px),
-  table-cell-img-height: calculateRem(24px),
+  table-cell-img-sizes: calculateRem(24px),
+  table-img-border-radius: 8px,
   table-cell-img-border-radius: 4px
 );
 

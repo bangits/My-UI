@@ -38,6 +38,23 @@
 
         @include getButtonGhostStyles($color);
       }
+
+      &.ButtonVariant--#{$color}__link {
+        border-style: solid;
+        border-width: getButtonSizes(button-border-width);
+
+        .startIcon {
+          transform: none;
+          margin-right: getButtonSizes(icon-margin);
+        }
+
+        .endIcon {
+          transform: none;
+          margin-left: getButtonSizes(icon-margin);
+        }
+
+        @include getButtonLinkStyles($color);
+      }
     }
   }
 }

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC, ReactNode } from 'react';
 import styles from './Button.module.scss';
 
-export type ButtonVariants = 'ghost' | 'default';
+export type ButtonVariants = 'ghost' | 'default' | 'link';
 
 export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, null> {
   color?: UIColors;

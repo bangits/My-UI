@@ -42,3 +42,21 @@
     @include theme(background-color, #{$color-name}, $opacity: 0.2);
   }
 }
+
+@mixin getButtonLinkStyles($color-name) {
+  @include theme(color, #{$color-name});
+
+  border: none;
+  background: none;
+  padding: 0;
+  text-decoration: underline;
+  min-width: initial;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: initial;
+
+    @include theme(color, #{$color-name}, $opacity: 0.8);
+  }
+}

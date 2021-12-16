@@ -36,4 +36,17 @@
       }
     }
   }
+
+  .AcionBtns {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    background: transparent !important;
+    div {
+      background: transparent !important;
+    }
+  }
+  .AcionBtnsInner {
+    background: transparent !important;
+  }
 }

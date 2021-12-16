@@ -163,7 +163,7 @@ const Table = <T extends {}>({
   if (!tableHeadWidths.length && tableHeadRef.current) return null;
 
   return (
-    <Scroll height={500} className={styles.TableScroll}>
+    <Scroll className={classNames(styles.TableScroll)} height={500}>
       <Component
         {...getTableProps()}
         className={classNames(styles.TableContainer, {
@@ -201,6 +201,7 @@ const Table = <T extends {}>({
             </TableRow>
           ))}
         </THeadComponent>
+
         {data.length ? (
           <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
             {rows.map((row: Row<T>, rowIndex: number) => {
@@ -215,6 +216,7 @@ const Table = <T extends {}>({
 
               return (
                 <TableRow
+                  style={{ position: 'relative', top: 0, left: 0 }}
                   isLoading={isLoading}
                   key={rowIndex}
                   hover
@@ -247,18 +249,57 @@ const Table = <T extends {}>({
                   })}
 
                   {actions && !isLoading && (
-                    <TableCell {...actions} color={color} className={styles.ActionTableCell}>
-                      {actions.map(
-                        ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
-                          shouldShow(data[rowIndex]) && (
-                            <Component
-                              key={index}
-                              {...props}
-                              onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
-                            />
-                          )
-                      )}
-                    </TableCell>
+                    <div
+                      style={{
+                        position: 'sticky',
+                        top: 0,
+                        right: 0,
+                        height: 0,
+                        width: 0,
+                        margin: 0,
+                        padding: 0,
+                        zIndex: 1000
+                      }}
+                      {...actions}
+                      color={color}>
+                      <section
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          right: 0,
+                          display: 'block',
+                          height: 0,
+                          padding: 0,
+                          margin: 0,
+                          transform: 'translate(0,0)'
+                        }}>
+                        <div
+                          className={styles.ActionTableCell}
+                          style={{
+                            height: '50px',
+                            position: 'absolute',
+                            top: '0px',
+                            right: '5px',
+                            width: '113px',
+                            marginTop: '0',
+                            transform: 'translate(10px, -51%)',
+                            backgroundColor: '#ebeef7'
+                          }}>
+                          {actions.map(
+                            ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
+                              shouldShow(data[rowIndex]) && (
+                                <div>
+                                  <Component
+                                    key={index}
+                                    {...props}
+                                    onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
+                                  />
+                                </div>
+                              )
+                          )}
+                        </div>
+                      </section>
+                    </div>
                   )}
                 </TableRow>
               );

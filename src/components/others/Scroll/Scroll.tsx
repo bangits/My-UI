@@ -14,21 +14,31 @@ export interface ScrollProps extends IComponent {
   autoHideDuration?: number;
   autoHeight?: boolean;
   onScroll?: (e: UIEvent<HTMLElement>) => void;
+  showVerticalScroll?: boolean;
 }
 
-const Scroll: FC<ScrollProps> = ({ height = 200, width, children, className, ...scrollProps }) => {
+const Scroll: FC<ScrollProps> = ({
+  height = 200,
+  width,
+  children,
+  className,
+  showVerticalScroll = true,
+  ...scrollProps
+}) => {
   return (
     <Scrollbars
       autoHeight
       hideTracksWhenNotNeeded
-      autoHeightMax={height}
+      autoHeightMax={showVerticalScroll ? height : Infinity}
       {...scrollProps}
       style={{ width: width ?? '100%' }}
       className={classNames(styles.ScrollBase, className)}
       trackVerticalClassname={styles.TrackVertical}
       thumbVerticalClassname={styles.ThumbVertical}
       trackHorizontalClassname={styles.TrackHorizontal}
-      thumbHorizontalClassname={styles.ThumbHorizontal}>
+      thumbHorizontalClassname={styles.ThumbHorizontal}
+      renderTrackVertical={showVerticalScroll ? undefined : () => <div />}
+      renderThumbVertical={showVerticalScroll ? undefined : () => <div />}>
       {children}
     </Scrollbars>
   );

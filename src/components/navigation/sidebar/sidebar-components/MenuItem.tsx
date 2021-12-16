@@ -1,11 +1,11 @@
 import { typedMemo } from '@/helpers';
+import { HomeSidebar, SidebarArrowBottom, SidebarArrowTop } from '@/icons';
 import { UIColors } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useState } from 'react';
 import styles from './MenuItem.module.scss';
 import SubMenuItems from './SubMenuItems';
-import { SidebarArrowTop, SidebarArrowBottom, HomeSidebar } from '@/icons';
 
 export interface MenuItemProps extends IComponent {
   component?: ComponentType;
@@ -18,7 +18,7 @@ export interface MenuItemProps extends IComponent {
     label?: string;
     onClick?: () => void;
   }[];
-  isSidebarOpened: boolean;
+  isSidebarOpened?: boolean;
 }
 
 export const MenuItem: FC<MenuItemProps> = ({
@@ -35,7 +35,6 @@ export const MenuItem: FC<MenuItemProps> = ({
 
   const handleArrowClick = () => {
     isOpenCount(!isOpen);
-    console.log(isOpen);
   };
 
   return (

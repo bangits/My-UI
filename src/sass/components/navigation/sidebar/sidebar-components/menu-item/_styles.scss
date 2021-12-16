@@ -261,6 +261,7 @@
       fill: #dfe6f1;
     }
   }
+
   .ParentCatIcon {
     display: block;
     width: 15px;
@@ -273,11 +274,10 @@
       fill: #dfe6f1;
     }
   }
-}
-// fill: #3c54b2 !important;
 
-.ChildListCell {
-  &--Hidden {
-    display: none;
+  .ChildListCell {
+    &--Hidden {
+      display: none;
+    }
   }
 }

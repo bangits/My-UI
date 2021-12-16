@@ -1,5 +1,5 @@
 import { typedMemo } from '@/helpers';
-import { HomeSidebar, SidebarArrowBottom, SidebarArrowTop } from '@/icons';
+import { SidebarArrowBottom, SidebarArrowTop } from '@/icons';
 import { UIColors } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import classNames from 'classnames';
@@ -42,12 +42,16 @@ export const MenuItem: FC<MenuItemProps> = ({
       {isSidebarOpened ? (
         <li className={classNames(styles['ParentList__Item'], 'ParentList__Item')}>
           <a
-            className={classNames(styles['ParentList__Item-Link'], 'ParentList__Item-Link')}
+            className={classNames(
+              styles['ParentList__Item-Link'],
+              {
+                [styles['ParentList__Item-Link--Current']]: isActive
+              },
+              'ParentList__Item-Link'
+            )}
             onClick={handleArrowClick}>
-            <i className={classNames(styles['ParentCatIcon'], 'ParentCatIcon')}>
-              <HomeSidebar width='15px' />
-            </i>
-            Dashboard
+            <div className={classNames(styles['ParentCatIcon'], 'ParentCatIcon')}>{icon}</div>
+            {label}
             <i className={classNames(styles['ArrowTopCell'], 'ArrowTopCell')}>
               {!isOpen ? <SidebarArrowBottom width='11px' /> : <SidebarArrowTop width='11px' />}
             </i>
@@ -58,18 +62,19 @@ export const MenuItem: FC<MenuItemProps> = ({
             })}>
             <div className={classNames(styles['ChildListCell-Height-Detect'], 'ChildListCell-Height-Detect')}>
               <ul className={classNames(styles['ChildList'], 'ChildList')}>
-                <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
-                  <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
-                </li>
-                <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
-                  <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
-                </li>
-                <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
-                  <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
-                </li>
-                <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')}>
-                  <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>Lorem Ipsum</a>
-                </li>
+                {subItems?.map((item, index) => (
+                  <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')} key={index}>
+                    <a
+                      className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}
+                      onClick={(e) => {
+                        e.preventDefault();
+
+                        item.onClick();
+                      }}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

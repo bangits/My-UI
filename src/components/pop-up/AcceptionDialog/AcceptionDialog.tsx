@@ -1,6 +1,6 @@
 import { Typography } from '@/components';
-import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
-import { DialogBody, DialogHeader, Dialog, DialogFooter, BaseDialogProps } from '..';
+import { FC, ReactNode } from 'react';
+import { DialogBody, DialogHeader, Dialog, DialogFooter, DialogProps } from '..';
 
 export interface AcceptionDialogProps {
   icon?: ReactNode;
@@ -13,7 +13,7 @@ export interface AcceptionDialogProps {
   onSubmit?(closeFn: () => void): void;
 }
 
-const AcceptionDialog: FC<AcceptionDialogProps & BaseDialogProps> = ({
+const AcceptionDialog: FC<AcceptionDialogProps & DialogProps> = ({
   title,
   icon,
   onCancel,
@@ -22,10 +22,12 @@ const AcceptionDialog: FC<AcceptionDialogProps & BaseDialogProps> = ({
   submitButtonText,
   description,
   onClose,
-  isOpened
+  isOpened,
+  size,
+  mode
 }) => {
   return (
-    <Dialog onClose={onClose} isOpened={isOpened}>
+    <Dialog onClose={onClose} isOpened={isOpened} size={size} mode={mode}>
       <DialogHeader title={title} icon={icon} />
       <DialogBody>
         <Typography component='p' variant='p3'>

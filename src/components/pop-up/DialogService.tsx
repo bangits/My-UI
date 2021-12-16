@@ -1,15 +1,11 @@
 import { SubscriptionService } from '@/services';
+import { DialogProps } from '.';
 import { AcceptionDialogProps } from './AcceptionDialog';
 import { DialogWithActionsProps } from './DialogWithActions';
 
 export enum DialogTypes {
   ACCEPTION_DIALOG = 'ACCEPTION_DIALOG',
   DIALOG_WITH_ACTIONS = 'DIALOG_WITH_ACTIONS'
-}
-
-export interface BaseDialogProps {
-  isOpened: boolean;
-  onClose(): void;
 }
 
 export interface BaseDialogConfig {
@@ -31,14 +27,14 @@ class DialogService extends SubscriptionService<DialogConfig> {
     super();
   }
 
-  acceptionDialog(config: AcceptionDialogProps) {
+  acceptionDialog(config: AcceptionDialogProps & DialogProps) {
     super.publish({
       type: DialogTypes.ACCEPTION_DIALOG,
       config
     });
   }
 
-  dialogWithActions(config: DialogWithActionsProps) {
+  dialogWithActions(config: DialogWithActionsProps & DialogProps) {
     super.publish({
       type: DialogTypes.DIALOG_WITH_ACTIONS,
       config

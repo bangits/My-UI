@@ -1,20 +1,28 @@
 import { Portal } from '@/components';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './Dialog.module.scss';
-
+import classNames from 'classnames';
 export interface DialogProps {
   isOpened?: boolean;
+  mode?: 'dark' | 'light';
+  size?: 'sm' | 'md' | 'lg';
   onClose?(): void;
 }
 
-const Dialog: FC<DialogProps> = ({ onClose, isOpened, children }) => {
+const Dialog: FC<DialogProps> = ({ onClose, isOpened, children, mode = 'light', size = 'sm' }) => {
   return (
     <Portal>
       <CSSTransition in={isOpened} timeout={500} classNames={{ exit: styles['Dialog--exit'] }} unmountOnExit>
         <div>
-          <div className={styles.Dialog}>{children}</div>
-          <div className={styles.Overlay} tabIndex={0} role='button' onClick={onClose} />
+          <div
+            className={classNames(styles.Dialog, {
+              [styles[`DialogSizeVariant--${size}`]]: size,
+              [styles[`DialogModeVariant--${mode}`]]: mode
+            })}>
+            {children}
+          </div>
+          <div className={classNames(styles.Overlay)} tabIndex={0} role='button' onClick={onClose} />
         </div>
       </CSSTransition>
     </Portal>

@@ -1,4 +1,4 @@
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs, optionsKnob } from '@storybook/addon-knobs';
 import Dialog from './Dialog';
 import { GoToLivePopUp } from '@/icons';
 import { Button } from '@/my-ui-core';
@@ -16,6 +16,7 @@ export const Default = () => {
   const title = text('title', 'Go to Live');
   const cancelButtonText = text('cancelButtonText', 'Cancel');
   const submitButtonText = text('submitButtonText', 'Publish');
+
   return (
     <>
       <Button
@@ -42,11 +43,15 @@ export const Default = () => {
         Click to open
       </Button>
 
+      <br />
+
       <Button
         type='button'
         onClick={() => {
           dialog.dialogWithActions({
-            title
+            title,
+            size: 'md',
+            mode: 'dark'
           });
         }}>
         Click to open dialog with actions

@@ -1,6 +1,15 @@
 @import './mixins';
 
 @mixin generate-popup-styles {
+  .DialogModeVariant--dark {
+    border: solid 3px;
+    border-color: red;
+  }
+
+  .DialogSizeVariant--md {
+    border-color: green;
+  }
+
   .Dialog {
     width: 100%;
     max-width: getDialogSizes(dialog-width);

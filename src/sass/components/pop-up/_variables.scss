@@ -7,13 +7,21 @@ $dialog-sizes: (
   dialog-span-font: 500,
   dialog-btns-margin: calculateRem(81px) 0 calculateRem(24px) 0,
   dialog-margin: calculateRem(16px),
-  dialog-z-index: 99999
+  dialog-z-index: 99999,
+  dialog-size-md-padding: calculateRem(18px) calculateRem(16px) 0 calculateRem(24px),
+  dialog-dark-max-width: calculateRem(493px),
+  dialog-content-width: calculateRem(312px),
+  dialog-content-height: calculateRem(213px),
+  dialog-actions-margin: calculateRem(33px) 0 calculateRem(16px) 0,
+  btn-label-margin-top: calculateRem(6px)
 );
 
 $dialog-colors: (
   dialog-overlay-bg: color(dark),
   dialog-label-color: color(astronaut),
-  dialog-dark-label-color: color(selago)
+  dialog-dark-label-color: color(white),
+  dialog-dark-background-color: color(shark),
+  button-color: color(selago)
 );
 
 @function getDialogSizes($property) {

@@ -106,7 +106,8 @@ const Table = <T extends {}>({
   emptyText,
   onSelectedColumnsChange,
   loadingRowsIds,
-  loadingRowColumnProperty
+  loadingRowColumnProperty,
+  className
 }: TableProps<T>) => {
   const tableHeadRef = useRef<HTMLElement>(null);
 
@@ -163,7 +164,7 @@ const Table = <T extends {}>({
   if (!tableHeadWidths.length && tableHeadRef.current) return null;
 
   return (
-    <Scroll className={classNames(styles.TableScroll)} height={500}>
+    <Scroll className={classNames(styles.TableScroll, className)} height={500}>
       <Component
         {...getTableProps()}
         className={classNames(styles.TableContainer, {

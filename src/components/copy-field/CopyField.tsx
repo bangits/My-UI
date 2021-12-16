@@ -1,5 +1,5 @@
 import { CopyFieldIcon } from '@/icons';
-import { Typography, Tooltip, TooltipProps } from '@/my-ui-core';
+import { Tooltip, TooltipProps, Typography } from '@/my-ui-core';
 import React, { FC, useCallback } from 'react';
 import styles from './CopyField.module.scss';
 

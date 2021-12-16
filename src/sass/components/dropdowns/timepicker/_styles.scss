@@ -39,6 +39,13 @@
         }
       }
     }
+
+    .TimePickerButton {
+      position: absolute;
+      min-width: getDateTimePickerSizes(timepicker-button-width);
+      bottom: getDateTimePickerSizes(timepicker-button-position);
+      right: getDateTimePickerSizes(timepicker-button-position);
+    }
   }
 
   .TimePickerWrapper {
@@ -55,12 +62,5 @@
     .ScrollContent {
       margin: getDateTimePickerSizes(scroll-content-margin);
     }
-  }
-
-  .TimePickerButton {
-    position: absolute;
-    width: getDateTimePickerSizes(timepicker-button-width);
-    bottom: getDateTimePickerSizes(timepicker-button-position);
-    right: getDateTimePickerSizes(timepicker-button-position);
   }
 }

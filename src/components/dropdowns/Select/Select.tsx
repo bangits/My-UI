@@ -39,6 +39,8 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
   isTree?: boolean;
   treeData?: Tree[];
 
+  disableSelectedOptions?: boolean;
+
   //
   renderInput?: (
     value: SelectOptionType,
@@ -69,7 +71,16 @@ function Select<
   Option extends SelectOptionType[],
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = { options: [] }
->({ isMulti, defaultValue, value, className, isTree, treeData, ...selectProps }: SelectProps<Option, IsMulti, Group>) {
+>({
+  isMulti,
+  defaultValue,
+  value,
+  className,
+  isTree,
+  treeData,
+  disableSelectedOptions,
+  ...selectProps
+}: SelectProps<Option, IsMulti, Group>) {
   const { clearButton, dropdown, selectAllValue, selectAllLabel, fullWidth } = selectProps;
 
   let { selectAll } = selectProps;
@@ -177,6 +188,7 @@ function Select<
       {...selectProps}
       isTree={isTree}
       treeData={treeData}
+      disableSelectedOptions={disableSelectedOptions}
       captureMenuScroll={false}
       onChange={onChange}
       onChangeOriginal={selectProps.onChange}

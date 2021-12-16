@@ -1,9 +1,8 @@
-import { getMyUIPrefix } from '@/configs';
 import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import { Scrollbars } from '@my-ui/scrollbar';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, UIEvent } from 'react';
 import styles from './Scroll.module.scss';
 
 export interface ScrollProps extends IComponent {
@@ -14,6 +13,7 @@ export interface ScrollProps extends IComponent {
   autoHideTimeout?: number;
   autoHideDuration?: number;
   autoHeight?: boolean;
+  onScroll?: (e: UIEvent<HTMLElement>) => void;
   showVerticalScroll?: boolean;
 }
 

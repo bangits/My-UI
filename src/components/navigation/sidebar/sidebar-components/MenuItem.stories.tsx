@@ -12,12 +12,12 @@ export default {
 export const Default = () => {
   return (
     <>
-      <MenuItem label='Games' isActive icon={<HomeIcon />} />
-      <MenuItem label='Games' icon={<HomeIcon />} />
-      <MenuItem label='Games' icon={<HomeIcon />} />
-      <MenuItem label='Games' icon={<HomeIcon />} />
-      <MenuItem label='Games' icon={<HomeIcon />} />
-      <MenuItem label='Games' icon={<HomeIcon />} />
+      <MenuItem label='Games' isActive icon={<HomeIcon />} isSidebarOpened={true} />
+      <MenuItem label='Games' icon={<HomeIcon />} isSidebarOpened={true} />
+      <MenuItem label='Games' icon={<HomeIcon />} isSidebarOpened={true} />
+      <MenuItem label='Games' icon={<HomeIcon />} isSidebarOpened={true} />
+      <MenuItem label='Games' icon={<HomeIcon />} isSidebarOpened={true} />
+      <MenuItem label='Games' icon={<HomeIcon />} isSidebarOpened={true} />
     </>
   );
 };

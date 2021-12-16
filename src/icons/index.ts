@@ -47,3 +47,6 @@ export { ReactComponent as ViewIcon } from './view.react.svg';
 export { ReactComponent as SidebarArrowTop } from './sidebar-arrow-top.react.svg';
 export { ReactComponent as SidebarArrowBottom } from './sidebar-arrow-bottom.react.svg';
 export { ReactComponent as HomeSidebar } from './home-sidebar.react.svg';
+export { ReactComponent as PlusCircleLarge } from './plus-circle-large.react.svg';
+export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
+export { ReactComponent as closeWidePopUp } from './close-wide-pop-up.react.svg';

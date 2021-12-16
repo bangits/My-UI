@@ -36,6 +36,7 @@ export const TableRow: FC<TableRowProps> = ({
       onMouseOut={handleMouseOut}
       className={classNames(styles.TableRow, {
         [styles['TableRow--loading']]: isLoading,
+        [styles['TableRow--default']]: true,
         [styles['TableRow--hover']]: hoverRow,
         [styles['TableRow--selected']]: selected,
         [`${styles[`TableRow--${color}`]}`]: color

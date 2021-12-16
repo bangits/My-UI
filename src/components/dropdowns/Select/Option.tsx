@@ -14,7 +14,6 @@ export const Option: typeof components.Option = (props) => {
     },
     [selectProps.isTree, selectProps.isMulti, props.label]
   );
-
   return (
     <div
       className={classNames({
@@ -22,18 +21,33 @@ export const Option: typeof components.Option = (props) => {
         [styles['Select--custom-option']]: !selectProps?.dropdown
       })}
       onClick={props.isMulti ? undefined : closeMenuOnClick}>
-      <components.Option {...props}>
+      <components.Option
+        {...props}
+        innerProps={
+          selectProps.disableSelectedOptions && props.isSelected
+            ? {
+                ...props.innerProps,
+                onClick: (e) => {
+                  if (selectProps.disableSelectedOptions && props.isSelected) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                  }
+                }
+              }
+            : { ...props.innerProps }
+        }>
         {selectProps.isMulti ? (
           <>
             <Checkbox
               checkboxContainerProps={{
                 onClick: (e) => {
                   e.stopPropagation();
-                  props.selectOption(props.data);
+                  props.selectOption(props.isSelected && selectProps.disableSelectedOptions ? null : props.data);
                 }
               }}
               checked={props.isSelected}
               labelComponent='div'
+              disabled={props.isSelected && selectProps.disableSelectedOptions}
             />
             <label>{props.label}</label>
           </>

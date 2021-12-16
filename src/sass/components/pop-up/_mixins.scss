@@ -1,6 +1,7 @@
 @mixin getDialogWithActionsStyles {
   .DialogHeaderWithClose {
     @include flex(space-between, center);
+
     .HeaderTitle {
       h3 {
         @include theme(color, dialog-dark-label-color);
@@ -9,9 +10,9 @@
     }
   }
   .DialogContent {
-    width: 312px;
-    height: 213px;
-    margin: auto;
+    width: getDialogSizes(dialog-content-width);
+    height: getDialogSizes(dialog-content-height);
+    margin: 0 auto;
     img {
       width: 100%;
     }
@@ -19,14 +20,18 @@
 
   .DialogActions {
     @include flex(space-between, center);
+    margin: getDialogSizes(dialog-actions-margin);
     .BtnsActions {
       @include flex();
       button {
         background-color: transparent;
         border: none;
-        @include flex(null, null, $direction: column);
+        @include flex(null, center, $direction: column);
+        @include theme(color, button-color);
+
         .BtnLabel {
           @include theme(color, dialog-dark-label-color);
+          margin-top: getDialogSizes(btn-label-margin-top);
         }
       }
     }

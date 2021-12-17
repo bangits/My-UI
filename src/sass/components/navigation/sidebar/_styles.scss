@@ -48,7 +48,7 @@
       position: absolute;
       border-radius: getSideBarSizes(sidebar-button-container-borderRadius);
       top: getSideBarSizes(sidebar-button-container-top);
-      left: 200px;
+      right: getSideBarSizes(sidebar-button-container-right);
       cursor: pointer;
 
       svg {

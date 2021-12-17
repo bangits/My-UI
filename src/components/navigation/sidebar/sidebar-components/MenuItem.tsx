@@ -5,7 +5,6 @@ import { ComponentType, IComponent } from '@/types/props';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useState } from 'react';
 import styles from './MenuItem.module.scss';
-import SubMenuItems from './SubMenuItems';
 
 export interface MenuItemProps extends IComponent {
   component?: ComponentType;
@@ -28,8 +27,7 @@ export const MenuItem: FC<MenuItemProps> = ({
   component: Component = 'li',
   isActive,
   subItems,
-  isSidebarOpened,
-  ...menuItemProps
+  isSidebarOpened
 }) => {
   const [isOpen, isOpenCount] = useState(false);
 
@@ -80,45 +78,6 @@ export const MenuItem: FC<MenuItemProps> = ({
           </div>
         </li>
       ) : (
-        // <li className={classNames(styles['ParentList__Item'], 'ParentList__Item')}>
-        //   <a
-        //     className={classNames(
-        //       styles['ParentList__Item-Link'],
-        //       {
-        //         [styles['ParentList__Item-Link--Current']]: isActive
-        //       },
-        //       'ParentList__Item-Link'
-        //     )}
-        //     onClick={handleArrowClick}>
-        //     <div className={classNames(styles['ParentCatIcon'], 'ParentCatIcon')}>{icon}</div>
-        //     {label}
-        //     <i className={classNames(styles['ArrowTopCell'], 'ArrowTopCell')}>
-        //       {!isOpen ? <SidebarArrowBottom width='11px' /> : <SidebarArrowTop width='11px' />}
-        //     </i>
-        //   </a>
-        //   <div
-        //     className={classNames(styles.ChildListCell, {
-        //       [styles[`ChildListCell--Hidden`]]: !isOpen
-        //     })}>
-        //     <div className={classNames(styles['ChildListCell-Height-Detect'], 'ChildListCell-Height-Detect')}>
-        //       <ul className={classNames(styles['ChildList'], 'ChildList')}>
-        //         {subItems?.map((item, index) => (
-        //           <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')} key={index}>
-        //             <a
-        //               className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}
-        //               onClick={(e) => {
-        //                 e.preventDefault();
-
-        //                 item.onClick();
-        //               }}>
-        //               {item.label}
-        //             </a>
-        //           </li>
-        //         ))}
-        //       </ul>
-        //     </div>
-        //   </div>
-        // </li>
         <li
           className={classNames(
             styles['ParentList__Item'],
@@ -141,24 +100,35 @@ export const MenuItem: FC<MenuItemProps> = ({
               {!isOpen ? <SidebarArrowBottom width='11px' /> : <SidebarArrowTop width='11px' />}
             </i> */}
           </a>
-          <div className={classNames(styles['ChildListCell-Hover-SubMenu-Position'])}>
-            <div className={classNames(styles['ChildListCell-Hover-SubMenu'], 'ChildListCell-Hover-SubMenu')}>
-              <ul className={classNames(styles['ChildList'], 'ChildList')}>
-                {subItems?.map((item, index) => (
-                  <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')} key={index}>
-                    <a
-                      className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        item.onClick();
-                      }}>
-                      {item.label}
-                    </a>
+          {subItems?.length ? (
+            <div className={classNames(styles['ChildListCell-Hover-SubMenu-Position'])}>
+              <div className={classNames(styles['ChildListCell-Hover-SubMenu'], 'ChildListCell-Hover-SubMenu')}>
+                <ul className={classNames(styles['ChildList'], 'ChildList')}>
+                  <li
+                    className={classNames(
+                      styles['ChildList__Item'],
+                      styles['ChildList__Item--Current'],
+                      'ChildList__Item'
+                    )}>
+                    <a className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}>{label}</a>
                   </li>
-                ))}
-              </ul>
+
+                  {subItems?.map((item, index) => (
+                    <li className={classNames(styles['ChildList__Item'], 'ChildList__Item')} key={index}>
+                      <a
+                        className={classNames(styles['ChildList__Item-Link'], 'ChildList__Item-Link')}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          item.onClick();
+                        }}>
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          ) : null}
         </li>
 
         // <div style={{ border: 'solid aqua 1px', height: '10px' }}></div>

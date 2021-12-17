@@ -150,6 +150,15 @@
     }
   }
 
+  .ChildList__Item--Current > a {
+    @include theme(color, primary);
+    font-weight: 700;
+
+    &:hover {
+      background: none;
+    }
+  }
+
   .ParentList {
     padding: 0;
     list-style: none;

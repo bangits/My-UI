@@ -8,6 +8,11 @@
     top: 0;
     z-index: 100;
     background: #fff;
+
+    tr {
+      position: relative;
+      z-index: 10;
+    }
   }
 
   .TableBody {
@@ -33,11 +38,19 @@
     width: 100%;
     @include theme(background-color, primary--color);
     opacity: 0;
-    // tr {
-    //   // transition: all 0.16s linear;
-    // }
+    tr {
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
     &--ready {
       opacity: 1;
+    }
+
+    tr {
+      position: relative;
+      z-index: 1;
     }
 
     .TableHead tr {
@@ -55,7 +68,6 @@
       margin-right: getTableSizes(last-table-cell-margin) !important;
       padding: 0;
       opacity: 1;
-      // transition: all 0.16s linear;
     }
 
     .TableBody {
@@ -70,17 +82,7 @@
             }
           }
           .ActionTableCell {
-            // top: 0;
-            // right: 0;
-            // margin: 0;
-            // padding: 0;
-            // @include theme(background-color, action-table-cell-bg-color);
-
             @include flex(center, center);
-            // height: 100px;
-            // max-width: getTableSizes(table-action-cell-width);
-            // width: 200px;
-            // background: aqua;
           }
         }
 

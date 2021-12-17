@@ -1,18 +1,6 @@
 @mixin generate-select-tree-styles {
-  // .Select-Tree--Main:first-child {
-
-  // .Select-Tree-List {
-  //   & > ul {
-  //     border: solid brown 2px !important;
-  //   }
-  // }
-
   .Select {
     position: relative;
-    // &-Tree-List__Item-Parent {
-    //   border: solid yellow 2px !important;
-    // }
-
     &-Parent {
       & > span {
         padding-right: 40px;

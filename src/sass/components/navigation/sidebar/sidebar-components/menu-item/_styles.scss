@@ -150,6 +150,15 @@
     }
   }
 
+  .ChildList__Item--Current > a {
+    @include theme(color, primary);
+    font-weight: 700;
+
+    &:hover {
+      background: none;
+    }
+  }
+
   .ParentList {
     padding: 0;
     list-style: none;
@@ -167,9 +176,9 @@
 
     &__Item-Link {
       display: block;
-      padding: 9px 8px 9px 38px;
+      padding: 9px 8px 9px 55px;
       font-family: inherit;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 19px;
       color: #95acc5;
       cursor: pointer;
@@ -223,7 +232,7 @@
     padding: 0 0 0 10px;
     list-style: none;
     &__Item {
-      padding-left: 15px;
+      padding-left: 30px;
       padding-right: 20px;
       padding-top: 2px;
       padding-bottom: 2px;
@@ -232,6 +241,7 @@
       top: 0;
       left: 0;
     }
+
     &__Item-Link {
       display: block;
       padding: 8px 8px 8px 20px;
@@ -275,7 +285,7 @@
     height: 15px;
     position: absolute;
     top: calc(50% - 8px);
-    left: 13px;
+    left: 25px;
     svg {
       transition: fill 0.16s linear;
       fill: #dfe6f1;
@@ -292,6 +302,9 @@
     top: 0;
     z-index: 10;
     display: none;
+    .ChildList__Item-Link {
+      padding-left: 20px;
+    }
   }
 
   .ChildListCell-Hover-SubMenu {
@@ -299,6 +312,12 @@
     box-shadow: 3px 3px 6px #2020200d;
     border-radius: 8px;
     width: 181px;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    li {
+      padding-left: 20px;
+    }
   }
 }
 

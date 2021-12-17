@@ -21,8 +21,6 @@ const DialogProvider = () => {
 
   if (!dialogConfig) return null;
 
-  console.log(dialogConfig.type);
-
   switch (dialogConfig.type) {
     case DialogTypes.ACCEPTION_DIALOG:
       return <AcceptionDialog {...(dialogConfig?.config || {})} isOpened={isOpenedDialog} onClose={onClose} />;

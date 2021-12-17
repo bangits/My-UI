@@ -12,8 +12,9 @@ $dialog-sizes: (
   dialog-dark-max-width: calculateRem(493px),
   dialog-content-width: calculateRem(312px),
   dialog-content-height: calculateRem(213px),
-  dialog-actions-margin: calculateRem(33px) 0 calculateRem(16px) 0,
-  btn-label-margin-top: calculateRem(6px)
+  dialog-actions-margin: calculateRem(16px),
+  btn-label-margin-top: calculateRem(6px),
+  dialog-break-margin-top: calculateRem(16px)
 );
 
 $dialog-colors: (

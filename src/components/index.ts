@@ -1,3 +1,5 @@
+import '../sass/main.scss';
+
 export * from './alert';
 export * from './avatar-card';
 export * from './card-img';

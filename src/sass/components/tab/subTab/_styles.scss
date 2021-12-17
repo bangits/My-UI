@@ -37,6 +37,7 @@
           @include theme(background-color, primary, $opacity: 0.1);
           @include theme(color, primary);
           @include theme(border-color, primary);
+          font-weight: getSubTabSizes(sub-tab-selected-font-weight);
         }
       }
     }

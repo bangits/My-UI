@@ -5,7 +5,8 @@ $subTab-sizes: (
   sub-tabs-button-padding: calculateRem(8px) calculateRem(16px),
   sub-tabs-button-font-size: calculateRem(14px),
   sub-tabs-badge-top: calculateRem(-5px),
-  sub-tabs-margin-right: calculateRem(8px)
+  sub-tabs-margin-right: calculateRem(8px),
+  sub-tab-selected-font-weight: 700
 );
 
 @function getSubTabSizes($property) {

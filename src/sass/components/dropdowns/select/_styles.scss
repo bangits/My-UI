@@ -25,7 +25,7 @@
         z-index: 9999;
         width: getSelectSizes(select-menu-width);
         max-height: getSelectSizes(select-menu-max-height);
-        min-height: getSelectSizes(select-menu-min-height);
+        // min-height: getSelectSizes(select-menu-min-height);
         @include theme(background-color, primary--color);
         @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
         border-radius: getSelectSizes(select-menu-border-radius);

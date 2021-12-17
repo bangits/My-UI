@@ -11,7 +11,7 @@
     z-index: getSideBarSizes(sidebar-z-index);
     // @include flex(null, null, $direction: column);
     width: getSideBarSizes(sidebar-collapsed-min-width);
-    // height: getSideBarSizes(sidebar-height);
+    height: getSideBarSizes(sidebar-height);
     @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
     transition: getSideBarSizes(sidebar-transition);
 

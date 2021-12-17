@@ -105,13 +105,16 @@ function Select<
     [selectProps.options, allOption, selectAll]
   );
 
-  const transformedDefaultValue = useMemo(() => transformNumberValueToOptions(defaultValue), [defaultValue, isMulti]);
+  const transformedDefaultValue = useMemo(
+    () => transformNumberValueToOptions(defaultValue),
+    [defaultValue, isMulti, selectProps.options]
+  );
 
   const isWithValue = useMemo(() => !!value, []);
 
   const [selectedOptions, setSelectedOptions] = useState(transformedDefaultValue);
 
-  const transformedValue = useMemo(() => transformNumberValueToOptions(value), [value]);
+  const transformedValue = useMemo(() => transformNumberValueToOptions(value), [value, selectProps.options]);
 
   const sortedOptions = useMemo(() => {
     if (!Array.isArray(selectedOptions)) return selectProps.options;

@@ -1,7 +1,7 @@
 @mixin generate-datepicker-styles {
   .DatePicker {
     :global {
-      z-index: getBaseSizes(z-index);
+      z-index: 9999;
 
       .react-datepicker {
         @include theme(background-color, primary--color);

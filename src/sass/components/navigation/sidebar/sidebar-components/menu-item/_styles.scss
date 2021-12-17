@@ -153,12 +153,16 @@
   .ParentList {
     padding: 0;
     list-style: none;
-    margin-left: -10px;
+    &--Hover {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
     &__Item {
       list-style: none;
       position: relative;
       top: 0;
       left: 0;
+      margin-bottom: 1px;
     }
 
     &__Item-Link {
@@ -175,6 +179,9 @@
       top: 0;
       left: 0;
       user-select: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       &:after {
         content: '';
         position: absolute;
@@ -261,6 +268,7 @@
       fill: #dfe6f1;
     }
   }
+
   .ParentCatIcon {
     display: block;
     width: 15px;
@@ -273,11 +281,31 @@
       fill: #dfe6f1;
     }
   }
-}
-// fill: #3c54b2 !important;
-
-.ChildListCell {
-  &--Hidden {
+  .ChildListCell {
+    &--Hidden {
+      display: none;
+    }
+  }
+  .ChildListCell-Hover-SubMenu-Position {
+    position: absolute;
+    left: 72px;
+    top: 0;
+    z-index: 10;
     display: none;
+  }
+
+  .ChildListCell-Hover-SubMenu {
+    background: #ffffff;
+    box-shadow: 3px 3px 6px #2020200d;
+    border-radius: 8px;
+    width: 181px;
+  }
+}
+
+.ParentList {
+  &__Item:hover {
+    .ChildListCell-Hover-SubMenu-Position {
+      display: block;
+    }
   }
 }

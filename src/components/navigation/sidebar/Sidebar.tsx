@@ -44,7 +44,10 @@ const Sidebar: FC<SidebarProps> = ({
           [styles[`SidebarBase--${color}`]]: color,
           [styles[`SidebarBase--${position}`]]: position
         })}
-        style={{ width: isSidebarClosed ? `${collapsedWidth}rem` : `${width}rem`, height }}>
+        style={{
+          width: isSidebarClosed ? `${collapsedWidth}rem` : `${width}rem`,
+          height
+        }}>
         <div className={classNames(styles['SidebarBase--logo'])}>{logoSrc && <img src={logoSrc} alt='Logo' />}</div>
 
         <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}>

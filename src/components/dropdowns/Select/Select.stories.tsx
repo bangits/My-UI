@@ -14,10 +14,48 @@ export default {
 
 export const Default = () => {
   const [value, setValue] = useState(2);
+  const [options, setOptions] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
-      setValue(null);
+      setOptions([
+        {
+          label: 'Jewels and Gems',
+          value: 2
+        },
+        {
+          label: 'Fantasy',
+          value: 3
+        },
+        {
+          label: 'Halloween',
+          value: 4
+        },
+        {
+          label: 'Luxury',
+          value: 5
+        },
+        {
+          label: 'Fruits / Vegetables',
+          value: 6
+        },
+        {
+          label: 'Asian',
+          value: 7
+        },
+        {
+          label: 'Food',
+          value: 8
+        },
+        {
+          label: 'Branded',
+          value: 9
+        },
+        {
+          label: 'Animals',
+          value: 10
+        }
+      ]);
     }, 2000);
   }, []);
 
@@ -30,44 +68,7 @@ export const Default = () => {
         isSearchable
         maxLength={number('maxLengthSingleSelect', 20)}
         color={getColorKnobs()}
-        options={object('options1', [
-          {
-            label: 'Jewels and Gems',
-            value: 2
-          },
-          {
-            label: 'Fantasy',
-            value: 3
-          },
-          {
-            label: 'Halloween',
-            value: 4
-          },
-          {
-            label: 'Luxury',
-            value: 5
-          },
-          {
-            label: 'Fruits / Vegetables',
-            value: 6
-          },
-          {
-            label: 'Asian',
-            value: 7
-          },
-          {
-            label: 'Food',
-            value: 8
-          },
-          {
-            label: 'Branded',
-            value: 9
-          },
-          {
-            label: 'Animals',
-            value: 10
-          }
-        ])}
+        options={options}
       />
       <Select
         inputLabel={text('inputLabelSingle', 'Single Select...')}

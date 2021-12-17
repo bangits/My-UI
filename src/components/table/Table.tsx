@@ -281,10 +281,11 @@ const Table = <T extends {}>({
                             position: 'absolute',
                             top: '0px',
                             right: '5px',
-                            width: '113px',
+                            minWidth: '113px',
                             marginTop: '0',
                             transform: 'translate(10px, -51%)',
-                            backgroundColor: '#ebeef7'
+                            backgroundColor: '#ebeef7',
+                            paddingRight: '20px'
                           }}>
                           {actions.map(
                             ({ component: Component, onClick, props, shouldShow = () => true }, index) =>

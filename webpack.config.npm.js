@@ -27,6 +27,17 @@ module.exports = (webpackConfigEnv, argv) => {
           'react/jsx-runtime': require.resolve('react/jsx-runtime'),
           react: path.resolve(__dirname, './node_modules/react'),
           'react-dom': path.resolve(__dirname, './node_modules/react-dom')
+        },
+        fallback: {
+          fs: false,
+          tls: false,
+          net: false,
+          path: false,
+          zlib: false,
+          http: false,
+          https: false,
+          stream: false,
+          crypto: false
         }
       },
       module: {

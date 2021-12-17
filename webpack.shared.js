@@ -21,15 +21,19 @@ const configureSass = (isDevelopment = true) => [
       {
         loader: 'sass-loader',
         options: {
-          sourceMap: isDevelopment
-        }
-      },
-      {
-        loader: 'sass-resources-loader',
-        options: {
-          resources: path.resolve(__dirname, './src/sass/main.scss')
+          sourceMap: isDevelopment,
+          additionalData: '@import "./src/sass/resource.scss";',
+          sassOptions: {
+            outputStyle: 'compressed'
+          }
         }
       }
+      // {
+      //   loader: 'sass-resources-loader',
+      //   options: {
+      //     resources: path.resolve(__dirname, './src/sass/main.scss')
+      //   }
+      // }
     ]
   },
   {

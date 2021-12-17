@@ -9,5 +9,3 @@ $themes: ();
 
 @include generateThemeMappings(dark, $dark);
 @include generateThemeMappings(default, $default);
-
-@include generateThemeVariables();

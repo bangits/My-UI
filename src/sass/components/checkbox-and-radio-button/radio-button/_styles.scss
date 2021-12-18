@@ -44,7 +44,7 @@
         width: 50%;
         height: 50%;
         border-radius: 100%;
-        transition: getRadioButtonSizes(radio-checked-transition);
+        // transition: getRadioButtonSizes(radio-checked-transition);
         @include center-absolute();
         transform: scale(0);
       }

@@ -1,4 +1,4 @@
-import { IconButton, Status } from '@/components';
+import { IconButton, Status, Tooltip } from '@/components';
 import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
@@ -87,7 +87,11 @@ export const Default = () => {
       ])}
       actions={[
         {
-          component: IconButton,
+          component: () => (
+            <Tooltip text='Edit' showEvent='hover'>
+              <IconButton icon={<ViewIcon />} />
+            </Tooltip>
+          ),
           onClick: (column) => {
             setLoadingRowsIds([...loadingRowsIds, column.y]);
 
@@ -95,16 +99,16 @@ export const Default = () => {
               setLoadingRowsIds((prevLoadingRows) => prevLoadingRows.filter((row) => row !== column.y));
             }, 2000);
           },
-          props: {
-            icon: <ViewIcon />
-          }
+          props: {}
         },
         {
-          component: IconButton,
+          component: () => (
+            <Tooltip text='Edit' showEvent='hover'>
+              <IconButton icon={<EditIcon />} />
+            </Tooltip>
+          ),
           onClick: () => {},
-          props: {
-            icon: <EditIcon />
-          }
+          props: {}
         }
       ]}
       illustrationIcon={<IllustrationIcon />}

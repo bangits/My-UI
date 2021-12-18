@@ -48,18 +48,18 @@ const getPoint = (element: HTMLElement, tooltip: HTMLElement, placement: Tooltip
     switch (pos.current) {
       case 'left':
         pt.x = elRect.left - (tooltip.offsetWidth + space);
-        pt.y = elRect.top + (element.offsetHeight - tooltip.offsetHeight) / 2;
+        pt.y = elRect.top + (element.offsetHeight || element.scrollHeight - tooltip.offsetHeight) / 2;
         break;
       case 'right':
         pt.x = elRect.right + space;
-        pt.y = elRect.top + (element.offsetHeight - tooltip.offsetHeight) / 2;
+        pt.y = elRect.top + ((element.offsetHeight || element.scrollHeight) - tooltip.offsetHeight) / 2;
         break;
       case 'top':
-        pt.x = elRect.left + (element.offsetWidth - tooltip.offsetWidth) / 2;
+        pt.x = elRect.left + ((element.offsetWidth || element.scrollWidth) - tooltip.offsetWidth) / 2;
         pt.y = elRect.top - (tooltip.offsetHeight + space);
         break;
       default:
-        pt.x = elRect.left + (element.offsetWidth - tooltip.offsetWidth) / 2;
+        pt.x = elRect.left + ((element.offsetWidth || element.scrollWidth) - tooltip.offsetWidth) / 2;
         pt.y = elRect.bottom + space;
     }
 

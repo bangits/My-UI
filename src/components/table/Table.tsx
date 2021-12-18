@@ -164,7 +164,11 @@ const Table = <T extends {}>({
   if (!tableHeadWidths.length && tableHeadRef.current) return null;
 
   return (
-    <Scroll className={classNames(styles.TableScroll, className)} height={500}>
+    <Scroll
+      trackClassName={styles.ScrollTrack}
+      thumbClassName={styles.ScrollThumb}
+      className={classNames(styles.TableScroll, className)}
+      height={500}>
       <Component
         {...getTableProps()}
         className={classNames(styles.TableContainer, {

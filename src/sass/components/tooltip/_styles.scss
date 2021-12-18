@@ -7,8 +7,19 @@
       z-index: -(getTooltipSizes(tooltip-z-index));
     }
 
-    &--exitDone,
+    &.TooltipContainerHidden {
+      display: none;
+    }
+
     & {
+      .TooltipWrapper,
+      .TooltipContainer {
+        opacity: 0;
+        z-index: -1;
+      }
+    }
+
+    &--exitDone {
       .TooltipWrapper,
       .TooltipContainer {
         @include animation-exit;
@@ -45,6 +56,7 @@
       }
 
       .Tooltip-bottom {
+        top: 0;
         left: 50%;
         transform: translate(-50%, -50%);
       }

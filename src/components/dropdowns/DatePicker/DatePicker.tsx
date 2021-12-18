@@ -1,17 +1,19 @@
 import { getMyUIPrefix } from '@/configs';
+import { UIColors } from '@/types';
 import ReactDatePicker, { ReactDatePickerProps } from '@my-ui/react-datepicker';
 import classNames from 'classnames';
 import React, { useCallback, useMemo, useState } from 'react';
 import styles from './DatePicker.module.scss';
 import DatePickerHeader from './DatePickerHeader';
 import DatePickerInput from './DatePickerInput';
-import { UIColors } from '@/types';
 
 export interface DatepickerProps extends Omit<ReactDatePickerProps, 'onChange'> {
   withDropdowns?: boolean;
   fullWidth?: boolean;
   color?: UIColors;
+  datepickerColor?: UIColors;
   onChange?: ReactDatePickerProps['onChange'];
+  explanation?: string;
 }
 
 const DatePicker: React.FC<DatepickerProps> = ({
@@ -29,6 +31,8 @@ const DatePicker: React.FC<DatepickerProps> = ({
   endDate,
   onChange,
   color,
+  datepickerColor,
+  explanation,
   ...datePickerProps
 }) => {
   const [date, setDate] = useState<Date | null>(null);
@@ -46,9 +50,10 @@ const DatePicker: React.FC<DatepickerProps> = ({
         color={color}
         fullWidth={fullWidth}
         placeholderText={placeholderText}
+        explanation={explanation}
       />
     ),
-    [placeholderText, color]
+    [placeholderText, color, explanation]
   );
 
   const defaultOnChange = useCallback((date: Date | [Date, Date]) => {
@@ -70,7 +75,9 @@ const DatePicker: React.FC<DatepickerProps> = ({
         )}
         popperClassName={classNames(
           styles.DatePicker,
-          styles[`DatePicker--${color}`],
+          {
+            [styles[`DatePicker--${datepickerColor}`]]: datepickerColor
+          },
           styles['DatePicker--primary'],
           {
             [styles['DatePicker--withDropdowns']]: withDropdowns,

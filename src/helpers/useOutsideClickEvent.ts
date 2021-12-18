@@ -15,16 +15,18 @@ export function useOutsideClickEvent(selector: string) {
   };
 }
 
-export function useOutsideClickWithRef(ref, action) {
+export function useOutsideClickWithRef(ref, action, prevent?: boolean, event = 'mousedown') {
   useEffect(() => {
+    if (prevent) return;
+
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
-        action();
+        action(event);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener(event, handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener(event, handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, prevent]);
 }

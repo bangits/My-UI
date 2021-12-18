@@ -11,11 +11,11 @@ export interface StyledTooltipProps {
     x: number;
     y: number;
   }>;
-  show?: boolean;
+  hide?: boolean;
 }
 
 const StyledTooltip = forwardRef<HTMLDivElement, PropsWithChildren<StyledTooltipProps>>(
-  ({ children, posRef, color = 'primary', show = false }, tooltipRef) => {
+  ({ children, posRef, color = 'primary', hide = false }, tooltipRef) => {
     const tooltipClassNames = useStyles(
       {
         root: {
@@ -33,7 +33,7 @@ const StyledTooltip = forwardRef<HTMLDivElement, PropsWithChildren<StyledTooltip
       <div
         ref={tooltipRef}
         className={classNames(tooltipClassNames.root, Styles.TooltipContainer, {
-          [Styles.TooltipContainerClosed]: !show
+          [Styles.TooltipContainerHidden]: hide
         })}>
         <div className={classNames(Styles.TooltipWrapper, Styles[`TooltipColor--${color}`])}>{children}</div>
       </div>

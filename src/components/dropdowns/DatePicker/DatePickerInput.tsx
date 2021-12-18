@@ -1,40 +1,13 @@
-import { TextInput } from '@/components';
-import { UIColors } from '@/types';
+import { TextInput, TextInputProps } from '@/components';
 import React, { FC } from 'react';
 
-interface DatePickerInputProps {
-  onClick?: () => void;
-  onBlur?: (event: React.FocusEvent<HTMLInputElement, Element>) => void;
-  onFocus?: (event: React.FocusEvent<HTMLInputElement, Element>) => void;
-  value?: string;
-  placeholderText?: string;
-  disabled?: boolean;
-  fullWidth?: boolean;
-  color?: UIColors;
-}
-
-const DatePickerInput: FC<DatePickerInputProps> = ({
-  onClick,
-  value,
-  placeholderText,
-  disabled,
-  fullWidth,
-  color,
-  onBlur,
-  onFocus
-}) => (
+const DatePickerInput: FC<TextInputProps & { placeholderText?: string }> = ({ placeholderText, ...props }) => (
   <>
     <TextInput
+      {...props}
       type='text'
-      disabled={disabled}
-      value={value}
-      onClick={onClick}
-      onBlur={onBlur}
-      onFocus={onFocus}
       label={placeholderText}
       onChange={(e) => e.preventDefault()}
-      fullWidth={fullWidth}
-      color={color}
       endIcon={
         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
           <g id='Group_2364' data-name='Group 2364' transform='translate(-5400 -2651)'>

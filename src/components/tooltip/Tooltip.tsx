@@ -1,4 +1,5 @@
 import { Portal, Typography } from '@/components';
+import { useOutsideClickWithRef } from '@/helpers';
 import { Triangle } from '@/icons';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
@@ -7,6 +8,7 @@ import { CSSTransition } from 'react-transition-group';
 import StyledTooltip from './StyledTooltip';
 import { default as Styles, default as styles } from './Tooltip.module.scss';
 import TooltipPosition, { TooltipPlacement } from './TooltipPosition';
+
 export type showEventType = 'click' | 'hover';
 
 export interface TooltipProps {
@@ -30,7 +32,7 @@ const Tooltip = ({
   disabled = false,
   showEvent
 }: TooltipProps) => {
-  const [show, setShow] = useState<0 | 1>(0);
+  const [show, setShow] = useState<0 | 1>(null);
 
   const posRef = useRef({ x: 0, y: 0 });
 
@@ -41,16 +43,30 @@ const Tooltip = ({
     posRef.current = TooltipPosition(e.currentTarget as HTMLElement, tooltipRef.current, placement, space);
   };
 
-  const handleMOut = () => setShow(0);
+  const handleMOut = () => {
+    setShow(0);
+  };
 
   const handleClick = (e: Event) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     if (!show) {
       setShow(1);
       posRef.current = TooltipPosition(e.currentTarget as HTMLElement, tooltipRef.current, placement, space);
-    } else {
-      setShow(0);
-    }
+    } else setShow(0);
   };
+
+  useOutsideClickWithRef(
+    tooltipRef,
+    () => {
+      setShow((prevShow) => {
+        return prevShow ? 0 : prevShow;
+      });
+    },
+    showEvent === 'hover',
+    'click'
+  );
 
   if (!text) return children;
 
@@ -62,7 +78,7 @@ const Tooltip = ({
         ? cloneElement(children, {
             // @ts-expect-error Ignoring typescript for children dynamic usage
             onMouseOver: handleMOver,
-            onMouseOut: handleMOut
+            onMouseLeave: handleMOut
           })
         : cloneElement(children, {
             // @ts-expect-error Ignoring typescript for children dynamic usage
@@ -76,19 +92,19 @@ const Tooltip = ({
             timeout={300}
             classNames={{
               enterDone: styles['TooltipContainer--enterDone'],
-              exitDone: styles['TooltipContainer--exitDone']
+              exitDone: styles['TooltipContainer--exitDone'],
+              exit: styles['TooltipContainer--exitDone'],
+              exitActive: styles['TooltipContainer--exitDone']
             }}>
-            <StyledTooltip show={!!show} color={color} delay={delay} ref={tooltipRef} posRef={posRef}>
-              <div>
-                <div className={classNames(Styles.TooltipTriangle, Styles[`Tooltip-${placement}`])}>
-                  <div>
-                    <Triangle />
-                  </div>
+            <StyledTooltip color={color} delay={delay} ref={tooltipRef} posRef={posRef}>
+              <div className={classNames(Styles.TooltipTriangle, Styles[`Tooltip-${placement}`])}>
+                <div>
+                  <Triangle />
                 </div>
-                <Typography component='span' variant='p5'>
-                  {text}
-                </Typography>
               </div>
+              <Typography component='span' variant='p5'>
+                {text}
+              </Typography>
             </StyledTooltip>
           </CSSTransition>
         </Portal>

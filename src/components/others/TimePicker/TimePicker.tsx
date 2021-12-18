@@ -171,6 +171,7 @@ const TimePicker: FC<TimePickerProps> = ({
     <div className={styles.TimePickerLoopWrapper}>
       <div className={styles.TimePickerLoopContent} onScrollCapture={onScrollCapture} ref={scrollElementRef}>
         <button
+          type='button'
           className={classNames(styles.ScrollButton, styles.ScrollButtonPrev, indicatorClassnames.timeElementStyles)}
           {...prevButtonEvents}>
           <ArrowIcon />
@@ -205,6 +206,7 @@ const TimePicker: FC<TimePickerProps> = ({
           )}
         />
         <button
+          type='button'
           className={classNames(styles.ScrollButton, styles.ScrollButtonNext, indicatorClassnames.timeElementStyles)}
           onClick={() => (scrollElementRef.current.scrollTop = currentScroll + elementsHeight)}
           {...nextButtonEvents}>

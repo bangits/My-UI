@@ -3,6 +3,11 @@
     display: block;
   }
 
+  .ScrollThumb,
+  .ScrollTrack {
+    z-index: 1 !important;
+  }
+
   .TableHead {
     position: sticky;
     top: 0;
@@ -27,6 +32,8 @@
   .TableScroll {
     @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
     border-radius: getTableSizes(table-scroll-border-radius);
+
+    z-index: 0;
   }
 
   .TableScrollVertical {

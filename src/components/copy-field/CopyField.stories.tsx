@@ -1,6 +1,5 @@
-import { boolean, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import CopyFiled from './CopyField';
-import { getColorKnobs } from '@/configs';
 
 export default {
   component: CopyFiled,
@@ -14,8 +13,8 @@ export const Default = () => {
       label={`Glossary":{"Title":"Example Glossary","Glossdiv": {"Title":"S","Glosslist":`}
       tooltip={{
         text: 'Copy Current Field',
-        showEvent: 'hover',
-        placement: 'right'
+        showEvent: 'click',
+        placement: 'bottom'
       }}
     />
   );

@@ -117,7 +117,9 @@
 
           div {
             min-width: getDatePickerSizes(datePicker-day-width);
-            padding: getDatePickerSizes(datePicker-day-padding);
+            // padding: getDatePickerSizes(datePicker-day-padding);
+            height: getDatePickerSizes(datePicker-day-height);
+            @include flex(center, center);
             cursor: pointer;
             text-align: center;
           }

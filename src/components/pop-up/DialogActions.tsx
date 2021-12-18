@@ -2,6 +2,7 @@ import { EditIcon, TrashIndicator } from '@/icons';
 import { FC, MouseEvent, ReactNode, useMemo } from 'react';
 import styles from './Dialog.module.scss';
 import React from 'react';
+import { IconButton, Typography } from '..';
 export interface DialogActionProps {
   actions: {
     icon: ReactNode;
@@ -26,19 +27,23 @@ const DialogActions: FC<DialogActionProps> = ({ actions }) => {
     <div className={styles.DialogActions}>
       <div className={styles.BtnsActions}>
         {dialogActionsLeft.map((action, key) => (
-          <button type='button' key={key} onClick={action.onClick}>
-            <span>{action.icon}</span>
-            <span className={styles.BtnLabel}>{action.label}</span>
-          </button>
+          <div>
+            <IconButton icon={<EditIcon />} key={key} onClick={action.onClick} />
+            <Typography component='span' variant='p5' className={styles.BtnLabel}>
+              Edit
+            </Typography>
+          </div>
         ))}
       </div>
 
       <div className={styles.BtnsActions}>
         {dialogActionsRight.map((action, key) => (
-          <button type='button' key={key} onClick={action.onClick}>
-            <span>{action.icon}</span>
-            <span className={styles.BtnLabel}>{action.label}</span>
-          </button>
+          <div>
+            <IconButton icon={<EditIcon />} key={key} onClick={action.onClick} />
+            <Typography component='span' variant='p5' className={styles.BtnLabel}>
+              Edit
+            </Typography>
+          </div>
         ))}
       </div>
     </div>

@@ -8,6 +8,11 @@
     top: 0;
     z-index: 100;
     background: #fff;
+
+    tr {
+      position: relative;
+      z-index: 10;
+    }
   }
 
   .TableBody {
@@ -42,9 +47,12 @@
     &--ready {
       opacity: 1;
     }
-    .TableHead {
-      z-index: 10;
+
+    tr {
+      position: relative;
+      z-index: 1;
     }
+
     .TableHead tr {
       min-height: getTableSizes(table-head-row-height);
       th {

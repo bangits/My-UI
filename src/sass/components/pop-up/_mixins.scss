@@ -9,13 +9,21 @@
       }
     }
   }
+
   .DialogContent {
     width: getDialogSizes(dialog-content-width);
     height: getDialogSizes(dialog-content-height);
     margin: 0 auto;
+
     img {
       width: 100%;
     }
+  }
+
+  .DialogWithActionsDivider {
+    margin: getDialogSizes(dialog-break-margin);
+    width: 100%;
+    @include theme(border, dialog-divider-color, solid 1px);
   }
 
   .DialogActions {
@@ -24,15 +32,14 @@
     .BtnsActions {
       @include flex();
       button {
-        background-color: transparent;
-        border: none;
         @include flex(null, center, $direction: column);
-        @include theme(color, button-color);
-
-        .BtnLabel {
-          @include theme(color, dialog-dark-label-color);
-          margin-top: getDialogSizes(btn-label-margin-top);
+        span {
+          @include theme(color, button-color);
         }
+      }
+      .BtnLabel {
+        @include theme(color, dialog-dark-label-color);
+        margin-top: getDialogSizes(btn-label-margin-top);
       }
     }
   }

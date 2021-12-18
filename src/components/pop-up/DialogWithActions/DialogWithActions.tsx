@@ -1,16 +1,24 @@
-import { Typography } from '@/components';
-import { FC, ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
-import { DialogBody, DialogHeader, Dialog, DialogActions, DialogProps } from '..';
-import { DialogHeaderWithClose } from '../DialogHeaderWithClose';
-import styles from '../Dialog.module.scss';
 import { EditIcon, TrashIndicator } from '@/icons';
+import { FC, useMemo } from 'react';
+import { Dialog, DialogActions, DialogProps } from '..';
+import styles from '../Dialog.module.scss';
+import { DialogHeaderWithClose } from '../DialogHeaderWithClose';
 import { DialogActionProps } from './../DialogActions';
 
 export interface DialogWithActionsProps {
-  title?: ReactNode;
+  title?: string;
+  actions?: DialogActionProps['actions'];
 }
 
-const DialogWithActions: FC<DialogWithActionsProps & DialogProps> = ({ title, onClose, isOpened, size, mode }) => {
+const DialogWithActions: FC<DialogWithActionsProps & DialogProps> = ({
+  actions,
+  onClose,
+  isOpened,
+  size,
+  mode,
+  children,
+  title
+}) => {
   const dialogActionsArray = useMemo<DialogActionProps['actions']>(
     () => [
       {
@@ -31,17 +39,11 @@ const DialogWithActions: FC<DialogWithActionsProps & DialogProps> = ({ title, on
     ],
     []
   );
-
   return (
     <Dialog onClose={onClose} isOpened={isOpened} size={size} mode={mode}>
-      <DialogHeaderWithClose />
-      <div className={styles.DialogContent}>
-        <img
-          src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png'
-          alt=''
-        />
-      </div>
-      <hr />
+      <DialogHeaderWithClose title={title} onClose={onClose} />
+      <div className={styles.DialogContent}>{children}</div>
+      <hr className={styles.DialogWithActionsDivider} />
       <DialogActions actions={dialogActionsArray} />
     </Dialog>
   );

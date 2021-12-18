@@ -48,30 +48,32 @@ const Sidebar: FC<SidebarProps> = ({
           width: isSidebarClosed ? `${collapsedWidth}rem` : `${width}rem`,
           height
         }}>
-        <div className={classNames(styles['SidebarBase--logo'])}>{logoSrc && <img src={logoSrc} alt='Logo' />}</div>
+        <div style={{ position: 'relative' }}>
+          <div className={classNames(styles['SidebarBase--logo'])}>{logoSrc && <img src={logoSrc} alt='Logo' />}</div>
 
-        <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}>
-          <IconButton
-            icon={isSidebarClosed ? <IconButtonRight /> : <IconButtonLeft />}
-            className={classNames(styles['SidebarBase--button'])}
-          />
-        </div>
-
-        <ul className={classNames(styles['SidebarBase--item-container'])}>
-          {menuItems.map((item, key) => (
-            <MenuItem
-              key={key}
-              className={classNames(styles['SidebarBase--menu-item'])}
-              label={item.label}
-              icon={item.icon}
-              onClick={item.onClick}
-              subItems={item.subItems}
-              component={item.component}
-              isActive={item.isActive}
-              isSidebarOpened={!isSidebarClosed}
+          <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}>
+            <IconButton
+              icon={isSidebarClosed ? <IconButtonRight /> : <IconButtonLeft />}
+              className={classNames(styles['SidebarBase--button'])}
             />
-          ))}
-        </ul>
+          </div>
+
+          <ul className={classNames(styles['SidebarBase--item-container'])}>
+            {menuItems.map((item, key) => (
+              <MenuItem
+                key={key}
+                className={classNames(styles['SidebarBase--menu-item'])}
+                label={item.label}
+                icon={item.icon}
+                onClick={item.onClick}
+                subItems={item.subItems}
+                component={item.component}
+                isActive={item.isActive}
+                isSidebarOpened={!isSidebarClosed}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

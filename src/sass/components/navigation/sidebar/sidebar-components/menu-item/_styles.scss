@@ -4,12 +4,11 @@
     @include flex(null, center);
     list-style-type: none;
     width: getMenuItemSizes(sidebar-menu-item-width);
-    height: calc(getMenuItemSizes(sidebar-menu-item-height) - 10px);
+    height: getMenuItemSizes(sidebar-menu-item-height);
     cursor: pointer;
-    margin-bottom: 3px;
 
     &--isActive {
-      // height: getMenuItemSizes(sidebar-menu-item-isActive-height);
+      height: getMenuItemSizes(sidebar-menu-item-isActive-height);
       @include theme(background-color, primary, $opacity: 0.05);
       border-radius: getMenuItemSizes(sidebar-menu-item-isActive-borderRadius);
 
@@ -20,8 +19,7 @@
         left: getMenuItemSizes(sidebar-menu-item-isActive-after-left);
         display: block;
         width: getMenuItemSizes(sidebar-menu-item-isActive-after-width);
-        // height: getMenuItemSizes(sidebar-menu-item-isActive-after-height);
-        height: 100%;
+        height: getMenuItemSizes(sidebar-menu-item-isActive-after-height);
         @include theme(background-color, sidebar-menu-item-isActive-after-background-color);
         border-radius: getMenuItemSizes(sidebar-menu-item-isActive-after-borderRadius);
       }
@@ -29,8 +27,7 @@
       .MenuItemBase--icon {
         margin: getMenuItemSizes(sidebar-menu-item-isActive-icon-margin);
         width: getMenuItemSizes(sidebar-menu-item-isActive-icon-width);
-        // height: getMenuItemSizes(sidebar-menu-item-isActive-icon-height);
-        height: 100%;
+        height: getMenuItemSizes(sidebar-menu-item-isActive-icon-height);
         padding: getMenuItemSizes(sidebar-menu-item-isActive-icon-padding);
         @include theme(color, sidebar-menu-item-isActive-icon-color);
         opacity: getMenuItemSizes(sidebar-menu-item-isActive-icon-opacity);
@@ -60,10 +57,10 @@
     }
 
     &:hover {
-      // height: calc(getMenuItemSizes(sidebar-menu-item-hover-height) - 10px);
+      height: getMenuItemSizes(sidebar-menu-item-hover-height);
       @include theme(background-color, primary, $opacity: 0.05);
       border-radius: getMenuItemSizes(sidebar-menu-item-hover-borderRadius);
-      // margin-bottom: getMenuItemSizes(sidebar-menu-item-hover-marginB);
+      margin-bottom: getMenuItemSizes(sidebar-menu-item-hover-marginB);
 
       .MenuItemBase--icon {
         margin-left: getMenuItemSizes(sidebar-menu-item-hover-icon-marginL);
@@ -120,19 +117,9 @@
       @include theme(color, sidebar-menu-item-icon-color);
       opacity: getMenuItemSizes(sidebar-menu-item-icon-opacity);
       transition: getMenuItemSizes(sidebar-menu-item-transition);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
       svg {
-        fill: #95acc5;
-        height: 15px;
-        width: 15px;
-        padding: 0;
-        margin: 0;
-        position: relative;
-        top: -1px;
-        left: 0;
-        transform: translate(0, 0);
+        @include theme(fill, sidebar-menu-item-icon-color);
       }
     }
 
@@ -149,163 +136,4 @@
       transition: getMenuItemSizes(sidebar-menu-item-transition);
     }
   }
-
-  .ParentList {
-    padding: 0;
-    list-style: none;
-    &--Hover {
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-    &__Item {
-      list-style: none;
-      position: relative;
-      top: 0;
-      left: 0;
-      margin-bottom: 1px;
-    }
-
-    &__Item-Link {
-      display: block;
-      padding: 9px 8px 9px 38px;
-      font-family: inherit;
-      font-size: 15px;
-      line-height: 19px;
-      color: #95acc5;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background 0.16s linear, color 0.16s linear;
-      position: relative;
-      top: 0;
-      left: 0;
-      user-select: none;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 4px;
-        height: 36px;
-        background: #3c54b2;
-        z-index: 10;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-        opacity: 0;
-        transition: opacity 0.16s linear;
-      }
-      &--Current,
-      &:hover {
-        background: rgba(60, 84, 178, 0.05);
-        color: #3c54b2;
-
-        .ParentCatIcon {
-          svg {
-            fill: #3c54b2;
-          }
-        }
-        .ArrowTopCell {
-          svg {
-            fill: #3c54b2;
-          }
-        }
-
-        &:after {
-          opacity: 1;
-        }
-      }
-    }
-  }
-
-  .ChildList {
-    padding: 0 0 0 10px;
-    list-style: none;
-    &__Item {
-      padding-left: 15px;
-      padding-right: 20px;
-      padding-top: 2px;
-      padding-bottom: 2px;
-      list-style: none;
-      position: relative;
-      top: 0;
-      left: 0;
-    }
-    &__Item-Link {
-      display: block;
-      padding: 8px 8px 8px 20px;
-      list-style: none;
-      font-family: inherit;
-      font-size: 12px;
-      line-height: 14px;
-      color: #95acc5;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background 0.16s linear, color 0.16s linear;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      user-select: none;
-      &--Current,
-      &:hover {
-        background: rgba(60, 84, 178, 0.05);
-        color: #3c54b2;
-      }
-    }
-  }
-
-  .ArrowTopCell {
-    display: block;
-    width: 11px;
-    height: 7px;
-    position: absolute;
-    top: calc(50% - 11px);
-    right: 20px;
-    z-index: 10;
-    svg {
-      transition: fill 0.16s linear;
-      fill: #dfe6f1;
-    }
-  }
-
-  .ParentCatIcon {
-    display: block;
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: calc(50% - 8px);
-    left: 13px;
-    svg {
-      transition: fill 0.16s linear;
-      fill: #dfe6f1;
-    }
-  }
-  .ChildListCell {
-    &--Hidden {
-      display: none;
-    }
-  }
-  .ChildListCell-Hover-SubMenu-Position {
-    position: absolute;
-    left: 72px;
-    top: 0;
-    z-index: 10;
-    display: none;
-  }
-
-  .ChildListCell-Hover-SubMenu {
-    background: #ffffff;
-    box-shadow: 3px 3px 6px #2020200d;
-    border-radius: 8px;
-    width: 181px;
-  }
-}
-
-.ParentList {
-  &__Item:hover {
-    .ChildListCell-Hover-SubMenu-Position {
-      display: block;
-    }
-  }
-}
+} ;

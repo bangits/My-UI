@@ -63,7 +63,7 @@ const DateTimePicker: FC<DateTimePickerProps> = ({
         }}>
         {finalDateTimeValue && (
           <>
-            <hr className={styles.TimePickerDivider} />
+            {/* <hr className={styles.TimePickerDivider} /> */}
             <Button className={styles.TimePickerButton} onClick={() => setOpenedDateTimePicker(false)}>
               OK
             </Button>

@@ -12,9 +12,9 @@ $dialog-sizes: (
   dialog-dark-max-width: calculateRem(493px),
   dialog-content-width: calculateRem(312px),
   dialog-content-height: calculateRem(213px),
-  dialog-actions-margin: calculateRem(16px),
+  dialog-actions-margin: calculateRem(16px) 0 calculateRem(16px) 0,
   btn-label-margin-top: calculateRem(6px),
-  dialog-break-margin-top: calculateRem(16px)
+  dialog-break-margin: calculateRem(16px) 0 0 calculateRem(-5px)
 );
 
 $dialog-colors: (
@@ -22,7 +22,8 @@ $dialog-colors: (
   dialog-label-color: color(astronaut),
   dialog-dark-label-color: color(white),
   dialog-dark-background-color: color(shark),
-  button-color: color(selago)
+  button-color: color(selago),
+  dialog-divider-color: color(outer-space)
 );
 
 @function getDialogSizes($property) {

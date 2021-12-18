@@ -106,7 +106,11 @@ export const SearchControl: typeof components.Control = (props) => {
             className='MyUI-SelectInput'
             endIcon={
               <div className={classNames(styles['Select--icon-container'])}>
-                {isMenuOpen ? <DropdownArrowIconUp /> : <DropdownArrowIconDown />}
+                {props.selectProps.menuIsOpen ? (
+                  <DropdownArrowIconUp onClick={() => props.selectProps.onMenuClose()} />
+                ) : (
+                  <DropdownArrowIconDown onClick={() => props.selectProps.onMenuOpen()} />
+                )}
               </div>
             }
           />

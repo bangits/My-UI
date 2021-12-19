@@ -50,3 +50,6 @@ export { ReactComponent as HomeSidebar } from './home-sidebar.react.svg';
 export { ReactComponent as PlusCircleLarge } from './plus-circle-large.react.svg';
 export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
 export { ReactComponent as closeWidePopUp } from './close-wide-pop-up.react.svg';
+export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
+export { ReactComponent as PlayArrowIcon } from './play-arrow-icon.react.svg';
+export { ReactComponent as PhotoCamIcon } from './photo-cam-icon.react.svg';

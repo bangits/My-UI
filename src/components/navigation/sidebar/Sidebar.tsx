@@ -62,7 +62,7 @@ const Sidebar: FC<SidebarProps> = ({
             {menuItems.map((item, key) => (
               <MenuItem
                 key={key}
-                className={classNames(styles['SidebarBase--menu-item'])}
+                linkContainerClassName={classNames(styles['SidebarBase--menu-item'])}
                 label={item.label}
                 icon={item.icon}
                 onClick={item.onClick}

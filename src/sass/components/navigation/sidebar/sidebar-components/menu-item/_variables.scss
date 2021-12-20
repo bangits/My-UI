@@ -2,6 +2,10 @@ $sidebar-menu-item-sizes: (
   sidebar-menu-item-width: 100%,
   sidebar-menu-item-height: calculateRem(53px),
   sidebar-menu-item-transition: 0.3s,
+  sidebar-menu-item-padding: calculateRem(11px) 0,
+  sidebar-open-animation-ms: 0.5s,
+  sidebar-sub-menu-padding-left: calculateRem(45px),
+  sidebar-menu-item-arrow-right: calculateRem(9px),
   //isActive
   sidebar-menu-item-isActive-height: calculateRem(53px),
   sidebar-menu-item-isActive-borderRadius: 8px,
@@ -70,11 +74,7 @@ $sidebar-menu-item-colors: (
   sidebar-menu-item-hover-label-color: color(night-in-manchester),
   //hover sub menu
   hover-sub-menu-background-color: color(white),
-  hover-sub-menu-header-color: color(night-in-manchester),
-  //icon
-  sidebar-menu-item-icon-color: color(nordland-light-blue),
-  //label
-  sidebar-menu-item-label-color: color(nordland-light-blue)
+  hover-sub-menu-header-color: color(night-in-manchester)
 );
 
 @function getMenuItemSizes($property) {

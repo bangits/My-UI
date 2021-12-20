@@ -1,14 +1,16 @@
 @mixin generate-menu-item-styles {
   .MenuItemBase {
     position: relative;
-    @include flex(null, center);
+    @include flex($direction: column);
     list-style-type: none;
     width: getMenuItemSizes(sidebar-menu-item-width);
-    height: getMenuItemSizes(sidebar-menu-item-height);
+    // max-height: getMenuItemSizes(sidebar-menu-item-height);
     cursor: pointer;
 
+    padding: getMenuItemSizes(sidebar-menu-item-padding);
+    box-sizing: border-box;
+
     &--isActive {
-      height: getMenuItemSizes(sidebar-menu-item-isActive-height);
       @include theme(background-color, primary, $opacity: 0.05);
       border-radius: getMenuItemSizes(sidebar-menu-item-isActive-borderRadius);
 
@@ -52,58 +54,98 @@
     &--sub {
       display: none;
     }
+
     &--sub-header {
       display: none;
     }
 
+    .MenuItemArrow {
+      display: none;
+
+      opacity: getMenuItemSizes(sidebar-menu-item-label-opacity);
+
+      position: absolute;
+      right: getMenuItemSizes(sidebar-menu-item-arrow-right);
+      transform: rotate(-180deg);
+
+      transition: transform getMenuItemSizes(sidebar-open-animation-ms);
+
+      &--opened {
+        transform: rotate(0deg);
+      }
+    }
+
+    &--sidebarOpened {
+      .MenuItemBase--sub {
+        display: block;
+        padding-left: getMenuItemSizes(sidebar-sub-menu-padding-left);
+        max-height: 0vh;
+        overflow: hidden;
+        transition: max-height getMenuItemSizes(sidebar-open-animation-ms);
+      }
+
+      .MenuItemArrow {
+        display: block;
+      }
+    }
+
+    &--sidebarOpened.MenuItemBase--opened {
+      .MenuItemBase--sub {
+        display: block;
+        max-height: 50vh;
+      }
+    }
+
     &:hover {
-      height: getMenuItemSizes(sidebar-menu-item-hover-height);
       @include theme(background-color, primary, $opacity: 0.05);
       border-radius: getMenuItemSizes(sidebar-menu-item-hover-borderRadius);
       margin-bottom: getMenuItemSizes(sidebar-menu-item-hover-marginB);
 
-      .MenuItemBase--icon {
-        margin-left: getMenuItemSizes(sidebar-menu-item-hover-icon-marginL);
-        width: getMenuItemSizes(sidebar-menu-item-hover-icon-width);
-        height: getMenuItemSizes(sidebar-menu-item-hover-icon-height);
-        padding: getMenuItemSizes(sidebar-menu-item-hover-icon-padding);
-        @include theme(color, sidebar-menu-item-hover-icon-color);
-        opacity: getMenuItemSizes(sidebar-menu-item-hover-icon-opacity);
-        transition: getMenuItemSizes(sidebar-menu-item-transition);
+      &.MenuItemBase--sidebarClosed {
+        .MenuItemBase--icon {
+          margin-left: getMenuItemSizes(sidebar-menu-item-hover-icon-marginL);
+          width: getMenuItemSizes(sidebar-menu-item-hover-icon-width);
+          height: getMenuItemSizes(sidebar-menu-item-hover-icon-height);
+          padding: getMenuItemSizes(sidebar-menu-item-hover-icon-padding);
+          @include theme(color, sidebar-menu-item-hover-icon-color);
+          opacity: getMenuItemSizes(sidebar-menu-item-hover-icon-opacity);
+          transition: getMenuItemSizes(sidebar-menu-item-transition);
 
-        svg {
-          @include theme(fill, sidebar-menu-item-isActive-icon-color);
+          svg {
+            @include theme(fill, sidebar-menu-item-isActive-icon-color);
+          }
         }
-      }
-      .MenuItemBase--label {
-        margin-left: getMenuItemSizes(sidebar-menu-item-hover-label-marginL);
-        padding: getMenuItemSizes(sidebar-menu-item-hover-label-padding);
-        font-family: $base-font-family;
-        font-size: getMenuItemSizes(sidebar-menu-item-hover-label-font-size);
-        font-weight: bold;
-        letter-spacing: getMenuItemSizes(sidebar-menu-item-hover-label-letter-spacing);
-        @include theme(color, sidebar-menu-item-isActive-label-color);
-        opacity: getMenuItemSizes(sidebar-menu-item-hover-label-opacity);
-        transition: getMenuItemSizes(sidebar-menu-item-transition);
-      }
 
-      .MenuItemBase--sub {
-        position: absolute;
-        @include flex(center, center, $direction: column);
-        top: getMenuItemSizes(hover-sub-menu-top);
-        right: getMenuItemSizes(hover-sub-menu-right);
-        width: getMenuItemSizes(hover-sub-menu-width);
-        @include theme(box-shadow, box-shadow-color, 0 3px 6px 0);
-        @include theme(background-color, hover-sub-menu-background-color);
-        border-radius: getMenuItemSizes(hover-sub-menu-borderRadius);
+        .MenuItemBase--label {
+          margin-left: getMenuItemSizes(sidebar-menu-item-hover-label-marginL);
+          padding: getMenuItemSizes(sidebar-menu-item-hover-label-padding);
+          font-family: $base-font-family;
+          font-size: getMenuItemSizes(sidebar-menu-item-hover-label-font-size);
+          font-weight: bold;
+          letter-spacing: getMenuItemSizes(sidebar-menu-item-hover-label-letter-spacing);
+          @include theme(color, sidebar-menu-item-isActive-label-color);
+          opacity: getMenuItemSizes(sidebar-menu-item-hover-label-opacity);
+          transition: getMenuItemSizes(sidebar-menu-item-transition);
+        }
 
-        .MenuItemBase--sub-header {
-          display: block;
-          align-self: flex-start;
-          margin-left: getMenuItemSizes(hover-sub-menu-header-marginL);
-          font-size: getMenuItemSizes(hover-sub-menu-header-font-size);
-          font-weight: getMenuItemSizes(hover-sub-menu-header-font-weight);
-          @include theme(color, hover-sub-menu-header-color);
+        .MenuItemBase--sub {
+          position: absolute;
+          @include flex(center, center, $direction: column);
+          top: getMenuItemSizes(hover-sub-menu-top);
+          right: getMenuItemSizes(hover-sub-menu-right);
+          width: getMenuItemSizes(hover-sub-menu-width);
+          @include theme(box-shadow, box-shadow-color, 0 3px 6px 0);
+          @include theme(background-color, hover-sub-menu-background-color);
+          border-radius: getMenuItemSizes(hover-sub-menu-borderRadius);
+
+          .MenuItemBase--sub-header {
+            display: block;
+            align-self: flex-start;
+            margin-left: getMenuItemSizes(hover-sub-menu-header-marginL);
+            font-size: getMenuItemSizes(hover-sub-menu-header-font-size);
+            font-weight: getMenuItemSizes(hover-sub-menu-header-font-weight);
+            @include theme(color, hover-sub-menu-header-color);
+          }
         }
       }
     }
@@ -114,13 +156,8 @@
       width: getMenuItemSizes(sidebar-menu-item-icon-width);
       height: getMenuItemSizes(sidebar-menu-item-icon-height);
       padding: getMenuItemSizes(sidebar-menu-item-icon-padding);
-      @include theme(color, sidebar-menu-item-icon-color);
       opacity: getMenuItemSizes(sidebar-menu-item-icon-opacity);
       transition: getMenuItemSizes(sidebar-menu-item-transition);
-
-      svg {
-        @include theme(fill, sidebar-menu-item-icon-color);
-      }
     }
 
     &--label {
@@ -130,10 +167,13 @@
       font-family: $base-font-family;
       font-size: getMenuItemSizes(sidebar-menu-item-label-font-size);
       font-weight: getMenuItemSizes(sidebar-menu-item-label-font-weight);
-      @include theme(color, sidebar-menu-item-label-color);
       opacity: getMenuItemSizes(sidebar-menu-item-label-opacity);
       min-width: getMenuItemSizes(sidebar-menu-item-label-min-width);
       transition: getMenuItemSizes(sidebar-menu-item-transition);
     }
+  }
+
+  .MenuItemLinkContainer {
+    @include flex(null, center);
   }
 } ;

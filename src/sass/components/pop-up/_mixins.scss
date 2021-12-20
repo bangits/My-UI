@@ -6,13 +6,14 @@
       h3 {
         @include theme(color, dialog-dark-label-color);
         font-weight: normal;
+
+        margin: 0;
       }
     }
   }
 
   .DialogContent {
     width: getDialogSizes(dialog-content-width);
-    height: getDialogSizes(dialog-content-height);
     margin: 0 auto;
 
     img {

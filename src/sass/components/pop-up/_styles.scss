@@ -84,6 +84,13 @@
     @include theme(background-color, dialog-overlay-bg, $opacity: 0.5);
   }
 
+  .DialogHeaderClose {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
   @keyframes dialog-animation-exit {
     from {
       opacity: 1;

@@ -24,13 +24,14 @@ export const Default = () => {
         menuItems={[
           {
             label: 'Dashboard',
+            isActive: true,
             subItems: [
-              { label: 'Sub Menu Item' },
+              { label: 'Sub Menu Item', isActive: true },
               { label: 'Sub Menu Item' },
               { label: 'Sub Menu Item' },
               { label: 'Sub Menu Item' }
             ],
-            icon: <HomeIcon />
+            icon: <HomeIcon width='1.8rem' />
           },
           {
             label: 'User Management',
@@ -48,16 +49,16 @@ export const Default = () => {
               { label: 'Sub Menu Item' },
               { label: 'Sub Menu Item' }
             ],
-            icon: <HomeIcon />
+            icon: <HomeIcon width='1.8rem' />
           },
-          { label: 'Players', icon: <HomeIcon /> },
-          { label: 'Games', isActive: true, icon: <HomeIcon /> },
-          { label: 'Resources', icon: <HomeIcon /> },
-          { label: 'Providers', icon: <HomeIcon /> },
-          { label: 'Partners', icon: <HomeIcon /> },
-          { label: 'Module', icon: <HomeIcon /> },
-          { label: 'Module', icon: <HomeIcon /> },
-          { label: 'Module', icon: <HomeIcon /> },
+          { label: 'Players', icon: <HomeIcon width='1.8rem' /> },
+          { label: 'Games', isActive: true, icon: <HomeIcon width='1.8rem' /> },
+          { label: 'Resources', icon: <HomeIcon width='1.8rem' /> },
+          { label: 'Providers', icon: <HomeIcon width='1.8rem' /> },
+          { label: 'Partners', icon: <HomeIcon width='1.8rem' /> },
+          { label: 'Module', icon: <HomeIcon width='1.8rem' /> },
+          { label: 'Module', icon: <HomeIcon width='1.8rem' /> },
+          { label: 'Module', icon: <HomeIcon width='1.8rem' /> },
           {
             label: 'Module',
             subItems: [
@@ -74,7 +75,7 @@ export const Default = () => {
               { label: 'Sub Menu Item' },
               { label: 'Sub Menu Item' }
             ],
-            icon: <HomeIcon />
+            icon: <HomeIcon width='1.8rem' />
           }
         ]}
       />

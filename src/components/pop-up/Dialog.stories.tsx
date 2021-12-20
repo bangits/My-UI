@@ -1,10 +1,11 @@
-import { text, withKnobs, optionsKnob } from '@storybook/addon-knobs';
-import Dialog from './Dialog';
 import { GoToLivePopUp } from '@/icons';
+import { Icons } from '@/icons/icon-pack';
 import { Button } from '@/my-ui-core';
-import DialogProvider from './DialogProvider';
-import { dialog } from '.';
 import { action } from '@storybook/addon-actions';
+import { text, withKnobs } from '@storybook/addon-knobs';
+import { dialog } from '.';
+import Dialog from './Dialog';
+import DialogProvider from './DialogProvider';
 
 export default {
   component: Dialog,
@@ -51,7 +52,20 @@ export const Default = () => {
           dialog.dialogWithActions({
             title,
             size: 'md',
-            mode: 'dark'
+            mode: 'dark',
+            actions: [
+              {
+                icon: <Icons.EditIcon />,
+                label: 'Edit',
+                onClick: action('editOnClick')
+              },
+              {
+                icon: <Icons.TrashIndicator />,
+                label: 'Delete',
+                onClick: action('deleteOnClick'),
+                position: 'left'
+              }
+            ]
           });
         }}>
         Click to open dialog with actions

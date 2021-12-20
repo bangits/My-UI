@@ -33,12 +33,12 @@
 
   .AlertEnter,
   .AlertEnterActive {
-    animation: showAlert 1s ease forwards;
+    animation: showAlert getAlertSizes(alert-animation) ease forwards;
   }
 
   .AlertExit,
   .AlertExitActive {
-    animation: hideAlert 1s ease forwards;
+    animation: hideAlert getAlertSizes(alert-animation) ease forwards;
   }
 
   @keyframes hideAlert {

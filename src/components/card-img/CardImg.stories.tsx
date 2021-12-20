@@ -10,7 +10,7 @@ export default {
 
 export const Default = () => {
   return (
-    <div style={{ maxWidth: '98px' }}>
+    <div style={{ maxWidth: '147px' }}>
       <CardImg
         title={text('title', 'Diamond Link')}
         image={text('image', 'https://wallpaperaccess.com/full/1765659.jpg')}

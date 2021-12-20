@@ -4,12 +4,39 @@ $cardimg-sizes: (
   card-text-container-height: calculateRem(26px),
   card-text-container-padding: calculateRem(7px) calculateRem(6px) calculateRem(7px) calculateRem(6px),
   card-text-container-border-radius: 0 0 4px 4px,
-  card-text-width: calculateRem(88px)
+  card-text-width: calculateRem(88px),
+  card-transition-opacity: 0.16s,
+  hover-opacity: 1,
+  hoverbox-linktext-bottom-sizes: calculateRem(8px),
+  hoverbox-playbtn-sizes: calculateRem(32px),
+  hoverbox-playbtn-view-icon-margin-top: calculateRem(-7px),
+  hoverbox-playbtn-padding: calculateRem(-1px),
+  hoverbox-playbtn-z-index: 11,
+  hoverbox-playbtn-border-radius: 50%,
+  hoverbox-playbtn-margin-top: calculateRem(-3px),
+  hoverbox-playbtn-opacity: 0,
+  hoverbox-playbtn-transition: 0.13s,
+  hoverbox-playbtn-inner-z-index: 11,
+  hoverbox-opacity-layer-z-index: 10,
+  hoverbox-play-btn-icon-width: calculateRem(12px),
+  hoverbox-play-btn-icon-transform: calculateRem(2px),
+  hoverbox-view-icon-z-index: 100,
+  hoverbox-view-icon-transition: 0.13s,
+  hoverbox-view-icon-positon-right: calculateRem(8px),
+  hoverbox-view-icon-width: calculateRem(12px),
+  hoverbox-link-text-position-right: 50%,
+  hoverbox-link-text-font-size: calculateRem(13px)
 );
 
 $cardimg-colors: (
   card-img-border-color: color(athens-gray),
-  card-background-color: color(alabaster)
+  card-background-color: color(alabaster),
+  hoverbox-playbtn-border-color: color(white-opacity),
+  hoverbox-playbtn-background-color: color(white-opacity),
+  hoverbox-opacity-layer-background-color: color(dark-opacity),
+  play-icon-fill: color(night-in-manchester),
+  hoverbox-view-icon-color: color(white),
+  hover-box-link-text-after-backgroud-color: color(white-opacity-2)
 );
 
 @function getCardImgSizes($property) {

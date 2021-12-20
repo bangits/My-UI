@@ -7,7 +7,8 @@ $alert-sizes: (
   alert-text-marginLeft: calculateRem(4px),
   alert-close-marginLeft: calculateRem(16px),
   alert-animation-position: calculateRem(10px),
-  alert-container-z-index: 9999
+  alert-container-z-index: 9999,
+  alert-animation: 1s
 );
 
 $alert-colors: (

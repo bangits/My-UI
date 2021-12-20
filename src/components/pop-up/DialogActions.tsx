@@ -1,8 +1,6 @@
-import { EditIcon, TrashIndicator } from '@/icons';
-import { FC, MouseEvent, ReactNode, useMemo } from 'react';
-import styles from './Dialog.module.scss';
-import React from 'react';
+import React, { FC, MouseEvent, ReactNode, useMemo } from 'react';
 import { IconButton, Typography } from '..';
+import styles from './Dialog.module.scss';
 export interface DialogActionProps {
   actions: {
     icon: ReactNode;
@@ -26,22 +24,22 @@ const DialogActions: FC<DialogActionProps> = ({ actions }) => {
   return (
     <div className={styles.DialogActions}>
       <div className={styles.BtnsActions}>
-        {dialogActionsLeft.map((action, key) => (
-          <div>
-            <IconButton icon={<EditIcon />} key={key} onClick={action.onClick} />
+        {dialogActionsLeft.map((action, index) => (
+          <div key={index}>
+            <IconButton icon={action.icon} onClick={action.onClick} />
             <Typography component='span' variant='p5' className={styles.BtnLabel}>
-              Edit
+              {action.label}
             </Typography>
           </div>
         ))}
       </div>
 
       <div className={styles.BtnsActions}>
-        {dialogActionsRight.map((action, key) => (
-          <div>
-            <IconButton icon={<EditIcon />} key={key} onClick={action.onClick} />
+        {dialogActionsRight.map((action, index) => (
+          <div key={index}>
+            <IconButton icon={action.icon} onClick={action.onClick} />
             <Typography component='span' variant='p5' className={styles.BtnLabel}>
-              Edit
+              {action.label}
             </Typography>
           </div>
         ))}

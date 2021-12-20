@@ -3,7 +3,7 @@
     cursor: pointer;
     .CardImg {
       width: 100%;
-      // font-size: 0;
+      font-size: 0;
       // height: getCardImgSizes(card-img-height);
       @include theme(box-shadow, box-shadow-color, 0 0 4px 0);
       @include theme(background-color, black-color);
@@ -51,81 +51,88 @@
     left: 0;
     width: 100%;
     height: 100%;
-    @include theme(opacity, disabled-opacity);
-    // opacity: 0.4;
-    transition: opacity getCardImgSizes(card-transition-opacity) linear;
+    opacity: 0.4;
+    transition: opacity 0.16s linear;
 
     &:hover {
-      opacity: getCardImgSizes(hover-opacity);
+      opacity: 1;
 
       .HoverBox-LinkText {
-        opacity: getCardImgSizes(hover-opacity);
-        bottom: getCardImgSizes(hoverbox-linktext-bottom-sizes);
+        opacity: 1;
+        bottom: 8px;
       }
       .HoverBox-PlayBtn {
-        margin-top: getCardImgSizes(hoverbox-playbtn-view-icon-margin-top);
-        opacity: getCardImgSizes(hover-opacity);
+        margin-top: -7px;
+        opacity: 1;
       }
       .HoverBox-ViewIcon {
-        top: getCardImgSizes(hoverbox-linktext-bottom-sizes);
-        opacity: getCardImgSizes(hover-opacity);
+        top: 8px;
+        opacity: 1;
       }
     }
   }
   .HoverBox-PlayBtn {
     display: block;
-    width: getCardImgSizes(hoverbox-playbtn-sizes);
-    height: getCardImgSizes(hoverbox-playbtn-sizes);
-    @include theme(border, hoverbox-playbtn-border-color, solid 1px);
-    @include center-absolute();
-    padding: getCardImgSizes(hoverbox-playbtn-padding);
-    z-index: getCardImgSizes(hoverbox-playbtn-z-index);
-    border-radius: getCardImgSizes(hoverbox-playbtn-border-radius);
-    margin-top: getCardImgSizes(hoverbox-playbtn-margin-top);
-    opacity: getCardImgSizes(hoverbox-playbtn-opacity);
-    transition: all getCardImgSizes(hoverbox-playbtn-transition) linear;
+    width: 32px;
+    height: 32px;
+    border: solid rgba(255, 255, 255, 0.7) 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 1px;
+    z-index: 11;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    margin-top: -3px;
+    opacity: 0;
+    transition: all 0.13s linear;
   }
   .HoverBox-PlayBtnInner {
+    display: block;
     width: 100%;
     height: 100%;
-    @include theme(background-color, hoverbox-playbtn-background-color);
-    z-index: getCardImgSizes(hoverbox-playbtn-inner-z-index);
-    border-radius: getCardImgSizes(hoverbox-playbtn-border-radius);
-    @include flex(center, center);
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 11;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .HoverBox-OpacityLayer {
     display: block;
-    z-index: getCardImgSizes(hoverbox-opacity-layer-z-index);
+    z-index: 10;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    @include theme(background-color, hoverbox-opacity-layer-background-color);
+    background: rgba(0, 0, 0, 0.8);
   }
 
   .HoverBox-PlayBtnIcon {
     display: block;
-    width: getCardImgSizes(hoverbox-play-btn-icon-width);
-    @include flex(center, center);
-    transform: translate(getCardImgSizes(hoverbox-play-btn-icon-transform), 0);
+    width: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(2px, 0);
     svg {
-      @include theme(fill, play-icon-fill);
+      fill: #3c54b2;
     }
   }
 
   .HoverBox-ViewIcon {
     display: block;
-    z-index: getCardImgSizes(hoverbox-view-icon-z-index);
+    z-index: 100;
     position: absolute;
     top: 0;
-    right: getCardImgSizes(hoverbox-view-icon-positon-right);
+    right: 8px;
     opacity: 0;
-    width: getCardImgSizes(hoverbox-view-icon-width);
-    transition: all getCardImgSizes(hoverbox-view-icon-transition) linear;
+    width: 12px;
+    transition: all 0.13s linear;
     svg {
-      @include theme(fill, hoverbox-view-icon-color);
+      fill: #fff;
     }
   }
 
@@ -135,12 +142,13 @@
     position: absolute;
     bottom: 0;
     opacity: 0;
-    right: getCardImgSizes(hoverbox-link-text-position-right);
-    transform: translate(getCardImgSizes(hoverbox-link-text-position-right), 0);
-    @include theme(color, hoverbox-view-icon-color);
-    font-size: getCardImgSizes(hoverbox-link-text-font-size);
-    z-index: getCardImgSizes(hoverbox-view-icon-z-index);
-    transition: all linear getCardImgSizes(hoverbox-playbtn-transition);
+    right: 50%;
+    transform: translate(50%, 0);
+    font-family: 'Roboto';
+    color: #fff;
+    font-size: 13px;
+    z-index: 100;
+    transition: all linear 0.13s;
     &:after {
       content: '';
       display: block;
@@ -149,7 +157,7 @@
       left: 0;
       width: 100%;
       height: 1px;
-      @include theme(background-color, hover-box-link-text-after-backgroud-color);
+      background: rgba(255, 255, 255, 0.5);
     }
   }
 }

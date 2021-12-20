@@ -1,5 +1,5 @@
 import { SelectProps, Tree } from '@/components';
-import { getFlatMap } from '@/helpers';
+import { getTreeTotalChilds } from '@/helpers';
 import { ArrowBottom, ArrowTop } from '@/icons';
 import classNames from 'classnames';
 import React, { FC, useCallback, useMemo, useState } from 'react';
@@ -19,7 +19,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
   const hasChild = node.children && node.children.length ? true : false;
 
   const quantityOfChildren = useMemo(() => {
-    return getFlatMap({ value: node.id, children: node.children })?.length;
+    return getTreeTotalChilds(node);
   }, [node]);
 
   const closeMenuOnClick = useCallback((e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
@@ -46,7 +46,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, onChange, index, setInput }) => {
           </span>
         </span>
         <i className={classNames(styles['Select-Tree-List__Item-Number'], 'Select-Tree-List__Item-Number')}>
-          {quantityOfChildren === 1 ? '' : `(${quantityOfChildren})`}
+          {quantityOfChildren === 0 ? '' : `(${quantityOfChildren})`}
         </i>
         {hasChild && (
           <i

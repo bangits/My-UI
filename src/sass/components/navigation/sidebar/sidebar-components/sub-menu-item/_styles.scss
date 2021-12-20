@@ -19,7 +19,8 @@
       height: 100%;
     }
 
-    &:hover {
+    &:hover,
+    &--active {
       height: getSubMenuItemSizes(sidebar-sub-menu-item-hover-height);
       border-radius: getSubMenuItemSizes(sidebar-sub-menu-item-hover-borderRadius);
       @include theme(background-color, sub-menu-items-base-colors-hover);
@@ -28,6 +29,7 @@
       line-height: getSubMenuItemSizes(sidebar-sub-menu-item-line-height-hover);
       cursor: pointer;
     }
+
     .SubMenuItemsIcon {
       @include flex(null, center);
       margin-left: getSubMenuItemSizes(sub-menu-items-icon-marginLeft);

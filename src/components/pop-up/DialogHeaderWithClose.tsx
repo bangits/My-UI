@@ -15,9 +15,9 @@ export const DialogHeaderWithClose = ({ onClose, title }: DialogHeaderWithClose)
           {title}
         </Typography>
       </div>
-      <div onClick={onClose}>
+      <button type='button' className={styles.DialogHeaderClose} onClick={onClose}>
         <CloseIcon />
-      </div>
+      </button>
     </div>
   );
 };

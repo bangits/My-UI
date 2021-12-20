@@ -14,6 +14,7 @@ export const Option: typeof components.Option = (props) => {
     },
     [selectProps.isTree, selectProps.isMulti, props.label]
   );
+
   return (
     <div
       className={classNames({

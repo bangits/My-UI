@@ -13,7 +13,7 @@ const CardImg: FC<CardImgProps> = ({ title, image, handleClick }) => {
   return (
     <div className={styles.CardImgContainer} onClick={handleClick}>
       <div className={styles.CardImg}>
-        <span className={classNames(styles['HoverBox'], 'HoverBox')}>
+        {/* <span className={classNames(styles['HoverBox'], 'HoverBox')}>
           <span className={classNames(styles['HoverBox-PlayBtn'], 'HoverBox-PlayBtn')}>
             <span className={classNames(styles['HoverBox-PlayBtnInner'], 'HoverBox-PlayBtnInner')}>
               <span className={classNames(styles['HoverBox-PlayBtnIcon'], 'HoverBox-PlayBtnIcon')}>
@@ -26,7 +26,7 @@ const CardImg: FC<CardImgProps> = ({ title, image, handleClick }) => {
           </span>
           <span className={classNames(styles['HoverBox-LinkText'], 'HoverBox-LinkText')}>Play demo</span>
           <span className={classNames(styles['HoverBox-OpacityLayer'], 'HoverBox-OpacityLayer')}></span>
-        </span>
+        </span> */}
 
         {image && <img src={image} alt='' />}
       </div>

@@ -14,7 +14,7 @@ const Dialog: FC<DialogProps> = ({ onClose, isOpened, children, mode = 'light', 
   return (
     <Portal>
       <CSSTransition in={isOpened} timeout={500} classNames={{ exit: styles['Dialog--exit'] }} unmountOnExit>
-        <div>
+        <div className={styles.DialogWrapper}>
           <div
             className={classNames(styles.Dialog, {
               [styles[`DialogSizeVariant--${size}`]]: size,

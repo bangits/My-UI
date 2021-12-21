@@ -2,6 +2,7 @@ $tablehead-sizes: (
   table-head-font-weight: 500,
   table-head-font-size: calculateRem(14px),
   table-head-height: calculateRem(24px),
+  table-head-padding: 0 calculateRem(16px),
   table-head-container-height: calculateRem(24px),
   table-arrow-icon-sizes: calculateRem(24px),
   table-icon-up-margin: calculateRem(6px),

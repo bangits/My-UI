@@ -1,6 +1,7 @@
 $dialog-sizes: (
   dialog-width: calculateRem(388px),
   dialog-height: calculateRem(356px),
+  dialog-wrapper-z-index: 99999,
   dialog-container-sizes: calculateRem(80px),
   dialog-padding: calculateRem(40px) calculateRem(34px) calculateRem(24px) calculateRem(34px),
   dialog-border-radius: calculateRem(8px),

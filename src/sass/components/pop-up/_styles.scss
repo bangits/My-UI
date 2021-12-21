@@ -3,7 +3,7 @@
 @mixin generate-popup-styles {
   .DialogWrapper {
     position: relative;
-    z-index: 99999;
+    z-index: getDialogSizes(dialog-wrapper-z-index);
     .Dialog {
       width: 100%;
       max-width: getDialogSizes(dialog-width);

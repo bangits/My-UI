@@ -4,6 +4,7 @@ $tablerow-sizes: (
   table-td-th-child-two-margin-left: calculateRem(16px),
   table-td-th-last-child-margin-right: calculateRem(26px),
   table-row-selected-border-width: calculateRem(3px),
+  table-row-loading-opacity: 0.1,
   filter-blur: 0.5px
 );
 

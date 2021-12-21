@@ -9,7 +9,7 @@
     @include theme(color, gray-color);
     text-transform: uppercase;
     margin: 0 auto;
-    padding: 0 1.6rem;
+    padding: getTableHeadSizes(table-head-padding);
     min-height: getTableHeadSizes(table-head-height);
 
     .TableHeadContainer {

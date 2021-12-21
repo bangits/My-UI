@@ -11,12 +11,12 @@
   .TableHead {
     position: sticky;
     top: 0;
-    z-index: 100;
-    background: #fff;
+    z-index: getTableSizes(table-head-z-index);
+    @include theme(background-color, backdground-color-table-head);
 
     tr {
       position: relative;
-      z-index: 10;
+      z-index: getTableSizes(table-head-tr-z-index);
     }
   }
 
@@ -49,15 +49,15 @@
       position: relative;
       top: 0;
       left: 0;
-      z-index: 1;
+      z-index: getTableSizes(table-conatiner-tr-z-index);
     }
     &--ready {
-      opacity: 1;
+      opacity: getTableSizes(table-conatiner-tr-ready-opacity);
     }
 
     tr {
       position: relative;
-      z-index: 1;
+      z-index: getTableSizes(table-conatiner-tr-z-index);
     }
 
     .TableHead tr {
@@ -74,7 +74,7 @@
     .LastTableCell {
       margin-right: getTableSizes(last-table-cell-margin) !important;
       padding: 0;
-      opacity: 1;
+      opacity: getTableSizes(last-table-cell-opacity);
     }
 
     .TableBody {

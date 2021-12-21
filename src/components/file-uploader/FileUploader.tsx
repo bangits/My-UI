@@ -77,7 +77,10 @@ const FileUploader: FC<FileUploaderProps> = ({
       minSize,
       maxSize,
       accept,
-      onChange: setUploadedFile,
+      onChange: (file) => {
+        onChange(file);
+        setUploadedFile(file);
+      },
       onError,
       onImageSourceChange: setUploadedImageSource
     }),

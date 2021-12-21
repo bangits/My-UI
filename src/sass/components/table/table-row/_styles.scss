@@ -29,7 +29,7 @@
         height: 100%;
         animation: left-to-right 1.5s alternate infinite linear;
         @include theme(background, primary, 'linear-gradient(to right, transparent,', ', transparent)');
-        opacity: 0.1;
+        opacity: getTableRowSizes(table-row-loading-opacity);
         top: 0;
         right: 0;
         left: 0;

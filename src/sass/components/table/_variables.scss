@@ -4,7 +4,12 @@ $table-sizes: (
   table-body-row-height: calculateRem(51px),
   table-action-cell-width: calculateRem(140px),
   table-with-selection-width: calculateRem(18px),
+  table-head-z-index: 100,
+  table-head-tr-z-index: 10,
+  table-conatiner-tr-z-index: 1,
+  table-conatiner-tr-ready-opacity: 1,
   last-table-cell-margin: calculateRem(16px),
+  last-table-cell-opacity: 1,
   illustration-wrapper-width: calculateRem(209.74px),
   illustration-wrapper-height: calculateRem(135.83px),
   illustration-wrapper-min-height: calculateRem(320px),
@@ -16,7 +21,8 @@ $table-sizes: (
 );
 
 $table-colors: (
-  action-table-cell-bg-color: color(white-lilac)
+  action-table-cell-bg-color: color(white-lilac),
+  backdground-color-table-head: color(white)
 );
 
 @function getTableSizes($property) {

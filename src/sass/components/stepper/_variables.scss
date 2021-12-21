@@ -6,7 +6,9 @@ $stepper-sizes: (
   step-section-padding: calculateRem(10px) calculateRem(9px),
   step-section-border-radius: 50%,
   step-text-margin: calculateRem(9px),
-  step-text-container: calculateRem(120px)
+  step-text-container: calculateRem(120px),
+  stepper-flex: 1,
+  stepper-flex-line-container: 1 1
 );
 
 $stepper-colors: ();

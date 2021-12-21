@@ -4,9 +4,9 @@
 
     .Stepper {
       position: relative;
-      flex: 1;
+      flex: getStepperSizes(stepper-flex);
       .StepperLineContainer {
-        flex: 1 1 auto;
+        flex: getStepperSizes(stepper-flex-line-container) auto;
         position: absolute;
         top: getStepperSizes(stepper-line-container-position-top);
         left: calc(-50%);

@@ -21,7 +21,8 @@ $table-sizes: (
 );
 
 $table-colors: (
-  action-table-cell-bg-color: color(white-lilac)
+  action-table-cell-bg-color: color(white-lilac),
+  backdground-color-table-head: color(white)
 );
 
 @function getTableSizes($property) {

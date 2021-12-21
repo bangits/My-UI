@@ -49,15 +49,10 @@
       position: relative;
       top: 0;
       left: 0;
-      z-index: getTableSizes(table-conatiner-tr-z-index);
+      // z-index: getTableSizes(table-conatiner-tr-z-index);
     }
     &--ready {
       opacity: getTableSizes(table-conatiner-tr-ready-opacity);
-    }
-
-    tr {
-      position: relative;
-      z-index: getTableSizes(table-conatiner-tr-z-index);
     }
 
     .TableHead tr {

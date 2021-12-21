@@ -1,6 +1,5 @@
 @mixin generate-cardimg-styles {
   .CardImgContainer {
-    cursor: pointer;
     .CardImg {
       width: 100%;
       font-size: 0;
@@ -25,139 +24,20 @@
 
     .CardTextContainer {
       @include flex(center, center);
-
       @include theme(background-color, card-background-color);
       @include theme(color, gray-color);
+      @include theme(box-shadow, box-shadow-color, 0 0 4px 0);
+      @include theme(border, card-img-border-color, 1px solid);
       box-sizing: border-box;
       border-radius: getCardImgSizes(card-text-container-border-radius);
-      @include theme(box-shadow, box-shadow-color, 0 0 4px 0);
       height: getCardImgSizes(card-text-container-height);
       padding: getCardImgSizes(card-text-container-padding);
-
-      @include theme(border, card-img-border-color, 1px solid);
 
       .CardText {
         @include dots-after-text;
         max-width: getCardImgSizes(card-text-width);
+        cursor: default;
       }
-    }
-  }
-
-  .HoverBox {
-    display: block;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.4;
-    transition: opacity 0.16s linear;
-
-    &:hover {
-      opacity: 1;
-
-      .HoverBox-LinkText {
-        opacity: 1;
-        bottom: 8px;
-      }
-      .HoverBox-PlayBtn {
-        margin-top: -7px;
-        opacity: 1;
-      }
-      .HoverBox-ViewIcon {
-        top: 8px;
-        opacity: 1;
-      }
-    }
-  }
-  .HoverBox-PlayBtn {
-    display: block;
-    width: 32px;
-    height: 32px;
-    border: solid rgba(255, 255, 255, 0.7) 1px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 1px;
-    z-index: 11;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    margin-top: -3px;
-    opacity: 0;
-    transition: all 0.13s linear;
-  }
-  .HoverBox-PlayBtnInner {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 11;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .HoverBox-OpacityLayer {
-    display: block;
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-  }
-
-  .HoverBox-PlayBtnIcon {
-    display: block;
-    width: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(2px, 0);
-    svg {
-      fill: #3c54b2;
-    }
-  }
-
-  .HoverBox-ViewIcon {
-    display: block;
-    z-index: 100;
-    position: absolute;
-    top: 0;
-    right: 8px;
-    opacity: 0;
-    width: 12px;
-    transition: all 0.13s linear;
-    svg {
-      fill: #fff;
-    }
-  }
-
-  .HoverBox-LinkText {
-    display: block;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    opacity: 0;
-    right: 50%;
-    transform: translate(50%, 0);
-    font-family: 'Roboto';
-    color: #fff;
-    font-size: 13px;
-    z-index: 100;
-    transition: all linear 0.13s;
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.5);
     }
   }
 }

@@ -52,13 +52,14 @@ export const MenuItem: FC<MenuItemProps> = ({
         },
         menuItemProps.className
       )}>
-      <div className={classNames(styles.MenuItemLinkContainer, linkContainerClassName)}>
+      <div
+        role='button'
+        onClick={toggleOpenedSidebarMenus}
+        className={classNames(styles.MenuItemLinkContainer, linkContainerClassName)}>
         <div className={classNames(styles['MenuItemBase--icon'])}>{icon}</div>
         <a className={classNames(styles['MenuItemBase--label'])}>{label}</a>
         {subItems?.length > 0 && (
           <span
-            role='button'
-            onClick={toggleOpenedSidebarMenus}
             className={classNames(styles.MenuItemArrow, {
               [styles['MenuItemArrow--opened']]: isOpenendSidebarMenus
             })}>

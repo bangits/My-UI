@@ -4,64 +4,66 @@
   .DialogWrapper {
     position: relative;
     z-index: 99999;
-    .Dialog {
-      width: 100%;
-      max-width: getDialogSizes(dialog-width);
-      height: auto;
-      min-height: getDialogSizes(dialog-height);
-      border-radius: getDialogSizes(dialog-border-radius);
-      @include theme(box-shadow, box-shadow-color, 0 0 5px);
-      @include flex(null, null, $direction: column);
-      @include theme(background-color, primary--color);
-      @include theme(color, dialog-label-color);
-      text-align: center;
-      padding: getDialogSizes(dialog-padding);
-      box-sizing: border-box;
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      z-index: getDialogSizes(dialog-z-index) + 1;
-      animation: dialog-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
 
-      &--exit {
-        animation: dialog-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  .Dialog {
+    width: 100%;
+    max-width: getDialogSizes(dialog-width);
+    height: auto;
+    min-height: getDialogSizes(dialog-height);
+    border-radius: getDialogSizes(dialog-border-radius);
+    @include theme(box-shadow, box-shadow-color, 0 0 5px);
+    @include flex(null, null, $direction: column);
+    @include theme(background-color, primary--color);
+    @include theme(color, dialog-label-color);
+    text-align: center;
+    padding: getDialogSizes(dialog-padding);
+    box-sizing: border-box;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: getDialogSizes(dialog-z-index) + 1;
+    animation: dialog-animation 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
+    &--exit {
+      animation: dialog-animation-exit 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+
+    .DialogIconContainer {
+      width: getDialogSizes(dialog-container-sizes);
+      height: getDialogSizes(dialog-container-sizes);
+      margin: 0 auto;
+    }
+
+    .DialogLabel {
+      h2 {
+        margin-bottom: 0;
       }
+    }
 
-      .DialogIconContainer {
-        width: getDialogSizes(dialog-container-sizes);
-        height: getDialogSizes(dialog-container-sizes);
-        margin: 0 auto;
-      }
-
-      .DialogLabel {
-        h2 {
-          margin-bottom: 0;
+    .DialogText {
+      @include theme(color, black-color);
+      word-break: break-word;
+      p {
+        margin-bottom: 0;
+        b,
+        strong {
+          font-weight: getDialogSizes(dialog-span-font);
         }
       }
-
-      .DialogText {
-        @include theme(color, black-color);
-        word-break: break-word;
-        p {
-          margin-bottom: 0;
-          b,
-          strong {
-            font-weight: getDialogSizes(dialog-span-font);
-          }
-        }
-      }
-      .DialogBtnGroup {
-        @include flex(center, null);
-        margin-top: auto;
-        button {
-          &:nth-child(2) {
-            margin-left: getDialogSizes(dialog-margin);
-          }
+    }
+    .DialogBtnGroup {
+      @include flex(center, null);
+      margin-top: auto;
+      button {
+        &:nth-child(2) {
+          margin-left: getDialogSizes(dialog-margin);
         }
       }
     }
   }
+
   .DialogSizeVariant--md {
     max-width: getDialogSizes(dialog-dark-max-width);
     padding: getDialogSizes(dialog-size-md-padding);
@@ -92,6 +94,8 @@
     border: none;
     background: none;
     cursor: pointer;
+
+    @include theme(color, dialog-close-color);
   }
 
   @keyframes dialog-animation-exit {

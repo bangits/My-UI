@@ -1,0 +1,12 @@
+@mixin p($position: rel, $top: 0, $left: 0) {
+  left: $left;
+  top: $top;
+
+  @if $position == rel {
+    position: relative;
+  } @else if $position == abs {
+    position: absolute;
+  } @else if $position == fix {
+    position: fixed;
+  }
+}

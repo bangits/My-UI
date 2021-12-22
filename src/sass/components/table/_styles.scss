@@ -49,7 +49,6 @@
       position: relative;
       top: 0;
       left: 0;
-      // z-index: getTableSizes(table-conatiner-tr-z-index);
     }
     &--ready {
       opacity: getTableSizes(table-conatiner-tr-ready-opacity);
@@ -137,5 +136,39 @@
       letter-spacing: getTableSizes(illustration-text-letter-spacing);
       @include theme(color, black-color);
     }
+  }
+
+  .ActionToolsStickyHorizontal {
+    position: sticky;
+    top: 0;
+    right: 0;
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+  }
+
+  .ActionTools {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    transform: translate(0, 0);
+  }
+
+  .ActionTableCell {
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    min-width: 113px;
+    margin-top: 0;
+    transform: translate(10px, -51%);
+    background-color: #ebeef7;
+    padding-right: 20px;
   }
 }

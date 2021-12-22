@@ -161,14 +161,14 @@
   }
 
   .ActionTableCell {
-    height: 50px;
+    height: getTableSizes(action-table-cell-height);
     position: absolute;
     top: 0;
-    right: 5px;
-    min-width: 113px;
+    right: getTableSizes(action-table-cell-right);
+    min-width: getTableSizes(action-table-cell-min-width);
     margin-top: 0;
     transform: translate(10px, -51%);
-    background-color: #ebeef7;
-    padding-right: 20px;
+    background-color: getTableColors(action-table-cell-bg-color2);
+    padding-right: getTableSizes(action-table-cell-padding-right);
   }
 }

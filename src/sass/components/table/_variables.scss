@@ -17,14 +17,26 @@ $table-sizes: (
   illustration-text-width: calculateRem(251px),
   illustration-text-margin-top: calculateRem(24px),
   illustration-text-letter-spacing: calculateRem(1.4px),
-  table-no-result: calculateRem(440px)
+  table-no-result: calculateRem(440px),
+  //
+  action-table-cell-height: calculateRem(50px),
+  action-table-cell-right: calculateRem(5px),
+  action-table-cell-min-width: calculateRem(113px),
+  action-table-cell-padding-right: calculateRem(20px),
+  action-table-cell-transform: translate(10px, -51%)
 );
 
 $table-colors: (
   action-table-cell-bg-color: color(white-lilac),
-  backdground-color-table-head: color(white)
+  backdground-color-table-head: color(white),
+  //
+  action-table-cell-bg-color2: color(white-lilac)
 );
 
 @function getTableSizes($property) {
   @return map-get($table-sizes, $property);
+}
+
+@function getTableColors($key) {
+  @return map-get($table-colors, $key);
 }

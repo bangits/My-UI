@@ -14,6 +14,6 @@ $checkbox-colors: (
   @return map-get($checkbox-sizes, $property);
 }
 
-@function getTableColors($key) {
+@function getCheckboxColor($key) {
   @return map-get($table-colors, $key);
 }

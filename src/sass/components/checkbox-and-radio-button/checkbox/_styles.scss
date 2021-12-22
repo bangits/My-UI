@@ -14,7 +14,7 @@
 
   .CheckboxIcon {
     display: none;
-    width: getCheckboxSizes(checkbox-check-width);
+    width: getCheckboxColor(checkbox-check-width);
   }
 
   .Checkbox {
@@ -43,7 +43,7 @@
       }
     }
     svg {
-      fill: getTableColors(checkbox-svg-color);
+      fill: #fff;
     }
   }
 

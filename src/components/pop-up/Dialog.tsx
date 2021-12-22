@@ -1,8 +1,8 @@
 import { Portal } from '@/components';
-import { FC, ReactNode } from 'react';
+import classNames from 'classnames';
+import { FC } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './Dialog.module.scss';
-import classNames from 'classnames';
 export interface DialogProps {
   isOpened?: boolean;
   mode?: 'dark' | 'light';

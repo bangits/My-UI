@@ -24,7 +24,7 @@ export const TableHead: FC<TableHeadProps> = ({
   ...props
 }) => {
   return (
-    <Component className={styles.TableHead} {...props}>
+    <Component className={styles.TableHead} {...props} title=''>
       <div className={styles.TableHeadContainer}>
         {children}
         {!hideSortIcon && (

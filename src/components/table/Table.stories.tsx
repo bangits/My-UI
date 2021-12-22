@@ -44,7 +44,18 @@ export const Default = () => {
       columns={object('columns', [
         {
           Header: 'Icon',
-          accessor: 'x'
+          accessor: 'x',
+          renderColumn: (...args) => {
+            console.log(args);
+
+            return (
+              <img
+                src={
+                  'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80'
+                }
+              />
+            );
+          }
         },
         {
           Header: 'Game Id',

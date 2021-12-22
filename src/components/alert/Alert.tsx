@@ -19,7 +19,6 @@ const Alert: FC<AlertProps> = ({ icon, alertLabel, onClose, className, autoClose
   useEffect(() => {
     if (autoClose) {
       const timeout = setTimeout(onClose, autoCloseDelay);
-
       return () => clearTimeout(timeout);
     }
   }, []);

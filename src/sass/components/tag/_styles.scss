@@ -37,4 +37,11 @@
       }
     }
   }
+
+  .AlertClose {
+    cursor: pointer;
+    width: getTagSizes(alert-close-width) !important;
+    margin-left: getTagSizes(alert-close-marginLeft);
+    @include theme(fill, gray-color);
+  }
 }

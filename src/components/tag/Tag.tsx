@@ -31,7 +31,11 @@ const Tag: FC<TagProps> = ({ title, closeIcon, inactive, color = 'primary', onCl
         <Typography component='span' variant='p4' className={classNames(styles.TagText)}>
           {title}
         </Typography>
-        {closeIcon && <span className={styles.IconContainer}>{closeIcon && <AlertClose onClick={onClose} />}</span>}
+        {closeIcon && (
+          <span className={styles.IconContainer}>
+            {closeIcon && <AlertClose onClick={onClose} className={styles.AlertClose} />}
+          </span>
+        )}
       </div>
     </>
   );

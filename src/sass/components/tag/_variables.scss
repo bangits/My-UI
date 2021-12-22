@@ -5,7 +5,9 @@ $tag-sizes: (
   tag-border-radius: 16px,
   tag-close-icon-padding-right: calculateRem(4px),
   tag-icon-container-width: calculateRem(24px),
-  tag-icon-container-height: calculateRem(24px)
+  tag-icon-container-height: calculateRem(24px),
+  alert-close-width: calculateRem(10px),
+  alert-close-marginLeft: calculateRem(7px)
 );
 
 $tag-colors: ();

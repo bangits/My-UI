@@ -61,7 +61,6 @@ const Badge: FC<BadgeProps> = ({
   return (
     <div className={classNames(styles.BadgeContainer, className)}>
       {children}
-
       {quantity > 0 && maxNumber > 0 && (
         <span
           className={classNames(

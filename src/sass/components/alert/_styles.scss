@@ -10,16 +10,12 @@
     padding: getAlertSizes(alert-padding);
     margin-bottom: getAlertSizes(alert-margin-bottom);
     box-sizing: border-box;
+
     @include theme(box-shadow, box-shadow-color, 2px 2px 5px 0);
 
     .AlertText {
       @include theme(color, gray-color);
       margin-left: getAlertSizes(alert-text-marginLeft);
-    }
-
-    .AlertClose {
-      cursor: pointer;
-      margin-left: getAlertSizes(alert-close-marginLeft);
     }
   }
 
@@ -70,36 +66,43 @@
       transform: translateX(0%);
     }
   }
-}
 
-.AlertCheckIconCell {
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
-  display: block;
-  width: getAlertSizes(alert-container-svg-width);
-  margin-right: 1px;
-  svg {
-    width: 100%;
-    height: auto;
+  .AlertClose {
+    cursor: pointer;
+    margin-left: getAlertSizes(alert-close-marginLeft);
+    width: getAlertSizes(alert-close-width);
+    @include theme(fill, gray-color);
   }
 
-  &--Check {
-    text-decoration: none;
-    transform: translate(-2px, 2px);
-  }
-  &--Warning {
-    text-decoration: none;
-    transform: translate(-3px, 0px);
-  }
-  &--Error {
-    text-decoration: none;
-    transform: translate(-3px, 0px);
-  }
-  &--Info {
-    text-decoration: none;
-    transform: translate(-4px, 0px);
+  .AlertCheckIconCell {
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+    display: block;
+    width: getAlertSizes(alert-container-svg-width);
+    margin-right: 1px;
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    &--Check {
+      text-decoration: none;
+      transform: translate(-2px, 2px);
+    }
+    &--Warning {
+      text-decoration: none;
+      transform: translate(-3px, 0px);
+    }
+    &--Error {
+      text-decoration: none;
+      transform: translate(-3px, 0px);
+    }
+    &--Info {
+      text-decoration: none;
+      transform: translate(-4px, 0px);
+    }
   }
 }

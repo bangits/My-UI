@@ -4,7 +4,6 @@
     @include flex($direction: column);
     list-style-type: none;
     width: getMenuItemSizes(sidebar-menu-item-width);
-    // max-height: getMenuItemSizes(sidebar-menu-item-height);
     cursor: pointer;
 
     padding: getMenuItemSizes(sidebar-menu-item-padding);
@@ -44,7 +43,7 @@
         padding: getMenuItemSizes(sidebar-menu-item-isActive-label-padding);
         font-family: $base-font-family;
         font-size: getMenuItemSizes(sidebar-menu-item-isActive-label-font-size);
-        font-weight: 700;
+        font-weight: getMenuItemSizes(sidebar-menu-item-isActive-label-font-weight);
         letter-spacing: getMenuItemSizes(sidebar-menu-item-isActive-label-letter-spacing);
         @include theme(color, sidebar-menu-item-isActive-label-color);
         opacity: getMenuItemSizes(sidebar-menu-item-isActive-label-opacity);

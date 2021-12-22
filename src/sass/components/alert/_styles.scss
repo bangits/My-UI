@@ -29,6 +29,12 @@
     right: getAlertSizes(alert-animation-position);
 
     z-index: getAlertSizes(alert-container-z-index);
+    svg {
+      width: getAlertSizes(alert-container-pop-up-svg-width);
+      position: relative;
+      top: 0;
+      left: getAlertSizes(alert-container-pop-up-svg-left);
+    }
   }
 
   .AlertEnter,
@@ -63,5 +69,37 @@
     80% {
       transform: translateX(0%);
     }
+  }
+}
+
+.AlertCheckIconCell {
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+  display: block;
+  width: getAlertSizes(alert-container-svg-width);
+  margin-right: 1px;
+  svg {
+    width: 100%;
+    height: auto;
+  }
+
+  &--Check {
+    text-decoration: none;
+    transform: translate(-2px, 2px);
+  }
+  &--Warning {
+    text-decoration: none;
+    transform: translate(-3px, 0px);
+  }
+  &--Error {
+    text-decoration: none;
+    transform: translate(-3px, 0px);
+  }
+  &--Info {
+    text-decoration: none;
+    transform: translate(-4px, 0px);
   }
 }

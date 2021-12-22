@@ -6,6 +6,8 @@ import React from 'react';
 import Alert from './Alert';
 import AlertContainer from './AlertContainer';
 import { alert } from './AlertService';
+import classNames from 'classnames';
+import styles from './Alert.module.scss';
 
 export default {
   component: Alert,
@@ -43,16 +45,68 @@ export const Default = () => {
   return (
     <div style={{ width: 800 }}>
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-        <Button onClick={successAdd} variant='ghost' startIcon={<AlertCheck />}>
+        <Button
+          onClick={successAdd}
+          variant='ghost'
+          startIcon={
+            <div
+              className={classNames(
+                styles['AlertCheckIconCell'],
+                styles['AlertCheckIconCell--Check'],
+                'AlertCheckIconCell',
+                'AlertCheckIconCell--Check'
+              )}>
+              <AlertCheck />
+            </div>
+          }>
           Success!
         </Button>
-        <Button onClick={warningAdd} variant='ghost' startIcon={<AlertWarning />}>
+        <Button
+          onClick={warningAdd}
+          variant='ghost'
+          startIcon={
+            <div
+              className={classNames(
+                styles['AlertCheckIconCell'],
+                styles['AlertCheckIconCell--Warning'],
+                'AlertCheckIconCell',
+                'AlertCheckIconCell--Warning'
+              )}>
+              <AlertWarning />
+            </div>
+          }>
           Warning!
         </Button>
-        <Button onClick={errorAdd} variant='ghost' startIcon={<AlertError />}>
+        <Button
+          onClick={errorAdd}
+          variant='ghost'
+          startIcon={
+            <div
+              className={classNames(
+                styles['AlertCheckIconCell'],
+                styles['AlertCheckIconCell--Error'],
+                'AlertCheckIconCell',
+                'AlertCheckIconCell--Error'
+              )}>
+              <AlertError />
+            </div>
+          }>
           Error!
         </Button>
-        <Button onClick={infoAdd} variant='ghost' startIcon={<AlertInfo />}>
+        <Button
+          onClick={infoAdd}
+          variant='ghost'
+          startIcon={
+            <div
+              className={classNames(
+                styles['AlertCheckIconCell'],
+                styles['AlertCheckIconCell--Info'],
+                'AlertCheckIconCell',
+                'AlertCheckIconCell--Info'
+              )}>
+              <AlertInfo />
+            </div>
+          }>
           Information!
         </Button>
       </div>

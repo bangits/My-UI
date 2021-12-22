@@ -255,42 +255,11 @@ const Table = <T extends {}>({
 
                   {actions && !isLoading && (
                     <div
-                      style={{
-                        position: 'sticky',
-                        top: 0,
-                        right: 0,
-                        height: 0,
-                        width: 0,
-                        margin: 0,
-                        padding: 0,
-                        zIndex: 1000
-                      }}
+                      className={classNames(styles['ActionToolsStickyHorizontal'], 'ActionToolsStickyHorizontal')}
                       {...actions}
                       color={color}>
-                      <section
-                        style={{
-                          position: 'absolute',
-                          top: 0,
-                          right: 0,
-                          display: 'block',
-                          height: 0,
-                          padding: 0,
-                          margin: 0,
-                          transform: 'translate(0,0)'
-                        }}>
-                        <div
-                          className={styles.ActionTableCell}
-                          style={{
-                            height: '50px',
-                            position: 'absolute',
-                            top: '0px',
-                            right: '5px',
-                            minWidth: '113px',
-                            marginTop: '0',
-                            transform: 'translate(10px, -51%)',
-                            backgroundColor: '#ebeef7',
-                            paddingRight: '20px'
-                          }}>
+                      <section className={classNames(styles['ActionTools'], 'ActionTools')}>
+                        <div className={classNames(styles['ActionTableCell'], 'ActionTableCell')}>
                           {actions.map(
                             ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
                               shouldShow(data[rowIndex]) && (

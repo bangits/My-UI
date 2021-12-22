@@ -5,13 +5,16 @@
     padding: getButtonSizes(button-padding);
     border-radius: getButtonSizes(button-border-radius);
     font-size: getButtonSizes(button-font-size);
-
     min-width: getButtonSizes(button-min-width);
 
     // Reset
     font-family: inherit;
     border: none;
     cursor: pointer;
+    position: relative;
+    left: 0;
+    top: 0;
+    padding-left: 27px;
   }
 
   .startIcon,

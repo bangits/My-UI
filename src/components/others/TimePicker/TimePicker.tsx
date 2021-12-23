@@ -210,7 +210,7 @@ const TimePicker: FC<TimePickerProps> = ({
           className={classNames(styles.ScrollButton, styles.ScrollButtonNext, indicatorClassnames.timeElementStyles)}
           onClick={() => (scrollElementRef.current.scrollTop = currentScroll + elementsHeight)}
           {...nextButtonEvents}>
-          <ArrowIcon />
+          <ArrowIcon width='1rem' />
         </button>
       </div>
     </div>

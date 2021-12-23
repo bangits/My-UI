@@ -30,11 +30,13 @@ export const TableHead: FC<TableHeadProps> = ({
         {!hideSortIcon && (
           <div className={styles.IconArrow}>
             <ArrowIcon
+              width='1rem'
               className={classNames(styles.IconUp, {
                 [styles.IconDisabled]: !selectedDirection || direction === 'asc'
               })}
             />
             <ArrowIcon
+              width='1rem'
               className={classNames(styles.IconDown, {
                 [styles.IconDisabled]: !selectedDirection || direction === 'desc'
               })}

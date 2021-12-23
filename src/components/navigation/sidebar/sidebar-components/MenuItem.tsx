@@ -63,7 +63,7 @@ export const MenuItem: FC<MenuItemProps> = ({
             className={classNames(styles.MenuItemArrow, {
               [styles['MenuItemArrow--opened']]: isOpenendSidebarMenus
             })}>
-            <ArrowIcon />
+            <ArrowIcon width='1rem' />
           </span>
         )}
       </div>

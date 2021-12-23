@@ -174,7 +174,7 @@ const TimePicker: FC<TimePickerProps> = ({
           type='button'
           className={classNames(styles.ScrollButton, styles.ScrollButtonPrev, indicatorClassnames.timeElementStyles)}
           {...prevButtonEvents}>
-          <ArrowIcon />
+          <ArrowIcon width='1rem' />
         </button>
         <div
           className={classNames(

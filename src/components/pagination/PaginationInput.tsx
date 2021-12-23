@@ -23,6 +23,7 @@ const PaginationInput: FC<PaginationInputProps> = ({ onChange, totalPagesCount, 
         value={selectedPage}
         maxLength={6}
         type='number'
+        min={0}
         onChange={(e) => setSelectedPage(+e.target.value || '')}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {

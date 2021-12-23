@@ -70,7 +70,7 @@
   .AlertClose {
     cursor: pointer;
     margin-left: getAlertSizes(alert-close-marginLeft);
-    width: getAlertSizes(alert-close-width);
+    // width: getAlertSizes(alert-close-width);
     @include theme(fill, gray-color);
   }
 

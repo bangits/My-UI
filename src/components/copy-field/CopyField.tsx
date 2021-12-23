@@ -20,9 +20,7 @@ const CopyField: FC<CopyFieldProps> = ({ label, noDataText = 'N/A', tooltip, onC
       </div>
       <div className={styles.Copy}>
         <Tooltip {...tooltip}>
-          <div>
-            <CopyFieldIcon onClick={onClick} />
-          </div>
+          <CopyFieldIcon onClick={onClick} />
         </Tooltip>
       </div>
     </div>

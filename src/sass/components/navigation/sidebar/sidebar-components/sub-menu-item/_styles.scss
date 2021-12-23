@@ -37,7 +37,8 @@
 
       svg {
         width: getSubMenuItemSizes(sub-menu-items-iconWidth);
-        height: getSubMenuItemSizes(sub-menu-items-iconHeight);
+        // height: getSubMenuItemSizes(sub-menu-items-iconHeight);
+        fill: currentColor;
       }
     }
   }

@@ -1,13 +1,12 @@
-<svg version="1.1" id="Component_1_8" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 14.5 14.5"
-    xml:space="preserve">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 14.5 14.5" xml:space="preserve">
     <style>
         .st1 {
             fill: #8ea6c1
         }
     </style>
-    <g id="Group_2031" transform="translate(-976 -720)">
-        <g id="Icon_feather-copy" transform="translate(981 725)">
-            <g id="Path_3432">
+    <g transform="translate(-976 -720)">
+        <g transform="translate(981 725)">
+            <g>
                 <path
                     d="M10.6 9h7.2c.9 0 1.6.7 1.6 1.6v7.2c0 .9-.7 1.6-1.6 1.6h-7.2c-.9 0-1.6-.7-1.6-1.6v-7.2c0-.9.7-1.6 1.6-1.6z"
                     fill="none" transform="translate(-9.9 -9.9)" />
@@ -16,8 +15,7 @@
                     transform="translate(-9.9 -9.9)" />
             </g>
             <path class="st1"
-                d="M-2.1 6.4h-.8C-4.1 6.4-5 5.5-5 4.3v-7.2C-5-4.1-4.1-5-2.9-5h7.2c1.2 0 2.1.9 2.1 2.1v.8c0 .3-.2.5-.5.5s-.5-.2-.5-.5v-.8c0-.6-.5-1.1-1.1-1.1h-7.2C-3.5-4-4-3.5-4-2.9v7.2c0 .6.5 1.1 1.1 1.1h.8c.3 0 .5.2.5.5s-.2.5-.5.5z"
-                id="Path_3433" />
+                d="M-2.1 6.4h-.8C-4.1 6.4-5 5.5-5 4.3v-7.2C-5-4.1-4.1-5-2.9-5h7.2c1.2 0 2.1.9 2.1 2.1v.8c0 .3-.2.5-.5.5s-.5-.2-.5-.5v-.8c0-.6-.5-1.1-1.1-1.1h-7.2C-3.5-4-4-3.5-4-2.9v7.2c0 .6.5 1.1 1.1 1.1h.8c.3 0 .5.2.5.5s-.2.5-.5.5z" />
         </g>
     </g>
 </svg>

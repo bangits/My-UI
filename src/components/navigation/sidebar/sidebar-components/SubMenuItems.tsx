@@ -32,7 +32,7 @@ const SubMenuItems: FC<SubMenuItemProps> = ({
         className
       )}
       onClick={onClick}>
-      {icon && <div className={styles.SubMenuItemsIcon}>{icon}</div>}
+      {icon && <div className={classNames(styles['SubMenuItemsIcon'], 'SubMenuItemsIcon')}>{icon}</div>}
       <a {...subItemProps}>{label}</a>
     </div>
   );

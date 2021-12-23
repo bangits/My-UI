@@ -1,4 +1,4 @@
-import { ArrowNext, ArrowPrev } from '@/icons';
+import { ArrowNext, ArrowPrev, DropdownArrowIconDown } from '@/icons';
 import { Select, SelectOptionType, Typography } from '@/my-ui-core';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
@@ -68,9 +68,10 @@ const Pagination: FC<PaginationProps> = ({
                         style={{
                           transform: !isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
                         }}>
-                        <svg xmlns='http://www.w3.org/2000/svg' width='10' viewBox='0 0 12 6' fill='currentColor'>
+                        <DropdownArrowIconDown width='1rem' fill='currentColor' />
+                        {/* <svg xmlns='http://www.w3.org/2000/svg' width='10' viewBox='0 0 12 6' fill='currentColor'>
                           <path d='M11.8.2c-.1-.1-.3-.2-.5-.2H.7C.5 0 .3.1.2.2c-.3.4-.2.7.1.9l5.2 4.7c.3.3.8.3 1.1 0l5.2-4.7.1-.1c.2-.2.2-.6-.1-.8z' />
-                        </svg>
+                        </svg> */}
 
                         {/* <svg xmlns='http://www.w3.org/2000/svg' width='12' viewBox='0 0 10 5'>
                           <path

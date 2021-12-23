@@ -132,6 +132,7 @@
 
   .Select--icon-container {
     display: flex;
+    font-size: 0;
   }
 
   .Select--clear-button {
@@ -211,5 +212,15 @@
     width: 18px;
     height: 10px;
     fill: #8ea6c1;
+  }
+}
+
+.DropdownArrow {
+  fill: #3c54b2;
+  &--IconUp {
+    text-decoration: none;
+  }
+  &--IconDown {
+    text-decoration: none;
   }
 }

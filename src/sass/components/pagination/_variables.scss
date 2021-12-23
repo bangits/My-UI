@@ -27,9 +27,16 @@ $pagination-sizes: (
   //global
   select-input-padding-left: calculateRem(6px),
   select-input-margin: calculateRem(5px),
-  select-input-height: calculateRem(25px)
+  select-input-height: calculateRem(25px),
+  //
+  arrow-next-fill-width: calculateRem(6px)
 );
 
 @function getPaginationSizes($property) {
   @return map-get($pagination-sizes, $property);
 }
+
+$pagination-color: (
+  arrow-prev-fill: color(midnight-sun),
+  arrow-next-fill: color(midnight-sun)
+);

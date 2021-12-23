@@ -19,7 +19,6 @@ const Alert: FC<AlertProps> = ({ icon, alertLabel, onClose, className, autoClose
   useEffect(() => {
     if (autoClose) {
       const timeout = setTimeout(onClose, autoCloseDelay);
-
       return () => clearTimeout(timeout);
     }
   }, []);
@@ -30,7 +29,7 @@ const Alert: FC<AlertProps> = ({ icon, alertLabel, onClose, className, autoClose
       <Typography variant='p4' component='span' className={styles.AlertText}>
         {alertLabel}
       </Typography>
-      <AlertClose onClick={() => onClose()} className={styles.AlertClose} />
+      <AlertClose width='1rem' onClick={() => onClose()} className={styles.AlertClose} />
     </div>
   );
 };

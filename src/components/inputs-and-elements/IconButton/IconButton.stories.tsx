@@ -13,11 +13,9 @@ export default {
 export const Default = () => {
   return (
     <>
-      <IconButton icon={<PenIcon />} color={getColorKnobs()} />
-
+      <IconButton icon={<PenIcon width='1.3rem' fill={getColorKnobs()} />} />
       <h1></h1>
-
-      <IconButton icon={<DustbinIcon />} color={getColorKnobs()} />
+      <IconButton icon={<DustbinIcon width='1.3rem' fill={getColorKnobs()} />} />
     </>
   );
 };

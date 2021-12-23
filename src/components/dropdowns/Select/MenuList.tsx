@@ -26,7 +26,7 @@ export const MenuList: typeof components.MenuList = (props) => {
 
         {selectProps.clearButton && (
           <div onClick={props.clearValue} className={classNames(styles[`Select--clear-button`])}>
-            <div>{selectProps.clearIcon || <ClearIcon />}</div>
+            <div className={classNames(styles['ClearIcon-Cell'])}>{selectProps.clearIcon || <ClearIcon />}</div>
             <span>{selectProps.clearButtonLabel}</span>
           </div>
         )}

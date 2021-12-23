@@ -4,7 +4,11 @@ $copyfield-sizes: (
   copy-field-wrapper-padding: 0 calculateRem(6px) 0 calculateRem(16px),
   copy-url-sizes: calculateRem(24px),
   copy-url-margin: calculateRem(115px),
-  url-max-width: calculateRem(428px)
+  url-max-width: calculateRem(428px),
+  //
+  copy-svg-width: calculateRem(15px),
+  copy-svg-top: calculateRem(4px),
+  copy-svg-left: calculateRem(2px)
 );
 
 $copyfield-colors: (

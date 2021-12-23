@@ -14,8 +14,7 @@
 
   .CheckboxIcon {
     display: none;
-
-    width: getCheckboxSizes(checkbox-check-width);
+    width: getCheckboxColor(checkbox-check-width);
   }
 
   .Checkbox {
@@ -42,6 +41,9 @@
       &:disabled {
         @include theme(opacity, disabled-opacity);
       }
+    }
+    svg {
+      fill: #fff;
     }
   }
 

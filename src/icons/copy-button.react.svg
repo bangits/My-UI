@@ -1,15 +1,6 @@
-<svg
-            id='content_copy_black_24dp'
-            xmlns='http://www.w3.org/2000/svg'
-            width='24'
-            height='24'
-            viewBox='0 0 24 24'>
-            <path id='Path_43188' data-name='Path 43188' d='M0,0H24V24H0Z' fill='none' />
-            <path
-              id='Path_43189'
-              data-name='Path 43189'
-              d='M13.789,1H3.684A1.689,1.689,0,0,0,2,2.684V14.474H3.684V2.684H13.789Zm2.526,3.368H7.053A1.689,1.689,0,0,0,5.368,6.053V17.842a1.689,1.689,0,0,0,1.684,1.684h9.263A1.689,1.689,0,0,0,18,17.842V6.053A1.689,1.689,0,0,0,16.316,4.368Zm0,13.474H7.053V6.053h9.263Z'
-              transform='translate(2 1.737)'
-              fill='currentColor'
-            />
-          </svg>
+<svg id='content_copy_black_24dp' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+  <path id='Path_43188' data-name='Path 43188' d='M0,0H24V24H0Z' fill='none' />
+  <path id='Path_43189' data-name='Path 43189'
+    d='M13.789,1H3.684A1.689,1.689,0,0,0,2,2.684V14.474H3.684V2.684H13.789Zm2.526,3.368H7.053A1.689,1.689,0,0,0,5.368,6.053V17.842a1.689,1.689,0,0,0,1.684,1.684h9.263A1.689,1.689,0,0,0,18,17.842V6.053A1.689,1.689,0,0,0,16.316,4.368Zm0,13.474H7.053V6.053h9.263Z'
+    transform='translate(2 1.737)' fill='currentColor' />
+</svg>

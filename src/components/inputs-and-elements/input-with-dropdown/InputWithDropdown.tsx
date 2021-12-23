@@ -114,12 +114,8 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
                     [styles['InputWithDropdownBase--dropdown-control-icon-open']]: isMenuOpen,
                     [styles['InputWithDropdownBase--dropdown-control-icon-closed']]: !isMenuOpen
                   })}>
-                  <svg xmlns='http://www.w3.org/2000/svg' width='8' height='4' viewBox='0 0 10 5'>
-                    <path
-                      id='Shape'
-                      d='M.122,4.383,4.657.123a.572.572,0,0,1,.71,0l4.512,4.26c.273.239.056.617-.355.617H.476C.066,5-.152,4.622.122,4.383Z'
-                      fill='currentColor'
-                    />
+                  <svg xmlns='http://www.w3.org/2000/svg' width='0.8rem' viewBox='0 0 10 5' fill='currentColor'>
+                    <path d='M.122,4.383,4.657.123a.572.572,0,0,1,.71,0l4.512,4.26c.273.239.056.617-.355.617H.476C.066,5-.152,4.622.122,4.383Z' />
                   </svg>
                 </span>
               </div>

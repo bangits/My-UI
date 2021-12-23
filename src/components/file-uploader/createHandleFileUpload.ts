@@ -38,8 +38,11 @@ export const createHandleFileUpload =
 
     let error: { type: FileUploaderErrors; file };
 
-    if (!new RegExp(accept?.replace('*', '.*')).test(file.type) && onError)
-      return onError({ type: FileUploaderErrors.TYPE, file });
+    const isValidMimeType = accept.includes('*')
+      ? new RegExp(accept?.replace('*', '.*')).test(file.type)
+      : accept.includes(file.type);
+
+    if (!isValidMimeType && onError) return onError({ type: FileUploaderErrors.TYPE, file });
 
     if (accept.includes('image')) {
       const { width, height, imageSrc } = await getImageByFile(file);

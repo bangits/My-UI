@@ -16,6 +16,9 @@ export const Default = () => {
         showEvent: 'click',
         placement: 'bottom'
       }}
+      onClick={() => {
+        console.log('Copy');
+      }}
     />
   );
 };

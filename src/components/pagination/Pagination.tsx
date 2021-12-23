@@ -121,7 +121,7 @@ const Pagination: FC<PaginationProps> = ({
           />
         )}
 
-        {jumpToPage && (
+        {jumpToPage && totalPagesCount > 1 && (
           <PaginationInput
             totalPagesCount={totalPagesCount}
             onChange={(value) => {

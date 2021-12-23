@@ -183,6 +183,7 @@ $transition-duration: getTextFieldSizes(label-transition);
 
   .TextInputContainer {
     min-height: getTextFieldSizes(input-container);
+
     &--full-width {
       .TextInputWrapper {
         max-width: initial;
@@ -202,6 +203,7 @@ $transition-duration: getTextFieldSizes(label-transition);
 
       .TextInputLabelText {
         padding-right: 0;
+        min-height: 0;
 
         &--with-two-start-icon {
           padding-left: 0;

@@ -57,7 +57,7 @@ const Tooltip = ({
       setTimeout(() => {
         //I put setTimeout temporary, it must be refactored !!!
         setShow(0);
-      }, 2000);
+      }, 1500);
     } else setShow(0);
   };
 

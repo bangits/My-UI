@@ -100,7 +100,7 @@ export const Default = () => {
         {
           component: () => (
             <Tooltip text='Edit' showEvent='hover'>
-              <IconButton icon={<ViewIcon />} />
+              <IconButton icon={<ViewIcon width='1.6rem' style={{ fill: '#505d6e' }} />} />
             </Tooltip>
           ),
           onClick: (column) => {
@@ -115,7 +115,7 @@ export const Default = () => {
         {
           component: () => (
             <Tooltip text='Edit' showEvent='hover'>
-              <IconButton icon={<EditIcon />} />
+              <IconButton icon={<EditIcon width='1.2rem' style={{ fill: '#505d6e' }} />} />
             </Tooltip>
           ),
           onClick: () => {},

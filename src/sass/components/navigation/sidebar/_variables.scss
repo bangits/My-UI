@@ -19,14 +19,17 @@ $sidebar-sizes: (
   sidebar-base-before-width: calculateRem(1px),
   sidebar-base-before-min-height: 94%,
   sidebar-logo-border-radius: 4px,
-  sidebar-transition: 0.3s
+  sidebar-transition: 0.3s,
+  //
+  sidebar-width: calculateRem(244px)
 );
 
 $sidebar-colors: (
   sidebar-background-color: color(white),
   sidebar-logo-background-color: color(midnight-sun),
   sidebar-button-container-background-color: color(white),
-  sidebar-line-color: color(mercury)
+  sidebar-line-color: color(mercury),
+  sidebar-toggle-icon-fill: color(night-in-manchester)
 );
 
 @function getSideBarSizes($property) {

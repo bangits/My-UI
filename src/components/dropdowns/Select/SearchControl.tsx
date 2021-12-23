@@ -107,9 +107,27 @@ export const SearchControl: typeof components.Control = (props) => {
             endIcon={
               <div className={classNames(styles['Select--icon-container'])}>
                 {props.selectProps.menuIsOpen ? (
-                  <DropdownArrowIconUp onClick={() => props.selectProps.onMenuClose()} />
+                  <DropdownArrowIconUp
+                    className={classNames(
+                      styles['DropdownArrow'],
+                      styles['DropdownArrow--IconUp'],
+                      'DropdownArrow',
+                      'DropdownArrow--IconUp'
+                    )}
+                    width='1.2rem'
+                    onClick={() => props.selectProps.onMenuClose()}
+                  />
                 ) : (
-                  <DropdownArrowIconDown onClick={() => props.selectProps.onMenuOpen()} />
+                  <DropdownArrowIconDown
+                    className={classNames(
+                      styles['DropdownArrow'],
+                      styles['DropdownArrow--IconDown'],
+                      'DropdownArrow',
+                      'DropdownArrow--IconDown'
+                    )}
+                    width='1.2rem'
+                    onClick={() => props.selectProps.onMenuOpen()}
+                  />
                 )}
               </div>
             }

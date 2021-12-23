@@ -68,13 +68,17 @@ const Pagination: FC<PaginationProps> = ({
                         style={{
                           transform: isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
                         }}>
-                        <svg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 10 5'>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='10' viewBox='0 0 12 6' fill='currentColor'>
+                          <path d='M11.8.2c-.1-.1-.3-.2-.5-.2H.7C.5 0 .3.1.2.2c-.3.4-.2.7.1.9l5.2 4.7c.3.3.8.3 1.1 0l5.2-4.7.1-.1c.2-.2.2-.6-.1-.8z' />
+                        </svg>
+
+                        {/* <svg xmlns='http://www.w3.org/2000/svg' width='12' viewBox='0 0 10 5'>
                           <path
                             id='Shape'
                             d='M.122,4.383,4.657.123a.572.572,0,0,1,.71,0l4.512,4.26c.273.239.056.617-.355.617H.476C.066,5-.152,4.622.122,4.383Z'
                             fill='currentColor'
                           />
-                        </svg>
+                        </svg> */}
                       </span>
                     </div>
                   )}
@@ -107,12 +111,12 @@ const Pagination: FC<PaginationProps> = ({
             className={styles.PaginationList}
             onPageChange={handlePaginationChange}
             breakLabel={breakLabel}
-            nextLabel={<ArrowNext />}
+            nextLabel={<ArrowNext width='0.71rem' className={classNames(styles['ArrowNext'], 'ArrowNext')} />}
             forcePage={page - 1}
             pageRangeDisplayed={pageRangeDisplayed}
             pageCount={totalPagesCount}
             marginPagesDisplayed={marginPagesDisplayed}
-            previousLabel={<ArrowPrev />}
+            previousLabel={<ArrowPrev width='0.71rem' className={classNames(styles['ArrowNext'], 'ArrowPrev')} />}
             renderOnZeroPageCount={null}
           />
         )}

@@ -165,7 +165,8 @@ $transition-duration: getTextFieldSizes(label-transition);
   .StartIcon,
   .EndIcon {
     position: absolute;
-    top: getTextFieldSizes(icon-margin);
+    // top: getTextFieldSizes(icon-margin);
+    top: getTextFieldSizes(icon-top-space);
     min-width: getTextFieldSizes(input-icon-size);
     height: getTextFieldSizes(input-icon-size);
     @include theme(color, default-input-color);

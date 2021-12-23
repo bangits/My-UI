@@ -5,11 +5,12 @@ $base-text-field-variables: (
   input-min-height: calculateRem(38px),
   input-disabled: 0.5,
   input-label-height: calculateRem(14px),
-  input-icon-size: calculateRem(24px),
+  input-icon-size: calculateRem(16px),
   disabled-opacity: 0.5,
   //
   input-label-focused-font-size: calculateRem(12px),
   icon-margin: calculateRem(13px),
+  icon-top-space: calculateRem(15px),
   icon-margin-left: calculateRem(9px),
   icon-margin-right: calculateRem(8px),
   explanation-margin: 0,

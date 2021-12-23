@@ -56,8 +56,8 @@ export const DropdownSearch: FC<{
           placeholder={selectProps.dropdownSearchPlaceholder}
           onChange={inputChangeHandler}
         />
-        <span>
-          <LoopIcon />
+        <span className={classNames(styles['SelectDropdownSearchIconCell'])}>
+          <LoopIcon fill='currentColor' width='1rem' />
         </span>
       </div>
     </>

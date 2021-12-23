@@ -5,6 +5,8 @@ import { action } from '@storybook/addon-actions';
 import { boolean, number, object, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
+import classNames from 'classNames';
+import styles from './Select.module.scss';
 
 export default {
   component: Select,
@@ -199,7 +201,9 @@ export const Dropdown = () => {
       clearButtonLabel='Clear'
       dropdown
       isDisabled={boolean('isDisabled', false)}
-      dropdownIcon={<FilterIcon />}
+      dropdownIcon={
+        <FilterIcon style={{ fill: '#505d6e', position: 'relative', left: '6px', top: '7px', width: '18px' }} />
+      }
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
       onChange={action('onChange')}

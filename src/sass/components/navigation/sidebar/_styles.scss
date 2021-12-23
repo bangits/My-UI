@@ -21,6 +21,7 @@
 
     &--static {
       position: static;
+      max-width: getSideBarSizes(sidebar-width);
     }
 
     &--logo {
@@ -107,5 +108,9 @@
         }
       }
     }
+  }
+
+  .SidebarBase-ToggleIcon {
+    @include theme(fill, sidebar-toggle-icon-fill);
   }
 }

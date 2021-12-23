@@ -19,8 +19,10 @@
       margin-left: getCopyFieldSizes(copy-url-margin);
       cursor: pointer;
       svg {
-        width: 100%;
-        height: 100%;
+        width: getCopyFieldSizes(copy-svg-width);
+        position: relative;
+        top: getCopyFieldSizes(copy-svg-top);
+        left: getCopyFieldSizes(copy-svg-left);
       }
     }
   }

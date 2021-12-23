@@ -12,8 +12,9 @@ $alert-sizes: (
   alert-animation: 1s,
   alert-container-svg-width: calculateRem(17px),
   alert-container-pop-up-svg-width: calculateRem(17px),
-  alert-container-pop-up-svg-left: calculateRem(-10px),
-  alert-icon-width: calculateRem(17px)
+  alert-container-pop-up-svg-left: calculateRem(-3px),
+  alert-icon-width: calculateRem(17px),
+  alert-icon-pop-up-width: calculateRem(17px)
 );
 
 $alert-colors: (

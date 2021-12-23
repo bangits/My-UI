@@ -1,1 +1,22 @@
-<svg version="1.1" id="Component_140_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 16 17.7" xml:space="preserve"><style>.st1{fill:#fff;stroke:#ffd54d;stroke-width:.5}</style><g id="Group_2331" transform="translate(-997 -232.535)"><g id="Active" transform="translate(1001.73 238)"><path id="Rectangle_225" d="M3.3-3.7c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8c0-4.5 3.6-8 8-8z" fill="#ffd54d"/></g><g id="warning-sign" transform="translate(822.943 235.536)"><path id="Path_2861" class="st1" d="M182.1 9c.6 0 1-.4 1.1-1l.7-8.8c.1-1-.7-1.9-1.7-2-1-.1-1.9.7-2 1.7v.3L181 8c0 .6.5 1 1.1 1z"/><path id="Path_2862" class="st1" d="M182.1 9.7c-.7 0-1.2.5-1.2 1.2s.5 1.2 1.2 1.2 1.2-.5 1.2-1.2c-.1-.7-.6-1.2-1.2-1.2z"/></g></g></svg>
+<svg version="1.1" id="Component_140_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 16 17.7"
+    xml:space="preserve">
+    <style>
+        .st1 {
+            fill: #fff;
+            stroke: #ffd54d;
+            stroke-width: .5
+        }
+    </style>
+    <g id="Group_2331" transform="translate(-997 -232.535)">
+        <g id="Active" transform="translate(1001.73 238)">
+            <path id="Rectangle_225" d="M3.3-3.7c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8c0-4.5 3.6-8 8-8z"
+                fill="#ffd54d" />
+        </g>
+        <g id="warning-sign" transform="translate(822.943 235.536)">
+            <path id="Path_2861" class="st1"
+                d="M182.1 9c.6 0 1-.4 1.1-1l.7-8.8c.1-1-.7-1.9-1.7-2-1-.1-1.9.7-2 1.7v.3L181 8c0 .6.5 1 1.1 1z" />
+            <path id="Path_2862" class="st1"
+                d="M182.1 9.7c-.7 0-1.2.5-1.2 1.2s.5 1.2 1.2 1.2 1.2-.5 1.2-1.2c-.1-.7-.6-1.2-1.2-1.2z" />
+        </g>
+    </g>
+</svg>

@@ -1,4 +1,7 @@
-<svg data-name="Component 126 – 1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path d="M5.916 5.136 9.81 1.242a.648.648 0 1 0-.916-.916L5 4.22 1.106.326a.648.648 0 0 0-.916.916l3.894 3.894L.19 9.03a.648.648 0 1 0 .916.916L5 6.052l3.894 3.894a.648.648 0 1 0 .916-.916zm0 0" transform="translate(7 6.865)" style="fill:currentColor"/>
-    <path data-name="Rectangle 11172" style="fill:none" d="M0 0h24v24H0z"/>
+<svg data-name="Component 126 – 1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+    fill='currentColor'>
+    <path
+        d="M5.916 5.136 9.81 1.242a.648.648 0 1 0-.916-.916L5 4.22 1.106.326a.648.648 0 0 0-.916.916l3.894 3.894L.19 9.03a.648.648 0 1 0 .916.916L5 6.052l3.894 3.894a.648.648 0 1 0 .916-.916zm0 0"
+        transform="translate(7 6.865)" style="fill:currentColor" />
+    <path data-name="Rectangle 11172" style="fill:none" d="M0 0h24v24H0z" />
 </svg>

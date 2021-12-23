@@ -9,15 +9,25 @@ export interface SubMenuItemProps extends IComponent {
   icon?: ReactNode;
   onClick?: () => void;
   isActive?: boolean;
+  isSidebarOpened?: boolean;
 }
 
-const SubMenuItems: FC<SubMenuItemProps> = ({ label, icon, className, onClick, isActive = false, ...subItemProps }) => {
+const SubMenuItems: FC<SubMenuItemProps> = ({
+  label,
+  icon,
+  className,
+  onClick,
+  isActive = false,
+  isSidebarOpened = false,
+  ...subItemProps
+}) => {
   return (
     <div
       className={classNames(
         styles.SubMenuItemsBase,
         {
-          [styles['SubMenuItemsBase--active']]: isActive
+          [styles['SubMenuItemsBase--active']]: isActive,
+          [styles['SubMenuItemsBase--sidebar-opened']]: isSidebarOpened
         },
         className
       )}

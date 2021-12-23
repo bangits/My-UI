@@ -66,7 +66,7 @@ const Pagination: FC<PaginationProps> = ({
                       <span
                         className={styles.PaginationPageSizeIcon}
                         style={{
-                          transform: isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
+                          transform: !isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
                         }}>
                         <svg xmlns='http://www.w3.org/2000/svg' width='10' viewBox='0 0 12 6' fill='currentColor'>
                           <path d='M11.8.2c-.1-.1-.3-.2-.5-.2H.7C.5 0 .3.1.2.2c-.3.4-.2.7.1.9l5.2 4.7c.3.3.8.3 1.1 0l5.2-4.7.1-.1c.2-.2.2-.6-.1-.8z' />

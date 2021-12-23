@@ -31,6 +31,10 @@
       cursor: pointer;
     }
 
+    &--sidebar-opened a {
+      font-size: getSubMenuItemSizes(sub-menu-items-opened-font-size);
+    }
+
     .SubMenuItemsIcon {
       @include flex(null, center);
       margin-left: getSubMenuItemSizes(sub-menu-items-icon-marginLeft);

@@ -9,7 +9,7 @@ export interface DialogHeaderWithClose {
 
 export const DialogHeaderWithClose = ({ onClose, title }: DialogHeaderWithClose) => {
   return (
-    <div className={styles.DialogHeaderWithClose} style={{ border: 'solid #ff0000 1px' }}>
+    <div className={styles.DialogHeaderWithClose}>
       <div className={styles.HeaderTitle}>
         <Typography variant='p4' component='h3'>
           {title}

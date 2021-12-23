@@ -70,39 +70,24 @@
   .AlertClose {
     cursor: pointer;
     margin-left: getAlertSizes(alert-close-marginLeft);
-    // width: getAlertSizes(alert-close-width);
     @include theme(fill, gray-color);
   }
 
-  .AlertCheckIconCell {
-    *,
-    *:before,
-    *:after {
-      box-sizing: border-box;
-    }
+  .AlertIcon {
     display: block;
-    width: getAlertSizes(alert-container-svg-width);
-    margin-right: 1px;
-    svg {
-      width: 100%;
-      height: auto;
-    }
-
+    width: getAlertSizes(alert-icon-width) !important;
+    font-size: 0 !important;
     &--Check {
-      text-decoration: none;
-      transform: translate(-2px, 2px);
+      transform: translate(-3px, 0);
     }
     &--Warning {
-      text-decoration: none;
-      transform: translate(-3px, 0px);
+      transform: translate(-4px, 0px);
     }
     &--Error {
-      text-decoration: none;
-      transform: translate(-3px, 0px);
+      transform: translate(-3px, 0);
     }
     &--Info {
-      text-decoration: none;
-      transform: translate(-4px, 0px);
+      transform: translate(-3px, 0);
     }
   }
 }

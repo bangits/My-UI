@@ -11,7 +11,10 @@ export default {
 export const Default = () => {
   return (
     <Header
-      notificationProps={{ children: <NotificationIconRotated />, quantity: number('quantity', 7) }}
+      notificationProps={{
+        children: <NotificationIconRotated width='1.7rem' fill='currentColor' />,
+        quantity: number('quantity', 7)
+      }}
       avatarProps={{
         imageSource: text('imageSource', 'https://avatars.design/wp-content/uploads/2016/09/28_GIF.gif'),
         avatarLabel: text('avatarLabel', 'Evgenia'),

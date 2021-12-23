@@ -11,7 +11,8 @@ $badge-sizes: (
   badge-hover-width: calculateRem(70px),
   badge-transition: 0.1s,
   badge-padding: 0 calculateRem(3px) 0 calculateRem(3px),
-  badge-number-border-radius: 10px
+  badge-number-border-radius: 10px,
+  // badge-number-border-radius: 10px,
 );
 
 @function getBadgeSizes($property) {

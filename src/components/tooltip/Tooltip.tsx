@@ -54,6 +54,10 @@ const Tooltip = ({
     if (!show) {
       setShow(1);
       posRef.current = TooltipPosition(e.currentTarget as HTMLElement, tooltipRef.current, placement, space);
+      setTimeout(() => {
+        //I put setTimeout temporary, it must be refactored !!!
+        setShow(0);
+      }, 2000);
     } else setShow(0);
   };
 

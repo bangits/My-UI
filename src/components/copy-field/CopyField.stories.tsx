@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import CopyFiled from './CopyField';
 
@@ -16,6 +17,7 @@ export const Default = () => {
         showEvent: 'click',
         placement: 'bottom'
       }}
+      onClick={action('onClick')}
     />
   );
 };

@@ -186,4 +186,11 @@
       }
     }
   }
+
+  .ArrowPrev,
+  .ArrowNext {
+    width: getPaginationSizes(arrow-next-fill-width) !important;
+    text-decoration: none;
+    @include theme(fill, arrow-prev-fill);
+  }
 }

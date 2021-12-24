@@ -165,7 +165,8 @@ $transition-duration: getTextFieldSizes(label-transition);
   .StartIcon,
   .EndIcon {
     position: absolute;
-    top: getTextFieldSizes(icon-margin);
+    // top: getTextFieldSizes(icon-margin);
+    top: getTextFieldSizes(icon-top-space);
     min-width: getTextFieldSizes(input-icon-size);
     height: getTextFieldSizes(input-icon-size);
     @include theme(color, default-input-color);
@@ -182,6 +183,7 @@ $transition-duration: getTextFieldSizes(label-transition);
 
   .TextInputContainer {
     min-height: getTextFieldSizes(input-container);
+
     &--full-width {
       .TextInputWrapper {
         max-width: initial;
@@ -201,6 +203,7 @@ $transition-duration: getTextFieldSizes(label-transition);
 
       .TextInputLabelText {
         padding-right: 0;
+        min-height: 0;
 
         &--with-two-start-icon {
           padding-left: 0;

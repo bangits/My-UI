@@ -12,7 +12,6 @@
     text-align: left;
     margin: 0 auto;
     padding: getTableCellSizes(table-cell-padding);
-
     &:last-child {
       border-bottom: none;
     }

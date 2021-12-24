@@ -5,6 +5,8 @@ import { action } from '@storybook/addon-actions';
 import { boolean, number, object, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
+import classNames from 'classNames';
+import styles from './Select.module.scss';
 
 export default {
   component: Select,
@@ -199,7 +201,9 @@ export const Dropdown = () => {
       clearButtonLabel='Clear'
       dropdown
       isDisabled={boolean('isDisabled', false)}
-      dropdownIcon={<FilterIcon />}
+      dropdownIcon={
+        <FilterIcon style={{ fill: '#505d6e', position: 'relative', left: '6px', top: '7px', width: '18px' }} />
+      }
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
       onChange={action('onChange')}
@@ -276,12 +280,8 @@ export const RenderInput = () => {
               justifyContent: 'center',
               transform: isMenuOpen ? 'rotate(0deg)' : 'rotate(180deg)'
             }}>
-            <svg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 10 5'>
-              <path
-                id='Shape'
-                d='M.122,4.383,4.657.123a.572.572,0,0,1,.71,0l4.512,4.26c.273.239.056.617-.355.617H.476C.066,5-.152,4.622.122,4.383Z'
-                fill='currentColor'
-              />
+            <svg xmlns='http://www.w3.org/2000/svg' width='1rem' viewBox='0 0 10 5' fill='currentColor'>
+              <path d='M.122,4.383,4.657.123a.572.572,0,0,1,.71,0l4.512,4.26c.273.239.056.617-.355.617H.476C.066,5-.152,4.622.122,4.383Z' />
             </svg>
           </span>
         </>

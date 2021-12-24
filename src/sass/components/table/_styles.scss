@@ -32,7 +32,6 @@
   .TableScroll {
     @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
     border-radius: getTableSizes(table-scroll-border-radius);
-
     z-index: 0;
   }
 
@@ -113,12 +112,12 @@
     }
   }
 
-  .Table--no-result {
+  .TableContainer .Table--no-result {
     min-height: getTableSizes(table-no-result);
   }
 
   .IllustrationWrapper {
-    min-height: getTableSizes(illustration-wrapper-min-height); //remove class
+    min-height: getTableSizes(illustration-wrapper-min-height);
     @include center-absolute();
     min-height: getTableSizes(illustration-wrapper-min-height);
 
@@ -146,7 +145,7 @@
     width: 0;
     margin: 0;
     padding: 0;
-    z-index: 1000;
+    z-index: 1;
   }
 
   .ActionTools {

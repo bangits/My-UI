@@ -31,13 +31,18 @@
       cursor: pointer;
     }
 
+    &--sidebar-opened a {
+      font-size: getSubMenuItemSizes(sub-menu-items-opened-font-size);
+    }
+
     .SubMenuItemsIcon {
       @include flex(null, center);
       margin-left: getSubMenuItemSizes(sub-menu-items-icon-marginLeft);
 
       svg {
         width: getSubMenuItemSizes(sub-menu-items-iconWidth);
-        height: getSubMenuItemSizes(sub-menu-items-iconHeight);
+        // height: getSubMenuItemSizes(sub-menu-items-iconHeight);
+        fill: currentColor;
       }
     }
   }

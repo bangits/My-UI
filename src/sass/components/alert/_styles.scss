@@ -10,16 +10,12 @@
     padding: getAlertSizes(alert-padding);
     margin-bottom: getAlertSizes(alert-margin-bottom);
     box-sizing: border-box;
+
     @include theme(box-shadow, box-shadow-color, 2px 2px 5px 0);
 
     .AlertText {
       @include theme(color, gray-color);
       margin-left: getAlertSizes(alert-text-marginLeft);
-    }
-
-    .AlertClose {
-      cursor: pointer;
-      margin-left: getAlertSizes(alert-close-marginLeft);
     }
   }
 
@@ -27,14 +23,13 @@
     position: fixed;
     top: getAlertSizes(alert-animation-position);
     right: getAlertSizes(alert-animation-position);
-
     z-index: getAlertSizes(alert-container-z-index);
-    svg {
-      width: getAlertSizes(alert-container-pop-up-svg-width);
-      position: relative;
-      top: 0;
-      left: getAlertSizes(alert-container-pop-up-svg-left);
-    }
+    // svg {
+    //   width: getAlertSizes(alert-container-pop-up-svg-width);
+    //   position: relative;
+    //   top: 0;
+    //   left: getAlertSizes(alert-container-pop-up-svg-left);
+    // }
   }
 
   .AlertEnter,
@@ -70,36 +65,37 @@
       transform: translateX(0%);
     }
   }
-}
 
-.AlertCheckIconCell {
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
-  display: block;
-  width: getAlertSizes(alert-container-svg-width);
-  margin-right: 1px;
-  svg {
-    width: 100%;
-    height: auto;
+  .AlertSymbol {
+    svg {
+      width: getAlertSizes(alert-icon-pop-up-width) !important;
+    }
   }
 
-  &--Check {
-    text-decoration: none;
-    transform: translate(-2px, 2px);
+  .AlertClose {
+    cursor: pointer;
+    margin-left: getAlertSizes(alert-close-marginLeft);
+    @include theme(fill, gray-color);
+    &--PopUp {
+      width: getAlertSizes(alert-close-width);
+    }
   }
-  &--Warning {
-    text-decoration: none;
-    transform: translate(-3px, 0px);
-  }
-  &--Error {
-    text-decoration: none;
-    transform: translate(-3px, 0px);
-  }
-  &--Info {
-    text-decoration: none;
-    transform: translate(-4px, 0px);
+
+  .AlertIcon {
+    display: block;
+    width: getAlertSizes(alert-icon-width) !important;
+    font-size: 0 !important;
+    &--Check {
+      transform: translate(-3px, 0);
+    }
+    &--Warning {
+      transform: translate(-4px, 0px);
+    }
+    &--Error {
+      transform: translate(-3px, 0);
+    }
+    &--Info {
+      transform: translate(-3px, 0);
+    }
   }
 }

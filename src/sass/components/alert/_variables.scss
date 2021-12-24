@@ -4,14 +4,17 @@ $alert-sizes: (
   alert-radius: 4px,
   alert-padding: calculateRem(9px) calculateRem(6px) calculateRem(9px) calculateRem(12px),
   alert-margin-bottom: calculateRem(10px),
-  alert-text-marginLeft: calculateRem(4px),
-  alert-close-marginLeft: calculateRem(16px),
+  alert-text-marginLeft: calculateRem(10px),
+  alert-close-marginLeft: calculateRem(20px),
+  alert-close-width: calculateRem(10px),
   alert-animation-position: calculateRem(10px),
   alert-container-z-index: 9999,
   alert-animation: 1s,
   alert-container-svg-width: calculateRem(17px),
   alert-container-pop-up-svg-width: calculateRem(17px),
-  alert-container-pop-up-svg-left: calculateRem(-10px)
+  alert-container-pop-up-svg-left: calculateRem(-3px),
+  alert-icon-width: calculateRem(17px),
+  alert-icon-pop-up-width: calculateRem(17px)
 );
 
 $alert-colors: (

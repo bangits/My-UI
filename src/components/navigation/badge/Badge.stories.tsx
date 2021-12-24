@@ -14,7 +14,7 @@ export const Default = () => {
   return (
     <>
       <Badge
-        children={<NotificationIconRotated />}
+        children={<NotificationIconRotated width='16' style={{ fill: '#95abc5' }} />}
         quantity={number('quantity', 7)}
         maxNumber={number('maxNumber', 100)}
         color={getColorKnobs()}

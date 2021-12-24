@@ -63,14 +63,20 @@ export const MenuItem: FC<MenuItemProps> = ({
             className={classNames(styles.MenuItemArrow, {
               [styles['MenuItemArrow--opened']]: isOpenendSidebarMenus
             })}>
-            <ArrowIcon />
+            <ArrowIcon width='1rem' />
           </span>
         )}
       </div>
       <div className={classNames({ [styles['MenuItemBase--sub']]: subItems?.length > 0 })}>
         <p className={classNames([styles['MenuItemBase--sub-header']])}>{label}</p>
         {subItems?.map((item, key) => (
-          <SubMenuItems key={key} label={item.label} onClick={item.onClick} isActive={item.isActive} />
+          <SubMenuItems
+            isSidebarOpened={isSidebarOpened}
+            key={key}
+            label={item.label}
+            onClick={item.onClick}
+            isActive={item.isActive}
+          />
         ))}
       </div>
     </Component>

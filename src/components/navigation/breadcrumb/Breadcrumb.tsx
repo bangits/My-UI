@@ -34,7 +34,7 @@ const Breadcrumb: FC<BreadcrumbProps> = ({
           </ItemComponent>
           {index !== links.length - 1 && (
             <div className={styles.BreadcrumbIconContainer}>
-              <BreadcrumbNext />
+              <BreadcrumbNext width='1rem' />
             </div>
           )}
         </>

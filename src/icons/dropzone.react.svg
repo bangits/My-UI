@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="284" height="42" viewBox="0 0 284 42">
   <g id="Drop_zone_border" fill="none" stroke="#505d6e" stroke-width="0.5" stroke-dasharray="8">
-    <rect width="284" height="42" rx="3" stroke="none"/>
-    <rect x="0.25" y="0.25" width="283.5" height="41.5" rx="2.75" fill="none"/>
+    <rect width="284" height="42" rx="3" stroke="none" />
+    <rect x="0.25" y="0.25" width="283.5" height="41.5" rx="2.75" fill="none" />
   </g>
 </svg>

@@ -19,18 +19,20 @@ const Alert: FC<AlertProps> = ({ icon, alertLabel, onClose, className, autoClose
   useEffect(() => {
     if (autoClose) {
       const timeout = setTimeout(onClose, autoCloseDelay);
-
       return () => clearTimeout(timeout);
     }
   }, []);
 
   return (
     <div className={classNames(styles.AlertBase, className)}>
-      {icon}
-      <Typography variant='p4' component='span' className={styles.AlertText}>
+      <span className={classNames(styles['AlertSymbol'], 'AlertSymbol')}>{icon}</span>
+      <Typography variant='p4' component='span' className={classNames(styles['AlertText'], 'AlertText')}>
         {alertLabel}
       </Typography>
-      <AlertClose onClick={() => onClose()} className={styles.AlertClose} />
+      <AlertClose
+        onClick={() => onClose()}
+        className={classNames(styles['AlertClose'], styles['AlertClose--PopUp'], 'AlertClose', 'AlertClose--PopUp')}
+      />
     </div>
   );
 };

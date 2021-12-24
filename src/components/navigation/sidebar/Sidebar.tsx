@@ -53,7 +53,13 @@ const Sidebar: FC<SidebarProps> = ({
 
           <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}>
             <IconButton
-              icon={isSidebarClosed ? <IconButtonRight /> : <IconButtonLeft />}
+              icon={
+                isSidebarClosed ? (
+                  <IconButtonRight className={classNames(styles['SidebarBase-ToggleIcon'])} width='0.8rem' />
+                ) : (
+                  <IconButtonLeft className={classNames(styles['SidebarBase-ToggleIcon'])} width='0.8rem' />
+                )
+              }
               className={classNames(styles['SidebarBase--button'])}
             />
           </div>

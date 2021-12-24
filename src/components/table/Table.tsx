@@ -223,6 +223,25 @@ const Table = <T extends {}>({
 
               const isLoading = loadingRowsIds.includes(rowLoadingPropertyValue);
 
+              const actionsContent =
+                actions &&
+                actions
+                  .map(
+                    ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
+                      shouldShow(data[rowIndex]) && (
+                        <div>
+                          <Component
+                            key={index}
+                            {...props}
+                            onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
+                          />
+                        </div>
+                      )
+                  )
+                  .filter((a) => a);
+
+              console.log(actionsContent);
+
               return (
                 <TableRow
                   style={{ position: 'relative', top: 0, left: 0 }}
@@ -257,29 +276,16 @@ const Table = <T extends {}>({
                     );
                   })}
 
-                  {actions && !isLoading && (
+                  {actions && !isLoading && actionsContent.length ? (
                     <div
                       className={classNames(styles['ActionToolsStickyHorizontal'], 'ActionToolsStickyHorizontal')}
                       {...actions}
                       color={color}>
                       <section className={classNames(styles['ActionTools'], 'ActionTools')}>
-                        <div className={classNames(styles['ActionTableCell'], 'ActionTableCell')}>
-                          {actions.map(
-                            ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
-                              shouldShow(data[rowIndex]) && (
-                                <div>
-                                  <Component
-                                    key={index}
-                                    {...props}
-                                    onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
-                                  />
-                                </div>
-                              )
-                          )}
-                        </div>
+                        <div className={classNames(styles['ActionTableCell'], 'ActionTableCell')}>{actionsContent}</div>
                       </section>
                     </div>
-                  )}
+                  ) : null}
                 </TableRow>
               );
             })}

@@ -75,12 +75,14 @@
         height: getTableSizes(table-body-row-height);
 
         &:hover {
-          .LastTableCell {
-            opacity: 0;
-            div {
-              display: none !important;
-            }
-          }
+          // .LastTableCell {
+          //   opacity: 0;
+
+          //   div {
+          //     display: none !important;
+          //   }
+          // }
+
           .ActionTableCell {
             @include flex(center, center);
           }

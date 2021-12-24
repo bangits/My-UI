@@ -27,7 +27,7 @@ export const DropdownIcon: typeof components.Control = (props) => {
           [styles['Select--iconClose']]: !selectProps.menuIsOpen
         })}>
         <span className={classNames(styles['Select--dropdown-control-icon'])}>
-          {selectProps.dropdownIcon || <SettingIcon />}
+          {selectProps.dropdownIcon || <SettingIcon width='2rem' />}
         </span>
         <span className={classNames(styles['Select--dropdown-control-label'])}>{selectProps.dropdownLabel}</span>
       </div>

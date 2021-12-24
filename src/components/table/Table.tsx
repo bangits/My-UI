@@ -63,6 +63,7 @@ export interface TableProps<T extends {}> extends IComponent {
   color?: UIColors;
   fetch?: (state: State<T>) => void;
   onSelectedColumnsChange?: (state: Row<T>[]) => void;
+  checkIsRowActive?: (state: T) => boolean;
   gridLayout?: boolean;
   isWithSelection?: boolean;
   absoluteLayout?: boolean;
@@ -107,6 +108,7 @@ const Table = <T extends {}>({
   onSelectedColumnsChange,
   loadingRowsIds,
   loadingRowColumnProperty,
+  checkIsRowActive,
   className
 }: TableProps<T>) => {
   const tableHeadRef = useRef<HTMLElement>(null);
@@ -212,6 +214,8 @@ const Table = <T extends {}>({
             {rows.map((row: Row<T>, rowIndex: number) => {
               prepareRow(row);
 
+              const isRowActive = checkIsRowActive && checkIsRowActive(data[rowIndex]);
+
               const rowLoadingPropertyValue = loadingRowColumnProperty
                 ? // @ts-expect-error Ignored typescript, cause loadingRowColumnProperty should be string or number
                   (row.original[loadingRowColumnProperty] as string | number)
@@ -225,7 +229,7 @@ const Table = <T extends {}>({
                   isLoading={isLoading}
                   key={rowIndex}
                   hover
-                  selected={row.isSelected}
+                  selected={isRowActive || row.isSelected}
                   {...row.getRowProps()}
                   color={color}>
                   {row.cells.map((cell: CellType<T>, index) => {

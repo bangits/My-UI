@@ -117,7 +117,7 @@
   }
 
   .IllustrationWrapper {
-    min-height: getTableSizes(illustration-wrapper-min-height); //remove class
+    min-height: getTableSizes(illustration-wrapper-min-height);
     @include center-absolute();
     min-height: getTableSizes(illustration-wrapper-min-height);
 

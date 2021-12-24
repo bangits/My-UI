@@ -43,21 +43,15 @@ export const Default = () => {
   };
 
   return (
-    <div style={{ width: 800 }}>
+    <div style={{ width: 840 }}>
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <Button
           onClick={successAdd}
           variant='ghost'
           startIcon={
-            <div
-              className={classNames(
-                styles['AlertCheckIconCell'],
-                styles['AlertCheckIconCell--Check'],
-                'AlertCheckIconCell',
-                'AlertCheckIconCell--Check'
-              )}>
-              <AlertCheck />
-            </div>
+            <AlertCheck
+              className={classNames(styles['AlertIcon'], styles['AlertIcon--Check'], 'AlertIcon', 'AlertIcon--Check')}
+            />
           }>
           Success!
         </Button>
@@ -65,15 +59,14 @@ export const Default = () => {
           onClick={warningAdd}
           variant='ghost'
           startIcon={
-            <div
+            <AlertWarning
               className={classNames(
-                styles['AlertCheckIconCell'],
-                styles['AlertCheckIconCell--Warning'],
-                'AlertCheckIconCell',
-                'AlertCheckIconCell--Warning'
-              )}>
-              <AlertWarning />
-            </div>
+                styles['AlertIcon'],
+                styles['AlertIcon--Warning'],
+                'AlertIcon',
+                'AlertIcon--Warning'
+              )}
+            />
           }>
           Warning!
         </Button>
@@ -81,15 +74,9 @@ export const Default = () => {
           onClick={errorAdd}
           variant='ghost'
           startIcon={
-            <div
-              className={classNames(
-                styles['AlertCheckIconCell'],
-                styles['AlertCheckIconCell--Error'],
-                'AlertCheckIconCell',
-                'AlertCheckIconCell--Error'
-              )}>
-              <AlertError />
-            </div>
+            <AlertError
+              className={classNames(styles['AlertIcon'], styles['AlertIcon--Error'], 'AlertIcon', 'AlertIcon--Error')}
+            />
           }>
           Error!
         </Button>
@@ -97,15 +84,9 @@ export const Default = () => {
           onClick={infoAdd}
           variant='ghost'
           startIcon={
-            <div
-              className={classNames(
-                styles['AlertCheckIconCell'],
-                styles['AlertCheckIconCell--Info'],
-                'AlertCheckIconCell',
-                'AlertCheckIconCell--Info'
-              )}>
-              <AlertInfo />
-            </div>
+            <AlertInfo
+              className={classNames(styles['AlertIcon'], styles['AlertIcon--Info'], 'AlertIcon', 'AlertIcon--Info')}
+            />
           }>
           Information!
         </Button>

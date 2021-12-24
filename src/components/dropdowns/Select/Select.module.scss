@@ -32,7 +32,10 @@
   .Select--dropdown-control-icon {
     width: 2.4rem;
     height: 2.4rem;
+
+    @include flex(center, center);
   }
+
   .Select--dropdown-control-label {
     height: 1.6rem;
     margin-left: 0.8rem;

@@ -1,11 +1,5 @@
-<svg id="Component_101_36" data-name="Component 101 – 36" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-  viewBox="0 0 24 24">
-  <g id="stop-svgrepo-com" transform="translate(5 5)">
-    <g id="Group_23860" data-name="Group 23860">
-      <path id="Path_43298" data-name="Path 43298"
-        d="M7,0a7,7,0,1,0,7,7A7,7,0,0,0,7,0ZM9.485,8.9a.589.589,0,0,1-.589.589H5.1A.589.589,0,0,1,4.515,8.9V5.1A.589.589,0,0,1,5.1,4.515H8.9a.589.589,0,0,1,.589.589Z"
-        fill="#505d6e" />
-    </g>
-  </g>
-  <rect id="Rectangle_11198" data-name="Rectangle 11198" width="24" height="24" fill="none" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" xml:space="preserve">
+  <path
+    d="M7 0C3.1 0 0 3.1 0 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm2.5 8.9c0 .3-.3.6-.6.6H5.1c-.3 0-.6-.3-.6-.6V5.1c0-.3.3-.6.6-.6h3.8c.3 0 .6.3.6.6v3.8z"
+    fill="currentColor" />
 </svg>

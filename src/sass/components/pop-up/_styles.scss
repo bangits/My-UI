@@ -95,6 +95,8 @@
     background: none;
     cursor: pointer;
 
+    width: getDialogSizes(dialog-close-button-width);
+
     @include theme(color, dialog-close-color);
   }
 

@@ -43,6 +43,8 @@
     .TimePickerButton {
       position: absolute;
       min-width: getDateTimePickerSizes(timepicker-button-width);
+      top: initial;
+      left: initial;
       bottom: getDateTimePickerSizes(timepicker-button-position-bottom);
       right: getDateTimePickerSizes(timepicker-button-position-right);
       font-size: getDateTimePickerSizes(timepicker-button-font-size);

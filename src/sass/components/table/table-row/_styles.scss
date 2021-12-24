@@ -26,9 +26,10 @@
         content: '';
         position: absolute;
         overflow: hidden;
+        width: 100% !important;
         height: 100%;
         animation: left-to-right 1.5s alternate infinite linear;
-        @include theme(background, primary, 'linear-gradient(to right, transparent,', ', transparent)');
+        @include theme(background, primary, 'linear-gradient(to right, transparent,', ', transparent)' !important);
         opacity: getTableRowSizes(table-row-loading-opacity);
         top: 0;
         right: 0;

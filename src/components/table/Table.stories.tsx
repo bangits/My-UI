@@ -12,7 +12,7 @@ export default {
 };
 
 export const Default = () => {
-  const [loadingRowsIds, setLoadingRowsIds] = useState<(number | string)[]>([]);
+  const [loadingRowsIds, setLoadingRowsIds] = useState<(number | string)[]>(['ID1234567']);
 
   const data = object('data', [
     {

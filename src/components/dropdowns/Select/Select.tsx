@@ -63,7 +63,8 @@ export interface SelectProps<
 
   onChange?: (
     updatedOptions: IsMulti extends true ? Option[number]['value'][] : Option[number]['value'],
-    event: ActionMeta<unknown>
+    event: ActionMeta<unknown>,
+    options: Option
   ) => void;
 }
 
@@ -176,7 +177,8 @@ function Select<
           Array.isArray(updatedOptions)
             ? updatedOptions.filter((o) => o.value !== selectAllValue).map((o) => o.value)
             : updatedOptions.value,
-          event
+          event,
+          selectProps.options
         );
     },
     [selectProps.onChange, selectAllValue, options, allOption, selectedOptions, selectProps.options, isMulti]

@@ -18,8 +18,15 @@
 
   .startIcon,
   .endIcon {
-    height: 100%;
     @include flex(center, center);
+
+    min-width: getButtonSizes(button-icon-size);
+    min-height: getButtonSizes(button-icon-size);
+
+    svg {
+      width: inherit;
+      height: inherit;
+    }
   }
 
   .startIcon {

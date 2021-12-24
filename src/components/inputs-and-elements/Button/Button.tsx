@@ -33,11 +33,11 @@ const Button: FC<ButtonProps> = ({
         className
       )}
       {...props}>
-      <div className={styles.startIcon}>{startIcon}</div>
+      {startIcon && <div className={styles.startIcon}>{startIcon}</div>}
 
       {children}
 
-      <div className={styles.endIcon}>{endIcon}</div>
+      {endIcon && <div className={styles.endIcon}>{endIcon}</div>}
     </button>
   </>
 );

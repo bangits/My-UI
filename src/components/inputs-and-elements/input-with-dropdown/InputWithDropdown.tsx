@@ -2,7 +2,7 @@ import { Select, SelectProps, TextInput, TextInputProps } from '@/components';
 import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
-import React, { DetailedHTMLProps, FC, InputHTMLAttributes, useCallback, useRef, useState } from 'react';
+import React, { DetailedHTMLProps, FC, InputHTMLAttributes, useCallback, useEffect, useRef, useState } from 'react';
 import styles from './InputWithDropdown.module.scss';
 
 export interface InputWithDropdownProps extends IComponent {
@@ -24,9 +24,14 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
   const [isDropdown, setIsDropdown] = useState(true);
   const [isInputFocused, setInputFocused] = useState(false);
   const [inputValue, setInputValue] = useState<string>(inputProps?.value?.toString() || '');
+  const [options, setOptions] = useState<SelectProps<any[], boolean, any>['options']>([]);
 
   const selectInputRef = useRef<HTMLInputElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setOptions(dropdownProps.options);
+  }, [dropdownProps.options]);
 
   const onTextInputBlur = useCallback(
     (e) => {
@@ -83,6 +88,8 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
             [styles.isDropdownActive]: isDropdown
           })}>
           <Select
+            {...dropdownProps}
+            options={options}
             className={classNames(styles['InputWithDropdownBase--select'])}
             isSearchable
             onChange={onSelectChange}
@@ -121,7 +128,6 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
               </div>
             )}
             fullWidth
-            {...dropdownProps}
           />
         </div>
       </div>

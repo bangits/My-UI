@@ -1,6 +1,54 @@
-$select-tree-sizes: ();
+$select-tree-sizes: (
+  select-tree-padding-left: calculateRem(10px),
+  select-tree-padding-bottom: calculateRem(10px),
+  //
+  select-tree-ul-ul: calculateRem(3px),
+  //
+  select-tree-list-item-before-width: calculateRem(280px),
+  select-tree-list-item-after-height: calculateRem(31px),
+  //
+  select-tree-list-item-padding: calculateRem(8px) 0 0 calculateRem(12px),
+  select-tree-list-item-min-height: calculateRem(31px),
+  select-tree-list-item-font-size: calculateRem(14px),
+  select-tree-list-item-line-height: calculateRem(17px),
+  //
+  select-tree-list-item-number-margin-left: calculateRem(3px),
+  select-tree-list-item-number-font-size: calculateRem(12px),
+  //
+  select-tree-list-item-chain-before-width: calculateRem(1px),
+  select-tree-list-item-chain-before-height: calculateRem(16px),
+  //
+  select-tree-list-item-chain-width: calculateRem(15px),
+  select-tree-list-item-chain-height: calculateRem(31px),
+  select-tree-list-item-chain-position-left: calculateRem(-3px),
+  //
+  select-tree-list-item-chain-normal-before-width: calculateRem(1px),
+  select-tree-list-item-chain-normal-before-height: calculateRem(31px),
+  //
+  select-tree-list-item-chain-normal-after-width: calculateRem(11px),
+  //
+  select-tree-list-item-arrow-width: calculateRem(31px),
+  select-tree-list-item-arrow-height: calculateRem(31px),
+  //
+  select-parent_span-padding-right: calculateRem(40px)
+);
 
-$select-tree-colors: ();
+$select-tree-colors: (
+  select-tree-list-item-label-inner: color(fantasy-console-sky),
+  select-tree-list-item-color: color(midnight-sun),
+  select-tree-list-item-before-bg-color: color(grams-hair),
+  select-tree-list-item-after-bg-color: color(grams-hair),
+  select-tree-list-item-number-color: color(midnight-sun),
+  //
+  select-tree-list-item-chain-before-bg-color: color(white-solid),
+  //
+  select-tree-list-item-chain-normal-before-bg-color: color(white-solid),
+  //
+  select-tree-list-item-arrow-hover-bg-color: color(grams-hair),
+  select-tree-list-item-arrow-svg-fill: color(gray-transparent),
+  //
+  select-tree-list-item-chain-normal-after-bg-color: color(white-solid)
+);
 
 @function getSelectTreeSizes($property) {
   @return map-get($select-tree-sizes, $property);

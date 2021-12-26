@@ -3,14 +3,14 @@
     position: relative;
     &-Parent {
       & > span {
-        padding-right: 40px;
+        padding-right: getSelectTreeSizes(select-parent_span-padding-right);
       }
     }
 
     &-Tree {
       display: block;
-      padding-right: 10px;
-      padding-bottom: 10px;
+      padding-right: getSelectTreeSizes(select-tree-padding-left);
+      padding-bottom: getSelectTreeSizes(select-tree-padding-bottom);
       width: 100%;
       box-sizing: border-box;
       cursor: default;
@@ -47,8 +47,6 @@
 
       ul {
         li {
-          // cursor: pointer;
-
           i.Select-Tree-List__Item-Number {
             transition: opacity 0.16s linear;
             will-change: opacity;
@@ -61,7 +59,7 @@
 
           span.Select-Tree-List__Item-Inner:hover {
             span.Select-Tree-List__Item-Label-Inner {
-              color: #1ea7fd;
+              @include theme(color, select-tree-list-item-label-inner);
             }
 
             i.Select-Tree-List__Item-Number {
@@ -71,7 +69,7 @@
         }
 
         ul {
-          padding-top: 3px;
+          padding-top: getSelectTreeSizes(select-tree-ul-ul);
         }
       }
     }
@@ -85,45 +83,41 @@
     }
 
     &-Tree-List__Item {
+      @include flex($flex-wrap: wrap);
+      @include theme(color, select-tree-list-item-color);
       position: relative;
       top: 0;
       z-index: 10;
-      display: flex;
-      flex-wrap: wrap;
-      padding: 8px 0 0 12px;
       width: 100%;
-      min-height: 31px;
       box-sizing: border-box;
-      font-family: 'Roboto';
-      font-size: 14px;
-      line-height: 17px;
-      letter-spacing: 0;
+      font-family: inherit;
+      padding: getSelectTreeSizes(select-tree-list-item-padding);
+      min-height: getSelectTreeSizes(select-tree-list-item-min-height);
+      font-size: getSelectTreeSizes(select-tree-list-item-font-size);
+      line-height: getSelectTreeSizes(select-tree-list-item-line-height);
       text-align: left;
-      color: #505d6e;
-      opacity: 1;
       transition: all 0.16s linear;
 
-      &::before {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 0;
-        display: block;
-        width: 280px;
-        height: 1px;
-        background: #f4f5f8;
-      }
-
+      &::before,
       &::after {
         content: '';
         position: absolute;
         right: 0;
         top: 0;
-        z-index: -1;
         display: block;
-        width: 280px;
-        height: 31px;
-        background: #f4f5f8;
+      }
+
+      &::before {
+        @include theme(background, select-tree-list-item-before-bg-color);
+        width: getSelectTreeSizes(select-tree-list-item-before-width);
+        height: 1px;
+      }
+
+      &::after {
+        @include theme(background, select-tree-list-item-after-bg-color);
+        z-index: -1;
+        width: getSelectTreeSizes(select-tree-list-item-before-width);
+        height: getSelectTreeSizes(select-tree-list-item-after-height);
         opacity: 0;
         transition: opacity 0.16s linear;
         will-change: opacity;
@@ -139,22 +133,18 @@
         padding-top: 6px;
 
         li {
-          position: relative;
-          left: 0;
-          top: 0;
+          @include p;
         }
 
         li:last-child {
           .Select-Tree-List__Item-Chain {
             &::before {
+              @include p('abs');
               content: '';
-              position: absolute;
-              left: 0;
-              top: 0;
               display: block;
-              width: 1px;
-              height: 16px;
-              background: #f4f5fa;
+              width: getSelectTreeSizes(select-tree-list-item-chain-before-width);
+              height: getSelectTreeSizes(select-tree-list-item-chain-before-height);
+              @include theme(background, select-tree-list-item-chain-before-bg-color);
             }
           }
         }
@@ -166,51 +156,42 @@
     }
 
     &-Tree-List__Item-Chain {
-      position: absolute;
-      left: -3px;
-      top: 0;
+      @include p('abs', $left: getSelectTreeSizes(select-tree-list-item-chain-position-left));
       display: block;
-      width: 15px;
-      height: 31px;
-
+      width: getSelectTreeSizes(select-tree-list-item-chain-width);
+      height: getSelectTreeSizes(select-tree-list-item-chain-height);
       &::before {
+        @include p('abs');
         content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
         display: block;
         width: 1px;
-        height: 31px;
-        background: #f4f5fa;
+        height: getSelectTreeSizes(select-tree-list-item-chain-normal-before-height);
+        background: getSelectTreeSizes(select-tree-list-item-chain-normal-before-bg-color);
       }
 
       &::after {
+        @include theme(background, select-tree-list-item-chain-normal-after-bg-color);
+        @include p('abs', 50%);
         content: '';
-        position: absolute;
-        left: 0;
-        top: 50%;
         display: block;
-        width: 11px;
+        width: getSelectTreeSizes(select-tree-list-item-chain-normal-after-width);
         height: 1px;
-        background: #f4f5fa;
       }
     }
 
     &-Tree-List__Item-Inner {
-      display: flex;
+      @include flex;
       overflow: hidden;
       width: 86%;
     }
 
     &-Tree-List__Item-Arrow {
+      @include flex(center, center);
       position: absolute;
       right: 0;
       top: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 31px;
-      height: 31px;
+      width: getSelectTreeSizes(select-tree-list-item-arrow-width);
+      height: getSelectTreeSizes(select-tree-list-item-arrow-height);
       transition: background 0.16s linear;
       will-change: background;
 
@@ -220,21 +201,21 @@
       }
 
       svg {
-        fill: #8ea6c1;
+        @include theme(fill, select-tree-list-item-arrow-svg-fill);
       }
 
       &:hover {
-        background: rgba(#f4f5f8, 1);
+        @include theme(background, select-tree-list-item-arrow-hover-bg-color);
       }
     }
 
     &-Tree-List__Item-Number {
+      @include theme(color, select-tree-list-item-number-color);
       display: inline-block;
       list-style: normal;
-      margin-left: 3px;
       font-style: normal;
-      font-size: 12px;
-      color: #505d6e;
+      margin-left: getSelectTreeSizes(select-tree-list-item-number-margin-left);
+      font-size: getSelectTreeSizes(select-tree-list-item-number-font-size);
       opacity: 0.5;
       white-space: nowrap;
     }
@@ -253,7 +234,6 @@
       text-overflow: ellipsis;
       cursor: pointer;
     }
-
     // TREE END
   }
 }

@@ -310,12 +310,12 @@ export const RenderInput = () => {
 export const TreeView = () => {
   const [value, setValue] = useState(null);
 
+  // menuIsOpen
   useEffect(() => {
     setTimeout(() => {
       // setValue();
     }, 1500);
   }, []);
-
   return (
     <Select
       onChange={action('onChange')}

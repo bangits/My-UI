@@ -179,7 +179,8 @@ const Table = <T extends {}>({
         trackClassName={styles.ScrollTrack}
         thumbClassName={styles.ScrollThumb}
         className={classNames(styles.TableScroll, className)}
-        height={height || 500}>
+        height={height || 500}
+        autoHeightMin={data.length ? 150 : 400}>
         <Component
           {...getTableProps()}
           className={classNames(styles.TableContainer, {
@@ -207,10 +208,13 @@ const Table = <T extends {}>({
                     <span>{column.render('Header')}</span>
 
                     {/* {isResizing ? (
-                  <div
-                    {...column.getResizerProps()}
-                    style={{ width: '4px', height: '20px', backgroundColor: 'red' }}
-                    className={`resizer ${column.isResizing ? 'isResizing' : ''}`}
+ : {})
+                  }}>
+                  <span>{column.render('Header')}</span>
+
+                  {/* {isResizing ? (
+>>>>>>> 2adb20b5a6cf0d4ebf52e715121c228157c69896
+Resizing ? 'isResizing' : ''}`}
                   />
                 ) : null} */}
                   </TableHead>

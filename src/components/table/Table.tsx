@@ -177,6 +177,7 @@ const Table = <T extends {}>({
     <Scroll
       trackClassName={styles.ScrollTrack}
       thumbClassName={styles.ScrollThumb}
+      autoHeightMin={350}
       className={classNames(styles.TableScroll, className)}
       height={height || 500}>
       <Component

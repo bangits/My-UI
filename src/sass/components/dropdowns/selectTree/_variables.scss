@@ -30,7 +30,10 @@ $select-tree-sizes: (
   select-tree-list-item-arrow-width: calculateRem(31px),
   select-tree-list-item-arrow-height: calculateRem(31px),
   //
-  select-parent_span-padding-right: calculateRem(40px)
+  select-parent_span-padding-right: calculateRem(40px),
+  //
+  select-tree-list__item-parent-span-padding-right: calculateRem(40px),
+  select-tree-list__item-parent-span-padding-top: calculateRem(6px)
 );
 
 $select-tree-colors: (

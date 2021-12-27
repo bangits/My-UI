@@ -3,6 +3,16 @@
     display: block;
   }
 
+  .TableWrapper {
+    position: relative;
+  }
+
+  .Loader {
+    @include center-absolute;
+
+    z-index: 999;
+  }
+
   .ScrollThumb,
   .ScrollTrack {
     z-index: 1 !important;
@@ -130,19 +140,6 @@
         .TableHead,
         .TableBody {
           @include theme(opacity, disabled-opacity);
-        }
-
-        .Loader {
-          position: absolute;
-          top: 20%;
-          left: 0;
-
-          @include flex(center, center);
-
-          width: 100%;
-          max-width: getTableSizes(table-loader-max-width);
-
-          z-index: 999;
         }
       }
     }

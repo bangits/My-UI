@@ -12,7 +12,7 @@ export default {
 };
 
 export const Default = () => {
-  const [loadingRowsIds, setLoadingRowsIds] = useState<(number | string)[]>(['ID1234567']);
+  const [loadingRowsIds, setLoadingRowsIds] = useState<(number | string)[]>([]);
 
   const data = object('data', [
     {
@@ -29,6 +29,7 @@ export const Default = () => {
 
   return (
     <Table
+      isLoading
       fetch={action('fetch')}
       data={[
         ...data.map((d) => ({

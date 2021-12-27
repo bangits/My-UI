@@ -214,7 +214,8 @@
 }
 
 .DropdownArrow {
-  fill: #3c54b2;
+  @include theme(fill, primary);
+
   &--IconUp {
     text-decoration: none;
   }

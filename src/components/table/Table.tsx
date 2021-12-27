@@ -174,149 +174,150 @@ const Table = <T extends {}>({
   if (!tableHeadWidths.length && tableHeadRef.current) return null;
 
   return (
-    <Scroll
-      trackClassName={styles.ScrollTrack}
-      thumbClassName={styles.ScrollThumb}
-      className={classNames(styles.TableScroll, className)}
-      height={height || 500}>
-      <Component
-        {...getTableProps()}
-        className={classNames(styles.TableContainer, {
-          [styles['TableContainer--withSelection']]: isWithSelection,
-          [styles['TableContainer--ready']]: tableHeadWidths.length,
-          [styles['Table--no-result']]: !data.length,
-          [styles['Table--loading']]: isLoading
-        })}>
-        {/* @ts-expect-error Ignoring typescript cause for automatic component they're error related with ref prop */}
-        <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
-          {headerGroups.map((headerGroup) => (
-            <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
-              {headerGroup.headers.map((column: Column<T>, index) => (
-                <TableHead
-                  data-column-index={index}
-                  direction={column.isSortedDesc ? 'desc' : 'asc'}
-                  selectedDirection={column.isSorted}
-                  hideSortIcon={column.disableSortBy}
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                  color={color}
-                  style={{
-                    ...column.getHeaderProps(column.getSortByToggleProps()).style,
-                    ...(typeof column.maxWidth === 'string' ? { width: column.maxWidth } : {})
-                  }}>
-                  <span>{column.render('Header')}</span>
+    <div className={styles.TableWrapper}>
+      <Scroll
+        trackClassName={styles.ScrollTrack}
+        thumbClassName={styles.ScrollThumb}
+        className={classNames(styles.TableScroll, className)}
+        height={height || 500}>
+        <Component
+          {...getTableProps()}
+          className={classNames(styles.TableContainer, {
+            [styles['TableContainer--withSelection']]: isWithSelection,
+            [styles['TableContainer--ready']]: tableHeadWidths.length,
+            [styles['Table--no-result']]: !data.length,
+            [styles['Table--loading']]: isLoading
+          })}>
+          {/* @ts-expect-error Ignoring typescript cause for automatic component they're error related with ref prop */}
+          <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
+            {headerGroups.map((headerGroup) => (
+              <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
+                {headerGroup.headers.map((column: Column<T>, index) => (
+                  <TableHead
+                    data-column-index={index}
+                    direction={column.isSortedDesc ? 'desc' : 'asc'}
+                    selectedDirection={column.isSorted}
+                    hideSortIcon={column.disableSortBy}
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                    color={color}
+                    style={{
+                      ...column.getHeaderProps(column.getSortByToggleProps()).style,
+                      ...(typeof column.maxWidth === 'string' ? { width: column.maxWidth } : {})
+                    }}>
+                    <span>{column.render('Header')}</span>
 
-                  {/* {isResizing ? (
+                    {/* {isResizing ? (
                   <div
                     {...column.getResizerProps()}
                     style={{ width: '4px', height: '20px', backgroundColor: 'red' }}
                     className={`resizer ${column.isResizing ? 'isResizing' : ''}`}
                   />
                 ) : null} */}
-                </TableHead>
-              ))}
-            </TableRow>
-          ))}
-        </THeadComponent>
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </THeadComponent>
 
-        {data.length ? (
-          <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
-            <FlipMove>
-              {rows.map((row: Row<T>, rowIndex: number) => {
-                prepareRow(row);
+          {data.length ? (
+            <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
+              <FlipMove>
+                {rows.map((row: Row<T>, rowIndex: number) => {
+                  prepareRow(row);
 
-                const isRowActive = checkIsRowActive && checkIsRowActive(data[rowIndex]);
+                  const isRowActive = checkIsRowActive && checkIsRowActive(data[rowIndex]);
 
-                const rowLoadingPropertyValue = loadingRowColumnProperty
-                  ? // @ts-expect-error Ignored typescript, cause loadingRowColumnProperty should be string or number
-                    (row.original[loadingRowColumnProperty] as string | number)
-                  : rowIndex + 1;
+                  const rowLoadingPropertyValue = loadingRowColumnProperty
+                    ? // @ts-expect-error Ignored typescript, cause loadingRowColumnProperty should be string or number
+                      (row.original[loadingRowColumnProperty] as string | number)
+                    : rowIndex + 1;
 
-                const isLoading = loadingRowsIds.includes(rowLoadingPropertyValue);
+                  const isLoading = loadingRowsIds.includes(rowLoadingPropertyValue);
 
-                const actionsContent =
-                  actions &&
-                  actions
-                    .map(
-                      ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
-                        shouldShow(data[rowIndex]) && (
-                          <div>
-                            <Component
-                              key={index}
-                              {...props}
-                              onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
-                            />
-                          </div>
-                        )
-                    )
-                    .filter((a) => a);
+                  const actionsContent =
+                    actions &&
+                    actions
+                      .map(
+                        ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
+                          shouldShow(data[rowIndex]) && (
+                            <div>
+                              <Component
+                                key={index}
+                                {...props}
+                                onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
+                              />
+                            </div>
+                          )
+                      )
+                      .filter((a) => a);
 
-                return (
-                  <TableRow
-                    style={{ position: 'relative', top: 0, left: 0 }}
-                    isLoading={isLoading}
-                    hover
-                    selected={isRowActive || row.isSelected}
-                    {...row.getRowProps()}
-                    key={rowUniqueKey ? row.original[rowUniqueKey] : row.id}
-                    color={color}>
-                    {row.cells.map((cell: CellType<T>, index) => {
-                      return (
-                        <TableCell
-                          key={index}
-                          style={{
-                            maxWidth: cell.column.dataMaxWidth
-                              ? cell.column.dataMaxWidth
-                              : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
-                              ? cell.column.maxWidth
-                              : `${tableHeadWidths[index] / rootFontSize}rem`
-                          }}
-                          align={cell.column.align}
-                          color={color}
-                          className={classNames({
-                            [styles.LastTableCell]: index === row.cells.length - 1
-                          })}>
-                          <TextWithTooltip>
-                            {cell.column.renderColumn
-                              ? cell.column.renderColumn(cell.render('Cell'), cell.value)
-                              : cell.render('Cell')}
-                          </TextWithTooltip>
-                        </TableCell>
-                      );
-                    })}
+                  return (
+                    <TableRow
+                      style={{ position: 'relative', top: 0, left: 0 }}
+                      isLoading={isLoading}
+                      hover
+                      selected={isRowActive || row.isSelected}
+                      {...row.getRowProps()}
+                      key={rowUniqueKey ? row.original[rowUniqueKey] : row.id}
+                      color={color}>
+                      {row.cells.map((cell: CellType<T>, index) => {
+                        return (
+                          <TableCell
+                            key={index}
+                            style={{
+                              maxWidth: cell.column.dataMaxWidth
+                                ? cell.column.dataMaxWidth
+                                : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                                ? cell.column.maxWidth
+                                : `${tableHeadWidths[index] / rootFontSize}rem`
+                            }}
+                            align={cell.column.align}
+                            color={color}
+                            className={classNames({
+                              [styles.LastTableCell]: index === row.cells.length - 1
+                            })}>
+                            <TextWithTooltip disabled={!!cell.column.renderColumn}>
+                              {cell.column.renderColumn
+                                ? cell.column.renderColumn(cell.render('Cell'), cell.value)
+                                : cell.render('Cell')}
+                            </TextWithTooltip>
+                          </TableCell>
+                        );
+                      })}
 
-                    {actions && !isLoading && actionsContent.length ? (
-                      <div
-                        className={classNames(styles['ActionToolsStickyHorizontal'], 'ActionToolsStickyHorizontal')}
-                        {...actions}
-                        color={color}>
-                        <section className={classNames(styles['ActionTools'], 'ActionTools')}>
-                          <div className={classNames(styles['ActionTableCell'], 'ActionTableCell')}>
-                            {actionsContent}
-                          </div>
-                        </section>
-                      </div>
-                    ) : null}
-                  </TableRow>
-                );
-              })}
-            </FlipMove>
-          </TBodyComponent>
-        ) : (
-          <div className={styles.IllustrationWrapper}>
-            <div className={styles.Illustration}>{illustrationIcon}</div>
-            <Typography component='p' variant='p4' className={styles.IllustrationText}>
-              {emptyText}
-            </Typography>
-          </div>
-        )}
-
-        {isLoading && (
-          <div className={styles.Loader}>
-            <Loader />
-          </div>
-        )}
-      </Component>
-    </Scroll>
+                      {actions && !isLoading && actionsContent.length ? (
+                        <div
+                          className={classNames(styles['ActionToolsStickyHorizontal'], 'ActionToolsStickyHorizontal')}
+                          {...actions}
+                          color={color}>
+                          <section className={classNames(styles['ActionTools'], 'ActionTools')}>
+                            <div className={classNames(styles['ActionTableCell'], 'ActionTableCell')}>
+                              {actionsContent}
+                            </div>
+                          </section>
+                        </div>
+                      ) : null}
+                    </TableRow>
+                  );
+                })}
+              </FlipMove>
+            </TBodyComponent>
+          ) : (
+            <div className={styles.IllustrationWrapper}>
+              <div className={styles.Illustration}>{illustrationIcon}</div>
+              <Typography component='p' variant='p4' className={styles.IllustrationText}>
+                {emptyText}
+              </Typography>
+            </div>
+          )}
+        </Component>
+      </Scroll>
+      {isLoading && (
+        <div className={styles.Loader}>
+          <Loader />
+        </div>
+      )}
+    </div>
   );
 };
 

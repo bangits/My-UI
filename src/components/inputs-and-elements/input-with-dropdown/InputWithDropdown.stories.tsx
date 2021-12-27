@@ -65,7 +65,7 @@ export const Default = () => {
       dropdownProps={{
         noOptionsMessage: ({ inputValue }) => (!inputValue ? '' : 'Try Again'),
         options: options,
-        defaultValue: 2
+        value: 2
       }}
       inputProps={{
         label: 'Mobile Number',

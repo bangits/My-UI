@@ -1,6 +1,5 @@
 import { getColorKnobs } from '@/configs';
 import { COLOR_TYPES } from '@/types';
-import { transform } from '@babel/core';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
@@ -46,6 +45,7 @@ export const Default = () => {
         value={text('defaultValue', 'ui-kit@bangits.com')}
         maxLength={number('maxLength', 10)}
         type='number'
+        isDecimal
         onChange={action('onChange')}
         explanation={text('explanation', '')}
         fullWidth={boolean('fullWidth for number input', false)}

@@ -1,5 +1,5 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import { Scroll, Typography } from '@/my-ui-core';
+import { Loader, Scroll, Typography } from '@/my-ui-core';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
 import {
@@ -18,6 +18,7 @@ import {
 } from '@my-ui/react-table';
 import classNames from 'classnames';
 import { ReactNode, useEffect, useRef, useState } from 'react';
+import FlipMove from 'react-flip-move';
 import selectionHook from './selectionHook';
 import styles from './Table.module.scss';
 import TableCell, { TableCellProps } from './TableCell';
@@ -69,7 +70,10 @@ export interface TableProps<T extends {}> extends IComponent {
   absoluteLayout?: boolean;
   blockLayout?: boolean;
   isResizing?: boolean;
+  isLoading?: boolean;
   emptyValue?: string;
+  height?: number | string;
+  rowUniqueKey?: string;
   theadComponent?: ComponentType;
   tbodyComponent?: ComponentType;
   actions?: TableAction<T>[];
@@ -109,7 +113,10 @@ const Table = <T extends {}>({
   loadingRowsIds,
   loadingRowColumnProperty,
   checkIsRowActive,
-  className
+  className,
+  rowUniqueKey,
+  isLoading,
+  height
 }: TableProps<T>) => {
   const tableHeadRef = useRef<HTMLElement>(null);
 
@@ -170,13 +177,14 @@ const Table = <T extends {}>({
       trackClassName={styles.ScrollTrack}
       thumbClassName={styles.ScrollThumb}
       className={classNames(styles.TableScroll, className)}
-      height={500}>
+      height={height || 500}>
       <Component
         {...getTableProps()}
         className={classNames(styles.TableContainer, {
           [styles['TableContainer--withSelection']]: isWithSelection,
           [styles['TableContainer--ready']]: tableHeadWidths.length,
-          [styles['Table--no-result']]: !data.length
+          [styles['Table--no-result']]: !data.length,
+          [styles['Table--loading']]: isLoading
         })}>
         {/* @ts-expect-error Ignoring typescript cause for automatic component they're error related with ref prop */}
         <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
@@ -211,84 +219,86 @@ const Table = <T extends {}>({
 
         {data.length ? (
           <TBodyComponent {...getTableBodyProps()} className={styles.TableBody}>
-            {rows.map((row: Row<T>, rowIndex: number) => {
-              prepareRow(row);
+            <FlipMove>
+              {rows.map((row: Row<T>, rowIndex: number) => {
+                prepareRow(row);
 
-              const isRowActive = checkIsRowActive && checkIsRowActive(data[rowIndex]);
+                const isRowActive = checkIsRowActive && checkIsRowActive(data[rowIndex]);
 
-              const rowLoadingPropertyValue = loadingRowColumnProperty
-                ? // @ts-expect-error Ignored typescript, cause loadingRowColumnProperty should be string or number
-                  (row.original[loadingRowColumnProperty] as string | number)
-                : rowIndex + 1;
+                const rowLoadingPropertyValue = loadingRowColumnProperty
+                  ? // @ts-expect-error Ignored typescript, cause loadingRowColumnProperty should be string or number
+                    (row.original[loadingRowColumnProperty] as string | number)
+                  : rowIndex + 1;
 
-              const isLoading = loadingRowsIds.includes(rowLoadingPropertyValue);
+                const isLoading = loadingRowsIds.includes(rowLoadingPropertyValue);
 
-              const actionsContent =
-                actions &&
-                actions
-                  .map(
-                    ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
-                      shouldShow(data[rowIndex]) && (
-                        <div>
-                          <Component
-                            key={index}
-                            {...props}
-                            onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
-                          />
-                        </div>
-                      )
-                  )
-                  .filter((a) => a);
+                const actionsContent =
+                  actions &&
+                  actions
+                    .map(
+                      ({ component: Component, onClick, props, shouldShow = () => true }, index) =>
+                        shouldShow(data[rowIndex]) && (
+                          <div>
+                            <Component
+                              key={index}
+                              {...props}
+                              onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
+                            />
+                          </div>
+                        )
+                    )
+                    .filter((a) => a);
 
-              console.log(actionsContent);
+                return (
+                  <TableRow
+                    style={{ position: 'relative', top: 0, left: 0 }}
+                    isLoading={isLoading}
+                    hover
+                    selected={isRowActive || row.isSelected}
+                    {...row.getRowProps()}
+                    key={rowUniqueKey ? row.original[rowUniqueKey] : row.id}
+                    color={color}>
+                    {row.cells.map((cell: CellType<T>, index) => {
+                      return (
+                        <TableCell
+                          key={index}
+                          style={{
+                            maxWidth: cell.column.dataMaxWidth
+                              ? cell.column.dataMaxWidth
+                              : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                              ? cell.column.maxWidth
+                              : `${tableHeadWidths[index] / rootFontSize}rem`
+                          }}
+                          align={cell.column.align}
+                          color={color}
+                          className={classNames({
+                            [styles.LastTableCell]: index === row.cells.length - 1
+                          })}>
+                          <div>
+                            {cell.column.renderColumn
+                              ? cell.column.renderColumn(cell.render('Cell'), cell.value)
+                              : cell.render('Cell')}
+                          </div>
+                        </TableCell>
+                      );
+                    })}
 
-              return (
-                <TableRow
-                  style={{ position: 'relative', top: 0, left: 0 }}
-                  isLoading={isLoading}
-                  key={rowIndex}
-                  hover
-                  selected={isRowActive || row.isSelected}
-                  {...row.getRowProps()}
-                  color={color}>
-                  {row.cells.map((cell: CellType<T>, index) => {
-                    return (
-                      <TableCell
-                        key={index}
-                        style={{
-                          maxWidth: cell.column.dataMaxWidth
-                            ? cell.column.dataMaxWidth
-                            : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
-                            ? cell.column.maxWidth
-                            : `${tableHeadWidths[index] / rootFontSize}rem`
-                        }}
-                        align={cell.column.align}
-                        color={color}
-                        className={classNames({
-                          [styles.LastTableCell]: index === row.cells.length - 1
-                        })}>
-                        <div>
-                          {cell.column.renderColumn
-                            ? cell.column.renderColumn(cell.render('Cell'), cell.value)
-                            : cell.render('Cell')}
-                        </div>
-                      </TableCell>
-                    );
-                  })}
-
-                  {actions && !isLoading && actionsContent.length ? (
-                    <div
-                      className={classNames(styles['ActionToolsStickyHorizontal'], 'ActionToolsStickyHorizontal')}
-                      {...actions}
-                      color={color}>
-                      <section className={classNames(styles['ActionTools'], 'ActionTools')}>
-                        <div className={classNames(styles['ActionTableCell'], 'ActionTableCell')}>{actionsContent}</div>
-                      </section>
-                    </div>
-                  ) : null}
-                </TableRow>
-              );
-            })}
+                    {actions && !isLoading && actionsContent.length ? (
+                      <div
+                        className={classNames(styles['ActionToolsStickyHorizontal'], 'ActionToolsStickyHorizontal')}
+                        {...actions}
+                        color={color}>
+                        <section className={classNames(styles['ActionTools'], 'ActionTools')}>
+                          <div className={classNames(styles['ActionTableCell'], 'ActionTableCell')}>
+                            {actionsContent}
+                          </div>
+                        </section>
+                      </div>
+                    ) : null}
+                  </TableRow>
+                );
+              })}
+            </FlipMove>
           </TBodyComponent>
         ) : (
           <div className={styles.IllustrationWrapper}>
@@ -296,6 +306,12 @@ const Table = <T extends {}>({
             <Typography component='p' variant='p4' className={styles.IllustrationText}>
               {emptyText}
             </Typography>
+          </div>
+        )}
+
+        {isLoading && (
+          <div className={styles.Loader}>
+            <Loader />
           </div>
         )}
       </Component>

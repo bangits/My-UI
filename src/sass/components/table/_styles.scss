@@ -114,8 +114,38 @@
     }
   }
 
-  .TableContainer .Table--no-result {
-    min-height: getTableSizes(table-no-result);
+  .TableContainer {
+    &.Table {
+      &--no-result {
+        min-height: getTableSizes(table-no-result);
+      }
+
+      &--loading {
+        position: relative;
+
+        .IllustrationWrapper {
+          display: none;
+        }
+
+        .TableHead,
+        .TableBody {
+          @include theme(opacity, disabled-opacity);
+        }
+
+        .Loader {
+          position: absolute;
+          top: 20%;
+          left: 0;
+
+          @include flex(center, center);
+
+          width: 100%;
+          max-width: getTableSizes(table-loader-max-width);
+
+          z-index: 999;
+        }
+      }
+    }
   }
 
   .IllustrationWrapper {

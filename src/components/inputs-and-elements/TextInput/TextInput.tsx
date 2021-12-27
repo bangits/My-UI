@@ -26,6 +26,7 @@ export interface BaseTextInputProps {
   label?: string;
   forceFocused?: boolean;
   isDecimal?: boolean;
+  decimalMaxPoint?: number;
 }
 
 type InputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
@@ -47,6 +48,8 @@ const TextInputs: FC<TextInputProps> = forwardRef(
       label,
       forceFocused,
       isDecimal,
+      decimalMaxPoint = 2,
+      min,
       ...props
     },
     ref
@@ -76,9 +79,19 @@ const TextInputs: FC<TextInputProps> = forwardRef(
 
     const onInput: TextInputProps['onInput'] = useCallback(
       (evt) => {
-        if (maxLength) evt.target['value'] = evt.target['value'].slice(0, maxLength);
+        console.log(evt.target['value']);
+
+        if (maxLength && evt.target['value']) evt.target['value'] = evt.target['value'].slice(0, maxLength);
 
         if (type === 'number' && !isDecimal) evt.target['value'] = evt.target['value'].replace('.', '');
+
+        if (type === 'number' && isDecimal && evt.target['value'].includes('.')) {
+          const value = evt.target['value'];
+
+          const dotIndex = value.indexOf('.');
+
+          evt.target['value'] = value.slice(0, dotIndex) + value.slice(dotIndex, dotIndex + decimalMaxPoint + 1);
+        }
 
         if (props.onInput) props.onInput(evt);
       },
@@ -149,6 +162,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
               className
             )}
             {...props}
+            min={min || '0'}
             ref={ref}
             onKeyDown={onKeyDown}
             onInput={onInput}

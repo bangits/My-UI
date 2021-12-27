@@ -1,7 +1,7 @@
 import { typedMemo } from '@/helpers/typedMemo';
 import { ComponentType, IComponent } from '@/types/props';
 import classNames from 'classnames';
-import { CSSProperties, FC, useCallback, useState } from 'react';
+import { CSSProperties, forwardRef, ReactNode, useCallback, useState } from 'react';
 import { UIColors } from '../../types/ui';
 import styles from './TableRow.module.scss';
 export interface TableRowProps extends IComponent {
@@ -11,39 +11,38 @@ export interface TableRowProps extends IComponent {
   component?: ComponentType;
   style?: CSSProperties;
   isLoading?: boolean;
+  children?: ReactNode;
 }
 
-export const TableRow: FC<TableRowProps> = ({
-  children,
-  hover,
-  color,
-  selected,
-  component: Component = 'tr',
-  isLoading = false
-}) => {
-  const [hoverRow, setHoverRow] = useState<boolean>(false);
+export const TableRow = forwardRef<HTMLElement, TableRowProps>(
+  ({ children, hover, color, selected, component: Component = 'tr', isLoading = false }, ref) => {
+    const [hoverRow, setHoverRow] = useState<boolean>(false);
 
-  const handleMouseOver = useCallback(() => {
-    if (hover) setHoverRow(true);
-  }, []);
-  const handleMouseOut = useCallback(() => {
-    if (hover) setHoverRow(false);
-  }, []);
+    const handleMouseOver = useCallback(() => {
+      if (hover) setHoverRow(true);
+    }, []);
+    const handleMouseOut = useCallback(() => {
+      if (hover) setHoverRow(false);
+    }, []);
 
-  return (
-    <Component
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-      className={classNames(styles.TableRow, {
-        [styles['TableRow--loading']]: isLoading,
-        [styles['TableRow--default']]: true,
-        [styles['TableRow--hover']]: hoverRow,
-        [styles['TableRow--selected']]: selected,
-        [`${styles[`TableRow--${color}`]}`]: color
-      })}>
-      {children}
-    </Component>
-  );
-};
+    return (
+      // @ts-expect-error Ingoring typescript for ref type casting
+      <Component
+        // @ts-expect-error Ingoring typescript for ref type casting
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        className={classNames(styles.TableRow, {
+          [styles['TableRow--loading']]: isLoading,
+          [styles['TableRow--default']]: true,
+          [styles['TableRow--hover']]: hoverRow,
+          [styles['TableRow--selected']]: selected,
+          [`${styles[`TableRow--${color}`]}`]: color
+        })}
+        ref={ref}>
+        {children}
+      </Component>
+    );
+  }
+);
 
 export default typedMemo(TableRow);

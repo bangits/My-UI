@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 
-export type ComponentType = keyof JSX.IntrinsicElements;
+export type ComponentType = keyof JSX.IntrinsicElements | React.ComponentType;
 
 export interface IComponent {
   className?: string;

@@ -197,3 +197,216 @@
     }
   }
 }
+
+@mixin select-dropdown-elements {
+  .Select--dropdown-control-icon {
+    width: getSelectSizes(select-dropdown-control-icon-width);
+    height: getSelectSizes(select-dropdown-control-icon-height);
+    @include flex(center, center);
+  }
+
+  .Select--dropdown-control-label {
+    height: getSelectSizes(select-dropdown-control-label-height);
+    margin-left: getSelectSizes(select-dropdown-control-label-margin-left);
+    font-size: getSelectSizes(select-dropdown-control-label-font-size);
+    letter-spacing: getSelectSizes(select-dropdown-control-label-letter-spacing);
+    font-weight: 500;
+  }
+
+  .Select--dropdown--input {
+    @include theme(border-bottom, select-dropdown-input-border-bottom-color, solid 1px);
+    position: absolute;
+    top: 0;
+    z-index: 1000000000;
+    width: getSelectSizes(select-dropdown-input-width);
+    height: getSelectSizes(select-dropdown-input-height);
+    border-radius: getSelectSizes(select-dropdown-input-border-radius);
+    @include theme(background-color, select-dropdown-input-bg-color);
+
+    > input {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      font-family: $base-font-family;
+      font-size: getSelectSizes(select-dropdown-input-input-font-size);
+      padding: getSelectSizes(select-dropdown-input-input-padding);
+      border-radius: getSelectSizes(select-dropdown-input-input-border-radius);
+      @include theme(color, select-dropdown-input-input-color);
+
+      &::placeholder {
+        font-family: $base-font-family;
+        font-size: getSelectSizes(select-dropdown-input-input-placeholder-font-size);
+        opacity: 0.4;
+        @include theme(color, select-dropdown-input-input-placeholder-color);
+      }
+    }
+    > span {
+      position: absolute;
+      top: getSelectSizes(select-dropdown-input-span-top);
+      right: getSelectSizes(select-dropdown-input-span-right);
+      width: getSelectSizes(select-dropdown-input-span-width);
+      height: getSelectSizes(select-dropdown-input-span-height);
+      opacity: 0.4;
+      @include theme(color, select-dropdown-input-input-span-color);
+    }
+  }
+
+  .DISABLED {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999999999999999;
+    // background-color: red;
+  }
+
+  .AllOption {
+    &:first-child {
+      > div {
+        border-bottom: none;
+        &:hover {
+          @include theme(background-color, select-dropdown-all-option-first-child-hover-bg-color);
+          border-radius: getSelectSizes(select-dropdown-all-option-first-child-hover-border-radius);
+        }
+      }
+    }
+  }
+
+  &--custom-option {
+    &:first-child {
+      margin: 0;
+      > div {
+        padding-left: getSelectSizes(select-dropdown-custom-option-first-child-div-padding-left);
+      }
+    }
+    margin: getSelectSizes(select-dropdown-custom-option-margin);
+
+    &:hover {
+      margin: 0;
+      > div {
+        padding-left: getSelectSizes(select-dropdown-custom-option-hover-div);
+      }
+    }
+  }
+
+  .Select--icon-container {
+    display: flex;
+    font-size: 0;
+  }
+
+  .Select--clear-button {
+    @include flex(null, center);
+    width: 100%;
+    position: absolute;
+    z-index: 999999;
+    bottom: getSelectSizes(select-clear-button-bottom);
+    height: getSelectSizes(select-clear-button-height);
+    border-radius: getSelectSizes(select-clear-button-border-radius);
+    @include theme(background-color, select-clear-button-bg-color);
+    cursor: pointer;
+    div {
+      width: getSelectSizes(select-clear-button-div-width);
+      height: getSelectSizes(select-clear-button-div-height) !important;
+      margin-left: getSelectSizes(select-clear-button-div-margin-left);
+      @include theme(color, select-clear-button-div-color);
+    }
+    span {
+      height: getSelectSizes(select-clear-button-span-height);
+      font-size: getSelectSizes(select-clear-button-span-font-size);
+      padding-left: getSelectSizes(select-clear-button-span-padding-left);
+      @include theme(color, select-clear-button-span-color);
+      @include dots-after-text;
+    }
+  }
+}
+
+// select-dropdown-separate
+@mixin select-dropdown-separate {
+  .ClearIcon-Cell {
+    @include flex(center, center);
+    font-size: 0;
+  }
+
+  .DropdownArrow {
+    @include theme(fill, select-drop-down-arrow-svg-fill);
+  }
+
+  .SelectDropdownSearchIconCell {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// select-box
+@mixin select-box {
+  .Select {
+    position: relative;
+
+    // TREE END
+    .Select--search {
+      width: 28rem;
+    }
+    //
+    &--dropdown-control {
+      @include theme(color, black-color);
+      @include flex(null, center);
+      cursor: pointer;
+
+      @each $color in $base-colors {
+        &--#{$color} {
+          @include theme(color, #{$color});
+        }
+      }
+    }
+
+    // this so that the filter is closed, the label and icon must be of this color
+
+    .Select--iconClose {
+      @include theme(color, black-color);
+    }
+
+    .Select--labelClose {
+      @include theme(color, black-color);
+    }
+
+    @include select-dropdown-elements;
+    @include generate-select-styles;
+
+    &--fullWidth {
+      width: 100%;
+
+      .AllOption {
+        &:first-child {
+          width: 100%;
+        }
+      }
+
+      .Select--search,
+      .Select--clear-button {
+        width: 100%;
+      }
+
+      @include generate-full-width-select-styles;
+    }
+
+    &--dropdown {
+      @include generate-dropdown-select-styles;
+    }
+
+    &--with-clear {
+      @include generate-with-clear-select-styles;
+    }
+
+    :global {
+      .MyUI-TextInputEndIcon {
+        cursor: pointer;
+      }
+    }
+  }
+
+  @include select-dropdown-separate;
+}

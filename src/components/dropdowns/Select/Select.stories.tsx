@@ -201,9 +201,7 @@ export const Dropdown = () => {
       clearButtonLabel='Clear'
       dropdown
       isDisabled={boolean('isDisabled', false)}
-      dropdownIcon={
-        <FilterIcon style={{ fill: '#505d6e', position: 'relative', left: '6px', top: '7px', width: '18px' }} />
-      }
+      dropdownIcon={<FilterIcon width='1.8rem' fill='currentColor' />}
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
       onChange={action('onChange')}

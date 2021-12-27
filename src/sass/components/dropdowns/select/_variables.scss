@@ -44,11 +44,61 @@ $select-sizes: (
   clear-select-padding: calculateRem(32px),
   select-notice-width: 100%,
   select-notice-padding: calculateRem(22px) 0 calculateRem(21.3px) calculateRem(7.6px),
-  select-notice-font-size: calculateRem(14px)
+  select-notice-font-size: calculateRem(14px),
+  //
+  select-dropdown-control-icon-width: calculateRem(24px),
+  select-dropdown-control-icon-height: calculateRem(24px),
+  //
+  select-dropdown-control-label-height: calculateRem(16px),
+  select-dropdown-control-label-margin-left: calculateRem(8px),
+  select-dropdown-control-label-font-size: calculateRem(14px),
+  select-dropdown-control-label-letter-spacing: calculateRem(1.4px),
+  //
+  select-dropdown-input-width: calculateRem(192px),
+  select-dropdown-input-height: calculateRem(31px),
+  select-dropdown-input-border-radius: 8px 8px 0 0,
+  //
+  select-dropdown-input-input-font-size: calculateRem(12px),
+  select-dropdown-input-input-padding: 0 calculateRem(28px) 0 calculateRem(8px),
+  select-dropdown-input-input-border-radius: 8px 8px 0 0,
+  select-dropdown-input-input-placeholder-font-size: calculateRem(12px),
+  //
+  select-dropdown-input-span-top: calculateRem(4px),
+  select-dropdown-input-span-right: calculateRem(4px),
+  select-dropdown-input-span-width: calculateRem(24px),
+  select-dropdown-input-span-height: calculateRem(24px),
+  //
+  select-dropdown-all-option-first-child-hover-border-radius: 8px 8px 0 0,
+  //
+  select-dropdown-custom-option-first-child-div-padding-left: calculateRem(4px),
+  select-dropdown-custom-option-hover-div: calculateRem(4px),
+  select-dropdown-custom-option-margin: 0 calculateRem(4px),
+  //
+  select-clear-button-bottom: calculateRem(5px),
+  select-clear-button-height: calculateRem(31px),
+  select-clear-button-border-radius: 0 0 6px 6px,
+  //
+  select-clear-button-div-width: calculateRem(24px),
+  select-clear-button-div-height: calculateRem(24px),
+  select-clear-button-div-margin-left: calculateRem(4px),
+  //
+  select-clear-button-span-height: calculateRem(14px),
+  select-clear-button-span-font-size: calculateRem(12px),
+  select-clear-button-span-padding-left: calculateRem(4px)
 );
 
 $select-colors: (
-  select-option-divider-color: color(alabaster)
+  select-option-divider-color: color(alabaster),
+  select-dropdown-input-border-bottom-color: color(alabaster),
+  select-dropdown-input-bg-color: color(white),
+  select-dropdown-input-input-color: color(midnight-sun),
+  select-dropdown-input-input-placeholder-color: color(gray-transparent),
+  select-dropdown-input-input-span-color: color(gray-transparent),
+  select-dropdown-all-option-first-child-hover-bg-color: color(night-in-manchester-opacity-10),
+  select-clear-button-bg-color: color(white),
+  select-clear-button-div-color: color(gray-transparent),
+  select-clear-button-span-color: color(gray-transparent),
+  select-drop-down-arrow-svg-fill: color(cornflower-blue2)
 );
 
 @function getSelectSizes($property) {

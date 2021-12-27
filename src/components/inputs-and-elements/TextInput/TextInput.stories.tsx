@@ -49,6 +49,7 @@ export const Default = () => {
         onChange={action('onChange')}
         explanation={text('explanation', '')}
         fullWidth={boolean('fullWidth for number input', false)}
+        min={-Infinity}
       />
     </>
   );

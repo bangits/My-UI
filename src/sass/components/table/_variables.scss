@@ -2,6 +2,7 @@ $table-sizes: (
   table-scroll-border-radius: 16px,
   table-head-row-height: calculateRem(55px),
   table-body-row-height: calculateRem(51px),
+  table-body-min-height: calculateRem(350px),
   table-action-cell-width: calculateRem(140px),
   table-with-selection-width: calculateRem(18px),
   table-head-z-index: 100,

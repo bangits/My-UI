@@ -59,7 +59,7 @@
     "file-loader": "^6.2.0",
     "husky": "^6.0.0",
     "mini-css-extract-plugin": "^2.1.0",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "postcss": "8",
     "postcss-discard-duplicates": "^5.0.1",
     "postcss-loader": "^6.2.1",

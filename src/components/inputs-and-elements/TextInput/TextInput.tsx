@@ -107,6 +107,8 @@ const TextInputs: FC<TextInputProps> = forwardRef(
 
     const onBlur: TextInputProps['onBlur'] = useCallback(
       (evt) => {
+        if (!evt.target['value']) evt.target['value'] = '';
+
         setInputFocused(false);
 
         if (props.onBlur) props.onBlur(evt);

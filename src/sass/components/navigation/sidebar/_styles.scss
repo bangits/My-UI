@@ -58,9 +58,13 @@
       }
     }
 
-    &--button {
+    button#{&}--button {
       width: getSideBarSizes(sidebar-button-container-width);
       height: getSideBarSizes(sidebar-button-container-height);
+
+      svg {
+        width: getSideBarSizes(button-arrow-width);
+      }
 
       &:hover {
         background-color: transparent;

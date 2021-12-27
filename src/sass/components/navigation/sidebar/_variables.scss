@@ -20,6 +20,7 @@ $sidebar-sizes: (
   sidebar-base-before-min-height: 94%,
   sidebar-logo-border-radius: 4px,
   sidebar-transition: 0.3s,
+  button-arrow-width: calculateRem(8px),
   //
   sidebar-width: calculateRem(244px)
 );

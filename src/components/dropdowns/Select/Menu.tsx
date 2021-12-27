@@ -1,9 +1,9 @@
 import { CustomSelectProps, Scroll, SelectProps } from '@/components';
 import { components } from '@my-ui/react-select';
-import React from 'react';
-import TreeSelect from './TreeSelect';
 import classNames from 'classnames';
+import React from 'react';
 import styles from './Menu.module.scss';
+import TreeSelect from './TreeSelect';
 
 export const Menu: typeof components.Menu = (props) => {
   const selectProps: typeof props.selectProps &
@@ -22,7 +22,7 @@ export const Menu: typeof components.Menu = (props) => {
                 className={classNames(styles['RootTreeSelect__Child'], 'RootTreeSelect__Child')}
                 onChange={(value) => {
                   if (!selectProps.isMulti) {
-                    selectProps.onChangeOriginal?.(value, null);
+                    selectProps.onChangeOriginal?.(value, null, selectProps.options);
                   }
                 }}
                 data={selectProps.treeData}

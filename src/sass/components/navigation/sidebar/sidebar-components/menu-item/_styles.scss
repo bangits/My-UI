@@ -27,8 +27,8 @@
 
       .MenuItemBase--icon {
         margin: getMenuItemSizes(sidebar-menu-item-isActive-icon-margin);
-        width: getMenuItemSizes(sidebar-menu-item-isActive-icon-width);
-        height: getMenuItemSizes(sidebar-menu-item-isActive-icon-height);
+        // width: getMenuItemSizes(sidebar-menu-item-isActive-icon-width);
+        // height: getMenuItemSizes(sidebar-menu-item-isActive-icon-height);
         padding: getMenuItemSizes(sidebar-menu-item-isActive-icon-padding);
         @include theme(color, sidebar-menu-item-isActive-icon-color);
         opacity: getMenuItemSizes(sidebar-menu-item-isActive-icon-opacity);
@@ -103,8 +103,6 @@
       &.MenuItemBase--sidebarClosed {
         .MenuItemBase--icon {
           margin-left: getMenuItemSizes(sidebar-menu-item-hover-icon-marginL);
-          width: getMenuItemSizes(sidebar-menu-item-hover-icon-width);
-          height: getMenuItemSizes(sidebar-menu-item-hover-icon-height);
           padding: getMenuItemSizes(sidebar-menu-item-hover-icon-padding);
           @include theme(color, sidebar-menu-item-hover-icon-color);
           opacity: getMenuItemSizes(sidebar-menu-item-hover-icon-opacity);
@@ -157,6 +155,11 @@
       padding: getMenuItemSizes(sidebar-menu-item-icon-padding);
       opacity: getMenuItemSizes(sidebar-menu-item-icon-opacity);
       transition: getMenuItemSizes(sidebar-menu-item-transition);
+
+      svg {
+        width: inherit;
+        height: inherit;
+      }
     }
 
     &--label {

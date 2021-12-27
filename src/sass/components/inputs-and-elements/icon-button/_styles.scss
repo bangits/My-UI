@@ -16,6 +16,11 @@
       width: getIconButtonSizes(icon-button-icon-width);
       height: getIconButtonSizes(icon-button-icon-height);
 
+      svg {
+        width: inherit;
+        height: inherit;
+      }
+
       @include center-flex();
     }
 

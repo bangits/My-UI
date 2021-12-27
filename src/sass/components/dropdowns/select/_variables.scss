@@ -84,7 +84,8 @@ $select-sizes: (
   //
   select-clear-button-span-height: calculateRem(14px),
   select-clear-button-span-font-size: calculateRem(12px),
-  select-clear-button-span-padding-left: calculateRem(4px)
+  select-clear-button-span-padding-left: calculateRem(4px),
+  select-search-width: calculateRem(280px)
 );
 
 $select-colors: (

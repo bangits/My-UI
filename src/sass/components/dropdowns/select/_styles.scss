@@ -254,13 +254,10 @@
   }
 
   .DISABLED {
-    position: absolute;
-    top: 0;
-    left: 0;
+    @include p('abs');
     width: 100%;
     height: 100%;
     z-index: 99999999999999999999;
-    // background-color: red;
   }
 
   .AllOption {
@@ -348,7 +345,7 @@
 
     // TREE END
     .Select--search {
-      width: 28rem;
+      width: getSelectSizes(select-search-width);
     }
     //
     &--dropdown-control {

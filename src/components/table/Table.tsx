@@ -19,6 +19,7 @@ import {
 import classNames from 'classnames';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import FlipMove from 'react-flip-move';
+import { TextWithTooltip } from '../text-with-tooltip';
 import selectionHook from './selectionHook';
 import styles from './Table.module.scss';
 import TableCell, { TableCellProps } from './TableCell';
@@ -274,11 +275,11 @@ const Table = <T extends {}>({
                           className={classNames({
                             [styles.LastTableCell]: index === row.cells.length - 1
                           })}>
-                          <div>
+                          <TextWithTooltip>
                             {cell.column.renderColumn
                               ? cell.column.renderColumn(cell.render('Cell'), cell.value)
                               : cell.render('Cell')}
-                          </div>
+                          </TextWithTooltip>
                         </TableCell>
                       );
                     })}

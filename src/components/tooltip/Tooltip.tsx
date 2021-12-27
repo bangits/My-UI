@@ -3,7 +3,7 @@ import { useOutsideClickWithRef } from '@/helpers';
 import { Triangle } from '@/icons';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
-import React, { cloneElement, useRef, useState } from 'react';
+import React, { cloneElement, ReactNode, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import StyledTooltip from './StyledTooltip';
 import { default as Styles, default as styles } from './Tooltip.module.scss';
@@ -13,7 +13,7 @@ export type showEventType = 'click' | 'hover';
 
 export interface TooltipProps {
   children: Parameters<typeof cloneElement>[0];
-  text?: string;
+  text?: ReactNode;
   delay?: number;
   color?: UIColors;
   space?: number;

@@ -79,8 +79,6 @@ const TextInputs: FC<TextInputProps> = forwardRef(
 
     const onInput: TextInputProps['onInput'] = useCallback(
       (evt) => {
-        console.log(evt.target['value']);
-
         if (maxLength && evt.target['value']) evt.target['value'] = evt.target['value'].slice(0, maxLength);
 
         if (type === 'number' && !isDecimal) evt.target['value'] = evt.target['value'].replace('.', '');

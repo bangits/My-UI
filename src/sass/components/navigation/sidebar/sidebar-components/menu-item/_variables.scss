@@ -20,7 +20,7 @@ $sidebar-menu-item-sizes: (
   sidebar-menu-item-isActive-icon-opacity: 1,
   sidebar-menu-item-isActive-label-margin: 0 0 0 calculateRem(16px),
   sidebar-menu-item-isActive-label-padding: 0 0 0 0,
-  sidebar-menu-item-isActive-label-font-size: calculateRem(14px),
+  sidebar-menu-item-isActive-label-font-size: calculateRem(16px),
   sidebar-menu-item-isActive-label-font-weight: 900,
   sidebar-menu-item-isActive-label-letter-spacing: calculateRem(0.32px),
   sidebar-menu-item-isActive-label-opacity: 1,
@@ -56,7 +56,7 @@ $sidebar-menu-item-sizes: (
   //labels
   sidebar-menu-item-label-marginL: calculateRem(16px),
   sidebar-menu-item-label-padding: 0 0 0 0,
-  sidebar-menu-item-label-font-size: calculateRem(14px),
+  sidebar-menu-item-label-font-size: calculateRem(16px),
   sidebar-menu-item-label-font-weight: 700,
   sidebar-menu-item-label-letter-spacing: calculateRem(0.32px),
   sidebar-menu-item-label-opacity: 0.5,

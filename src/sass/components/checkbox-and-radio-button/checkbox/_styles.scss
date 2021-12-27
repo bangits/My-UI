@@ -42,7 +42,9 @@
         @include theme(opacity, disabled-opacity);
       }
     }
-    svg {
+
+    svg,
+    path {
       fill: #fff;
     }
   }

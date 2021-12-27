@@ -2,6 +2,7 @@ $table-sizes: (
   table-scroll-border-radius: 16px,
   table-head-row-height: calculateRem(55px),
   table-body-row-height: calculateRem(51px),
+  table-body-min-height: calculateRem(350px),
   table-action-cell-width: calculateRem(140px),
   table-with-selection-width: calculateRem(18px),
   table-head-z-index: 100,
@@ -18,6 +19,7 @@ $table-sizes: (
   illustration-text-margin-top: calculateRem(24px),
   illustration-text-letter-spacing: calculateRem(1.4px),
   table-no-result: calculateRem(440px),
+  table-loader-max-width: calculateRem(1905px),
   //
   action-table-cell-height: calculateRem(50px),
   action-table-cell-right: calculateRem(5px),

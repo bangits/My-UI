@@ -3,6 +3,16 @@
     display: block;
   }
 
+  .TableWrapper {
+    position: relative;
+  }
+
+  .Loader {
+    @include center-absolute;
+
+    z-index: 999;
+  }
+
   .ScrollThumb,
   .ScrollTrack {
     z-index: 1 !important;
@@ -22,6 +32,7 @@
 
   .TableBody {
     display: block !important;
+    // min-height: getTableSizes(table-body-min-height);
   }
 
   .TableScroll,
@@ -114,8 +125,25 @@
     }
   }
 
-  .TableContainer .Table--no-result {
-    min-height: getTableSizes(table-no-result);
+  .TableContainer {
+    &.Table {
+      &--no-result {
+        min-height: getTableSizes(table-no-result);
+      }
+
+      &--loading {
+        position: relative;
+
+        .IllustrationWrapper {
+          display: none;
+        }
+
+        .TableHead,
+        .TableBody {
+          @include theme(opacity, disabled-opacity);
+        }
+      }
+    }
   }
 
   .IllustrationWrapper {

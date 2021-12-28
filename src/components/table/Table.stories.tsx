@@ -1,7 +1,7 @@
 import { IconButton, Status, Tooltip } from '@/components';
 import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
 import { useState } from 'react';
 import Table from './Table';
 
@@ -29,7 +29,7 @@ export const Default = () => {
 
   return (
     <Table
-      isLoading
+      isLoading={boolean('isLoading', false)}
       fetch={action('fetch')}
       data={[
         ...data.map((d) => ({

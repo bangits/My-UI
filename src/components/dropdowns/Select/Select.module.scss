@@ -78,7 +78,7 @@
         font-family: $base-font-family;
         font-size: 1.2rem;
         opacity: 0.4;
-        color: #8ea6c1;
+        color: #48485d;
       }
     }
     > span {
@@ -87,7 +87,7 @@
       right: 0.4rem;
       width: 2.4rem;
       height: 2.4rem;
-      color: #8ea6c1;
+      color: #48485d;
       opacity: 0.4;
     }
   }
@@ -154,12 +154,12 @@
       width: 2.4rem;
       height: 2.4rem !important;
       margin-left: 0.4rem;
-      color: #8ea6c1;
+      color: #48485d;
     }
     span {
       height: 1.4rem;
       font-size: 1.2rem;
-      color: #8ea6c1;
+      color: #48485d;
       padding-left: 0.4rem;
 
       @include dots-after-text;

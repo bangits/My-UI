@@ -197,7 +197,8 @@
     min-width: getTableSizes(action-table-cell-min-width);
     margin-top: 0;
     transform: translate(10px, -51%);
-    background-color: getTableColors(action-table-cell-bg-color2);
     padding-right: getTableSizes(action-table-cell-padding-right);
+
+    @include theme(background-color, primary, $opacity: 0.1, $useRgb: true);
   }
 }

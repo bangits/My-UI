@@ -7,7 +7,7 @@
   }
 
   .ThumbVertical {
-    @include theme(background-color, gray-color);
+    @include theme(background-color, primary, $opacity: 0.65);
   }
 
   .TrackHorizontal {
@@ -18,7 +18,7 @@
   }
 
   .ThumbHorizontal {
-    @include theme(background-color, gray-color);
+    @include theme(background-color, primary, $opacity: 0.65);
   }
 
   .TrackVertical,

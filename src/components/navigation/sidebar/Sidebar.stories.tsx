@@ -19,7 +19,7 @@ export const Default = () => {
         position={optionsKnob('position', SidebarPositions, SidebarPositions.static, {
           display: 'inline-radio'
         })}
-        width={number('width', 21.5)}
+        width={number('width', 24)}
         collapsedWidth={number('collapsedWidth', 7.2)}
         menuItems={[
           {
@@ -31,7 +31,7 @@ export const Default = () => {
               { label: 'Sub Menu Item' },
               { label: 'Sub Menu Item' }
             ],
-            icon: <HomeIcon width='1.8rem' />
+            icon: <HomeIcon width='1.8rem' fill='currentColor' />
           },
           {
             label: 'User Management',
@@ -49,16 +49,16 @@ export const Default = () => {
               { label: 'Sub Menu Item' },
               { label: 'Sub Menu Item' }
             ],
-            icon: <HomeIcon width='1.8rem' />
+            icon: <HomeIcon width='1.8rem' fill='currentColor' />
           },
-          { label: 'Players', icon: <HomeIcon width='1.8rem' /> },
-          { label: 'Games', isActive: true, icon: <HomeIcon width='1.8rem' /> },
-          { label: 'Resources', icon: <HomeIcon width='1.8rem' /> },
-          { label: 'Providers', icon: <HomeIcon width='1.8rem' /> },
-          { label: 'Partners', icon: <HomeIcon width='1.8rem' /> },
-          { label: 'Module', icon: <HomeIcon width='1.8rem' /> },
-          { label: 'Module', icon: <HomeIcon width='1.8rem' /> },
-          { label: 'Module', icon: <HomeIcon width='1.8rem' /> },
+          { label: 'Players', icon: <HomeIcon width='1.8rem' fill='currentColor' /> },
+          { label: 'Games', isActive: true, icon: <HomeIcon width='1.8rem' fill='currentColor' /> },
+          { label: 'Resources', icon: <HomeIcon width='1.8rem' fill='currentColor' /> },
+          { label: 'Providers', icon: <HomeIcon width='1.8rem' fill='currentColor' /> },
+          { label: 'Partners', icon: <HomeIcon width='1.8rem' fill='currentColor' /> },
+          { label: 'Module', icon: <HomeIcon width='1.8rem' fill='currentColor' /> },
+          { label: 'Module', icon: <HomeIcon width='1.8rem' fill='currentColor' /> },
+          { label: 'Module', icon: <HomeIcon width='1.8rem' fill='currentColor' /> },
           {
             label: 'Module',
             subItems: [
@@ -75,7 +75,7 @@ export const Default = () => {
               { label: 'Sub Menu Item' },
               { label: 'Sub Menu Item' }
             ],
-            icon: <HomeIcon width='1.8rem' />
+            icon: <HomeIcon width='1.8rem' fill='currentColor' />
           }
         ]}
       />

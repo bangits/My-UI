@@ -12,10 +12,10 @@
     padding: 0;
 
     &--icon {
-      @include theme(color, black-color);
+      // @include theme(color, black-color);
       width: getIconButtonSizes(icon-button-icon-width);
       height: getIconButtonSizes(icon-button-icon-height);
-
+      color: #c2c2dd !important;
       svg {
         width: inherit;
         height: inherit;

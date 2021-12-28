@@ -4,9 +4,16 @@
     height: getSideBarSizes(sidebar-height);
   }
 
-  .SidebarBase {
-    @include theme(background-color, sidebar-background-color);
+  .SidebarContainer {
+    @include theme(background-color, primary);
+  }
 
+  .SidebarContent,
+  .SidebarBase {
+    background-color: inherit;
+  }
+
+  .SidebarBase {
     position: absolute;
     z-index: getSideBarSizes(sidebar-z-index);
     // @include flex(null, null, $direction: column);
@@ -22,6 +29,28 @@
     &--static {
       position: static;
       max-width: getSideBarSizes(sidebar-width);
+
+      background-color: inherit;
+    }
+
+    &--logo-container {
+      min-height: 103px;
+      position: relative;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 13px;
+        display: block;
+        content: '';
+        width: calc(100% - 26px);
+        height: 1px;
+        background: rgba(#8ea6c1, 0.2);
+        z-index: 100;
+      }
     }
 
     &--logo {
@@ -74,6 +103,27 @@
     &--item-container {
       margin-top: getSideBarSizes(sidebar-item-container-margin-top);
       padding: 0;
+      svg {
+        transform: all linear 0.16s !important;
+      }
+      li {
+        & > a,
+        svg {
+          transform: all linear 0.16s !important;
+        }
+      }
+      li:hover {
+        & > div {
+          & > a {
+            transform: all linear 0.16s !important;
+            color: #fff !important;
+          }
+        }
+        svg {
+          fill: #fff !important;
+          transform: all linear 0.16s !important;
+        }
+      }
     }
 
     &::before {
@@ -88,7 +138,6 @@
 
     &--closed {
       width: getSideBarSizes(sidebar-min-width);
-      background-color: getSideBarColors(sidebar-background-color);
 
       &::before {
         position: absolute;

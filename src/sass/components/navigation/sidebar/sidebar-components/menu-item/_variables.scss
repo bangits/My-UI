@@ -76,7 +76,9 @@ $sidebar-menu-item-colors: (
   sidebar-menu-item-hover-label-color: color(night-in-manchester),
   //hover sub menu
   hover-sub-menu-background-color: color(white),
-  hover-sub-menu-header-color: color(night-in-manchester)
+  hover-sub-menu-header-color: color(night-in-manchester),
+  //
+  sidebar-menu-item-label-color: color(nepal2)
 );
 
 @function getMenuItemSizes($property) {

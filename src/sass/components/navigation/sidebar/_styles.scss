@@ -87,7 +87,7 @@
       top: getSideBarSizes(sidebar-button-container-top);
       right: getSideBarSizes(sidebar-button-container-right);
       cursor: pointer;
-
+      background-color: #fff;
       svg {
         @include theme(fill, primary);
       }

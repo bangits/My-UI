@@ -103,6 +103,23 @@
     &--item-container {
       margin-top: getSideBarSizes(sidebar-item-container-margin-top);
       padding: 0;
+      li {
+        & > a,
+        svg {
+          transform: all linear 0.16s !important;
+        }
+      }
+      li:hover {
+        & > div {
+          & > a {
+            transform: all linear 0.16s !important;
+          }
+        }
+        svg {
+          fill: #fff !important;
+          transform: all linear 0.16s !important;
+        }
+      }
     }
 
     &::before {

@@ -105,7 +105,7 @@
         .MenuItemBase--icon {
           margin-left: getMenuItemSizes(sidebar-menu-item-hover-icon-marginL);
           padding: getMenuItemSizes(sidebar-menu-item-hover-icon-padding);
-          @include theme(color, sidebar-menu-item-hover-icon-color);
+          // @include theme(color, sidebar-menu-item-hover-icon-color);
           opacity: getMenuItemSizes(sidebar-menu-item-hover-icon-opacity);
           transition: getMenuItemSizes(sidebar-menu-item-transition);
           transition: all 0.16s linear;

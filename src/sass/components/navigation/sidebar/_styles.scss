@@ -59,7 +59,6 @@
       height: getSideBarSizes(sidebar-logo-height);
       border-radius: getSideBarSizes(sidebar-logo-borderRadius);
       transition: getSideBarSizes(sidebar-transition);
-
       @include theme(background-color, sidebar-logo-background-color);
 
       img {

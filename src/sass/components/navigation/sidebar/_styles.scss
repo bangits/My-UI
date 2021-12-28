@@ -5,12 +5,12 @@
   }
 
   .SidebarContainer {
-    @include theme(background-color, primary);
+    // @include theme(background-color, primary);
   }
 
   .SidebarContent,
   .SidebarBase {
-    background-color: inherit;
+    // background-color: inherit;
   }
 
   .SidebarBase {
@@ -20,6 +20,10 @@
     width: getSideBarSizes(sidebar-collapsed-min-width);
     height: getSideBarSizes(sidebar-height);
     @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
+    @include theme(background-color, primary);
+    // @include theme(background-color, sidebar-button-container-background-color);
+
+    // background:aqua;
     transition: getSideBarSizes(sidebar-transition);
 
     &--fixed {
@@ -29,8 +33,7 @@
     &--static {
       position: static;
       max-width: getSideBarSizes(sidebar-width);
-
-      background-color: inherit;
+      // background-color: inherit;
     }
 
     &--logo-container {
@@ -59,6 +62,10 @@
       height: getSideBarSizes(sidebar-logo-height);
       border-radius: getSideBarSizes(sidebar-logo-borderRadius);
       transition: getSideBarSizes(sidebar-transition);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       @include theme(background-color, sidebar-logo-background-color);
 
       img {
@@ -71,7 +78,7 @@
     }
 
     &--button-container {
-      @include theme(background-color, sidebar-button-container-background-color);
+      // @include theme(background-color, sidebar-button-container-background-color);
       @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
       width: getSideBarSizes(sidebar-button-container-width);
       height: getSideBarSizes(sidebar-button-container-height);

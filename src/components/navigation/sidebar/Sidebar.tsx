@@ -51,7 +51,8 @@ const Sidebar: FC<SidebarProps> = ({
         })}
         style={{
           width: isSidebarClosed ? `${collapsedWidth}rem` : `${width}rem`,
-          height
+          height,
+          border: 'solid #ff0000 1px!Important'
         }}>
         <div style={{ position: 'relative' }} className={styles.SidebarContent}>
           <div className={classNames(styles['SidebarBase--logo-container'], 'SidebarBase--logo-container')}>

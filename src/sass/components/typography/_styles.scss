@@ -1,6 +1,7 @@
 @mixin generate-typography-styles {
   .Typography {
     text-decoration: none;
+    word-break: break-word;
 
     @each $type in $typography-types {
       &.#{$type} {

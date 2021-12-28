@@ -38,7 +38,10 @@ const Sidebar: FC<SidebarProps> = ({
 
   return (
     <div
-      style={{ width: isSidebarClosed ? `${collapsedWidth}rem` : `${width}rem`, height }}
+      style={{
+        width: isSidebarClosed ? `${collapsedWidth}rem` : `${width}rem`,
+        height
+      }}
       className={styles.SidebarContainer}>
       <div
         className={classNames(styles.SidebarBase, {

@@ -13,6 +13,9 @@
       @include theme(background-color, primary, $opacity: 0.05);
       border-radius: getMenuItemSizes(sidebar-menu-item-isActive-borderRadius);
 
+      & > div > a {
+        color: #fff !important;
+      }
       &::after {
         content: '';
         position: absolute;
@@ -32,7 +35,7 @@
         padding: getMenuItemSizes(sidebar-menu-item-isActive-icon-padding);
         @include theme(color, sidebar-menu-item-isActive-icon-color);
         opacity: getMenuItemSizes(sidebar-menu-item-isActive-icon-opacity);
-        color: #c2c2dd !important;
+        color: #fff !important;
         svg {
           fill: currentColor;
         }

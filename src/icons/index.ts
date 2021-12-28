@@ -38,7 +38,7 @@ export { ReactComponent as HomeSidebar } from './home-sidebar.react.svg';
 export { ReactComponent as HomeIcon } from './home.react.svg';
 export { ReactComponent as IllustrationIcon } from './illustration.react.svg';
 export { ReactComponent as InfoIcon } from './info.react.svg';
-export { ReactComponent as LockButtonIcon, ReactComponent as LockButtonIcon } from './lock.react.svg';
+export { ReactComponent as LockButtonIcon } from './lock.react.svg';
 export { ReactComponent as LoopIcon } from './loop.react.svg';
 export { ReactComponent as NotificationIconRotated } from './notification-icon-rotated.react.svg';
 export { ReactComponent as NotificationIcon } from './notification-icon.react.svg';
@@ -56,6 +56,6 @@ export { ReactComponent as SidebarArrowBottom } from './sidebar-arrow-bottom.rea
 export { ReactComponent as SidebarArrowTop } from './sidebar-arrow-top.react.svg';
 export { ReactComponent as TrashIndicator } from './trash-indicator.react.svg';
 export { ReactComponent as Triangle } from './triangle.react.svg';
-export { ReactComponent as UnLockButtonIcon, ReactComponent as UnLockButtonIcon } from './unlock.react.svg';
+export { ReactComponent as UnLockButtonIcon } from './unlock.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as ViewIcon } from './view.react.svg';

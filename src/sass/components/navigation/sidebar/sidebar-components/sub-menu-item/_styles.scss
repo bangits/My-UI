@@ -7,28 +7,35 @@
     line-height: getSubMenuItemSizes(sidebar-sub-menu-item-line-height);
     font-size: getSubMenuItemSizes(sidebar-sub-menu-item-font-size);
     @include theme(color, sub-menu-items-base-colors);
-    height: getSubMenuItemSizes(sidebar-sub-menu-item-height);
+    // height: getSubMenuItemSizes(sidebar-sub-menu-item-height);
     text-align: left;
     padding: getSubMenuItemSizes(sidebar-sub-menu-item-padding);
     @include flex(null, center);
+    padding-left: 23px;
 
     a {
       @include dots-after-text;
       @include flex(null, center);
       width: 100%;
-      height: 100%;
-      font-size: getSubMenuItemSizes(sub-menu-items-font-size);
+      // height: 100%;
+      font-size: getSubMenuItemSizes(sub-menu-items-font-size) !important;
+      transition: all linear 0.16s;
+      font-weight: 400;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      font-weight: 400;
+      cursor: pointer;
     }
 
     &:hover,
     &--active {
-      height: getSubMenuItemSizes(sidebar-sub-menu-item-hover-height);
-      border-radius: getSubMenuItemSizes(sidebar-sub-menu-item-hover-borderRadius);
-      @include theme(background-color, sub-menu-items-base-colors-hover);
-      @include theme(color, primary);
-      font-weight: getSubMenuItemSizes(sidebar-sub-menu-item-hover-font-weight);
-      line-height: getSubMenuItemSizes(sidebar-sub-menu-item-line-height-hover);
-      cursor: pointer;
+      // height: getSubMenuItemSizes(sidebar-sub-menu-item-hover-height);
+      // border-radius: getSubMenuItemSizes(sidebar-sub-menu-item-hover-borderRadius);
+      // @include theme(background-color, sub-menu-items-base-colors-hover);
+      // @include theme(color, white);
+      color: #fff !important;
+      // font-weight: getSubMenuItemSizes(sidebar-sub-menu-item-hover-font-weight);
+      // line-height: getSubMenuItemSizes(sidebar-sub-menu-item-line-height-hover);
     }
 
     &--sidebar-opened a {

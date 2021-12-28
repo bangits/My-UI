@@ -57,3 +57,4 @@ export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.reac
 export { ReactComponent as ViewIcon } from './view.react.svg';
 export { ReactComponent as UnLockButtonIcon } from './unlock.react.svg';
 export { ReactComponent as LockButtonIcon } from './lock.react.svg';
+export { ReactComponent as NewArrowIcon } from './arrow-top.react.svg';

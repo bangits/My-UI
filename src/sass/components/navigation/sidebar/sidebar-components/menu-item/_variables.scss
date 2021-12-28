@@ -4,15 +4,15 @@ $sidebar-menu-item-sizes: (
   sidebar-menu-item-padding: calculateRem(11px) 0,
   sidebar-open-animation-ms: 0.5s,
   sidebar-sub-menu-padding-left: calculateRem(45px),
-  sidebar-menu-item-arrow-right: calculateRem(9px),
+  sidebar-menu-item-arrow-right: calculateRem(18px),
   //isActive
   sidebar-menu-item-isActive-height: calculateRem(53px),
   sidebar-menu-item-isActive-borderRadius: 8px,
   sidebar-menu-item-isActive-after-left: 0,
   sidebar-menu-item-isActive-after-top: 0,
-  sidebar-menu-item-isActive-after-width: calculateRem(8px),
+  sidebar-menu-item-isActive-after-width: calculateRem(3px),
   sidebar-menu-item-isActive-after-height: calculateRem(53px),
-  sidebar-menu-item-isActive-after-borderRadius: 32px 0 0 32px,
+  sidebar-menu-item-isActive-after-borderRadius: 0 4px 4px 0,
   sidebar-menu-item-isActive-icon-margin: 0 0 0 calculateRem(24px),
   sidebar-menu-item-isActive-icon-width: calculateRem(24px),
   sidebar-menu-item-isActive-icon-height: calculateRem(24px),
@@ -20,7 +20,7 @@ $sidebar-menu-item-sizes: (
   sidebar-menu-item-isActive-icon-opacity: 1,
   sidebar-menu-item-isActive-label-margin: 0 0 0 calculateRem(16px),
   sidebar-menu-item-isActive-label-padding: 0 0 0 0,
-  sidebar-menu-item-isActive-label-font-size: calculateRem(16px),
+  sidebar-menu-item-isActive-label-font-size: calculateRem(14px),
   sidebar-menu-item-isActive-label-font-weight: 900,
   sidebar-menu-item-isActive-label-letter-spacing: calculateRem(0.32px),
   sidebar-menu-item-isActive-label-opacity: 1,
@@ -56,8 +56,8 @@ $sidebar-menu-item-sizes: (
   //labels
   sidebar-menu-item-label-marginL: calculateRem(16px),
   sidebar-menu-item-label-padding: 0 0 0 0,
-  sidebar-menu-item-label-font-size: calculateRem(16px),
-  sidebar-menu-item-label-font-weight: 700,
+  sidebar-menu-item-label-font-size: calculateRem(14px),
+  sidebar-menu-item-label-font-weight: 400,
   sidebar-menu-item-label-letter-spacing: calculateRem(0.32px),
   sidebar-menu-item-label-opacity: 0.5,
   sidebar-menu-item-label-min-width: calculateRem(190px)
@@ -65,8 +65,10 @@ $sidebar-menu-item-sizes: (
 
 $sidebar-menu-item-colors: (
   //isActive
-  sidebar-menu-item-isActive-after-background-color: color(night-in-manchester),
+  // sidebar-menu-item-isActive-after-background-color: color(night-in-manchester),
+  sidebar-menu-item-isActive-after-background-color: color(white),
   sidebar-menu-item-isActive-icon-color: color(night-in-manchester),
+  sidebar-menu-item-isActive-icon-color-hover: color(white),
   sidebar-menu-item-isActive-label-color: color(night-in-manchester),
   //hover
   sidebar-menu-item-hover-background-color: color(ma-white),

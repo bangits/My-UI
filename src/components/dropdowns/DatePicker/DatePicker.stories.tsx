@@ -19,7 +19,7 @@ export const Default = () => {
         dateFormat={'dd/MM/yyyy'}
         withDropdowns={boolean('withDropdowns', true)}
         disabled={boolean('disabled', false)}
-        color={getColorKnobs()}
+        // color={getColorKnobs()}
       />
 
       <DatePicker

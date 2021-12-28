@@ -37,7 +37,7 @@
     transform: translateX(getButtonSizes(icon-margin));
   }
 
-  @each $color in $base-colors {
+  @each $color in $base-colors-with-default {
     .ButtonColor--#{$color} {
       @include getButtonStyles($color);
 

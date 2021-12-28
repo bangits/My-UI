@@ -1,11 +1,15 @@
 // This mixin used for generation css with theme
-@mixin theme($property, $key, $inlineExtra: null, $postExtra: null, $opacity: null) {
+@mixin theme($property, $key, $inlineExtra: null, $postExtra: null, $opacity: null, $useRgb: false) {
   @each $theme in $themes {
     @if (themeExists($key, $theme)) {
       $value: null;
 
       @if ($opacity) {
-        $value: rgba(getThemeValue($key, $theme), $opacity);
+        @if ($useRgb == true) {
+          $value: rgba-to-rgb(rgba(getThemeValue($key, $theme), $opacity));
+        } @else {
+          $value: rgba(getThemeValue($key, $theme), $opacity);
+        }
 
         :root {
           --theme-#{$theme}-#{$key}--#{$opacity * 10}: $value;

@@ -1,62 +1,71 @@
 // This mixins is used for generating button styles(including ghost state)
 
 @mixin getButtonStyles($color-name) {
-  @include theme(background-color, #{$color-name});
-  @include theme(color, #{$color-name}--color);
+  @if ($color-name == 'default') {
+  } @else {
+    @include theme(background-color, #{$color-name});
+    @include theme(color, #{$color-name}--color);
 
-  &:hover {
-    @include theme(background-color, #{$color-name}, $opacity: 0.9);
-  }
-
-  &:active {
-    @include theme(background-color, button-#{$color-name}--active);
-  }
-
-  &:disabled {
-    @include theme(opacity, disabled-opacity);
     &:hover {
-      @include theme(background-color, #{$color-name});
-      cursor: auto;
+      @include theme(background-color, #{$color-name}, $opacity: 0.9);
+    }
+
+    &:active {
+      @include theme(background-color, button-#{$color-name}--active);
+    }
+
+    &:disabled {
+      @include theme(opacity, disabled-opacity);
+      &:hover {
+        @include theme(background-color, #{$color-name});
+        cursor: auto;
+      }
     }
   }
 }
 
 @mixin getButtonGhostStyles($color-name) {
-  @include theme(color, #{$color-name});
-  @include theme(background-color, #{$color-name}--color);
+  @if ($color-name == 'default') {
+  } @else {
+    @include theme(color, #{$color-name});
+    @include theme(background-color, #{$color-name}--color);
 
-  @include theme(border-color, #{$color-name});
+    @include theme(border-color, #{$color-name});
 
-  &:hover {
-    @include theme(background-color, #{$color-name}, $opacity: 0.1);
-  }
-
-  &:disabled {
-    @include theme(opacity, disabled-opacity);
     &:hover {
-      background-color: unset;
+      @include theme(background-color, #{$color-name}, $opacity: 0.1);
     }
-  }
 
-  &:active {
-    @include theme(background-color, #{$color-name}, $opacity: 0.2);
+    &:disabled {
+      @include theme(opacity, disabled-opacity);
+      &:hover {
+        background-color: unset;
+      }
+    }
+
+    &:active {
+      @include theme(background-color, #{$color-name}, $opacity: 0.2);
+    }
   }
 }
 
 @mixin getButtonLinkStyles($color-name) {
-  @include theme(color, #{$color-name});
+  @if ($color-name == 'default') {
+  } @else {
+    @include theme(color, #{$color-name});
 
-  border: none;
-  background: none;
-  padding: 0;
-  text-decoration: underline;
-  min-width: initial;
+    border: none;
+    background: none;
+    padding: 0;
+    text-decoration: underline;
+    min-width: initial;
 
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: initial;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: initial;
 
-    @include theme(color, #{$color-name}, $opacity: 0.8);
+      @include theme(color, #{$color-name}, $opacity: 0.8);
+    }
   }
 }

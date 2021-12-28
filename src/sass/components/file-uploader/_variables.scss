@@ -8,11 +8,12 @@ $file-uploader-sizes: (
   icon-label-max-width: calculateRem(120px),
   percent-upload-margin: calculateRem(8px),
   trash-icon-margin: calculateRem(6px),
+  trash-icon-width: calculateRem(14px),
   game-indicator-sizes: calculateRem(24px)
 );
 
 $file-uploader-colors: (
-  dropzone-base-color: color(gray-transparent)
+  dropzone-base-color: color(black-color)
 );
 
 @function getFileUploaderSizes($key) {

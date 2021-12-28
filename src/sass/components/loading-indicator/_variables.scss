@@ -18,7 +18,7 @@ $loadingindicator-sizes: (
 $loadingindicator-colors: (
   circle-indicator-remaining-color: color(white),
   indicator-trash-color: color(comet),
-  dropzone-base-color: color(gray-transparent)
+  dropzone-base-color: color(black-color)
 );
 
 @function getLoadingIndicatorSizes($property) {

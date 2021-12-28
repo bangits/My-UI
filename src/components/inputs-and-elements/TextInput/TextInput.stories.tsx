@@ -25,14 +25,14 @@ export const Default = () => {
     <>
       <TextInput
         disabled={boolean('disabled', false)}
-        // label={text('label', 'Default Text Input')}
+        label='Default Text Input'
         value={value}
         onChange={(e) => setValue(e.target.value)}
         maxLength={number('maxLength', 10)}
         type='text'
         explanation={text('explanation', '')}
         fullWidth={boolean('fullWidth', false)}
-        color={getColorKnobs()}
+        // color={getColorKnobs()}
       />
 
       <h1> </h1>

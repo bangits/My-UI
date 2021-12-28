@@ -40,7 +40,8 @@ $base-text-field-variables: (
 
 $text-field-colors: (
   input-bg: color(selago),
-  default-input-color: color(gray-transparent),
+  default-input-color: color(black-color),
+  default-input-border-color: color(gray-transparent),
   //
   input-color-focus-default: color(azure-approx),
   //

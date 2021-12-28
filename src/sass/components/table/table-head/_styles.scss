@@ -7,7 +7,7 @@
     font-weight: getTableHeadSizes(table-head-font-weight);
     font-size: getTableHeadSizes(table-head-font-size);
     @include theme(color, gray-color);
-    text-transform: uppercase;
+    // text-transform: uppercase;
     margin: 0 auto;
     padding: getTableHeadSizes(table-head-padding);
     min-height: getTableHeadSizes(table-head-height);

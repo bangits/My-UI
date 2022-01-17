@@ -26,4 +26,8 @@ const TextWithTooltip: FC<
   return elementWithTooltip;
 };
 
+TextWithTooltip.defaultProps = {
+  disabled: false
+};
+
 export default memo(TextWithTooltip);

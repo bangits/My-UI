@@ -3,6 +3,16 @@
     display: block;
   }
 
+  .TableWrapper {
+    position: relative;
+  }
+
+  .Loader {
+    @include center-absolute;
+
+    z-index: 999;
+  }
+
   .ScrollThumb,
   .ScrollTrack {
     z-index: 1 !important;
@@ -132,19 +142,6 @@
         .TableBody {
           @include theme(opacity, disabled-opacity);
         }
-
-        .Loader {
-          position: absolute;
-          top: 20%;
-          left: 0;
-
-          @include flex(center, center);
-
-          width: 100%;
-          max-width: getTableSizes(table-loader-max-width);
-
-          z-index: 999;
-        }
       }
     }
   }
@@ -200,7 +197,8 @@
     min-width: getTableSizes(action-table-cell-min-width);
     margin-top: 0;
     transform: translate(10px, -51%);
-    background-color: getTableColors(action-table-cell-bg-color2);
     padding-right: getTableSizes(action-table-cell-padding-right);
+
+    @include theme(background-color, primary, $opacity: 0.1, $useRgb: true);
   }
 }

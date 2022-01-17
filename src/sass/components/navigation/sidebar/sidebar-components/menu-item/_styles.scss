@@ -13,6 +13,9 @@
       @include theme(background-color, primary, $opacity: 0.05);
       border-radius: getMenuItemSizes(sidebar-menu-item-isActive-borderRadius);
 
+      & > div > a {
+        color: #fff !important;
+      }
       &::after {
         content: '';
         position: absolute;
@@ -32,20 +35,22 @@
         padding: getMenuItemSizes(sidebar-menu-item-isActive-icon-padding);
         @include theme(color, sidebar-menu-item-isActive-icon-color);
         opacity: getMenuItemSizes(sidebar-menu-item-isActive-icon-opacity);
+        color: #fff !important;
         svg {
-          @include theme(fill, sidebar-menu-item-isActive-icon-color);
+          fill: currentColor;
         }
       }
-
+      // MAIN CAT
       .MenuItemBase--label {
+        @include theme(color, sidebar-menu-item-label-color);
         min-width: getMenuItemSizes(sidebar-menu-item-label-min-width);
         margin: getMenuItemSizes(sidebar-menu-item-isActive-label-margin);
         padding: getMenuItemSizes(sidebar-menu-item-isActive-label-padding);
         font-family: $base-font-family;
         font-size: getMenuItemSizes(sidebar-menu-item-isActive-label-font-size);
         font-weight: getMenuItemSizes(sidebar-menu-item-isActive-label-font-weight);
-        letter-spacing: getMenuItemSizes(sidebar-menu-item-isActive-label-letter-spacing);
-        @include theme(color, sidebar-menu-item-isActive-label-color);
+        // letter-spacing: getMenuItemSizes(sidebar-menu-item-isActive-label-letter-spacing);
+        // @include theme(color, sidebar-menu-item-isActive-label-color);
         opacity: getMenuItemSizes(sidebar-menu-item-isActive-label-opacity);
       }
     }
@@ -56,17 +61,16 @@
 
     &--sub-header {
       display: none;
+      padding-top: 10px;
+      // border: solid #ff0000 1px!important;
     }
 
     .MenuItemArrow {
       display: none;
-
       opacity: getMenuItemSizes(sidebar-menu-item-label-opacity);
-
       position: absolute;
       right: getMenuItemSizes(sidebar-menu-item-arrow-right);
       transform: rotate(-180deg);
-
       transition: transform getMenuItemSizes(sidebar-open-animation-ms);
 
       &--opened {
@@ -97,23 +101,28 @@
 
     &:hover {
       @include theme(background-color, primary, $opacity: 0.05);
-      border-radius: getMenuItemSizes(sidebar-menu-item-hover-borderRadius);
+      // border-radius: getMenuItemSizes(sidebar-menu-item-hover-borderRadius);
       margin-bottom: getMenuItemSizes(sidebar-menu-item-hover-marginB);
 
       &.MenuItemBase--sidebarClosed {
         .MenuItemBase--icon {
           margin-left: getMenuItemSizes(sidebar-menu-item-hover-icon-marginL);
           padding: getMenuItemSizes(sidebar-menu-item-hover-icon-padding);
-          @include theme(color, sidebar-menu-item-hover-icon-color);
+          // @include theme(color, sidebar-menu-item-hover-icon-color);
           opacity: getMenuItemSizes(sidebar-menu-item-hover-icon-opacity);
           transition: getMenuItemSizes(sidebar-menu-item-transition);
-
+          transition: all 0.16s linear;
+          fill: #fff !important;
           svg {
-            @include theme(fill, sidebar-menu-item-isActive-icon-color);
+            // @include theme(fill, sidebar-menu-item-isActive-icon-color);
+            fill: #fff !important;
+            // @include theme(fill, sidebar-menu-item-isActive-icon-color-hover);
           }
         }
 
+        //  X CATEGORY
         .MenuItemBase--label {
+          color: #c2c2dd !important;
           margin-left: getMenuItemSizes(sidebar-menu-item-hover-label-marginL);
           padding: getMenuItemSizes(sidebar-menu-item-hover-label-padding);
           font-family: $base-font-family;
@@ -132,16 +141,24 @@
           right: getMenuItemSizes(hover-sub-menu-right);
           width: getMenuItemSizes(hover-sub-menu-width);
           @include theme(box-shadow, box-shadow-color, 0 3px 6px 0);
-          @include theme(background-color, hover-sub-menu-background-color);
-          border-radius: getMenuItemSizes(hover-sub-menu-borderRadius);
+          // @include theme(background-color, hover-sub-menu-background-color);
+          background-color: #6667ab;
+          color: #fff !important;
+          padding-bottom: 30px !important;
+          // border-radius: getMenuItemSizes(hover-sub-menu-borderRadius);
+          border-radius: 0 4px 4px 0;
+          // border: solid #ff0000 1px!important;
 
           .MenuItemBase--sub-header {
+            // border: solid green 1px!important;
             display: block;
             align-self: flex-start;
             margin-left: getMenuItemSizes(hover-sub-menu-header-marginL);
             font-size: getMenuItemSizes(hover-sub-menu-header-font-size);
             font-weight: getMenuItemSizes(hover-sub-menu-header-font-weight);
-            @include theme(color, hover-sub-menu-header-color);
+            // @include theme(color, hover-sub-menu-header-color);
+            color: #fff;
+            // padding-bottom: 5px;
           }
         }
       }
@@ -153,7 +170,7 @@
       width: getMenuItemSizes(sidebar-menu-item-icon-width);
       height: getMenuItemSizes(sidebar-menu-item-icon-height);
       padding: getMenuItemSizes(sidebar-menu-item-icon-padding);
-      opacity: getMenuItemSizes(sidebar-menu-item-icon-opacity);
+      // opacity: getMenuItemSizes(sidebar-menu-item-icon-opacity);
       transition: getMenuItemSizes(sidebar-menu-item-transition);
 
       svg {
@@ -162,14 +179,16 @@
       }
     }
 
+    // MAIN CATEGORY 2
     &--label {
+      color: #c2c2dd !important;
       font-family: $base-font-family;
       margin-left: getMenuItemSizes(sidebar-menu-item-label-marginL);
       padding: getMenuItemSizes(sidebar-menu-item-label-padding);
       font-family: $base-font-family;
       font-size: getMenuItemSizes(sidebar-menu-item-label-font-size);
-      font-weight: getMenuItemSizes(sidebar-menu-item-label-font-weight);
-      opacity: getMenuItemSizes(sidebar-menu-item-label-opacity);
+      font-weight: getMenuItemSizes(sidebar-menu-item-label-font-weight) !important;
+      // opacity: getMenuItemSizes(sidebar-menu-item-label-opacity);
       min-width: getMenuItemSizes(sidebar-menu-item-label-min-width);
       transition: getMenuItemSizes(sidebar-menu-item-transition);
     }
@@ -177,5 +196,6 @@
 
   .MenuItemLinkContainer {
     @include flex(null, center);
+    color: #c2c2dd;
   }
 } ;

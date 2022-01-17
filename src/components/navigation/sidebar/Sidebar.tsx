@@ -37,7 +37,12 @@ const Sidebar: FC<SidebarProps> = ({
   }, [isSidebarClosed]);
 
   return (
-    <div style={{ width: isSidebarClosed ? `${collapsedWidth}rem` : `${width}rem`, height }}>
+    <div
+      style={{
+        width: isSidebarClosed ? `${collapsedWidth}rem` : `${width}rem`,
+        height
+      }}
+      className={styles.SidebarContainer}>
       <div
         className={classNames(styles.SidebarBase, {
           [styles['SidebarBase--closed']]: isSidebarClosed,
@@ -46,10 +51,15 @@ const Sidebar: FC<SidebarProps> = ({
         })}
         style={{
           width: isSidebarClosed ? `${collapsedWidth}rem` : `${width}rem`,
-          height
+          height,
+          border: 'solid #ff0000 1px!Important'
         }}>
-        <div style={{ position: 'relative' }}>
-          <div className={classNames(styles['SidebarBase--logo'])}>{logoSrc && <img src={logoSrc} alt='Logo' />}</div>
+        <div style={{ position: 'relative' }} className={styles.SidebarContent}>
+          <div className={classNames(styles['SidebarBase--logo-container'], 'SidebarBase--logo-container')}>
+            <div className={classNames(styles['SidebarBase--logo'], 'SidebarBase--logo')}>
+              {logoSrc && <img src={logoSrc} alt='Logo' />}
+            </div>
+          </div>
 
           <div className={classNames(styles['SidebarBase--button-container'])} onClick={toggleSidebar}>
             <IconButton

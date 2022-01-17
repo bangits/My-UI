@@ -1,5 +1,5 @@
 import { typedMemo } from '@/helpers';
-import { ArrowIcon } from '@/icons';
+import { ArrowIcon, NewArrowIcon } from '@/icons';
 import { UIColors } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import classNames from 'classnames';
@@ -63,7 +63,8 @@ export const MenuItem: FC<MenuItemProps> = ({
             className={classNames(styles.MenuItemArrow, {
               [styles['MenuItemArrow--opened']]: isOpenendSidebarMenus
             })}>
-            <ArrowIcon width='1rem' />
+            {/* <ArrowIcon width='1rem' /> */}
+            <NewArrowIcon width='1rem' fill='currentColor' />
           </span>
         )}
       </div>

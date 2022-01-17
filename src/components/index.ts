@@ -21,5 +21,6 @@ export * from './tab/subTab';
 export * from './table';
 export * from './tag';
 export * from './tag-country';
+export * from './text-with-tooltip';
 export * from './tooltip';
 export * from './typography';

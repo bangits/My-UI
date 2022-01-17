@@ -4,15 +4,26 @@
     height: getSideBarSizes(sidebar-height);
   }
 
-  .SidebarBase {
-    @include theme(background-color, sidebar-background-color);
+  .SidebarContainer {
+    // @include theme(background-color, primary);
+  }
 
+  .SidebarContent,
+  .SidebarBase {
+    // background-color: inherit;
+  }
+
+  .SidebarBase {
     position: absolute;
     z-index: getSideBarSizes(sidebar-z-index);
     // @include flex(null, null, $direction: column);
     width: getSideBarSizes(sidebar-collapsed-min-width);
     height: getSideBarSizes(sidebar-height);
     @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
+    @include theme(background-color, primary);
+    // @include theme(background-color, sidebar-button-container-background-color);
+
+    // background:aqua;
     transition: getSideBarSizes(sidebar-transition);
 
     &--fixed {
@@ -22,6 +33,27 @@
     &--static {
       position: static;
       max-width: getSideBarSizes(sidebar-width);
+      // background-color: inherit;
+    }
+
+    &--logo-container {
+      min-height: 103px;
+      position: relative;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 13px;
+        display: block;
+        content: '';
+        width: calc(100% - 26px);
+        height: 1px;
+        background: rgba(#8ea6c1, 0.2);
+        z-index: 100;
+      }
     }
 
     &--logo {
@@ -30,7 +62,10 @@
       height: getSideBarSizes(sidebar-logo-height);
       border-radius: getSideBarSizes(sidebar-logo-borderRadius);
       transition: getSideBarSizes(sidebar-transition);
-
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       @include theme(background-color, sidebar-logo-background-color);
 
       img {
@@ -43,7 +78,7 @@
     }
 
     &--button-container {
-      @include theme(background-color, sidebar-button-container-background-color);
+      // @include theme(background-color, sidebar-button-container-background-color);
       @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
       width: getSideBarSizes(sidebar-button-container-width);
       height: getSideBarSizes(sidebar-button-container-height);
@@ -52,7 +87,7 @@
       top: getSideBarSizes(sidebar-button-container-top);
       right: getSideBarSizes(sidebar-button-container-right);
       cursor: pointer;
-
+      background-color: #fff;
       svg {
         @include theme(fill, primary);
       }
@@ -74,6 +109,27 @@
     &--item-container {
       margin-top: getSideBarSizes(sidebar-item-container-margin-top);
       padding: 0;
+      svg {
+        transform: all linear 0.16s !important;
+      }
+      li {
+        & > a,
+        svg {
+          transform: all linear 0.16s !important;
+        }
+      }
+      li:hover {
+        & > div {
+          & > a {
+            transform: all linear 0.16s !important;
+            color: #fff !important;
+          }
+        }
+        svg {
+          fill: #fff !important;
+          transform: all linear 0.16s !important;
+        }
+      }
     }
 
     &::before {
@@ -88,7 +144,6 @@
 
     &--closed {
       width: getSideBarSizes(sidebar-min-width);
-      background-color: getSideBarColors(sidebar-background-color);
 
       &::before {
         position: absolute;

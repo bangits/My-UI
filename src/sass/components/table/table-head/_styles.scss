@@ -6,8 +6,8 @@
     box-sizing: border-box;
     font-weight: getTableHeadSizes(table-head-font-weight);
     font-size: getTableHeadSizes(table-head-font-size);
-    @include theme(color, gray-color);
-    text-transform: uppercase;
+    @include theme(color, primary, $opacity: 0.65);
+    text-transform: capitalize;
     margin: 0 auto;
     padding: getTableHeadSizes(table-head-padding);
     min-height: getTableHeadSizes(table-head-height);
@@ -26,13 +26,13 @@
       min-height: getTableHeadSizes(table-arrow-icon-sizes);
 
       .IconUp {
-        @include theme(fill, gray-color, $opacity: 0.4);
+        @include theme(fill, primary, $opacity: 0.65);
         margin-bottom: getTableHeadSizes(table-icon-up-margin);
       }
 
       .IconDown {
         transform: rotate(180deg);
-        @include theme(fill, gray-color, $opacity: 0.4);
+        @include theme(fill, primary, $opacity: 0.65);
       }
 
       .IconDisabled {

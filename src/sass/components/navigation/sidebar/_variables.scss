@@ -7,13 +7,14 @@ $sidebar-sizes: (
   sidebar-logo-collapsed-margin: calculateRem(32px) 0 0 calculateRem(16px),
   sidebar-logo-width: calculateRem(40px),
   sidebar-logo-height: calculateRem(40px),
-  sidebar-logo-borderRadius: calculateRem(4px),
+  // sidebar-logo-borderRadius: calculateRem(4px),
+  sidebar-logo-borderRadius: 50%,
   sidebar-button-container-width: calculateRem(24px),
   sidebar-button-container-height: calculateRem(24px),
   sidebar-button-container-borderRadius: calculateRem(26px),
   sidebar-button-container-top: calculateRem(40px),
   sidebar-button-container-right: calculateRem(-14px),
-  sidebar-item-container-margin-top: calculateRem(66.5px),
+  sidebar-item-container-margin-top: calculateRem(36.5px),
   sidebar-base-before-positon-right: calculateRem(-1px),
   sidebar-base-before-positon-top: 6%,
   sidebar-base-before-width: calculateRem(1px),
@@ -27,7 +28,7 @@ $sidebar-sizes: (
 
 $sidebar-colors: (
   sidebar-background-color: color(white),
-  sidebar-logo-background-color: color(midnight-sun),
+  sidebar-logo-background-color: color(white),
   sidebar-button-container-background-color: color(white),
   sidebar-line-color: color(mercury),
   sidebar-toggle-icon-fill: color(night-in-manchester)

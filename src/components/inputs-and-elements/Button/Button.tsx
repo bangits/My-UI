@@ -6,7 +6,7 @@ import styles from './Button.module.scss';
 export type ButtonVariants = 'ghost' | 'default' | 'link' | 'unique-add-button';
 
 export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, null> {
-  color?: UIColors;
+  color?: UIColors | 'default';
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   fullWidth?: boolean;
@@ -27,7 +27,7 @@ const Button: FC<ButtonProps> = ({
       className={classNames(
         styles.ButtonBase,
         {
-          [styles[`ButtonVariant--${color}__${variant}`]]: variant !== 'default',
+          [styles[`ButtonVariant--${color}__${variant}`]]: color === 'default' || variant !== 'default',
           [styles[`ButtonColor--${color}`]]: color
         },
         className

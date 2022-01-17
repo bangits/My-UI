@@ -1,11 +1,9 @@
-import { COLOR_TYPES } from '@/types';
+import { getColorKnobs } from '@/configs';
 import { action } from '@storybook/addon-actions';
 import { boolean, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import Button from './Button';
 import BUTTON_TYPES from './button-types';
-import { getColorKnobs } from '@/configs';
-import { EditIcon } from '@/icons';
 
 export default {
   component: Button,
@@ -18,7 +16,7 @@ export const Colors = () => (
   <>
     <Button
       type='button'
-      color={getColorKnobs()}
+      // color={getColorKnobs()}
       variant={optionsKnob('variant', BUTTON_TYPES, BUTTON_TYPES.default, { display: 'inline-radio' })}
       onClick={action('onClick')}
       disabled={boolean('disabled', false)}>

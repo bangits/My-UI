@@ -8,6 +8,7 @@ import styles from './Select.module.scss';
 
 export const SearchControl: typeof components.Control = (props) => {
   const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
+
   // @ts-expect-error ignoring typescript for typecast
   const currentValue = selectProps?.value as SelectOptionType | SelectOptionType[];
 
@@ -77,6 +78,8 @@ export const SearchControl: typeof components.Control = (props) => {
   const wrapperRef = useRef(null);
 
   useOutsideClickWithRef(wrapperRef, () => props.selectProps.onMenuClose());
+
+  console.log(selectProps);
 
   return (
     <components.Control {...props}>

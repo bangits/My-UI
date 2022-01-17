@@ -19,7 +19,7 @@
       }
     }
 
-    &--exitDone {
+    &--exit {
       .TooltipWrapper,
       .TooltipContainer {
         @include animation-exit;
@@ -91,6 +91,10 @@
           transform: rotate(-90deg);
         }
       }
+    }
+
+    &--exitDone {
+      z-index: -(getTooltipSizes(tooltip-z-index));
     }
   }
 

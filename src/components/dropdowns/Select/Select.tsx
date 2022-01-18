@@ -194,9 +194,15 @@ function Select<
     if (defaultValue !== undefined && transformedDefaultValue) setSelectedOptions(transformedDefaultValue);
   }, [transformedDefaultValue]);
 
+  const filterOptionHandler = useCallback((option, inputValue) => {
+    const { label } = option;
+    return label.toLowerCase().startsWith(inputValue.toLowerCase());
+  }, []);
+
   return (
     <ReactSelect
       {...selectProps}
+      filterOption={filterOptionHandler}
       isTree={isTree}
       treeData={treeData}
       disableSelectedOptions={disableSelectedOptions}

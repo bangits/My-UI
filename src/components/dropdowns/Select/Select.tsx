@@ -117,8 +117,6 @@ function Select<
 
   const transformedValue = useMemo(() => transformNumberValueToOptions(value), [value, selectProps.options]);
 
-  console.log(transformedValue);
-
   const sortedOptions = useMemo(() => {
     if (!Array.isArray(selectedOptions)) return selectProps.options;
 

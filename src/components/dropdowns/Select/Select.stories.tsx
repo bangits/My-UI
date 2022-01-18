@@ -5,8 +5,6 @@ import { action } from '@storybook/addon-actions';
 import { boolean, number, object, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
 import { useEffect, useState } from 'react';
-import classNames from 'classNames';
-import styles from './Select.module.scss';
 
 export default {
   component: Select,
@@ -113,6 +111,18 @@ export const Default = () => {
           {
             label: 'Animals',
             value: 10
+          },
+          {
+            label: 'Clone',
+            value: 11
+          },
+          {
+            label: 'Dol',
+            value: 12
+          },
+          {
+            label: 'Gol',
+            value: 13
           }
         ])}
       />

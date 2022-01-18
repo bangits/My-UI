@@ -79,8 +79,6 @@ export const SearchControl: typeof components.Control = (props) => {
 
   useOutsideClickWithRef(wrapperRef, () => props.selectProps.onMenuClose());
 
-  console.log(selectProps);
-
   return (
     <components.Control {...props}>
       {selectProps.renderInput ? (

@@ -97,8 +97,8 @@ const Tooltip = ({
             classNames={{
               enterDone: styles['TooltipContainer--enterDone'],
               exitDone: styles['TooltipContainer--exitDone'],
-              exit: styles['TooltipContainer--exitDone'],
-              exitActive: styles['TooltipContainer--exitDone']
+              exit: styles['TooltipContainer--exit'],
+              exitActive: styles['TooltipContainer--exit']
             }}>
             <StyledTooltip color={color} delay={delay} ref={tooltipRef} posRef={posRef}>
               <div className={classNames(Styles.TooltipTriangle, Styles[`Tooltip-${placement}`])}>

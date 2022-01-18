@@ -94,8 +94,6 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
             isSearchable
             onChange={onSelectChange}
             renderInput={(value, isMenuOpen, onDropdownInputChange, onInputBlur) => {
-              console.log(dropdownInputProps.value);
-
               return (
                 <div
                   className={classNames(styles['InputWithDropdownBase--dropdown-control'], {
@@ -107,7 +105,8 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
                       styles['InputWithDropdownBase--dropdown-input'],
                       styles['InputWithDropdownBase--dropdown-control-label']
                     )}
-                    value={dropdownInputProps.value || value?.label || ''}
+                    key={dropdownInputProps.value?.toString() || value?.label || ''}
+                    defaultValue={dropdownInputProps.value || value?.label || ''}
                     type='text'
                     onChange={(e) => {
                       onDropdownInputChange(e.target.value);

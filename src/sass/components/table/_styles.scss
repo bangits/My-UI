@@ -64,15 +64,13 @@
       opacity: getTableSizes(table-conatiner-tr-ready-opacity);
     }
 
+    .TableHead span {
+      cursor: move;
+      user-select: none;
+    }
+
     .TableHead tr {
       min-height: getTableSizes(table-head-row-height);
-      th {
-        &:last-child {
-          svg {
-            display: none;
-          }
-        }
-      }
     }
 
     .LastTableCell {

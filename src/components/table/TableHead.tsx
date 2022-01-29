@@ -1,13 +1,14 @@
 import { typedMemo } from '@/helpers/typedMemo';
 import { ArrowIcon } from '@/icons';
-import { ComponentType, IComponent } from '@/types/props';
+import { IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
 import classNames from 'classnames';
-import React, { CSSProperties, FC } from 'react';
+import React, { CSSProperties, DetailedHTMLProps, FC, ThHTMLAttributes } from 'react';
 import styles from './TableHead.module.scss';
 
-export interface TableHeadProps extends IComponent {
-  component?: ComponentType;
+export interface TableHeadProps
+  extends IComponent,
+    DetailedHTMLProps<ThHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
   selectedDirection?: boolean;
   direction?: 'asc' | 'desc';
   color?: UIColors;
@@ -19,12 +20,11 @@ export const TableHead: FC<TableHeadProps> = ({
   children,
   selectedDirection,
   direction,
-  component: Component = 'th',
   hideSortIcon = false,
   ...props
 }) => {
   return (
-    <Component className={styles.TableHead} {...props} title=''>
+    <th className={styles.TableHead} {...props} title=''>
       <div className={styles.TableHeadContainer}>
         {children}
         {!hideSortIcon && (
@@ -44,7 +44,7 @@ export const TableHead: FC<TableHeadProps> = ({
           </div>
         )}
       </div>
-    </Component>
+    </th>
   );
 };
 

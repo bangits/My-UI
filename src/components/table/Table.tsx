@@ -20,7 +20,7 @@ import classNames from 'classnames';
 import { ReactNode, Ref, useEffect, useRef, useState } from 'react';
 import FlipMove from 'react-flip-move';
 import { TextWithTooltip } from '../text-with-tooltip';
-import selectionHook from './selectionHook';
+import { selectionHook, useTableColumnsDnD } from './hooks';
 import styles from './Table.module.scss';
 import TableCell, { TableCellProps } from './TableCell';
 import TableHead from './TableHead';
@@ -143,6 +143,10 @@ const Table = <T extends {}>({
     ...(isWithSelection ? [selectionHook] : [])
   );
 
+  const { tableHeadMouseDownHandler, tableHeadMouseUpHandler, draggedCellIndex } = useTableColumnsDnD({
+    onSwap: console.log
+  });
+
   const typedState = state as State<T> & { selectedRowIds: Record<number, boolean> };
 
   const onFetchDataDebounced = useAsyncDebounce(fetch, 100);
@@ -208,8 +212,10 @@ const Table = <T extends {}>({
                     style={{
                       ...column.getHeaderProps(column.getSortByToggleProps()).style,
                       ...(typeof column.maxWidth === 'string' ? { width: column.maxWidth } : {})
-                    }}>
-                    <span>{column.render('Header')}</span>
+                    }}
+                    onMouseDown={tableHeadMouseDownHandler}
+                    onMouseUp={tableHeadMouseUpHandler}>
+                    {draggedCellIndex === index ? <div>Dragged</div> : <span>{column.render('Header')}</span>}
                   </TableHead>
                 ))}
               </TableRow>
@@ -274,11 +280,15 @@ const Table = <T extends {}>({
                               className={classNames({
                                 [styles.LastTableCell]: index === row.cells.length - 1
                               })}>
-                              <TextWithTooltip disabled={!!cell.column.renderColumn}>
-                                {cell.column.renderColumn
-                                  ? cell.column.renderColumn(cell.render('Cell'), cell.value)
-                                  : cell.render('Cell')}
-                              </TextWithTooltip>
+                              {draggedCellIndex === index ? (
+                                <div>Dragged</div>
+                              ) : (
+                                <TextWithTooltip disabled={!!cell.column.renderColumn}>
+                                  {cell.column.renderColumn
+                                    ? cell.column.renderColumn(cell.render('Cell'), cell.value)
+                                    : cell.render('Cell')}
+                                </TextWithTooltip>
+                              )}
                             </TableCell>
                           );
                         })}

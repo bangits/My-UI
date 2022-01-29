@@ -1,3 +1,4 @@
+export * from './copyAttrs';
 export * from './flatMap';
 export * from './getImageByFile';
 export * from './getRootFontSize';

@@ -61,22 +61,24 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500 }: UseTableColumnsDnDParam
       ];
 
       if ((idx - draggedCellIndex) % tableCellsPerRowCount === 0) {
+        const copiedCell = cell.cloneNode(true) as HTMLTableCellElement;
+
         const copiedTableRow = document.createElement('tr');
 
         copyAttrs(originalFirstTableRow, copiedTableRow);
 
-        cell.style.setProperty('width', `${cell.offsetWidth}px`, 'important');
-        cell.style.setProperty('max-width', `${cell.offsetWidth}px`, 'important');
+        copiedCell.style.setProperty('width', `${cell.offsetWidth}px`, 'important');
+        copiedCell.style.setProperty('max-width', `${cell.offsetWidth}px`, 'important');
 
         if (cell.offsetWidth > maxCellWidth) maxCellWidth = cell.offsetWidth;
 
-        copiedTableRow.appendChild(cell.cloneNode(true));
+        copiedTableRow.appendChild(copiedCell);
         copiedTableBody.appendChild(copiedTableRow);
       }
     });
 
     copiedTable.style.width = `${maxCellWidth}px`;
-    copiedTable.style.opacity = '0.5';
+    copiedTable.style.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25)';
 
     copiedTable.append(copiedTableBody);
     copiedTable.append(copiedTableHead);

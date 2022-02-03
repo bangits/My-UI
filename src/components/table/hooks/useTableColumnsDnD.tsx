@@ -4,9 +4,10 @@ import { useCallback, useMemo, useRef, useState } from 'react';
 export interface UseTableColumnsDnDParameters {
   onSwap: (fromRowIndex: number, toRowIndex: number) => void;
   dragDelay?: number;
+  disableIndexes: number[];
 }
 
-const useTableColumnsDnD = ({ onSwap, dragDelay = 500 }: UseTableColumnsDnDParameters) => {
+const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTableColumnsDnDParameters) => {
   const [currentDraggedCellIndex, setDraggedCellIndex] = useState<number>(null);
 
   const currentDraggedCellIndexRef = useRef<number>(null);
@@ -96,7 +97,12 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500 }: UseTableColumnsDnDParam
 
         const draggedCellIndex = +tableHeadElement.dataset.columnIndex;
 
-        if (typeof draggedCellIndex !== 'number' || Number.isNaN(draggedCellIndex)) return;
+        if (
+          typeof draggedCellIndex !== 'number' ||
+          Number.isNaN(draggedCellIndex) ||
+          disableIndexes.includes(draggedCellIndex)
+        )
+          return;
 
         if (!tableElementRef.current) tableElementRef.current = tableHeadElement.closest('table');
 

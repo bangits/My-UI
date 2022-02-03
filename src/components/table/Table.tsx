@@ -157,7 +157,8 @@ const Table = <T extends {}>({
     onSwap: (nodeA, nodeB) => {
       setTableHeadWidths(move(tableHeadWidths, nodeA - 1, nodeB - 1));
       setColumns(move(columns, nodeA - 1, nodeB - 1));
-    }
+    },
+    disableIndexes: [0]
   });
 
   const typedState = state as State<T> & { selectedRowIds: Record<number, boolean> };

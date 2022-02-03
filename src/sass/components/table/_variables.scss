@@ -25,7 +25,9 @@ $table-sizes: (
   action-table-cell-right: calculateRem(5px),
   action-table-cell-min-width: calculateRem(113px),
   action-table-cell-padding-right: calculateRem(20px),
-  action-table-cell-transform: translate(10px, -51%)
+  action-table-cell-transform: translate(10px, -51%),
+  //dnd
+  dnd-draggable-margin-left: calculateRem(-10px)
 );
 
 $table-colors: (

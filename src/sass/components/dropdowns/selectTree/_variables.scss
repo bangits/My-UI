@@ -1,6 +1,36 @@
-$select-tree-sizes: ();
+$select-tree-sizes: (
+  select--parent-padding-right: calculateRem(40px),
+  select--tree-padding: 0 calculateRem(10px) calculateRem(10px) 0,
+  select--tree-list-item-z-index: 10,
+  select--tree-list-item-padding: calculateRem(8px) 0 0 calculateRem(12px),
+  select--tree-list-item-min-height: calculateRem(31px),
+  select--tree-list-item-font-size: calculateRem(14px),
+  select--tree-list-item-line-height: calculateRem(17px),
+  select--tree-list-item-opacity: 1,
+  select--tree-list-item-before-width: calculateRem(280px),
+  select--tree-list-item-before-height: calculateRem(1px),
+  select--tree-list-item-after-z-index: -1,
+  select--tree-list-item-after-width: calculateRem(280px),
+  select--tree-list-item-after-height: calculateRem(31px),
+  select---parent-padding-right: calculateRem(40px),
+  select--parent-ul-padding-right: calculateRem(6px),
+  select--parent-item-chain-width: calculateRem(1px),
+  select--parent-item-chain-height: calculateRem(16px),
+  select--tree-list__item-chain-left: calculateRem(-3px),
+  select--tree-list__item-chain-width: calculateRem(15px),
+  select--tree-list__item-chain-height: calculateRem(31px),
+  item-number-opacity: 1,
+  ul--ul-padding-top: calculateRem(3px),
+  animation-linear: 0.16s
+);
 
-$select-tree-colors: ();
+$select-tree-colors: (
+  item-label-inner-color: color(dodger-blue),
+  select--tree-list-color: color(midnight-sun),
+  select--tree-list-item-before-background-color: color(athens-gray-select),
+  select--tree-list-item-after-background-color: color(athens-gray-select),
+  select--item-chain-color: color(white-lilac-select)
+);
 
 @function getSelectTreeSizes($property) {
   @return map-get($select-tree-sizes, $property);

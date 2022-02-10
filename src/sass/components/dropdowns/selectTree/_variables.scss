@@ -19,6 +19,16 @@ $select-tree-sizes: (
   select--tree-list__item-chain-left: calculateRem(-3px),
   select--tree-list__item-chain-width: calculateRem(15px),
   select--tree-list__item-chain-height: calculateRem(31px),
+  select--tree-list__item-chain-before-width: calculateRem(1px),
+  select--tree-list__item-chain-before-height: calculateRem(31px),
+  select--tree-list__item-chain-after-width: calculateRem(11px),
+  select--tree-list__item-chain-after-height: calculateRem(11px),
+  select--tree-list__item-inner-width: 86%,
+  select--tree-list__item-arrow-width: calculateRem(31px),
+  select--tree-list__item-arrow-height: calculateRem(31px),
+  select--tree-list__item-number-margin: calculateRem(3px),
+  select--tree-list__item-number-font-size: calculateRem(12px),
+  select--tree-list__item-number-opacity: 0.5,
   item-number-opacity: 1,
   ul--ul-padding-top: calculateRem(3px),
   animation-linear: 0.16s
@@ -29,7 +39,10 @@ $select-tree-colors: (
   select--tree-list-color: color(midnight-sun),
   select--tree-list-item-before-background-color: color(athens-gray-select),
   select--tree-list-item-after-background-color: color(athens-gray-select),
-  select--item-chain-color: color(white-lilac-select)
+  select--item-chain-color: color(white-lilac-select),
+  select--tree-list__item-chain-background-color: color(white-lilac-select),
+  select--tree-list__item-arrow-svg-fill: color(black-color),
+  select--tree-list__item-number-color: color(midnight-sun)
 );
 
 @function getSelectTreeSizes($property) {

@@ -177,9 +177,9 @@
         left: 0;
         top: 0;
         display: block;
-        width: 1px;
-        height: 31px;
-        background: #f4f5fa;
+        width: getSelectTreeSizes(select--tree-list__item-chain-before-width);
+        height: getSelectTreeSizes(select--tree-list__item-chain-before-height);
+        @include theme(background-color, select--tree-list__item-chain-background-color);
       }
 
       &::after {
@@ -188,28 +188,26 @@
         left: 0;
         top: 50%;
         display: block;
-        width: 11px;
-        height: 1px;
-        background: #f4f5fa;
+        width: getSelectTreeSizes(select--tree-list__item-chain-after-width);
+        height: getSelectTreeSizes(select--tree-list__item-chain-after-height);
+        @include theme(background-color, select--tree-list__item-chain-background-color);
       }
     }
 
     &-Tree-List__Item-Inner {
-      display: flex;
+      @include flex();
       overflow: hidden;
-      width: 86%;
+      width: getSelectTreeSizes(select--tree-list__item-inner-width);
     }
 
     &-Tree-List__Item-Arrow {
       position: absolute;
       right: 0;
       top: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 31px;
-      height: 31px;
-      transition: background 0.16s linear;
+      @include flex(center, center);
+      width: getSelectTreeSizes(select--tree-list__item-arrow-width);
+      height: getSelectTreeSizes(select--tree-list__item-arrow-height);
+      transition: background getSelectTreeSizes(animation-linear) linear;
       will-change: background;
 
       &,
@@ -218,7 +216,7 @@
       }
 
       svg {
-        fill: #48485d;
+        @include theme(fill, select--tree-list__item-arrow-svg-fill);
       }
 
       &:hover {
@@ -229,11 +227,11 @@
     &-Tree-List__Item-Number {
       display: inline-block;
       list-style: normal;
-      margin-left: 3px;
+      margin-left: getSelectTreeSizes(select--tree-list__item-number-margin);
       font-style: normal;
-      font-size: 12px;
-      color: #505d6e;
-      opacity: 0.5;
+      font-size: getSelectTreeSizes(select--tree-list__item-number-font-size);
+      @include theme(color, select--tree-list__item-number-color);
+      opacity: getSelectTreeSizes(select--tree-list__item-number-opacity);
       white-space: nowrap;
     }
 
@@ -244,12 +242,10 @@
 
     &-Tree-List__Item-Label-Inner {
       display: block;
-      overflow: hidden;
       width: 100%;
       max-width: 100%;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       cursor: pointer;
+      @include dots-after-text();
     }
 
     // TREE END

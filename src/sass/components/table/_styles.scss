@@ -1,6 +1,13 @@
 @mixin generate-table-styles {
   .TableScroll {
     display: block;
+
+    &--hide-box-shadow {
+      width: 100%;
+      box-shadow: none;
+      background-color: transparent;
+      border-radius: 0;
+    }
   }
 
   .TableWrapper {

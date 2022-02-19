@@ -1,4 +1,5 @@
-import { BaseTextInputProps, Tree } from '@/components';
+import { BaseTextInputProps } from '@/components';
+import { Tree } from '@/interfaces';
 import { UIColors } from '@/types';
 import ReactSelect, { ActionMeta, Props } from '@my-ui/react-select';
 import classNames from 'classnames';

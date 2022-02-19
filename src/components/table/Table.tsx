@@ -73,6 +73,7 @@ export interface TableProps<T extends {}> extends IComponent {
   blockLayout?: boolean;
   isResizing?: boolean;
   isLoading?: boolean;
+  hideBoxShadow?: boolean;
   emptyValue?: string;
   height?: number | string;
   rowUniqueKey?: string;
@@ -121,7 +122,8 @@ const Table = <T extends {}>({
   isLoading,
   height,
   renderTableRowChildren,
-  tableContainerRef
+  tableContainerRef,
+  hideBoxShadow
 }: TableProps<T>) => {
   const tableHeadRef = useRef<HTMLElement>(null);
 
@@ -182,7 +184,13 @@ const Table = <T extends {}>({
       <Scroll
         trackClassName={styles.ScrollTrack}
         thumbClassName={styles.ScrollThumb}
-        className={classNames(styles.TableScroll, className)}
+        className={classNames(
+          styles.TableScroll,
+          {
+            [styles['TableScroll--hide-box-shadow']]: hideBoxShadow
+          },
+          className
+        )}
         height={height || 500}
         autoHeightMin={data.length ? 150 : 400}>
         <Component

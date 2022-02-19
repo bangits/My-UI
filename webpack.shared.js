@@ -6,7 +6,7 @@ const configureSass = (isDevelopment = true) => [
   {
     test: /\.module\.s(a|c)ss$/,
     use: [
-      isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+      'style-loader',
       {
         loader: 'css-loader',
         options: {
@@ -40,14 +40,7 @@ const configureSass = (isDevelopment = true) => [
     test: /\.s(a|c)ss$/,
     exclude: /\.module.(s(a|c)ss)$/,
     use: [
-      isDevelopment
-        ? 'style-loader'
-        : {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: ''
-            }
-          },
+      'style-loader',
       'css-loader',
       {
         loader: 'sass-loader',

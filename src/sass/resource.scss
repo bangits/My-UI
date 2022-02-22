@@ -1,3 +1,7 @@
+// Themes generation
+$themeValues: ();
+$themes: ();
+
 // Abstracts
 @import './abstracts/variables';
 @import './abstracts/mixins';
@@ -15,6 +19,3 @@
 
 // Components
 @import './components/main';
-
-// Theme Generator
-@import './themes/generator';

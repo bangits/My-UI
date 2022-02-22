@@ -1,6 +1,7 @@
-import { SelectProps, Tree } from '@/components';
+import { SelectProps } from '@/components';
 import { getTreeTotalChilds } from '@/helpers';
 import { ArrowBottom, ArrowTop } from '@/icons';
+import { Tree } from '@/interfaces';
 import classNames from 'classnames';
 import React, { FC, useCallback, useMemo, useState } from 'react';
 import TreeSelect from './TreeSelect';

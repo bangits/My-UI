@@ -1,8 +1,4 @@
-export interface Tree {
-  id: number | string;
-  name: string;
-  children?: Tree[];
-}
+import { Tree } from '@/interfaces';
 
 export function getTreeTotalChilds({ children = [] }: Tree) {
   let totalCount = 0;

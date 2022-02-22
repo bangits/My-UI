@@ -5,12 +5,13 @@ const { configureSharedWebpack } = require('./webpack.shared');
 const { IgnorePlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = (webpackConfigEnv, argv) => {
-  const isDevelopment = webpackConfigEnv.development;
+module.exports = () => {
+  const isDevelopment = false;
 
   return merge(
     {
       entry: './src/my-ui-core.ts',
+      devtool: isDevelopment,
       output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',

@@ -1,9 +1,5 @@
 @import './mixins';
 
-// Themes generation
-$themeValues: ();
-$themes: ();
-
 @import './variants/dark';
 @import './variants/default';
 

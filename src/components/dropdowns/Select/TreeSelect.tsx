@@ -1,14 +1,9 @@
 import { SelectProps } from '@/components';
+import { Tree } from '@/interfaces';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import TreeNode from './TreeNode';
 import styles from './TreeSelect.module.scss';
-
-export interface Tree {
-  id: number | string;
-  name: string;
-  children?: Tree[];
-}
 
 export interface TreeSelectProps {
   data: Tree[];

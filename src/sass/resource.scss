@@ -15,7 +15,10 @@ $themes: ();
 @import './base/fonts';
 
 // Theme
+@import './themes/mixins';
 @import './themes/main';
 
 // Components
 @import './components/main';
+
+@import './themes/generator';

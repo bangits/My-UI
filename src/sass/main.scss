@@ -1,6 +1,3 @@
 @import './resource';
 
-// Theme Generator
-@import './themes/generator';
-
 @include generateThemeVariables();

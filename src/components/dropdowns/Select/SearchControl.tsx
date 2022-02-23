@@ -27,6 +27,7 @@ export const SearchControl: typeof components.Control = (props) => {
     (e) => {
       setIsMenuOpen(false);
       selectProps.onMenuClose();
+      selectProps.onInputChange('', null);
 
       if (selectProps.onBlur) selectProps.onBlur(e);
 
@@ -70,6 +71,15 @@ export const SearchControl: typeof components.Control = (props) => {
 
     if (isMenuOpen && selectProps.isTree) selectProps.onInputChange('', null);
   }, [currentValue, isMenuOpen, selectProps.isTree]);
+
+  useEffect(() => {
+    if (!isMenuOpen) selectProps.onInputChange('', null);
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const isMulti = Array.isArray(currentValue);
+    if (selectProps.inputValue.length > 0 && !isMulti) selectProps.onMenuOpen();
+  }, [selectProps.inputValue]);
 
   useEffect(() => {
     if (!props.selectProps.inputValue && searchValue && !currentValue) setSearchValue('');

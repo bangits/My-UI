@@ -202,7 +202,7 @@ const Table = <T extends {}>({
           className
         )}
         height={height || 500}
-        autoHeightMin={data.length ? 150 : 400}>
+        autoHeightMin={400}>
         <Component
           {...getTableProps()}
           className={classNames(styles.TableContainer, {

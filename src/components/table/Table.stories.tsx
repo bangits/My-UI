@@ -47,8 +47,6 @@ export const Default = () => {
           Header: 'Icon',
           accessor: 'x',
           renderColumn: (...args) => {
-            console.log(args);
-
             return (
               <img
                 src={

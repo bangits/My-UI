@@ -24,6 +24,14 @@
   .ScrollTrack {
     z-index: 1 !important;
   }
+  // .DraggableBorder {
+  //   position: 'absolute';
+  //   height: 100vh;
+  //   top: 0;
+  //   border: '1px solid #E0E1EE';
+  //   bottom: 0;
+  //   margin-left: getTableSizes(dnd-draggable-margin-left);
+  // }
 
   .TableHead {
     position: sticky;
@@ -71,15 +79,13 @@
       opacity: getTableSizes(table-conatiner-tr-ready-opacity);
     }
 
+    .TableHead span {
+      cursor: move;
+      user-select: none;
+    }
+
     .TableHead tr {
       min-height: getTableSizes(table-head-row-height);
-      th {
-        &:last-child {
-          svg {
-            display: none;
-          }
-        }
-      }
     }
 
     .LastTableCell {

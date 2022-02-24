@@ -1,5 +1,5 @@
 import { Hooks } from '@my-ui/react-table';
-import { Checkbox, CheckboxProps } from '../checkbox-and-radio-button';
+import { Checkbox, CheckboxProps } from '../../checkbox-and-radio-button';
 
 export default function selectionHook<T extends {}>(hooks: Hooks<T>) {
   hooks.visibleColumns.push((columns) => [

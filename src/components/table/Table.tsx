@@ -20,7 +20,7 @@ import classNames from 'classnames';
 import { ReactNode, Ref, useEffect, useRef, useState } from 'react';
 import FlipMove from 'react-flip-move';
 import { TextWithTooltip } from '../text-with-tooltip';
-import selectionHook from './selectionHook';
+import { selectionHook, useTableColumnsDnD } from './hooks';
 import styles from './Table.module.scss';
 import TableCell, { TableCellProps } from './TableCell';
 import TableHead from './TableHead';
@@ -101,7 +101,7 @@ export interface CellType<T extends object = {}> extends Cell<T, any> {
 
 const Table = <T extends {}>({
   data,
-  columns,
+  columns: columnsProp,
   color,
   fetch,
   component: Component = 'table',
@@ -128,6 +128,7 @@ const Table = <T extends {}>({
   const tableHeadRef = useRef<HTMLElement>(null);
 
   const [tableHeadWidths, setTableHeadWidths] = useState([]);
+  const [columns, setColumns] = useState(columnsProp);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable<T>(
     {
@@ -144,6 +145,23 @@ const Table = <T extends {}>({
     useRowSelect,
     ...(isWithSelection ? [selectionHook] : [])
   );
+
+  const move = (array, from, to) =>
+    array.map((item, i) =>
+      i === to
+        ? array[from]
+        : i >= Math.min(from, to) && i <= Math.max(from, to)
+        ? array[i + Math.sign(to - from)]
+        : item
+    );
+
+  const { tableHeadMouseDownHandler, tableHeadMouseUpHandler, draggedCellIndex } = useTableColumnsDnD({
+    onSwap: (nodeA, nodeB) => {
+      setTableHeadWidths(move(tableHeadWidths, nodeA - 1, nodeB - 1));
+      setColumns(move(columns, nodeA - 1, nodeB - 1));
+    },
+    disableIndexes: [0]
+  });
 
   const typedState = state as State<T> & { selectedRowIds: Record<number, boolean> };
 
@@ -216,8 +234,23 @@ const Table = <T extends {}>({
                     style={{
                       ...column.getHeaderProps(column.getSortByToggleProps()).style,
                       ...(typeof column.maxWidth === 'string' ? { width: column.maxWidth } : {})
-                    }}>
+                    }}
+                    onMouseDown={tableHeadMouseDownHandler}
+                    onMouseUp={tableHeadMouseUpHandler}>
                     <span>{column.render('Header')}</span>
+
+                    {draggedCellIndex === index ? (
+                      <div
+                        style={{
+                          position: 'absolute',
+                          height: '100vh',
+                          top: 0,
+                          border: '1px solid #E0E1EE',
+                          bottom: '0px',
+                          marginLeft: '-10px'
+                        }}
+                      />
+                    ) : null}
                   </TableHead>
                 ))}
               </TableRow>
@@ -282,11 +315,13 @@ const Table = <T extends {}>({
                               className={classNames({
                                 [styles.LastTableCell]: index === row.cells.length - 1
                               })}>
-                              <TextWithTooltip disabled={!!cell.column.renderColumn}>
-                                {cell.column.renderColumn
-                                  ? cell.column.renderColumn(cell.render('Cell'), cell.value)
-                                  : cell.render('Cell')}
-                              </TextWithTooltip>
+                              {
+                                <TextWithTooltip disabled={!!cell.column.renderColumn}>
+                                  {cell.column.renderColumn
+                                    ? cell.column.renderColumn(cell.render('Cell'), cell.value)
+                                    : cell.render('Cell')}
+                                </TextWithTooltip>
+                              }
                             </TableCell>
                           );
                         })}

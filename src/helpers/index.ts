@@ -3,6 +3,7 @@ export * from './flatMap';
 export * from './getImageByFile';
 export * from './getRootFontSize';
 export * from './getTreeTotalChilds';
+export * from './moveArrayElements';
 export * from './typedMemo';
 export * from './uniqueIdMaker';
 export * from './useLongPress';

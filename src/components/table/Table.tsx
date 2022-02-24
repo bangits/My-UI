@@ -1,3 +1,4 @@
+import { moveArrayElements } from '@/helpers';
 import { typedMemo } from '@/helpers/typedMemo';
 import { Loader, Scroll, Typography } from '@/my-ui-core';
 import { ComponentType, IComponent } from '@/types/props';
@@ -146,21 +147,12 @@ const Table = <T extends {}>({
     ...(isWithSelection ? [selectionHook] : [])
   );
 
-  const move = (array, from, to) =>
-    array.map((item, i) =>
-      i === to
-        ? array[from]
-        : i >= Math.min(from, to) && i <= Math.max(from, to)
-        ? array[i + Math.sign(to - from)]
-        : item
-    );
-
   const { tableHeadMouseDownHandler, tableHeadMouseUpHandler, draggedCellIndex } = useTableColumnsDnD({
     onSwap: (nodeA, nodeB) => {
-      setTableHeadWidths(move(tableHeadWidths, nodeA - 1, nodeB - 1));
-      setColumns(move(columns, nodeA - 1, nodeB - 1));
+      setTableHeadWidths(moveArrayElements(tableHeadWidths, nodeA - 1, nodeB - 1));
+      setColumns(moveArrayElements(columns, nodeA - 1, nodeB - 1));
     },
-    disableIndexes: [0]
+    disableIndexes: isWithSelection ? [0] : []
   });
 
   const typedState = state as State<T> & { selectedRowIds: Record<number, boolean> };

@@ -16,7 +16,6 @@ const Typography = forwardRef<any, TypographyProps>(
   ({ children, variant = 'p1', component: Component = 'div', className, color }, ref) => {
     return (
       <Component
-        // @ts-expect-error Ignoring typescript for union typecast
         className={classNames(
           styles.Typography,
           styles[variant],

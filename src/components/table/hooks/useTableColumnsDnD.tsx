@@ -4,7 +4,7 @@ import { useCallback, useMemo, useRef, useState } from 'react';
 export interface UseTableColumnsDnDParameters {
   onSwap: (fromRowIndex: number, toRowIndex: number) => void;
   dragDelay?: number;
-  disableIndexes: number[];
+  disableIndexes?: number[];
 }
 
 const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTableColumnsDnDParameters) => {

@@ -29,13 +29,8 @@
 
     &:hover,
     &--active {
-      // height: getSubMenuItemSizes(sidebar-sub-menu-item-hover-height);
-      // border-radius: getSubMenuItemSizes(sidebar-sub-menu-item-hover-borderRadius);
-      // @include theme(background-color, sub-menu-items-base-colors-hover);
-      // @include theme(color, white);
-      color: #fff !important;
-      // font-weight: getSubMenuItemSizes(sidebar-sub-menu-item-hover-font-weight);
-      // line-height: getSubMenuItemSizes(sidebar-sub-menu-item-line-height-hover);
+      @include theme(background-color, sub-menu-items-base-colors-hover);
+      @include theme(color, primary);
     }
 
     &--sidebar-opened a {

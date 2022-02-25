@@ -25,8 +25,9 @@ const SubMenuItems: FC<SubMenuItemProps> = ({
     <div
       className={classNames(
         styles.SubMenuItemsBase,
+        'SubMenuItemsBase',
         {
-          [styles['SubMenuItemsBase--active']]: isActive,
+          [`${styles['SubMenuItemsBase--active']} SubMenuItemsBase--active`]: isActive,
           [styles['SubMenuItemsBase--sidebar-opened']]: isSidebarOpened
         },
         className

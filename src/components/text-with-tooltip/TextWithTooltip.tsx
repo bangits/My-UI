@@ -1,15 +1,14 @@
 import { Tooltip } from '@/my-ui-core';
-import { DetailedHTMLProps, FC, HTMLAttributes, memo, useMemo, useRef } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, useEffect, useMemo, useRef, useState } from 'react';
 
 const TextWithTooltip: FC<
   DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & { disabled?: boolean }
 > = (elementProps) => {
   const typographyComponentRef = useRef<HTMLDivElement>(null);
 
-  const isEllipsisActive =
-    !elementProps.disabled && typographyComponentRef.current?.offsetWidth < typographyComponentRef.current?.scrollWidth;
+  const [isEllipsisActive, setElipssisActive] = useState(false);
 
-  const element = <div {...elementProps} ref={typographyComponentRef} />;
+  const element = useMemo(() => <div {...elementProps} ref={typographyComponentRef} />, [elementProps]);
 
   const elementWithTooltip = useMemo(
     () =>
@@ -23,6 +22,19 @@ const TextWithTooltip: FC<
     [isEllipsisActive, element]
   );
 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setElipssisActive(
+        !elementProps.disabled &&
+          typographyComponentRef.current?.offsetWidth < typographyComponentRef.current?.scrollWidth
+      );
+    }, 700);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [elementProps]);
+
   return elementWithTooltip;
 };
 
@@ -30,4 +42,4 @@ TextWithTooltip.defaultProps = {
   disabled: false
 };
 
-export default memo(TextWithTooltip);
+export default TextWithTooltip;

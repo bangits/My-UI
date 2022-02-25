@@ -187,6 +187,10 @@ const Table = <T extends {}>({
     onSelectedColumnsChange(rows.filter((row) => typedState.selectedRowIds[row.id]));
   }, [typedState.selectedRowIds]);
 
+  useEffect(() => {
+    if (columnsProp !== columns) setColumns(columnsProp);
+  }, [columnsProp]);
+
   if (!tableHeadWidths.length && tableHeadRef.current) return null;
 
   return (
@@ -202,7 +206,7 @@ const Table = <T extends {}>({
           className
         )}
         height={height || 500}
-        autoHeightMin={400}>
+        autoHeightMin={!data.length || data.length > 5 ? 400 : 150}>
         <Component
           {...getTableProps()}
           className={classNames(styles.TableContainer, {
@@ -311,7 +315,7 @@ const Table = <T extends {}>({
                                 <TextWithTooltip disabled={!!cell.column.renderColumn}>
                                   {cell.column.renderColumn
                                     ? cell.column.renderColumn(cell.render('Cell'), cell.value)
-                                    : cell.render('Cell')}
+                                    : cell.value || cell.render('Cell')}
                                 </TextWithTooltip>
                               }
                             </TableCell>

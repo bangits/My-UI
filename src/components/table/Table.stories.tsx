@@ -24,6 +24,16 @@ export const Default = () => {
       e: 'Mobile Desktop',
       v: 'Mobile, Desktop',
       c: 'Slots'
+    },
+    {
+      y: 'ID1234567',
+      z: 'ID1234567',
+      b: '20BurningHot',
+      n: 'EGT',
+      w: '12/07/2021, 12:00:00',
+      e: 'Mobile Desktop',
+      v: 'Mobile, Desktop',
+      c: 'Slots'
     }
   ]);
 
@@ -123,6 +133,13 @@ export const Default = () => {
       ]}
       illustrationIcon={<IllustrationIcon />}
       emptyText={text('emptyText', `You don’t have any users added! Please add a user.`)}
+      tableFooterData={{
+        z: {
+          value: '20000 AMD',
+          tooltipText: 'Totals of External Id'
+        }
+      }}
+      isWithSelection={false}
     />
   );
 };

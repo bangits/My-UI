@@ -27,6 +27,7 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTabl
     const originalTableCells = Object.values(table.querySelectorAll('td'));
     const originalTableBodyRows = Object.values(table.querySelectorAll('tbody tr'));
     const originalFirstTableRow = table.querySelector('tbody tr');
+    const originalFirstTableCells = Object.values(originalFirstTableRow.querySelectorAll('td'));
     const originalTableHeadRow = table.querySelector('thead tr');
 
     const copiedTable = document.createElement('table');
@@ -52,7 +53,7 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTabl
 
     cellsCoordinates.current = [];
 
-    originalTableCells.forEach((cell, idx) => {
+    originalFirstTableCells.forEach((cell, idx) => {
       cellsCoordinates.current = [
         ...cellsCoordinates.current,
         {
@@ -60,7 +61,9 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTabl
           xPosition: cell.getBoundingClientRect().x
         }
       ];
+    });
 
+    originalTableCells.forEach((cell, idx) => {
       if ((idx - draggedCellIndex) % tableCellsPerRowCount === 0) {
         const copiedCell = cell.cloneNode(true) as HTMLTableCellElement;
 
@@ -120,6 +123,10 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTabl
 
             currentDraggedCellIndexRef.current = draggedCellIndex;
 
+            if (currentDraggedCellIndexRef.current > 14) {
+              debugger;
+            }
+
             initialDraggedCellIndex.current = draggedCellIndex;
           }
 
@@ -139,10 +146,18 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTabl
             setDraggedCellIndex(draggedCellIndex);
 
             currentDraggedCellIndexRef.current = draggedCellIndex;
+
+            if (currentDraggedCellIndexRef.current > 14) {
+              debugger;
+            }
           } else {
             setDraggedCellIndex(initialDraggedCellIndex.current);
 
             currentDraggedCellIndexRef.current = initialDraggedCellIndex.current;
+
+            if (currentDraggedCellIndexRef.current > 14) {
+              debugger;
+            }
           }
 
           const tableHalfWidth = mainCopiedTable.current.offsetWidth / 2;

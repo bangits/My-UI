@@ -1,6 +1,6 @@
 import { moveArrayElements } from '@/helpers';
 import { typedMemo } from '@/helpers/typedMemo';
-import { Loader, Scroll, Typography } from '@/my-ui-core';
+import { Loader, Scroll, Tooltip, Typography } from '@/my-ui-core';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
 import {
@@ -18,7 +18,7 @@ import {
   UseTableRowProps
 } from '@my-ui/react-table';
 import classNames from 'classnames';
-import { ReactNode, Ref, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, Ref, useEffect, useMemo, useRef, useState } from 'react';
 import FlipMove from 'react-flip-move';
 import { TextWithTooltip } from '../text-with-tooltip';
 import { selectionHook, useTableColumnsDnD } from './hooks';
@@ -63,6 +63,15 @@ export interface TableProps<T extends {}> extends IComponent {
     disableSortBy?: boolean;
     sortingId?: string | number;
   } & CustomColumnProps)[];
+  tableFooterData?: Partial<
+    Record<
+      string,
+      {
+        tooltipText?: string;
+        value: ReactNode;
+      }
+    >
+  >;
   color?: UIColors;
   fetch?: (state: State<T>) => void;
   onSelectedColumnsChange?: (state: Row<T>[]) => void;
@@ -124,7 +133,8 @@ const Table = <T extends {}>({
   height,
   renderTableRowChildren,
   tableContainerRef,
-  hideBoxShadow
+  hideBoxShadow,
+  tableFooterData
 }: TableProps<T>) => {
   const tableHeadRef = useRef<HTMLElement>(null);
 
@@ -149,8 +159,10 @@ const Table = <T extends {}>({
 
   const { tableHeadMouseDownHandler, tableHeadMouseUpHandler, draggedCellIndex } = useTableColumnsDnD({
     onSwap: (nodeA, nodeB) => {
-      setTableHeadWidths(moveArrayElements(tableHeadWidths, nodeA - 1, nodeB - 1));
-      setColumns(moveArrayElements(columns, nodeA - 1, nodeB - 1));
+      const updatedColumns = moveArrayElements(columns, nodeA, nodeB);
+
+      setTableHeadWidths(moveArrayElements(tableHeadWidths, nodeA, nodeB));
+      setColumns(updatedColumns);
     },
     disableIndexes: isWithSelection ? [0] : []
   });
@@ -161,6 +173,15 @@ const Table = <T extends {}>({
 
   const rootFontSize =
     Number(window.getComputedStyle(document.body).getPropertyValue('font-size').replace('px', '')) || 10;
+
+  const tableHeadWidth = useMemo(() => tableHeadRef.current?.getBoundingClientRect?.()?.width, [tableHeadRef.current]);
+
+  const tableContainerClassNames = classNames(styles.TableContainer, {
+    [styles['TableContainer--withSelection']]: isWithSelection,
+    [styles['TableContainer--ready']]: tableHeadWidths.length,
+    [styles['Table--no-result']]: !data.length,
+    [styles['Table--loading']]: isLoading
+  });
 
   useEffect(() => {
     setTableHeadWidths(Object.values(tableHeadRef.current.querySelectorAll('th')).map((th) => th.clientWidth));
@@ -207,14 +228,7 @@ const Table = <T extends {}>({
         )}
         height={height || 500}
         autoHeightMin={!data.length || data.length > 5 ? 400 : 150}>
-        <Component
-          {...getTableProps()}
-          className={classNames(styles.TableContainer, {
-            [styles['TableContainer--withSelection']]: isWithSelection,
-            [styles['TableContainer--ready']]: tableHeadWidths.length,
-            [styles['Table--no-result']]: !data.length,
-            [styles['Table--loading']]: isLoading
-          })}>
+        <Component className={tableContainerClassNames} {...getTableProps()}>
           {/* @ts-expect-error Ignoring typescript cause for automatic component they're error related with ref prop */}
           <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
             {headerGroups.map((headerGroup) => (
@@ -351,7 +365,39 @@ const Table = <T extends {}>({
             </div>
           )}
         </Component>
+
+        {tableFooterData && (
+          <Component {...getTableProps()} className={classNames(tableContainerClassNames, styles.TableFooter)}>
+            <TBodyComponent {...getTableBodyProps()} className={styles.TableBody} style={{ minWidth: tableHeadWidth }}>
+              <FlipMove>
+                <TableRow color={color}>
+                  {rows[0].cells.map((cell: CellType<T>, index) => {
+                    return (
+                      <TableCell
+                        key={index}
+                        style={{
+                          maxWidth: cell.column.dataMaxWidth
+                            ? cell.column.dataMaxWidth
+                            : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                            ? cell.column.maxWidth
+                            : `${tableHeadWidths[index] / rootFontSize}rem`
+                        }}
+                        align={cell.column.align}
+                        color={color}
+                        className={styles.TableFooterCell}>
+                        <Tooltip text={tableFooterData[cell.column.id]?.tooltipText} showEvent='hover'>
+                          <span>{tableFooterData[cell.column.id]?.value}</span>
+                        </Tooltip>
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              </FlipMove>
+            </TBodyComponent>
+          </Component>
+        )}
       </Scroll>
+
       {isLoading && (
         <div className={styles.Loader}>
           <Loader />

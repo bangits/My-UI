@@ -56,4 +56,20 @@
       @include theme(background-color, status-inactive-color, $opacity: 0.8);
     }
   }
+  .Status--warning {
+    @include theme(background-color, status-warning-color, $opacity: 0.1);
+    @include theme(color, status-warning-color);
+
+    .StatusCircle {
+      @include theme(background-color, status-warning-color);
+    }
+  }
+  .Status--primary {
+    @include theme(background-color, primary, $opacity: 0.1);
+    @include theme(color, primary);
+
+    .StatusCircle {
+      @include theme(background-color, primary);
+    }
+  }
 }

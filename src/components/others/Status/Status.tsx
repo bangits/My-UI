@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import styles from './Status.module.scss';
 
 export interface StatusProps {
-  variant?: 'active' | 'blocked' | 'inactive' | 'expired';
+  variant?: 'active' | 'blocked' | 'inactive' | 'expired' | 'primary' | 'warning';
 }
 
 const Status: FC<StatusProps> = ({ children, variant = 'active' }) => {

@@ -209,6 +209,7 @@
   .TableFooter {
     position: sticky;
     bottom: 0;
+    min-height: 0 !important;
 
     @include theme(background-color, primary, $opacity: 0.1, $useRgb: true);
 

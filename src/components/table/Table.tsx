@@ -366,7 +366,7 @@ const Table = <T extends {}>({
           )}
         </Component>
 
-        {tableFooterData && (
+        {tableFooterData && rows[0] ? (
           <Component {...getTableProps()} className={classNames(tableContainerClassNames, styles.TableFooter)}>
             <TBodyComponent {...getTableBodyProps()} className={styles.TableBody} style={{ minWidth: tableHeadWidth }}>
               <FlipMove>
@@ -395,7 +395,7 @@ const Table = <T extends {}>({
               </FlipMove>
             </TBodyComponent>
           </Component>
-        )}
+        ) : null}
       </Scroll>
 
       {isLoading && (

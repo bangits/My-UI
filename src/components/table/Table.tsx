@@ -76,7 +76,6 @@ export interface TableProps<T extends {}> extends IComponent {
   fetch?: (state: State<T>) => void;
   onSelectedColumnsChange?: (state: Row<T>[]) => void;
   checkIsRowActive?: (state: T) => boolean;
-  renderTableRowChildren?: (row: T) => ReactNode;
   gridLayout?: boolean;
   isWithSelection?: boolean;
   absoluteLayout?: boolean;
@@ -131,7 +130,6 @@ const Table = <T extends {}>({
   rowUniqueKey,
   isLoading,
   height,
-  renderTableRowChildren,
   tableContainerRef,
   hideBoxShadow,
   tableFooterData
@@ -158,10 +156,13 @@ const Table = <T extends {}>({
   );
 
   const { tableHeadMouseDownHandler, tableHeadMouseUpHandler, draggedCellIndex } = useTableColumnsDnD({
-    onSwap: (nodeA, nodeB) => {
-      const updatedColumns = moveArrayElements(columns, nodeA, nodeB);
+    onSwap: (fromDirection, toDirection) => {
+      fromDirection = isWithSelection ? fromDirection - 1 : fromDirection;
+      toDirection = isWithSelection ? toDirection - 1 : toDirection;
 
-      setTableHeadWidths(moveArrayElements(tableHeadWidths, nodeA, nodeB));
+      const updatedColumns = moveArrayElements(columns, fromDirection, toDirection);
+
+      setTableHeadWidths(moveArrayElements(tableHeadWidths, fromDirection, toDirection));
       setColumns(updatedColumns);
     },
     disableIndexes: isWithSelection ? [0] : []
@@ -300,58 +301,54 @@ const Table = <T extends {}>({
                       .filter((a) => a);
 
                   return (
-                    <>
-                      <TableRow
-                        style={{ position: 'relative', top: 0, left: 0 }}
-                        isLoading={isLoading}
-                        hover
-                        selected={isRowActive || row.isSelected}
-                        {...row.getRowProps()}
-                        key={rowUniqueKey ? row.original[rowUniqueKey] : row.id}
-                        color={color}>
-                        {row.cells.map((cell: CellType<T>, index) => {
-                          return (
-                            <TableCell
-                              key={index}
-                              style={{
-                                maxWidth: cell.column.dataMaxWidth
-                                  ? cell.column.dataMaxWidth
-                                  : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
-                                  ? cell.column.maxWidth
-                                  : `${tableHeadWidths[index] / rootFontSize}rem`
-                              }}
-                              align={cell.column.align}
-                              color={color}
-                              className={classNames({
-                                [styles.LastTableCell]: index === row.cells.length - 1
-                              })}>
-                              {
-                                <TextWithTooltip disabled={!!cell.column.renderColumn}>
-                                  {cell.column.renderColumn
-                                    ? cell.column.renderColumn(cell.render('Cell'), cell.value)
-                                    : cell.value || cell.render('Cell')}
-                                </TextWithTooltip>
-                              }
-                            </TableCell>
-                          );
-                        })}
+                    <TableRow
+                      style={{ position: 'relative', top: 0, left: 0 }}
+                      isLoading={isLoading}
+                      hover
+                      selected={isRowActive || row.isSelected}
+                      {...row.getRowProps()}
+                      key={rowUniqueKey ? row.original[rowUniqueKey] : row.id}
+                      color={color}>
+                      {row.cells.map((cell: CellType<T>, index) => {
+                        return (
+                          <TableCell
+                            key={index}
+                            style={{
+                              maxWidth: cell.column.dataMaxWidth
+                                ? cell.column.dataMaxWidth
+                                : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                                ? cell.column.maxWidth
+                                : `${tableHeadWidths[index] / rootFontSize}rem`
+                            }}
+                            align={cell.column.align}
+                            color={color}
+                            className={classNames({
+                              [styles.LastTableCell]: index === row.cells.length - 1
+                            })}>
+                            {
+                              <TextWithTooltip disabled={!!cell.column.renderColumn}>
+                                {cell.column.renderColumn
+                                  ? cell.column.renderColumn(cell.render('Cell'), cell.value)
+                                  : cell.value || cell.render('Cell')}
+                              </TextWithTooltip>
+                            }
+                          </TableCell>
+                        );
+                      })}
 
-                        {actions && !isLoading && actionsContent.length ? (
-                          <div
-                            className={classNames(styles['ActionToolsStickyHorizontal'], 'ActionToolsStickyHorizontal')}
-                            {...actions}
-                            color={color}>
-                            <section className={classNames(styles['ActionTools'], 'ActionTools')}>
-                              <div className={classNames(styles['ActionTableCell'], 'ActionTableCell')}>
-                                {actionsContent}
-                              </div>
-                            </section>
-                          </div>
-                        ) : null}
-                      </TableRow>
-
-                      {renderTableRowChildren && renderTableRowChildren(row.original)}
-                    </>
+                      {actions && !isLoading && actionsContent.length ? (
+                        <div
+                          className={classNames(styles['ActionToolsStickyHorizontal'], 'ActionToolsStickyHorizontal')}
+                          {...actions}
+                          color={color}>
+                          <section className={classNames(styles['ActionTools'], 'ActionTools')}>
+                            <div className={classNames(styles['ActionTableCell'], 'ActionTableCell')}>
+                              {actionsContent}
+                            </div>
+                          </section>
+                        </div>
+                      ) : null}
+                    </TableRow>
                   );
                 })}
               </FlipMove>

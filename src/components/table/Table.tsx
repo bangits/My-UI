@@ -146,7 +146,7 @@ const Table = <T extends {}>({
       data,
       manualSortBy: true,
       defaultColumn: {
-        Cell: (x) => x.cell.value || emptyValue || 'N/A'
+        Cell: (x) => (!x.cell.value && x.cell.value !== 0 ? emptyValue || 'N/A' : x.cell.value)
       }
     },
     useSortBy,

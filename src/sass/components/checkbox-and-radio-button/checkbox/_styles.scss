@@ -35,6 +35,9 @@
           display: block;
 
           @include center-absolute();
+
+          width: 50%;
+          height: 50%;
         }
       }
 

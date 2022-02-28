@@ -293,7 +293,7 @@ const Table = <T extends {}>({
                               <Component
                                 key={index}
                                 {...props}
-                                onClick={(...args: any[]) => onClick(data[rowIndex], ...args)}
+                                onClick={(e: any) => onClick(data[rowIndex], e, rowIndex)}
                               />
                             </div>
                           )

@@ -175,7 +175,10 @@ const Table = <T extends {}>({
   const rootFontSize =
     Number(window.getComputedStyle(document.body).getPropertyValue('font-size').replace('px', '')) || 10;
 
-  const tableHeadWidth = useMemo(() => tableHeadRef.current?.getBoundingClientRect?.()?.width, [tableHeadRef.current]);
+  const tableHeadWidth = useMemo(
+    () => tableHeadRef.current?.getBoundingClientRect?.()?.width,
+    [tableHeadRef.current, headerGroups]
+  );
 
   const tableContainerClassNames = classNames(styles.TableContainer, {
     [styles['TableContainer--withSelection']]: isWithSelection,
@@ -381,7 +384,9 @@ const Table = <T extends {}>({
                         }}
                         align={cell.column.align}
                         color={color}
-                        className={styles.TableFooterCell}>
+                        className={classNames(styles.TableFooterCell, {
+                          [styles.LastTableCell]: index === rows[0].cells.length - 1
+                        })}>
                         <Tooltip text={tableFooterData[cell.column.id]?.tooltipText} showEvent='hover'>
                           <span>{tableFooterData[cell.column.id]?.value}</span>
                         </Tooltip>

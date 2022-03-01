@@ -133,12 +133,29 @@ export const Default = () => {
       ]}
       illustrationIcon={<IllustrationIcon />}
       emptyText={text('emptyText', `You don’t have any users added! Please add a user.`)}
-      tableFooterData={{
+      tableFooterData={object('tableFooterData', {
         z: {
           value: '20000 AMD',
           tooltipText: 'Totals of External Id'
+        },
+        b: {
+          value: '20000 AMD',
+          tooltipText: 'Totals of External Id'
+        },
+        x: {
+          value: '20000 AMD',
+          tooltipText: 'Totals of External Id'
+        },
+        n: {
+          value: '20000 AMD',
+          tooltipText: 'Totals of External Id'
+        },
+        c: {
+          value: '20000 AMD',
+          tooltipText: 'Totals of External Id'
         }
-      }}
+      })}
+      isWithSelection={false}
     />
   );
 };

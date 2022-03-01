@@ -26,7 +26,7 @@ const DateTimePicker: FC<DateTimePickerProps> = ({
   const finalDateTimeValue = selected !== undefined ? selected : selectedDateTime;
 
   useEffect(() => {
-    onChange?.(selectedDateTime);
+    if (selected === undefined) onChange?.(selectedDateTime);
   }, [selectedDateTime]);
 
   return (

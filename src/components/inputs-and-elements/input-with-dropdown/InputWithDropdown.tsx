@@ -69,6 +69,14 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
     [inputRef, onDropdownChange]
   );
 
+  useEffect(() => {
+    if (!inputProps?.value) {
+      setInputValue('');
+      setInputFocused(false);
+      setIsDropdown(true);
+    }
+  }, [inputProps?.value]);
+
   return (
     <>
       <div className={classNames(styles.InputWithDropdownBase, className)}>

@@ -2,7 +2,7 @@ import { Button, DatePicker, DatepickerProps } from '@/components';
 import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './DateTimePicker.module.scss';
 import { TimeSelection } from './TimeSelection';
 
@@ -25,10 +25,6 @@ const DateTimePicker: FC<DateTimePickerProps> = ({
 
   const finalDateTimeValue = selected !== undefined ? selected : selectedDateTime;
 
-  useEffect(() => {
-    if (selected === undefined) onChange?.(selectedDateTime);
-  }, [selectedDateTime]);
-
   return (
     <div
       className={classNames(
@@ -45,7 +41,11 @@ const DateTimePicker: FC<DateTimePickerProps> = ({
         open={isOpenedDateTimePicker}
         customTimeInput={
           <TimeSelection
-            onTimeChange={setSelectedDateTime}
+            onTimeChange={(date) => {
+              setSelectedDateTime(date);
+
+              onChange?.(date);
+            }}
             currentDate={finalDateTimeValue}
             maxDate={datePickerProps.maxDate}
             minDate={datePickerProps.minDate}
@@ -59,6 +59,8 @@ const DateTimePicker: FC<DateTimePickerProps> = ({
         onChange={(date) => {
           if (!Array.isArray(date)) {
             setSelectedDateTime(date);
+
+            onChange?.(date);
           }
         }}>
         {finalDateTimeValue && (

@@ -101,8 +101,8 @@ export const Default = () => {
           Header: 'Status',
           accessor: 'r',
           disableSortBy: true,
-          maxWidth: '8rem',
-          dataMaxWidth: '9rem'
+          maxWidth: '12rem',
+          dataMaxWidth: '12rem'
         }
       ])}
       actions={[

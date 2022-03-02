@@ -24,7 +24,7 @@ import { TextWithTooltip } from '../text-with-tooltip';
 import { selectionHook, useTableColumnsDnD } from './hooks';
 import styles from './Table.module.scss';
 import TableCell, { TableCellProps } from './TableCell';
-import TableHead from './TableHead';
+import TableHead, { TableHeadProps } from './TableHead';
 import TableRow from './TableRow';
 
 // This interface used for react-table useSortBy hook
@@ -99,6 +99,7 @@ export interface TableProps<T extends {}> extends IComponent {
 
 interface CustomColumnProps {
   align?: TableCellProps['align'];
+  headAlign?: TableHeadProps['align'];
   maxWidth?: string | number;
   dataMaxWidth?: string | number;
   renderColumn?(value: ReactNode, columnValue: CellValue): ReactNode;
@@ -237,7 +238,7 @@ const Table = <T extends {}>({
           <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
             {headerGroups.map((headerGroup) => (
               <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
-                {headerGroup.headers.map((column: Column<T>, index) => (
+                {headerGroup.headers.map((column: Column<T> & CustomColumnProps, index) => (
                   <TableHead
                     data-column-index={index}
                     direction={column.isSortedDesc ? 'desc' : 'asc'}
@@ -250,7 +251,8 @@ const Table = <T extends {}>({
                       ...(typeof column.maxWidth === 'string' ? { width: column.maxWidth } : {})
                     }}
                     onMouseDown={tableHeadMouseDownHandler}
-                    onMouseUp={tableHeadMouseUpHandler}>
+                    onMouseUp={tableHeadMouseUpHandler}
+                    align={column.headAlign}>
                     <span>{column.render('Header')}</span>
 
                     {draggedCellIndex === index ? (

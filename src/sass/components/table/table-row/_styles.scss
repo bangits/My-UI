@@ -9,11 +9,10 @@
     td {
       &:first-child {
         margin: getTableRowSizes(table-td-th-first-child-margin);
-      }
-      &:nth-child(2) {
-        margin-left: 0;
+        margin-right: 0;
       }
       &:last-child {
+        margin-left: 0;
         margin-right: getTableRowSizes(table-td-th-last-child-margin-right);
       }
     }

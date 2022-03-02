@@ -80,8 +80,8 @@
     }
 
     .LastTableCell {
+      margin-left: 0;
       margin-right: getTableSizes(last-table-cell-margin) !important;
-      padding: 0;
       opacity: getTableSizes(last-table-cell-opacity);
     }
 

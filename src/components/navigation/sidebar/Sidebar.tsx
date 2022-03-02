@@ -18,7 +18,7 @@ export interface SidebarProps extends IComponent {
   menuItems?: MenuItemProps[];
   height?: string | number;
   defaultClosed?: boolean;
-  bottomContent?: ReactNode;
+  bottomContent?: (isSidebarOpened: boolean) => ReactNode;
 }
 
 const Sidebar: FC<SidebarProps> = ({
@@ -91,9 +91,8 @@ const Sidebar: FC<SidebarProps> = ({
               />
             ))}
           </ul>
-
-          {bottomContent}
         </div>
+        {bottomContent(isSidebarClosed)}
       </div>
     </div>
   );

@@ -21,6 +21,7 @@ export const Default = () => {
         })}
         width={number('width', 24)}
         collapsedWidth={number('collapsedWidth', 7.2)}
+        bottomContent={<Typography variant='p4'>Bottom Component</Typography>}
         menuItems={[
           {
             label: 'Dashboard',

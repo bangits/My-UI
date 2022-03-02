@@ -4,7 +4,7 @@ import { IconButtonLeft, IconButtonRight } from '@/icons';
 import { UIColors } from '@/types';
 import { IComponent } from '@/types/props';
 import classNames from 'classnames';
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useState } from 'react';
 import { MenuItem, MenuItemProps } from './sidebar-components/MenuItem';
 import styles from './Sidebar.module.scss';
 
@@ -18,6 +18,7 @@ export interface SidebarProps extends IComponent {
   menuItems?: MenuItemProps[];
   height?: string | number;
   defaultClosed?: boolean;
+  bottomContent?: (isSidebarOpened: boolean) => ReactNode;
 }
 
 const Sidebar: FC<SidebarProps> = ({
@@ -28,6 +29,7 @@ const Sidebar: FC<SidebarProps> = ({
   collapsedWidth,
   logoSrc,
   menuItems,
+  bottomContent,
   defaultClosed = false
 }) => {
   const [isSidebarClosed, setSidebarClosed] = useState(defaultClosed);
@@ -90,6 +92,7 @@ const Sidebar: FC<SidebarProps> = ({
             ))}
           </ul>
         </div>
+        {bottomContent && bottomContent?.(isSidebarClosed)}
       </div>
     </div>
   );

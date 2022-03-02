@@ -92,7 +92,7 @@ const Sidebar: FC<SidebarProps> = ({
             ))}
           </ul>
         </div>
-        {bottomContent(isSidebarClosed)}
+        {bottomContent && bottomContent?.(isSidebarClosed)}
       </div>
     </div>
   );

@@ -135,26 +135,13 @@ export const Default = () => {
       emptyText={text('emptyText', `You don’t have any users added! Please add a user.`)}
       tableFooterData={object('tableFooterData', {
         z: {
-          value: '20000 AMD',
-          tooltipText: 'Totals of External Id'
-        },
-        b: {
-          value: '20000 AMD',
-          tooltipText: 'Totals of External Id'
-        },
-        x: {
-          value: '20000 AMD',
-          tooltipText: 'Totals of External Id'
-        },
-        n: {
-          value: '20000 AMD',
-          tooltipText: 'Totals of External Id'
-        },
-        c: {
-          value: '20000 AMD',
+          value: null,
           tooltipText: 'Totals of External Id'
         }
       })}
+      shouldShowtableFooterRegenerateButton={boolean('shouldShowtableFooterRegenerateButton', true)}
+      tableFooterRegenerateText={text('tableFooterRegenerateText', 'Regenerate')}
+      tableFooterGenerateText={text('tableFooterGenerateText', 'Generate')}
     />
   );
 };

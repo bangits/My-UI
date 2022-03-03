@@ -155,7 +155,6 @@ export const Default = () => {
           tooltipText: 'Totals of External Id'
         }
       })}
-      isWithSelection={false}
     />
   );
 };

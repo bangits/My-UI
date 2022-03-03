@@ -123,10 +123,6 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTabl
 
             currentDraggedCellIndexRef.current = draggedCellIndex;
 
-            if (currentDraggedCellIndexRef.current > 14) {
-              debugger;
-            }
-
             initialDraggedCellIndex.current = draggedCellIndex;
           }
 
@@ -146,18 +142,10 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTabl
             setDraggedCellIndex(draggedCellIndex);
 
             currentDraggedCellIndexRef.current = draggedCellIndex;
-
-            if (currentDraggedCellIndexRef.current > 14) {
-              debugger;
-            }
           } else {
             setDraggedCellIndex(initialDraggedCellIndex.current);
 
             currentDraggedCellIndexRef.current = initialDraggedCellIndex.current;
-
-            if (currentDraggedCellIndexRef.current > 14) {
-              debugger;
-            }
           }
 
           const tableHalfWidth = mainCopiedTable.current.offsetWidth / 2;

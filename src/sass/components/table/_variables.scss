@@ -11,6 +11,9 @@ $table-sizes: (
   table-conatiner-tr-ready-opacity: 1,
   last-table-cell-margin: calculateRem(26px),
   last-table-cell-opacity: 1,
+  table-no-result: calculateRem(440px),
+  table-loader-max-width: calculateRem(1905px),
+  // Illustrations
   illustration-wrapper-width: calculateRem(209.74px),
   illustration-wrapper-height: calculateRem(135.83px),
   illustration-wrapper-min-height: calculateRem(320px),
@@ -18,16 +21,22 @@ $table-sizes: (
   illustration-text-width: calculateRem(251px),
   illustration-text-margin-top: calculateRem(24px),
   illustration-text-letter-spacing: calculateRem(1.4px),
-  table-no-result: calculateRem(440px),
-  table-loader-max-width: calculateRem(1905px),
-  //
+  // Actions
   action-table-cell-height: calculateRem(50px),
   action-table-cell-right: calculateRem(5px),
   action-table-cell-min-width: calculateRem(113px),
   action-table-cell-padding-right: calculateRem(20px),
   action-table-cell-transform: translate(10px, -51%),
-  //dnd
-  dnd-draggable-margin-left: calculateRem(-10px)
+  // DnD
+  dnd-draggable-margin-left: calculateRem(-10px),
+  // Table Footer
+  table-footer-empty-height: calculateRem(3px),
+  table-footer-empty-blur: 3px,
+  table-footer-generate-width: calculateRem(20px),
+  table-footer-generate-position-top: -
+    (
+      calculateRem(15px)
+    )
 );
 
 $table-colors: (

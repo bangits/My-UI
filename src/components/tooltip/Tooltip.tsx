@@ -19,7 +19,7 @@ export interface TooltipProps {
   space?: number;
   placement?: TooltipPlacement;
   disabled?: boolean;
-  showEvent: showEventType;
+  showEvent?: showEventType;
 }
 
 const Tooltip = ({
@@ -30,7 +30,7 @@ const Tooltip = ({
   space = 12,
   placement = 'bottom',
   disabled = false,
-  showEvent
+  showEvent = 'hover'
 }: TooltipProps) => {
   const [show, setShow] = useState<0 | 1>(null);
 

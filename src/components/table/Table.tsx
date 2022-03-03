@@ -1,5 +1,6 @@
 import { moveArrayElements } from '@/helpers';
 import { typedMemo } from '@/helpers/typedMemo';
+import { RotateIcon } from '@/icons';
 import { Loader, Scroll, Tooltip, Typography } from '@/my-ui-core';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
@@ -69,9 +70,13 @@ export interface TableProps<T extends {}> extends IComponent {
       {
         tooltipText?: string;
         value: ReactNode;
+        isLoading?: boolean;
       }
     >
   >;
+  tableFooterGenerateText?: ReactNode;
+  tableFooterRegenerateText?: ReactNode;
+  shouldShowtableFooterRegenerateButton?: boolean;
   color?: UIColors;
   fetch?: (state: State<T>) => void;
   onSelectedColumnsChange?: (state: Row<T>[]) => void;
@@ -133,7 +138,10 @@ const Table = <T extends {}>({
   height,
   tableContainerRef,
   hideBoxShadow,
-  tableFooterData
+  tableFooterData,
+  tableFooterRegenerateText,
+  tableFooterGenerateText,
+  shouldShowtableFooterRegenerateButton
 }: TableProps<T>) => {
   const tableHeadRef = useRef<HTMLElement>(null);
 
@@ -183,6 +191,7 @@ const Table = <T extends {}>({
 
   const tableContainerClassNames = classNames(styles.TableContainer, {
     [styles['TableContainer--withSelection']]: isWithSelection,
+    [styles['TableContainer--withThreeColumns']]: isWithSelection && columns.length === 3,
     [styles['TableContainer--ready']]: tableHeadWidths.length,
     [styles['Table--no-result']]: !data.length,
     [styles['Table--loading']]: isLoading
@@ -374,6 +383,8 @@ const Table = <T extends {}>({
               <FlipMove>
                 <TableRow color={color}>
                   {rows[0].cells.map((cell: CellType<T>, index) => {
+                    const totalInfo = tableFooterData[cell.column.id];
+
                     return (
                       <TableCell
                         key={index}
@@ -387,11 +398,26 @@ const Table = <T extends {}>({
                         align={cell.column.align}
                         color={color}
                         className={classNames(styles.TableFooterCell, {
-                          [styles.LastTableCell]: index === rows[0].cells.length - 1
+                          [styles.LastTableCell]: index === rows[0].cells.length - 1,
+                          [styles['TableFooterCell--empty']]: totalInfo !== undefined && !totalInfo.value
                         })}>
-                        <Tooltip text={tableFooterData[cell.column.id]?.tooltipText} showEvent='hover'>
-                          <span>{tableFooterData[cell.column.id]?.value}</span>
+                        <Tooltip text={totalInfo?.tooltipText} showEvent='hover'>
+                          <span>{totalInfo !== undefined ? totalInfo?.value : null}</span>
                         </Tooltip>
+
+                        {shouldShowtableFooterRegenerateButton && totalInfo !== undefined && (
+                          <Tooltip
+                            text={totalInfo?.value ? tableFooterRegenerateText : tableFooterGenerateText}
+                            showEvent='hover'>
+                            <button
+                              type='button'
+                              className={classNames(styles['TableFooterCell__generateButton'], {
+                                [styles['TableFooterCell__generateButton--loading']]: totalInfo?.isLoading
+                              })}>
+                              <RotateIcon />
+                            </button>
+                          </Tooltip>
+                        )}
                       </TableCell>
                     );
                   })}

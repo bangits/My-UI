@@ -123,6 +123,19 @@
       }
     }
 
+    &--withThreeColumns {
+      .TableBody,
+      .TableHead {
+        tr td,
+        tr th {
+          &:nth-child(2),
+          &:nth-child(3) {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
     .ActionTableCell {
       display: none;
     }
@@ -215,9 +228,59 @@
     @include theme(border-top, primary, '1px solid');
 
     .TableFooterCell {
+      position: relative;
+
       @include theme(color, primary);
 
       font-weight: 700;
+
+      &__generateButton {
+        display: none;
+      }
+
+      &--empty span {
+        @include flex;
+
+        width: 100%;
+        text-align: center;
+
+        margin-left: -(getTableHeadSizes(table-arrow-icon-sizes) / 2);
+
+        @include theme(background-color, black-color, $opacity: 0.6);
+
+        height: getTableSizes(table-footer-empty-height);
+
+        filter: blur(getTableSizes(table-footer-empty-blur));
+      }
+
+      .TableFooterCell__generateButton {
+        width: getTableSizes(table-footer-generate-width);
+
+        display: block;
+        position: absolute;
+        right: 0;
+        top: getTableSizes(table-footer-generate-position-top);
+
+        cursor: pointer;
+
+        @include reset-button;
+
+        transition: color 0.3s;
+
+        @include theme(color, primary, $opacity: 0.8);
+
+        &:hover {
+          @include theme(color, primary);
+        }
+
+        &:active {
+          @include theme(color, primary, $opacity: 0.8);
+        }
+
+        &--loading {
+          @include rotate-animation;
+        }
+      }
     }
   }
 }

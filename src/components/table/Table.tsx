@@ -55,15 +55,17 @@ export interface TableAction<T> {
   props: {};
   shouldShow?: (column: T) => boolean;
 }
+
+export interface TableColumn extends CustomColumnProps {
+  Header: string;
+  accessor: string;
+  disableSortBy?: boolean;
+  sortingId?: string | number;
+}
 export interface TableProps<T extends {}> extends IComponent {
   component?: ComponentType;
   data?: T[];
-  columns?: ({
-    Header: string;
-    accessor: string;
-    disableSortBy?: boolean;
-    sortingId?: string | number;
-  } & CustomColumnProps)[];
+  columns?: TableColumn[];
   tableFooterData?: Partial<
     Record<
       string,
@@ -81,6 +83,7 @@ export interface TableProps<T extends {}> extends IComponent {
   fetch?: (state: State<T>) => void;
   onSelectedColumnsChange?: (state: Row<T>[]) => void;
   checkIsRowActive?: (state: T) => boolean;
+  onColumnsChange?: (columns: TableColumn[]) => void;
   gridLayout?: boolean;
   isWithSelection?: boolean;
   absoluteLayout?: boolean;
@@ -132,6 +135,7 @@ const Table = <T extends {}>({
   loadingRowsIds,
   loadingRowColumnProperty,
   checkIsRowActive,
+  onColumnsChange,
   className,
   rowUniqueKey,
   isLoading,
@@ -173,6 +177,8 @@ const Table = <T extends {}>({
 
       setTableHeadWidths(moveArrayElements(tableHeadWidths, fromDirection, toDirection));
       setColumns(updatedColumns);
+
+      onColumnsChange?.(updatedColumns);
     },
     disableIndexes: isWithSelection ? [0] : []
   });

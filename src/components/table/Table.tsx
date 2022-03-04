@@ -73,6 +73,7 @@ export interface TableProps<T extends {}> extends IComponent {
         tooltipText?: string;
         value: ReactNode;
         isLoading?: boolean;
+        onGenerateButtonClick?: () => void;
       }
     >
   >;
@@ -419,7 +420,10 @@ const Table = <T extends {}>({
                               type='button'
                               className={classNames(styles['TableFooterCell__generateButton'], {
                                 [styles['TableFooterCell__generateButton--loading']]: totalInfo?.isLoading
-                              })}>
+                              })}
+                              onClick={() => {
+                                if (!totalInfo?.isLoading) totalInfo?.onGenerateButtonClick?.();
+                              }}>
                               <RotateIcon />
                             </button>
                           </Tooltip>

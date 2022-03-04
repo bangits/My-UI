@@ -36,6 +36,7 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTabl
     const copiedTableHeadRow = document.createElement('tr');
 
     copiedTable.style.position = 'fixed';
+    copiedTable.style.cursor = 'grabbing';
 
     mainCopiedTable.current = copiedTable;
 

@@ -24,19 +24,21 @@ $table-sizes: (
   // Actions
   action-table-cell-height: calculateRem(50px),
   action-table-cell-right: calculateRem(5px),
-  action-table-cell-min-width: calculateRem(113px),
+  action-table-cell-min-width: calculateRem(125px),
   action-table-cell-padding-right: calculateRem(20px),
   action-table-cell-transform: translate(10px, -51%),
   // DnD
   dnd-draggable-margin-left: calculateRem(-10px),
   // Table Footer
+  table-footer-cell-height: calculateRem(20px),
   table-footer-empty-height: calculateRem(3px),
   table-footer-empty-blur: 3px,
-  table-footer-generate-width: calculateRem(20px),
+  table-footer-generate-width: calculateRem(16px),
   table-footer-generate-position-top: -
     (
-      calculateRem(10px)
-    )
+      calculateRem(12px)
+    ),
+  table-footer-generate-position-right: calculateRem(10px)
 );
 
 $table-colors: (

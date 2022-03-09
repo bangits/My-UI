@@ -1,6 +1,6 @@
 @mixin generate-tableCell-styles {
   .TableCell {
-    @include flex();
+    @include flex(null, center);
     @include theme(color, black-color);
     width: getTableCellSizes(table-cell-width);
     background-color: transparent;

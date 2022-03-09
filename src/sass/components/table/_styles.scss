@@ -230,6 +230,8 @@
     .TableFooterCell {
       position: relative;
 
+      min-height: getTableSizes(table-footer-cell-height);
+
       @include theme(color, primary);
 
       font-weight: 700;
@@ -262,8 +264,9 @@
 
         display: block;
         position: absolute;
-        right: 0;
+
         top: getTableSizes(table-footer-generate-position-top);
+        right: getTableSizes(table-footer-generate-position-right);
 
         cursor: pointer;
 

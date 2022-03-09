@@ -29,7 +29,7 @@
 
     &:hover,
     &--active {
-      color: #fff;
+      @include theme(color, primary--color);
     }
 
     &--sidebar-opened a {

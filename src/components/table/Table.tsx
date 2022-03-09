@@ -106,7 +106,7 @@ export interface TableProps<T extends {}> extends IComponent {
   tableContainerRef?: Ref<HTMLDivElement>;
 }
 
-interface CustomColumnProps {
+interface CustomColumnProps extends TableCellProps {
   align?: TableCellProps['align'];
   headAlign?: TableHeadProps['align'];
   maxWidth?: string | number;
@@ -334,6 +334,8 @@ const Table = <T extends {}>({
                         return (
                           <TableCell
                             key={index}
+                            color={color}
+                            {...(cell.column || {})}
                             style={{
                               maxWidth: cell.column.dataMaxWidth
                                 ? cell.column.dataMaxWidth
@@ -341,11 +343,12 @@ const Table = <T extends {}>({
                                 ? cell.column.maxWidth
                                 : `${tableHeadWidths[index] / rootFontSize}rem`
                             }}
-                            align={cell.column.align}
-                            color={color}
-                            className={classNames({
-                              [styles.LastTableCell]: index === row.cells.length - 1
-                            })}>
+                            className={classNames(
+                              {
+                                [styles.LastTableCell]: index === row.cells.length - 1
+                              },
+                              cell.column.className
+                            )}>
                             {
                               <TextWithTooltip disabled={!!cell.column.renderColumn}>
                                 {cell.column.renderColumn
@@ -414,6 +417,7 @@ const Table = <T extends {}>({
 
                         {shouldShowtableFooterRegenerateButton && totalInfo !== undefined && (
                           <Tooltip
+                            placement='top'
                             text={totalInfo?.value ? tableFooterRegenerateText : tableFooterGenerateText}
                             showEvent='hover'>
                             <button

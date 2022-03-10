@@ -16,6 +16,8 @@
     .AlertText {
       @include theme(color, gray-color);
       margin-left: getAlertSizes(alert-text-marginLeft);
+
+      flex-grow: 1;
     }
   }
 

@@ -2,12 +2,12 @@ import { getComponentName } from '@/configs';
 import { AlertCheck, AlertError, AlertInfo, AlertWarning } from '@/icons';
 import { Button } from '@/my-ui-core';
 import { boolean, number, withKnobs } from '@storybook/addon-knobs';
+import classNames from 'classnames';
 import React from 'react';
 import Alert from './Alert';
+import styles from './Alert.module.scss';
 import AlertContainer from './AlertContainer';
 import { alert } from './AlertService';
-import classNames from 'classnames';
-import styles from './Alert.module.scss';
 
 export default {
   component: Alert,
@@ -17,11 +17,10 @@ export default {
 
 export const Default = () => {
   const successAdd = () => {
-    setTimeout(() => {
-      alert.success({
-        alertLabel: 'You are successful person!'
-      });
-    }, 1000);
+    alert.success({
+      alertLabel: 'You are successful person!',
+      autoClose: false
+    });
   };
 
   const errorAdd = () => {
@@ -33,6 +32,12 @@ export const Default = () => {
   const infoAdd = () => {
     alert.info({
       alertLabel: 'Bangits is a թույն company'
+    });
+  };
+
+  const loadingAdd = () => {
+    alert.loading({
+      alertLabel: 'Loading...'
     });
   };
 
@@ -89,6 +94,9 @@ export const Default = () => {
             />
           }>
           Information!
+        </Button>
+        <Button onClick={loadingAdd} variant='ghost'>
+          Loading!
         </Button>
       </div>
       <AlertContainer autoClose={boolean('autoClose', true)} autoCloseDelay={number('autoCloseDelay', 5000)} />

@@ -1,4 +1,3 @@
-import { uniqueIdMaker } from '@/helpers';
 import { Alert, Portal } from '@/my-ui-core';
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -23,7 +22,9 @@ const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5
 
   useEffect(() => {
     alert.subscribe((alert) => {
-      setAlerts((prevAlerts) => [...prevAlerts, { ...alert, id: uniqueIdMaker() }]);
+      if (typeof alert === 'string') return setAlerts((prevAlerts) => prevAlerts.filter((alert) => alert.id !== alert));
+
+      setAlerts((prevAlerts) => [...prevAlerts, alert]);
     });
   }, []);
 

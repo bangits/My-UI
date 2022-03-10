@@ -1,5 +1,7 @@
 $loader-sizes: (
   loader-wrapper-sizes: calculateRem(80px),
+  loader-wrapper-sizes--sm: calculateRem(20px),
+  loader-sizes--sm: calculateRem(3px),
   loader-width: calculateRem(10px),
   loader-height: calculateRem(10px),
   loader-font-size: calculateRem(10px),

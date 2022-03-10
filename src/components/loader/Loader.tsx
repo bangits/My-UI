@@ -2,10 +2,17 @@ import classNames from 'classnames';
 import React from 'react';
 import styles from './Loader.module.scss';
 
-const Loader = () => {
+export interface LoaderProps {
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const Loader = ({ size = 'lg' }: LoaderProps) => {
   return (
-    <div className={styles.LoaderWrapper}>
-      <div className={classNames(styles.Loader, styles['Loader--primary'])}></div>
+    <div
+      className={classNames(styles.LoaderWrapper, {
+        [styles[`LoaderWrapper--${size}`]]: size
+      })}>
+      <div className={classNames(styles.Loader, styles['Loader--primary'])} />
     </div>
   );
 };

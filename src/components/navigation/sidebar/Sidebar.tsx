@@ -1,7 +1,6 @@
 import { IconButton } from '@/components';
 import { typedMemo } from '@/helpers';
 import { IconButtonLeft, IconButtonRight } from '@/icons';
-import { Scroll } from '@/my-ui-core';
 import { UIColors } from '@/types';
 import { IComponent } from '@/types/props';
 import classNames from 'classnames';
@@ -76,24 +75,23 @@ const Sidebar: FC<SidebarProps> = ({
             />
           </div>
 
-          <Scroll height={'calc(100vh - 30rem)'} showHorizontalScroll={false}>
-            <ul className={classNames(styles['SidebarBase--item-container'])}>
-              {menuItems.map((item, key) => (
-                <MenuItem
-                  key={key}
-                  linkContainerClassName={classNames(styles['SidebarBase--menu-item'])}
-                  label={item.label}
-                  icon={item.icon}
-                  onClick={item.onClick}
-                  subItems={item.subItems}
-                  component={item.component}
-                  isActive={item.isActive}
-                  isSidebarOpened={!isSidebarClosed}
-                />
-              ))}
-            </ul>
-          </Scroll>
+          <ul className={classNames(styles['SidebarBase--item-container'])}>
+            {menuItems.map((item, key) => (
+              <MenuItem
+                key={key}
+                linkContainerClassName={classNames(styles['SidebarBase--menu-item'])}
+                label={item.label}
+                icon={item.icon}
+                onClick={item.onClick}
+                subItems={item.subItems}
+                component={item.component}
+                isActive={item.isActive}
+                isSidebarOpened={!isSidebarClosed}
+              />
+            ))}
+          </ul>
         </div>
+
         {bottomContent && bottomContent?.(isSidebarClosed)}
       </div>
     </div>

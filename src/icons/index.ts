@@ -48,6 +48,7 @@ export { ReactComponent as PhotoCamIcon } from './photo-cam-icon.react.svg';
 export { ReactComponent as PlayArrowIcon } from './play-arrow-icon.react.svg';
 export { ReactComponent as PlusCircleLarge } from './plus-circle-large.react.svg';
 export { ReactComponent as PlusCircle } from './plus-circle.react.svg';
+export { ReactComponent as RecalculateIcon } from './recalculate.react.svg';
 export { ReactComponent as RotateIcon } from './rotate.react.svg';
 export { ReactComponent as SaveIcon } from './save.react.svg';
 export { ReactComponent as ClearIcon } from './select-clear.react.svg';

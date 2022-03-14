@@ -62,7 +62,6 @@
     &--sub-header {
       display: none;
       padding-top: 10px;
-      // border: solid #ff0000 1px!important;
     }
 
     .MenuItemArrow {
@@ -135,10 +134,9 @@
         }
 
         .MenuItemBase--sub {
-          position: absolute;
+          position: fixed;
           @include flex(center, center, $direction: column);
-          top: getMenuItemSizes(hover-sub-menu-top);
-          right: getMenuItemSizes(hover-sub-menu-right);
+          margin-left: getMenuItemSizes(hover-sub-menu-right);
           width: getMenuItemSizes(hover-sub-menu-width);
           @include theme(box-shadow, box-shadow-color, 0 3px 6px 0);
           // @include theme(background-color, hover-sub-menu-background-color);

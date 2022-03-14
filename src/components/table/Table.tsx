@@ -1,6 +1,6 @@
 import { moveArrayElements } from '@/helpers';
 import { typedMemo } from '@/helpers/typedMemo';
-import { RotateIcon } from '@/icons';
+import { RecalculateIcon } from '@/icons';
 import { Loader, Scroll, Tooltip, Typography } from '@/my-ui-core';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
@@ -411,14 +411,14 @@ const Table = <T extends {}>({
                           [styles.LastTableCell]: index === rows[0].cells.length - 1,
                           [styles['TableFooterCell--empty']]: totalInfo !== undefined && !totalInfo.value
                         })}>
-                        <Tooltip text={totalInfo?.tooltipText} showEvent='hover'>
-                          <span>{totalInfo !== undefined ? totalInfo?.value : null}</span>
-                        </Tooltip>
-
                         {shouldShowtableFooterRegenerateButton && totalInfo !== undefined && (
                           <Tooltip
                             placement='top'
-                            text={totalInfo?.value ? tableFooterRegenerateText : tableFooterGenerateText}
+                            text={
+                              !totalInfo?.isLoading && totalInfo?.value
+                                ? tableFooterRegenerateText
+                                : tableFooterGenerateText
+                            }
                             showEvent='hover'>
                             <button
                               type='button'
@@ -428,10 +428,16 @@ const Table = <T extends {}>({
                               onClick={() => {
                                 if (!totalInfo?.isLoading) totalInfo?.onGenerateButtonClick?.();
                               }}>
-                              <RotateIcon />
+                              <div>
+                                <RecalculateIcon />
+                              </div>
                             </button>
                           </Tooltip>
                         )}
+
+                        <Tooltip text={totalInfo?.tooltipText} showEvent='hover'>
+                          <span>{totalInfo !== undefined ? totalInfo?.value : null}</span>
+                        </Tooltip>
                       </TableCell>
                     );
                   })}

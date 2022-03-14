@@ -33,12 +33,11 @@ $table-sizes: (
   table-footer-cell-height: calculateRem(20px),
   table-footer-empty-height: calculateRem(3px),
   table-footer-empty-blur: 3px,
-  table-footer-generate-width: calculateRem(16px),
-  table-footer-generate-position-top: -
-    (
-      calculateRem(12px)
-    ),
-  table-footer-generate-position-right: calculateRem(10px)
+  table-footer-generate-width: calculateRem(24px),
+  table-footer-generate-position-right: calculateRem(10px),
+  table-footer-generate-transform-x: calculateRem(-5px),
+  table-footer-generate-container-width: calculateRem(21px),
+  table-footer-generate-container-height: calculateRem(16px)
 );
 
 $table-colors: (

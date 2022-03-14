@@ -109,6 +109,14 @@
     &--item-container {
       margin-top: getSideBarSizes(sidebar-item-container-margin-top);
       padding: 0;
+
+      max-height: calc(100vh - 25rem);
+
+      overflow: hidden;
+      overflow-y: scroll;
+
+      @include hide-scroll;
+
       svg {
         transform: all linear 0.16s !important;
       }

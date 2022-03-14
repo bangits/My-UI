@@ -250,8 +250,6 @@
         width: 100%;
         text-align: center;
 
-        margin-left: -(getTableHeadSizes(table-arrow-icon-sizes) / 2);
-
         @include theme(background-color, black-color, $opacity: 0.6);
 
         height: getTableSizes(table-footer-empty-height);
@@ -262,11 +260,9 @@
       .TableFooterCell__generateButton {
         width: getTableSizes(table-footer-generate-width);
 
-        display: block;
-        position: absolute;
+        transform: translateX(getTableSizes(table-footer-generate-transform-x));
 
-        top: getTableSizes(table-footer-generate-position-top);
-        right: getTableSizes(table-footer-generate-position-right);
+        display: block;
 
         cursor: pointer;
 
@@ -284,7 +280,12 @@
           @include theme(color, primary, $opacity: 0.8);
         }
 
-        &--loading {
+        &--loading div {
+          width: getTableSizes(table-footer-generate-container-width);
+          height: getTableSizes(table-footer-generate-container-height);
+
+          will-change: transform;
+
           @include rotate-animation;
         }
       }

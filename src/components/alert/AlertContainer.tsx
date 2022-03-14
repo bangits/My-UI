@@ -22,7 +22,9 @@ const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5
 
   useEffect(() => {
     alert.subscribe((alert) => {
-      if (typeof alert === 'string') return setAlerts((prevAlerts) => prevAlerts.filter((alert) => alert.id !== alert));
+      if (!alert) return;
+
+      if (typeof alert === 'string') return removeAlert(alert);
 
       setAlerts((prevAlerts) => [...prevAlerts, alert]);
     });
@@ -37,7 +39,7 @@ const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5
               <CSSTransition
                 timeout={1500}
                 unmountOnExit
-                key={alert.id}
+                key={alert?.id}
                 classNames={{
                   enter: styles.AlertEnter,
                   enterActive: styles.AlertEnterActive,
@@ -45,13 +47,13 @@ const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5
                   exitActive: styles.AlertExitActive
                 }}>
                 <Alert
-                  autoClose={alert.autoClose || autoClose}
-                  autoCloseDelay={alert.autoCloseDelay || autoCloseDelay}
+                  autoClose={alert?.autoClose !== undefined ? alert?.autoClose : autoClose}
+                  autoCloseDelay={alert?.autoCloseDelay || autoCloseDelay}
                   onClose={() => {
                     removeAlert(alert.id);
                   }}
-                  icon={alert.icon}
-                  alertLabel={alert.alertLabel}
+                  icon={alert?.icon}
+                  alertLabel={alert?.alertLabel}
                 />
               </CSSTransition>
             );

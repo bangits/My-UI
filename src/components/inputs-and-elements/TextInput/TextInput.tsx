@@ -23,7 +23,7 @@ export interface BaseTextInputProps {
   explanation?: string;
   containerClassName?: string;
   explanationProps?: TypographyProps;
-  label?: string;
+  label?: ReactNode;
   forceFocused?: boolean;
   isDecimal?: boolean;
   decimalMaxPoint?: number;
@@ -61,11 +61,13 @@ const TextInputs: FC<TextInputProps> = forwardRef(
 
     const onInputChange: TextInputProps['onChange'] = useCallback(
       (e) => {
+        if (disabled) return;
+
         if (onChange) onChange(e);
 
         setCurrentValue(e.target.value);
       },
-      [onChange]
+      [onChange, disabled]
     );
 
     const onKeyDown: TextInputProps['onKeyDown'] = useCallback(

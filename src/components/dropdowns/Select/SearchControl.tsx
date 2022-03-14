@@ -16,12 +16,14 @@ export const SearchControl: typeof components.Control = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuToggle = useCallback(() => {
+    if (selectProps.isDisabled) return;
+
     if (!isMenuOpen) {
       selectProps.onMenuOpen();
 
       setIsMenuOpen(!isMenuOpen);
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen, selectProps]);
 
   const onInputBlur = useCallback(
     (e) => {
@@ -126,7 +128,11 @@ export const SearchControl: typeof components.Control = (props) => {
                       'DropdownArrow--IconUp'
                     )}
                     width='1.2rem'
-                    onClick={() => props.selectProps.onMenuClose()}
+                    onClick={() => {
+                      if (selectProps.isDisabled) return;
+
+                      props.selectProps.onMenuClose();
+                    }}
                   />
                 ) : (
                   <DropdownArrowIconDown
@@ -137,7 +143,11 @@ export const SearchControl: typeof components.Control = (props) => {
                       'DropdownArrow--IconDown'
                     )}
                     width='1.2rem'
-                    onClick={() => props.selectProps.onMenuOpen()}
+                    onClick={() => {
+                      if (selectProps.isDisabled) return;
+
+                      props.selectProps.onMenuOpen();
+                    }}
                   />
                 )}
               </div>

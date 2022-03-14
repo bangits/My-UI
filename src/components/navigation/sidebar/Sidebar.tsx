@@ -1,6 +1,7 @@
 import { IconButton } from '@/components';
 import { typedMemo } from '@/helpers';
 import { IconButtonLeft, IconButtonRight } from '@/icons';
+import { Scroll } from '@/my-ui-core';
 import { UIColors } from '@/types';
 import { IComponent } from '@/types/props';
 import classNames from 'classnames';
@@ -53,8 +54,7 @@ const Sidebar: FC<SidebarProps> = ({
         })}
         style={{
           width: isSidebarClosed ? `${collapsedWidth}rem` : `${width}rem`,
-          height,
-          border: 'solid #ff0000 1px!Important'
+          height
         }}>
         <div style={{ position: 'relative' }} className={styles.SidebarContent}>
           <div className={classNames(styles['SidebarBase--logo-container'], 'SidebarBase--logo-container')}>
@@ -76,21 +76,23 @@ const Sidebar: FC<SidebarProps> = ({
             />
           </div>
 
-          <ul className={classNames(styles['SidebarBase--item-container'])}>
-            {menuItems.map((item, key) => (
-              <MenuItem
-                key={key}
-                linkContainerClassName={classNames(styles['SidebarBase--menu-item'])}
-                label={item.label}
-                icon={item.icon}
-                onClick={item.onClick}
-                subItems={item.subItems}
-                component={item.component}
-                isActive={item.isActive}
-                isSidebarOpened={!isSidebarClosed}
-              />
-            ))}
-          </ul>
+          <Scroll height={'calc(100vh - 30rem)'} showHorizontalScroll={false}>
+            <ul className={classNames(styles['SidebarBase--item-container'])}>
+              {menuItems.map((item, key) => (
+                <MenuItem
+                  key={key}
+                  linkContainerClassName={classNames(styles['SidebarBase--menu-item'])}
+                  label={item.label}
+                  icon={item.icon}
+                  onClick={item.onClick}
+                  subItems={item.subItems}
+                  component={item.component}
+                  isActive={item.isActive}
+                  isSidebarOpened={!isSidebarClosed}
+                />
+              ))}
+            </ul>
+          </Scroll>
         </div>
         {bottomContent && bottomContent?.(isSidebarClosed)}
       </div>

@@ -16,6 +16,7 @@ export interface ScrollProps extends IComponent {
   autoHeight?: boolean;
   onScroll?: (e: UIEvent<HTMLElement>) => void;
   showVerticalScroll?: boolean;
+  showHorizontalScroll?: boolean;
   trackClassName?: string;
   thumbClassName?: string;
 }
@@ -26,6 +27,7 @@ const Scroll: FC<ScrollProps> = ({
   children,
   className,
   showVerticalScroll = true,
+  showHorizontalScroll = true,
   trackClassName,
   thumbClassName,
   ...scrollProps
@@ -42,6 +44,8 @@ const Scroll: FC<ScrollProps> = ({
       thumbVerticalClassname={classNames(styles.ThumbVertical, thumbClassName)}
       trackHorizontalClassname={classNames(styles.TrackHorizontal, trackClassName)}
       thumbHorizontalClassname={classNames(styles.ThumbHorizontal, thumbClassName)}
+      renderTrackHorizontal={showHorizontalScroll ? undefined : () => <div />}
+      renderThumbHorizontal={showHorizontalScroll ? undefined : () => <div />}
       renderTrackVertical={showVerticalScroll ? undefined : () => <div />}
       renderThumbVertical={showVerticalScroll ? undefined : () => <div />}>
       {children}

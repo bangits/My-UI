@@ -21,6 +21,7 @@ import {
 import classNames from 'classnames';
 import React, { ReactNode, Ref, useEffect, useMemo, useRef, useState } from 'react';
 import FlipMove from 'react-flip-move';
+import { ScrollProps } from '../others';
 import { TextWithTooltip } from '../text-with-tooltip';
 import { selectionHook, useTableColumnsDnD } from './hooks';
 import styles from './Table.module.scss';
@@ -65,6 +66,7 @@ export interface TableColumn extends CustomColumnProps {
 export interface TableProps<T extends {}> extends IComponent {
   component?: ComponentType;
   data?: T[];
+  scrollProps?: ScrollProps;
   columns?: TableColumn[];
   tableFooterData?: Partial<
     Record<
@@ -124,7 +126,7 @@ const Table = <T extends {}>({
   color,
   fetch,
   component: Component = 'table',
-  isResizing,
+  isResizing = true,
   theadComponent: THeadComponent = 'thead',
   tbodyComponent: TBodyComponent = 'tbody',
   isWithSelection = true,
@@ -146,12 +148,15 @@ const Table = <T extends {}>({
   tableFooterData,
   tableFooterRegenerateText,
   tableFooterGenerateText,
-  shouldShowtableFooterRegenerateButton
+  shouldShowtableFooterRegenerateButton,
+  scrollProps = {}
 }: TableProps<T>) => {
   const tableHeadRef = useRef<HTMLElement>(null);
 
-  const [tableHeadWidths, setTableHeadWidths] = useState([]);
+  const [tableHeadWidths, setTableHeadWidths] = useState<number[]>([]);
   const [columns, setColumns] = useState(columnsProp);
+
+  const initialTableHeadWidths = useRef<number[]>([]);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable<T>(
     {
@@ -205,7 +210,11 @@ const Table = <T extends {}>({
   });
 
   useEffect(() => {
-    setTableHeadWidths(Object.values(tableHeadRef.current.querySelectorAll('th')).map((th) => th.clientWidth));
+    const tableHeadWidths = Object.values(tableHeadRef.current.querySelectorAll('th')).map((th) => th.clientWidth);
+
+    if (!initialTableHeadWidths.current?.length) initialTableHeadWidths.current = tableHeadWidths;
+
+    setTableHeadWidths(tableHeadWidths);
   }, [columns, data]);
 
   useEffect(() => {
@@ -238,6 +247,7 @@ const Table = <T extends {}>({
   return (
     <div className={styles.TableWrapper} ref={tableContainerRef}>
       <Scroll
+        {...scrollProps}
         trackClassName={styles.ScrollTrack}
         thumbClassName={styles.ScrollThumb}
         className={classNames(
@@ -254,37 +264,71 @@ const Table = <T extends {}>({
           <THeadComponent className={styles.TableHead} ref={tableHeadRef}>
             {headerGroups.map((headerGroup) => (
               <TableRow {...headerGroup.getHeaderGroupProps()} color={color}>
-                {headerGroup.headers.map((column: Column<T> & CustomColumnProps, index) => (
-                  <TableHead
-                    data-column-index={index}
-                    direction={column.isSortedDesc ? 'desc' : 'asc'}
-                    selectedDirection={column.isSorted}
-                    hideSortIcon={column.disableSortBy}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                    color={color}
-                    style={{
-                      ...column.getHeaderProps(column.getSortByToggleProps()).style,
-                      ...(typeof column.maxWidth === 'string' ? { width: column.maxWidth } : {})
-                    }}
-                    onMouseDown={tableHeadMouseDownHandler}
-                    onMouseUp={tableHeadMouseUpHandler}
-                    align={column.headAlign}>
-                    <span>{column.render('Header')}</span>
+                {headerGroup.headers.map((column: Column<T> & CustomColumnProps, index) => {
+                  const resizerProps = column.getResizerProps();
 
-                    {draggedCellIndex === index ? (
-                      <div
-                        style={{
-                          position: 'absolute',
-                          height: '100vh',
-                          top: 0,
-                          border: '1px solid #E0E1EE',
-                          bottom: '0px',
-                          marginLeft: '-10px'
-                        }}
-                      />
-                    ) : null}
-                  </TableHead>
-                ))}
+                  const tableHeadWidth =
+                    initialTableHeadWidths.current[index] &&
+                    `${initialTableHeadWidths.current[index] / rootFontSize}rem`;
+
+                  const tableHeadProps = column.getHeaderProps(column.getSortByToggleProps());
+
+                  return (
+                    <TableHead
+                      data-column-index={index}
+                      direction={column.isSortedDesc ? 'desc' : 'asc'}
+                      selectedDirection={column.isSorted}
+                      hideSortIcon={column.disableSortBy}
+                      {...tableHeadProps}
+                      color={color}
+                      style={{
+                        ...tableHeadProps.style,
+                        ...(typeof column.maxWidth === 'string' ? { width: column.maxWidth } : {}),
+                        flex: 'none',
+                        minWidth: column.dataMaxWidth
+                          ? column.dataMaxWidth
+                          : isWithSelection
+                          ? index && tableHeadWidth
+                          : tableHeadWidth,
+                        width: tableHeadWidths.length ? tableHeadProps.style.width : 'initial'
+                      }}
+                      onMouseDown={tableHeadMouseDownHandler}
+                      onMouseUp={tableHeadMouseUpHandler}
+                      align={column.headAlign}
+                      className={styles.TableHeadCell}>
+                      <span>{column.render('Header')}</span>
+
+                      {draggedCellIndex === index ? (
+                        <div
+                          style={{
+                            position: 'absolute',
+                            height: '100vh',
+                            top: 0,
+                            border: '1px solid #E0E1EE',
+                            bottom: '0px',
+                            marginLeft: '-10px'
+                          }}
+                        />
+                      ) : null}
+
+                      {!column.dataMaxWidth && !(isWithSelection && !index) && (
+                        <div
+                          {...resizerProps}
+                          onMouseDown={(e) => {
+                            e.stopPropagation();
+
+                            // @ts-expect-error Expecting error because resizerProps is void
+                            resizerProps.onMouseDown(e);
+                          }}
+                          onClick={(e) => e.stopPropagation()}
+                          className={classNames(styles.TableResizer, {
+                            [styles['TableResizer--resizing']]: column.isResizing
+                          })}
+                        />
+                      )}
+                    </TableHead>
+                  );
+                })}
               </TableRow>
             ))}
           </THeadComponent>
@@ -331,6 +375,12 @@ const Table = <T extends {}>({
                       key={rowUniqueKey ? row.original[rowUniqueKey] : row.id}
                       color={color}>
                       {row.cells.map((cell: CellType<T>, index) => {
+                        const tableCellWidth = cell.column.dataMaxWidth
+                          ? cell.column.dataMaxWidth
+                          : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                          ? cell.column.maxWidth
+                          : `${initialTableHeadWidths.current[index] / rootFontSize}rem`;
+
                         return (
                           <TableCell
                             key={index}
@@ -339,9 +389,11 @@ const Table = <T extends {}>({
                             style={{
                               maxWidth: cell.column.dataMaxWidth
                                 ? cell.column.dataMaxWidth
-                                : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
-                                ? cell.column.maxWidth
-                                : `${tableHeadWidths[index] / rootFontSize}rem`
+                                : cell.column.width
+                                ? 'initial'
+                                : tableCellWidth,
+                              width: cell.column.width,
+                              minWidth: isWithSelection ? index && tableCellWidth : tableCellWidth
                             }}
                             className={classNames(
                               {
@@ -395,27 +447,36 @@ const Table = <T extends {}>({
                   {rows[0].cells.map((cell: CellType<T>, index) => {
                     const totalInfo = tableFooterData[cell.column.id];
 
+                    const tableCellWidth = cell.column.dataMaxWidth
+                      ? cell.column.dataMaxWidth
+                      : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                      ? cell.column.maxWidth
+                      : `${initialTableHeadWidths.current[index] / rootFontSize}rem`;
+
                     return (
                       <TableCell
                         key={index}
                         style={{
                           maxWidth: cell.column.dataMaxWidth
                             ? cell.column.dataMaxWidth
-                            : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
-                            ? cell.column.maxWidth
-                            : `${tableHeadWidths[index] / rootFontSize}rem`
+                            : cell.column.width
+                            ? 'initial'
+                            : tableCellWidth,
+                          width: cell.column.width,
+                          minWidth: isWithSelection ? index && tableCellWidth : tableCellWidth
                         }}
                         align={cell.column.align}
                         color={color}
                         className={classNames(styles.TableFooterCell, {
                           [styles.LastTableCell]: index === rows[0].cells.length - 1,
-                          [styles['TableFooterCell--empty']]: totalInfo !== undefined && !totalInfo.value
+                          [styles['TableFooterCell--empty']]:
+                            totalInfo !== undefined && totalInfo.value !== 0 && !totalInfo.value
                         })}>
                         {shouldShowtableFooterRegenerateButton && totalInfo !== undefined && (
                           <Tooltip
                             placement='top'
                             text={
-                              !totalInfo?.isLoading && totalInfo?.value
+                              !totalInfo?.isLoading && (totalInfo.value === 0 || totalInfo?.value)
                                 ? tableFooterRegenerateText
                                 : tableFooterGenerateText
                             }

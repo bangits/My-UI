@@ -1,4 +1,4 @@
-import { IconButton, Status, Tooltip } from '@/components';
+import { IconButton, Tooltip } from '@/components';
 import { EditIcon, IllustrationIcon, ViewIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
@@ -46,7 +46,7 @@ export const Default = () => {
           x: (
             <img src='https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270' />
           ),
-          r: <Status variant='blocked'>Blocked</Status>,
+          // r: <Status variant='blocked'>Blocked</Status>,
           ...d
         }))
       ]}
@@ -64,7 +64,9 @@ export const Default = () => {
                 }
               />
             );
-          }
+          },
+          maxWidth: '9rem',
+          dataMaxWidth: '9rem'
         },
         {
           Header: 'Game Id',
@@ -88,22 +90,20 @@ export const Default = () => {
         },
         {
           Header: 'Version',
-          accessor: 'v',
-          maxWidth: '10rem'
+          accessor: 'v'
         },
         {
           Header: 'Release date and time',
           accessor: 'w',
-          align: 'right',
           sortingId: 'release'
-        },
-        {
-          Header: 'Status',
-          accessor: 'r',
-          disableSortBy: true,
-          maxWidth: '12rem',
-          dataMaxWidth: '12rem'
         }
+        // {
+        //   Header: 'Status',
+        //   accessor: 'r',
+        //   disableSortBy: true,
+        //   maxWidth: '12rem',
+        //   dataMaxWidth: '12rem'
+        // }
       ])}
       actions={[
         {
@@ -142,6 +142,7 @@ export const Default = () => {
       shouldShowtableFooterRegenerateButton={boolean('shouldShowtableFooterRegenerateButton', true)}
       tableFooterRegenerateText={text('tableFooterRegenerateText', 'Regenerate')}
       tableFooterGenerateText={text('tableFooterGenerateText', 'Generate')}
+      isResizing
     />
   );
 };

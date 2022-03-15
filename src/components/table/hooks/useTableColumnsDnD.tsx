@@ -151,6 +151,7 @@ const useTableColumnsDnD = ({ onSwap, dragDelay = 500, disableIndexes }: UseTabl
 
           const tableHalfWidth = mainCopiedTable.current.offsetWidth / 2;
 
+          mainCopiedTable.current.style.position = 'fixed';
           mainCopiedTable.current.style.top = `${clientY - tableHalfWidth}px`;
           mainCopiedTable.current.style.left = `${clientX - tableHalfWidth}px`;
         };

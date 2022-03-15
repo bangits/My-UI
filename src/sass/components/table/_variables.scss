@@ -24,7 +24,7 @@ $table-sizes: (
   // Actions
   action-table-cell-height: calculateRem(50px),
   action-table-cell-right: calculateRem(5px),
-  action-table-cell-min-width: calculateRem(125px),
+  action-table-cell-min-width: calculateRem(155px),
   action-table-cell-padding-right: calculateRem(20px),
   action-table-cell-transform: translate(10px, -51%),
   // DnD
@@ -37,14 +37,22 @@ $table-sizes: (
   table-footer-generate-position-right: calculateRem(10px),
   table-footer-generate-transform-x: calculateRem(-5px),
   table-footer-generate-container-width: calculateRem(21px),
-  table-footer-generate-container-height: calculateRem(16px)
+  table-footer-empty-max-width: calculateRem(100px),
+  table-footer-generate-container-height: calculateRem(16px),
+  // Resizing
+  table-resizing-width: calculateRem(6px),
+  table-resizing-separator-width: calculateRem(2px),
+  table-resizing-separator-margin: calculateRem(2px),
+  table-resizing-height: calculateRem(14px)
 );
 
 $table-colors: (
   action-table-cell-bg-color: color(white-lilac),
   backdground-color-table-head: color(white),
   //
-  action-table-cell-bg-color2: color(white-lilac)
+  action-table-cell-bg-color2: color(white-lilac),
+  // resizing
+  table-resizing-color: color(nepal)
 );
 
 @function getTableSizes($property) {

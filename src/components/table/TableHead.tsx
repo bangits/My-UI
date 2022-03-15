@@ -21,10 +21,11 @@ export const TableHead: FC<TableHeadProps> = ({
   selectedDirection,
   direction,
   hideSortIcon = false,
+  className,
   ...props
 }) => {
   return (
-    <th className={styles.TableHead} {...props} title=''>
+    <th className={classNames(styles.TableHead, className)} {...props} title=''>
       <div className={styles.TableHeadContainer}>
         {children}
         {!hideSortIcon && (

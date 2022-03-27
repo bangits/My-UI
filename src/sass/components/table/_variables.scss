@@ -41,7 +41,7 @@ $table-sizes: (
   table-footer-generate-container-height: calculateRem(16px),
   // Resizing
   table-resizing-width: calculateRem(6px),
-  table-resizing-separator-width: calculateRem(2px),
+  table-resizing-separator-width: 2px,
   table-resizing-separator-margin: calculateRem(2px),
   table-resizing-height: calculateRem(14px)
 );

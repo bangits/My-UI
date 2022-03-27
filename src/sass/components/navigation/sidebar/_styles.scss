@@ -60,20 +60,17 @@
       margin: getSideBarSizes(sidebar-logo-collapsed-margin);
       width: getSideBarSizes(sidebar-logo-width);
       height: getSideBarSizes(sidebar-logo-height);
-      border-radius: getSideBarSizes(sidebar-logo-borderRadius);
       transition: getSideBarSizes(sidebar-transition);
       overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      @include theme(background-color, sidebar-logo-background-color);
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: getSideBarSizes(sidebar-logo-border-radius);
-        background: #fff;
       }
     }
 

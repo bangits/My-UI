@@ -85,8 +85,9 @@ const TextInputs: FC<TextInputProps> = forwardRef(
 
     const onInput: TextInputProps['onInput'] = useCallback(
       (evt) => {
-        evt.target.style.height = 'inherit';
+        evt.target.style.height = 'auto';
         evt.target.style.height = `${evt.target.scrollHeight}px`;
+
         // evt.target.style.height = z + '-10px';
         // evt.target.style.height = `${evt.target.scrollHeight}px - 20px`;
         // console.log(t);
@@ -183,6 +184,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
             ref={ref}
             onKeyDown={onKeyDown}
             onInput={onInput}
+            rows='1'
             onChange={onInputChange}
             onFocus={onFocus}
             onBlur={onBlur}

@@ -27,6 +27,7 @@ export interface BaseTextInputProps {
   forceFocused?: boolean;
   isDecimal?: boolean;
   decimalMaxPoint?: number;
+  textarea?: boolean;
 }
 
 type InputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
@@ -50,10 +51,13 @@ const TextInputs: FC<TextInputProps> = forwardRef(
       isDecimal,
       decimalMaxPoint = 2,
       min,
+      textarea = false,
       ...props
     },
     ref
   ) => {
+    const InputComponent = textarea ? 'textarea' : 'input';
+
     const { defaultValue, value, disabled, type, maxLength, onChange } = props;
 
     const [currentValue, setCurrentValue] = useState(value || defaultValue);
@@ -81,6 +85,13 @@ const TextInputs: FC<TextInputProps> = forwardRef(
 
     const onInput: TextInputProps['onInput'] = useCallback(
       (evt) => {
+        evt.target.style.height = 'auto';
+        evt.target.style.height = `${evt.target.scrollHeight}px`;
+
+        // evt.target.style.height = z + '-10px';
+        // evt.target.style.height = `${evt.target.scrollHeight}px - 20px`;
+        // console.log(t);
+
         if (maxLength && evt.target['value'] && !isDecimal)
           evt.target['value'] = evt.target['value'].slice(0, maxLength);
 
@@ -152,7 +163,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
             </div>
           )}
 
-          <input
+          <InputComponent
             className={classNames(
               'MyUI-TextInputBaseInput',
               styles.TextInputBaseInput,
@@ -162,6 +173,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
                 [styles[`TextInputBaseInput--with-label`]]: !!label,
                 [styles['TextInputBaseInput--start-icon']]: !!startIcon,
                 [styles['TextInputBaseInput--end-icon']]: !!endIcon,
+                [styles['TextInputBaseInput--textarea']]: textarea,
                 [styles['TextInputBaseInput--with-two-start-icon']]: Array.isArray(startIcon) && startIcon.length > 1,
                 [styles['TextInputBaseInput--with-two-end-icon']]: Array.isArray(endIcon) && endIcon.length > 1
               },
@@ -172,6 +184,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
             ref={ref}
             onKeyDown={onKeyDown}
             onInput={onInput}
+            rows='1'
             onChange={onInputChange}
             onFocus={onFocus}
             onBlur={onBlur}

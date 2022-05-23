@@ -23,6 +23,11 @@ $transition-duration: getTextFieldSizes(label-transition);
   .TextInputBaseInput {
     width: 100%;
 
+    &--textarea {
+      overflow: hidden;
+      resize: none;
+    }
+
     @include theme(border, default-input-border-color, solid getTextFieldSizes(input-border-width));
 
     &:hover,
@@ -305,5 +310,9 @@ $transition-duration: getTextFieldSizes(label-transition);
         }
       }
     }
+  }
+  .TextInputBaseInput--textarea {
+    height: 20px;
+    padding-top: getTextFieldSizes(text-area-padding-top);
   }
 }

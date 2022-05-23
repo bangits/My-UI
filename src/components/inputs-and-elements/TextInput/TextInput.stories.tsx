@@ -28,10 +28,11 @@ export const Default = () => {
         label='Default Text Input'
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        maxLength={number('maxLength', 10)}
+        maxLength={number('maxLength', 500)}
         type='text'
         explanation={text('explanation', '')}
         fullWidth={boolean('fullWidth', false)}
+        textarea={boolean('textarea', true)}
         // color={getColorKnobs()}
       />
 

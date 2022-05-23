@@ -5,16 +5,13 @@
     width: 100%;
     border-radius: getTabSizes(tab-container-border-radius);
     @include theme(background-color, tab-background-color);
-
     &,
     .TabContent {
       min-height: getTabSizes(tab-container-heigth);
     }
-
     .TabContent {
       @include flex(null, center);
       height: 100%;
-
       .TabButton {
         background-color: transparent;
         border: none;
@@ -27,14 +24,12 @@
         max-width: getTabSizes(tab-button-bg-width);
         padding: getTabSizes(tab-button-padding);
         @include dots-after-text;
-
         &.Active {
           @include theme(color, primary);
           font-weight: getTabSizes(tab-button-active-font-weight);
         }
       }
     }
-
     .TabButtonBg {
       position: absolute;
       top: getTabSizes(tab-button-bg-position);
@@ -45,6 +40,16 @@
       border-radius: getTabSizes(tab-button-bg-border-radius);
       box-sizing: border-box;
       transition: all getTabSizes(tab-active-transition) cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
+    &--bordered {
+      &.Tab {
+        background-color: initial;
+        .TabButtonBg {
+          background-color: initial;
+          border-radius: 0;
+          @include theme(border-bottom, primary, '2px solid');
+        }
+      }
     }
   }
 }

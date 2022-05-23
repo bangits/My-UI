@@ -1,64 +1,51 @@
 @mixin generate-table-styles {
   .TableScroll {
     display: block;
-
     &--hide-box-shadow {
       width: 100%;
       box-shadow: none !important;
       background-color: transparent;
     }
   }
-
   .TableWrapper {
     position: relative;
   }
-
   .Loader {
     @include center-absolute;
-
     z-index: 999;
   }
-
-  .ScrollTrack {
-    z-index: 1 !important;
-  }
-
   .ScrollTrack {
     z-index: 99 !important;
   }
-
+  .ScrollTrackHorizontal {
+    z-index: 100 !important;
+  }
   .TableHead {
     position: sticky;
     top: 0;
     z-index: getTableSizes(table-head-z-index);
     @include theme(background-color, backdground-color-table-head);
-
     tr {
       position: relative;
       z-index: getTableSizes(table-head-tr-z-index);
     }
   }
-
   .TableBody {
     display: block !important;
     // min-height: getTableSizes(table-body-min-height);
   }
-
   .TableScroll,
   .TableContainer {
     max-width: 100%;
   }
-
   .TableScroll {
     @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
     border-radius: getTableSizes(table-scroll-border-radius);
     z-index: 0;
   }
-
   .TableScrollVertical {
     display: block;
   }
-
   .TableContainer {
     border-collapse: collapse;
     width: 100%;
@@ -72,38 +59,31 @@
     &--ready {
       opacity: getTableSizes(table-conatiner-tr-ready-opacity);
     }
-
     .TableHead span {
       cursor: grab;
       user-select: none;
     }
-
     .TableHead tr {
       min-height: getTableSizes(table-head-row-height);
     }
-
     .LastTableCell {
       margin-left: 0;
       margin-right: getTableSizes(last-table-cell-margin) !important;
       opacity: getTableSizes(last-table-cell-opacity);
     }
-
     .TableBody {
       tr {
         height: getTableSizes(table-body-row-height);
-
         &:hover {
           .ActionTableCell {
             @include flex(flex-end, center);
           }
         }
-
         &:last-child {
           border-bottom: none;
         }
       }
     }
-
     &--withSelection {
       .TableBody,
       .TableHead {
@@ -117,7 +97,6 @@
         }
       }
     }
-
     &--withThreeColumns {
       .TableBody,
       .TableHead {
@@ -130,25 +109,20 @@
         }
       }
     }
-
     .ActionTableCell {
       display: none;
     }
   }
-
   .TableContainer {
     &.Table {
       &--no-result {
         min-height: getTableSizes(table-no-result);
       }
-
       &--loading {
         position: relative;
-
         .IllustrationWrapper {
           display: none;
         }
-
         .TableHead,
         .TableBody {
           @include theme(opacity, disabled-opacity);
@@ -156,18 +130,15 @@
       }
     }
   }
-
   .IllustrationWrapper {
     min-height: getTableSizes(illustration-wrapper-min-height);
     @include center-absolute();
     min-height: getTableSizes(illustration-wrapper-min-height);
-
     .Illustration {
       max-width: getTableSizes(illustration-wrapper-width);
       margin: auto;
       margin-top: getTableSizes(illustration-wrapper-margin);
     }
-
     .IllustrationText {
       margin: auto;
       margin-top: getTableSizes(illustration-text-margin-top);
@@ -177,7 +148,6 @@
       @include theme(color, black-color);
     }
   }
-
   .ActionToolsStickyHorizontal {
     position: sticky;
     top: 0;
@@ -188,7 +158,6 @@
     padding: 0;
     z-index: 1;
   }
-
   .ActionTools {
     position: absolute;
     top: 0;
@@ -199,7 +168,6 @@
     margin: 0;
     transform: translate(0, 0);
   }
-
   .ActionTableCell {
     height: getTableSizes(action-table-cell-height);
     position: absolute;
@@ -209,20 +177,16 @@
     margin-top: 0;
     transform: translate(10px, -51%);
     padding-right: getTableSizes(action-table-cell-padding-right);
-
     @include theme(background-color, primary, $opacity: 0.1, $useRgb: true);
   }
-
   .TableResizer {
     display: none;
-
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
     width: getTableSizes(table-resizing-width);
     height: getTableSizes(table-resizing-height);
-
     &::before,
     &::after {
       content: '';
@@ -231,97 +195,67 @@
       height: getTableSizes(table-resizing-height);
       background-color: getTableColors(table-resizing-color);
     }
-
     &--resizing {
       display: block;
-
       &::before,
       &::after {
         @include theme(background, primary);
       }
     }
-
     &::after {
       transform: translateX(getTableSizes(table-resizing-separator-margin));
     }
   }
-
   .TableHeadCell:hover .TableResizer {
     display: block;
   }
-
   .TableFooter {
     position: sticky;
     bottom: 0;
     min-height: 0 !important;
     z-index: 100;
-
     @include theme(background-color, primary, $opacity: 0.1, $useRgb: true);
-
     @include theme(border-top, primary, '1px solid');
-
     .TableFooterCell {
       position: relative;
-
       min-height: getTableSizes(table-footer-cell-height);
-
       @include theme(color, primary);
-
       font-weight: 700;
-
       &__generateButton {
         display: none;
       }
-
       span {
         transition: all 0.3s;
       }
-
       &--empty span {
         @include flex;
-
         width: 100%;
         max-width: getTableSizes(table-footer-empty-max-width);
         text-align: center;
-
         @include theme(background-color, black-color, $opacity: 0.6);
-
         height: getTableSizes(table-footer-empty-height);
-
         filter: blur(getTableSizes(table-footer-empty-blur));
       }
-
       .TableFooterCell__generateButton {
         width: getTableSizes(table-footer-generate-width);
-
         transform: translateX(getTableSizes(table-footer-generate-transform-x));
-
         display: block;
-
         cursor: pointer;
-
         @include reset-button;
-
         transition: color 0.3s;
-
         @include theme(color, primary, $opacity: 0.8);
-
         &:hover {
           @include theme(color, primary);
         }
-
         &:active {
           @include theme(color, primary, $opacity: 0.8);
         }
-
         div {
           width: getTableSizes(table-footer-generate-container-width);
           height: getTableSizes(table-footer-generate-container-height);
         }
-
         &--loading div {
           will-change: transform;
-
           @include rotate-animation;
         }
       }

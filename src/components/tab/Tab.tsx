@@ -10,16 +10,17 @@ export interface TabProps {
   }[];
   value?: number;
   defaultValue?: number;
+  variant?: 'default' | 'bordered';
   onChange?: (value: number) => void;
 }
 
-const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange }) => {
+const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange, variant = 'default' }) => {
   const [active, setActive] = useState<number>(defaultValue | value);
 
   const onActiveChange = useCallback(
     (value) => {
       setActive(value);
-      onChange(value);
+      onChange?.(value);
     },
     [active]
   );
@@ -43,7 +44,10 @@ const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange }) => {
   );
 
   return (
-    <div className={styles.Tab}>
+    <div
+      className={classNames(styles.Tab, {
+        [styles[`Tab--${variant}`]]: variant
+      })}>
       <div className={styles.TabContent}>
         {options &&
           options.map((option) => (

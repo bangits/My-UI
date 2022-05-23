@@ -19,6 +19,8 @@ export interface ScrollProps extends IComponent {
   showHorizontalScroll?: boolean;
   trackClassName?: string;
   thumbClassName?: string;
+  trackHorizontalClassName?: string;
+  trackVerticalClassName?: string;
 }
 
 const Scroll: FC<ScrollProps> = ({
@@ -29,6 +31,8 @@ const Scroll: FC<ScrollProps> = ({
   showVerticalScroll = true,
   showHorizontalScroll = true,
   trackClassName,
+  trackHorizontalClassName,
+  trackVerticalClassName,
   thumbClassName,
   ...scrollProps
 }) => {
@@ -40,9 +44,9 @@ const Scroll: FC<ScrollProps> = ({
       {...scrollProps}
       style={{ width: width ?? '100%' }}
       className={classNames(styles.ScrollBase, className)}
-      trackVerticalClassname={classNames(styles.TrackVertical, trackClassName)}
+      trackVerticalClassname={classNames(styles.TrackVertical, trackClassName, trackVerticalClassName)}
       thumbVerticalClassname={classNames(styles.ThumbVertical, thumbClassName)}
-      trackHorizontalClassname={classNames(styles.TrackHorizontal, trackClassName)}
+      trackHorizontalClassname={classNames(styles.TrackHorizontal, trackClassName, trackHorizontalClassName)}
       thumbHorizontalClassname={classNames(styles.ThumbHorizontal, thumbClassName)}
       renderTrackHorizontal={showHorizontalScroll ? undefined : () => <div />}
       renderThumbHorizontal={showHorizontalScroll ? undefined : () => <div />}

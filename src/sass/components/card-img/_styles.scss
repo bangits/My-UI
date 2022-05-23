@@ -1,7 +1,9 @@
 @mixin generate-cardimg-styles {
   .CardImgContainer {
+    height: 100%;
     .CardImg {
       width: 100%;
+      height: 100%;
       font-size: 0;
       // height: getCardImgSizes(card-img-height);
       @include theme(box-shadow, box-shadow-color, 0 0 4px 0);
@@ -18,10 +20,9 @@
         width: 100%;
         height: 100%;
         border-radius: getCardImgSizes(card-img-border-radius);
-        object-fit: contain;
+        object-fit: cover;
       }
     }
-
     .CardTextContainer {
       @include flex(center, center);
       @include theme(background-color, card-background-color);
@@ -32,7 +33,6 @@
       border-radius: getCardImgSizes(card-text-container-border-radius);
       height: getCardImgSizes(card-text-container-height);
       padding: getCardImgSizes(card-text-container-padding);
-
       .CardText {
         @include dots-after-text;
         max-width: getCardImgSizes(card-text-width);

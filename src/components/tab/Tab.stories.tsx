@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { number, object, withKnobs } from '@storybook/addon-knobs';
+import { number, object, optionsKnob, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import Tab from './Tab';
 
@@ -23,6 +23,17 @@ export const Default = () => {
       ])}
       defaultValue={number('defaultValue', 2)}
       onChange={action('onChange')}
+      variant={optionsKnob(
+        'variant',
+        {
+          default: 'default',
+          bordered: 'bordered'
+        },
+        'default',
+        {
+          display: 'inline-radio'
+        }
+      )}
     />
   );
 };

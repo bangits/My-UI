@@ -250,6 +250,7 @@ const Table = <T extends {}>({
         {...scrollProps}
         trackClassName={styles.ScrollTrack}
         thumbClassName={styles.ScrollThumb}
+        trackHorizontalClassName={styles.ScrollTrackHorizontal}
         className={classNames(
           styles.TableScroll,
           {
@@ -496,7 +497,7 @@ const Table = <T extends {}>({
                           </Tooltip>
                         )}
 
-                        <Tooltip text={totalInfo?.tooltipText} showEvent='hover'>
+                        <Tooltip placement='top' text={totalInfo?.tooltipText} showEvent='hover'>
                           <span>{totalInfo !== undefined ? totalInfo?.value : null}</span>
                         </Tooltip>
                       </TableCell>

@@ -30,7 +30,10 @@ export interface BaseTextInputProps {
   textarea?: boolean;
 }
 
-type InputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+type InputProps = DetailedHTMLProps<
+  InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+  HTMLInputElement | HTMLTextAreaElement
+>;
 
 export type TextInputProps = BaseTextInputProps & InputProps;
 
@@ -63,13 +66,18 @@ const TextInputs: FC<TextInputProps> = forwardRef(
     const [currentValue, setCurrentValue] = useState(value || defaultValue);
     const [isInputFocused, setInputFocused] = useState(false);
 
+    const autoTextAreaHeight = useCallback((element: HTMLInputElement | HTMLTextAreaElement) => {
+      element.style.height = 'auto';
+      element.style.height = `${element.scrollHeight}px`;
+    }, []);
+
     const onInputChange: TextInputProps['onChange'] = useCallback(
       (e) => {
         if (disabled) return;
 
         if (onChange) onChange(e);
 
-        setCurrentValue(e.target.value);
+        setCurrentValue((e.target as unknown as HTMLInputElement).value);
       },
       [onChange, disabled]
     );
@@ -85,12 +93,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
 
     const onInput: TextInputProps['onInput'] = useCallback(
       (evt) => {
-        evt.target.style.height = 'auto';
-        evt.target.style.height = `${evt.target.scrollHeight}px`;
-
-        // evt.target.style.height = z + '-10px';
-        // evt.target.style.height = `${evt.target.scrollHeight}px - 20px`;
-        // console.log(t);
+        autoTextAreaHeight(evt.target as unknown as HTMLInputElement);
 
         if (maxLength && evt.target['value'] && !isDecimal)
           evt.target['value'] = evt.target['value'].slice(0, maxLength);
@@ -181,10 +184,15 @@ const TextInputs: FC<TextInputProps> = forwardRef(
             )}
             {...props}
             min={min || '0'}
-            ref={ref}
+            ref={(elementRef: HTMLInputElement | HTMLTextAreaElement) => {
+              if (ref && typeof ref === 'function') ref(elementRef);
+
+              if (elementRef) autoTextAreaHeight(elementRef);
+            }}
+            // @ts-expect-error For typecasting, this prop used only for textarea
+            rows='1'
             onKeyDown={onKeyDown}
             onInput={onInput}
-            rows='1'
             onChange={onInputChange}
             onFocus={onFocus}
             onBlur={onBlur}

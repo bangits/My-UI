@@ -1,6 +1,6 @@
 import { Typography } from '@/components';
 import { FC, ReactNode } from 'react';
-import { DialogBody, DialogHeader, Dialog, DialogFooter, DialogProps } from '..';
+import { Dialog, DialogBody, DialogFooter, DialogHeader, DialogProps } from '..';
 
 export interface AcceptionDialogProps {
   icon?: ReactNode;
@@ -8,6 +8,9 @@ export interface AcceptionDialogProps {
   description?: ReactNode;
   cancelButtonText?: ReactNode;
   submitButtonText?: ReactNode;
+  showCancelButton?: boolean;
+  showSubmitButton?: boolean;
+  showFooter?: boolean;
 
   onCancel?(): void;
   onSubmit?(closeFn: () => void): void;
@@ -24,7 +27,10 @@ const AcceptionDialog: FC<AcceptionDialogProps & DialogProps> = ({
   onClose,
   isOpened,
   size,
-  mode
+  mode,
+  showCancelButton,
+  showSubmitButton,
+  showFooter = true
 }) => {
   return (
     <Dialog onClose={onClose} isOpened={isOpened} size={size} mode={mode}>
@@ -34,15 +40,19 @@ const AcceptionDialog: FC<AcceptionDialogProps & DialogProps> = ({
           {description}
         </Typography>
       </DialogBody>
-      <DialogFooter
-        onClose={() => {
-          onClose();
-          onCancel();
-        }}
-        cancelButtonText={cancelButtonText}
-        submitButtonText={submitButtonText}
-        submitButtonProps={{ onClick: () => onSubmit(onClose) }}
-      />
+      {showFooter && (
+        <DialogFooter
+          onClose={() => {
+            onClose();
+            onCancel();
+          }}
+          cancelButtonText={cancelButtonText}
+          submitButtonText={submitButtonText}
+          showCancelButton={showCancelButton}
+          showSubmitButton={showSubmitButton}
+          submitButtonProps={{ onClick: () => onSubmit(onClose) }}
+        />
+      )}
     </Dialog>
   );
 };

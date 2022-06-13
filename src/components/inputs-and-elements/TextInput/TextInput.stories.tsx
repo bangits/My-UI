@@ -3,7 +3,7 @@ import { COLOR_TYPES } from '@/types';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, optionsKnob, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import TextInput from './TextInput';
 
 export default {
@@ -13,20 +13,16 @@ export default {
 } as ComponentMeta<typeof TextInput>;
 
 export const Default = () => {
-  const [value, setValue] = useState('ads');
-
-  useEffect(() => {
-    setTimeout(() => {
-      setValue('');
-    }, 2000);
-  }, []);
+  const [value, setValue] = useState(
+    'ahfoashfoklahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjls;sajhfklsffjlsahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjlsahfoashfokl;sajhfklsffjls'
+  );
 
   return (
     <>
       <TextInput
+        value={value}
         disabled={boolean('disabled', false)}
         label='Default Text Input'
-        value={value}
         onChange={(e) => setValue(e.target.value)}
         maxLength={number('maxLength', 500)}
         type='text'
@@ -81,30 +77,16 @@ export const WithIcons = () => {
         type='text'
         onChange={action('onChange')}
         explanation={text('explanation', 'Explanation')}
-        startIcon={
-          [
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='1.25rem'
-              viewBox='0 0 13.5 15'
-              fill='currentColor'
-              style={{ transform: 'translate(4px, 2px)' }}>
-              <path d='M13 15c-.3 0-.5-.2-.5-.5v-1.6c0-1.4-1.2-2.6-2.6-2.6H3.6c-1.4 0-2.6 1.2-2.6 2.6v1.6c0 .3-.2.5-.5.5s-.5-.2-.5-.5v-1.6c0-2 1.6-3.6 3.6-3.6h6.2c2 0 3.6 1.6 3.6 3.6v1.6c.1.3-.1.5-.4.5zM6.7 7.2c-2 0-3.6-1.6-3.6-3.6S4.7 0 6.7 0c1 0 1.9.4 2.6 1.1.7.7 1.1 1.6 1.1 2.6s-.4 1.9-1 2.6c-.8.6-1.7.9-2.7.9.1 0 .1 0 0 0zM6.8 1C5.3 1 4.1 2.2 4.1 3.6c0 1.4 1.2 2.6 2.6 2.6.7 0 1.4-.3 1.9-.8.5-.4.8-1.1.8-1.8s-.3-1.4-.8-1.8C8.1 1.3 7.5 1 6.8 1z' />
-            </svg>
-          ]
-
-          // <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
-          //   <g data-name='Group 134'>
-          //     <path
-          //       data-name='Path 1225'
-          //       d='M545.5 128v-1.556a3.119 3.119 0 0 0-3.125-3.111h-6.25a3.119 3.119 0 0 0-3.125 3.111V128m9.375-10.889A3.125 3.125 0 1 1 539.25 114a3.118 3.118 0 0 1 3.125 3.111z'
-          //       transform='translate(-527 -109)'
-          //       style={{ fill: 'none', stroke: '#7d86a9', strokeLinecap: 'round', strokeLinejoin: 'round' }}
-          //     />
-          //     <path data-name='Rectangle 687' style={{ fill: 'none' }} d='M0 0h24v24H0z' />
-          //   </g>
-          // </svg>
-        }
+        startIcon={[
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='1.25rem'
+            viewBox='0 0 13.5 15'
+            fill='currentColor'
+            style={{ transform: 'translate(4px, 2px)' }}>
+            <path d='M13 15c-.3 0-.5-.2-.5-.5v-1.6c0-1.4-1.2-2.6-2.6-2.6H3.6c-1.4 0-2.6 1.2-2.6 2.6v1.6c0 .3-.2.5-.5.5s-.5-.2-.5-.5v-1.6c0-2 1.6-3.6 3.6-3.6h6.2c2 0 3.6 1.6 3.6 3.6v1.6c.1.3-.1.5-.4.5zM6.7 7.2c-2 0-3.6-1.6-3.6-3.6S4.7 0 6.7 0c1 0 1.9.4 2.6 1.1.7.7 1.1 1.6 1.1 2.6s-.4 1.9-1 2.6c-.8.6-1.7.9-2.7.9.1 0 .1 0 0 0zM6.8 1C5.3 1 4.1 2.2 4.1 3.6c0 1.4 1.2 2.6 2.6 2.6.7 0 1.4-.3 1.9-.8.5-.4.8-1.1.8-1.8s-.3-1.4-.8-1.8C8.1 1.3 7.5 1 6.8 1z' />
+          </svg>
+        ]}
         endIcon={[
           <svg
             xmlns='http://www.w3.org/2000/svg'

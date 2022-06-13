@@ -134,7 +134,14 @@ function Select<
         value,
         label
       }
-    ].concat(...children?.map(getFlatMap));
+    ].concat(
+      ...children?.map((child) =>
+        getFlatMap({
+          label: child.name,
+          value: child.id
+        })
+      )
+    );
   }
 
   const allList = treeData

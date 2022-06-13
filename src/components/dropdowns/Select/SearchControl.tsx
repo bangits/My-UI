@@ -18,6 +18,8 @@ export const SearchControl: typeof components.Control = (props) => {
   const menuToggle = useCallback(() => {
     if (selectProps.isDisabled) return;
 
+    if (selectProps.isTree) selectProps.onInputChange('', null);
+
     if (!isMenuOpen) {
       selectProps.onMenuOpen();
 
@@ -29,7 +31,8 @@ export const SearchControl: typeof components.Control = (props) => {
     (e) => {
       setIsMenuOpen(false);
       selectProps.onMenuClose();
-      selectProps.onInputChange('', null);
+
+      if (!selectProps.isTree) selectProps.onInputChange('', null);
 
       if (selectProps.onBlur) selectProps.onBlur(e);
 
@@ -70,17 +73,15 @@ export const SearchControl: typeof components.Control = (props) => {
     if (!isMenuOpen && (!currentValue || (isMulti && !currentValue.length))) setSearchValue('');
 
     if (!isMenuOpen && (!currentValue || (isMulti && !currentValue.length))) setSearchValue('');
-
-    if (isMenuOpen && selectProps.isTree) selectProps.onInputChange('', null);
   }, [currentValue, isMenuOpen, selectProps.isTree]);
 
   useEffect(() => {
-    if (!isMenuOpen) selectProps.onInputChange('', null);
+    if (!isMenuOpen && !selectProps.isTree) selectProps.onInputChange('', null);
   }, [isMenuOpen]);
 
   useEffect(() => {
     const isMulti = Array.isArray(currentValue);
-    if (selectProps.inputValue.length > 0 && !isMulti) selectProps.onMenuOpen();
+    if (selectProps.inputValue.length > 0 && !isMulti && !selectProps.isTree) selectProps.onMenuOpen();
   }, [selectProps.inputValue]);
 
   useEffect(() => {

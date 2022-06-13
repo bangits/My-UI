@@ -29,6 +29,8 @@ export const Menu: typeof components.Menu = (props) => {
                 setInput={(value) => {
                   if (!selectProps.isMulti) {
                     selectProps.onInputChange?.(value, null);
+
+                    selectProps.onMenuClose();
                   }
                 }}
               />

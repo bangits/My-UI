@@ -1,17 +1,17 @@
-import React, { FC, ReactNode } from 'react';
-import classNames from 'classnames';
 import { Typography } from '@/my-ui-core';
 import { IComponent } from '@/types';
+import classNames from 'classnames';
+import { FC, ReactNode } from 'react';
 import styles from './CardImg.module.scss';
 export interface CardImgProps extends IComponent {
-  title: string;
+  title: ReactNode;
   image?: string;
   hoverComponent?: ReactNode;
   handleClick?: () => void;
 }
-const CardImg: FC<CardImgProps> = ({ title, image, handleClick, hoverComponent }) => {
+const CardImg: FC<CardImgProps> = ({ title, image, handleClick, hoverComponent, className }) => {
   return (
-    <div className={classNames(styles['CardImgContainer'], 'CardImgContainer')}>
+    <div className={classNames(styles['CardImgContainer'], className, 'CardImgContainer')}>
       <div className={classNames(styles['CardImg'], 'CardImg')}>
         {hoverComponent}
         {image && <img src={image} alt='' />}

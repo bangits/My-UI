@@ -62,7 +62,7 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
 
   const onSelectChange = useCallback(
     (e) => {
-      inputRef.current.focus();
+      inputRef.current?.focus?.();
 
       onDropdownChange(e);
     },

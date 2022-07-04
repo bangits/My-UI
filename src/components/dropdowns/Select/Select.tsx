@@ -43,7 +43,6 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
   disableSelectedOptions?: boolean;
 
   //
-  // @ts-expect-error Ignoring ts
   renderInput?: (options: {
     value: SelectOptionType;
     isMenuOpen: boolean;

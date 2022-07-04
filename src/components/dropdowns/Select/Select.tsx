@@ -3,7 +3,7 @@ import { Tree } from '@/interfaces';
 import { UIColors } from '@/types';
 import ReactSelect, { ActionMeta, Props } from '@my-ui/react-select';
 import classNames from 'classnames';
-import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, FocusEvent, ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import { DropdownIcon, Menu, MenuList, Option, SearchControl } from './Controls';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
@@ -43,12 +43,15 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
   disableSelectedOptions?: boolean;
 
   //
-  renderInput?: (
-    value: SelectOptionType,
-    isMenuOpen: boolean,
-    onInputChange: (event: any) => void,
-    onInputBlur: () => void
-  ) => ReactNode;
+  // @ts-expect-error Ignoring ts
+  renderInput?: (options: {
+    value: SelectOptionType;
+    isMenuOpen: boolean;
+    searchValue: string;
+    onSearchValueChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    onInputChange: (newValue: string) => void;
+    onInputBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
+  }) => ReactNode;
 }
 
 export interface SelectProps<

@@ -60,7 +60,7 @@ const Pagination: FC<PaginationProps> = ({
               </Typography>
               <div className={styles.PaginationSelectWrapper}>
                 <Select
-                  renderInput={(value, isMenuOpen) => (
+                  renderInput={({ value, isMenuOpen }) => (
                     <div className={styles.PaginationPageSizeWrapper}>
                       <div>{value?.label}</div>
                       <span

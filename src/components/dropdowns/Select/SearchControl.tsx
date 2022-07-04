@@ -13,6 +13,7 @@ export const SearchControl: typeof components.Control = (props) => {
   const currentValue = selectProps?.value as SelectOptionType | SelectOptionType[];
 
   const [searchValue, setSearchValue] = useState('');
+  console.log('🚀 ~ file: SearchControl.tsx ~ line 16 ~ searchValue', searchValue);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuToggle = useCallback(() => {
@@ -96,13 +97,18 @@ export const SearchControl: typeof components.Control = (props) => {
     <components.Control {...props}>
       {selectProps.renderInput ? (
         <div onClick={selectProps.onMenuOpen} ref={wrapperRef}>
-          {selectProps.renderInput(
+          {selectProps.renderInput({
             // @ts-expect-error ignoring typescript for typecast
-            selectProps.value,
-            props.selectProps.menuIsOpen,
-            props.selectProps.onInputChange,
+            value: selectProps.value,
+            isMenuOpen: props.selectProps.menuIsOpen,
+            searchValue,
+            onSearchValueChange,
+            onInputChange: (newValue) =>
+              props.selectProps.onInputChange(newValue, {
+                action: 'input-change'
+              }),
             onInputBlur
-          )}
+          })}
         </div>
       ) : (
         <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>

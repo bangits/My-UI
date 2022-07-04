@@ -276,7 +276,7 @@ export const RenderInput = () => {
   return (
     <Select
       defaultValue={2}
-      renderInput={(value, isMenuOpen) => (
+      renderInput={({ value, isMenuOpen }) => (
         <>
           <span style={{ color: '#505D6E', letterSpacing: '.14rem', fontSize: '1.4rem', height: '1.7rem' }}>
             {value.label}

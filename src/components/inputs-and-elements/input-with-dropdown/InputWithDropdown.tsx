@@ -101,7 +101,14 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
             className={classNames(styles['InputWithDropdownBase--select'])}
             isSearchable
             onChange={onSelectChange}
-            renderInput={(value, isMenuOpen, onDropdownInputChange, onInputBlur) => {
+            renderInput={({
+              value,
+              isMenuOpen,
+              onInputChange: onDropdownInputChange,
+              onSearchValueChange,
+              onInputBlur,
+              searchValue
+            }) => {
               return (
                 <div
                   className={classNames(styles['InputWithDropdownBase--dropdown-control'], {
@@ -118,12 +125,15 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
                     type='text'
                     onChange={(e) => {
                       onDropdownInputChange(e.target.value);
+
+                      onSearchValueChange(e);
                     }}
                     onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                       if (dropdownInputProps.type === 'number') e.target.value = e.target.value.replace(/[^\d.+]/g, '');
                     }}
                     onBlur={onInputBlur}
                     ref={selectInputRef}
+                    value={searchValue}
                   />
                   <span
                     className={classNames({

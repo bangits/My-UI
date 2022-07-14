@@ -1,8 +1,8 @@
 import { Tooltip } from '@/my-ui-core';
-import { DetailedHTMLProps, FC, HTMLAttributes, useEffect, useMemo, useRef, useState } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 
 const TextWithTooltip: FC<
-  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & { disabled?: boolean }
+  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & { disabled?: boolean; displayText?: ReactNode }
 > = (elementProps) => {
   const typographyComponentRef = useRef<HTMLDivElement>(null);
 
@@ -13,7 +13,7 @@ const TextWithTooltip: FC<
   const elementWithTooltip = useMemo(
     () =>
       isEllipsisActive ? (
-        <Tooltip showEvent='hover' text={element}>
+        <Tooltip showEvent='hover' text={elementProps.displayText || element}>
           {element}
         </Tooltip>
       ) : (

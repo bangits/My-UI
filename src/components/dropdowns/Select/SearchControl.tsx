@@ -7,13 +7,12 @@ import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import styles from './Select.module.scss';
 
 export const SearchControl: typeof components.Control = (props) => {
-  const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
+  const selectProps = props.selectProps as unknown as typeof props.selectProps & CustomSelectProps;
 
   // @ts-expect-error ignoring typescript for typecast
   const currentValue = selectProps?.value as SelectOptionType | SelectOptionType[];
 
   const [searchValue, setSearchValue] = useState('');
-  console.log('🚀 ~ file: SearchControl.tsx ~ line 16 ~ searchValue', searchValue);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuToggle = useCallback(() => {

@@ -11,7 +11,7 @@ export const DropdownIcon: typeof components.Control = (props) => {
 
   useOutsideClickWithRef(wrapperRef, () => props.selectProps.onMenuClose());
 
-  const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
+  const selectProps = props.selectProps as unknown as typeof props.selectProps & CustomSelectProps;
 
   const menuToggle = useCallback(() => {
     props.selectProps.menuIsOpen ? props.selectProps.onMenuClose() : props.selectProps.onMenuOpen();

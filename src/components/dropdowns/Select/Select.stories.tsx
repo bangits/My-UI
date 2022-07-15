@@ -208,6 +208,7 @@ export const MultiSelect = () => {
 export const Dropdown = () => {
   return (
     <Select
+      showSetAsDefaultButton
       clearButton
       clearButtonLabel='Clear'
       dropdown
@@ -217,7 +218,6 @@ export const Dropdown = () => {
       }
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
-      showSetAsDefaultButton
       onChange={action('onChange')}
       color={getColorKnobs()}
       isMulti={boolean('isMulti', true)}

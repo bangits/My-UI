@@ -42,6 +42,11 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
 
   disableSelectedOptions?: boolean;
 
+  defaultOption: SelectOptionType | null;
+  setAsDefaultButtonLabel?: string;
+  defaultOptionLabel?: string;
+  showSetAsDefaultButton?: boolean;
+
   //
   renderInput?: (options: {
     value: SelectOptionType;
@@ -51,6 +56,7 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
     onInputChange: (newValue: string) => void;
     onInputBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
   }) => ReactNode;
+  onDefaultOptionChange(defaultOption: SelectOptionType | null): void;
 }
 
 export interface SelectProps<
@@ -58,17 +64,19 @@ export interface SelectProps<
   IsMulti extends boolean,
   Group extends GroupBase<Option>
 > extends Omit<Props<Option, IsMulti, Group>, 'defaultValue' | 'value' | 'options' | 'onChange'>,
-    CustomSelectProps {
+    Omit<CustomSelectProps, 'onDefaultOptionChange' | 'defaultOption'> {
   defaultValue?: IsMulti extends true ? SelectValueType[] : SelectValueType;
   value?: IsMulti extends true ? SelectValueType[] : SelectValueType;
   isMulti?: IsMulti;
   options?: Option;
+  initialDefaultOption?: SelectOptionType;
 
   onChange?: (
     updatedOptions: IsMulti extends true ? Option[number]['value'][] : Option[number]['value'],
     event: ActionMeta<unknown>,
     options: Option
   ) => void;
+  onDefaultOptionChange?(defaultOption: SelectOptionType): void;
 }
 
 function Select<
@@ -83,6 +91,8 @@ function Select<
   isTree,
   treeData,
   disableSelectedOptions,
+  initialDefaultOption,
+  onDefaultOptionChange,
   ...selectProps
 }: SelectProps<Option, IsMulti, Group>) {
   const { clearButton, dropdown, selectAllValue, selectAllLabel, fullWidth } = selectProps;
@@ -117,6 +127,8 @@ function Select<
   const isWithValue = useMemo(() => !!value, []);
 
   const [selectedOptions, setSelectedOptions] = useState(transformedDefaultValue);
+
+  const [defaultOption, setDefaultOption] = useState(initialDefaultOption || null);
 
   const transformedValue = useMemo(() => transformNumberValueToOptions(value), [value, selectProps.options]);
 
@@ -251,6 +263,11 @@ function Select<
         className
       )}
       options={options}
+      defaultOption={defaultOption}
+      onDefaultOptionChange={(option: SelectOptionType) => {
+        setDefaultOption(option);
+        onDefaultOptionChange?.(option);
+      }}
     />
   );
 }
@@ -263,7 +280,9 @@ Select.defaultProps = {
   inputSelectedLabel: 'Selected items: ',
   renderInputSelectedLabel: (count) => `Selected items: ${count}`,
   fullWidth: false,
-  color: 'default'
+  color: 'default',
+  defaultOptionLabel: '(Default)',
+  setAsDefaultButtonLabel: 'Set as default'
 };
 
 export default Select;

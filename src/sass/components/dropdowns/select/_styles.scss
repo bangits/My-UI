@@ -4,7 +4,6 @@
     box-sizing: border-box;
     position: relative;
     margin-bottom: getSelectSizes(select-global-margin-bottom);
-
     .react-select {
       &__indicator {
         margin: getSelectSizes(select-margin);
@@ -12,12 +11,10 @@
         top: 0;
         right: 0;
       }
-
       &__single-value {
         font-size: getSelectSizes(select-single-value-font-size);
         margin: getSelectSizes(select-single-value-margin);
       }
-
       &__menu {
         position: absolute;
         top: getSelectSizes(select-menu-position-top);
@@ -30,36 +27,30 @@
         @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
         border-radius: getSelectSizes(select-menu-border-radius);
       }
-
       &__menu-list {
         width: getSelectSizes(select-menu-list-width);
         @include theme(background-color, primary--color);
         max-height: getSelectSizes(select-menu-list-height);
         border-radius: getSelectSizes(select-menu-border-radius);
       }
-
       &__menu-notice {
         width: getSelectSizes(select-notice-width);
         padding: getSelectSizes(select-notice-padding);
         font-size: getSelectSizes(select-notice-font-size);
         box-sizing: border-box;
       }
-
       &__menu-list--is-multi {
         max-height: getSelectSizes(select-menu-is-multi-height);
       }
-
       &__option {
         height: getSelectSizes(select-menu-option-height);
         cursor: pointer;
         @include flex(null, center);
         @include theme(border-bottom, select-option-divider-color, solid 1px);
-
         &:hover {
           margin: 0;
           @include theme(background-color, primary, $opacity: 0.1);
         }
-
         label {
           height: getSelectSizes(select-menu-option-label-height);
           @include flex(null, center);
@@ -74,7 +65,6 @@
           @include flex(null, center);
           @include theme(color, black-color);
         }
-
         label,
         span {
           word-break: break-all;
@@ -83,14 +73,12 @@
           display: inline-block;
           cursor: pointer;
         }
-
         div {
           @include flex(center, center);
           width: getSelectSizes(select-menu-option-block-width);
           height: getSelectSizes(select-menu-option-block-height);
         }
       }
-
       &__value-container {
         @include flex();
         position: absolute;
@@ -102,33 +90,37 @@
         font-size: getSelectSizes(select-multi-value-font-size);
         @include flex();
       }
-
       &__menu-notice {
         width: 100%;
         padding: getSelectSizes(select-multi-menu-notice-padding);
         font-size: getSelectSizes(select-multi-menu-notice-font-size);
       }
-
       &__input {
         font-size: getSelectSizes(select-multi-input-font-size) !important;
       }
     }
+  }
+  .SetAsDefaultButton {
+    display: none;
+    padding: 0;
+    border: none;
+    background: none;
+    min-width: calculateRem(100px);
+    cursor: pointer;
+    @include theme(color, primary);
   }
 }
 
 @mixin generate-full-width-select-styles {
   :global {
     width: 100%;
-
     .react-select {
       &__menu {
         width: 100%;
       }
-
       &__menu-list {
         width: 100%;
       }
-
       &__menu-notice {
         width: getSelectSizes(select-notice-width);
         padding: getSelectSizes(select-notice-padding);
@@ -147,36 +139,34 @@
       max-height: getSelectSizes(dropdown-select-max-height);
       min-height: getSelectSizes(dropdown-select-min-height);
       box-sizing: border-box;
-
       .react-select__menu-list {
         margin-top: getSelectSizes(dropdown-select-menu-list-margin);
         width: getSelectSizes(dropdown-select-menu-list-width);
         max-height: getSelectSizes(dropdown-select-menu-list-max-height);
         min-height: getSelectSizes(dropdown-select-menu-list-in-height);
         border-radius: getSelectSizes(dropdown-select-menu-list-border-radius);
-
         .react-select__menu-notice {
           width: getSelectSizes(select-notice-width);
           padding: getSelectSizes(select-notice-padding);
           font-size: getSelectSizes(select-notice-font-size);
           box-sizing: border-box;
         }
-
         .react-select__option {
           width: getSelectSizes(dropdown-select-option-width);
           margin: getSelectSizes(dropdown-select-option-margin);
           box-sizing: border-box;
-
           span,
           label {
             height: getSelectSizes(dropdown-select-option-label-height);
           }
-
           &:hover {
             width: getSelectSizes(dropdown-select-option-label-hover-width);
             margin: 0;
             padding-left: getSelectSizes(dropdown-select-option-label-block-margin);
-
+            .SetAsDefaultButton {
+              display: block;
+              transform: translateX(calculateRem(-4px));
+            }
             &:first-child {
               border-radius: none;
             }

@@ -217,6 +217,7 @@ export const Dropdown = () => {
       }
       isSearchable={false}
       dropdownLabel={text('dropdownLabel', 'Columns')}
+      showSetAsDefaultButton
       onChange={action('onChange')}
       color={getColorKnobs()}
       isMulti={boolean('isMulti', true)}

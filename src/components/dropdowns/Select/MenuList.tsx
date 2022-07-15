@@ -7,7 +7,7 @@ import { DropdownSearch } from './Dropdown';
 import styles from './Select.module.scss';
 
 export const MenuList: typeof components.MenuList = (props) => {
-  const selectProps: typeof props.selectProps & CustomSelectProps = props.selectProps;
+  const selectProps = props.selectProps as unknown as typeof props.selectProps & CustomSelectProps;
 
   const arrayOfChildrens = Children.toArray(props.children);
 
@@ -21,7 +21,9 @@ export const MenuList: typeof components.MenuList = (props) => {
         )}
 
         <Scroll height={props.isMulti ? '26rem' : '28.8rem'} className={styles.SelectScroll}>
-          {arrayOfChildrens.filter((child) => (child as { props: { value: string } }).props.value !== '*')}
+          {arrayOfChildrens.filter(
+            (child) => (child as { props: { value: string } }).props.value !== selectProps.selectAllValue
+          )}
         </Scroll>
 
         {selectProps.clearButton && (

@@ -1,13 +1,16 @@
 $tag-sizes: (
   tag-width: calculateRem(92px),
   tag-height: calculateRem(32px),
-  tag-padding: calculateRem(8px) calculateRem(16px) calculateRem(7px) calculateRem(16px),
+  tag-padding: calculateRem(8px) calculateRem(16px) calculateRem(7px) calculateRem(10px),
   tag-border-radius: 16px,
+  end-icon-size: calculateRem(16px),
   tag-close-icon-padding-right: calculateRem(4px),
   tag-icon-container-width: calculateRem(24px),
   tag-icon-container-height: calculateRem(24px),
   alert-close-width: calculateRem(10px),
-  alert-close-marginLeft: calculateRem(7px)
+  alert-close-marginLeft: calculateRem(7px),
+  end-icon-marginLeft: calculateRem(4px),
+  end-icon-paddingLeft: calculateRem(20px)
 );
 
 $tag-colors: ();

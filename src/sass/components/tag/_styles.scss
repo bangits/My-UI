@@ -12,6 +12,7 @@
 
     .TagText {
       @include theme(color, gray-color);
+      margin-left: getTagSizes(end-icon-marginLeft);
     }
 
     &--icon {
@@ -28,6 +29,16 @@
       }
     }
 
+    .StartComponent {
+      border-radius: 50%;
+      background-color: #e0e1ee;
+      height: 23px;
+      width: 23px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1rem;
+    }
     @each $color in $base-colors {
       &.Tag--#{$color} {
         .TagText {
@@ -42,6 +53,19 @@
   .AlertClose {
     cursor: pointer;
     margin-left: getTagSizes(alert-close-marginLeft);
+    // width: getTagSizes(alert-close-width);
+    @include theme(fill, gray-color);
+  }
+  .EndIcon {
+    cursor: pointer;
+    // border: 2px solid red;
+    margin-right: getTagSizes(end-icon-marginLeft);
+    padding-left: getTagSizes(end-icon-paddingLeft);
+    svg {
+      width: getTagSizes(end-icon-size) !important;
+      fill: #6667ab;
+    }
+
     // width: getTagSizes(alert-close-width);
     @include theme(fill, gray-color);
   }

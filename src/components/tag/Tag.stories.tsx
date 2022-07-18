@@ -13,6 +13,7 @@ export const Default = () => {
   return (
     <>
       <Tag
+        tooltipText='tooltipText'
         value={1}
         title={text('title', 'Armenia')}
         closeIcon={boolean('closeIcon', true)}

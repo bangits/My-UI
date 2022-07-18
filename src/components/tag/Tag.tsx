@@ -1,5 +1,5 @@
 import { AlertClose } from '@/icons';
-import { Typography } from '@/my-ui-core';
+import { Typography, Tooltip } from '@/my-ui-core';
 import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
@@ -10,6 +10,7 @@ export interface TagProps extends IComponent {
   value?: number | string;
   startComponent?: boolean;
   closeIcon?: boolean;
+  tooltipText?: string;
   endIcon?: ReactNode;
   inactive?: boolean;
   color?: UIColors;
@@ -26,7 +27,8 @@ const Tag: FC<TagProps> = ({
   onClick,
   className,
   endIcon,
-  value
+  value,
+  tooltipText
 }) => {
   return (
     <>
@@ -47,13 +49,15 @@ const Tag: FC<TagProps> = ({
         </Typography>
         {closeIcon && (
           <span className={styles.IconContainer}>
-            {endIcon ? (
-              <div onClick={onClick} className={styles.EndIcon}>
-                {endIcon}
-              </div>
-            ) : (
-              closeIcon && <AlertClose onClick={onClose} className={styles.AlertClose} />
-            )}
+            <Tooltip text={tooltipText || ''}>
+              {endIcon ? (
+                <div onClick={onClick} className={styles.EndIcon}>
+                  {endIcon}
+                </div>
+              ) : (
+                closeIcon && <AlertClose onClick={onClose} className={styles.AlertClose} />
+              )}
+            </Tooltip>
           </span>
         )}
       </div>

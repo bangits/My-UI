@@ -1,7 +1,7 @@
 import { typedMemo } from '@/helpers';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import styles from './LoadingIndicator.module.scss';
 
 export type IndicatorVariant = 'circle' | 'square';
@@ -10,6 +10,7 @@ export interface LoadingIndicatorProps {
   variant: IndicatorVariant;
   color?: UIColors;
   dividerSize?: number;
+  fullWidth?: boolean;
 }
 
 const LoadingIndicator: FC<LoadingIndicatorProps> = ({
@@ -17,8 +18,17 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({
   variant = 'circle',
   color,
   dividerSize = 10,
-  children
+  children,
+  fullWidth
 }) => {
+  const loadingIndicatorRef = useRef<HTMLDivElement>(null);
+
+  const [loadingIndicatorDashArrayWidth, setLoadingIndicatorDashArrayWidth] = useState(0);
+
+  useEffect(() => {
+    setLoadingIndicatorDashArrayWidth(loadingIndicatorRef.current && loadingIndicatorRef.current.offsetWidth * 2 + 68);
+  }, [loadingIndicatorRef.current]);
+
   return (
     <>
       {variant === 'circle' ? (
@@ -26,8 +36,10 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({
           className={classNames(
             styles['LoadingIndicatorCircle'],
             styles[`LoadingIndicatorCircle--${color}`],
-            // styles['LoadingIndicatorCircle--success'], // WB-190 bug was appeared from this line of code
-            'Timer_LoadingIndicator'
+            'Timer_LoadingIndicator',
+            {
+              [styles['LoadingIndicatorCircle--full-width']]: fullWidth
+            }
           )}>
           <svg
             className={styles['LoadingIndicatorCircle__svg']}
@@ -59,17 +71,25 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({
           className={classNames(
             styles.LoadingIndicatorRectangle,
             styles['LoadingDropIndicator'],
-            styles[`LoadingIndicatorRectangle--${color}`]
-          )}>
+            styles[`LoadingIndicatorRectangle--${color}`],
+            {
+              [styles['LoadingIndicatorRectangle--full-width']]: fullWidth
+            }
+          )}
+          ref={loadingIndicatorRef}>
           <svg className={styles.SecondRectContainer}>
             <rect className={styles.SecondRect} x='1' y='1' rx='4'></rect>
             <rect
               x='1'
               y='1'
               rx='4'
-              stroke-dasharray={`${(percent > 100 ? 628 : percent < 0 ? 0 : (628 * percent) / 100) / dividerSize}rem ${
-                628 / dividerSize
-              }rem`}></rect>
+              stroke-dasharray={`${
+                (percent > 100
+                  ? loadingIndicatorDashArrayWidth
+                  : percent < 0
+                  ? 0
+                  : (loadingIndicatorDashArrayWidth * percent) / 100) / dividerSize
+              }rem ${loadingIndicatorDashArrayWidth / dividerSize}rem`}></rect>
           </svg>
           <div className={styles.LoadingIndicatorContent}>{children}</div>
         </div>

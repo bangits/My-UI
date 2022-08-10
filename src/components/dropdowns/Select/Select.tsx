@@ -29,6 +29,9 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
   clearButton?: boolean;
   clearButtonLabel?: string;
   clearIcon?: ReactNode;
+  applyButton?: boolean;
+  applyButtonLabel?: string;
+  selectTopPart?: ReactNode;
   //
   dropdown?: boolean;
   dropdownLabel?: string;
@@ -57,6 +60,7 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
     onInputBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
   }) => ReactNode;
   onDefaultOptionChange(defaultOption: SelectOptionType | null): void;
+  onApplyButtonClick?(values: SelectOptionType | SelectOptionType[], options: SelectOptionType[]): void;
 }
 
 export interface SelectProps<
@@ -275,7 +279,8 @@ function Select<
 Select.defaultProps = {
   selectAllValue: '*',
   selectAllLabel: 'All',
-  dropdownSearchPlaceholder: 'Select Filters...',
+  applyButtonLabel: 'Apply',
+  dropdownSearchPlaceholder: 'Search...',
   inputLabel: 'Select...',
   inputSelectedLabel: 'Selected items: ',
   renderInputSelectedLabel: (count) => `Selected items: ${count}`,

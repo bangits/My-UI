@@ -1,6 +1,5 @@
 .Select {
   position: relative;
-
   // TREE END
   .Select--search {
     width: 28rem;
@@ -11,31 +10,24 @@
     align-items: center;
     cursor: pointer;
     @include theme(color, black-color);
-
     @each $color in $base-colors {
       &--#{$color} {
         @include theme(color, #{$color});
       }
     }
   }
-
   //this so that the filter is closed, the label and icon must be of this color
-
   .Select--iconClose {
     @include theme(color, black-color);
   }
-
   .Select--labelClose {
     @include theme(color, black-color);
   }
-
   .Select--dropdown-control-icon {
     width: 2.4rem;
     height: 2.4rem;
-
     @include flex(center, center);
   }
-
   .Select--dropdown-control-label {
     height: 1.6rem;
     margin-left: 0.8rem;
@@ -46,7 +38,6 @@
     line-height: normal;
     letter-spacing: 0.14rem;
   }
-
   .Select--dropdown--input {
     position: absolute;
     top: 0;
@@ -56,7 +47,6 @@
     border-bottom: solid 1px #f9f9f9;
     border-radius: 0.8rem 0.8rem 0 0;
     background-color: #ffffffff;
-
     > input {
       box-sizing: border-box;
       width: 100%;
@@ -73,7 +63,6 @@
       padding: 0 2.8rem 0 0.8rem;
       color: #505d6e;
       border-radius: 0.8rem 0.8rem 0 0;
-
       &::placeholder {
         font-family: $base-font-family;
         font-size: 1.2rem;
@@ -91,7 +80,6 @@
       opacity: 0.4;
     }
   }
-
   .DISABLED {
     position: absolute;
     top: 0;
@@ -99,9 +87,7 @@
     width: 100%;
     height: 100%;
     z-index: 99999999999999999999;
-    // background-color: red;
   }
-
   .AllOption {
     &:first-child {
       > div {
@@ -115,7 +101,6 @@
       }
     }
   }
-
   &--custom-option {
     &:first-child {
       margin: 0;
@@ -124,7 +109,6 @@
       }
     }
     margin: 0 0.4rem;
-
     &:hover {
       margin: 0;
       > div {
@@ -132,13 +116,11 @@
       }
     }
   }
-
   .Select--icon-container {
     display: flex;
     font-size: 0;
   }
-
-  .Select--clear-button {
+  .Select--bottom-part {
     display: flex;
     align-items: center;
     position: absolute;
@@ -149,11 +131,12 @@
     height: 3.1rem;
     border-radius: 0 0 0.6rem 0.6rem;
     background-color: #ffffff;
-    cursor: pointer;
+    justify-content: space-between;
+    padding: 0 8px;
+    box-sizing: border-box;
     div {
-      width: 2.4rem;
-      height: 2.4rem !important;
-      margin-left: 0.4rem;
+      display: flex;
+      cursor: pointer;
       color: #48485d;
     }
     span {
@@ -161,44 +144,45 @@
       font-size: 1.2rem;
       color: #48485d;
       padding-left: 0.4rem;
-
       @include dots-after-text;
     }
+    button {
+      font-size: calculateRem(15px);
+    }
   }
-
+  .Select__top-part {
+    padding: 0 calculateRem(8px);
+  }
+  .Select--dropdown--input {
+    &-top-part {
+      transform: translateY(calculateRem(23px));
+    }
+  }
   @include generate-select-styles;
-
   &--fullWidth {
     width: 100%;
-
     .AllOption {
       &:first-child {
         width: 100%;
       }
     }
-
     .Select--search,
-    .Select--clear-button {
+    .Select--bottom-part {
       width: 100%;
     }
-
     @include generate-full-width-select-styles;
   }
-
   &--dropdown {
     @include generate-dropdown-select-styles;
   }
-
   &--with-clear {
     @include generate-with-clear-select-styles;
   }
-
   &--all {
     .SelectScroll {
       /* margin-top: 3.1rem; */
     }
   }
-
   :global {
     .MyUI-TextInputEndIcon {
       cursor: pointer;
@@ -215,7 +199,6 @@
 
 .DropdownArrow {
   @include theme(fill, primary);
-
   &--IconUp {
     text-decoration: none;
   }

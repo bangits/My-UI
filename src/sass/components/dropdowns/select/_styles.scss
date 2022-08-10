@@ -50,6 +50,12 @@
         &:hover {
           margin: 0;
           @include theme(background-color, primary, $opacity: 0.1);
+          :global {
+            .SetAsDefaultButton {
+              display: block;
+              transform: translateX(calculateRem(-4px));
+            }
+          }
         }
         label {
           height: getSelectSizes(select-menu-option-label-height);
@@ -102,6 +108,8 @@
   }
   .SetAsDefaultButton {
     display: none;
+    height: 100%;
+    margin-left: auto;
     padding: 0;
     border: none;
     background: none;
@@ -151,26 +159,22 @@
           font-size: getSelectSizes(select-notice-font-size);
           box-sizing: border-box;
         }
-        .react-select__option {
-          width: getSelectSizes(dropdown-select-option-width);
-          margin: getSelectSizes(dropdown-select-option-margin);
-          box-sizing: border-box;
-          span,
-          label {
-            height: getSelectSizes(dropdown-select-option-label-height);
-          }
-          &:hover {
-            width: getSelectSizes(dropdown-select-option-label-hover-width);
-            margin: 0;
-            padding-left: getSelectSizes(dropdown-select-option-label-block-margin);
-            .SetAsDefaultButton {
-              display: block;
-              transform: translateX(calculateRem(-4px));
-            }
-            &:first-child {
-              border-radius: none;
-            }
-          }
+      }
+    }
+    .react-select__option {
+      width: getSelectSizes(dropdown-select-option-width);
+      margin: getSelectSizes(dropdown-select-option-margin);
+      box-sizing: border-box;
+      span,
+      label {
+        height: getSelectSizes(dropdown-select-option-label-height);
+      }
+      &:hover {
+        width: getSelectSizes(dropdown-select-option-label-hover-width);
+        margin: 0;
+        padding-left: getSelectSizes(dropdown-select-option-label-block-margin);
+        &:first-child {
+          border-radius: none;
         }
       }
     }

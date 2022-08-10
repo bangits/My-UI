@@ -6,18 +6,15 @@
     &__svg {
       transform: scaleX(1);
     }
-
     &__circle {
       stroke: transparent;
     }
-
     &__path-elapsed {
       stroke-width: getLoadingIndicatorSizes(path-elapsed-width);
       transition: getLoadingIndicatorSizes(transition-all-indicator);
       stroke-width: getLoadingIndicatorSizes(path-elapsed-stroke-width);
       @include theme(fill, primary, $opacity: 0.04);
     }
-
     &__path-remaining {
       stroke-width: getLoadingIndicatorSizes(path-remaining-width);
       transform: rotate(90deg);
@@ -27,21 +24,17 @@
       @include theme(stroke, circle-indicator-remaining-color);
       stroke-width: getLoadingIndicatorSizes(path-remaining-stroke-width);
     }
-
     &__label {
       @include flex(center, center);
       font-size: getLoadingIndicatorSizes(base-timer-label-size);
     }
-
     .LoadingIndicatorCirclePercent {
       @include center-absolute();
     }
   }
-
   .LoadingIndicatorRectangle {
     position: relative;
-    width: getLoadingIndicatorSizes(loading-indicator-rectangle-width);
-
+    width: getLoadingIndicatorSizes(loading-indicator-width);
     rect {
       stroke-width: getLoadingIndicatorSizes(rectangle-stroke-width);
       transition: getLoadingIndicatorSizes(transition-all-indicator);
@@ -49,21 +42,23 @@
       width: getLoadingIndicatorSizes(loading-indicator-rectangle-width);
       height: getLoadingIndicatorSizes(loading-indicator-rectangle-height);
     }
-
     .LoadingIndicatorContent {
       @include flex(space-between, null);
-
       position: absolute;
       top: getLoadingIndicatorSizes(loading-indicator-top);
-
       width: 100%;
     }
+    &--full-width {
+      width: 100%;
+      rect {
+        width: calc(100% - calculateRem(3px));
+      }
+    }
   }
-
   .SecondRectContainer {
+    width: 100%;
     height: getLoadingIndicatorSizes(second-rect-container-height);
   }
-
   @each $color in $base-colors {
     .LoadingIndicatorCircle--#{$color} {
       .LoadingIndicatorCircle {
@@ -72,17 +67,14 @@
           @include theme(fill, #{$color}, $opacity: 0.1);
         }
       }
-
       .LoadingIndicatorCirclePercent {
         @include theme(color, #{$color});
       }
     }
-
     .LoadingIndicatorRectangle--#{$color} {
       rect {
         @include theme(stroke, #{$color});
       }
-
       .SecondRect {
         @include theme(stroke, #{$color}, $opacity: 0.1);
       }

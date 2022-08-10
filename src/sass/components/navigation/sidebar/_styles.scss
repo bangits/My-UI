@@ -3,16 +3,13 @@
     position: static;
     height: getSideBarSizes(sidebar-height);
   }
-
   .SidebarContainer {
     // @include theme(background-color, primary);
   }
-
   .SidebarContent,
   .SidebarBase {
     // background-color: inherit;
   }
-
   .SidebarBase {
     position: absolute;
     z-index: getSideBarSizes(sidebar-z-index);
@@ -22,20 +19,16 @@
     @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
     @include theme(background-color, primary);
     // @include theme(background-color, sidebar-button-container-background-color);
-
     // background:aqua;
     transition: getSideBarSizes(sidebar-transition);
-
     &--fixed {
       position: fixed;
     }
-
     &--static {
       position: static;
       max-width: getSideBarSizes(sidebar-width);
       // background-color: inherit;
     }
-
     &--logo-container {
       min-height: 103px;
       position: relative;
@@ -55,7 +48,6 @@
         z-index: 100;
       }
     }
-
     &--logo {
       margin: getSideBarSizes(sidebar-logo-collapsed-margin);
       width: getSideBarSizes(sidebar-logo-width);
@@ -65,7 +57,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
       img {
         width: 100%;
         height: 100%;
@@ -73,7 +64,6 @@
         border-radius: getSideBarSizes(sidebar-logo-border-radius);
       }
     }
-
     &--button-container {
       // @include theme(background-color, sidebar-button-container-background-color);
       @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
@@ -89,31 +79,23 @@
         @include theme(fill, primary);
       }
     }
-
     button#{&}--button {
       width: getSideBarSizes(sidebar-button-container-width);
       height: getSideBarSizes(sidebar-button-container-height);
-
       svg {
         width: getSideBarSizes(button-arrow-width);
       }
-
       &:hover {
         background-color: transparent;
       }
     }
-
     &--item-container {
       margin-top: getSideBarSizes(sidebar-item-container-margin-top);
       padding: 0;
-
-      max-height: calc(100vh - 25rem);
-
+      max-height: calc(100vh - 28rem);
       overflow: hidden;
       overflow-y: scroll;
-
       @include hide-scroll;
-
       svg {
         transform: all linear 0.16s !important;
       }
@@ -137,7 +119,6 @@
         }
       }
     }
-
     &::before {
       content: '';
       @include theme(background-color, sidebar-line-color);
@@ -147,10 +128,8 @@
       width: getSideBarSizes(sidebar-base-before-width);
       min-height: getSideBarSizes(sidebar-base-before-min-height);
     }
-
     &--closed {
       width: getSideBarSizes(sidebar-min-width);
-
       &::before {
         position: absolute;
         right: getSideBarSizes(sidebar-base-before-positon-right);
@@ -160,12 +139,10 @@
         @include theme(background-color, sidebar-line-color);
         min-height: getSideBarSizes(sidebar-base-before-min-height);
       }
-
       .SidebarBase--logo {
         margin: getSideBarSizes(sidebar-logo-margin);
         transition: getSideBarSizes(sidebar-transition);
       }
-
       .SidebarBase--menu-item {
         a {
           display: none;
@@ -174,7 +151,6 @@
       }
     }
   }
-
   .SidebarBase-ToggleIcon {
     @include theme(fill, sidebar-toggle-icon-fill);
   }

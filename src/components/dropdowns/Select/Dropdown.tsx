@@ -38,18 +38,23 @@ export const DropdownIcon: typeof components.Control = (props) => {
 export const DropdownSearch: FC<{
   selectProps: CustomSelectProps & { onInputChange: (value: string, actionMeta: InputActionMeta) => void };
 }> = ({ selectProps }) => {
+  const { onInputChange, selectTopPart } = selectProps;
+
   const inputMouseDownHandler = useCallback((e) => e.stopPropagation(), []);
 
   const inputChangeHandler = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      selectProps.onInputChange(e.target.value, null);
+      onInputChange(e.target.value, null);
     },
-    [selectProps]
+    [onInputChange]
   );
 
   return (
     <>
-      <div className={classNames(styles['Select--dropdown--input'])}>
+      <div
+        className={classNames(styles['Select--dropdown--input'], {
+          [styles['Select--dropdown--input-top-part']]: selectTopPart
+        })}>
         <input
           type='text'
           onMouseDown={inputMouseDownHandler}

@@ -1,6 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { number, text, withKnobs } from '@storybook/addon-knobs';
-import React from 'react';
+import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 import FileUploader from './FileUploader';
 
 export default {
@@ -23,6 +22,7 @@ export const Default = () => {
         minSize={number('minSize', 1000)}
         maxSize={number('maxSize', 5000000)}
         accept={text('accept', 'image/*')}
+        fullWidth={boolean('fullWidth', true)}
       />
     </>
   );

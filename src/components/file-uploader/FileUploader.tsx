@@ -13,6 +13,7 @@ export interface FileUploaderProps extends BaseFileUploaderProps {
   imageSrc?: string;
   indicatorColor?: UIColors;
   forceShowUploader?: boolean;
+  fullWidth?: boolean;
 }
 
 const FileUploader: FC<FileUploaderProps> = ({
@@ -30,7 +31,8 @@ const FileUploader: FC<FileUploaderProps> = ({
   browseText = 'Browse',
   imageSrc,
   indicatorColor = 'success',
-  forceShowUploader
+  forceShowUploader,
+  fullWidth
 }) => {
   const [highlight, setHighlight] = useState<boolean>(false);
 
@@ -89,7 +91,7 @@ const FileUploader: FC<FileUploaderProps> = ({
 
   return (
     <>
-      {!uploadedFile && !forceShowUploader ? (
+      {!imageSrc && !uploadedFile && !forceShowUploader ? (
         <div
           onDragEnter={handleEnter}
           onDragLeave={handleLeave}
@@ -97,26 +99,25 @@ const FileUploader: FC<FileUploaderProps> = ({
           onDrop={handleUpload}
           className={classNames({
             [styles.DropzoneBase]: !highlight,
-            [styles.DropIndicator]: highlight
+            [styles.DropIndicator]: highlight,
+            [styles['DropzoneBase--full-width']]: fullWidth
           })}>
           <Typography component='span' variant='p4'>
             {dragFileText}
             <div className={styles['DropzoneBase--browse']}>
               {browseText}
-              {!highlight && (
-                <input
-                  type='file'
-                  title=''
-                  accept={accept}
-                  onChange={handleUpload}
-                  className={styles['DropzoneBase--upload']}
-                />
-              )}
+              <input
+                type='file'
+                title=''
+                accept={accept}
+                onChange={handleUpload}
+                className={styles['DropzoneBase--upload']}
+              />
             </div>
           </Typography>
         </div>
       ) : (
-        <LoadingIndicator variant='square' color={indicatorColor} percent={loadingPercent}>
+        <LoadingIndicator variant='square' color={indicatorColor} percent={loadingPercent} fullWidth={fullWidth}>
           <div className={styles.GameIndicatorIconWrapper}>
             <span className={styles.GameIndicatorIcon}>
               <img src={imageSrc || uploadedImageSource} alt={uploadedFile?.name} />

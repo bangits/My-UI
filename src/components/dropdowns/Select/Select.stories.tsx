@@ -199,7 +199,53 @@ export const MultiSelect = () => {
         explanation={text('explanation', '')}
         color={getColorKnobs()}
         isMulti={boolean('isMulti', true)}
-        options={object('multiSelectOptions2', [])}
+        options={object('multiSelectOptions2', [
+          {
+            label: 'Game data',
+            value: 7
+          },
+          {
+            label: 'Provider',
+            value: 8
+          },
+          {
+            label: 'Theme',
+            value: 9
+          },
+          {
+            label: 'Type',
+            value: 10
+          },
+          {
+            label: 'Provider',
+            value: 11
+          },
+          {
+            label: 'Theme',
+            value: 12
+          },
+          {
+            label: 'Type',
+            value: 13
+          },
+          {
+            label: 'Subtype',
+            value: 14
+          },
+          {
+            label: 'Provider',
+            value: 15
+          },
+          {
+            label: 'Theme',
+            value: 16
+          },
+          {
+            label: 'Type',
+            value: 17
+          }
+        ])}
+        showSetAsDefaultButton
       />
     </>
   );
@@ -269,6 +315,10 @@ export const Dropdown = () => {
       ]}
       selectAll
       selectAllLabel='All'
+      selectTopPart='Assign to Slider'
+      applyButton
+      applyButtonLabel='Apply'
+      onApplyButtonClick={action('onApplyButtonClick')}
     />
   );
 };

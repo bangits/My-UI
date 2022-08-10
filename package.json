@@ -112,5 +112,9 @@
   "types": "./dist/my-ui-core.d.ts",
   "files": [
     "dist"
-  ]
+  ],
+  "resolutions": {
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2"
+  }
 }

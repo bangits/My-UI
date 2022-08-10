@@ -73,6 +73,10 @@
     @include theme(background-color, dialog-dark-background-color);
   }
 
+  .DialogModeVariant--large {
+    max-width: getDialogSizes(large-dialog-width);
+  }
+
   .Overlay {
     z-index: getDialogSizes(dialog-z-index);
     cursor: pointer;

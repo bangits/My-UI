@@ -60,7 +60,11 @@ export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
     onInputBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
   }) => ReactNode;
   onDefaultOptionChange(defaultOption: SelectOptionType | null): void;
-  onApplyButtonClick?(values: SelectOptionType | SelectOptionType[], options: SelectOptionType[]): void;
+  onApplyButtonClick?(
+    values: SelectOptionType | SelectOptionType[],
+    options: SelectOptionType[],
+    closeMenu: () => void
+  ): void;
 }
 
 export interface SelectProps<

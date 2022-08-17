@@ -53,14 +53,15 @@ export const MenuList: typeof components.MenuList = (props) => {
               </div>
             )}
 
-            {clearButton && onApplyButtonClick && (
+            {applyButton && onApplyButtonClick && (
               <div>
                 <Button
                   variant='link'
                   onClick={() => {
                     onApplyButtonClick(
                       value as unknown as SelectOptionType | SelectOptionType[],
-                      options as unknown as SelectOptionType[]
+                      options as unknown as SelectOptionType[],
+                      () => selectProps.onMenuClose()
                     );
                   }}>
                   {applyButtonLabel}

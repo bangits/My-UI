@@ -4,6 +4,7 @@ export * from './alert';
 export * from './avatar-card';
 export * from './card-img';
 export * from './checkbox-and-radio-button';
+export * from './collapse';
 export * from './copy-field';
 export * from './dropdowns';
 export * from './file-uploader';

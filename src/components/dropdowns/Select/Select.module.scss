@@ -152,6 +152,8 @@
   }
   .Select__top-part {
     padding: 0 calculateRem(8px);
+    padding-top: calculateRem(4px);
+    color: #505d6e;
   }
   .Select--dropdown--input {
     &-top-part {

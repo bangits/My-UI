@@ -1,0 +1,42 @@
+@mixin generate-collapse-styles {
+  .Collapse {
+    $this: #{&};
+    @include theme(background-color, primary--color);
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    padding: 0 calculateRem(15px);
+    border-top-left-radius: calculateRem(4px);
+    border-top-right-radius: calculateRem(4px);
+    font-size: calculateRem(16px);
+    margin-bottom: calculateRem(10px);
+    &,
+    &__content,
+    .CollapseButton {
+      transition: all 0.3s;
+    }
+    &__wrapper {
+      @include flex(space-between, center);
+      cursor: pointer;
+      min-height: calculateRem(40px);
+      button {
+        width: calculateRem(30px);
+        height: calculateRem(30px);
+      }
+    }
+    &__content {
+      max-height: 0;
+      overflow: hidden;
+    }
+    &--opened {
+      padding-top: calculateRem(10px);
+      padding-bottom: calculateRem(10px);
+      #{$this}__content {
+        max-height: 100vh;
+      }
+    }
+    &--opened:not(&--custom-icons) {
+      .CollapseButton {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

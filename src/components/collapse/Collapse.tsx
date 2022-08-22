@@ -31,7 +31,6 @@ const Collapse: FC<PropsWithChildren<CollapseProps>> = ({
 }) => {
   // eslint-disable-next-line prefer-const
   let [isCollapseOpened, setCollapseOpened] = useState(defaultOpened);
-  console.log('🚀 ~ file: Collapse.tsx ~ line 27 ~ isCollapseOpened', isCollapseOpened);
 
   if (opened !== undefined) isCollapseOpened = opened;
 

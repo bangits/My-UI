@@ -1,8 +1,8 @@
 import { AlertClose } from '@/icons';
-import { Typography, Tooltip } from '@/my-ui-core';
+import { Tooltip, Typography } from '@/my-ui-core';
 import { IComponent, UIColors } from '@/types';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './Tag.module.scss';
 
 export interface TagProps extends IComponent {
@@ -43,8 +43,8 @@ const Tag: FC<TagProps> = ({
           className
         )}
         onClick={onClick}>
-        {value && <div className={styles.StartComponent}> {value} </div>}
-        <Typography component='span' variant='p4' className={classNames(styles.TagText)}>
+        {value && <div className={styles.StartComponent}>{value}</div>}
+        <Typography component='span' variant='p4' className={styles.TagText}>
           {title}
         </Typography>
         {closeIcon && (

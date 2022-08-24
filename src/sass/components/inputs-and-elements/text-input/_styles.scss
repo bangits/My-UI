@@ -1,5 +1,4 @@
 $transition-duration: getTextFieldSizes(label-transition);
-
 @mixin generate-text-input-styles {
   .Explanation {
     display: block;
@@ -8,7 +7,6 @@ $transition-duration: getTextFieldSizes(label-transition);
     word-break: break-word;
     @include theme(color, default-input-color);
   }
-
   .TextInputWrapper {
     position: relative;
     display: inline-block;
@@ -18,37 +16,26 @@ $transition-duration: getTextFieldSizes(label-transition);
     font-size: getTextFieldSizes(input-font-size);
     overflow: hidden;
   }
-
   // Input
   .TextInputBaseInput {
     width: 100%;
-
     &--textarea {
       overflow: hidden;
       resize: none;
     }
-
     @include theme(border, default-input-border-color, solid getTextFieldSizes(input-border-width));
-
     &:hover,
     &:focus,
     &--filled {
       border-width: getTextFieldSizes(input-hover-border-width);
     }
-
-    &:disabled {
-      opacity: getTextFieldSizes(input-disabled);
-    }
-
     &:focus {
       @include theme(border-color, default-input-border-color);
     }
-
     // Sizes
     border-radius: getTextFieldSizes(input-border-radius);
     padding: 0 getTextFieldSizes(input-type-offset);
     min-height: getTextFieldSizes(input-min-height);
-
     // Reset
     background-color: transparent;
     box-sizing: border-box;
@@ -59,49 +46,38 @@ $transition-duration: getTextFieldSizes(label-transition);
     height: inherit;
     box-shadow: none;
     font-family: inherit;
-
     // Animation
     transition: border $transition-duration, box-shadow $transition-duration;
-
     &:not(:focus):not(.TextInputBaseInput--filled) {
       @include theme(border-top-color, default-input-border-color);
-
       + .TextInputLabelContainer {
         line-height: getTextFieldSizes(input-label-line-height);
-
         &::before,
         &::after {
           border-top-color: transparent;
         }
       }
     }
-
     &--with-label {
       &:focus,
       &.TextInputBaseInput--filled {
         border-top-color: transparent !important;
       }
     }
-
     &:focus,
     &--filled {
       @include theme(color, black-color);
-
       box-shadow: inset 1px 0 inherit, inset -1px 0 inherit, inset 0 -1px inherit;
       outline: none;
-
       + .TextInputLabelContainer {
         @include theme(color, default-input-color);
-
         font-size: getTextFieldSizes(input-label-focused-font-size);
-
         &::before,
         &::after {
           @include theme(border-top-color, default-input-border-color);
         }
       }
     }
-
     &--with-two-start-icon {
       padding-left: getTextFieldSizes(input-with-two-icon-padding) !important;
     }
@@ -109,7 +85,6 @@ $transition-duration: getTextFieldSizes(label-transition);
       padding-right: getTextFieldSizes(input-with-two-icon-padding) !important;
     }
   }
-
   // Label
   .TextInputLabelContainer {
     position: absolute;
@@ -125,7 +100,6 @@ $transition-duration: getTextFieldSizes(label-transition);
     transition: text-indent $transition-duration, color $transition-duration, font-size $transition-duration,
       line-height $transition-duration;
     height: getTextFieldSizes(input-label-height);
-
     &::before,
     &::after {
       content: '';
@@ -140,13 +114,11 @@ $transition-duration: getTextFieldSizes(label-transition);
       box-shadow: inset 0 1px transparent;
       transition: border-color $transition-duration, box-shadow $transition-duration;
     }
-
     &::before {
       margin-right: getTextFieldSizes(input-corner-offset);
       border-left: solid 0.1rem transparent;
       border-radius: getTextFieldSizes(input-border-radius) 0;
     }
-
     &::after {
       flex-grow: 1;
       margin-left: getTextFieldSizes(input-corner-offset);
@@ -154,12 +126,10 @@ $transition-duration: getTextFieldSizes(label-transition);
       border-radius: 0 getTextFieldSizes(input-border-radius);
     }
   }
-
   .TextInputLabelText {
     min-height: getTextFieldSizes(input-label-text-height);
     padding-right: getTextFieldSizes(input-label-icon-offset);
     @include dots-after-text;
-
     &--with-two-start-icon {
       padding-left: getTextFieldSizes(input-label-with-two-start-icon-padding);
     }
@@ -167,9 +137,7 @@ $transition-duration: getTextFieldSizes(label-transition);
       padding-right: getTextFieldSizes(input-label-with-two-end-icon-padding);
     }
   }
-
   // Icons
-
   .StartIcon,
   .EndIcon {
     position: absolute;
@@ -180,64 +148,51 @@ $transition-duration: getTextFieldSizes(label-transition);
     @include theme(color, primary, $opacity: 0.65);
     @include center-flex;
   }
-
   .StartIcon {
     left: getTextFieldSizes(icon-margin-left);
   }
-
   .EndIcon {
     right: getTextFieldSizes(icon-margin-right);
   }
-
   .TextInputContainer {
     min-height: getTextFieldSizes(input-container);
-
     &--full-width {
       .TextInputWrapper {
         max-width: initial;
       }
-
       .Explanation {
         max-width: initial;
       }
     }
-
     &--focused,
     &--filled {
       .EndIcon,
       .StartIcon {
         @include theme(color, primary);
       }
-
       .TextInputLabelText {
         padding-right: 0;
         min-height: 0;
-
         &--with-two-start-icon {
           padding-left: 0;
         }
       }
     }
-
     &--disabled {
       opacity: getTextFieldSizes(disabled-opacity);
     }
-
     &--withRightIcon {
       .TextInputBaseInput {
         padding-right: getTextFieldSizes(input-type-offset--with-icons);
       }
     }
-
     &--withLeftIcon {
       .TextInputBaseInput {
         padding-left: getTextFieldSizes(input-type-offset--with-icons);
       }
-
       .TextInputLabelContainer {
         text-indent: getTextFieldSizes(input-label-offset--with-icons);
       }
-
       .TextInputBaseInput {
         &:focus,
         &--filled {
@@ -248,9 +203,7 @@ $transition-duration: getTextFieldSizes(label-transition);
       }
     }
   }
-
   // Color mapping
-
   .TextInputContainer {
     @each $color in $base-colors {
       &--#{$color} {
@@ -261,46 +214,35 @@ $transition-duration: getTextFieldSizes(label-transition);
             @include theme(color, #{$color});
           }
         }
-
         .Explanation {
           @include theme(color, #{$color});
         }
-
         .StartIcon,
         .EndIcon {
           @include theme(color, #{$color});
         }
-
         .TextInputLabelContainer {
           @include theme(border-color, #{$color});
           @include theme(color, #{$color});
-
           &::before,
           &::after {
             @include theme(border-top-color, #{$color});
           }
         }
-
         .TextInputBaseInput {
           @include theme(color, #{$color});
-
           @include theme(border, #{$color}, solid 0.1rem);
-
           &:not(:focus) {
             @include theme(border-top-color, #{$color});
           }
-
           &:focus,
           &--filled {
             @include theme(border-color, #{$color});
           }
-
           &:focus {
             @include theme(border-color, #{$color});
-
             + .TextInputLabelContainer {
               @include theme(color, #{$color});
-
               &::before,
               &::after {
                 @include theme(border-top-color, #{$color});

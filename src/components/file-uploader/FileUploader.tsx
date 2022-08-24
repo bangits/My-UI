@@ -14,6 +14,7 @@ export interface FileUploaderProps extends BaseFileUploaderProps {
   indicatorColor?: UIColors;
   forceShowUploader?: boolean;
   fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 const FileUploader: FC<FileUploaderProps> = ({
@@ -32,7 +33,8 @@ const FileUploader: FC<FileUploaderProps> = ({
   imageSrc,
   indicatorColor = 'success',
   forceShowUploader,
-  fullWidth
+  fullWidth,
+  disabled
 }) => {
   const [highlight, setHighlight] = useState<boolean>(false);
 
@@ -80,13 +82,15 @@ const FileUploader: FC<FileUploaderProps> = ({
       maxSize,
       accept,
       onChange: (file) => {
+        if (disabled) return;
+
         onChange(file);
         setUploadedFile(file);
       },
       onError,
       onImageSourceChange: setUploadedImageSource
     }),
-    [onChange, onError, accept]
+    [onChange, onError, accept, disabled]
   );
 
   return (
@@ -100,7 +104,8 @@ const FileUploader: FC<FileUploaderProps> = ({
           className={classNames({
             [styles.DropzoneBase]: !highlight,
             [styles.DropIndicator]: highlight,
-            [styles['DropzoneBase--full-width']]: fullWidth
+            [styles['DropzoneBase--full-width']]: fullWidth,
+            [styles['DropzoneBase--disabled']]: disabled
           })}>
           <Typography component='span' variant='p4'>
             {dragFileText}
@@ -117,7 +122,12 @@ const FileUploader: FC<FileUploaderProps> = ({
           </Typography>
         </div>
       ) : (
-        <LoadingIndicator variant='square' color={indicatorColor} percent={loadingPercent} fullWidth={fullWidth}>
+        <LoadingIndicator
+          variant='square'
+          color={indicatorColor}
+          percent={loadingPercent}
+          fullWidth={fullWidth}
+          disabled={disabled}>
           <div className={styles.GameIndicatorIconWrapper}>
             <span className={styles.GameIndicatorIcon}>
               <img src={imageSrc || uploadedImageSource} alt={uploadedFile?.name} />
@@ -129,6 +139,8 @@ const FileUploader: FC<FileUploaderProps> = ({
             <button
               type='button'
               onClick={() => {
+                if (disabled) return;
+
                 setUploadedFile(null);
                 onChange(null);
               }}

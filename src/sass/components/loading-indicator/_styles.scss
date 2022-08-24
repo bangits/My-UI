@@ -54,6 +54,10 @@
         width: calc(100% - calculateRem(3px));
       }
     }
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
   }
   .SecondRectContainer {
     width: 100%;

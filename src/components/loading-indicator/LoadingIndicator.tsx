@@ -11,6 +11,7 @@ export interface LoadingIndicatorProps {
   color?: UIColors;
   dividerSize?: number;
   fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 const LoadingIndicator: FC<LoadingIndicatorProps> = ({
@@ -19,7 +20,8 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({
   color,
   dividerSize = 10,
   children,
-  fullWidth
+  fullWidth,
+  disabled
 }) => {
   const loadingIndicatorRef = useRef<HTMLDivElement>(null);
 
@@ -73,7 +75,8 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = ({
             styles['LoadingDropIndicator'],
             styles[`LoadingIndicatorRectangle--${color}`],
             {
-              [styles['LoadingIndicatorRectangle--full-width']]: fullWidth
+              [styles['LoadingIndicatorRectangle--full-width']]: fullWidth,
+              [styles['LoadingIndicatorRectangle--disabled']]: disabled
             }
           )}
           ref={loadingIndicatorRef}>

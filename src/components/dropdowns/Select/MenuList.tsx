@@ -58,11 +58,16 @@ export const MenuList: typeof components.MenuList = (props) => {
                 <Button
                   variant='link'
                   onClick={() => {
-                    onApplyButtonClick(
-                      value as unknown as SelectOptionType | SelectOptionType[],
-                      options as unknown as SelectOptionType[],
-                      () => selectProps.onMenuClose()
-                    );
+                    const typedValue = value as unknown as SelectOptionType | SelectOptionType[];
+                    const typedOptions = options as unknown as SelectOptionType[];
+
+                    const valueWithoutAll = Array.isArray(typedValue)
+                      ? typedValue.filter((v) => v.value !== selectProps.selectAllValue)
+                      : typedValue;
+
+                    const optionsWithoutAll = typedOptions.filter((v) => v.value !== selectProps.selectAllValue);
+
+                    onApplyButtonClick(valueWithoutAll, optionsWithoutAll, () => selectProps.onMenuClose());
                   }}>
                   {applyButtonLabel}
                 </Button>

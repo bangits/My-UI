@@ -198,6 +198,7 @@ export const MultiSelect = () => {
         inputSelectedLabel={text('inputSelectedLabel', 'Selected ')}
         explanation={text('explanation', '')}
         color={getColorKnobs()}
+        selectAll
         isMulti={boolean('isMulti', true)}
         options={object('multiSelectOptions2', [
           {
@@ -245,6 +246,7 @@ export const MultiSelect = () => {
             value: 17
           }
         ])}
+        onChange={action('onChange')}
         showSetAsDefaultButton
       />
     </>

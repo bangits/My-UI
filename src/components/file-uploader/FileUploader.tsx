@@ -2,7 +2,7 @@ import { TrashIndicator } from '@/icons';
 import { LoadingIndicator, Typography } from '@/my-ui-core';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import { BaseFileUploaderProps, createHandleFileUpload } from './createHandleFileUpload';
 import styles from './FileUploader.module.scss';
 
@@ -40,7 +40,7 @@ const FileUploader: FC<FileUploaderProps> = ({
 
   const [uploadedFile, setUploadedFile] = useState<File>(null);
 
-  const [uploadedImageSource, setUploadedImageSource] = useState('');
+  const [uploadedImageSource, setUploadedImageSource] = useState(imageSrc || '');
 
   const handleEnter = useCallback(
     (e: React.DragEvent<HTMLDivElement>) => {
@@ -93,6 +93,12 @@ const FileUploader: FC<FileUploaderProps> = ({
     [onChange, onError, accept, disabled]
   );
 
+  useEffect(() => {
+    setUploadedImageSource(imageSrc);
+
+    if (!imageSrc) setUploadedFile(null);
+  }, [imageSrc]);
+
   return (
     <>
       {!imageSrc && !uploadedFile && !forceShowUploader ? (
@@ -130,7 +136,7 @@ const FileUploader: FC<FileUploaderProps> = ({
           disabled={disabled}>
           <div className={styles.GameIndicatorIconWrapper}>
             <span className={styles.GameIndicatorIcon}>
-              <img src={imageSrc || uploadedImageSource} alt={uploadedFile?.name} />
+              <img src={uploadedImageSource} alt={uploadedFile?.name} />
             </span>
             <span className={styles.ImageFormatLabel}>{uploadedFile?.name}</span>
           </div>

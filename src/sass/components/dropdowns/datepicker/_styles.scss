@@ -1,82 +1,65 @@
 @mixin generate-datepicker-styles {
   .DatePicker {
     :global {
-      z-index: 9999;
-
+      z-index: 9998;
       .react-datepicker {
         @include theme(background-color, primary--color);
         @include flex;
         position: relative;
-
         padding-bottom: getDatePickerSizes(datePicker-wrapper-padding-bottom);
         padding: getDatePickerSizes(datePicker-padding);
         @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
         min-width: getDatePickerSizes(datePicker-wrapper-width);
         min-height: getDatePickerSizes(datePicker-wrapper-min-heigh);
         height: getDatePickerSizes(datePicker-month-container-min-height);
-
         &__navigation-icon--previous,
         &-time__caption,
         &__navigation-icon--next {
           display: none;
         }
-
         &__navigation--next,
         &__navigation--previous {
           position: absolute;
           top: getDatePickerSizes(datepicker-navigation-top);
           width: getDatePickerSizes(datepicker-navigation-width);
-
           &,
           svg {
             height: getDatePickerSizes(datepicker-navigation-height);
           }
-
           cursor: pointer;
           border: none;
           background: none;
-
           z-index: getBaseSizes(z-index);
         }
-
         &__navigation--next {
           right: getDatePickerSizes(datepicker-navigation--nextMargin);
-
           &:hover {
             @include theme(color, primary);
           }
         }
-
         &__navigation--previous {
           left: getDatePickerSizes(datepicker-navigation--leftMargin);
-
           transform: rotate(180deg);
-
           &:hover {
             @include theme(color, primary);
           }
         }
-
         &__day--range-start,
         &__day--range-end {
           @include theme(color, primary--color);
           @include theme(background-color, primary);
         }
-
         &__day--in-range {
           @include theme(background-color, primary, $opacity: 0.1);
           @include theme(color, primary);
         }
-
         &__day--selecting-range-start {
           @include theme(background-color, primary--color);
         }
-
         &__day--in-selecting-range {
           @include theme(background-color, primary, $opacity: 0.1);
           @include theme(color, primary);
         }
-
         &__current-month {
           @include theme(color, black-color);
           margin: getDatePickerSizes(datePicker-month-title-padding);
@@ -86,18 +69,15 @@
         }
         &__navigation &__navigation--previous {
           position: absolute;
-
           cursor: pointer;
           visibility: hidden;
         }
-
         &__day-names {
           @include theme(color, datepicker-day-names-color);
           @include flex(space-around, null);
           font-size: getDatePickerSizes(datePicker-day--name);
           margin-bottom: getDatePickerSizes(datePicker-week-font-size);
           text-transform: uppercase;
-
           div {
             @include flex(center, null);
             font-size: getDatePickerSizes(datePicker-week-name-font-size);
@@ -114,7 +94,6 @@
           margin-bottom: getDatePickerSizes(datePicker-weeks-margin-bottom);
           height: getDatePickerSizes(datePicker-days-height);
           font-size: getDatePickerSizes(datePicker-month--size);
-
           div {
             min-width: getDatePickerSizes(datePicker-day-width);
             // padding: getDatePickerSizes(datePicker-day-padding);
@@ -123,7 +102,6 @@
             cursor: pointer;
             text-align: center;
           }
-
           .react-datepicker__day:hover,
           .react-datepicker__day--selected {
             @include theme(color, primary--color);
@@ -134,14 +112,12 @@
         &__day--today {
           @include generateBorderWithBoxShadow(primary, 1px);
           @include theme(color, primary);
-
           border-radius: getDatePickerSizes(datePicker-month-container--borderRadius);
           margin: getDatePickerSizes(datePicker-current-day-margin);
         }
         &__day--outside-month {
           @include theme(color, datepicker-day-color, $opacity: 0.5);
         }
-
         &__day--selecting-range-end {
           border-radius: getDatePickerSizes(datePicker-selected-in-range-end);
         }
@@ -151,7 +127,6 @@
         &__day:hover {
           @include theme(color, primary--color);
           @include theme(background-color, primary);
-
           border-radius: getDatePickerSizes(datePicker-selected-in-range-start);
           opacity: 1;
         }
@@ -188,20 +163,17 @@
         @include theme(color, primary);
       }
     }
-
     &--withTwoMonths {
       :global {
         .react-datepicker {
           min-width: getDatePickerSizes(datePicker-wrapper-two-month-min-width);
         }
-
         .react-datepicker__month-container:last-child {
           margin-left: getDatePickerSizes(datePicker-month-container--leftMargin);
         }
       }
     }
   }
-
   @each $color in $base-colors {
     .DatePicker--#{$color} {
       :global {
@@ -211,33 +183,27 @@
               @include theme(color, #{$color});
             }
           }
-
           &__navigation--previous {
             &:hover {
               @include theme(color, #{$color});
             }
           }
-
           &__day--range-start,
           &__day--range-end {
             @include theme(color, #{$color});
             @include theme(background-color, #{$color});
           }
-
           &__day--in-range {
             @include theme(background-color, #{$color}, $opacity: 0.1);
             @include theme(color, #{$color});
           }
-
           &__day--selecting-range-start {
             @include theme(background-color, #{$color}--color);
           }
-
           &__day--in-selecting-range {
             @include theme(background-color, #{$color}, $opacity: 0.1);
             @include theme(color, #{$color});
           }
-
           &__day-names {
             @include theme(color, #{$color});
           }
@@ -246,7 +212,6 @@
               @include theme(color, #{$color});
             }
           }
-
           &__week {
             .react-datepicker__day:hover,
             .react-datepicker__day--selected {
@@ -261,7 +226,6 @@
           &__day--outside-month {
             @include theme(color, #{$color}, $opacity: 0.5);
           }
-
           &__day--selecting-range-start,
           &__day--range-start,
           &__day--range-end,
@@ -278,7 +242,6 @@
             @include theme(background-color, #{$color});
           }
         }
-
         .react-datepicker__day.react-datepicker__day--in-selecting-range.react-datepicker__day--outside-month:hover {
           @include theme(color, #{$color}, $opacity: 0.5);
         }

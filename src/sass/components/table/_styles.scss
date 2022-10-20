@@ -71,6 +71,14 @@
       margin-right: getTableSizes(last-table-cell-margin) !important;
       opacity: getTableSizes(last-table-cell-opacity);
     }
+    .TableCellCopyButton {
+      cursor: pointer;
+      position: absolute;
+      bottom: getTableSizes(table-cell-copy-button-bottom);
+      right: getTableSizes(table-cell-copy-button-right);
+      height: getTableSizes(table-cell-copy-button-size);
+      width: getTableSizes(table-cell-copy-button-size);
+    }
     .TableBody {
       tr {
         height: getTableSizes(table-body-row-height);

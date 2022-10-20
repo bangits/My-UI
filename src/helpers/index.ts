@@ -9,3 +9,4 @@ export * from './uniqueIdMaker';
 export * from './useLongPress';
 export * from './useOutsideClickEvent';
 export * from './useStyles';
+export * from './copyToClipboard';

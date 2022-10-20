@@ -82,7 +82,8 @@ export const Default = () => {
         },
         {
           Header: 'Provider Id',
-          accessor: 'n'
+          accessor: 'n',
+          copyButton: true
         },
         {
           Header: 'Category',

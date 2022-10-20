@@ -1,6 +1,6 @@
-import { moveArrayElements } from '@/helpers';
+import { copyToClipboard, moveArrayElements } from '@/helpers';
 import { typedMemo } from '@/helpers/typedMemo';
-import { RecalculateIcon } from '@/icons';
+import { CopyFieldIcon, CopyIcon, RecalculateIcon } from '@/icons';
 import { Loader, Scroll, Tooltip, Typography } from '@/my-ui-core';
 import { ComponentType, IComponent } from '@/types/props';
 import { UIColors } from '@/types/ui';
@@ -112,6 +112,7 @@ interface CustomColumnProps extends TableCellProps {
   align?: TableCellProps['align'];
   headAlign?: TableHeadProps['align'];
   maxWidth?: string | number;
+  copyButton?: boolean;
   dataMaxWidth?: string | number;
   renderColumn?(value: ReactNode, columnValue: CellValue): ReactNode;
 }
@@ -388,6 +389,7 @@ const Table = <T extends {}>({
                             color={color}
                             {...(cell.column || {})}
                             style={{
+                              position: 'relative',
                               maxWidth: cell.column.dataMaxWidth
                                 ? cell.column.dataMaxWidth
                                 : cell.column.width
@@ -409,6 +411,16 @@ const Table = <T extends {}>({
                                   : cell.value || cell.render('Cell')}
                               </TextWithTooltip>
                             }
+                            {cell.column.copyButton && (
+                              <Tooltip showEvent='click' text='Copied'>
+                                <CopyIcon
+                                  onClick={() => {
+                                    copyToClipboard(cell?.value.toString());
+                                  }}
+                                  className={styles.TableCellCopyButton}
+                                />
+                              </Tooltip>
+                            )}
                           </TableCell>
                         );
                       })}

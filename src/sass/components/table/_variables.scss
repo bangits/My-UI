@@ -43,7 +43,11 @@ $table-sizes: (
   table-resizing-width: calculateRem(6px),
   table-resizing-separator-width: 2px,
   table-resizing-separator-margin: calculateRem(2px),
-  table-resizing-height: calculateRem(14px)
+  table-resizing-height: calculateRem(14px),
+  // Table Cell Copy Button
+  table-cell-copy-button-bottom: calculateRem(3px),
+  table-cell-copy-button-right: calculateRem(4px),
+  table-cell-copy-button-size: calculateRem(14px)
 );
 
 $table-colors: (

@@ -21,7 +21,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       style,
       labelComponent: LabelComponent = 'label',
       checkboxContainerProps = {},
-      variant = 'switch',
+      variant = 'checkbox',
       ...checkboxProps
     },
     ref

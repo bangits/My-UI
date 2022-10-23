@@ -9,6 +9,8 @@ export interface CheckboxProps extends IComponent, React.InputHTMLAttributes<HTM
   color?: UIColors;
   checkboxContainerProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
   labelComponent?: ComponentType;
+
+  variant?: 'checkbox' | 'switch';
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
@@ -19,6 +21,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       style,
       labelComponent: LabelComponent = 'label',
       checkboxContainerProps = {},
+      variant = 'switch',
       ...checkboxProps
     },
     ref
@@ -27,6 +30,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       <div
         className={classNames(
           styles.Checkbox,
+          styles[`Checkbox--${variant}`],
           {
             [styles[`Checkbox--${color}`]]: color
           },

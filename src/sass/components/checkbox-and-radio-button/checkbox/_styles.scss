@@ -3,60 +3,83 @@
   .Checkbox input {
     width: getCheckboxSizes(checkbox-width);
     height: getCheckboxSizes(checkbox-height);
-
     position: relative;
     cursor: pointer;
   }
-
   .Checkbox label {
     cursor: pointer;
   }
-
   .CheckboxIcon {
     display: none;
     width: getCheckboxColor(checkbox-check-width);
   }
-
   .Checkbox {
     input {
       border-style: solid;
       border-width: getCheckboxSizes(checkbox-border-width);
       border-radius: getCheckboxSizes(checkbox-border-radius);
       @include theme(border-color, black-color);
-
       // Reset
       margin: 0;
       -webkit-appearance: none;
       transform: translateY(0);
       outline: none;
-
       &:checked {
         & + .CheckboxIcon {
           display: block;
-
           @include center-absolute();
-
           width: 50%;
           height: 50%;
         }
       }
-
       &:disabled {
         @include theme(opacity, disabled-opacity);
       }
     }
-
     svg,
     path {
       fill: #fff;
     }
+    &--switch {
+      .CheckboxContainer {
+        &,
+        input {
+          border-radius: calculateRem(8px);
+          width: calculateRem(32px);
+        }
+        input {
+          background-color: initial;
+          border: none;
+          &:checked + .CheckboxIcon {
+            transform: translate(calculateRem(16px), -50%);
+          }
+        }
+        &.CheckboxContainer .CheckboxIcon {
+          content: '';
+          position: absolute;
+          display: block;
+          width: calculateRem(12px);
+          height: calculateRem(12px);
+          @include theme(background-color, primary--color);
+          border-radius: 50%;
+          top: 50%;
+          transform: translate(0, -50%);
+          transition: all 0.3s;
+          left: calculateRem(2px);
+        }
+      }
+    }
   }
-
   @each $color in $base-colors {
     .Checkbox--#{$color} {
       input {
         &:checked {
           @include theme(border-color, #{$color});
+          @include theme(background-color, #{$color});
+        }
+      }
+      &.Checkbox--switch {
+        .CheckboxContainer {
           @include theme(background-color, #{$color});
         }
       }

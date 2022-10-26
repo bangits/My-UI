@@ -111,7 +111,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
           evt.target['value'] = value.slice(0, dotIndex) + value.slice(dotIndex, dotIndex + decimalMaxPoint + 1);
         }
 
-        if (type === 'number') evt.target['value'] = +evt.target['value'];
+        if (type === 'number' && evt.target['value']) evt.target['value'] = +evt.target['value'];
 
         if (props.onInput) props.onInput(evt);
       },

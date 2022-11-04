@@ -44,6 +44,9 @@
 
     .DialogText {
       @include theme(color, black-color);
+      margin: getDialogSizes(dialog-body-text-margin);
+      font-size: dialog-body-text-size;
+      line-height: dialog-body-text-line-height;
       word-break: break-word;
       p {
         margin-bottom: 0;

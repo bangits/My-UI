@@ -22,7 +22,7 @@
       // background-color: inherit;
     }
     &--logo-container {
-      min-height: 103px;
+      min-height: calculateRem(55px);
       position: relative;
       top: 0;
       left: 0;
@@ -31,11 +31,11 @@
       &:after {
         position: absolute;
         bottom: 0;
-        left: 13px;
+        left: calculateRem(13px);
         display: block;
         content: '';
-        width: calc(100% - 26px);
-        height: 1px;
+        width: calc(100% - #{calculateRem(26px)});
+        height: calculateRem(1px);
         background: rgba(#8ea6c1, 0.2);
         z-index: 100;
       }

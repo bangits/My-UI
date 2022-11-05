@@ -3,13 +3,6 @@
     position: static;
     height: getSideBarSizes(sidebar-height);
   }
-  .SidebarContainer {
-    // @include theme(background-color, primary);
-  }
-  .SidebarContent,
-  .SidebarBase {
-    // background-color: inherit;
-  }
   .SidebarBase {
     position: absolute;
     z-index: getSideBarSizes(sidebar-z-index);
@@ -19,7 +12,6 @@
     @include theme(box-shadow, box-shadow-color, 3px 3px 6px 0);
     @include theme(background-color, primary);
     // @include theme(background-color, sidebar-button-container-background-color);
-    // background:aqua;
     transition: getSideBarSizes(sidebar-transition);
     &--fixed {
       position: fixed;
@@ -92,7 +84,7 @@
     &--item-container {
       margin-top: getSideBarSizes(sidebar-item-container-margin-top);
       padding: 0;
-      max-height: calc(100vh - 28rem);
+      max-height: calc(100vh - #{calculateRem(150px)});
       overflow: hidden;
       overflow-y: scroll;
       @include hide-scroll;

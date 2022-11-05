@@ -4,8 +4,8 @@ import { IconButtonLeft, IconButtonRight } from '@/icons';
 import { UIColors } from '@/types';
 import { IComponent } from '@/types/props';
 import classNames from 'classnames';
-import React, { FC, ReactNode, useCallback, useState } from 'react';
-import { MenuItem, MenuItemProps } from './sidebar-components/MenuItem';
+import { FC, ReactNode, useCallback, useState } from 'react';
+import MenuItem, { MenuItemProps } from './sidebar-components/MenuItem';
 import styles from './Sidebar.module.scss';
 
 export type SidebarPositions = 'fixed' | 'static';
@@ -92,7 +92,7 @@ const Sidebar: FC<SidebarProps> = ({
           </ul>
         </div>
 
-        {bottomContent && bottomContent?.(isSidebarClosed)}
+        {bottomContent?.(isSidebarClosed)}
       </div>
     </div>
   );

@@ -84,7 +84,7 @@
     &--item-container {
       margin-top: getSideBarSizes(sidebar-item-container-margin-top);
       padding: 0;
-      max-height: calc(100vh - #{calculateRem(150px)});
+      max-height: calc(100vh - #{calculateRem(210px)});
       overflow: hidden;
       overflow-y: scroll;
       @include hide-scroll;

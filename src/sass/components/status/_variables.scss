@@ -19,7 +19,8 @@ $status-colors: (
   status-expired-color: color(expired),
   status-inactive-bg-color: color(inactive-bg),
   status-inactive-color: color(guardsman-inactive),
-  status-warning-color: color(gold-orange)
+  status-warning-color: color(gold-orange),
+  status-awaiting-color: color(blue-ovlivion)
 );
 
 @function getStatusSizes($property) {

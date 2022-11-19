@@ -6,7 +6,6 @@
     border-radius: getButtonSizes(button-border-radius);
     font-size: getButtonSizes(button-font-size);
     min-width: getButtonSizes(button-min-width);
-
     // Reset
     font-family: inherit;
     border: none;
@@ -14,54 +13,45 @@
     position: relative;
     left: 0;
     top: 0;
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
-
   .startIcon,
   .endIcon {
     @include flex(center, center);
-
     min-width: getButtonSizes(button-icon-size);
     min-height: getButtonSizes(button-icon-size);
-
     svg {
       width: inherit;
       height: inherit;
     }
   }
-
   .startIcon {
     transform: translateX(-(getButtonSizes(icon-margin)));
   }
-
   .endIcon {
     transform: translateX(getButtonSizes(icon-margin));
   }
-
   @each $color in $base-colors-with-default {
     .ButtonColor--#{$color} {
       @include getButtonStyles($color);
-
       &.ButtonVariant--#{$color}__ghost {
         border-style: solid;
         border-width: getButtonSizes(button-border-width);
-
         @include getButtonGhostStyles($color);
       }
-
       &.ButtonVariant--#{$color}__link {
         border-style: solid;
         border-width: getButtonSizes(button-border-width);
-
         .startIcon {
           transform: none;
           margin-right: getButtonSizes(icon-margin);
         }
-
         .endIcon {
           transform: none;
           margin-left: getButtonSizes(icon-margin);
         }
-
         @include getButtonLinkStyles($color);
       }
     }

@@ -28,6 +28,9 @@
           @include theme(color, primary);
           font-weight: getTabSizes(tab-button-active-font-weight);
         }
+        &.Disabled {
+          opacity: 0.5;
+        }
       }
     }
     .TabButtonBg {

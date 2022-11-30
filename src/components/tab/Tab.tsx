@@ -1,12 +1,14 @@
 import { useStyles } from '@/helpers';
-import { Typography } from '@/my-ui-core';
+import { Tooltip, Typography } from '@/my-ui-core';
 import classNames from 'classnames';
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useMemo, useState } from 'react';
 import styles from './Tab.module.scss';
 export interface TabProps {
   options?: {
     title: string;
     value: number;
+    disabled?: boolean;
+    toolTipText?: string;
   }[];
   value?: number;
   defaultValue?: number;
@@ -51,17 +53,21 @@ const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange, variant = '
       <div className={styles.TabContent}>
         {options &&
           options.map((option) => (
-            <button
-              key={option.value}
-              onClick={() => (!value ? onActiveChange(option.value) : null)}
-              style={{ width: `${100 / options.length}%` }}
-              className={classNames(styles.TabButton, {
-                [styles.Active]: option.value === value || option.value === active
-              })}>
-              <Typography component='span' variant='p4' className={styles.TabButtonLabel}>
-                {option.title}
-              </Typography>
-            </button>
+            <Tooltip showEvent='hover' disabled={!option.toolTipText} text={option.toolTipText}>
+              <button
+                disabled={option.disabled}
+                key={option.value}
+                onClick={() => (!value ? onActiveChange(option.value) : null)}
+                style={{ width: `${100 / options.length}%` }}
+                className={classNames(styles.TabButton, {
+                  [styles.Active]: option.value === value || option.value === active,
+                  [styles.Disabled]: option.disabled
+                })}>
+                <Typography component='span' variant='p4' className={styles.TabButtonLabel}>
+                  {option.title}
+                </Typography>
+              </button>
+            </Tooltip>
           ))}
       </div>
       <span

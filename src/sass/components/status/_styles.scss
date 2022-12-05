@@ -62,4 +62,12 @@
       @include theme(background-color, primary);
     }
   }
+  .Status--awaiting {
+    @include theme(background-color, status-awaiting-color, $opacity: 0.1);
+    @include theme(color, status-awaiting-color);
+
+    .StatusCircle {
+      @include theme(background-color, status-awaiting-color);
+    }
+  }
 }

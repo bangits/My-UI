@@ -14,7 +14,7 @@
     left: 0;
     top: 0;
     &:disabled {
-      cursor: not-allowed;
+      cursor: not-allowed !important;
     }
   }
   .startIcon,

@@ -20,6 +20,7 @@ const Button: FC<ButtonProps> = ({
   startIcon,
   endIcon,
   className,
+  fullWidth,
   ...props
 }) => (
   <>
@@ -28,7 +29,8 @@ const Button: FC<ButtonProps> = ({
         styles.ButtonBase,
         {
           [styles[`ButtonVariant--${color}__${variant}`]]: color === 'default' || variant !== 'default',
-          [styles[`ButtonColor--${color}`]]: color
+          [styles[`ButtonColor--${color}`]]: color,
+          [styles[`ButtonBase--full-width`]]: fullWidth
         },
         className
       )}

@@ -350,7 +350,8 @@ const Table = <T extends {}>({
                   const isRowActive = checkIsRowActive && checkIsRowActive(data[rowIndex]);
 
                   const rowLoadingPropertyValue = loadingRowColumnProperty
-                    ? (row.original[loadingRowColumnProperty] as string | number)
+                    ? // @ts-expect-error Ignored typescript, cause loadingRowColumnProperty should be string or number
+                      (row.original[loadingRowColumnProperty] as string | number)
                     : rowIndex + 1;
 
                   const isLoading = loadingRowsIds.includes(rowLoadingPropertyValue);

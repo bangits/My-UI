@@ -261,4 +261,20 @@
       }
     }
   }
+  .TableFooterInfo {
+    position: relative;
+    cursor: default;
+    font-weight: 500;
+    @include theme(color, primary);
+    &--With-Divider {
+      margin-right: calculateRem(32px);
+    }
+  }
+  .TableFooterInfoDivider {
+    position: absolute;
+    right: calculateRem(-16px);
+    width: calculateRem(2px);
+    height: 100%;
+    @include theme(background-color, primary);
+  }
 }

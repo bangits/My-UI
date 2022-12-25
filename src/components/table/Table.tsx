@@ -19,7 +19,7 @@ import {
   UseTableRowProps
 } from '@my-ui/react-table';
 import classNames from 'classnames';
-import React, { ReactNode, Ref, useEffect, useMemo, useRef, useState } from 'react';
+import React, { Children, ReactNode, Ref, useEffect, useMemo, useRef, useState } from 'react';
 import FlipMove from 'react-flip-move';
 import { ScrollProps } from '../others';
 import { TextWithTooltip } from '../text-with-tooltip';
@@ -79,6 +79,7 @@ export interface TableProps<T extends {}> extends IComponent {
       }
     >
   >;
+  tableFooterTotalInformations?: ReactNode;
   tableFooterGenerateText?: ReactNode;
   tableFooterRegenerateText?: ReactNode;
   shouldShowtableFooterRegenerateButton?: boolean;
@@ -149,7 +150,8 @@ const Table = <T extends {}>({
   tableFooterRegenerateText,
   tableFooterGenerateText,
   shouldShowtableFooterRegenerateButton,
-  scrollProps = {}
+  scrollProps = {},
+  tableFooterTotalInformations
 }: TableProps<T>) => {
   const tableHeadRef = useRef<HTMLElement>(null);
 
@@ -199,6 +201,11 @@ const Table = <T extends {}>({
   const tableHeadWidth = useMemo(
     () => tableHeadRef.current?.getBoundingClientRect?.()?.width,
     [tableHeadRef.current, headerGroups]
+  );
+
+  const tableFooterTotalInformationsChildren = useMemo(
+    () => Children.toArray(tableFooterTotalInformations),
+    [tableFooterTotalInformations]
   );
 
   const tableContainerClassNames = classNames(styles.TableContainer, {
@@ -343,8 +350,7 @@ const Table = <T extends {}>({
                   const isRowActive = checkIsRowActive && checkIsRowActive(data[rowIndex]);
 
                   const rowLoadingPropertyValue = loadingRowColumnProperty
-                    ? // @ts-expect-error Ignored typescript, cause loadingRowColumnProperty should be string or number
-                      (row.original[loadingRowColumnProperty] as string | number)
+                    ? (row.original[loadingRowColumnProperty] as string | number)
                     : rowIndex + 1;
 
                   const isLoading = loadingRowsIds.includes(rowLoadingPropertyValue);
@@ -445,6 +451,25 @@ const Table = <T extends {}>({
             <TBodyComponent {...getTableBodyProps()} className={styles.TableBody} style={{ minWidth: tableHeadWidth }}>
               <FlipMove>
                 <TableRow color={color}>
+                  {tableFooterTotalInformationsChildren.length ? (
+                    <TableCell>
+                      {tableFooterTotalInformationsChildren.map((info, index) => {
+                        const hasDivider = index !== tableFooterTotalInformationsChildren.length - 1;
+
+                        return (
+                          <React.Fragment key={index}>
+                            <span
+                              className={classNames(styles.TableFooterInfo, {
+                                [styles['TableFooterInfo--With-Divider']]: hasDivider
+                              })}>
+                              {info}
+                              {hasDivider && <span className={styles.TableFooterInfoDivider} />}
+                            </span>
+                          </React.Fragment>
+                        );
+                      })}
+                    </TableCell>
+                  ) : null}
                   {rows[0].cells.map((cell: CellType<T>, index) => {
                     const totalInfo = tableFooterData[cell.column.id];
 

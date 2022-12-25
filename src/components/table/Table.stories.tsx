@@ -143,6 +143,7 @@ export const Default = () => {
       tableFooterRegenerateText={text('tableFooterRegenerateText', 'Regenerate')}
       tableFooterGenerateText={text('tableFooterGenerateText', 'Generate')}
       isResizing
+      tableFooterTotalInformations={['Delivered messages: 26', 'Failed messages: 14']}
     />
   );
 };

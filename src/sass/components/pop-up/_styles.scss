@@ -60,14 +60,14 @@
         }
       }
     }
-  }
-  .DialogSizeVariant--md {
-    max-width: getDialogSizes(dialog-dark-max-width);
-    padding: getDialogSizes(dialog-size-md-padding);
-  }
-  .DialogSizeVariant--lg {
-    max-width: calculateRem(525px);
-    min-height: calculateRem(475px);
+    &.DialogSizeVariant--md {
+      max-width: getDialogSizes(dialog-dark-max-width);
+      padding: getDialogSizes(dialog-size-md-padding);
+    }
+    &.DialogSizeVariant--lg {
+      max-width: calculateRem(525px);
+      min-height: calculateRem(475px);
+    }
   }
   .DialogModeVariant--dark {
     @include theme(background-color, dialog-dark-background-color);

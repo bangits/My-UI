@@ -1,14 +1,15 @@
-import { ReactNode, FC } from 'react';
-import styles from './Dialog.module.scss';
 import { Typography } from '@/my-ui-core';
+import { FC, ReactNode } from 'react';
+import styles from './Dialog.module.scss';
 
 export interface DialogHeaderProps {
   title: ReactNode;
-  className?: string;
   icon: ReactNode;
+  description?: ReactNode;
+  className?: string;
 }
 
-const DialogHeader: FC<DialogHeaderProps> = ({ title, className, icon }) => {
+const DialogHeader: FC<DialogHeaderProps> = ({ title, description, icon }) => {
   return (
     <>
       {icon && <div className={styles.DialogIconContainer}>{icon}</div>}
@@ -18,6 +19,11 @@ const DialogHeader: FC<DialogHeaderProps> = ({ title, className, icon }) => {
             {title}
           </Typography>
         </div>
+      )}
+      {description && (
+        <Typography component='p' variant='p3'>
+          {description}
+        </Typography>
       )}
     </>
   );

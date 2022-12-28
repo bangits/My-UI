@@ -154,7 +154,6 @@ $transition-duration: getTextFieldSizes(label-transition);
     right: getTextFieldSizes(icon-margin-right);
   }
   .TextInputContainer {
-    min-height: getTextFieldSizes(input-container);
     &--full-width {
       .TextInputWrapper {
         max-width: initial;
@@ -217,8 +216,8 @@ $transition-duration: getTextFieldSizes(label-transition);
         }
       }
     }
-    &--removeMinLength {
-      min-height: initial;
+    &--containerMinLength {
+      min-height: getTextFieldSizes(input-container);
     }
   }
   // Color mapping

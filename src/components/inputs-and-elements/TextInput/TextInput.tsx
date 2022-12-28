@@ -32,6 +32,7 @@ export interface BaseTextInputProps {
   borderRadius?: boolean;
   inputDisabled?: boolean;
   showExplanationAsTooltip?: boolean;
+  removeMinLength?: boolean;
 }
 
 type InputProps = DetailedHTMLProps<
@@ -62,6 +63,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
       borderRadius = true,
       inputDisabled,
       showExplanationAsTooltip,
+      removeMinLength,
       ...props
     },
     ref
@@ -160,6 +162,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
             [styles['TextInputContainer--disabled']]: disabled,
             [styles['TextInputContainer--withLeftIcon']]: !!startIcon,
             [styles['TextInputContainer--withRightIcon']]: !!endIcon,
+            [styles['TextInputContainer--removeMinLength']]: removeMinLength,
             [styles['TextInputContainer--focused']]: forceFocused !== undefined ? forceFocused : isInputFocused,
             [styles['TextInputContainer--filled']]:
               forceFocused !== undefined ? forceFocused || !!currentValue : !!currentValue,

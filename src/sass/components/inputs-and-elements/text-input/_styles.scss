@@ -217,6 +217,9 @@ $transition-duration: getTextFieldSizes(label-transition);
         }
       }
     }
+    &--removeMinLength {
+      min-height: initial;
+    }
   }
   // Color mapping
   .TextInputContainer {

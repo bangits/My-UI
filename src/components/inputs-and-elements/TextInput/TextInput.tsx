@@ -1,4 +1,5 @@
-import { Typography, TypographyProps } from '@/components';
+import { Tooltip, Typography, TypographyProps } from '@/components';
+import { Icons } from '@/my-ui-core';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
 import {
@@ -28,6 +29,9 @@ export interface BaseTextInputProps {
   isDecimal?: boolean;
   decimalMaxPoint?: number;
   textarea?: boolean;
+  borderRadius?: boolean;
+  inputDisabled?: boolean;
+  showExplanationAsTooltip?: boolean;
 }
 
 type InputProps = DetailedHTMLProps<
@@ -37,7 +41,7 @@ type InputProps = DetailedHTMLProps<
 
 export type TextInputProps = BaseTextInputProps & InputProps;
 
-const TextInputs: FC<TextInputProps> = forwardRef(
+const TextInput: FC<TextInputProps> = forwardRef(
   (
     {
       color,
@@ -55,6 +59,9 @@ const TextInputs: FC<TextInputProps> = forwardRef(
       decimalMaxPoint = 2,
       min,
       textarea = false,
+      borderRadius = true,
+      inputDisabled,
+      showExplanationAsTooltip,
       ...props
     },
     ref
@@ -148,6 +155,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
           {
             'MyUI-TextInputContainer--focused': forceFocused !== undefined ? forceFocused : isInputFocused,
             [styles['TextInputContainer--full-width']]: fullWidth,
+            [styles['TextInputContainer--border-radius']]: borderRadius,
             [styles[`TextInputContainer--${color}`]]: color,
             [styles['TextInputContainer--disabled']]: disabled,
             [styles['TextInputContainer--withLeftIcon']]: !!startIcon,
@@ -183,6 +191,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
               className
             )}
             {...props}
+            disabled={props.disabled || inputDisabled}
             min={min || '0'}
             ref={(elementRef: HTMLInputElement | HTMLTextAreaElement) => {
               if (ref && typeof ref === 'function') ref(elementRef);
@@ -209,6 +218,14 @@ const TextInputs: FC<TextInputProps> = forwardRef(
             </span>
           )}
 
+          {showExplanationAsTooltip && explanation && (
+            <div className={classNames('MyUI-TooltipExplanation', styles.TooltipExplanation)}>
+              <Tooltip text={explanation} placement='top' color={color}>
+                <Icons.InfoIcon />
+              </Tooltip>
+            </div>
+          )}
+
           {endIcon && (
             <div className={classNames('MyUI-TextInputEndIcon', styles.EndIcon)}>
               {Array.isArray(endIcon) ? endIcon.slice(0, 2) : endIcon}
@@ -216,7 +233,7 @@ const TextInputs: FC<TextInputProps> = forwardRef(
           )}
         </label>
 
-        {explanation && (
+        {explanation && !showExplanationAsTooltip && (
           <Typography className={styles.Explanation} variant='p5' component='span'>
             {explanation}
           </Typography>
@@ -226,4 +243,4 @@ const TextInputs: FC<TextInputProps> = forwardRef(
   }
 );
 
-export default TextInputs;
+export default TextInput;

@@ -59,4 +59,11 @@
       }
     }
   }
+  .ButtonBase {
+    &--remove-underline {
+      &#{&} {
+        text-decoration: none;
+      }
+    }
+  }
 }

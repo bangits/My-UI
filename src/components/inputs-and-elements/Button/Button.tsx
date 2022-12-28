@@ -10,6 +10,7 @@ export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTML
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   fullWidth?: boolean;
+  removeUnderline?: boolean;
   variant?: ButtonVariants;
 }
 
@@ -21,6 +22,7 @@ const Button: FC<ButtonProps> = ({
   endIcon,
   className,
   fullWidth,
+  removeUnderline,
   ...props
 }) => (
   <>
@@ -30,7 +32,8 @@ const Button: FC<ButtonProps> = ({
         {
           [styles[`ButtonVariant--${color}__${variant}`]]: color === 'default' || variant !== 'default',
           [styles[`ButtonColor--${color}`]]: color,
-          [styles[`ButtonBase--full-width`]]: fullWidth
+          [styles[`ButtonBase--full-width`]]: fullWidth,
+          [styles[`ButtonBase--remove-underline`]]: removeUnderline
         },
         className
       )}

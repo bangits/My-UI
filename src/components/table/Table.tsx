@@ -447,7 +447,7 @@ const Table = <T extends {}>({
           )}
         </Component>
 
-        {tableFooterData && rows[0] ? (
+        {(tableFooterData || tableFooterTotalInformationsChildren.length) && rows[0] ? (
           <Component {...getTableProps()} className={classNames(tableContainerClassNames, styles.TableFooter)}>
             <TBodyComponent {...getTableBodyProps()} className={styles.TableBody} style={{ minWidth: tableHeadWidth }}>
               <FlipMove>
@@ -471,64 +471,65 @@ const Table = <T extends {}>({
                       })}
                     </TableCell>
                   ) : null}
-                  {rows[0].cells.map((cell: CellType<T>, index) => {
-                    const totalInfo = tableFooterData[cell.column.id];
+                  {tableFooterData &&
+                    rows[0].cells.map((cell: CellType<T>, index) => {
+                      const totalInfo = tableFooterData[cell.column.id];
 
-                    const tableCellWidth = cell.column.dataMaxWidth
-                      ? cell.column.dataMaxWidth
-                      : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
-                      ? cell.column.maxWidth
-                      : `${initialTableHeadWidths.current[index] / rootFontSize}rem`;
+                      const tableCellWidth = cell.column.dataMaxWidth
+                        ? cell.column.dataMaxWidth
+                        : typeof cell.column.maxWidth === 'string' || cell.column.maxWidth < 150
+                        ? cell.column.maxWidth
+                        : `${initialTableHeadWidths.current[index] / rootFontSize}rem`;
 
-                    return (
-                      <TableCell
-                        key={index}
-                        style={{
-                          maxWidth: cell.column.dataMaxWidth
-                            ? cell.column.dataMaxWidth
-                            : cell.column.width
-                            ? 'initial'
-                            : tableCellWidth,
-                          width: cell.column.width,
-                          minWidth: isWithSelection ? index && tableCellWidth : tableCellWidth
-                        }}
-                        align={cell.column.align}
-                        color={color}
-                        className={classNames(styles.TableFooterCell, {
-                          [styles.LastTableCell]: index === rows[0].cells.length - 1,
-                          [styles['TableFooterCell--empty']]:
-                            totalInfo !== undefined && totalInfo.value !== 0 && !totalInfo.value
-                        })}>
-                        {shouldShowtableFooterRegenerateButton && totalInfo !== undefined && (
-                          <Tooltip
-                            placement='top'
-                            text={
-                              !totalInfo?.isLoading && (totalInfo.value === 0 || totalInfo?.value)
-                                ? tableFooterRegenerateText
-                                : tableFooterGenerateText
-                            }
-                            showEvent='hover'>
-                            <button
-                              type='button'
-                              className={classNames(styles['TableFooterCell__generateButton'], {
-                                [styles['TableFooterCell__generateButton--loading']]: totalInfo?.isLoading
-                              })}
-                              onClick={() => {
-                                if (!totalInfo?.isLoading) totalInfo?.onGenerateButtonClick?.();
-                              }}>
-                              <div>
-                                <RecalculateIcon />
-                              </div>
-                            </button>
+                      return (
+                        <TableCell
+                          key={index}
+                          style={{
+                            maxWidth: cell.column.dataMaxWidth
+                              ? cell.column.dataMaxWidth
+                              : cell.column.width
+                              ? 'initial'
+                              : tableCellWidth,
+                            width: cell.column.width,
+                            minWidth: isWithSelection ? index && tableCellWidth : tableCellWidth
+                          }}
+                          align={cell.column.align}
+                          color={color}
+                          className={classNames(styles.TableFooterCell, {
+                            [styles.LastTableCell]: index === rows[0].cells.length - 1,
+                            [styles['TableFooterCell--empty']]:
+                              totalInfo !== undefined && totalInfo.value !== 0 && !totalInfo.value
+                          })}>
+                          {shouldShowtableFooterRegenerateButton && totalInfo !== undefined && (
+                            <Tooltip
+                              placement='top'
+                              text={
+                                !totalInfo?.isLoading && (totalInfo.value === 0 || totalInfo?.value)
+                                  ? tableFooterRegenerateText
+                                  : tableFooterGenerateText
+                              }
+                              showEvent='hover'>
+                              <button
+                                type='button'
+                                className={classNames(styles['TableFooterCell__generateButton'], {
+                                  [styles['TableFooterCell__generateButton--loading']]: totalInfo?.isLoading
+                                })}
+                                onClick={() => {
+                                  if (!totalInfo?.isLoading) totalInfo?.onGenerateButtonClick?.();
+                                }}>
+                                <div>
+                                  <RecalculateIcon />
+                                </div>
+                              </button>
+                            </Tooltip>
+                          )}
+
+                          <Tooltip placement='top' text={totalInfo?.tooltipText} showEvent='hover'>
+                            <span>{totalInfo !== undefined ? totalInfo?.value : null}</span>
                           </Tooltip>
-                        )}
-
-                        <Tooltip placement='top' text={totalInfo?.tooltipText} showEvent='hover'>
-                          <span>{totalInfo !== undefined ? totalInfo?.value : null}</span>
-                        </Tooltip>
-                      </TableCell>
-                    );
-                  })}
+                        </TableCell>
+                      );
+                    })}
                 </TableRow>
               </FlipMove>
             </TBodyComponent>

@@ -33,7 +33,6 @@ $transition-duration: getTextFieldSizes(label-transition);
       @include theme(border-color, default-input-border-color);
     }
     // Sizes
-    border-radius: getTextFieldSizes(input-border-radius);
     padding: 0 getTextFieldSizes(input-type-offset);
     min-height: getTextFieldSizes(input-min-height);
     // Reset
@@ -117,13 +116,11 @@ $transition-duration: getTextFieldSizes(label-transition);
     &::before {
       margin-right: getTextFieldSizes(input-corner-offset);
       border-left: solid 0.1rem transparent;
-      border-radius: getTextFieldSizes(input-border-radius) 0;
     }
     &::after {
       flex-grow: 1;
       margin-left: getTextFieldSizes(input-corner-offset);
       border-right: solid 0.1rem transparent;
-      border-radius: 0 getTextFieldSizes(input-border-radius);
     }
   }
   .TextInputLabelText {
@@ -139,7 +136,8 @@ $transition-duration: getTextFieldSizes(label-transition);
   }
   // Icons
   .StartIcon,
-  .EndIcon {
+  .EndIcon,
+  .TooltipExplanation {
     position: absolute;
     // top: getTextFieldSizes(icon-margin);
     top: getTextFieldSizes(icon-top-space);
@@ -151,6 +149,7 @@ $transition-duration: getTextFieldSizes(label-transition);
   .StartIcon {
     left: getTextFieldSizes(icon-margin-left);
   }
+  .TooltipExplanation,
   .EndIcon {
     right: getTextFieldSizes(icon-margin-right);
   }
@@ -185,6 +184,9 @@ $transition-duration: getTextFieldSizes(label-transition);
       .TextInputBaseInput {
         padding-right: getTextFieldSizes(input-type-offset--with-icons);
       }
+      .TooltipExplanation {
+        right: calculateRem(30px);
+      }
     }
     &--withLeftIcon {
       .TextInputBaseInput {
@@ -202,6 +204,19 @@ $transition-duration: getTextFieldSizes(label-transition);
         }
       }
     }
+    &--border-radius {
+      .TextInputBaseInput {
+        border-radius: getTextFieldSizes(input-border-radius);
+      }
+      .TextInputLabelContainer {
+        &::before {
+          border-radius: getTextFieldSizes(input-border-radius) 0;
+        }
+        &::after {
+          border-radius: 0 getTextFieldSizes(input-border-radius);
+        }
+      }
+    }
   }
   // Color mapping
   .TextInputContainer {
@@ -214,6 +229,7 @@ $transition-duration: getTextFieldSizes(label-transition);
             @include theme(color, #{$color});
           }
         }
+        .TooltipExplanation,
         .Explanation {
           @include theme(color, #{$color});
         }

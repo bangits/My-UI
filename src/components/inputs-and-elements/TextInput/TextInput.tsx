@@ -221,7 +221,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
           {showExplanationAsTooltip && explanation && (
             <div className={classNames('MyUI-TooltipExplanation', styles.TooltipExplanation)}>
               <Tooltip text={explanation} placement='top' color={color}>
-                <Icons.InfoIcon />
+                <Icons.InfoOutlinedIcon />
               </Tooltip>
             </div>
           )}

@@ -9,11 +9,13 @@ export interface TypographyProps extends IComponent, HTMLAttributes<HTMLOrSVGEle
   variant?: TypographyVariants;
   component?: ComponentType;
   color?: UIColors;
+  fontWeight?: number;
+
   children: ReactNode;
 }
 
 const Typography = forwardRef<any, TypographyProps>(
-  ({ children, variant = 'p1', component: Component = 'div', className, color }, ref) => {
+  ({ children, variant = 'p1', component: Component = 'div', className, fontWeight, color }, ref) => {
     return (
       <Component
         className={classNames(
@@ -24,6 +26,7 @@ const Typography = forwardRef<any, TypographyProps>(
           },
           className
         )}
+        style={{ fontWeight }}
         ref={ref}>
         {children}
       </Component>

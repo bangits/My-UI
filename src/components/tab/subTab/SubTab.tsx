@@ -35,10 +35,9 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
               {option.badgeCount && <Badge badgeSize='ss' quantity={option.badgeCount} />}
             </div>
             <button
-              key={option.value}
               onClick={() => onActiveChange(option.value)}
               className={classNames(styles.SubTabButton, {
-                [styles.Selected]: option.value === value || option.value === active
+                [styles.Selected]: value !== undefined ? option.value === value : option.value === active
               })}>
               {option.title}
             </button>

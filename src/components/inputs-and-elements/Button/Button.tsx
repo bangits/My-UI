@@ -1,3 +1,4 @@
+import { TypographyVariants } from '@/my-ui-core';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC, ReactNode } from 'react';
@@ -12,6 +13,7 @@ export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTML
   fullWidth?: boolean;
   removeUnderline?: boolean;
   variant?: ButtonVariants;
+  typographyVariant?: TypographyVariants;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -23,6 +25,7 @@ const Button: FC<ButtonProps> = ({
   className,
   fullWidth,
   removeUnderline,
+  typographyVariant = 'p3',
   ...props
 }) => (
   <>
@@ -32,6 +35,7 @@ const Button: FC<ButtonProps> = ({
         {
           [styles[`ButtonVariant--${color}__${variant}`]]: color === 'default' || variant !== 'default',
           [styles[`ButtonColor--${color}`]]: color,
+          [styles[`ButtonBase--typography-${typographyVariant}`]]: typographyVariant,
           [styles[`ButtonBase--full-width`]]: fullWidth,
           [styles[`ButtonBase--remove-underline`]]: removeUnderline
         },

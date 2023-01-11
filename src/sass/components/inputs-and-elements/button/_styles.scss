@@ -16,6 +16,12 @@
     &:disabled {
       cursor: not-allowed !important;
     }
+    @each $type in $typography-types {
+      &--typography-#{$type} {
+        font-size: typography-sizes('#{$type}-size');
+        line-height: typography-sizes('#{$type}-line-height');
+      }
+    }
     &--full-width {
       width: 100%;
     }

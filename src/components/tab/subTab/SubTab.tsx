@@ -1,7 +1,7 @@
 import { Badge } from '@/components';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
-import React, { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import styles from './SubTab.module.scss';
 
 export interface SubTabProps extends IComponent {
@@ -36,7 +36,7 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
             </div>
             <button
               key={option.value}
-              onClick={() => (!value ? onActiveChange(option.value) : null)}
+              onClick={() => onActiveChange(option.value)}
               className={classNames(styles.SubTabButton, {
                 [styles.Selected]: option.value === value || option.value === active
               })}>

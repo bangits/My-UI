@@ -122,6 +122,9 @@ export const SearchControl: typeof components.Control = (props) => {
             onClick={menuToggle}
             value={selectProps.isTree ? selectProps.inputValue : searchValue}
             label={selectProps.inputLabel}
+            showExplanationAsTooltip={selectProps.showExplanationAsTooltip}
+            borderRadius={selectProps.borderRadius}
+            containerMinLength={selectProps.containerMinLength}
             className='MyUI-SelectInput'
             endIcon={
               <div className={classNames(styles['Select--icon-container'])}>

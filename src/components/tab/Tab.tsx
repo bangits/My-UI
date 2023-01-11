@@ -57,7 +57,7 @@ const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange, variant = '
               <button
                 disabled={option.disabled}
                 key={option.value}
-                onClick={() => (!value ? onActiveChange(option.value) : null)}
+                onClick={() => onActiveChange(option.value)}
                 style={{ width: `${100 / options.length}%` }}
                 className={classNames(styles.TabButton, {
                   [styles.Active]: option.value === value || option.value === active,

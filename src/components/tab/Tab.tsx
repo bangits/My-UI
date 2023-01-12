@@ -1,7 +1,7 @@
 import { useStyles } from '@/helpers';
 import { Tooltip, Typography } from '@/my-ui-core';
 import classNames from 'classnames';
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import styles from './Tab.module.scss';
 export interface TabProps {
   options?: {
@@ -45,6 +45,10 @@ const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange, variant = '
     { activeIndex, options }
   );
 
+  useEffect(() => {
+    if (value !== undefined) setActive(value);
+  }, [value]);
+
   return (
     <div
       className={classNames(styles.Tab, {
@@ -60,7 +64,7 @@ const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange, variant = '
                 onClick={() => onActiveChange(option.value)}
                 style={{ width: `${100 / options.length}%` }}
                 className={classNames(styles.TabButton, {
-                  [styles.Active]: option.value === value || option.value === active,
+                  [styles.Active]: option.value === active,
                   [styles.Disabled]: option.disabled
                 })}>
                 <Typography component='span' variant='p4' className={styles.TabButtonLabel}>

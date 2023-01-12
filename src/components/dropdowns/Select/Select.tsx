@@ -225,9 +225,7 @@ function Select<
   const filterOptionHandler = useCallback((option, inputValue) => {
     const { label } = option;
 
-    if (!label) return null;
-
-    return label.toLowerCase().startsWith(inputValue.toLowerCase());
+    return label?.toLowerCase().startsWith(inputValue?.toLowerCase());
   }, []);
 
   return (

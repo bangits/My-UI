@@ -14,6 +14,7 @@ export interface TagProps extends IComponent {
   endIcon?: ReactNode;
   inactive?: boolean;
   color?: UIColors;
+  showCloseOnHover?: boolean;
   onClose?: () => void;
   onClick?: () => void;
 }
@@ -28,7 +29,8 @@ const Tag: FC<TagProps> = ({
   className,
   endIcon,
   value,
-  tooltipText
+  tooltipText,
+  showCloseOnHover
 }) => {
   return (
     <>
@@ -36,7 +38,8 @@ const Tag: FC<TagProps> = ({
         className={classNames(
           styles.Tag,
           {
-            [styles[`Tag--icon`]]: closeIcon,
+            [styles['Tag--icon']]: closeIcon,
+            [styles['Tag--showCloseOnHover']]: showCloseOnHover,
             [styles[`Tag--${color}`]]: !inactive,
             [styles.TagText]: closeIcon
           },

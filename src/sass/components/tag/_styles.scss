@@ -9,12 +9,10 @@
     box-sizing: border-box;
     @include theme(background-color, gray-color, $opacity: 0.1);
     @include flex(center, center);
-
     .TagText {
       @include theme(color, gray-color);
       margin-left: getTagSizes(end-icon-marginLeft);
     }
-
     &--icon {
       padding-right: getTagSizes(tag-close-icon-padding-right);
       .IconContainer {
@@ -28,7 +26,27 @@
         }
       }
     }
-
+    &--showCloseOnHover {
+      position: relative;
+      padding: 0 calculateRem(26px);
+      min-width: initial;
+      border: calculateRem(1px) solid transparent;
+      transition: border 0.3s;
+      .IconContainer {
+        opacity: 0;
+        padding-right: 0;
+        position: absolute;
+        right: calculateRem(12px);
+        transform: translateY(#{calculateRem(-1px)});
+        transition: opacity 0.3s;
+      }
+      .TagText {
+        margin-left: 0;
+      }
+      &:hover .IconContainer {
+        opacity: 1;
+      }
+    }
     .StartComponent {
       border-radius: 50%;
       background-color: #e0e1ee;
@@ -44,12 +62,18 @@
         .TagText {
           @include theme(color, #{$color});
         }
-
         @include theme(background-color, #{$color}, $opacity: 0.1);
+        &.Tag--showCloseOnHover {
+          &:hover {
+            @include theme(border-color, #{$color});
+          }
+          svg {
+            @include theme(fill, #{$color});
+          }
+        }
       }
     }
   }
-
   .AlertClose {
     cursor: pointer;
     margin-left: getTagSizes(alert-close-marginLeft);
@@ -65,7 +89,6 @@
       width: getTagSizes(end-icon-size) !important;
       fill: #6667ab;
     }
-
     // width: getTagSizes(alert-close-width);
     @include theme(fill, gray-color);
   }

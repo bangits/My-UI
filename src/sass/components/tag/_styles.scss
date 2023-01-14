@@ -37,7 +37,6 @@
         padding-right: 0;
         position: absolute;
         right: calculateRem(12px);
-        transform: translateY(#{calculateRem(-1px)});
         transition: opacity 0.3s;
       }
       .TagText {

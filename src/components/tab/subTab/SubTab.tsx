@@ -24,7 +24,7 @@ const SubTab: FC<SubTabProps> = ({ className, onChange, defaultValue, value, opt
       setActive(value);
       onChange(value);
     },
-    [active]
+    [active, onChange]
   );
   return (
     <div className={classNames(styles.SubTab, className)}>

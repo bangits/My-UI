@@ -21,7 +21,6 @@
         flex-grow: 1;
         z-index: 2;
         box-sizing: border-box;
-        max-width: getTabSizes(tab-button-bg-width);
         padding: getTabSizes(tab-button-padding);
         @include dots-after-text;
         &.Active {
@@ -36,7 +35,6 @@
     .TabButtonBg {
       position: absolute;
       top: getTabSizes(tab-button-bg-position);
-      max-width: getTabSizes(tab-button-bg-width);
       height: getTabSizes(tab-button-bg-height);
       @include theme(background-color, primary--color);
       z-index: 1;

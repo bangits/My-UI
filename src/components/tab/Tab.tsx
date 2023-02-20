@@ -27,7 +27,7 @@ const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange, variant = '
     [active]
   );
 
-  const activeIndex = useMemo(() => options.findIndex((o) => o.value === active), [active]);
+  const activeIndex = useMemo(() => options.findIndex((o) => o?.value === active), [active]);
 
   const indicatorClassnames = useStyles(
     {

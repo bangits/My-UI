@@ -56,23 +56,26 @@ const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange, variant = '
       })}>
       <div className={styles.TabContent}>
         {options &&
-          options.map((option) => (
-            <Tooltip showEvent='hover' disabled={!option.toolTipText} text={option.toolTipText}>
-              <button
-                disabled={option.disabled}
-                key={option.value}
-                onClick={() => onActiveChange(option.value)}
-                style={{ width: `${100 / options.length}%` }}
-                className={classNames(styles.TabButton, {
-                  [styles.Active]: option.value === active,
-                  [styles.Disabled]: option.disabled
-                })}>
-                <Typography component='span' variant='p4' className={styles.TabButtonLabel}>
-                  {option.title}
-                </Typography>
-              </button>
-            </Tooltip>
-          ))}
+          options.map(
+            (option) =>
+              option && (
+                <Tooltip showEvent='hover' disabled={!option.toolTipText} text={option.toolTipText}>
+                  <button
+                    disabled={option.disabled}
+                    key={option.value}
+                    onClick={() => onActiveChange(option.value)}
+                    style={{ width: `${100 / options.length}%` }}
+                    className={classNames(styles.TabButton, {
+                      [styles.Active]: option.value === active,
+                      [styles.Disabled]: option.disabled
+                    })}>
+                    <Typography component='span' variant='p4' className={styles.TabButtonLabel}>
+                      {option.title}
+                    </Typography>
+                  </button>
+                </Tooltip>
+              )
+          )}
       </div>
       <span
         className={classNames(styles.TabButtonBg, indicatorClassnames.tabActiveIndicator, {

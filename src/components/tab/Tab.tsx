@@ -19,6 +19,8 @@ export interface TabProps {
 const Tab: FC<TabProps> = ({ options, value, defaultValue, onChange, variant = 'default' }) => {
   const [active, setActive] = useState<number>(defaultValue | value);
 
+  options = options.filter(Boolean);
+
   const onActiveChange = useCallback(
     (value) => {
       setActive(value);

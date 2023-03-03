@@ -10,17 +10,13 @@
     padding: getAlertSizes(alert-padding);
     margin-bottom: getAlertSizes(alert-margin-bottom);
     box-sizing: border-box;
-
     @include theme(box-shadow, box-shadow-color, 2px 2px 5px 0);
-
     .AlertText {
       @include theme(color, gray-color);
       margin-left: getAlertSizes(alert-text-marginLeft);
-
       flex-grow: 1;
     }
   }
-
   .AlertContainer {
     position: fixed;
     top: getAlertSizes(alert-animation-position);
@@ -33,47 +29,35 @@
     //   left: getAlertSizes(alert-container-pop-up-svg-left);
     // }
   }
-
   .AlertEnter,
   .AlertEnterActive {
     animation: showAlert getAlertSizes(alert-animation) ease forwards;
   }
-
   .AlertExit,
   .AlertExitActive {
     animation: hideAlert getAlertSizes(alert-animation) ease forwards;
   }
-
   @keyframes hideAlert {
-    40% {
+    from {
       transform: translateX(0%);
     }
-    80% {
-      transform: translateX(-10%);
-    }
-    100% {
+    to {
       transform: translateX(100%);
     }
   }
-
   @keyframes showAlert {
-    0% {
+    from {
       transform: translateX(100%);
     }
-    40% {
-      transform: translateX(-10%);
-    }
-    80% {
+    to {
       transform: translateX(0%);
     }
   }
-
   .AlertSymbol {
     svg {
       width: getAlertSizes(alert-icon-pop-up-width) !important;
     }
   }
-
   .AlertClose {
     cursor: pointer;
     margin-left: getAlertSizes(alert-close-marginLeft);
@@ -82,7 +66,6 @@
       width: getAlertSizes(alert-close-width);
     }
   }
-
   .AlertIcon {
     display: block;
     width: getAlertSizes(alert-icon-width) !important;

@@ -22,6 +22,9 @@
     top: getAlertSizes(alert-animation-position);
     right: getAlertSizes(alert-animation-position);
     z-index: getAlertSizes(alert-container-z-index);
+    & > div {
+      @include flex(null, flex-end, $direction: column);
+    }
     // svg {
     //   width: getAlertSizes(alert-container-pop-up-svg-width);
     //   position: relative;

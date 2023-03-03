@@ -1,5 +1,5 @@
 import { Alert, Portal } from '@/my-ui-core';
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { AlertProps } from './Alert';
 import styles from './Alert.module.scss';
@@ -37,7 +37,7 @@ const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5
           {alerts.map((alert) => {
             return (
               <CSSTransition
-                timeout={1500}
+                timeout={700}
                 unmountOnExit
                 key={alert?.id}
                 classNames={{

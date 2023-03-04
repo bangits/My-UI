@@ -3,7 +3,7 @@ import { Tree } from '@/interfaces';
 import { UIColors } from '@/types';
 import ReactSelect, { ActionMeta, Props } from '@my-ui/react-select';
 import classNames from 'classnames';
-import { ChangeEvent, FocusEvent, ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, FocusEvent, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { DropdownIcon, Menu, MenuList, Option, SearchControl } from './Controls';
 import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
@@ -104,6 +104,8 @@ function Select<
   ...selectProps
 }: SelectProps<Option, IsMulti, Group>) {
   const { clearButton, dropdown, selectAllValue, selectAllLabel, fullWidth } = selectProps;
+
+  const selectRef = useRef<any>(null);
 
   let { selectAll } = selectProps;
 
@@ -231,6 +233,7 @@ function Select<
   return (
     <ReactSelect
       {...selectProps}
+      ref={(ref) => (selectRef.current = ref)}
       filterOption={filterOptionHandler}
       isTree={isTree}
       treeData={treeData}
@@ -276,6 +279,9 @@ function Select<
       onDefaultOptionChange={(option: SelectOptionType) => {
         setDefaultOption(option);
         onDefaultOptionChange?.(option);
+      }}
+      onKeyDown={function (e) {
+        if (e.key === ' ' && !(e.target as HTMLInputElement).value) e.preventDefault();
       }}
     />
   );

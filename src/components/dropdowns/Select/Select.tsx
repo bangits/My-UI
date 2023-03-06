@@ -280,7 +280,7 @@ function Select<
         setDefaultOption(option);
         onDefaultOptionChange?.(option);
       }}
-      onKeyDown={function (e) {
+      onKeyDown={(e) => {
         if (e.key === ' ' && !(e.target as HTMLInputElement).value) e.preventDefault();
       }}
     />

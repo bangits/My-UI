@@ -16,7 +16,7 @@
     }
     .StatusCircle {
       border-radius: getStatusSizes(status-circle-border-radius);
-      width: getStatusSizes(status-circle-sizes);
+      min-width: getStatusSizes(status-circle-sizes);
       height: getStatusSizes(status-circle-sizes);
     }
   }
@@ -65,7 +65,6 @@
   .Status--awaiting {
     @include theme(background-color, status-awaiting-color, $opacity: 0.1);
     @include theme(color, status-awaiting-color);
-
     .StatusCircle {
       @include theme(background-color, status-awaiting-color);
     }

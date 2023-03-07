@@ -45,7 +45,6 @@ export const SearchControl: typeof components.Control = (props) => {
     (e: ChangeEvent<HTMLInputElement>) => {
       if (!selectProps.isSearchable) return;
 
-      selectProps.onInputChange(e.target.value, null);
       setSearchValue(e.target.value);
     },
     [currentValue, selectProps.isSearchable]
@@ -87,6 +86,10 @@ export const SearchControl: typeof components.Control = (props) => {
   useEffect(() => {
     if (!props.selectProps.inputValue && searchValue && !currentValue) setSearchValue('');
   }, [props.selectProps.inputValue]);
+
+  useEffect(() => {
+    selectProps.onInputChange(searchValue, null);
+  }, [searchValue, selectProps.inputValue]);
 
   const wrapperRef = useRef(null);
 

@@ -3,7 +3,7 @@ import { AlertClose } from '@/icons';
 import { Typography } from '@/my-ui-core';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
-import React, { FC, ReactNode, useEffect } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import styles from './Alert.module.scss';
 
 export interface AlertProps extends IComponent {
@@ -11,6 +11,7 @@ export interface AlertProps extends IComponent {
   onClose?: () => void;
   alertLabel?: string;
   id?: string;
+  updateId?: string;
   autoCloseDelay?: number;
   autoClose?: boolean;
 }

@@ -20,11 +20,26 @@ const AlertContainer: FC<AlertContainerProps> = ({ autoClose, autoCloseDelay = 5
     [alerts]
   );
 
+  const updateAlert = useCallback((alert: Partial<AlertProps>) => {
+    setAlerts((prevAlerts) =>
+      prevAlerts.map((a) =>
+        a.id === alert.updateId
+          ? {
+              ...a,
+              ...alert
+            }
+          : a
+      )
+    );
+  }, []);
+
   useEffect(() => {
     alert.subscribe((alert) => {
       if (!alert) return;
 
       if (typeof alert === 'string') return removeAlert(alert);
+
+      if (alert.updateId) return updateAlert(alert);
 
       setAlerts((prevAlerts) => [...prevAlerts, alert]);
     });

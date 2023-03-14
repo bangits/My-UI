@@ -13,6 +13,10 @@ class AlertService extends SubscriptionService<AlertProps | string> {
     return alertId;
   }
 
+  updateAlert(alertId: string, alert: Partial<AlertProps>) {
+    super.publish({ ...alert, updateId: alertId });
+  }
+
   success(alert: AlertProps) {
     return this.showAlert({ ...alert, icon: alert.icon || <AlertCheck /> });
   }

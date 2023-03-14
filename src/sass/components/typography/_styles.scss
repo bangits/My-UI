@@ -2,14 +2,15 @@
   .Typography {
     text-decoration: none;
     word-break: break-word;
-
+    &--italic {
+      font-style: italic;
+    }
     @each $type in $typography-types {
       &.#{$type} {
         font-size: typography-sizes('#{$type}-size');
         line-height: typography-sizes('#{$type}-line-height');
       }
     }
-
     @each $color in $base-colors {
       &.Typography--#{$color} {
         @include theme(color, #{$color});

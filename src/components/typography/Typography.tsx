@@ -10,19 +10,21 @@ export interface TypographyProps extends IComponent, HTMLAttributes<HTMLOrSVGEle
   component?: ComponentType;
   color?: UIColors;
   fontWeight?: number;
+  italic?: boolean;
 
   children: ReactNode;
 }
 
 const Typography = forwardRef<any, TypographyProps>(
-  ({ children, variant = 'p1', component: Component = 'div', className, fontWeight, color }, ref) => {
+  ({ children, italic, variant = 'p1', component: Component = 'div', className, fontWeight, color }, ref) => {
     return (
       <Component
         className={classNames(
           styles.Typography,
           styles[variant],
           {
-            [styles[`Typography--${color}`]]: color
+            [styles[`Typography--${color}`]]: color,
+            [styles['Typography--italic']]: italic
           },
           className
         )}

@@ -126,7 +126,7 @@ function Select<
 
       return transformedValues;
     },
-    [selectProps.options, allOption, selectAll]
+    [selectProps.options, allOption, isMulti, selectAll]
   );
 
   const transformedDefaultValue = useMemo(
@@ -188,14 +188,15 @@ function Select<
 
       // For all option
       if (
-        Array.isArray(selectedOptions) &&
+        isMulti &&
         (selectedOptionValue === selectAllValue ||
-          (selectProps.options.length === selectedOptions.length && event.action !== 'deselect-option'))
+          (selectProps.options.length === (selectedOptions as SelectOptionType[]).length &&
+            event.action !== 'deselect-option'))
       ) {
         updatedOptions = event.action === 'select-option' ? options : [];
       } else {
-        const filteredOptions = Array.isArray(selectedOptions)
-          ? [...selectedOptions.filter((option) => option.value !== selectAllValue)]
+        const filteredOptions = isMulti
+          ? [...(selectedOptions as SelectOptionType[]).filter((option) => option.value !== selectAllValue)]
           : selectedOptions;
 
         updatedOptions = filteredOptions;

@@ -463,3 +463,43 @@ export const TreeView = () => {
     />
   );
 };
+
+export const Test = () => {
+  const [isMulti, setIsMulti] = useState(false);
+  const [value, setValue] = useState(null);
+
+  return (
+    <>
+      <Select
+        options={[
+          {
+            label: 'Test1',
+            value: 1
+          },
+          {
+            label: 'Test2',
+            value: 2
+          }
+        ]}
+        isMulti={isMulti}
+        inputLabel='inputLabel'
+        value={!isMulti ? value : value ? (Array.isArray(value) ? value : [value]) : []}
+        onChange={(value) => {
+          console.log('🚀 ~ file: Select.stories.tsx:497 ~ Test ~ value', value);
+
+          setValue(value);
+        }}
+      />
+
+      <button
+        type='button'
+        onClick={() => {
+          setIsMulti(!isMulti);
+
+          if (!isMulti) setValue([]);
+        }}>
+        Toggle multi
+      </button>
+    </>
+  );
+};

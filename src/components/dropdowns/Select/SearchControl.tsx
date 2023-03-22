@@ -81,6 +81,10 @@ export const SearchControl: typeof components.Control = (props) => {
   }, [searchValue, selectProps.inputValue]);
 
   useEffect(() => {
+    setSearchValue('');
+  }, [Array.isArray(currentValue)]);
+
+  useEffect(() => {
     if (selectProps.menuIsOpen) setSearchValue('');
   }, [selectProps.menuIsOpen]);
 

@@ -2,11 +2,13 @@ import { ReactNode, useMemo } from 'react';
 import classes from './Popover.module.scss';
 import { AlignemntHorizontal, AlignmentVertical } from './enums';
 import { originMapping } from './mappings';
+import { haveLeftMargin, haveRightBottom, haveRightMargin, haveTopMargin } from './helpers';
 
 export interface PopoverProps {
   open: boolean;
   children: ReactNode;
   anchorEl?: HTMLElement;
+  edgeMarginUnit?: number;
   anchorOrigin?: {
     vertical: AlignmentVertical;
     horizontal: AlignemntHorizontal;
@@ -23,6 +25,7 @@ const Popover = ({
   open,
   onClose,
   anchorEl,
+  edgeMarginUnit = 4,
   anchorOrigin = { vertical: AlignmentVertical.top, horizontal: AlignemntHorizontal.left },
   transformOrigin = { vertical: AlignmentVertical.top, horizontal: AlignemntHorizontal.right }
 }: PopoverProps) => {
@@ -46,27 +49,12 @@ const Popover = ({
   }, [transformOrigin]);
 
   const edgeMargins = useMemo(() => {
-    const unit = 4;
+    const unit = edgeMarginUnit;
 
-    const top =
-      anchorOrigin.vertical === AlignmentVertical.bottom &&
-      transformOrigin.vertical === AlignmentVertical.top &&
-      anchorOrigin.horizontal === AlignemntHorizontal.left;
-
-    const right =
-      anchorOrigin.vertical === AlignmentVertical.top &&
-      transformOrigin.vertical === AlignmentVertical.top &&
-      anchorOrigin.horizontal === AlignemntHorizontal.right;
-
-    const left =
-      anchorOrigin.vertical === AlignmentVertical.top &&
-      transformOrigin.vertical === AlignmentVertical.top &&
-      anchorOrigin.horizontal === AlignemntHorizontal.left;
-
-    const bottom =
-      anchorOrigin.vertical === AlignmentVertical.top &&
-      transformOrigin.vertical === AlignmentVertical.bottom &&
-      anchorOrigin.horizontal === AlignemntHorizontal.left;
+    const top = haveTopMargin(anchorOrigin, transformOrigin);
+    const right = haveRightMargin(anchorOrigin, transformOrigin);
+    const left = haveLeftMargin(anchorOrigin, transformOrigin);
+    const bottom = haveRightBottom(anchorOrigin, transformOrigin);
 
     return {
       top: top && unit,
@@ -74,7 +62,7 @@ const Popover = ({
       right: left && unit,
       bottom: bottom && unit
     };
-  }, []);
+  }, [anchorOrigin, transformOrigin]);
 
   return (
     <div>

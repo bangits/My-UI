@@ -10,24 +10,24 @@ import {
   HeaderGroup,
   HeaderPropGetter,
   TableState,
+  UseTableRowProps,
   useAsyncDebounce,
   useFlexLayout,
   useResizeColumns,
   useRowSelect,
   useSortBy,
-  useTable,
-  UseTableRowProps
+  useTable
 } from '@my-ui/react-table';
 import classNames from 'classnames';
 import React, { Children, ReactNode, Ref, useEffect, useMemo, useRef, useState } from 'react';
 import FlipMove from 'react-flip-move';
 import { ScrollProps } from '../others';
 import { TextWithTooltip } from '../text-with-tooltip';
-import { selectionHook, useTableColumnsDnD } from './hooks';
 import styles from './Table.module.scss';
 import TableCell, { TableCellProps } from './TableCell';
 import TableHead, { TableHeadProps } from './TableHead';
 import TableRow from './TableRow';
+import { selectionHook, useTableColumnsDnD } from './hooks';
 
 // This interface used for react-table useSortBy hook
 export interface Column<T extends {}> extends HeaderGroup<T> {
@@ -266,7 +266,7 @@ const Table = <T extends {}>({
           className
         )}
         height={height || 500}
-        autoHeightMin={!data.length || data.length > 5 ? 400 : 150}>
+        autoHeightMin={400}>
         <Component className={tableContainerClassNames} {...getTableProps()}>
           {/* @ts-expect-error Ignoring typescript cause for automatic component they're error related with ref prop */}
           <THeadComponent className={styles.TableHead} ref={tableHeadRef}>

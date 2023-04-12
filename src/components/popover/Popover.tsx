@@ -38,11 +38,11 @@ const Popover = ({
   onClose,
   anchorEl,
   edgeMarginUnit = 4,
-  anchorOrigin = { vertical: AlignmentVertical.bottom, horizontal: AlignemntHorizontal.right },
+  anchorOrigin = { vertical: AlignmentVertical.bottom, horizontal: AlignemntHorizontal.left },
   transformOrigin = { vertical: AlignmentVertical.top, horizontal: AlignemntHorizontal.left }
 }: PopoverProps) => {
   const [originPosition, setOriginPosition] = useState<any>({});
-  const [position, setPosition] = useState<any>({});
+  const [anchorPosition, setAnchorPosition] = useState<any>({});
   const [activeContainerRef, setActiveContainerRef] = useState<HTMLDivElement | null>(null);
   const [activeContentRef, setActiveContentRef] = useState<HTMLDivElement | null>(null);
 
@@ -51,6 +51,45 @@ const Popover = ({
 
   const hanldeClose = () => onClose();
   const blockClose = (e: React.SyntheticEvent) => e.stopPropagation();
+
+  const updateOriginPosition = useCallback(() => {
+    const rects = activeContentRef?.getBoundingClientRect();
+
+    setOriginPosition({
+      top: getVerticalTranslate(rects, transformOrigin.vertical),
+      left: getHorizontalTranslate(rects, transformOrigin.horizontal)
+    });
+  }, [transformOrigin.vertical, transformOrigin.horizontal, activeContentRef]);
+
+  const updateAnchorPosition = useCallback(() => {
+    const anchorRects = anchorEl?.getBoundingClientRect();
+
+    setAnchorPosition({
+      top: getTopPosition(anchorRects, anchorOrigin),
+      left: getLeftPosition(anchorRects, anchorOrigin)
+    });
+  }, [anchorEl, anchorOrigin.horizontal, anchorOrigin.vertical]);
+
+  const updateContentRef = useCallback(
+    () => (open ? setActiveContentRef(contentRef.current) : setActiveContentRef(null)),
+    [open]
+  );
+
+  const updateContainerRef = useCallback(
+    () => (open ? setActiveContainerRef(containertRef.current) : setActiveContainerRef(null)),
+    [open]
+  );
+
+  const endPosition = useMemo(() => {
+    if (!originPosition) {
+      return;
+    }
+
+    return {
+      top: anchorPosition.top - originPosition.top,
+      left: anchorPosition.left - originPosition.left
+    };
+  }, [anchorPosition, originPosition]);
 
   const edgeMargins = useMemo(() => {
     const unit = edgeMarginUnit;
@@ -67,36 +106,9 @@ const Popover = ({
       bottom: bottom && unit
     };
   }, [anchorOrigin, transformOrigin]);
-
-  const updateOriginPosition = useCallback(() => {
-    const vertical = getVerticalTranslate(transformOrigin.vertical);
-    const horizontal = getHorizontalTranslate(transformOrigin.horizontal);
-
-    setOriginPosition({ transform: `translate(${horizontal}%, ${vertical}%)` });
-  }, [transformOrigin.vertical, transformOrigin.horizontal]);
-
-  const updatePosition = useCallback(() => {
-    const anchorRects = anchorEl?.getBoundingClientRect();
-
-    setPosition({
-      top: getTopPosition(anchorRects, anchorOrigin),
-      left: getLeftPosition(anchorRects, anchorOrigin)
-    });
-  }, [anchorEl, anchorOrigin.horizontal, anchorOrigin.vertical]);
-
-  const updateContentRef = useCallback(
-    () => (open ? setActiveContentRef(contentRef.current) : setActiveContentRef(null)),
-    [open]
-  );
-
-  const updateContainerRef = useCallback(
-    () => (open ? setActiveContainerRef(containertRef.current) : setActiveContainerRef(null)),
-    [open]
-  );
-
   useEffect(() => updateOriginPosition(), [updateOriginPosition]);
 
-  useEffect(() => updatePosition(), [updatePosition]);
+  useEffect(() => updateAnchorPosition(), [updateAnchorPosition]);
 
   useEffect(() => updateContentRef(), [updateContentRef]);
 
@@ -111,11 +123,7 @@ const Popover = ({
           onClick={hanldeClose}
           className={`${classes.fullWidthHeightLayer}`}>
           <div className={`${classes.cardWrapper}`} style={edgeMargins}>
-            <div
-              ref={contentRef}
-              onClick={blockClose}
-              style={{ ...position, ...originPosition }}
-              className={`${classes.cardBase}`}>
+            <div ref={contentRef} onClick={blockClose} style={{ ...endPosition }} className={`${classes.cardBase}`}>
               {children}
             </div>
           </div>

@@ -1,27 +1,33 @@
 import { Origins } from './Popover';
 import { AlignmentVertical, AlignemntHorizontal } from './enums';
 
-export const getVerticalTranslate = (vertical: AlignmentVertical) => {
+export const getVerticalTranslate = (rects: DOMRect, vertical: AlignmentVertical) => {
+  if (!rects) {
+    return 0;
+  }
   if (vertical === AlignmentVertical.top) {
     return 0;
   }
   if (vertical === AlignmentVertical.bottom) {
-    return -100;
+    return rects.height;
   }
   if (vertical === AlignmentVertical.center) {
-    return -50;
+    return rects.height / 2;
   }
 };
 
-export const getHorizontalTranslate = (horizontal: AlignemntHorizontal) => {
+export const getHorizontalTranslate = (rects: DOMRect, horizontal: AlignemntHorizontal) => {
+  if (!rects) {
+    return 0;
+  }
   if (horizontal === AlignemntHorizontal.left) {
     return 0;
   }
   if (horizontal === AlignemntHorizontal.right) {
-    return -100;
+    return rects.width;
   }
   if (horizontal === AlignemntHorizontal.center) {
-    return -50;
+    return rects.width / 2;
   }
 };
 

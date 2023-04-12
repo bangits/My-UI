@@ -1,22 +1,34 @@
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import classes from './Popover.module.scss';
 import { AlignemntHorizontal, AlignmentVertical } from './enums';
-import { originMapping } from './mappings';
-import { haveLeftMargin, haveRightBottom, haveRightMargin, haveTopMargin } from './helpers';
+import {
+  getHorizontalTranslate,
+  getLeftPosition,
+  getTopPosition,
+  getVerticalTranslate,
+  hasLeftMargin,
+  hasRightBottom,
+  hasRightMargin,
+  hasTopMargin
+} from './helpers';
 
+export interface Origins {
+  vertical: AlignmentVertical;
+  horizontal: AlignemntHorizontal;
+}
 export interface PopoverProps {
   open: boolean;
   children: ReactNode;
+  positions?: {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+  };
   anchorEl?: HTMLElement;
   edgeMarginUnit?: number;
-  anchorOrigin?: {
-    vertical: AlignmentVertical;
-    horizontal: AlignemntHorizontal;
-  };
-  transformOrigin?: {
-    vertical: AlignmentVertical;
-    horizontal: AlignemntHorizontal;
-  };
+  anchorOrigin?: Origins;
+  transformOrigin?: Origins;
   onClose: () => void;
 }
 
@@ -26,35 +38,27 @@ const Popover = ({
   onClose,
   anchorEl,
   edgeMarginUnit = 4,
-  anchorOrigin = { vertical: AlignmentVertical.top, horizontal: AlignemntHorizontal.left },
-  transformOrigin = { vertical: AlignmentVertical.top, horizontal: AlignemntHorizontal.right }
+  anchorOrigin = { vertical: AlignmentVertical.bottom, horizontal: AlignemntHorizontal.right },
+  transformOrigin = { vertical: AlignmentVertical.top, horizontal: AlignemntHorizontal.left }
 }: PopoverProps) => {
+  const [originPosition, setOriginPosition] = useState<any>({});
+  const [position, setPosition] = useState<any>({});
+  const [activeContainerRef, setActiveContainerRef] = useState<HTMLDivElement | null>(null);
+  const [activeContentRef, setActiveContentRef] = useState<HTMLDivElement | null>(null);
+
+  const contentRef = useRef();
+  const containertRef = useRef();
+
   const hanldeClose = () => onClose();
   const blockClose = (e: React.SyntheticEvent) => e.stopPropagation();
-
-  const computePosition = useMemo(() => {
-    const rects = anchorEl?.getBoundingClientRect();
-
-    return {
-      top: rects?.[anchorOrigin.vertical],
-      left: rects?.[anchorOrigin.horizontal]
-    };
-  }, [anchorEl, anchorOrigin]);
-
-  const computeOriginPosition = useMemo(() => {
-    const vertical = originMapping[transformOrigin.vertical];
-    const horizontal = originMapping[transformOrigin.horizontal];
-
-    return { transform: `translate(${horizontal}%, ${vertical}%)` };
-  }, [transformOrigin]);
 
   const edgeMargins = useMemo(() => {
     const unit = edgeMarginUnit;
 
-    const top = haveTopMargin(anchorOrigin, transformOrigin);
-    const right = haveRightMargin(anchorOrigin, transformOrigin);
-    const left = haveLeftMargin(anchorOrigin, transformOrigin);
-    const bottom = haveRightBottom(anchorOrigin, transformOrigin);
+    const top = hasTopMargin(anchorOrigin, transformOrigin);
+    const right = hasRightMargin(anchorOrigin, transformOrigin);
+    const left = hasLeftMargin(anchorOrigin, transformOrigin);
+    const bottom = hasRightBottom(anchorOrigin, transformOrigin);
 
     return {
       top: top && unit,
@@ -64,14 +68,53 @@ const Popover = ({
     };
   }, [anchorOrigin, transformOrigin]);
 
+  const updateOriginPosition = useCallback(() => {
+    const vertical = getVerticalTranslate(transformOrigin.vertical);
+    const horizontal = getHorizontalTranslate(transformOrigin.horizontal);
+
+    setOriginPosition({ transform: `translate(${horizontal}%, ${vertical}%)` });
+  }, [transformOrigin.vertical, transformOrigin.horizontal]);
+
+  const updatePosition = useCallback(() => {
+    const anchorRects = anchorEl?.getBoundingClientRect();
+
+    setPosition({
+      top: getTopPosition(anchorRects, anchorOrigin),
+      left: getLeftPosition(anchorRects, anchorOrigin)
+    });
+  }, [anchorEl, anchorOrigin.horizontal, anchorOrigin.vertical]);
+
+  const updateContentRef = useCallback(
+    () => (open ? setActiveContentRef(contentRef.current) : setActiveContentRef(null)),
+    [open]
+  );
+
+  const updateContainerRef = useCallback(
+    () => (open ? setActiveContainerRef(containertRef.current) : setActiveContainerRef(null)),
+    [open]
+  );
+
+  useEffect(() => updateOriginPosition(), [updateOriginPosition]);
+
+  useEffect(() => updatePosition(), [updatePosition]);
+
+  useEffect(() => updateContentRef(), [updateContentRef]);
+
+  useEffect(() => updateContainerRef(), [updateContainerRef]);
+
   return (
     <div>
       {open && (
-        <div onClick={hanldeClose} className={`${classes.fullWidthHeightLayer}`}>
+        <div
+          ref={containertRef}
+          style={{ opacity: activeContentRef ? '1' : '0' }}
+          onClick={hanldeClose}
+          className={`${classes.fullWidthHeightLayer}`}>
           <div className={`${classes.cardWrapper}`} style={edgeMargins}>
             <div
+              ref={contentRef}
               onClick={blockClose}
-              style={{ ...computePosition, ...computeOriginPosition }}
+              style={{ ...position, ...originPosition }}
               className={`${classes.cardBase}`}>
               {children}
             </div>

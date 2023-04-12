@@ -20,17 +20,13 @@ export const Default = () => {
 
   return (
     <>
-      <div style={{ paddingLeft: '500px', paddingTop: '50px' }}>
+      <div style={{ paddingLeft: '200px', paddingTop: '50px' }}>
         <div ref={anchorEl} style={{ width: 'fit-content' }}>
           <Button onClick={onClick}>Click me</Button>
         </div>
       </div>
       <Popover anchorEl={anchorEl.current} open={isOpen} onClose={onClose}>
-        <div style={{ width: '400px' }}>
-          Popover content Popover content Popover content Popover contentPopover content Popover contentPopover content
-          Popover contentPopover content Popover contentPopover content Popover contentPopover content Popover
-          contentPopover content Popover contentPopover content Popover contentPopover content Popover content
-        </div>
+        <div>content Popover contentPopover content</div>
       </Popover>
     </>
   );

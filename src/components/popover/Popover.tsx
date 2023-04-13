@@ -38,8 +38,8 @@ const Popover = ({
   onClose,
   anchorEl,
   edgeMarginUnit = 4,
-  anchorOrigin = { vertical: AlignmentVertical.bottom, horizontal: AlignemntHorizontal.left },
-  transformOrigin = { vertical: AlignmentVertical.top, horizontal: AlignemntHorizontal.left }
+  anchorOrigin = { vertical: AlignmentVertical.top, horizontal: AlignemntHorizontal.right },
+  transformOrigin = { vertical: AlignmentVertical.bottom, horizontal: AlignemntHorizontal.right }
 }: PopoverProps) => {
   const [originPosition, setOriginPosition] = useState<any>({});
   const [anchorPosition, setAnchorPosition] = useState<any>({});
@@ -80,15 +80,36 @@ const Popover = ({
     [open]
   );
 
-  const endPosition = useMemo(() => {
-    if (!originPosition) {
+  const positionStyles = useMemo(() => {
+    const contentRects = activeContentRef?.getBoundingClientRect();
+    const containerRects = activeContainerRef?.getBoundingClientRect();
+
+    if (!anchorPosition || !originPosition || !contentRects || !containerRects) {
       return;
     }
 
-    return {
+    const currentPosition: any = {
       top: anchorPosition.top - originPosition.top,
       left: anchorPosition.left - originPosition.left
     };
+
+    if (currentPosition.top < 24) {
+      currentPosition.top = 24;
+    }
+
+    if (currentPosition.left < 24) {
+      currentPosition.left = 24;
+    }
+
+    if (contentRects.right - containerRects.right < 24) {
+      currentPosition.right = 24;
+    }
+
+    if (contentRects.bottom - containerRects.bottom > 24) {
+      currentPosition.bottom = 24;
+    }
+
+    return currentPosition;
   }, [anchorPosition, originPosition]);
 
   const edgeMargins = useMemo(() => {
@@ -123,7 +144,7 @@ const Popover = ({
           onClick={hanldeClose}
           className={`${classes.fullWidthHeightLayer}`}>
           <div className={`${classes.cardWrapper}`} style={edgeMargins}>
-            <div ref={contentRef} onClick={blockClose} style={{ ...endPosition }} className={`${classes.cardBase}`}>
+            <div ref={contentRef} onClick={blockClose} style={{ ...positionStyles }} className={`${classes.cardBase}`}>
               {children}
             </div>
           </div>

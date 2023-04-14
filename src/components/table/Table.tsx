@@ -265,8 +265,7 @@ const Table = <T extends {}>({
           },
           className
         )}
-        height={height || 500}
-        autoHeightMin={400}>
+        height={height || 500}>
         <Component className={tableContainerClassNames} {...getTableProps()}>
           {/* @ts-expect-error Ignoring typescript cause for automatic component they're error related with ref prop */}
           <THeadComponent className={styles.TableHead} ref={tableHeadRef}>

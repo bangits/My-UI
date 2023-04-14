@@ -10,7 +10,8 @@ import {
   hasLeftMargin,
   hasRightBottom,
   hasRightMargin,
-  hasTopMargin
+  hasTopMargin,
+  preventOverflow
 } from './helpers';
 export interface Origins {
   vertical: AlignmentVertical;
@@ -47,6 +48,7 @@ const Popover = ({
   transformOriginVertical = AlignmentVertical.top,
   transformOriginHorizontal = AlignemntHorizontal.left
 }: PopoverProps) => {
+  const [anchorRects, setAnchorRects] = useState<any>(null);
   const [contentRects, setContentRects] = useState<any>(null);
   const [containerRects, setContainerRects] = useState<any>(null);
   const [originPosition, setOriginPosition] = useState<any>({});
@@ -55,43 +57,8 @@ const Popover = ({
   const contentRef = useRef<HTMLDivElement | null>(null);
   const containertRef = useRef<HTMLDivElement | null>(null);
 
-  const positionStyles = useMemo(() => {
-    if (!contentRects || !containerRects) {
-      return null;
-    }
-
-    const current: any = {
-      top: anchorPosition.top - originPosition.top,
-      left: anchorPosition.left - originPosition.left
-    };
-
-    if (current.left < safetyMarginUnit) {
-      current.left = safetyMarginUnit;
-    }
-
-    if (current.top < safetyMarginUnit) {
-      current.top = safetyMarginUnit;
-    }
-
-    if (contentRects.width >= containerRects.width) {
-      current.left = safetyMarginUnit;
-    }
-
-    if (contentRects.height >= containerRects.height) {
-      current.top = safetyMarginUnit;
-    }
-
-    if (contentRects.width + current.left > containerRects.width - safetyMarginUnit) {
-      current.right = safetyMarginUnit;
-      delete current.left;
-    }
-
-    if (contentRects.height + current.top > containerRects.height - safetyMarginUnit) {
-      current.bottom = safetyMarginUnit;
-      delete current.top;
-    }
-
-    return current;
+  const endPosition = useMemo(() => {
+    return preventOverflow(anchorPosition, originPosition, contentRects, containerRects, safetyMarginUnit);
   }, [anchorPosition, originPosition, contentRects, containerRects, safetyMarginUnit]);
 
   const edgeMargins = useMemo(() => {
@@ -123,13 +90,13 @@ const Popover = ({
   }, [transformOriginVertical, transformOriginHorizontal, contentRects]);
 
   const updateAnchorPosition = useCallback(() => {
-    const anchorRects = anchorEl?.getBoundingClientRect();
+    const rects = anchorRects ? anchorRects : anchorEl?.getBoundingClientRect();
 
     setAnchorPosition({
-      top: getTopPosition(anchorRects, anchorOriginVertical),
-      left: getLeftPosition(anchorRects, anchorOriginHorisontal)
+      top: getTopPosition(rects, anchorOriginVertical),
+      left: getLeftPosition(rects, anchorOriginHorisontal)
     });
-  }, [anchorEl, anchorOriginVertical, anchorOriginHorisontal]);
+  }, [anchorEl, anchorOriginVertical, anchorOriginHorisontal, anchorRects]);
 
   const updateContentRef = useCallback(
     () => contentRef.current && setContentRects(contentRef.current?.getBoundingClientRect()),
@@ -142,17 +109,19 @@ const Popover = ({
   );
 
   const cb = () => {
+    const anchorRects = anchorEl?.getBoundingClientRect();
     const rects = containertRef?.current?.getBoundingClientRect();
+    anchorRects && setAnchorRects(anchorRects);
     rects && setContainerRects(rects);
   };
 
   const registerResizeHandler = useCallback(() => {
     window.addEventListener('resize', cb);
-  }, []);
+  }, [cb]);
 
   const unRegisterResizeHandler = useCallback(() => {
     window.removeEventListener('resize', cb);
-  }, []);
+  }, [cb]);
 
   useEffect(() => {
     open ? registerResizeHandler() : unRegisterResizeHandler();
@@ -174,7 +143,7 @@ const Popover = ({
         onClick={hanldeClose}
         className={`${classes.fullWidthHeightLayer}`}>
         <div className={`${classes.cardWrapper}`} style={edgeMargins}>
-          <div ref={contentRef} onClick={blockClose} className={`${classes.cardBase}`} style={positionStyles}>
+          <div ref={contentRef} onClick={blockClose} className={`${classes.cardBase}`} style={endPosition}>
             {children}
           </div>
         </div>

@@ -23,8 +23,10 @@ const Template = (args) => {
   return (
     <>
       <div>
-        <div ref={anchorEl} style={{ width: 'fit-content', marginLeft: '40vw', marginTop: '40vh' }}>
-          <Button onClick={onClick}>Click me</Button>
+        <div style={{ width: 'fit-content', marginLeft: '40vw', marginTop: '40vh' }}>
+          <Button ref={anchorEl} onClick={onClick}>
+            Click me
+          </Button>
         </div>
       </div>
       <Popover {...args} anchorEl={anchorEl.current} open={isOpen} onClose={onClose}>

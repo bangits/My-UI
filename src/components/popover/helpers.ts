@@ -1,5 +1,43 @@
-import { Origins } from './Popover';
 import { AlignmentVertical, AlignemntHorizontal } from './enums';
+
+export const preventOverflow = (anchorPosition, originPosition, contentRects, containerRects, safetyMarginUnit) => {
+  if (!contentRects || !containerRects) {
+    return null;
+  }
+
+  const current: any = {
+    top: anchorPosition.top - originPosition.top,
+    left: anchorPosition.left - originPosition.left
+  };
+
+  if (current.left < safetyMarginUnit) {
+    current.left = safetyMarginUnit;
+  }
+
+  if (current.top < safetyMarginUnit) {
+    current.top = safetyMarginUnit;
+  }
+
+  if (contentRects.width >= containerRects.width) {
+    current.left = safetyMarginUnit;
+  }
+
+  if (contentRects.height >= containerRects.height) {
+    current.top = safetyMarginUnit;
+  }
+
+  if (contentRects.width + current.left > containerRects.width - safetyMarginUnit) {
+    current.right = safetyMarginUnit;
+    delete current.left;
+  }
+
+  if (contentRects.height + current.top > containerRects.height - safetyMarginUnit) {
+    current.bottom = safetyMarginUnit;
+    delete current.top;
+  }
+
+  return current;
+};
 
 export const getVerticalTranslate = (rects: DOMRect, vertical: AlignmentVertical) => {
   if (!rects) {

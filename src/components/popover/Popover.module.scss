@@ -14,6 +14,7 @@
 }
 
 .cardBase {
+  box-sizing: border-box;
   overflow: auto;
   z-index: 2;
   position: absolute;

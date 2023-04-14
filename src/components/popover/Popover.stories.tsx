@@ -1,16 +1,18 @@
 import { withKnobs } from '@storybook/addon-knobs';
-import Popover from './Popover';
-import { ReactNode, useRef, useState } from 'react';
+import Popover, { PopoverProps } from './Popover';
+import { useRef, useState } from 'react';
 import { Button } from '../inputs-and-elements/Button';
+import { ComponentMeta } from '@storybook/react';
+import { AlignemntHorizontal, AlignmentVertical } from './enums';
 
 export default {
-  component: Popover,
-  decorators: [withKnobs],
-  title: 'components/Popover/Popover'
-};
+  title: 'components/Popover/Popover',
+  component: Popover
+} as ComponentMeta<typeof Popover>;
 
-export const Default = () => {
+const Template = (args) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [content, setContent] = useState<string>('popover content');
 
   const anchorEl = useRef();
 
@@ -21,13 +23,23 @@ export const Default = () => {
   return (
     <>
       <div>
-        <div ref={anchorEl} style={{ width: 'fit-content', marginLeft: 600, marginTop: 100 }}>
+        <div ref={anchorEl} style={{ width: 'fit-content', marginLeft: '40vw', marginTop: '40vh' }}>
           <Button onClick={onClick}>Click me</Button>
         </div>
       </div>
-      <Popover anchorEl={anchorEl.current} open={isOpen} onClose={onClose}>
-        <div>1123131 asdsa d asd asd asd 23 131 asd asd asd</div>
+      <Popover {...args} anchorEl={anchorEl.current} open={isOpen} onClose={onClose}>
+        <div>{content}</div>
       </Popover>
     </>
   );
 };
+
+export const Default = Template.bind({});
+Default.args = {
+  anchorOriginVertical: AlignmentVertical.bottom,
+  anchorOriginHorisontal: AlignemntHorizontal.left,
+  transformOriginVertical: AlignmentVertical.top,
+  transformOriginHorizontal: AlignemntHorizontal.left,
+  edgeMarginUnit: 4,
+  safetyMarginUnit: 24
+} as PopoverProps;

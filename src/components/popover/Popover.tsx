@@ -28,8 +28,10 @@ export interface PopoverProps {
   anchorEl?: HTMLElement;
   edgeMarginUnit?: number;
   safetyMarginUnit?: number;
-  anchorOrigin?: Origins;
-  transformOrigin?: Origins;
+  anchorOriginVertical?: AlignmentVertical;
+  anchorOriginHorisontal?: AlignemntHorizontal;
+  transformOriginVertical?: AlignmentVertical;
+  transformOriginHorizontal?: AlignemntHorizontal;
   onClose: () => void;
 }
 
@@ -40,8 +42,10 @@ const Popover = ({
   anchorEl,
   edgeMarginUnit = 4,
   safetyMarginUnit = 24,
-  anchorOrigin = { vertical: AlignmentVertical.bottom, horizontal: AlignemntHorizontal.left },
-  transformOrigin = { vertical: AlignmentVertical.top, horizontal: AlignemntHorizontal.left }
+  anchorOriginVertical = AlignmentVertical.bottom,
+  anchorOriginHorisontal = AlignemntHorizontal.left,
+  transformOriginVertical = AlignmentVertical.top,
+  transformOriginHorizontal = AlignemntHorizontal.left
 }: PopoverProps) => {
   const [contentRects, setContentRects] = useState<any>(null);
   const [containerRects, setContainerRects] = useState<any>(null);
@@ -91,10 +95,10 @@ const Popover = ({
   }, [anchorPosition, originPosition, contentRects, containerRects, safetyMarginUnit]);
 
   const edgeMargins = useMemo(() => {
-    const top = hasTopMargin(anchorOrigin, transformOrigin);
-    const right = hasRightMargin(anchorOrigin, transformOrigin);
-    const left = hasLeftMargin(anchorOrigin, transformOrigin);
-    const bottom = hasRightBottom(anchorOrigin, transformOrigin);
+    const top = hasTopMargin(anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical);
+    const right = hasRightMargin(anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical);
+    const left = hasLeftMargin(anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical);
+    const bottom = hasRightBottom(anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical);
 
     return {
       top: top && edgeMarginUnit,
@@ -102,7 +106,7 @@ const Popover = ({
       right: left && edgeMarginUnit,
       bottom: bottom && edgeMarginUnit
     };
-  }, [anchorOrigin, transformOrigin, edgeMarginUnit]);
+  }, [anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical, edgeMarginUnit]);
 
   const hanldeClose = () => {
     onClose();
@@ -113,19 +117,19 @@ const Popover = ({
 
   const updateOriginPosition = useCallback(() => {
     setOriginPosition({
-      top: getVerticalTranslate(contentRects, transformOrigin.vertical),
-      left: getHorizontalTranslate(contentRects, transformOrigin.horizontal)
+      top: getVerticalTranslate(contentRects, transformOriginVertical),
+      left: getHorizontalTranslate(contentRects, transformOriginHorizontal)
     });
-  }, [transformOrigin.vertical, transformOrigin.horizontal, contentRects]);
+  }, [transformOriginVertical, transformOriginHorizontal, contentRects]);
 
   const updateAnchorPosition = useCallback(() => {
     const anchorRects = anchorEl?.getBoundingClientRect();
 
     setAnchorPosition({
-      top: getTopPosition(anchorRects, anchorOrigin),
-      left: getLeftPosition(anchorRects, anchorOrigin)
+      top: getTopPosition(anchorRects, anchorOriginVertical),
+      left: getLeftPosition(anchorRects, anchorOriginHorisontal)
     });
-  }, [anchorEl, anchorOrigin.horizontal, anchorOrigin.vertical]);
+  }, [anchorEl, anchorOriginVertical, anchorOriginHorisontal]);
 
   const updateContentRef = useCallback(
     () => contentRef.current && setContentRects(contentRef.current?.getBoundingClientRect()),

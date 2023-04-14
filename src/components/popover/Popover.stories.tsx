@@ -3,6 +3,8 @@ import { useRef, useState } from 'react';
 import { Button } from '../inputs-and-elements/Button';
 import { ComponentMeta } from '@storybook/react';
 import { AlignemntHorizontal, AlignmentVertical } from './enums';
+import { TextInput } from '../inputs-and-elements';
+import { Typography } from '../typography';
 
 export default {
   title: 'components/Popover/Popover',
@@ -10,6 +12,7 @@ export default {
 } as ComponentMeta<typeof Popover>;
 
 const Template = (args) => {
+  const [content, setContent] = useState('popover content');
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const anchorEl = useRef();
 
@@ -20,14 +23,23 @@ const Template = (args) => {
   return (
     <>
       <div>
-        <div style={{ width: 'fit-content', marginLeft: '10vw', marginTop: '20vh' }}>
+        <div style={{ width: 'fit-content', marginLeft: '5vw', marginTop: '5vh' }}>
+          <Typography variant='h5'>Type to change popover content</Typography>
+          <div style={{ margin: '20px 0' }}>
+            <textarea
+              autoFocus
+              onChange={(e) => setContent(e.target.value)}
+              value={content}
+              cols={30}
+              rows={5}></textarea>
+          </div>
           <Button ref={anchorEl} onClick={onClick}>
             Click me
           </Button>
         </div>
       </div>
       <Popover {...args} anchorEl={anchorEl.current} open={isOpen} onClose={onClose}>
-        <div>popover content popover conten popover contenpopover content popover conten popover conten</div>
+        <div>{content}</div>
       </Popover>
     </>
   );

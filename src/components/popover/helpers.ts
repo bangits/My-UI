@@ -43,7 +43,11 @@ export const preventOverflow = (
     delete current.top;
   }
 
-  return current;
+  return {
+    ...current,
+    maxWidth: `calc(100% - ${safetyMarginUnit * 2}px)`,
+    maxHeight: `calc(100% - ${safetyMarginUnit * 2}px)`
+  };
 };
 
 export const getVerticalTranslate = (rects: DOMRect, vertical: AlignmentVertical) => {

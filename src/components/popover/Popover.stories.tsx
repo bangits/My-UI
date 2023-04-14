@@ -20,14 +20,14 @@ const Template = (args) => {
   return (
     <>
       <div>
-        <div style={{ width: 'fit-content', marginLeft: '40vw', marginTop: '40vh' }}>
+        <div style={{ width: 'fit-content', marginLeft: '10vw', marginTop: '20vh' }}>
           <Button ref={anchorEl} onClick={onClick}>
             Click me
           </Button>
         </div>
       </div>
       <Popover {...args} anchorEl={anchorEl.current} open={isOpen} onClose={onClose}>
-        <div>popover content</div>
+        <div>popover content popover conten popover contenpopover content popover conten popover conten</div>
       </Popover>
     </>
   );
@@ -38,7 +38,7 @@ Default.args = {
   anchorOriginVertical: AlignmentVertical.bottom,
   anchorOriginHorisontal: AlignemntHorizontal.left,
   transformOriginVertical: AlignmentVertical.top,
-  transformOriginHorizontal: AlignemntHorizontal.left,
+  transformOriginHorizontal: AlignemntHorizontal.right,
   edgeMarginUnit: 4,
   safetyMarginUnit: 24
 } as PopoverProps;

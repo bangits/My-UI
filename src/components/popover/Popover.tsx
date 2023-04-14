@@ -13,10 +13,6 @@ import {
   hasTopMargin,
   preventOverflow
 } from './helpers';
-export interface Origins {
-  vertical: AlignmentVertical;
-  horizontal: AlignemntHorizontal;
-}
 export interface PopoverProps {
   open: boolean;
   children: ReactNode;
@@ -48,11 +44,11 @@ const Popover = ({
   transformOriginVertical = AlignmentVertical.top,
   transformOriginHorizontal = AlignemntHorizontal.left
 }: PopoverProps) => {
-  const [anchorRects, setAnchorRects] = useState<any>(null);
-  const [contentRects, setContentRects] = useState<any>(null);
-  const [containerRects, setContainerRects] = useState<any>(null);
-  const [originPosition, setOriginPosition] = useState<any>({});
-  const [anchorPosition, setAnchorPosition] = useState<any>({});
+  const [anchorRects, setAnchorRects] = useState<DOMRect | null>(null);
+  const [contentRects, setContentRects] = useState<DOMRect | null>(null);
+  const [containerRects, setContainerRects] = useState<DOMRect | null>(null);
+  const [originPosition, setOriginPosition] = useState<Partial<DOMRect>>({});
+  const [anchorPosition, setAnchorPosition] = useState<Partial<DOMRect>>({});
 
   const contentRef = useRef<HTMLDivElement | null>(null);
   const containertRef = useRef<HTMLDivElement | null>(null);
@@ -75,12 +71,13 @@ const Popover = ({
     };
   }, [anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical, edgeMarginUnit]);
 
-  const hanldeClose = () => {
+  const hanldeClose = useCallback(() => {
     onClose();
     setContentRects(null);
     setContainerRects(null);
-  };
-  const blockClose = (e: React.SyntheticEvent) => e.stopPropagation();
+  }, []);
+
+  const blockClose = useCallback((e: React.SyntheticEvent) => e.stopPropagation(), []);
 
   const updateOriginPosition = useCallback(() => {
     setOriginPosition({
@@ -107,25 +104,24 @@ const Popover = ({
     () => containertRef.current && setContainerRects(containertRef.current?.getBoundingClientRect()),
     [open]
   );
+  const resizeHandler = useCallback(() => (open ? registerResizeHandler() : unRegisterResizeHandler()), [open]);
 
-  const cb = () => {
+  const resizecb = useCallback(() => {
     const anchorRects = anchorEl?.getBoundingClientRect();
     const rects = containertRef?.current?.getBoundingClientRect();
     anchorRects && setAnchorRects(anchorRects);
     rects && setContainerRects(rects);
-  };
+  }, [anchorEl, containertRef]);
 
   const registerResizeHandler = useCallback(() => {
-    window.addEventListener('resize', cb);
-  }, [cb]);
+    window.addEventListener('resize', resizecb);
+  }, [resizecb]);
 
   const unRegisterResizeHandler = useCallback(() => {
-    window.removeEventListener('resize', cb);
-  }, [cb]);
+    window.removeEventListener('resize', resizecb);
+  }, [resizecb]);
 
-  useEffect(() => {
-    open ? registerResizeHandler() : unRegisterResizeHandler();
-  }, [open]);
+  useEffect(() => resizeHandler(), [resizeHandler]);
 
   useEffect(() => updateOriginPosition(), [updateOriginPosition]);
 

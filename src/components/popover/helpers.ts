@@ -1,11 +1,18 @@
+import { Mutable } from '@/types/utils';
 import { AlignmentVertical, AlignemntHorizontal } from './enums';
 
-export const preventOverflow = (anchorPosition, originPosition, contentRects, containerRects, safetyMarginUnit) => {
+export const preventOverflow = (
+  anchorPosition: Partial<DOMRect>,
+  originPosition: Partial<DOMRect>,
+  contentRects: DOMRect,
+  containerRects: DOMRect,
+  safetyMarginUnit: number
+) => {
   if (!contentRects || !containerRects) {
     return null;
   }
 
-  const current: any = {
+  const current: Mutable<Partial<DOMRect>> = {
     top: anchorPosition.top - originPosition.top,
     left: anchorPosition.left - originPosition.left
   };
@@ -69,7 +76,7 @@ export const getHorizontalTranslate = (rects: DOMRect, horizontal: AlignemntHori
   }
 };
 
-export const getTopPosition = (rects: DOMRect, anchorOriginVertical) => {
+export const getTopPosition = (rects: DOMRect, anchorOriginVertical: AlignmentVertical) => {
   if (!rects) {
     return;
   }
@@ -84,7 +91,7 @@ export const getTopPosition = (rects: DOMRect, anchorOriginVertical) => {
   }
 };
 
-export const getLeftPosition = (rects: DOMRect, anchorOriginHorisontal) => {
+export const getLeftPosition = (rects: DOMRect, anchorOriginHorisontal: AlignemntHorizontal) => {
   if (!rects) {
     return;
   }
@@ -99,7 +106,11 @@ export const getLeftPosition = (rects: DOMRect, anchorOriginHorisontal) => {
   }
 };
 
-export const hasTopMargin = (anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical) => {
+export const hasTopMargin = (
+  anchorOriginVertical: AlignmentVertical,
+  anchorOriginHorisontal: AlignemntHorizontal,
+  transformOriginVertical: AlignmentVertical
+) => {
   return (
     anchorOriginVertical === AlignmentVertical.bottom &&
     transformOriginVertical === AlignmentVertical.top &&
@@ -107,7 +118,11 @@ export const hasTopMargin = (anchorOriginVertical, anchorOriginHorisontal, trans
   );
 };
 
-export const hasRightMargin = (anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical) => {
+export const hasRightMargin = (
+  anchorOriginVertical: AlignmentVertical,
+  anchorOriginHorisontal: AlignemntHorizontal,
+  transformOriginVertical: AlignmentVertical
+) => {
   return (
     anchorOriginVertical === AlignmentVertical.top &&
     transformOriginVertical === AlignmentVertical.top &&
@@ -115,7 +130,11 @@ export const hasRightMargin = (anchorOriginVertical, anchorOriginHorisontal, tra
   );
 };
 
-export const hasLeftMargin = (anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical) => {
+export const hasLeftMargin = (
+  anchorOriginVertical: AlignmentVertical,
+  anchorOriginHorisontal: AlignemntHorizontal,
+  transformOriginVertical: AlignmentVertical
+) => {
   return (
     anchorOriginVertical === AlignmentVertical.top &&
     transformOriginVertical === AlignmentVertical.top &&
@@ -123,7 +142,11 @@ export const hasLeftMargin = (anchorOriginVertical, anchorOriginHorisontal, tran
   );
 };
 
-export const hasRightBottom = (anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical) => {
+export const hasRightBottom = (
+  anchorOriginVertical: AlignmentVertical,
+  anchorOriginHorisontal: AlignemntHorizontal,
+  transformOriginVertical: AlignmentVertical
+) => {
   return (
     anchorOriginVertical === AlignmentVertical.top &&
     transformOriginVertical === AlignmentVertical.bottom &&

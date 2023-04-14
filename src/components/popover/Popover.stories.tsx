@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import Popover, { PopoverProps } from './Popover';
 import { useRef, useState } from 'react';
 import { Button } from '../inputs-and-elements/Button';
@@ -12,8 +11,6 @@ export default {
 
 const Template = (args) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [content, setContent] = useState<string>('popover content');
-
   const anchorEl = useRef();
 
   const onClose = (): void => setIsOpen(false);
@@ -30,7 +27,7 @@ const Template = (args) => {
         </div>
       </div>
       <Popover {...args} anchorEl={anchorEl.current} open={isOpen} onClose={onClose}>
-        <div>{content}</div>
+        <div>popover content</div>
       </Popover>
     </>
   );

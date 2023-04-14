@@ -108,9 +108,11 @@ const Popover = ({
 
   const updateAnchorAndContainerRects = useCallback(() => {
     const anchorRects = anchorEl?.getBoundingClientRect();
-    const rects = containertRef?.current?.getBoundingClientRect();
+    const containerRects = containertRef?.current?.getBoundingClientRect();
+    const contentRects = contentRef?.current?.getBoundingClientRect();
     anchorRects && setAnchorRects(anchorRects);
-    rects && setContainerRects(rects);
+    containerRects && setContainerRects(containerRects);
+    contentRects && setContentRects(contentRects);
   }, [anchorEl, containertRef]);
 
   const registerResizeHandler = useCallback(() => {

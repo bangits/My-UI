@@ -1,8 +1,6 @@
-import { ReactNode } from 'react';
+import { RefObject, ReactNode } from 'react';
 import { AlignmentVertical, AlignemntHorizontal } from './enums';
 import { Never } from '@/types/utils';
-
-type RefType = any;
 
 type RenderOpenEl = ({
   isOpened,
@@ -13,7 +11,7 @@ type RenderOpenEl = ({
   isOpened: boolean;
   open(): void;
   close(): void;
-  renderElRef: RefType;
+  renderElRef: RefObject<HTMLElement>;
 }) => ReactNode;
 
 type PopoverPositionProps = {
@@ -23,19 +21,19 @@ type PopoverPositionProps = {
   left: number;
 };
 
-type PopoverInternalState = {
+type PopoverUnControlled = {
   renderOpenEl: RenderOpenEl;
 };
 
-type PopoverExternalStateProps = {
+type PopoverControlled = {
   open: boolean;
   onClose(): void;
-  anchorEl: RefType;
+  anchorEl: RefObject<HTMLElement>;
   positions?: PopoverPositionProps;
 };
 
-type OnlyInternalState = PopoverInternalState & Never<PopoverExternalStateProps>;
-type OnlyExternalState = PopoverExternalStateProps & Never<PopoverInternalState>;
+type OnlyUnControlled = PopoverUnControlled & Never<PopoverControlled>;
+type OnlyControlled = PopoverControlled & Never<PopoverUnControlled>;
 
 export type PopoverProps = {
   children: ReactNode;
@@ -45,4 +43,4 @@ export type PopoverProps = {
   anchorOriginHorisontal?: AlignemntHorizontal;
   transformOriginVertical?: AlignmentVertical;
   transformOriginHorizontal?: AlignemntHorizontal;
-} & (OnlyInternalState | OnlyExternalState);
+} & (OnlyControlled | OnlyUnControlled);

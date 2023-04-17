@@ -11,14 +11,8 @@ export default {
   component: Popover
 } as ComponentMeta<typeof Popover>;
 
-const Template = (args) => {
+const InternalStateTemplate = (args) => {
   const [content, setContent] = useState('popover content');
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const anchorEl = useRef();
-
-  const onClose = (): void => setIsOpen(false);
-
-  const onClick = (): void => setIsOpen(!isOpen);
 
   return (
     <>
@@ -33,9 +27,6 @@ const Template = (args) => {
               cols={30}
               rows={5}></textarea>
           </div>
-          <Button ref={anchorEl} onClick={onClick}>
-            Click me
-          </Button>
           <Popover
             {...args}
             renderOpenEl={({ open, renderElRef }) => (
@@ -51,8 +42,48 @@ const Template = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
+const ExternalStateTemplate = (args) => {
+  const [content, setContent] = useState('popover content');
+  const [isOpen, setIsOpen] = useState(false);
+  const anchorEl = useRef(null);
+
+  return (
+    <>
+      <div>
+        <div style={{ width: 'fit-content', marginLeft: '5vw', marginTop: '5vh' }}>
+          <Typography variant='h5'>Type to change popover content</Typography>
+          <div style={{ margin: '20px 0' }}>
+            <textarea
+              autoFocus
+              onChange={(e) => setContent(e.target.value)}
+              value={content}
+              cols={30}
+              rows={5}></textarea>
+          </div>
+          <Button ref={anchorEl} onClick={() => setIsOpen(true)}>
+            Click me
+          </Button>
+          <Popover {...args} anchorEl={anchorEl} open={isOpen} onClose={() => setIsOpen(false)}>
+            <div>{content}</div>
+          </Popover>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export const WithInternalState = InternalStateTemplate.bind({});
+WithInternalState.args = {
+  anchorOriginVertical: AlignmentVertical.bottom,
+  anchorOriginHorisontal: AlignemntHorizontal.left,
+  transformOriginVertical: AlignmentVertical.top,
+  transformOriginHorizontal: AlignemntHorizontal.right,
+  edgeMarginUnit: 4,
+  safetyMarginUnit: 24
+} as PopoverProps;
+
+export const WithExternalState = ExternalStateTemplate.bind({});
+WithExternalState.args = {
   anchorOriginVertical: AlignmentVertical.bottom,
   anchorOriginHorisontal: AlignemntHorizontal.left,
   transformOriginVertical: AlignmentVertical.top,

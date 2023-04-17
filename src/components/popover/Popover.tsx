@@ -106,7 +106,7 @@ const Popover = ({
   );
   const resizeHandler = useCallback(() => (open ? registerResizeHandler() : unRegisterResizeHandler()), [open]);
 
-  const updateAnchorAndContainerRects = useCallback(() => {
+  const updateDependentRects = useCallback(() => {
     const anchorRects = anchorEl?.getBoundingClientRect();
     const containerRects = containertRef?.current?.getBoundingClientRect();
     const contentRects = contentRef?.current?.getBoundingClientRect();
@@ -116,14 +116,14 @@ const Popover = ({
   }, [anchorEl, containertRef]);
 
   const registerResizeHandler = useCallback(() => {
-    window.addEventListener('resize', updateAnchorAndContainerRects);
-  }, [updateAnchorAndContainerRects]);
+    window.addEventListener('resize', updateDependentRects);
+  }, [updateDependentRects]);
 
   const unRegisterResizeHandler = useCallback(() => {
-    window.removeEventListener('resize', updateAnchorAndContainerRects);
-  }, [updateAnchorAndContainerRects]);
+    window.removeEventListener('resize', updateDependentRects);
+  }, [updateDependentRects]);
 
-  useEffect(() => open && updateAnchorAndContainerRects(), [open]);
+  useEffect(() => open && updateDependentRects(), [open]);
 
   useEffect(() => resizeHandler(), [resizeHandler]);
 

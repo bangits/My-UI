@@ -47,11 +47,25 @@ const Popover = ({
   const [anchorRects, setAnchorRects] = useState<DOMRect | null>(null);
   const [contentRects, setContentRects] = useState<DOMRect | null>(null);
   const [containerRects, setContainerRects] = useState<DOMRect | null>(null);
-  const [originPosition, setOriginPosition] = useState<Partial<DOMRect>>({});
-  const [anchorPosition, setAnchorPosition] = useState<Partial<DOMRect>>({});
 
   const contentRef = useRef<HTMLDivElement | null>(null);
   const containertRef = useRef<HTMLDivElement | null>(null);
+
+  const anchorPosition = useMemo(() => {
+    const rects = anchorRects ? anchorRects : anchorEl?.getBoundingClientRect();
+
+    return {
+      top: getTopPosition(rects, anchorOriginVertical),
+      left: getLeftPosition(rects, anchorOriginHorisontal)
+    };
+  }, [anchorEl, anchorOriginVertical, anchorOriginHorisontal, anchorRects]);
+
+  const originPosition = useMemo(() => {
+    return {
+      top: getVerticalTranslate(contentRects, transformOriginVertical),
+      left: getHorizontalTranslate(contentRects, transformOriginHorizontal)
+    };
+  }, [transformOriginVertical, transformOriginHorizontal, contentRects]);
 
   const endPosition = useMemo(() => {
     return preventOverflow(anchorPosition, originPosition, contentRects, containerRects, safetyMarginUnit);
@@ -79,37 +93,13 @@ const Popover = ({
 
   const blockClose = useCallback((e: React.SyntheticEvent) => e.stopPropagation(), []);
 
-  const updateOriginPosition = useCallback(() => {
-    setOriginPosition({
-      top: getVerticalTranslate(contentRects, transformOriginVertical),
-      left: getHorizontalTranslate(contentRects, transformOriginHorizontal)
-    });
-  }, [transformOriginVertical, transformOriginHorizontal, contentRects]);
-
-  const updateAnchorPosition = useCallback(() => {
-    const rects = anchorRects ? anchorRects : anchorEl?.getBoundingClientRect();
-
-    setAnchorPosition({
-      top: getTopPosition(rects, anchorOriginVertical),
-      left: getLeftPosition(rects, anchorOriginHorisontal)
-    });
-  }, [anchorEl, anchorOriginVertical, anchorOriginHorisontal, anchorRects]);
-
-  const updateContentRef = useCallback(
-    () => contentRef.current && setContentRects(contentRef.current?.getBoundingClientRect()),
-    [open]
-  );
-
-  const updateContainerRef = useCallback(
-    () => containertRef.current && setContainerRects(containertRef.current?.getBoundingClientRect()),
-    [open]
-  );
   const resizeHandler = useCallback(() => (open ? registerResizeHandler() : unRegisterResizeHandler()), [open]);
 
   const updateDependentRects = useCallback(() => {
     const anchorRects = anchorEl?.getBoundingClientRect();
     const containerRects = containertRef?.current?.getBoundingClientRect();
     const contentRects = contentRef?.current?.getBoundingClientRect();
+
     anchorRects && setAnchorRects(anchorRects);
     containerRects && setContainerRects(containerRects);
     contentRects && setContentRects(contentRects);
@@ -126,14 +116,6 @@ const Popover = ({
   useEffect(() => open && updateDependentRects(), [open]);
 
   useEffect(() => resizeHandler(), [resizeHandler]);
-
-  useEffect(() => updateOriginPosition(), [updateOriginPosition]);
-
-  useEffect(() => updateAnchorPosition(), [updateAnchorPosition]);
-
-  useEffect(() => updateContentRef(), [updateContentRef]);
-
-  useEffect(() => updateContainerRef(), [updateContainerRef]);
 
   return (
     open && (

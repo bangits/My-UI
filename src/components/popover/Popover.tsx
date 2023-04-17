@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AlignemntHorizontal, AlignmentVertical } from './enums';
 import classes from './Popover.module.scss';
 
@@ -13,30 +13,15 @@ import {
   hasTopMargin,
   preventOverflow
 } from './helpers';
-export interface PopoverProps {
-  open: boolean;
-  children: ReactNode;
-  positions?: {
-    top: number;
-    right: number;
-    bottom: number;
-    left: number;
-  };
-  anchorEl?: HTMLElement;
-  edgeMarginUnit?: number;
-  safetyMarginUnit?: number;
-  anchorOriginVertical?: AlignmentVertical;
-  anchorOriginHorisontal?: AlignemntHorizontal;
-  transformOriginVertical?: AlignmentVertical;
-  transformOriginHorizontal?: AlignemntHorizontal;
-  onClose: () => void;
-}
+import { PopoverProps } from './interfaces';
+import { Portal } from '../shared';
 
 const Popover = ({
   children,
   open,
   onClose,
   anchorEl,
+  renderOpenEl,
   edgeMarginUnit = 4,
   safetyMarginUnit = 24,
   anchorOriginVertical = AlignmentVertical.bottom,
@@ -44,15 +29,19 @@ const Popover = ({
   transformOriginVertical = AlignmentVertical.top,
   transformOriginHorizontal = AlignemntHorizontal.left
 }: PopoverProps) => {
+  const [internalOpen, setInternalOpen] = useState<boolean>(false);
   const [anchorRects, setAnchorRects] = useState<DOMRect | null>(null);
   const [contentRects, setContentRects] = useState<DOMRect | null>(null);
   const [containerRects, setContainerRects] = useState<DOMRect | null>(null);
 
+  const renderElRef = useRef<HTMLDataElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const containertRef = useRef<HTMLDivElement | null>(null);
 
+  const isOpen = useMemo(() => (renderOpenEl ? internalOpen : open), [renderOpenEl, internalOpen, open]);
+
   const anchorPosition = useMemo(() => {
-    const rects = anchorRects ? anchorRects : anchorEl?.getBoundingClientRect();
+    const rects = anchorRects ? anchorRects : anchorEl?.current?.getBoundingClientRect();
 
     return {
       top: getTopPosition(rects, anchorOriginVertical),
@@ -85,18 +74,24 @@ const Popover = ({
     };
   }, [anchorOriginVertical, anchorOriginHorisontal, transformOriginVertical, edgeMarginUnit]);
 
+  const handleInternalClose = useCallback(() => setInternalOpen(false), []);
+
+  const handleInternalOpen = useCallback(() => setInternalOpen(true), []);
+
   const hanldeClose = useCallback(() => {
-    onClose();
+    renderOpenEl ? handleInternalClose() : onClose();
     setContentRects(null);
     setContainerRects(null);
   }, []);
 
   const blockClose = useCallback((e: React.SyntheticEvent) => e.stopPropagation(), []);
 
-  const resizeHandler = useCallback(() => (open ? registerResizeHandler() : unRegisterResizeHandler()), [open]);
+  const resizeHandler = useCallback(() => (isOpen ? registerResizeHandler() : unRegisterResizeHandler()), [isOpen]);
 
   const updateDependentRects = useCallback(() => {
-    const anchorRects = anchorEl?.getBoundingClientRect();
+    const anchorRects = renderOpenEl
+      ? renderElRef?.current?.getBoundingClientRect()
+      : anchorEl?.current?.getBoundingClientRect();
     const containerRects = containertRef?.current?.getBoundingClientRect();
     const contentRects = contentRef?.current?.getBoundingClientRect();
 
@@ -113,24 +108,34 @@ const Popover = ({
     window.removeEventListener('resize', updateDependentRects);
   }, [updateDependentRects]);
 
-  useEffect(() => open && updateDependentRects(), [open]);
+  useEffect(() => isOpen && updateDependentRects(), [isOpen]);
 
   useEffect(() => resizeHandler(), [resizeHandler]);
 
   return (
-    open && (
-      <div
-        ref={containertRef}
-        style={{ visibility: contentRects ? 'visible' : 'hidden' }}
-        onClick={hanldeClose}
-        className={`${classes.fullWidthHeightLayer}`}>
-        <div className={`${classes.cardWrapper}`} style={edgeMargins}>
-          <div ref={contentRef} onClick={blockClose} className={`${classes.cardBase}`} style={endPosition}>
-            {children}
+    <>
+      {isOpen && (
+        <Portal>
+          <div
+            ref={containertRef}
+            style={{ visibility: contentRects ? 'visible' : 'hidden' }}
+            onClick={hanldeClose}
+            className={`${classes.fullWidthHeightLayer}`}>
+            <div className={`${classes.cardWrapper}`} style={edgeMargins}>
+              <div ref={contentRef} onClick={blockClose} className={`${classes.cardBase}`} style={endPosition}>
+                {children}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    )
+        </Portal>
+      )}
+      {renderOpenEl?.({
+        isOpened: internalOpen,
+        close: handleInternalClose,
+        open: handleInternalOpen,
+        renderElRef: renderElRef
+      })}
+    </>
   );
 };
 

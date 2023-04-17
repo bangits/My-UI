@@ -1,10 +1,10 @@
-import Popover, { PopoverProps } from './Popover';
+import Popover from './Popover';
 import { useRef, useState } from 'react';
 import { Button } from '../inputs-and-elements/Button';
 import { ComponentMeta } from '@storybook/react';
 import { AlignemntHorizontal, AlignmentVertical } from './enums';
-import { TextInput } from '../inputs-and-elements';
 import { Typography } from '../typography';
+import { PopoverProps } from './interfaces';
 
 export default {
   title: 'components/Popover/Popover',
@@ -36,11 +36,17 @@ const Template = (args) => {
           <Button ref={anchorEl} onClick={onClick}>
             Click me
           </Button>
+          <Popover
+            {...args}
+            renderOpenEl={({ open, renderElRef }) => (
+              <Button ref={renderElRef} onClick={open}>
+                Click me
+              </Button>
+            )}>
+            <div>{content}</div>
+          </Popover>
         </div>
       </div>
-      <Popover {...args} anchorEl={anchorEl.current} open={isOpen} onClose={onClose}>
-        <div>{content}</div>
-      </Popover>
     </>
   );
 };

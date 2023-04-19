@@ -19,7 +19,7 @@
     max-width: calculateRem(100px);
     overflow: hidden;
     text-overflow: ellipsis;
-    word-break: unset;
+    word-break: unset !important;
     text-decoration: underline;
   }
 

@@ -100,7 +100,7 @@ const Tooltip = ({
               exit: styles['TooltipContainer--exit'],
               exitActive: styles['TooltipContainer--exit']
             }}>
-            <StyledTooltip color={color} delay={delay} ref={tooltipRef} posRef={posRef}>
+            <StyledTooltip hide={!show} color={color} delay={delay} ref={tooltipRef} posRef={posRef}>
               <div className={classNames(Styles.TooltipTriangle, Styles[`Tooltip-${placement}`])}>
                 <div>
                   <Triangle />

@@ -1,12 +1,11 @@
-import { TrashIndicator } from '@/icons';
-import { LoadingIndicator, Typography } from '@/my-ui-core';
 import { UIColors } from '@/types';
-import classNames from 'classnames';
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { BaseFileUploaderProps, createHandleFileUpload } from './createHandleFileUpload';
-import styles from './FileUploader.module.scss';
+import { InputFileUploader } from './variants/inputFileUploader/InputFileUploader';
+import { RenderElProps } from './variants/interfaces';
 
 export interface FileUploaderProps extends BaseFileUploaderProps {
+  renderEl?: (props: RenderElProps) => JSX.Element;
   loadingPercent?: number;
   dragFileText?: string;
   browseText?: string;
@@ -18,6 +17,7 @@ export interface FileUploaderProps extends BaseFileUploaderProps {
 }
 
 const FileUploader: FC<FileUploaderProps> = ({
+  renderEl = (props: RenderElProps) => <InputFileUploader {...props} />,
   minWidth = 40,
   maxWidth = 2000,
   minHeight = 40,
@@ -93,71 +93,61 @@ const FileUploader: FC<FileUploaderProps> = ({
     [onChange, onError, accept, disabled]
   );
 
+  const handleRemove = useCallback(() => {
+    if (disabled) return;
+
+    setUploadedFile(null);
+    onChange(null);
+  }, [disabled]);
+
+  const renderElProps: RenderElProps = useMemo(
+    () => ({
+      imageSrc,
+      uploadedFile,
+      forceShowUploader,
+      handleEnter,
+      handleLeave,
+      handleOver,
+      handleUpload,
+      highlight,
+      fullWidth,
+      disabled,
+      dragFileText,
+      browseText,
+      accept,
+      indicatorColor,
+      loadingPercent,
+      uploadedImageSource,
+      handleRemove
+    }),
+    [
+      imageSrc,
+      uploadedFile,
+      forceShowUploader,
+      handleEnter,
+      handleLeave,
+      handleOver,
+      handleUpload,
+      highlight,
+      fullWidth,
+      disabled,
+      dragFileText,
+      browseText,
+      accept,
+      indicatorColor,
+      loadingPercent,
+      uploadedImageSource,
+      handleRemove
+    ]
+  );
+
   useEffect(() => {
     setUploadedImageSource(imageSrc);
 
     if (!imageSrc) setUploadedFile(null);
   }, [imageSrc]);
 
-  return (
-    <>
-      {!imageSrc && !uploadedFile && !forceShowUploader ? (
-        <div
-          onDragEnter={handleEnter}
-          onDragLeave={handleLeave}
-          onDragOver={handleOver}
-          onDrop={handleUpload}
-          className={classNames({
-            [styles.DropzoneBase]: !highlight,
-            [styles.DropIndicator]: highlight,
-            [styles['DropzoneBase--full-width']]: fullWidth,
-            [styles['DropzoneBase--disabled']]: disabled
-          })}>
-          <Typography component='span' variant='p4'>
-            {dragFileText}
-            <div className={styles['DropzoneBase--browse']}>
-              {browseText}
-              <input
-                type='file'
-                title=''
-                accept={accept}
-                onChange={handleUpload}
-                className={styles['DropzoneBase--upload']}
-              />
-            </div>
-          </Typography>
-        </div>
-      ) : (
-        <LoadingIndicator
-          variant='square'
-          color={indicatorColor}
-          percent={loadingPercent}
-          fullWidth={fullWidth}
-          disabled={disabled}>
-          <div className={styles.GameIndicatorIconWrapper}>
-            <span className={styles.GameIndicatorIcon}>
-              <img src={uploadedImageSource} alt={uploadedFile?.name} />
-            </span>
-            <span className={styles.ImageFormatLabel}>{uploadedFile?.name}</span>
-          </div>
-          <div className={styles.PerconWrapper}>
-            <span className={styles.PercentUpload}>{loadingPercent}%</span>
-            <button
-              type='button'
-              onClick={() => {
-                if (disabled) return;
-
-                setUploadedFile(null);
-                onChange(null);
-              }}
-              className={styles.TrashUploadIcon}>
-              <TrashIndicator />
-            </button>
-          </div>
-        </LoadingIndicator>
-      )}
-    </>
-  );
+  return <>{renderEl(renderElProps)}</>;
 };
 
 export default FileUploader;

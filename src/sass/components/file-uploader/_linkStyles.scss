@@ -1,0 +1,35 @@
+@mixin generate-link-file-upload-styles() {
+  .container {
+    @include flex(null, center);
+  }
+
+  .wrapper {
+    @include flex(null, center);
+    cursor: pointer;
+    overflow: hidden;
+    width: fit-content;
+  }
+
+  .icon {
+    margin-right: calculateRem(7px);
+    color: var(--theme-default-primary);
+  }
+
+  .text {
+    max-width: calculateRem(100px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: unset;
+    text-decoration: underline;
+  }
+
+  .loadingPercent {
+    margin-left: calculateRem(4px);
+  }
+
+  .trashIcon {
+    cursor: pointer;
+    color: color(red-orange);
+    margin-left: calculateRem(6px);
+  }
+}

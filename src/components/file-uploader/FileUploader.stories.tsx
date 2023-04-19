@@ -1,8 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 import FileUploader from './FileUploader';
-import { RenderElProps } from './variants/interfaces';
-import { LinkFileUploader } from './variants/LinkFileUploader/linkFileUploader';
+import { LinkFileUploader, RenderElProps } from './variants';
 
 export default {
   title: 'components/File Uploader/File Uploader',

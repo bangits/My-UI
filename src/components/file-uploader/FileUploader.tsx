@@ -1,8 +1,7 @@
 import { UIColors } from '@/types';
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { BaseFileUploaderProps, createHandleFileUpload } from './createHandleFileUpload';
-import { InputFileUploader } from './variants/inputFileUploader/InputFileUploader';
-import { RenderElProps } from './variants/interfaces';
+import { InputFileUploader, RenderElProps } from './variants';
 
 export interface FileUploaderProps extends BaseFileUploaderProps {
   renderEl?: (props: RenderElProps) => JSX.Element;

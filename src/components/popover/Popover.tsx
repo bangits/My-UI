@@ -86,7 +86,13 @@ const Popover = ({
 
   const blockClose = useCallback((e: React.SyntheticEvent) => e.stopPropagation(), []);
 
-  const resizeHandler = useCallback(() => (isOpen ? registerResizeHandler() : unRegisterResizeHandler()), [isOpen]);
+  const eventHandlersController = useCallback(() => {
+    if (isOpen) {
+      registerHandlers();
+    } else {
+      unRegisterHandler();
+    }
+  }, [isOpen]);
 
   const updateDependentRects = useCallback(() => {
     const anchorRects = renderOpenEl
@@ -100,17 +106,19 @@ const Popover = ({
     contentRects && setContentRects(contentRects);
   }, [anchorEl, containertRef]);
 
-  const registerResizeHandler = useCallback(() => {
+  const registerHandlers = useCallback(() => {
     window.addEventListener('resize', updateDependentRects);
+    window.addEventListener('scroll', updateDependentRects);
   }, [updateDependentRects]);
 
-  const unRegisterResizeHandler = useCallback(() => {
+  const unRegisterHandler = useCallback(() => {
     window.removeEventListener('resize', updateDependentRects);
+    window.removeEventListener('scroll', updateDependentRects);
   }, [updateDependentRects]);
 
   useEffect(() => isOpen && updateDependentRects(), [isOpen]);
 
-  useEffect(() => resizeHandler(), [resizeHandler]);
+  useEffect(() => eventHandlersController(), [eventHandlersController]);
 
   return (
     <>

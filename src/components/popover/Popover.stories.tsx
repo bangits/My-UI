@@ -16,7 +16,7 @@ const InternalStateTemplate = (args) => {
 
   return (
     <>
-      <div>
+      <div style={{ height: '200vh' }}>
         <div style={{ width: 'fit-content', marginLeft: '5vw', marginTop: '5vh' }}>
           <Typography variant='h5'>Type to change popover content</Typography>
           <div style={{ margin: '20px 0' }}>
@@ -49,7 +49,7 @@ const ExternalStateTemplate = (args) => {
 
   return (
     <>
-      <div>
+      <div style={{ height: '200vh' }}>
         <div style={{ width: 'fit-content', marginLeft: '5vw', marginTop: '5vh' }}>
           <Typography variant='h5'>Type to change popover content</Typography>
           <div style={{ margin: '20px 0' }}>

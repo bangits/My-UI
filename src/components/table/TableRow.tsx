@@ -15,34 +15,21 @@ export interface TableRowProps extends IComponent {
 }
 
 export const TableRow = forwardRef<HTMLElement, TableRowProps>(
-  ({ children, hover, color, selected, component: Component = 'tr', isLoading = false }, ref) => {
-    const [hoverRow, setHoverRow] = useState<boolean>(false);
-
-    const handleMouseOver = useCallback(() => {
-      if (hover) setHoverRow(true);
-    }, []);
-    const handleMouseOut = useCallback(() => {
-      if (hover) setHoverRow(false);
-    }, []);
-
-    return (
+  ({ children, hover, color, selected, component: Component = 'tr', isLoading = false }, ref) => (
+    // @ts-expect-error Ingoring typescript for ref type casting
+    <Component
       // @ts-expect-error Ingoring typescript for ref type casting
-      <Component
-        // @ts-expect-error Ingoring typescript for ref type casting
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-        className={classNames(styles.TableRow, {
-          [styles['TableRow--loading']]: isLoading,
-          [styles['TableRow--default']]: true,
-          [styles['TableRow--hover']]: hoverRow,
-          [styles['TableRow--selected']]: selected,
-          [`${styles[`TableRow--${color}`]}`]: color
-        })}
-        ref={ref}>
-        {children}
-      </Component>
-    );
-  }
+      className={classNames(styles.TableRow, {
+        [styles['TableRow--loading']]: isLoading,
+        [styles['TableRow--default']]: true,
+        [styles['TableRow--hover']]: hover,
+        [styles['TableRow--selected']]: selected,
+        [`${styles[`TableRow--${color}`]}`]: color
+      })}
+      ref={ref}>
+      {children}
+    </Component>
+  )
 );
 
 export default typedMemo(TableRow);

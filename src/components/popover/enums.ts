@@ -4,7 +4,7 @@ export enum AlignmentVertical {
   bottom = 'bottom'
 }
 
-export enum AlignemntHorizontal {
+export enum AlignmentHorizontal {
   left = 'left',
   center = 'center',
   right = 'right'

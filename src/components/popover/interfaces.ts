@@ -1,5 +1,5 @@
 import { RefObject, ReactNode } from 'react';
-import { AlignmentVertical, AlignemntHorizontal } from './enums';
+import { AlignmentVertical, AlignmentHorizontal } from './enums';
 import { Never } from '@/types/utils';
 
 type RenderOpenEl = ({
@@ -40,7 +40,7 @@ export type PopoverProps = {
   edgeMarginUnit?: number;
   safetyMarginUnit?: number;
   anchorOriginVertical?: AlignmentVertical;
-  anchorOriginHorisontal?: AlignemntHorizontal;
+  anchorOriginHorizontal?: AlignmentHorizontal;
   transformOriginVertical?: AlignmentVertical;
-  transformOriginHorizontal?: AlignemntHorizontal;
+  transformOriginHorizontal?: AlignmentHorizontal;
 } & (OnlyControlled | OnlyUnControlled);

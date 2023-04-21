@@ -25,3 +25,4 @@ export * from './tag-country';
 export * from './text-with-tooltip';
 export * from './tooltip';
 export * from './typography';
+export * from './popover';

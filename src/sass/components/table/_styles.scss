@@ -76,7 +76,7 @@
         height: getTableSizes(table-body-row-height);
         &:hover {
           .ActionTableCell {
-            @include flex(flex-end, center);
+            visibility: visible;
           }
         }
         &:last-child {
@@ -110,7 +110,8 @@
       }
     }
     .ActionTableCell {
-      display: none;
+      visibility: hidden;
+      @include flex(flex-end, center);
     }
   }
   .TableContainer {

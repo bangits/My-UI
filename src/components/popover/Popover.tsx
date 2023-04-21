@@ -58,9 +58,10 @@ const Popover = ({
     [transformOriginVertical, transformOriginHorizontal, contentRects]
   );
 
-  const endPosition = useMemo(() => {
-    return preventOverflow(anchorPosition, originPosition, contentRects, containerRects, safetyMarginUnit);
-  }, [anchorPosition, originPosition, contentRects, containerRects, safetyMarginUnit]);
+  const endPosition = useMemo(
+    () => preventOverflow(anchorPosition, originPosition, contentRects, containerRects, safetyMarginUnit),
+    [anchorPosition, originPosition, contentRects, containerRects, safetyMarginUnit]
+  );
 
   const edgeMargins = useMemo(() => {
     const top = hasTopMargin(anchorOriginVertical, anchorOriginHorizontal, transformOriginVertical);

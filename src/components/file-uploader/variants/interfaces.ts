@@ -9,6 +9,7 @@ export interface RenderElProps {
   handleOver?: (e: React.DragEvent<HTMLDivElement>) => void;
   handleUpload?: (e: React.DragEvent<HTMLDivElement> | React.ChangeEvent<HTMLInputElement>) => Promise<void>;
   handleRemove?: () => void;
+  isLocalUploadedImage?: boolean;
   highlight?: boolean;
   fullWidth?: boolean;
   disabled?: boolean;
@@ -17,5 +18,4 @@ export interface RenderElProps {
   accept?: string;
   indicatorColor?: UIColors;
   loadingPercent?: number;
-  uploadedImageSource?: string;
 }

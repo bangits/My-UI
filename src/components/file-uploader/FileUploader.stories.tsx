@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
-import FileUploader from './FileUploader';
 import { LinkFileUploader, RenderElProps } from './variants';
+import FileUploader from './FileUploader';
 
 export default {
   title: 'components/File Uploader/File Uploader',
@@ -13,7 +14,6 @@ export const InputUploader = () => {
   return (
     <>
       <FileUploader
-        onChange={action('onChange')}
         onError={action('onError')}
         loadingPercent={75}
         minWidth={number('minWidth', 40)}
@@ -30,14 +30,28 @@ export const InputUploader = () => {
 };
 
 export const LinkUploader = () => {
+  const [imageData, setImageData] = useState({
+    name: '',
+    src: '',
+    percent: 0
+  });
+
   return (
     <>
       <FileUploader
-        browseText='Attach'
+        browseText={imageData.name || 'Attach'}
+        imageSrc={imageData.src}
         renderEl={(props: RenderElProps) => <LinkFileUploader {...props} />}
-        onChange={action('onChange')}
+        onChange={(file) => {
+          if (file) {
+            setTimeout(() => {
+              setImageData({ name: file?.name, src: 'some src', percent: 100 });
+            }, 1000);
+          }
+        }}
+        onRemove={() => setImageData({ name: '', src: '', percent: 0 })}
         onError={action('onError')}
-        loadingPercent={100}
+        loadingPercent={imageData.percent}
         minWidth={number('minWidth', 40)}
         maxWidth={number('maxWidth', 2000)}
         minHeight={number('minHeight', 40)}

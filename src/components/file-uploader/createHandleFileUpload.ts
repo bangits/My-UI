@@ -12,6 +12,7 @@ export interface BaseFileUploaderProps {
   onChange?: (file: File) => void;
   onError?: (error: { type: FileUploaderErrors; file }) => void;
   onImageSourceChange?: (imageSource: string) => void;
+  onRemove?: () => void;
 }
 
 export const createHandleFileUpload =

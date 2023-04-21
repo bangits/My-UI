@@ -1,15 +1,14 @@
-import { Icons, Tooltip, Typography } from '@/my-ui-core';
+import { useCallback, useRef } from 'react';
+import { Icons, Typography } from '@/my-ui-core';
 import { RenderElProps } from '../interfaces';
 import styles from './linkFileUploader.module.scss';
-import classNames from 'classnames';
-import { useCallback, useMemo, useRef } from 'react';
-
-const nameVisibleLength = 11;
 
 export const LinkFileUploader = ({
   browseText,
   loadingPercent,
   uploadedFile,
+  isLocalUploadedImage,
+  imageSrc,
   handleUpload,
   handleRemove,
   accept
@@ -21,44 +20,31 @@ export const LinkFileUploader = ({
     handleRemove();
   }, []);
 
-  const showNameTooltip = useMemo(() => {
-    return uploadedFile?.name.length > nameVisibleLength;
-  }, [uploadedFile]);
-
   const handleClick = useCallback(() => {
     inputRef?.current.click();
   }, []);
 
   return (
-    <div className={classNames(styles.container)}>
-      <div onClick={handleClick} className={classNames(styles.wrapper)}>
-        <input title='' accept={accept} hidden ref={inputRef} type='file' onChange={handleUpload} />
-        <div className={classNames(styles.icon)}>
-          <Icons.ViewIcon color='currentColor' width={14} height={14} />
+    <div className={styles.Container}>
+      <div onClick={handleClick} className={styles.Wrapper}>
+        <input accept={accept} hidden ref={inputRef} type='file' onChange={handleUpload} />
+        <div className={styles.Icon}>
+          <Icons.Attach color='currentColor' width={14} height={14} />
         </div>
-        <Typography className={classNames(styles.text)} variant='p4' color='primary'>
-          {uploadedFile ? (
-            <>
-              {showNameTooltip ? (
-                <Tooltip text={uploadedFile.name}>
-                  <span>{uploadedFile.name}</span>
-                </Tooltip>
-              ) : (
-                uploadedFile.name
-              )}
-            </>
-          ) : (
-            browseText
-          )}
+        <Typography component='span' className={styles.Text} variant='p4' color='primary'>
+          {browseText}
         </Typography>
       </div>
-      {uploadedFile && (
-        <Typography className={classNames(styles.loadingPercent)} variant='p4' color='primary' fontWeight={600}>
-          {loadingPercent}%
-        </Typography>
+      {uploadedFile && isLocalUploadedImage && (
+        <>
+          <div className={styles.LoadingBar}></div>
+          <Typography className={styles.LoadingPercent} variant='p4' color='primary' fontWeight={600}>
+            {loadingPercent}%
+          </Typography>
+        </>
       )}
-      {uploadedFile && (
-        <div className={classNames(styles.trashIcon)}>
+      {!isLocalUploadedImage && imageSrc && (
+        <div className={styles.TrashIcon}>
           <Icons.TrashIndicator color='currentColor' onClick={onRemove} width={14} height={14} />
         </div>
       )}

@@ -26,6 +26,7 @@ const FileUploader: FC<FileUploaderProps> = ({
   accept = 'image/*',
   loadingPercent,
   onChange,
+  onRemove,
   onError,
   dragFileText = 'Drag file here ',
   browseText = 'Browse',
@@ -37,8 +38,8 @@ const FileUploader: FC<FileUploaderProps> = ({
 }) => {
   const [highlight, setHighlight] = useState<boolean>(false);
 
+  const [isLocalUploadedImage, setIsLocalUploadedImage] = useState(false);
   const [uploadedFile, setUploadedFile] = useState<File>(null);
-
   const [uploadedImageSource, setUploadedImageSource] = useState(imageSrc || '');
 
   const handleEnter = useCallback(
@@ -83,7 +84,7 @@ const FileUploader: FC<FileUploaderProps> = ({
       onChange: (file) => {
         if (disabled) return;
 
-        onChange(file);
+        onChange?.(file);
         setUploadedFile(file);
       },
       onError,
@@ -95,13 +96,15 @@ const FileUploader: FC<FileUploaderProps> = ({
   const handleRemove = useCallback(() => {
     if (disabled) return;
 
+    setUploadedImageSource('');
+    setIsLocalUploadedImage(false);
     setUploadedFile(null);
-    onChange(null);
+    onChange?.(null);
+    onRemove?.();
   }, [disabled]);
 
   const renderElProps: RenderElProps = useMemo(
     () => ({
-      imageSrc,
       uploadedFile,
       forceShowUploader,
       handleEnter,
@@ -114,13 +117,13 @@ const FileUploader: FC<FileUploaderProps> = ({
       dragFileText,
       browseText,
       accept,
+      isLocalUploadedImage,
       indicatorColor,
       loadingPercent,
-      uploadedImageSource,
+      imageSrc: uploadedImageSource,
       handleRemove
     }),
     [
-      imageSrc,
       uploadedFile,
       forceShowUploader,
       handleEnter,
@@ -133,6 +136,7 @@ const FileUploader: FC<FileUploaderProps> = ({
       dragFileText,
       browseText,
       accept,
+      isLocalUploadedImage,
       indicatorColor,
       loadingPercent,
       uploadedImageSource,
@@ -141,6 +145,7 @@ const FileUploader: FC<FileUploaderProps> = ({
   );
 
   useEffect(() => {
+    setIsLocalUploadedImage(!uploadedImageSource);
     setUploadedImageSource(imageSrc);
 
     if (!imageSrc) setUploadedFile(null);

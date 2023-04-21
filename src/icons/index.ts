@@ -1,3 +1,4 @@
+export { ReactComponent as Attach } from './attach.react.svg';
 export { ReactComponent as AlertCheck } from './alertcheck.react.svg';
 export { ReactComponent as AlertClose } from './alertclose.react.svg';
 export { ReactComponent as AlertError } from './alerterror.react.svg';

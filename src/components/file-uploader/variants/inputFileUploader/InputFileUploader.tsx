@@ -20,7 +20,6 @@ export const InputFileUploader = ({
   accept,
   indicatorColor,
   loadingPercent,
-  uploadedImageSource,
   handleRemove
 }: RenderElProps) => {
   return (
@@ -60,7 +59,7 @@ export const InputFileUploader = ({
           disabled={disabled}>
           <div className={styles.GameIndicatorIconWrapper}>
             <span className={styles.GameIndicatorIcon}>
-              <img src={uploadedImageSource} alt={uploadedFile?.name} />
+              <img src={imageSrc} alt={uploadedFile?.name} />
             </span>
             <span className={styles.ImageFormatLabel}>{uploadedFile?.name}</span>
           </div>

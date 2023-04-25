@@ -1,0 +1,44 @@
+@mixin generate-link-file-upload-styles() {
+  .Container {
+    @include flex(null, center);
+  }
+
+  .Wrapper {
+    @include flex(null, center);
+    cursor: pointer;
+    overflow: hidden;
+    width: fit-content;
+  }
+
+  .Icon {
+    margin-right: calculateRem(7px);
+    color: var(--theme-default-primary);
+  }
+
+  .Text {
+    max-width: calculateRem(120px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all !important;
+    white-space: nowrap;
+    text-decoration: underline !important;
+  }
+
+  .LoadingBar {
+    margin-left: calculateRem(14px);
+    background-color: #e8e8f2;
+    border-bottom: calculateRem(4px);
+    width: calculateRem(71px);
+    height: calculateRem(4px);
+  }
+
+  .LoadingPercent {
+    margin-left: calculateRem(6px);
+  }
+
+  .TrashIcon {
+    cursor: pointer;
+    color: color(red-orange);
+    margin-left: calculateRem(6px);
+  }
+}

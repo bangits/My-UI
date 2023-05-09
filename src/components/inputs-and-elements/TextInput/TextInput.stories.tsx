@@ -43,6 +43,7 @@ export const Default = () => {
         maxLength={number('maxLength', 10)}
         type='number'
         isDecimal
+        onlyPositive
         onChange={action('onChange')}
         explanation={text('explanation', '')}
         fullWidth={boolean('fullWidth for number input', false)}

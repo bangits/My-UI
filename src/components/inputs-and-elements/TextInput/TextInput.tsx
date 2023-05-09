@@ -5,9 +5,9 @@ import classNames from 'classnames';
 import {
   DetailedHTMLProps,
   FC,
-  forwardRef,
   InputHTMLAttributes,
   ReactNode,
+  forwardRef,
   useCallback,
   useEffect,
   useState
@@ -27,6 +27,7 @@ export interface BaseTextInputProps {
   label?: ReactNode;
   forceFocused?: boolean;
   isDecimal?: boolean;
+  onlyPositive?: boolean;
   decimalMaxPoint?: number;
   textarea?: boolean;
   borderRadius?: boolean;
@@ -64,6 +65,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
       inputDisabled,
       showExplanationAsTooltip,
       containerMinLength = true,
+      onlyPositive,
       ...props
     },
     ref
@@ -95,9 +97,11 @@ const TextInput: FC<TextInputProps> = forwardRef(
       (evt) => {
         if (type === 'number' && evt.key === 'e') return evt.preventDefault();
 
+        if (type === 'number' && onlyPositive && evt.key === '-') return evt.preventDefault();
+
         if (props.onKeyDown) props.onKeyDown(evt);
       },
-      [props.onKeyDown, type]
+      [props.onKeyDown, onlyPositive, type]
     );
 
     const onInput: TextInputProps['onInput'] = useCallback(

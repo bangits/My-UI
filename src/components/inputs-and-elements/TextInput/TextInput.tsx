@@ -10,6 +10,7 @@ import {
   forwardRef,
   useCallback,
   useEffect,
+  useMemo,
   useState
 } from 'react';
 import styles from './TextInput.module.scss';
@@ -20,6 +21,7 @@ export interface BaseTextInputProps {
   fullWidth?: boolean;
   endIcon?: ReactNode[] | ReactNode;
   startIcon?: ReactNode[] | ReactNode;
+  suffix?: ReactNode;
   maxLength?: number;
   explanation?: string;
   containerClassName?: string;
@@ -66,6 +68,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
       showExplanationAsTooltip,
       containerMinLength = true,
       onlyPositive,
+      suffix,
       ...props
     },
     ref
@@ -143,19 +146,14 @@ const TextInput: FC<TextInputProps> = forwardRef(
         if (!evt.target['value']) evt.target['value'] = '';
 
         setInputFocused(false);
-
         if (props.onBlur) props.onBlur(evt);
       },
       [props.onBlur]
     );
 
-    useEffect(() => {
-      if (!defaultValue) setCurrentValue(value);
-    }, [value]);
-
-    return (
-      <div
-        className={classNames(
+    const inputContainerClassNames = useMemo(
+      () =>
+        classNames(
           'MyUI-TextInputContainer',
           styles.TextInputContainer,
           {
@@ -166,6 +164,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
             [styles['TextInputContainer--disabled']]: disabled,
             [styles['TextInputContainer--withLeftIcon']]: !!startIcon,
             [styles['TextInputContainer--withRightIcon']]: !!endIcon,
+            [styles['TextInputContainer--withSuffix']]: !!suffix,
             [styles['TextInputContainer--containerMinLength']]: containerMinLength,
             [styles['TextInputContainer--focused']]: forceFocused !== undefined ? forceFocused : isInputFocused,
             [styles['TextInputContainer--filled']]:
@@ -173,7 +172,57 @@ const TextInput: FC<TextInputProps> = forwardRef(
             ['TextInputContainer--filled']: forceFocused !== undefined ? forceFocused || !!currentValue : !!currentValue
           },
           containerClassName
-        )}>
+        ),
+      [
+        classNames,
+        forceFocused,
+        isInputFocused,
+        fullWidth,
+        borderRadius,
+        color,
+        disabled,
+        startIcon,
+        endIcon,
+        containerMinLength,
+        currentValue
+      ]
+    );
+
+    const inputBaseClassNames = useMemo(
+      () =>
+        classNames(
+          'MyUI-TextInputBaseInput',
+          styles.TextInputBaseInput,
+          {
+            [styles[`TextInputBaseInput--filled`]]:
+              forceFocused !== undefined ? forceFocused || !!currentValue : !!currentValue,
+            [styles[`TextInputBaseInput--with-label`]]: !!label,
+            [styles['TextInputBaseInput--start-icon']]: !!startIcon,
+            [styles['TextInputBaseInput--end-icon']]: !!endIcon,
+            [styles['TextInputBaseInput--textarea']]: textarea,
+            [styles['TextInputBaseInput--with-two-start-icon']]: Array.isArray(startIcon) && startIcon.length > 1,
+            [styles['TextInputBaseInput--with-two-end-icon']]: Array.isArray(endIcon) && endIcon.length > 1
+          },
+          className
+        ),
+      [classNames, forceFocused, currentValue, label, startIcon, endIcon, textarea]
+    );
+
+    const inputLabelClassNames = useMemo(
+      () =>
+        classNames(styles.TextInputLabelText, {
+          [styles['TextInputLabelText--with-two-start-icon']]: Array.isArray(startIcon) && startIcon.length > 1,
+          [styles['TextInputLabelText--with-two-end-icon']]: Array.isArray(endIcon) && endIcon.length > 1
+        }),
+      [classNames, startIcon, endIcon]
+    );
+
+    useEffect(() => {
+      if (!defaultValue) setCurrentValue(value);
+    }, [value]);
+
+    return (
+      <div className={inputContainerClassNames}>
         <label className={classNames('MyUI-TextInputWrapper', styles.TextInputWrapper)}>
           {startIcon && (
             <div className={classNames(styles.StartIcon, 'MyUI-TextInputStartIcon')}>
@@ -182,21 +231,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
           )}
 
           <InputComponent
-            className={classNames(
-              'MyUI-TextInputBaseInput',
-              styles.TextInputBaseInput,
-              {
-                [styles[`TextInputBaseInput--filled`]]:
-                  forceFocused !== undefined ? forceFocused || !!currentValue : !!currentValue,
-                [styles[`TextInputBaseInput--with-label`]]: !!label,
-                [styles['TextInputBaseInput--start-icon']]: !!startIcon,
-                [styles['TextInputBaseInput--end-icon']]: !!endIcon,
-                [styles['TextInputBaseInput--textarea']]: textarea,
-                [styles['TextInputBaseInput--with-two-start-icon']]: Array.isArray(startIcon) && startIcon.length > 1,
-                [styles['TextInputBaseInput--with-two-end-icon']]: Array.isArray(endIcon) && endIcon.length > 1
-              },
-              className
-            )}
+            className={inputBaseClassNames}
             {...props}
             disabled={props.disabled || inputDisabled}
             min={min || '0'}
@@ -215,13 +250,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
           />
           {label && (
             <span className={styles.TextInputLabelContainer}>
-              <span
-                className={classNames(styles.TextInputLabelText, {
-                  [styles['TextInputLabelText--with-two-start-icon']]: Array.isArray(startIcon) && startIcon.length > 1,
-                  [styles['TextInputLabelText--with-two-end-icon']]: Array.isArray(endIcon) && endIcon.length > 1
-                })}>
-                {label}
-              </span>
+              <span className={inputLabelClassNames}>{label}</span>
             </span>
           )}
 
@@ -232,6 +261,8 @@ const TextInput: FC<TextInputProps> = forwardRef(
               </Tooltip>
             </div>
           )}
+
+          {suffix && <div className={styles.suffix}>{suffix}</div>}
 
           {endIcon && (
             <div className={classNames('MyUI-TextInputEndIcon', styles.EndIcon)}>

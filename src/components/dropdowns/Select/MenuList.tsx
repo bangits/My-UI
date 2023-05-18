@@ -1,4 +1,5 @@
-import { Button, CustomSelectProps, Scroll, SelectOptionType, Typography } from '@/components';
+import { Button, CustomSelectProps, SelectOptionType, Typography } from '@/components';
+import { Scroll } from '../../others/Scroll';
 import { ClearIcon } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';

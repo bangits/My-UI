@@ -1,0 +1,36 @@
+@mixin generate-switch-for-input-styles {
+  .Base {
+    display: flex;
+    width: 100%;
+  }
+
+  .Option {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: getTextFieldSizes(input-font-size);
+    text-align: center;
+    @include theme(color, default-input-color);
+  }
+
+  .ArrowsWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: calculateRem(5px);
+  }
+
+  .Arrow {
+    cursor: pointer;
+    fill: color(night-in-manchester);
+    margin-bottom: calculateRem(2px);
+  }
+
+  .Divider {
+    width: 1px;
+    height: 16px;
+    margin-right: calculateRem(8px);
+    background-color: #505d6e;
+  }
+}

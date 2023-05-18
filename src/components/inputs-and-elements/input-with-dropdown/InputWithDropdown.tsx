@@ -1,4 +1,5 @@
-import { Select, SelectProps, TextInput, TextInputProps } from '@/components';
+import { Select, SelectProps } from '@/components';
+import { TextInput, TextInputProps } from '../TextInput';
 import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import classNames from 'classnames';

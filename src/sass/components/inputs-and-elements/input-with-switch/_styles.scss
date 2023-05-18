@@ -1,10 +1,10 @@
 @mixin generate-switch-for-input-styles {
-  .base {
+  .Base {
     display: flex;
     width: 100%;
   }
 
-  .option {
+  .Option {
     white-space: nowrap;
     width: 100%;
     overflow: hidden;
@@ -14,20 +14,20 @@
     @include theme(color, default-input-color);
   }
 
-  .arrowsWrapper {
+  .ArrowsWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: calculateRem(5px);
   }
 
-  .arrow {
+  .Arrow {
     cursor: pointer;
     fill: color(night-in-manchester);
     margin-bottom: calculateRem(2px);
   }
 
-  .divider {
+  .Divider {
     width: 1px;
     height: 16px;
     margin-right: calculateRem(8px);

@@ -1,4 +1,4 @@
-import { MouseEvent, useCallback, useMemo, useState } from 'react';
+import { MouseEvent, ReactNode, useCallback, useMemo, useState } from 'react';
 import { DropdownArrowIconUp, DropdownArrowIconDown } from '../../../../icons';
 import styles from './SwitchForInput.module.scss';
 
@@ -23,6 +23,9 @@ export const SwitchForInput = ({ options, idProp, labelProp, onChange, initialVa
       if (currentOption > 0) {
         setCurrentOption(currentOption - 1);
         onChange?.(computedOptions[currentOption - 1].id as number, e);
+      } else {
+        setCurrentOption(computedOptions.length - 1);
+        onChange?.(computedOptions[computedOptions.length - 1].id as number, e);
       }
     },
     [currentOption]
@@ -33,18 +36,21 @@ export const SwitchForInput = ({ options, idProp, labelProp, onChange, initialVa
       if (currentOption < computedOptions.length - 1) {
         setCurrentOption(currentOption + 1);
         onChange?.(computedOptions[currentOption + 1].id as number, e);
+      } else {
+        setCurrentOption(0);
+        onChange?.(computedOptions[0].id as number, e);
       }
     },
     [currentOption]
   );
 
   return (
-    <span className={styles.base}>
-      <span className={styles.divider}></span>
-      <span className={styles.option}>{computedOptions[currentOption].label}</span>
-      <span className={styles.arrowsWrapper}>
-        <DropdownArrowIconUp className={styles.arrow} onClick={upClick} width={8} height={4} />
-        <DropdownArrowIconDown className={styles.arrow} onClick={downClick} width={8} height={4} />
+    <span className={styles.Base}>
+      <span className={styles.Divider}></span>
+      <span className={styles.Option}>{computedOptions[currentOption].label}</span>
+      <span className={styles.ArrowsWrapper}>
+        <DropdownArrowIconUp className={styles.Arrow} onClick={upClick} width={8} height={4} />
+        <DropdownArrowIconDown className={styles.Arrow} onClick={downClick} width={8} height={4} />
       </span>
     </span>
   );

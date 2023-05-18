@@ -262,7 +262,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
             </div>
           )}
 
-          {suffix && <div className={styles.suffix}>{suffix}</div>}
+          {suffix && <div className={styles.Suffix}>{suffix}</div>}
 
           {endIcon && (
             <div className={classNames('MyUI-TextInputEndIcon', styles.EndIcon)}>

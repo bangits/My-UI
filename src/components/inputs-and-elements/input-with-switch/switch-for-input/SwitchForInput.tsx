@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { MouseEvent, useCallback, useMemo, useState } from 'react';
 import { DropdownArrowIconUp, DropdownArrowIconDown } from '../../../../icons';
 import styles from './SwitchForInput.module.scss';
 
@@ -6,24 +6,37 @@ export interface SwitchForInputProps {
   options: Record<string, string | number>[];
   idProp: string;
   labelProp: string;
-  value: number;
+  initialValue: number;
+  onChange?: (value: number, e: MouseEvent<SVGSVGElement>) => void;
 }
 
-export const SwitchForInput = ({ options, idProp, labelProp }: SwitchForInputProps) => {
-  const [currentOption, setCurrentOption] = useState(0);
+export const SwitchForInput = ({ options, idProp, labelProp, onChange, initialValue }: SwitchForInputProps) => {
+  const [currentOption, setCurrentOption] = useState(initialValue);
 
   const computedOptions = useMemo(
     () => options.map((option) => ({ id: option[idProp], label: option[labelProp] })),
     [options, idProp, labelProp]
   );
 
-  const upClick = useCallback(() => {
-    currentOption > 0 && setCurrentOption(currentOption - 1);
-  }, [currentOption]);
+  const upClick = useCallback(
+    (e: MouseEvent<SVGSVGElement>) => {
+      if (currentOption > 0) {
+        setCurrentOption(currentOption - 1);
+        onChange?.(computedOptions[currentOption - 1].id as number, e);
+      }
+    },
+    [currentOption]
+  );
 
-  const downClick = useCallback(() => {
-    currentOption < computedOptions.length - 1 && setCurrentOption(currentOption + 1);
-  }, [currentOption]);
+  const downClick = useCallback(
+    (e: MouseEvent<SVGSVGElement>) => {
+      if (currentOption < computedOptions.length - 1) {
+        setCurrentOption(currentOption + 1);
+        onChange?.(computedOptions[currentOption + 1].id as number, e);
+      }
+    },
+    [currentOption]
+  );
 
   return (
     <span className={styles.base}>

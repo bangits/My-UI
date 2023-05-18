@@ -9,13 +9,13 @@ export default {
 };
 
 const options = [
-  { id: 1, label: 'Fixed' },
-  { id: 2, label: '%' }
+  { id: 5, label: 'Fixed' },
+  { id: 6, label: '%' }
 ];
 
 export const Default = () => {
   const [inputValue, setInputValue] = useState('');
-  const [switchValue, setSwitchValue] = useState(1);
+  const [switchValue, setSwitchValue] = useState(6);
 
   return (
     <InputWithSwitch

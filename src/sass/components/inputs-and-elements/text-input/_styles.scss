@@ -134,6 +134,12 @@ $transition-duration: getTextFieldSizes(label-transition);
       padding-right: getTextFieldSizes(input-label-with-two-end-icon-padding);
     }
   }
+  .Suffix {
+    position: absolute;
+    top: getTextFieldSizes(icon-top-space);
+    right: getTextFieldSizes(input-with-suffix--right);
+    width: getTextFieldSizes(input-with-suffix--width);
+  }
   // Icons
   .StartIcon,
   .EndIcon,
@@ -183,6 +189,15 @@ $transition-duration: getTextFieldSizes(label-transition);
       .TextInputBaseInput {
         padding-right: getTextFieldSizes(input-type-offset--with-icons);
       }
+      .TooltipExplanation {
+        right: calculateRem(30px);
+      }
+    }
+    &--withSuffix {
+      .TextInputBaseInput {
+        padding-right: getTextFieldSizes(input-type-offset--with-suffix);
+      }
+
       .TooltipExplanation {
         right: calculateRem(30px);
       }

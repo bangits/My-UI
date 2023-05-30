@@ -3,14 +3,16 @@ import { Typography } from '@/my-ui-core';
 import classNames from 'classnames';
 import styles from './TagWithImage.module.scss';
 
-export interface TagWithImageProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, null> {
-  imgSrc: string;
-  tagName: ReactNode;
+export interface TagWithImageBaseProps {
+  label: ReactNode;
+  imageSource: string;
   imagePosition?: 'start' | 'end';
   className?: string;
 }
 
-const TagWithImage: FC<TagWithImageProps> = ({ tagName, imgSrc, className, imagePosition = 'start' }) => {
+export type TagWithImageProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, null> & TagWithImageBaseProps;
+
+const TagWithImage: FC<TagWithImageProps> = ({ label, imageSource, className, imagePosition = 'start' }) => {
   const labelClasses = useMemo(
     () =>
       classNames(styles['Label'], {
@@ -24,17 +26,17 @@ const TagWithImage: FC<TagWithImageProps> = ({ tagName, imgSrc, className, image
     <div className={classNames(styles['TagImageWrapper'], className)}>
       {imagePosition === 'start' && (
         <div className={styles.Image}>
-          <img src={imgSrc} />
+          <img src={imageSource} />
         </div>
       )}
       <div className={labelClasses}>
         <Typography component='span' variant='p4'>
-          {tagName}
+          {label}
         </Typography>
       </div>
       {imagePosition === 'end' && (
         <div className={styles.Image}>
-          <img src={imgSrc} />
+          <img src={imageSource} />
         </div>
       )}
     </div>

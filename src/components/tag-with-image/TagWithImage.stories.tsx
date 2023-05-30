@@ -10,10 +10,10 @@ export default {
 export const Default = () => {
   return (
     <TagWithImage
-      tagName={text('country', 'Armenia')}
+      label={text('label', 'Armenia')}
       imagePosition='end'
-      imgSrc={text(
-        'Flag',
+      imageSource={text(
+        'source',
         'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/1024px-Flag_of_Armenia.svg.png'
       )}
     />

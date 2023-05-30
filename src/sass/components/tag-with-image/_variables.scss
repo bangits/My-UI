@@ -1,0 +1,22 @@
+$tagimage-sizes: (
+  tag-image-wrapper-min-width: calculateRem(30px),
+  tag-image-wrapper-height: calculateRem(32px),
+  tag-image-wrapper-border-radius: 16px,
+  tag-image-wrapper-padding: 0 calculateRem(8px),
+  image-sizes: calculateRem(20px),
+  image-border-radius: 50%,
+  image-margin: calculateRem(8px)
+);
+
+$tagimage-colors: (
+  tag-image-background: color(selago-light),
+  tag-image-color: color(wild-blue-yonder)
+);
+
+@function getTagImageSizes($property) {
+  @return map-get($tagimage-sizes, $property);
+}
+
+@function getTagImageColors($property) {
+  @return map-get($tagimage-colors, $property);
+}

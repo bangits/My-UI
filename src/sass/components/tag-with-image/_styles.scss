@@ -1,0 +1,36 @@
+@mixin generate-tag-with-image-styles {
+  .TagImageWrapper {
+    width: fit-content;
+    width: -moz-fit-content;
+    min-width: getTagImageSizes(tag-image-wrapper-min-width);
+    height: getTagImageSizes(tag-image-wrapper-height);
+    border-radius: getTagImageSizes(tag-image-wrapper-border-radius);
+    padding: getTagImageSizes(tag-image-wrapper-padding);
+    @include flex(center, center);
+    background-color: getTagImageColors(tag-image-background);
+    box-sizing: border-box;
+
+    .Image {
+      width: getTagImageSizes(image-sizes);
+      height: getTagImageSizes(image-sizes);
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: getTagImageSizes(image-border-radius);
+      }
+    }
+
+    .Label {
+      color: getTagImageColors(tag-image-color);
+
+      &--left-margin {
+        margin-left: getTagImageSizes(image-margin);
+      }
+
+      &--right-margin {
+        margin-right: getTagImageSizes(image-margin);
+      }
+    }
+  }
+}

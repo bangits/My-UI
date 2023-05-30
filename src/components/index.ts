@@ -1,5 +1,4 @@
 import '../sass/main.scss';
-
 export * from './alert';
 export * from './avatar-card';
 export * from './card-img';
@@ -26,3 +25,4 @@ export * from './text-with-tooltip';
 export * from './tooltip';
 export * from './typography';
 export * from './popover';
+export * from './tag-with-image';

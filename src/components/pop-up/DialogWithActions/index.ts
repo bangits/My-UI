@@ -1,1 +1,1 @@
-export { default as DialogWithActions, DialogWithActionsProps } from './DialogWithActions';
+export { default as DialogWithActions, type DialogWithActionsProps } from './DialogWithActions';

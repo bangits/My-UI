@@ -1,1 +1,1 @@
-export { default as Sidebar, SidebarPositions, SidebarProps } from './Sidebar';
+export { default as Sidebar, type SidebarPositions, type SidebarProps } from './Sidebar';

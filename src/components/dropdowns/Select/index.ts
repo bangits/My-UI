@@ -1,9 +1,9 @@
 export {
-  CustomSelectProps,
   default as Select,
-  GroupBase,
-  SelectOptionType,
-  SelectProps,
-  SelectValueType
+  type CustomSelectProps,
+  type GroupBase,
+  type SelectOptionType,
+  type SelectProps,
+  type SelectValueType
 } from './Select';
-export { TreeSelectProps } from './TreeSelect';
+export { type TreeSelectProps } from './TreeSelect';

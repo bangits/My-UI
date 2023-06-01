@@ -1,1 +1,1 @@
-export { default as Status, StatusProps } from './Status';
+export { default as Status, type StatusProps } from './Status';

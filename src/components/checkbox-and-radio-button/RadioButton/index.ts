@@ -1,2 +1,2 @@
-export { default as RadioButton, RadioButtonProps } from './RadioButton';
-export { default as RadioGroup, RadioGroupProps } from './RadioGroup';
+export { default as RadioButton, type RadioButtonProps } from './RadioButton';
+export { default as RadioGroup, type RadioGroupProps } from './RadioGroup';

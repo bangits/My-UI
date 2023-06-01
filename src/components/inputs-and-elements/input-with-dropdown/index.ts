@@ -1,1 +1,1 @@
-export { default as InputWithDropdown, InputWithDropdownProps } from './InputWithDropdown';
+export { default as InputWithDropdown, type InputWithDropdownProps } from './InputWithDropdown';

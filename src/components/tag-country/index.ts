@@ -1,1 +1,1 @@
-export { default as TagCountry, TagCountryProps } from './TagCountry';
+export { default as TagCountry, type TagCountryProps } from './TagCountry';

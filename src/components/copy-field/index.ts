@@ -1,1 +1,1 @@
-export { default as CopyField, CopyFieldProps } from './CopyField';
+export { default as CopyField, type CopyFieldProps } from './CopyField';

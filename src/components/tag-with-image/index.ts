@@ -1,1 +1,1 @@
-export { default as TagWithImage, TagWithImageProps, TagWithImageBaseProps } from './TagWithImage';
+export { default as TagWithImage, type TagWithImageBaseProps, type TagWithImageProps } from './TagWithImage';

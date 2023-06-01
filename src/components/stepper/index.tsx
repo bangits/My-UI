@@ -1,1 +1,1 @@
-export { default as Stepper, StepperProps, StepType } from './Stepper';
+export { default as Stepper, type StepType, type StepperProps } from './Stepper';

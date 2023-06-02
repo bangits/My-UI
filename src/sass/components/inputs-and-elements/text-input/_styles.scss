@@ -187,7 +187,9 @@ $transition-duration: getTextFieldSizes(label-transition);
     }
     &--withRightIcon {
       .TextInputBaseInput {
-        padding-right: getTextFieldSizes(input-type-offset--with-icons);
+        &:not(&--ex-as-tooltip) {
+          padding-right: getTextFieldSizes(input-type-offset--with-icons);
+        }
       }
       .TooltipExplanation {
         right: calculateRem(30px);
@@ -197,7 +199,6 @@ $transition-duration: getTextFieldSizes(label-transition);
       .TextInputBaseInput {
         padding-right: getTextFieldSizes(input-type-offset--with-suffix);
       }
-
       .TooltipExplanation {
         right: calculateRem(30px);
       }

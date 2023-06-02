@@ -43,6 +43,8 @@ export const Default = () => {
         maxLength={number('maxLength', 10)}
         type='number'
         isDecimal
+        showExplanationAsTooltip
+        endIcon={<div>sd</div>}
         onlyPositive
         onChange={action('onChange')}
         explanation={text('explanation', '')}

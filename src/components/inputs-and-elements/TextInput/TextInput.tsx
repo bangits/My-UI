@@ -198,6 +198,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
               forceFocused !== undefined ? forceFocused || !!currentValue : !!currentValue,
             [styles[`TextInputBaseInput--with-label`]]: !!label,
             [styles['TextInputBaseInput--start-icon']]: !!startIcon,
+            [styles['TextInputBaseInput--ex-as-tooltip']]: showExplanationAsTooltip,
             [styles['TextInputBaseInput--end-icon']]: !!endIcon,
             [styles['TextInputBaseInput--textarea']]: textarea,
             [styles['TextInputBaseInput--with-two-start-icon']]: Array.isArray(startIcon) && startIcon.length > 1,
@@ -205,7 +206,7 @@ const TextInput: FC<TextInputProps> = forwardRef(
           },
           className
         ),
-      [classNames, forceFocused, currentValue, label, startIcon, endIcon, textarea]
+      [classNames, forceFocused, currentValue, label, showExplanationAsTooltip, startIcon, endIcon, textarea]
     );
 
     const inputLabelClassNames = useMemo(

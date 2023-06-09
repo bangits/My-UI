@@ -19,7 +19,7 @@ export const Default = () => {
 
   return (
     <InputWithSwitch
-      inputProps={{ label: 'Monthly fee ', type: 'number' }}
+      inputProps={{ label: 'Monthly fee', type: 'number' }}
       inputValue={inputValue}
       switchValue={switchValue}
       switchOptions={options}

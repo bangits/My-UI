@@ -1,6 +1,8 @@
 import { ChangeEvent, useCallback, MouseEvent, useMemo, useState } from 'react';
 import { SwitchForInput, SwitchForInputProps } from './switch-for-input/SwitchForInput';
 import { TextInput, TextInputProps } from '../TextInput';
+import styles from './InputWithSwitch.module.scss';
+import classNames from 'classnames';
 
 export interface InputWithSwitchProps {
   inputProps?: TextInputProps;
@@ -35,13 +37,9 @@ export const InputWithSwitch = ({
     () =>
       inputProps.label ? (
         <div
-          style={{
-            width: '100%',
-            textOverflow: 'ellipsis',
-            boxSizing: 'border-box',
-            overflow: 'hidden',
-            paddingRight: isFocused ? 0 : '4rem'
-          }}>
+          className={classNames(styles['InputLabel'], {
+            [styles['InputLabel--focused']]: isFocused
+          })}>
           {inputProps?.label}
         </div>
       ) : null,

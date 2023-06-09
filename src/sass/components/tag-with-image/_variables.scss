@@ -3,6 +3,7 @@ $tagimage-sizes: (
   tag-image-wrapper-height: calculateRem(32px),
   tag-image-wrapper-border-radius: 16px,
   tag-image-wrapper-padding: 0 calculateRem(8px),
+  alert-close-margin: calculateRem(7px),
   image-sizes: calculateRem(20px),
   image-border-radius: 50%,
   image-margin: calculateRem(8px)
@@ -10,6 +11,7 @@ $tagimage-sizes: (
 
 $tagimage-colors: (
   tag-image-background: color(selago-light),
+  tag-image-background-hovered: color(night-in-manchester),
   tag-image-color: color(wild-blue-yonder)
 );
 

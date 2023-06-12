@@ -13,6 +13,7 @@ export const SearchControl: typeof components.Control = (props) => {
   const currentValue = selectProps?.value as SelectOptionType | SelectOptionType[];
 
   const [searchValue, setSearchValue] = useState('');
+  console.log('🚀 ~ file: SearchControl.tsx:16 ~ searchValue:', searchValue);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuToggle = useCallback(() => {
@@ -49,7 +50,9 @@ export const SearchControl: typeof components.Control = (props) => {
   );
 
   useEffect(() => {
-    if (!Array.isArray(currentValue)) setSearchValue(currentValue?.label);
+    setTimeout(() => {
+      if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue?.label);
+    });
   }, [currentValue]);
 
   useEffect(() => {

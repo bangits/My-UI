@@ -14,49 +14,86 @@ export default {
 
 export const Default = () => {
   const [value, setValue] = useState(2);
-  const [options, setOptions] = useState([]);
+  const [options, setOptions] = useState([
+    {
+      label: 'Jewels and Gems',
+      value: 2
+    },
+    {
+      label: 'Fantasy',
+      value: 3
+    },
+    {
+      label: 'Halloween',
+      value: 4
+    },
+    {
+      label: 'Luxury',
+      value: 5
+    },
+    {
+      label: 'Fruits / Vegetables',
+      value: 6
+    },
+    {
+      label: 'Asian',
+      value: 7
+    },
+    {
+      label: 'Food',
+      value: 8
+    },
+    {
+      label: 'Branded',
+      value: 9
+    },
+    {
+      label: 'Animals',
+      value: 10
+    }
+  ]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setOptions([
-        {
-          label: 'Jewels and Gems',
-          value: 2
-        },
-        {
-          label: 'Fantasy',
-          value: 3
-        },
-        {
-          label: 'Halloween',
-          value: 4
-        },
-        {
-          label: 'Luxury',
-          value: 5
-        },
-        {
-          label: 'Fruits / Vegetables',
-          value: 6
-        },
-        {
-          label: 'Asian',
-          value: 7
-        },
-        {
-          label: 'Food',
-          value: 8
-        },
-        {
-          label: 'Branded',
-          value: 9
-        },
-        {
-          label: 'Animals',
-          value: 10
-        }
-      ]);
-    }, 2000);
+    // setTimeout(() => {
+    //   setOptions([
+    //     {
+    //       label: 'Jewels and Gems',
+    //       value: 2
+    //     },
+    //     {
+    //       label: 'Fantasy',
+    //       value: 3
+    //     },
+    //     {
+    //       label: 'Halloween',
+    //       value: 4
+    //     },
+    //     {
+    //       label: 'Luxury',
+    //       value: 5
+    //     },
+    //     {
+    //       label: 'Fruits / Vegetables',
+    //       value: 6
+    //     },
+    //     {
+    //       label: 'Asian',
+    //       value: 7
+    //     },
+    //     {
+    //       label: 'Food',
+    //       value: 8
+    //     },
+    //     {
+    //       label: 'Branded',
+    //       value: 9
+    //     },
+    //     {
+    //       label: 'Animals',
+    //       value: 10
+    //     }
+    //   ]);
+    // }, 2000);
   }, []);
 
   return (
@@ -485,8 +522,6 @@ export const Test = () => {
         inputLabel='inputLabel'
         value={!isMulti ? value : value ? (Array.isArray(value) ? value : [value]) : []}
         onChange={(value) => {
-          console.log('🚀 ~ file: Select.stories.tsx:497 ~ Test ~ value', value);
-
           setValue(value);
         }}
       />

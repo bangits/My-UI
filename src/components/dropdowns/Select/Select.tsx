@@ -5,8 +5,8 @@ import ReactSelect, { ActionMeta, Props } from '@my-ui/react-select';
 import classNames from 'classnames';
 import { ChangeEvent, FocusEvent, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { DropdownIcon, Menu, MenuList, Option, SearchControl } from './Controls';
-import resetStyles from './reset-styles';
 import styles from './Select.module.scss';
+import resetStyles from './reset-styles';
 
 export type SelectValueType = number | string;
 

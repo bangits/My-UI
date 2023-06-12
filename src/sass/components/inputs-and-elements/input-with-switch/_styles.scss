@@ -1,3 +1,17 @@
+@mixin generate-input-with-switch-styles {
+  .InputLabel {
+    width: 100%;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-right: 4rem;
+
+    &--focused {
+      padding-right: 0;
+    }
+  }
+}
+
 @mixin generate-switch-for-input-styles {
   .Base {
     display: flex;

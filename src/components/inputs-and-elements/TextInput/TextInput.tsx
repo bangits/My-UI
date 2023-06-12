@@ -1,7 +1,3 @@
-import { Tooltip, Typography, TypographyProps } from '@/components';
-import { Icons } from '@/my-ui-core';
-import { UIColors } from '@/types';
-import classNames from 'classnames';
 import {
   DetailedHTMLProps,
   FC,
@@ -13,6 +9,10 @@ import {
   useMemo,
   useState
 } from 'react';
+import { Tooltip, Typography, TypographyProps } from '@/components';
+import { Icons } from '@/my-ui-core';
+import { UIColors } from '@/types';
+import classNames from 'classnames';
 import styles from './TextInput.module.scss';
 
 export interface BaseTextInputProps {

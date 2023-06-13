@@ -15,17 +15,17 @@
     &:last-child {
       border-bottom: none;
     }
-
     div {
       max-width: 100%;
       @include dots-after-text;
-
+      &:has(img) {
+        overflow: visible;
+      }
       img {
         width: getTableCellSizes(table-cell-img-sizes);
         height: getTableCellSizes(table-cell-img-sizes);
       }
     }
-
     .TableCell--center {
       justify-content: center;
     }

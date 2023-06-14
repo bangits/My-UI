@@ -55,23 +55,25 @@ export const SearchControl: typeof components.Control = (props) => {
   }, [currentValue]);
 
   useEffect(() => {
-    const isMulti = Array.isArray(currentValue);
+    setTimeout(() => {
+      const isMulti = Array.isArray(currentValue);
 
-    if (!isMenuOpen && isMulti) {
-      // Show one selected value
-      if (currentValue.length === 1) return setSearchValue(currentValue[0].label);
+      if (!isMenuOpen && isMulti) {
+        // Show one selected value
+        if (currentValue.length === 1) return setSearchValue(currentValue[0].label);
 
-      // Show all value
-      if (selectProps.options.length && currentValue.length === selectProps.options.length)
-        return setSearchValue(selectProps.selectAllLabel);
+        // Show all value
+        if (selectProps.options.length && currentValue.length === selectProps.options.length)
+          return setSearchValue(selectProps.selectAllLabel);
 
-      // Show selected values count
-      if (currentValue.length > 1) setSearchValue(selectProps.renderInputSelectedLabel(currentValue.length));
-    }
+        // Show selected values count
+        if (currentValue.length > 1) setSearchValue(selectProps.renderInputSelectedLabel(currentValue.length));
+      }
 
-    if (!isMenuOpen && (!currentValue || (isMulti && !currentValue.length))) setSearchValue('');
+      if (!isMenuOpen && (!currentValue || (isMulti && !currentValue.length))) setSearchValue('');
 
-    if (!isMenuOpen && (!currentValue || (isMulti && !currentValue.length))) setSearchValue('');
+      if (!isMenuOpen && (!currentValue || (isMulti && !currentValue.length))) setSearchValue('');
+    });
   }, [currentValue, isMenuOpen, selectProps.isTree]);
 
   useEffect(() => {

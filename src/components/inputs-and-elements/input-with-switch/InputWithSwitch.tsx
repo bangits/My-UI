@@ -38,12 +38,12 @@ export const InputWithSwitch = ({
       inputProps.label ? (
         <div
           className={classNames(styles['InputLabel'], {
-            [styles['InputLabel--focused']]: isFocused
+            [styles['InputLabel--focused']]: isFocused || inputValue
           })}>
           {inputProps?.label}
         </div>
       ) : null,
-    [inputProps, isFocused]
+    [inputProps, isFocused, inputValue]
   );
 
   return (

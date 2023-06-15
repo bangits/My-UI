@@ -13,7 +13,7 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 export const Default = () => {
-  const [value, setValue] = useState(2);
+  const [value, setValue] = useState([2]);
   const [options, setOptions] = useState([
     {
       label: 'Jewels and Gems',
@@ -100,6 +100,7 @@ export const Default = () => {
     <>
       <Select
         value={value}
+        isMulti
         onChange={setValue}
         inputLabel={text('inputLabelSingle', 'Single Select...')}
         isSearchable

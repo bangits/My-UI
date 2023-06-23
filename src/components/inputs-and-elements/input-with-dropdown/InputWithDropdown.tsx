@@ -121,7 +121,9 @@ const InputWithDropdown: FC<InputWithDropdownProps> = ({
                       styles['InputWithDropdownBase--dropdown-input'],
                       styles['InputWithDropdownBase--dropdown-control-label']
                     )}
+                    //@ts-ignore
                     key={dropdownInputProps.value?.toString() || value?.label || ''}
+                    //@ts-ignore
                     defaultValue={dropdownInputProps.value || value?.label || ''}
                     type='text'
                     onChange={(e) => {

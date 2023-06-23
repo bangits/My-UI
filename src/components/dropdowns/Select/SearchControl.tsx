@@ -9,7 +9,7 @@ import styles from './Select.module.scss';
 export const SearchControl: typeof components.Control = (props) => {
   const selectProps = props.selectProps as unknown as typeof props.selectProps & CustomSelectProps;
 
-  // @ts-expect-error ignoring typescript for typecast
+  //@ts-ignore
   const currentValue = selectProps?.value as SelectOptionType | SelectOptionType[];
 
   const [searchValue, setSearchValue] = useState('');
@@ -34,6 +34,7 @@ export const SearchControl: typeof components.Control = (props) => {
 
       if (selectProps.onBlur) selectProps.onBlur(e);
 
+      //@ts-ignore
       if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue.label);
     },
     [currentValue]
@@ -50,6 +51,7 @@ export const SearchControl: typeof components.Control = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
+      //@ts-ignore
       if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue?.label);
     });
   }, [currentValue]);
@@ -60,6 +62,7 @@ export const SearchControl: typeof components.Control = (props) => {
 
       if (!isMenuOpen && isMulti) {
         // Show one selected value
+        //@ts-ignore
         if (currentValue.length === 1) return setSearchValue(currentValue[0].label);
 
         // Show all value

@@ -24,7 +24,8 @@ export const Option: typeof components.Option = (props) => {
     <div
       className={classNames({
         [styles['AllOption']]: selectProps.selectAll,
-        [styles['Select--custom-option']]: !selectProps?.dropdown
+        [styles['Select--custom-option']]: !selectProps?.dropdown,
+        [styles['Select--option-big']]: selectProps?.optionVariant == 'big'
       })}
       onClick={props.isMulti ? undefined : closeMenuOnClick}>
       <components.Option
@@ -59,6 +60,7 @@ export const Option: typeof components.Option = (props) => {
               disabled={props.isSelected && selectProps.disableSelectedOptions}
             />
             <label
+              {...(selectProps?.optionVariant === 'big' ? { style: { height: '30px', display: 'flex' } } : {})}
               onClick={() => {
                 if (props.isSelected && isDefaultOption) selectProps.onDefaultOptionChange(null);
               }}>
@@ -80,7 +82,9 @@ export const Option: typeof components.Option = (props) => {
             )}
           </>
         ) : (
-          <span>{props.label}</span>
+          <span {...(selectProps?.optionVariant === 'big' ? { style: { height: '30px', display: 'flex' } } : {})}>
+            {props.label}
+          </span>
         )}
       </components.Option>
     </div>

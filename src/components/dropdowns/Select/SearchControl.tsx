@@ -3,7 +3,7 @@ import { useOutsideClickWithRef } from '@/helpers';
 import { DropdownArrowIconDown, DropdownArrowIconUp } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import styles from './Select.module.scss';
 
 export const SearchControl: typeof components.Control = (props) => {
@@ -96,6 +96,8 @@ export const SearchControl: typeof components.Control = (props) => {
 
   useOutsideClickWithRef(wrapperRef, () => props.selectProps.onMenuClose());
 
+  const isCustomOption = useMemo(() => typeof searchValue !== 'string', [searchValue]);
+
   return (
     <div>
       {/* // <components.Control {...props}> */}
@@ -115,7 +117,17 @@ export const SearchControl: typeof components.Control = (props) => {
           })}
         </div>
       ) : (
-        <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
+        <div
+          className={classNames(
+            styles['Select--search'],
+            'MyUI-Select-Input',
+            isCustomOption ? styles['Select--search--custom-label-container'] : ''
+          )}>
+          {isCustomOption && (
+            <div onClick={menuToggle} className={styles['Select--search--custom-label']}>
+              {searchValue}
+            </div>
+          )}
           <TextInput
             disabled={selectProps.isDisabled}
             fullWidth={selectProps.fullWidth}

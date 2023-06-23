@@ -3,6 +3,19 @@
   // TREE END
   .Select--search {
     width: 28rem;
+
+    &--custom-label-container {
+      position: relative;
+    }
+    &--custom-label {
+      width: 35%;
+      background-color: white;
+      position: absolute;
+      top: 15px;
+      left: 12px;
+      z-index: 1;
+      cursor: text;
+    }
   }
   //
   &--dropdown-control {
@@ -106,6 +119,11 @@
       > div {
         padding-left: 0.4rem;
       }
+    }
+  }
+  &--option-big {
+    > div {
+      height: 45px !important;
     }
   }
   .Select--icon-container {

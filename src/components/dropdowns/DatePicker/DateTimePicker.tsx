@@ -2,7 +2,7 @@ import { Button, DatePicker, DatepickerProps } from '@/components';
 import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import styles from './DateTimePicker.module.scss';
 import { TimeSelection } from './TimeSelection';
 
@@ -10,6 +10,7 @@ export interface DateTimePickerProps extends DatepickerProps, IComponent {
   onChange?: (value: Date) => void;
   defaultOpened?: boolean;
   selected?: Date;
+  hideTimeSelection?: boolean;
 }
 
 const DateTimePicker: FC<DateTimePickerProps> = ({
@@ -17,6 +18,7 @@ const DateTimePicker: FC<DateTimePickerProps> = ({
   defaultOpened = false,
   className,
   selected,
+  hideTimeSelection,
   ...datePickerProps
 }) => {
   const [selectedDateTime, setSelectedDateTime] = useState<Date>(null);
@@ -37,19 +39,21 @@ const DateTimePicker: FC<DateTimePickerProps> = ({
       <DatePicker
         {...datePickerProps}
         dateFormat={datePickerProps.dateFormat || 'dd-MM-yyyy HH:mm:ss'}
-        showTimeInput
+        showTimeInput={!hideTimeSelection}
         open={isOpenedDateTimePicker}
         customTimeInput={
-          <TimeSelection
-            onTimeChange={(date) => {
-              setSelectedDateTime(date);
+          !hideTimeSelection && (
+            <TimeSelection
+              onTimeChange={(date) => {
+                setSelectedDateTime(date);
 
-              onChange?.(date);
-            }}
-            currentDate={finalDateTimeValue}
-            maxDate={datePickerProps.maxDate}
-            minDate={datePickerProps.minDate}
-          />
+                onChange?.(date);
+              }}
+              currentDate={finalDateTimeValue}
+              maxDate={datePickerProps.maxDate}
+              minDate={datePickerProps.minDate}
+            />
+          )
         }
         onFocus={() => setOpenedDateTimePicker(true)}
         onClickOutside={() => setOpenedDateTimePicker(false)}
@@ -61,9 +65,11 @@ const DateTimePicker: FC<DateTimePickerProps> = ({
             setSelectedDateTime(date);
 
             onChange?.(date);
+
+            if (hideTimeSelection) setOpenedDateTimePicker(false);
           }
         }}>
-        {finalDateTimeValue && (
+        {finalDateTimeValue && !hideTimeSelection && (
           <>
             <Button className={styles.TimePickerButton} onClick={() => setOpenedDateTimePicker(false)}>
               OK

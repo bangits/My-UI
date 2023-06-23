@@ -3,13 +3,13 @@ import { useOutsideClickWithRef } from '@/helpers';
 import { DropdownArrowIconDown, DropdownArrowIconUp } from '@/icons';
 import { components } from '@my-ui/react-select';
 import classNames from 'classnames';
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import styles from './Select.module.scss';
 
 export const SearchControl: typeof components.Control = (props) => {
   const selectProps = props.selectProps as unknown as typeof props.selectProps & CustomSelectProps;
 
-  // @ts-expect-error ignoring typescript for typecast
+  //@ts-ignore
   const currentValue = selectProps?.value as SelectOptionType | SelectOptionType[];
 
   const [searchValue, setSearchValue] = useState('');
@@ -34,6 +34,7 @@ export const SearchControl: typeof components.Control = (props) => {
 
       if (selectProps.onBlur) selectProps.onBlur(e);
 
+      //@ts-ignore
       if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue.label);
     },
     [currentValue]
@@ -50,6 +51,7 @@ export const SearchControl: typeof components.Control = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
+      //@ts-ignore
       if (currentValue && !Array.isArray(currentValue)) setSearchValue(currentValue?.label);
     });
   }, [currentValue]);
@@ -60,6 +62,7 @@ export const SearchControl: typeof components.Control = (props) => {
 
       if (!isMenuOpen && isMulti) {
         // Show one selected value
+        //@ts-ignore
         if (currentValue.length === 1) return setSearchValue(currentValue[0].label);
 
         // Show all value
@@ -96,6 +99,8 @@ export const SearchControl: typeof components.Control = (props) => {
 
   useOutsideClickWithRef(wrapperRef, () => props.selectProps.onMenuClose());
 
+  const isCustomOption = useMemo(() => typeof searchValue !== 'string', [searchValue]);
+
   return (
     <div>
       {/* // <components.Control {...props}> */}
@@ -115,7 +120,17 @@ export const SearchControl: typeof components.Control = (props) => {
           })}
         </div>
       ) : (
-        <div className={classNames(styles['Select--search'], 'MyUI-Select-Input')}>
+        <div
+          className={classNames(
+            styles['Select--search'],
+            'MyUI-Select-Input',
+            isCustomOption ? styles['Select--search--custom-label-container'] : ''
+          )}>
+          {isCustomOption && (
+            <div onClick={menuToggle} className={styles['Select--search--custom-label']}>
+              {searchValue}
+            </div>
+          )}
           <TextInput
             disabled={selectProps.isDisabled}
             fullWidth={selectProps.fullWidth}
@@ -125,7 +140,7 @@ export const SearchControl: typeof components.Control = (props) => {
             onChange={onSearchValueChange}
             onBlur={onInputBlur}
             onClick={menuToggle}
-            value={selectProps.isTree ? selectProps.inputValue : searchValue}
+            value={isCustomOption ? ' ' : selectProps.isTree ? selectProps.inputValue : searchValue}
             label={selectProps.inputLabel}
             showExplanationAsTooltip={selectProps.showExplanationAsTooltip}
             borderRadius={selectProps.borderRadius}

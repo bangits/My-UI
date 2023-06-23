@@ -16,12 +16,13 @@ export const Default = () => {
   const [value, setValue] = useState([2]);
   const [options, setOptions] = useState([
     {
-      label: 'Jewels and Gems',
+      label: (
+        <svg xmlns='http://www.w3.org/2000/svg' width='50' height='23' viewBox='0 0 50 23' fill='none'>
+          <rect width='50' height='23' rx='8' fill='#D6D7D9' />
+          <rect x='0.25' y='0.25' width='49.5' height='22.5' rx='7.75' stroke='black' strokeWidth='0.5' />
+        </svg>
+      ),
       value: 2
-    },
-    {
-      label: 'Fantasy',
-      value: 3
     },
     {
       label: 'Halloween',
@@ -95,10 +96,10 @@ export const Default = () => {
     //   ]);
     // }, 2000);
   }, []);
-
   return (
     <>
       <Select
+        optionVariant='big'
         value={value}
         isMulti
         onChange={setValue}
@@ -109,21 +110,37 @@ export const Default = () => {
         options={options}
       />
       <Select
+        optionVariant='big'
         inputLabel={text('inputLabelSingle', 'Single Select...')}
         maxLength={number('maxLengthSingleSelect', 20)}
         isSearchable
         color={getColorKnobs()}
-        options={object('options2', [
+        options={[
           {
-            label: 'Jewels and Gems',
+            label: (
+              <svg xmlns='http://www.w3.org/2000/svg' width='50' height='23' viewBox='0 0 50 23' fill='none'>
+                <rect width='50' height='23' rx='8' fill='#D6D7D9' />
+                <rect x='0.25' y='0.25' width='49.5' height='22.5' rx='7.75' stroke='black' strokeWidth='0.5' />
+              </svg>
+            ),
             value: 2
           },
           {
-            label: 'Fantasy',
+            label: (
+              <svg xmlns='http://www.w3.org/2000/svg' width='50' height='23' viewBox='0 0 50 23' fill='none'>
+                <rect width='50' height='23' rx='8' fill='#D6D7D9' />
+                <rect x='0.25' y='0.25' width='49.5' height='22.5' rx='7.75' stroke='black' strokeWidth='0.5' />
+              </svg>
+            ),
             value: 3
           },
           {
-            label: 'Halloween',
+            label: (
+              <svg xmlns='http://www.w3.org/2000/svg' width='50' height='23' viewBox='0 0 50 23' fill='none'>
+                <rect width='50' height='23' rx='8' fill='#D6D7D9' />
+                <rect x='0.25' y='0.25' width='49.5' height='22.5' rx='7.75' stroke='black' strokeWidth='0.5' />
+              </svg>
+            ),
             value: 4
           },
           {
@@ -162,7 +179,7 @@ export const Default = () => {
             label: 'Gol',
             value: 13
           }
-        ])}
+        ]}
       />
     </>
   );

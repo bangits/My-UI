@@ -1,7 +1,7 @@
 import { BaseTextInputProps } from '@/components';
 import { Tree } from '@/interfaces';
 import { UIColors } from '@/types';
-import ReactSelect, { ActionMeta, Props } from '@my-ui/react-select';
+import ReactSelect, { ActionMeta, Props, ValueContainerProps, components } from '@my-ui/react-select';
 import classNames from 'classnames';
 import { ChangeEvent, FocusEvent, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { DropdownIcon, Menu, MenuList, Option, SearchControl } from './Controls';
@@ -15,9 +15,11 @@ export interface GroupBase<Option> {
   readonly label?: string;
 }
 
-export type SelectOptionType = { value: SelectValueType; label: string };
+export type SelectOptionType = { value: SelectValueType; label: string | ReactNode };
 
 export interface CustomSelectProps extends Omit<BaseTextInputProps, 'color'> {
+  optionVariant?: 'regular' | 'big';
+  hasCustomOption?: boolean;
   selectAll?: boolean;
   selectAllLabel?: string;
   selectAllValue?: string;
@@ -225,10 +227,16 @@ function Select<
     if (defaultValue !== undefined && transformedDefaultValue) setSelectedOptions(transformedDefaultValue);
   }, [transformedDefaultValue]);
 
-  const filterOptionHandler = useCallback((option, inputValue) => {
+  const filterOptionHandler = useCallback((option: SelectOptionType, inputValue: string) => {
     const { label } = option;
 
-    return label?.toLowerCase().startsWith(inputValue?.toLowerCase());
+    if (typeof label === 'string') {
+      if (typeof inputValue === 'string') {
+        return label?.toLowerCase().startsWith(inputValue?.toLowerCase());
+      }
+    }
+
+    return !!label;
   }, []);
 
   return (
@@ -257,7 +265,11 @@ function Select<
               Control: !dropdown ? SearchControl : DropdownIcon,
               MenuList
             }
-          : { Option, Control: !dropdown ? SearchControl : DropdownIcon, Menu }
+          : {
+              Option,
+              Control: !dropdown ? SearchControl : DropdownIcon,
+              Menu
+            }
       }
       option
       isMulti={isMulti}

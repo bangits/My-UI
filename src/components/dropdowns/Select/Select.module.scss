@@ -8,11 +8,9 @@
       position: relative;
     }
     &--custom-label {
-      width: 35%;
-      background-color: white;
       position: absolute;
-      top: 15px;
-      left: 12px;
+      top: calculateRem(15px);
+      left: calculateRem(12px);
       z-index: 1;
       cursor: text;
     }

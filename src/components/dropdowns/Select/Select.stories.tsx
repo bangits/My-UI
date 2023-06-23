@@ -1,8 +1,6 @@
 import { Select } from '@/components';
 import { getColorKnobs } from '@/configs';
 import { FilterIcon } from '@/icons';
-import { Icons } from '@/my-ui-core';
-import { components } from '@my-ui/react-select';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, object, text, withKnobs } from '@storybook/addon-knobs';
 import { ComponentMeta } from '@storybook/react';
@@ -128,11 +126,21 @@ export const Default = () => {
             value: 2
           },
           {
-            label: 'Fantasy',
+            label: (
+              <svg xmlns='http://www.w3.org/2000/svg' width='50' height='23' viewBox='0 0 50 23' fill='none'>
+                <rect width='50' height='23' rx='8' fill='#D6D7D9' />
+                <rect x='0.25' y='0.25' width='49.5' height='22.5' rx='7.75' stroke='black' strokeWidth='0.5' />
+              </svg>
+            ),
             value: 3
           },
           {
-            label: 'Halloween',
+            label: (
+              <svg xmlns='http://www.w3.org/2000/svg' width='50' height='23' viewBox='0 0 50 23' fill='none'>
+                <rect width='50' height='23' rx='8' fill='#D6D7D9' />
+                <rect x='0.25' y='0.25' width='49.5' height='22.5' rx='7.75' stroke='black' strokeWidth='0.5' />
+              </svg>
+            ),
             value: 4
           },
           {

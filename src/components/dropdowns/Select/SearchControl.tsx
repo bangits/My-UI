@@ -140,7 +140,7 @@ export const SearchControl: typeof components.Control = (props) => {
             onChange={onSearchValueChange}
             onBlur={onInputBlur}
             onClick={menuToggle}
-            value={selectProps.isTree ? selectProps.inputValue : searchValue}
+            value={isCustomOption ? ' ' : selectProps.isTree ? selectProps.inputValue : searchValue}
             label={selectProps.inputLabel}
             showExplanationAsTooltip={selectProps.showExplanationAsTooltip}
             borderRadius={selectProps.borderRadius}

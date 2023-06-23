@@ -233,8 +233,6 @@ function Select<
     if (typeof label === 'string') {
       if (typeof inputValue === 'string') {
         return label?.toLowerCase().startsWith(inputValue?.toLowerCase());
-      } else {
-        console.log(inputValue);
       }
     }
 

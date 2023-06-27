@@ -77,8 +77,7 @@ export const InputTimePicker = ({
         return;
       }
 
-      setTimeState({ ...timeState, [type]: value });
-      onChange?.({ ...timeState, [type]: value }, type);
+      onChange ? onChange({ ...timeState, [type]: value }, type) : setTimeState({ ...timeState, [type]: value });
     },
     [timeState]
   );

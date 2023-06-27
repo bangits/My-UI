@@ -42,20 +42,29 @@ export const TimeField = forwardRef(
     const onFocus = useCallback(() => {
       handleFocus(type);
       keepSelected();
-    }, []);
+    }, [handleFocus, keepSelected]);
 
-    const onInputClick = useCallback((e) => {
-      onClick(e);
-      keepSelected();
-    }, []);
+    const onInputClick = useCallback(
+      (e) => {
+        onClick(e);
+        keepSelected();
+      },
+      [onClick, keepSelected]
+    );
 
-    const onKeyDown = useCallback((e) => {
-      handleKeydown(e, type);
-    }, []);
+    const onKeyDown = useCallback(
+      (e) => {
+        handleKeydown(e, type);
+      },
+      [handleKeydown]
+    );
 
-    const onInputChange = useCallback((e) => {
-      handleChange(e.target.value, type, e);
-    }, []);
+    const onInputChange = useCallback(
+      (e) => {
+        handleChange(e.target.value, type, e);
+      },
+      [handleChange]
+    );
 
     const onUpButtonClick = useCallback((e) => handleArrowsClick(e, type, 'up'), []);
 

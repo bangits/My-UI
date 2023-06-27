@@ -15,5 +15,9 @@ export const InputUploader = () => {
     seconds: '59'
   });
 
-  return <div style={{ marginTop: 7 }}>{<InputTimePicker fullWidth label='Time Picker' value={value} />}</div>;
+  return (
+    <div style={{ marginTop: 7 }}>
+      <InputTimePicker value={value} onChange={(value) => setValue(value)} fullWidth label='Time Picker' />
+    </div>
+  );
 };

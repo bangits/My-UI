@@ -28,7 +28,7 @@ export const Default = () => {
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = convertColorToHex(event, {
       inputRef: typedInputRef,
-      elemRef: pickerRef
+      pickerRef
     });
 
     setValue(inputValue);

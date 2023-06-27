@@ -2,6 +2,7 @@ import { MutableRefObject } from 'react';
 
 const DEFAULT_COLOR = '#000000';
 
+
 const rgbToHex = (r: number, g: number, b: number): string => {
   const rHex = r.toString(16).padStart(2, '0');
   const gHex = g.toString(16).padStart(2, '0');
@@ -10,20 +11,22 @@ const rgbToHex = (r: number, g: number, b: number): string => {
   return '#' + rHex + gHex + bHex;
 };
 
+
 export const convertColorToHex = (
   event: React.ChangeEvent<HTMLInputElement>,
   {
     inputRef,
-    elemRef
-  }: { inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement>; elemRef: MutableRefObject<HTMLSpanElement> }
+    pickerRef
+  }: { inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement>; pickerRef: MutableRefObject<HTMLSpanElement> }
 ): string | null => {
   const color = inputRef.current.value;
-  const element = elemRef.current;
+  const element = pickerRef.current;
 
   element.style.color = color;
 
   const computedColor = getComputedStyle(element).color;
   const formattedColor = computedColor.replace(/\s/g, '').toLowerCase();
+
   if (!color.includes(',') && !color.includes('#')) {
     const rgbValues = formattedColor.match(/^rgb?\((\d+),(\d+),(\d+)/i);
     const valid = CSS.supports('color', color);
@@ -37,7 +40,7 @@ export const convertColorToHex = (
     }
   } else if (color.includes(',') && !color.includes('#')) {
     const formattedToRgb = color.split(',');
-    if (formattedToRgb.length > 0 && !formattedToRgb.some((elem) => Number(elem) > 255)) {
+    if (formattedToRgb.length === 3 && !formattedToRgb.some((elem) => Number(elem) > 255)) {
       const hexValues = rgbToHex(Number(formattedToRgb[0]), Number(formattedToRgb[1]), Number(formattedToRgb[2]));
 
       element.style.backgroundColor = hexValues;

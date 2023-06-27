@@ -40,7 +40,6 @@ export const InputTimePicker = ({
   const minutesRef = useRef<HTMLInputElement | null>();
   const secondsRef = useRef<HTMLInputElement | null>();
 
-  const [isFocused, setIsFocused] = useState<boolean>();
   const [timeState, setTimeState] = useState<TimePickerValue>({
     [TimePickerTypesEnum.hour]: '',
     [TimePickerTypesEnum.minutes]: '',
@@ -151,10 +150,6 @@ export const InputTimePicker = ({
     [disabled, timeState]
   );
 
-  const handleFocus = useCallback(() => setIsFocused(true), []);
-
-  const handleBlur = useCallback(() => setIsFocused(false), []);
-
   const handleKeydown = useCallback((e, type: TimePickerTypesEnum) => {
     if (type === TimePickerTypesEnum.hour && e.key === 'ArrowRight') {
       minutesRef.current.focus();
@@ -201,8 +196,6 @@ export const InputTimePicker = ({
           disabled={disabled}
           color={color}
           ref={hourRef}
-          handleFocus={handleFocus}
-          handleBlur={handleBlur}
           onClick={onTimeFieldClickClick}
           handleKeydown={handleKeydown}
           handleChange={handleChange}
@@ -214,8 +207,6 @@ export const InputTimePicker = ({
           disabled={disabled}
           color={color}
           ref={minutesRef}
-          handleFocus={handleFocus}
-          handleBlur={handleBlur}
           onClick={onTimeFieldClickClick}
           handleKeydown={handleKeydown}
           handleChange={handleChange}
@@ -227,8 +218,6 @@ export const InputTimePicker = ({
           disabled={disabled}
           color={color}
           ref={secondsRef}
-          handleFocus={handleFocus}
-          handleBlur={handleBlur}
           onClick={onTimeFieldClickClick}
           handleKeydown={handleKeydown}
           handleChange={handleChange}

@@ -25,7 +25,7 @@
     }
 
     &--disabled {
-      box-shadow: 0 0 0 0.5px #95acc5;
+      box-shadow: 0 0 0 1px #95acc5;
     }
   }
 
@@ -53,13 +53,10 @@
     box-shadow: none;
     outline: none;
     color: color(black-color);
+    background: transparent;
 
     &--disabled {
       color: #505d6eb7 !important;
-
-      &:disabled {
-        background: transparent;
-      }
     }
   }
 
@@ -78,7 +75,7 @@
     height: 0px;
     border-style: solid;
     border-width: 0 calculateRem(5px) calculateRem(5px) calculateRem(5px);
-    border-color: transparent transparent rgba(102, 103, 171, 0.7) transparent;
+    border-color: transparent transparent #95acc5 transparent;
     transform: rotate(0deg);
     cursor: pointer;
   }
@@ -88,7 +85,7 @@
     height: 0px;
     border-style: solid;
     border-width: calculateRem(5px) calculateRem(5px) 0 calculateRem(5px);
-    border-color: rgba(102, 103, 171, 0.7) transparent transparent transparent;
+    border-color: #95acc5 transparent transparent transparent;
     transform: rotate(0deg);
     cursor: pointer;
   }

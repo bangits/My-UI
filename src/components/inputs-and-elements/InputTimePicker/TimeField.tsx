@@ -5,8 +5,6 @@ import { UIColors } from '@/types';
 import classNames from 'classnames';
 
 export interface TimeField {
-  handleFocus: (type: TimePickerTypesEnum) => void;
-  handleBlur: () => void;
   onClick: (e: MouseEvent) => void;
   handleKeydown: (e: KeyboardEvent, type: TimePickerTypesEnum) => void;
   handleChange: (value: string, type: TimePickerTypesEnum, e?: ChangeEvent<HTMLInputElement>) => void;
@@ -19,18 +17,7 @@ export interface TimeField {
 
 export const TimeField = forwardRef(
   (
-    {
-      disabled,
-      color,
-      handleFocus,
-      handleBlur,
-      onClick,
-      handleKeydown,
-      handleChange,
-      timeState,
-      type,
-      handleArrowsClick
-    }: TimeField,
+    { disabled, color, onClick, handleKeydown, handleChange, timeState, type, handleArrowsClick }: TimeField,
     ref: React.MutableRefObject<HTMLInputElement>
   ) => {
     const keepSelected = useCallback(() => {
@@ -40,9 +27,8 @@ export const TimeField = forwardRef(
     }, []);
 
     const onFocus = useCallback(() => {
-      handleFocus(type);
       keepSelected();
-    }, [handleFocus, keepSelected]);
+    }, [keepSelected]);
 
     const onInputClick = useCallback(
       (e) => {
@@ -66,9 +52,9 @@ export const TimeField = forwardRef(
       [handleChange]
     );
 
-    const onUpButtonClick = useCallback((e) => handleArrowsClick(e, type, 'up'), []);
+    const onUpButtonClick = useCallback((e) => handleArrowsClick(e, type, 'up'), [handleArrowsClick]);
 
-    const onDownButtonClick = useCallback((e) => handleArrowsClick(e, type, 'down'), []);
+    const onDownButtonClick = useCallback((e) => handleArrowsClick(e, type, 'down'), [handleArrowsClick]);
 
     return (
       <>
@@ -79,7 +65,6 @@ export const TimeField = forwardRef(
           min={0}
           max={59}
           onFocus={onFocus}
-          onBlur={handleBlur}
           onClick={onInputClick}
           onKeyDown={onKeyDown}
           onChange={onInputChange}
@@ -90,8 +75,12 @@ export const TimeField = forwardRef(
           })}
         />
         <div className={styles.ArrowContainer}>
-          <div onClick={onUpButtonClick} className={styles.ArrowUp}></div>
-          <div onClick={onDownButtonClick} className={styles.ArrowDown}></div>
+          <div
+            onClick={onUpButtonClick}
+            className={classNames(styles.ArrowUp, { [styles[`ArrowUp--disabled`]]: disabled })}></div>
+          <div
+            onClick={onDownButtonClick}
+            className={classNames(styles.ArrowDown, { [styles[`ArrowDown--disabled`]]: disabled })}></div>
         </div>
       </>
     );

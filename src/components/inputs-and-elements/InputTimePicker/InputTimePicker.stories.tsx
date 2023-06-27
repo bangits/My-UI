@@ -17,7 +17,7 @@ export const InputUploader = () => {
 
   return (
     <div style={{ marginTop: 7 }}>
-      <InputTimePicker label='Time Picker' />
+      <InputTimePicker disabled label='Time Picker' />
     </div>
   );
 };

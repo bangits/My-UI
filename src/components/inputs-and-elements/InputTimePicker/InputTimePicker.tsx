@@ -1,39 +1,47 @@
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
-import styles from './TimePicker.module.scss';
+import styles from './InputTimePicker.module.scss';
 import classNames from 'classnames';
 import { TimeField } from './TimeField';
 import { UIColors } from '@/types';
 
-export enum ValuesTypesEnum {
+export enum TimePickerTypesEnum {
   hour = 'hour',
   minutes = 'minutes',
   seconds = 'seconds'
 }
 
 export interface TimePickerValue {
-  [ValuesTypesEnum.hour]: string;
-  [ValuesTypesEnum.minutes]: string;
-  [ValuesTypesEnum.seconds]: string;
+  [TimePickerTypesEnum.hour]: string;
+  [TimePickerTypesEnum.minutes]: string;
+  [TimePickerTypesEnum.seconds]: string;
 }
 
 export interface TimePickerProps {
   disabled?: boolean;
+  fullWidth?: boolean;
   color?: UIColors;
   value?: TimePickerValue;
-  onChange?: (value: TimePickerValue) => void;
+  onChange?: (value: TimePickerValue, type: TimePickerTypesEnum) => void;
   label?: string;
 }
 
-export const TimePicker = ({ value: externalValue, label, onChange, color, disabled }: TimePickerProps) => {
+export const InputTimePicker = ({
+  value: externalValue,
+  label,
+  onChange,
+  color,
+  disabled,
+  fullWidth
+}: TimePickerProps) => {
   const hourRef = useRef<HTMLInputElement | null>();
   const minutesRef = useRef<HTMLInputElement | null>();
   const secondsRef = useRef<HTMLInputElement | null>();
 
   const [isFocused, setIsFocused] = useState<boolean>();
   const [timeState, setTimeState] = useState<TimePickerValue>({
-    [ValuesTypesEnum.hour]: '00',
-    [ValuesTypesEnum.minutes]: '00',
-    [ValuesTypesEnum.seconds]: '00'
+    [TimePickerTypesEnum.hour]: '00',
+    [TimePickerTypesEnum.minutes]: '00',
+    [TimePickerTypesEnum.seconds]: '00'
   });
 
   const syncValues = useCallback(() => {
@@ -56,14 +64,24 @@ export const TimePicker = ({ value: externalValue, label, onChange, color, disab
     }
   }, [externalValue]);
 
-  const restrictValues = useCallback((value: string, type, cb: () => void) => {
-    if (type === ValuesTypesEnum.hour) {
-      +value < 24 && +value >= 0 && cb();
-    }
-    if (type === ValuesTypesEnum.minutes || type === ValuesTypesEnum.seconds) {
-      +value < 60 && +value >= 0 && cb();
-    }
-  }, []);
+  const restrictValues = useCallback(
+    (value: string, type: TimePickerTypesEnum): void => {
+      if ((type === TimePickerTypesEnum.hour && +value > 23) || +value < 0) {
+        return;
+      }
+
+      if (
+        (type === TimePickerTypesEnum.minutes || type === TimePickerTypesEnum.seconds) &&
+        (+value > 59 || +value < 0)
+      ) {
+        return;
+      }
+
+      setTimeState({ ...timeState, [type]: value });
+      onChange?.({ ...timeState, [type]: value }, type);
+    },
+    [timeState]
+  );
 
   const transformValue = useCallback((value: string): string => {
     if (value.length === 1) {
@@ -85,60 +103,57 @@ export const TimePicker = ({ value: externalValue, label, onChange, color, disab
     return value;
   }, []);
 
-  const onTimeFieldClickClick = (e) => {
+  const onTimeFieldClickClick = (e): void => {
     stopEventPropogation(e);
   };
 
-  const stopEventPropogation = (e) => {
+  const stopEventPropogation = (e): void => {
     e.stopPropagation();
   };
 
-  const handleChange = (value: string, type: ValuesTypesEnum, e?: ChangeEvent<HTMLInputElement>) => {
-    const newValue: string = transformValue(value);
-    restrictValues(newValue, type, () => setTimeState({ ...timeState, [type]: newValue }));
-  };
+  const handleChange = useCallback(
+    (value: string, type: TimePickerTypesEnum, e?: ChangeEvent<HTMLInputElement>): void => {
+      const newValue: string = transformValue(value);
+      restrictValues(newValue, type);
+    },
+    [transformValue, restrictValues]
+  );
 
-  const handleArrowUpButtonClick = (e, type: ValuesTypesEnum) => {
-    if (disabled) return;
+  const handleArrowsClick = useCallback(
+    (e, type: TimePickerTypesEnum, direction: 'up' | 'down'): void => {
+      if (disabled) return;
 
-    stopEventPropogation(e);
-    let value = +timeState[type];
-    value++;
+      stopEventPropogation(e);
+      let value = +timeState[type];
 
-    handleChange(String(value), type);
-  };
+      direction === 'up' ? value++ : value--;
 
-  const handleArrowDownButtonCick = (e, type: ValuesTypesEnum) => {
-    if (disabled) return;
-
-    stopEventPropogation(e);
-    let value = +timeState[type];
-    value--;
-
-    handleChange(String(value), type);
-  };
+      handleChange(String(value), type);
+    },
+    [disabled, timeState]
+  );
 
   const handleFocus = useCallback(() => setIsFocused(true), []);
 
   const handleBlur = useCallback(() => setIsFocused(false), []);
 
-  const handleKeydown = (e, type: ValuesTypesEnum) => {
-    if (type === ValuesTypesEnum.hour && e.key === 'ArrowRight') {
+  const handleKeydown = useCallback((e, type: TimePickerTypesEnum) => {
+    if (type === TimePickerTypesEnum.hour && e.key === 'ArrowRight') {
       minutesRef.current.focus();
     }
 
-    if (type === ValuesTypesEnum.seconds && e.key === 'ArrowLeft') {
+    if (type === TimePickerTypesEnum.seconds && e.key === 'ArrowLeft') {
       minutesRef.current.focus();
     }
 
-    if (type === ValuesTypesEnum.minutes && e.key === 'ArrowLeft') {
+    if (type === TimePickerTypesEnum.minutes && e.key === 'ArrowLeft') {
       hourRef.current.focus();
     }
 
-    if (type === ValuesTypesEnum.minutes && e.key === 'ArrowRight') {
+    if (type === TimePickerTypesEnum.minutes && e.key === 'ArrowRight') {
       secondsRef.current.focus();
     }
-  };
+  }, []);
 
   const handleInputContainerClick = useCallback(() => {
     hourRef?.current.focus();
@@ -146,16 +161,13 @@ export const TimePicker = ({ value: externalValue, label, onChange, color, disab
 
   useEffect(() => syncValues(), [syncValues]);
 
-  useEffect(() => {
-    onChange?.(timeState);
-  }, [timeState]);
-
   return (
     <div
       className={classNames(styles.InputStyles, {
         [styles['InputStyles--is-focused']]: isFocused,
         [styles[`InputStyles--${color}`]]: color,
-        [styles['InputStyles--disabled']]: disabled
+        [styles['InputStyles--disabled']]: disabled,
+        [styles['InputStyles--full-width']]: fullWidth
       })}
       onClick={handleInputContainerClick}>
       {label && (
@@ -176,10 +188,9 @@ export const TimePicker = ({ value: externalValue, label, onChange, color, disab
         onClick={onTimeFieldClickClick}
         handleKeydown={handleKeydown}
         handleChange={handleChange}
-        handleArrowUpButtonClick={handleArrowUpButtonClick}
-        handleArrowDownButtonCick={handleArrowDownButtonCick}
+        handleArrowsClick={handleArrowsClick}
         timeState={timeState}
-        type={ValuesTypesEnum.hour}
+        type={TimePickerTypesEnum.hour}
       />
       <TimeField
         disabled={disabled}
@@ -190,10 +201,9 @@ export const TimePicker = ({ value: externalValue, label, onChange, color, disab
         onClick={onTimeFieldClickClick}
         handleKeydown={handleKeydown}
         handleChange={handleChange}
-        handleArrowUpButtonClick={handleArrowUpButtonClick}
-        handleArrowDownButtonCick={handleArrowDownButtonCick}
+        handleArrowsClick={handleArrowsClick}
         timeState={timeState}
-        type={ValuesTypesEnum.minutes}
+        type={TimePickerTypesEnum.minutes}
       />
       <TimeField
         disabled={disabled}
@@ -204,10 +214,9 @@ export const TimePicker = ({ value: externalValue, label, onChange, color, disab
         onClick={onTimeFieldClickClick}
         handleKeydown={handleKeydown}
         handleChange={handleChange}
-        handleArrowUpButtonClick={handleArrowUpButtonClick}
-        handleArrowDownButtonCick={handleArrowDownButtonCick}
+        handleArrowsClick={handleArrowsClick}
         timeState={timeState}
-        type={ValuesTypesEnum.seconds}
+        type={TimePickerTypesEnum.seconds}
       />
     </div>
   );

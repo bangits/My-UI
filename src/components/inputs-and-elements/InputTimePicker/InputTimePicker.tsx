@@ -3,6 +3,7 @@ import styles from './InputTimePicker.module.scss';
 import classNames from 'classnames';
 import { TimeField } from './TimeField';
 import { UIColors } from '@/types';
+import { Typography } from '@/my-ui-core';
 
 export enum TimePickerTypesEnum {
   hour = 'hour',
@@ -19,6 +20,7 @@ export interface TimePickerValue {
 export interface TimePickerProps {
   disabled?: boolean;
   fullWidth?: boolean;
+  explanation?: string;
   color?: UIColors;
   value?: TimePickerValue;
   onChange?: (value: TimePickerValue, type: TimePickerTypesEnum) => void;
@@ -30,6 +32,7 @@ export const InputTimePicker = ({
   label,
   onChange,
   color,
+  explanation,
   disabled,
   fullWidth
 }: TimePickerProps) => {
@@ -39,9 +42,9 @@ export const InputTimePicker = ({
 
   const [isFocused, setIsFocused] = useState<boolean>();
   const [timeState, setTimeState] = useState<TimePickerValue>({
-    [TimePickerTypesEnum.hour]: '00',
-    [TimePickerTypesEnum.minutes]: '00',
-    [TimePickerTypesEnum.seconds]: '00'
+    [TimePickerTypesEnum.hour]: '',
+    [TimePickerTypesEnum.minutes]: '',
+    [TimePickerTypesEnum.seconds]: ''
   });
 
   const syncValues = useCallback(() => {
@@ -59,6 +62,11 @@ export const InputTimePicker = ({
       ) {
         setTimeState(externalValue);
       } else {
+        setTimeState({
+          [TimePickerTypesEnum.hour]: '00',
+          [TimePickerTypesEnum.minutes]: '00',
+          [TimePickerTypesEnum.seconds]: '00'
+        });
         console.error('incorrect time value was provided to TimePicker component');
       }
     }
@@ -161,62 +169,75 @@ export const InputTimePicker = ({
   useEffect(() => syncValues(), [syncValues]);
 
   return (
-    <div
-      className={classNames(styles.InputStyles, {
-        [styles['InputStyles--is-focused']]: isFocused,
-        [styles[`InputStyles--${color}`]]: color,
-        [styles['InputStyles--disabled']]: disabled,
-        [styles['InputStyles--full-width']]: fullWidth
-      })}
-      onClick={handleInputContainerClick}>
-      {label && (
-        <label
-          className={classNames(styles.LabelStyles, {
-            [styles[`LabelStyles--${color}`]]: color,
-            [styles['LabelStyles--disabled']]: disabled
-          })}>
-          {label}
-        </label>
+    <div>
+      <div
+        className={classNames(styles.InputStyles, {
+          [styles['InputStyles--is-focused']]: isFocused,
+          [styles[`InputStyles--${color}`]]: color,
+          [styles['InputStyles--disabled']]: disabled,
+          [styles['InputStyles--full-width']]: fullWidth
+        })}
+        onClick={handleInputContainerClick}>
+        {label && (
+          <label
+            className={classNames(styles.LabelStyles, {
+              [styles[`LabelStyles--${color}`]]: color,
+              [styles['LabelStyles--disabled']]: disabled
+            })}>
+            {label}
+          </label>
+        )}
+        <TimeField
+          disabled={disabled}
+          color={color}
+          ref={hourRef}
+          handleFocus={handleFocus}
+          handleBlur={handleBlur}
+          onClick={onTimeFieldClickClick}
+          handleKeydown={handleKeydown}
+          handleChange={handleChange}
+          handleArrowsClick={handleArrowsClick}
+          timeState={timeState}
+          type={TimePickerTypesEnum.hour}
+        />
+        <TimeField
+          disabled={disabled}
+          color={color}
+          ref={minutesRef}
+          handleFocus={handleFocus}
+          handleBlur={handleBlur}
+          onClick={onTimeFieldClickClick}
+          handleKeydown={handleKeydown}
+          handleChange={handleChange}
+          handleArrowsClick={handleArrowsClick}
+          timeState={timeState}
+          type={TimePickerTypesEnum.minutes}
+        />
+        <TimeField
+          disabled={disabled}
+          color={color}
+          ref={secondsRef}
+          handleFocus={handleFocus}
+          handleBlur={handleBlur}
+          onClick={onTimeFieldClickClick}
+          handleKeydown={handleKeydown}
+          handleChange={handleChange}
+          handleArrowsClick={handleArrowsClick}
+          timeState={timeState}
+          type={TimePickerTypesEnum.seconds}
+        />
+      </div>
+      {explanation && (
+        <Typography
+          className={classNames(styles.Explanation, {
+            [styles[`Explanation--${color}`]]: color,
+            [styles[`Explanation--disabled`]]: disabled
+          })}
+          variant='p5'
+          component='span'>
+          {explanation}
+        </Typography>
       )}
-      <TimeField
-        disabled={disabled}
-        color={color}
-        ref={hourRef}
-        handleFocus={handleFocus}
-        handleBlur={handleBlur}
-        onClick={onTimeFieldClickClick}
-        handleKeydown={handleKeydown}
-        handleChange={handleChange}
-        handleArrowsClick={handleArrowsClick}
-        timeState={timeState}
-        type={TimePickerTypesEnum.hour}
-      />
-      <TimeField
-        disabled={disabled}
-        color={color}
-        ref={minutesRef}
-        handleFocus={handleFocus}
-        handleBlur={handleBlur}
-        onClick={onTimeFieldClickClick}
-        handleKeydown={handleKeydown}
-        handleChange={handleChange}
-        handleArrowsClick={handleArrowsClick}
-        timeState={timeState}
-        type={TimePickerTypesEnum.minutes}
-      />
-      <TimeField
-        disabled={disabled}
-        color={color}
-        ref={secondsRef}
-        handleFocus={handleFocus}
-        handleBlur={handleBlur}
-        onClick={onTimeFieldClickClick}
-        handleKeydown={handleKeydown}
-        handleChange={handleChange}
-        handleArrowsClick={handleArrowsClick}
-        timeState={timeState}
-        type={TimePickerTypesEnum.seconds}
-      />
     </div>
   );
 };

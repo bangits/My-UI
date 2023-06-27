@@ -96,4 +96,20 @@
     transform: rotate(0deg);
     cursor: pointer;
   }
+
+  .Explanation {
+    margin-top: calculateRem(5px);
+    display: block;
+    max-width: calculateRem(280px);
+    word-break: break-word;
+    @include theme(color, default-input-color);
+
+    &--danger {
+      color: color(red-orange) !important;
+    }
+
+    &--disabled {
+      color: #95acc5 !important;
+    }
+  }
 }

@@ -1,0 +1,14 @@
+@mixin generate-color-picker-styles {
+    .ColorPickerInput {
+        appearance: none;
+        -webkit-appearance: none;
+        position: absolute;
+        opacity: 0;
+    }
+    .ColorPicker {
+        width:20px;
+        height: 20px;
+        display: block;
+        border-radius: 30px;
+    }
+}

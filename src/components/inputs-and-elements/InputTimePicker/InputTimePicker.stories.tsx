@@ -17,13 +17,7 @@ export const InputUploader = () => {
 
   return (
     <div style={{ marginTop: 7 }}>
-      <InputTimePicker
-        color='danger'
-        explanation='Some error'
-        value={value}
-        onChange={(value) => setValue(value)}
-        label='Time Picker'
-      />
+      <InputTimePicker label='Time Picker' />
     </div>
   );
 };

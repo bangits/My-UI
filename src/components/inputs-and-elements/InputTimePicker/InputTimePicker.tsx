@@ -48,7 +48,16 @@ export const InputTimePicker = ({
   });
 
   const syncValues = useCallback(() => {
-    if (externalValue && JSON.stringify(timeState) != JSON.stringify(externalValue)) {
+    if (!externalValue) {
+      setTimeState({
+        [TimePickerTypesEnum.hour]: '00',
+        [TimePickerTypesEnum.minutes]: '00',
+        [TimePickerTypesEnum.seconds]: '00'
+      });
+      return;
+    }
+
+    if (JSON.stringify(timeState) != JSON.stringify(externalValue)) {
       if (
         !isNaN(+externalValue.hour) &&
         !isNaN(+externalValue.minutes) &&
@@ -85,7 +94,9 @@ export const InputTimePicker = ({
         return;
       }
 
-      onChange ? onChange({ ...timeState, [type]: value }, type) : setTimeState({ ...timeState, [type]: value });
+      onChange && externalValue
+        ? onChange({ ...timeState, [type]: value }, type)
+        : setTimeState({ ...timeState, [type]: value });
     },
     [timeState]
   );
@@ -172,7 +183,6 @@ export const InputTimePicker = ({
     <div>
       <div
         className={classNames(styles.InputStyles, {
-          [styles['InputStyles--is-focused']]: isFocused,
           [styles[`InputStyles--${color}`]]: color,
           [styles['InputStyles--disabled']]: disabled,
           [styles['InputStyles--full-width']]: fullWidth

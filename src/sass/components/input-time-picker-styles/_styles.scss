@@ -12,16 +12,12 @@
     height: calculateRem(38px);
     border-radius: calculateRem(4px);
     border-color: transparent;
-    box-shadow: 0 0 0 0.5px color(default-input-border-color);
+    box-shadow: 0 0 0 1px color(default-input-border-color);
     color: color(nepal);
     cursor: text;
 
     &--full-width {
       width: 100%;
-    }
-
-    &--is-focused {
-      box-shadow: 0 0 0 1px color(nepal);
     }
 
     &--danger {
@@ -73,7 +69,7 @@
     align-items: center;
     justify-content: space-between;
     width: calculateRem(10px);
-    height: calculateRem(15px);
+    height: calculateRem(12px);
     margin-right: calculateRem(5px);
   }
 

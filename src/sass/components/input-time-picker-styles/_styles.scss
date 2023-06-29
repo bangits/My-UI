@@ -1,0 +1,108 @@
+@mixin generate-input-time-picker-styles {
+  .InputStyles {
+    position: relative;
+    padding: 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 0.5px solid transparent;
+    width: calculateRem(280px);
+    box-sizing: border-box;
+    padding: calculateRem(16px);
+    height: calculateRem(38px);
+    border-radius: calculateRem(4px);
+    border-color: transparent;
+    box-shadow: 0 0 0 1px color(default-input-border-color);
+    color: color(nepal);
+    cursor: text;
+
+    &--full-width {
+      width: 100%;
+    }
+
+    &--danger {
+      box-shadow: 0 0 0 1px color(red-orange);
+    }
+
+    &--disabled {
+      box-shadow: 0 0 0 1px #95acc5;
+    }
+  }
+
+  .LabelStyles {
+    font-size: calculateRem(12px);
+    position: absolute;
+    top: calculateRem(-7px);
+    left: calculateRem(9px);
+    padding: 0 calculateRem(5px);
+    background: white;
+    @include theme(color, default-input-color);
+
+    &--danger {
+      color: color(red-orange) !important;
+    }
+
+    &--disabled {
+      color: #95acc5 !important;
+    }
+  }
+
+  .InputBase {
+    width: calculateRem(20px);
+    border: none;
+    box-shadow: none;
+    outline: none;
+    color: color(black-color);
+    background: transparent;
+
+    &--disabled {
+      color: #505d6eb7 !important;
+    }
+  }
+
+  .ArrowContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: calculateRem(10px);
+    height: calculateRem(12px);
+    margin-right: calculateRem(5px);
+  }
+
+  .ArrowUp {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 calculateRem(5px) calculateRem(5px) calculateRem(5px);
+    border-color: transparent transparent #95acc5 transparent;
+    transform: rotate(0deg);
+    cursor: pointer;
+  }
+
+  .ArrowDown {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: calculateRem(5px) calculateRem(5px) 0 calculateRem(5px);
+    border-color: #95acc5 transparent transparent transparent;
+    transform: rotate(0deg);
+    cursor: pointer;
+  }
+
+  .Explanation {
+    margin-top: calculateRem(5px);
+    display: block;
+    max-width: calculateRem(280px);
+    word-break: break-word;
+    @include theme(color, default-input-color);
+
+    &--danger {
+      color: color(red-orange) !important;
+    }
+
+    &--disabled {
+      color: #95acc5 !important;
+    }
+  }
+}

@@ -20,8 +20,9 @@ export const Default = () => {
   return (
     <>
       <TextInput
+        color='danger'
         value={value}
-        disabled={boolean('disabled', false)}
+        disabled={true}
         label='Default Text Input'
         onChange={(e) => setValue(e.target.value)}
         maxLength={number('maxLength', 500)}

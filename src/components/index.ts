@@ -26,3 +26,4 @@ export * from './tooltip';
 export * from './typography';
 export * from './popover';
 export * from './tag-with-image';
+export * from './color-picker';

@@ -10,3 +10,4 @@ export * from './useLongPress';
 export * from './useOutsideClickEvent';
 export * from './useStyles';
 export * from './useWindowEventRegistrar';
+export * from './convertColorToHex';

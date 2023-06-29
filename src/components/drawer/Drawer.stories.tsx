@@ -1,6 +1,7 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import Drawer from './Drawer';
 import { useState } from 'react';
+import { Button } from '../inputs-and-elements';
 
 export default {
   component: Drawer,
@@ -21,7 +22,9 @@ export const Default = () => {
 
   return (
     <>
-      <button onClick={handleOpen}>Open Drawer</button>
+      <Button onClick={handleOpen} variant='ghost'>
+        Open Drawer
+      </Button>
       <Drawer opened={open} closeOnOutsideClick title='drawer title' onClose={handleClose}>
         <div>Content</div>
       </Drawer>

@@ -1,9 +1,9 @@
+import { Typography } from '@/my-ui-core';
+import { UIColors } from '@/types';
+import classNames from 'classnames';
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import styles from './InputTimePicker.module.scss';
-import classNames from 'classnames';
 import { TimeField } from './TimeField';
-import { UIColors } from '@/types';
-import { Typography } from '@/my-ui-core';
 
 export enum TimePickerTypesEnum {
   hour = 'hour',
@@ -175,7 +175,7 @@ export const InputTimePicker = ({
   useEffect(() => syncValues(), [syncValues]);
 
   return (
-    <div>
+    <div className={styles.InputStylesWrapper}>
       <div
         className={classNames(styles.InputStyles, {
           [styles[`InputStyles--${color}`]]: color,

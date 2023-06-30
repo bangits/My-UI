@@ -1,12 +1,16 @@
 @mixin generate-input-time-picker-styles {
+  .InputStylesWrapper {
+    padding-top: calculateRem(5.3px);
+  }
+
   .InputStyles {
     position: relative;
-    padding: 16px;
+    padding: calculateRem(16px);
     display: flex;
     justify-content: flex-start;
     align-items: center;
     border: 0.5px solid transparent;
-    width: calculateRem(280px);
+    max-width: calculateRem(280px);
     box-sizing: border-box;
     padding: calculateRem(16px);
     height: calculateRem(38px);

@@ -2,7 +2,6 @@ import { MutableRefObject } from 'react';
 
 const DEFAULT_COLOR = '#000000';
 
-
 const rgbToHex = (r: number, g: number, b: number): string => {
   const rHex = r.toString(16).padStart(2, '0');
   const gHex = g.toString(16).padStart(2, '0');
@@ -11,13 +10,15 @@ const rgbToHex = (r: number, g: number, b: number): string => {
   return '#' + rHex + gHex + bHex;
 };
 
-
 export const convertColorToHex = (
   event: React.ChangeEvent<HTMLInputElement>,
   {
     inputRef,
     pickerRef
-  }: { inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement>; pickerRef: MutableRefObject<HTMLSpanElement> }
+  }: {
+    inputRef: MutableRefObject<HTMLInputElement | HTMLTextAreaElement>;
+    pickerRef: MutableRefObject<HTMLSpanElement>;
+  }
 ): string | null => {
   const color = inputRef.current.value;
   const element = pickerRef.current;

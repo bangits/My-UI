@@ -15,7 +15,7 @@ export const Default = () => {
   const pickerRef = useRef(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value)
+    setValue(event.target.value);
   };
 
   return <ColorPicker value={value} pickerRef={pickerRef} onChange={handleChange} />;

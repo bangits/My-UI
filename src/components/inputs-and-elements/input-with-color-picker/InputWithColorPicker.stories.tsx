@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { withKnobs } from '@storybook/addon-knobs';
 import { ChangeEvent, MutableRefObject, useRef, useState } from 'react';
 import InputWithColorPicker from './InputWithColorPicker';

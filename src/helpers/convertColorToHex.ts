@@ -42,17 +42,21 @@ export const convertColorToHex = (
       return null;
     }
   } else if (inputValue?.includes(',') && !inputValue?.includes('#')) {
-    const formattedToRgb = inputValue.split(',');
-    if (formattedToRgb.length === 3 && !formattedToRgb.some((elem) => Number(elem) > 255)) {
-      const hexValues = rgbToHex(Number(formattedToRgb[0]), Number(formattedToRgb[1]), Number(formattedToRgb[2]));
+    const formattedToRgb = inputValue.replace(/\s/g, '').match(/^rgb\((\d+),(\d+),(\d+)\)$/i);
 
-      element.style.backgroundColor = hexValues;
+    if (formattedToRgb) {
+      const r = Number(formattedToRgb[1]);
+      const g = Number(formattedToRgb[2]);
+      const b = Number(formattedToRgb[3]);
 
-      return hexValues;
-    } else {
-      element.style.backgroundColor = DEFAULT_COLOR;
-      return null;
+      if (r >= 0 && r <= 255 && g >= 0 && g <= 255 && b >= 0 && b <= 255) {
+        const hexValues = rgbToHex(r, g, b);
+        element.style.backgroundColor = hexValues;
+        return hexValues;
+      }
     }
+
+    return null;
   } else if (!inputValue?.includes(',') && inputValue?.includes('#')) {
     const validHex = /^#([0-9A-F]{3}){1,2}$/i.test(inputValue);
     if (validHex) {

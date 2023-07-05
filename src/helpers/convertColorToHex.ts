@@ -11,7 +11,7 @@ const rgbToHex = (r: number, g: number, b: number): string => {
 };
 
 export const convertColorToHex = (
-  event: React.ChangeEvent<HTMLInputElement>,
+  value: string,
   {
     inputRef,
     pickerRef
@@ -23,7 +23,7 @@ export const convertColorToHex = (
   const color = inputRef.current?.value;
   const element = pickerRef.current;
 
-  const inputValue = event.target.value ?? color;
+  const inputValue = value ?? color;
 
   element.style.color = inputValue;
 

@@ -23,7 +23,7 @@ const InputWithColorPicker = ({ pickerRef, onInputChange, inputProps }: InputWit
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const convertedValue = convertColorToHex(event, {
+    const convertedValue = convertColorToHex(event.target.value, {
       inputRef: typedRef,
       pickerRef
     });

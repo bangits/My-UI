@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import styles from './ColorPicker.module.scss';
-import { TextWithTooltip } from '../text-with-tooltip';
 import { Tooltip } from '../tooltip';
 
 export interface ColorPickerProps {

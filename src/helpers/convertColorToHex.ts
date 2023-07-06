@@ -1,3 +1,4 @@
+import { knownColors } from '@/constants';
 import { MutableRefObject } from 'react';
 
 const DEFAULT_COLOR = '#000000';
@@ -8,6 +9,13 @@ const rgbToHex = (r: number, g: number, b: number): string => {
   const bHex = b.toString(16).padStart(2, '0');
 
   return '#' + rHex + gHex + bHex;
+};
+
+const findKnownColor = (colorName: string) => {
+  const colorValue = colorName?.replace(/\s/g, '')?.toLowerCase();
+  const value = Object.keys(knownColors).find((key) => key?.replace(/\s/g, '')?.toLowerCase() === colorValue);
+
+  return value ? { textName: value, hexValue: knownColors[value] } : undefined;
 };
 
 export const convertColorToHex = (
@@ -33,7 +41,11 @@ export const convertColorToHex = (
   if (!inputValue?.includes(',') && !inputValue?.includes('#')) {
     const rgbValues = formattedColor.match(/^rgb?\((\d+),(\d+),(\d+)/i);
     const valid = CSS.supports('color', inputValue);
-    if (valid) {
+    const knownColorValue = findKnownColor(inputValue);
+    if (knownColorValue) {
+      element.style.backgroundColor = knownColorValue.hexValue;
+      return knownColorValue.hexValue;
+    } else if (valid) {
       const hexValues = rgbToHex(Number(rgbValues[1]), Number(rgbValues[2]), Number(rgbValues[3]));
       element.style.backgroundColor = hexValues;
       return hexValues;

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { withKnobs } from '@storybook/addon-knobs';
 import { ChangeEvent, MutableRefObject, useRef, useState } from 'react';
 import InputWithColorPicker from './InputWithColorPicker';
@@ -26,7 +27,7 @@ export const Default = () => {
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const inputValue = convertColorToHex(event, {
+    const inputValue = convertColorToHex(event.target.value, {
       inputRef: typedInputRef,
       pickerRef
     });

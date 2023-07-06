@@ -5,10 +5,16 @@ import { ColorPicker, convertColorToHex } from '@/my-ui-core';
 export interface InputWithColorPickerProps {
   inputProps: TextInputProps;
   pickerRef: MutableRefObject<HTMLSpanElement>;
+  toolTipText?: string;
   onInputChange?: (event: React.ChangeEvent<HTMLInputElement>, value: string) => void;
 }
 
-const InputWithColorPicker = ({ pickerRef, onInputChange, inputProps }: InputWithColorPickerProps): JSX.Element => {
+const InputWithColorPicker = ({
+  pickerRef,
+  onInputChange,
+  toolTipText,
+  inputProps
+}: InputWithColorPickerProps): JSX.Element => {
   const [currentValue, setCurrentValue] = useState(inputProps.value as string);
 
   const typedRef = inputProps.ref as MutableRefObject<HTMLInputElement>;
@@ -41,6 +47,7 @@ const InputWithColorPicker = ({ pickerRef, onInputChange, inputProps }: InputWit
         <ColorPicker
           pickerRef={pickerRef}
           onChange={handleColorPickerChange}
+          toolTipText={toolTipText}
           value={(inputProps.value as string) ?? currentValue}
         />
       }

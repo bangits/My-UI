@@ -1,4 +1,7 @@
 @mixin generate-color-picker-styles {
+  label {
+    cursor: pointer;
+  }
   .ColorPickerInput {
     appearance: none;
     -webkit-appearance: none;
@@ -10,5 +13,7 @@
     height: 20px;
     display: block;
     border-radius: 30px;
+    z-index: 2;
+    position: relative;
   }
 }

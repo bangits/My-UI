@@ -39,6 +39,7 @@ export const Default = () => {
     <InputWithColorPicker
       pickerRef={pickerRef}
       onInputChange={handleInputChange}
+      toolTipText='Tooltip Text'
       inputProps={{ value: value, onChange: handleChange, ref: typedInputRef, label: 'Choose color' }}
     />
   );

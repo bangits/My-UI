@@ -11,7 +11,13 @@ export interface ColorPickerProps {
   toolTipText?: string;
 }
 
-const ColorPicker: FC<ColorPickerProps> = ({ onChange, value, pickerRef, disabled = false , toolTipText = '' }): JSX.Element => {
+const ColorPicker: FC<ColorPickerProps> = ({
+  onChange,
+  value,
+  pickerRef,
+  disabled = false,
+  toolTipText = ''
+}): JSX.Element => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) onChange(event);
   };

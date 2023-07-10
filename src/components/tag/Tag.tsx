@@ -11,7 +11,8 @@ export interface TagProps extends IComponent {
   startComponent?: boolean;
   closeIcon?: boolean;
   tooltipText?: string;
-  endIcon?: ReactNode;
+  endIcon?: ReactNode | ReactNode[];
+  fixedEndIconWidth?: boolean;
   inactive?: boolean;
   color?: UIColors;
   showCloseOnHover?: boolean;
@@ -26,6 +27,7 @@ const Tag: FC<TagProps> = ({
   color = 'primary',
   onClose,
   onClick,
+  fixedEndIconWidth = true,
   className,
   endIcon,
   value,
@@ -54,9 +56,22 @@ const Tag: FC<TagProps> = ({
           <span className={styles.IconContainer}>
             <Tooltip text={tooltipText || ''}>
               {endIcon ? (
-                <div onClick={onClick} className={styles.EndIcon}>
-                  {endIcon}
-                </div>
+                Array.isArray(endIcon) ? (
+                  <>
+                    {endIcon.map((icon) => (
+                      <div
+                        className={classNames(styles.EndIcon, {
+                          [styles['EndIcon--fix-end-icon-width']]: fixedEndIconWidth
+                        })}>
+                        {icon}
+                      </div>
+                    ))}
+                  </>
+                ) : (
+                  <div onClick={onClick} className={styles.EndIcon}>
+                    {endIcon}
+                  </div>
+                )
               ) : (
                 closeIcon && <AlertClose onClick={onClose} className={styles.AlertClose} />
               )}

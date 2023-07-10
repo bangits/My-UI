@@ -17,7 +17,7 @@ export const Default = () => {
         value={1}
         title={text('title', 'Armenia')}
         closeIcon={boolean('closeIcon', true)}
-        endIcon={<LinkIcon />}
+        endIcon={[<LinkIcon />, <LinkIcon />]}
         inactive={boolean('inactive', false)}
         color={getColorKnobs()}
         onClose={() => {

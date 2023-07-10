@@ -84,8 +84,13 @@
     // border: 2px solid red;
     margin-right: getTagSizes(end-icon-marginLeft);
     padding-left: getTagSizes(end-icon-paddingLeft);
+
+    &--fix-end-icon-width {
+      svg {
+        width: getTagSizes(end-icon-size) !important;
+      }
+    }
     svg {
-      width: getTagSizes(end-icon-size) !important;
       fill: #6667ab;
     }
     // width: getTagSizes(alert-close-width);

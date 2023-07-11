@@ -1,1 +1,1 @@
-export * from './LinkFileUploader';
+export * from './linkFileUploader';

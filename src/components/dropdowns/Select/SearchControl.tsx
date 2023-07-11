@@ -96,6 +96,8 @@ export const SearchControl: typeof components.Control = (props) => {
   }, [selectProps.menuIsOpen]);
 
   const wrapperRef = useRef(null);
+  const textInputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
+  console.log('🚀 ~ file: SearchControl.tsx:100 ~ textInputRef:', textInputRef);
 
   useOutsideClickWithRef(wrapperRef, () => props.selectProps.onMenuClose());
 
@@ -127,11 +129,13 @@ export const SearchControl: typeof components.Control = (props) => {
             isCustomOption ? styles['Select--search--custom-label-container'] : ''
           )}>
           {isCustomOption && (
-            <div onClick={menuToggle} className={styles['Select--search--custom-label']}>
+            <div onClick={() => textInputRef.current?.focus()} className={styles['Select--search--custom-label']}>
               {searchValue}
             </div>
           )}
+
           <TextInput
+            ref={(currentRef) => !textInputRef.current && (textInputRef.current = currentRef)}
             disabled={selectProps.isDisabled}
             fullWidth={selectProps.fullWidth}
             color={selectProps.color !== 'default' ? selectProps.color : undefined}
@@ -139,7 +143,7 @@ export const SearchControl: typeof components.Control = (props) => {
             maxLength={selectProps.maxLength}
             onChange={onSearchValueChange}
             onBlur={onInputBlur}
-            onClick={menuToggle}
+            onFocus={menuToggle}
             value={isCustomOption ? ' ' : selectProps.isTree ? selectProps.inputValue : searchValue}
             label={selectProps.inputLabel}
             showExplanationAsTooltip={selectProps.showExplanationAsTooltip}

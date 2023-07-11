@@ -230,10 +230,12 @@ function Select<
   const filterOptionHandler = useCallback((option: SelectOptionType, inputValue: string) => {
     const { label } = option;
 
-    if (typeof label === 'string') {
-      if (typeof inputValue === 'string') {
-        return label?.toLowerCase().startsWith(inputValue?.toLowerCase());
-      }
+    if (typeof label === 'string' && typeof inputValue === 'string') {
+      return label?.toLowerCase().startsWith(inputValue?.toLowerCase());
+    }
+
+    if (typeof inputValue === 'string' && !!inputValue.length) {
+      return false;
     }
 
     return !!label;

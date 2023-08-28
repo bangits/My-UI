@@ -97,7 +97,6 @@ export const SearchControl: typeof components.Control = (props) => {
 
   const wrapperRef = useRef(null);
   const textInputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
-  console.log('🚀 ~ file: SearchControl.tsx:100 ~ textInputRef:', textInputRef);
 
   useOutsideClickWithRef(wrapperRef, () => props.selectProps.onMenuClose());
 

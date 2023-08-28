@@ -12,7 +12,6 @@
     padding: getSubMenuItemSizes(sidebar-sub-menu-item-padding);
     @include flex(null, center);
     padding-left: 23px;
-
     a {
       @include dots-after-text;
       @include flex(null, center);
@@ -25,21 +24,19 @@
       padding-bottom: 4px;
       font-weight: 400;
       cursor: pointer;
+      color: inherit;
+      text-decoration: none;
     }
-
     &:hover,
     &--active {
       @include theme(color, primary--color);
     }
-
     &--sidebar-opened a {
       font-size: getSubMenuItemSizes(sub-menu-items-opened-font-size);
     }
-
     .SubMenuItemsIcon {
       @include flex(null, center);
       margin-left: getSubMenuItemSizes(sub-menu-items-icon-marginLeft);
-
       svg {
         width: getSubMenuItemSizes(sub-menu-items-iconWidth);
         // height: getSubMenuItemSizes(sub-menu-items-iconHeight);

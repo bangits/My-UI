@@ -1,13 +1,14 @@
 import { typedMemo } from '@/helpers';
 import { IComponent } from '@/types';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './SubMenuItems.module.scss';
 
 export interface SubMenuItemProps extends IComponent {
   label?: string;
   icon?: ReactNode;
   onClick?: () => void;
+  href?: string;
   isActive?: boolean;
   isSidebarOpened?: boolean;
 }
@@ -31,10 +32,17 @@ const SubMenuItems: FC<SubMenuItemProps> = ({
           [styles['SubMenuItemsBase--sidebar-opened']]: isSidebarOpened
         },
         className
-      )}
-      onClick={onClick}>
+      )}>
       {icon && <div className={classNames(styles['SubMenuItemsIcon'], 'SubMenuItemsIcon')}>{icon}</div>}
-      <a {...subItemProps}>{label}</a>
+      <a
+        {...subItemProps}
+        onClick={(e) => {
+          e.preventDefault();
+
+          onClick();
+        }}>
+        {label}
+      </a>
     </div>
   );
 };

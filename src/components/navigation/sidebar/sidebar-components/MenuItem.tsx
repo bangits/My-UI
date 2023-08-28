@@ -1,9 +1,9 @@
 import { typedMemo } from '@/helpers';
-import { ArrowIcon, NewArrowIcon } from '@/icons';
+import { NewArrowIcon } from '@/icons';
 import { UIColors } from '@/types';
 import { ComponentType, IComponent } from '@/types/props';
 import classNames from 'classnames';
-import React, { FC, ReactNode, useCallback, useState } from 'react';
+import { FC, ReactNode, useCallback, useState } from 'react';
 import styles from './MenuItem.module.scss';
 import SubMenuItems from './SubMenuItems';
 
@@ -17,6 +17,7 @@ export interface MenuItemProps extends IComponent {
   onClick?: () => void;
   subItems?: {
     label?: string;
+    href?: string;
     onClick?: () => void;
     isActive?: boolean;
   }[];
@@ -74,6 +75,7 @@ export const MenuItem: FC<MenuItemProps> = ({
           <SubMenuItems
             isSidebarOpened={isSidebarOpened}
             key={key}
+            href={item.href}
             label={item.label}
             onClick={item.onClick}
             isActive={item.isActive}

@@ -20,7 +20,6 @@ export const IpField = ({ onChange, onDelete, value, disabled }: IpFieldProps) =
       disabled={disabled}
       value={value}
       onKeyUp={handleKeyUp}
-      onDoubleClick={() => onChange('')}
       onChange={(e) => onChange(e.target.value, e)}
       className={styles.InputBase}
       type='number'

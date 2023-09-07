@@ -1,5 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { InputIpPicker } from './InputIpPicker';
+import { useState } from 'react';
 
 export default {
   component: InputIpPicker,
@@ -8,7 +9,7 @@ export default {
 };
 
 export const Default = () => {
-  return (
-    <InputIpPicker value={['118', '225', '0', '0']} onChange={(address) => console.log(address)} label='IP Address' />
-  );
+  const [value, setValue] = useState('255.1.1.1');
+
+  return <InputIpPicker onChange={(value) => setValue(value)} value={value} label='IP Address' />;
 };

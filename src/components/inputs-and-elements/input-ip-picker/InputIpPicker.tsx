@@ -109,30 +109,30 @@ export const InputIpPicker = ({
           ref={input1}
           disabled={disabled}
           value={splittedAddress[0]}
-          onChange={(value, e) => setAddressByIndex(0, value, e)}
-          onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(0, e)}
+          onChange={(value, e) => setAddressByIndex(0, value)}
+          onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(0)}
         />
         <IpField
           ref={input2}
           disabled={disabled}
           value={splittedAddress[1]}
-          onChange={(value, e) => setAddressByIndex(1, value, e)}
-          onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(1, e)}
+          onChange={(value, e) => setAddressByIndex(1, value)}
+          onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(1)}
         />
         <IpField
           ref={input3}
           disabled={disabled}
           value={splittedAddress[2]}
-          onChange={(value, e) => setAddressByIndex(2, value, e)}
-          onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(2, e)}
+          onChange={(value, e) => setAddressByIndex(2, value)}
+          onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(2)}
         />
         <IpField
           removeDivider
           ref={input4}
           disabled={disabled}
           value={splittedAddress[3]}
-          onChange={(value, e) => setAddressByIndex(3, value, e)}
-          onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(3, e)}
+          onChange={(value, e) => setAddressByIndex(3, value)}
+          onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(3)}
         />
       </div>
       {explanation && (

@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent, useCallback, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Typography } from '@/my-ui-core';
 import { UIColors } from '@/types';
 import classNames from 'classnames';
@@ -26,24 +26,28 @@ export const InputIpPicker = ({
   fullWidth,
   onChange
 }: InputIpPickerProps) => {
+  const input1 = useRef<HTMLInputElement>();
+  const input2 = useRef<HTMLInputElement>();
+  const input3 = useRef<HTMLInputElement>();
+  const input4 = useRef<HTMLInputElement>();
+
   const [address, setAddress] = useState<string>('');
   const splittedAddress = useMemo(() => address.split('.') || [], [address]);
+  const refs = useMemo(() => [input1, input2, input3, input4], []);
 
   const handleDelete = useCallback(
-    (index: number, e: KeyboardEvent<HTMLInputElement>) => {
+    (index: number) => {
       if (disabled || readOnly) return;
 
       if (!splittedAddress[index]) {
-        const target = e.target as HTMLInputElement;
-        const previousSibling = target?.previousSibling as HTMLInputElement;
-        previousSibling?.focus();
+        refs[index - 1]?.current?.focus();
       }
     },
     [disabled, readOnly, address]
   );
 
   const setAddressByIndex = useCallback(
-    (index: number, value: string, e?: ChangeEvent<HTMLInputElement>) => {
+    (index: number, value: string) => {
       if (disabled || readOnly) return;
 
       if (+value > 255) {
@@ -51,9 +55,7 @@ export const InputIpPicker = ({
       }
 
       if (value.length > 2) {
-        const target = e.target as HTMLInputElement;
-        const nextSibling = target?.nextSibling as HTMLInputElement;
-        nextSibling?.focus();
+        refs[index + 1]?.current?.focus();
       }
 
       const newAddress = address.split('.');
@@ -104,18 +106,21 @@ export const InputIpPicker = ({
           </label>
         )}
         <IpField
+          ref={input1}
           disabled={disabled}
           value={splittedAddress[0]}
           onChange={(value, e) => setAddressByIndex(0, value, e)}
           onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(0, e)}
         />
         <IpField
+          ref={input2}
           disabled={disabled}
           value={splittedAddress[1]}
           onChange={(value, e) => setAddressByIndex(1, value, e)}
           onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(1, e)}
         />
         <IpField
+          ref={input3}
           disabled={disabled}
           value={splittedAddress[2]}
           onChange={(value, e) => setAddressByIndex(2, value, e)}
@@ -123,6 +128,7 @@ export const InputIpPicker = ({
         />
         <IpField
           removeDivider
+          ref={input4}
           disabled={disabled}
           value={splittedAddress[3]}
           onChange={(value, e) => setAddressByIndex(3, value, e)}

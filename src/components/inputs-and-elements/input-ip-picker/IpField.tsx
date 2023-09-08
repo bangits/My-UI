@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent } from 'react';
+import { ChangeEvent, KeyboardEvent, LegacyRef, forwardRef } from 'react';
 import styles from './InputIpPicker.module.scss';
 
 interface IpFieldProps {
@@ -9,25 +9,28 @@ interface IpFieldProps {
   value: string;
 }
 
-export const IpField = ({ onChange, onDelete, value, disabled, removeDivider = false }: IpFieldProps) => {
-  const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Backspace') {
-      onDelete?.(e);
-    }
-  };
+export const IpField = forwardRef(
+  ({ onChange, onDelete, value, disabled, removeDivider = false }: IpFieldProps, ref: LegacyRef<HTMLInputElement>) => {
+    const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Backspace') {
+        onDelete?.(e);
+      }
+    };
 
-  return (
-    <div className={styles.InputBaseWrapper}>
-      <input
-        disabled={disabled}
-        value={value}
-        onKeyUp={handleKeyUp}
-        onChange={(e) => onChange(e.target.value, e)}
-        className={styles.InputBase}
-        type='number'
-        placeholder='-'
-      />
-      {!removeDivider && <div className={styles.Divider}></div>}
-    </div>
-  );
-};
+    return (
+      <div className={styles.InputBaseWrapper}>
+        <input
+          ref={ref}
+          disabled={disabled}
+          value={value}
+          onKeyUp={handleKeyUp}
+          onChange={(e) => onChange(e.target.value, e)}
+          className={styles.InputBase}
+          type='number'
+          placeholder='-'
+        />
+        {!removeDivider && <div className={styles.Divider}></div>}
+      </div>
+    );
+  }
+);

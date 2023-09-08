@@ -65,21 +65,14 @@
     }
   }
 
-  .DividersWrapper {
-    pointer-events: none;
-    max-width: calculateRem(280px);
+  .InputBaseWrapper {
     display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    top: calculateRem(-20px);
-
-    &--full-width {
-      width: 100%;
-      max-width: unset;
-    }
+    align-items: center;
   }
 
   .Divider {
+    position: relative;
+    right: calculateRem(-10px);
     width: 5px;
     height: 5px;
     background-color: color(black-color);

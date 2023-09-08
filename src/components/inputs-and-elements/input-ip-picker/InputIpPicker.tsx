@@ -122,19 +122,12 @@ export const InputIpPicker = ({
           onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(2, e)}
         />
         <IpField
+          removeDivider
           disabled={disabled}
           value={splittedAddress[3]}
           onChange={(value, e) => setAddressByIndex(3, value, e)}
           onDelete={(e: KeyboardEvent<HTMLInputElement>) => handleDelete(3, e)}
         />
-      </div>
-      <div
-        className={classNames(styles.DividersWrapper, {
-          [styles['DividersWrapper--full-width']]: fullWidth
-        })}>
-        <div className={styles.Divider}></div>
-        <div className={styles.Divider}></div>
-        <div className={styles.Divider}></div>
       </div>
       {explanation && (
         <Typography

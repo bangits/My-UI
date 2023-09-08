@@ -26,8 +26,8 @@ export const InputIpPicker = ({
   fullWidth,
   onChange
 }: InputIpPickerProps) => {
-  const [address, setAddress] = useState<string>(null);
-  const splittedAddress = useMemo(() => address?.split('.') || [], [address]);
+  const [address, setAddress] = useState<string>('');
+  const splittedAddress = useMemo(() => address.split('.') || [], [address]);
 
   const handleDelete = useCallback(
     (index: number, e: KeyboardEvent<HTMLInputElement>) => {

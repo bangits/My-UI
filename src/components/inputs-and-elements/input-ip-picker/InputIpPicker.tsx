@@ -31,7 +31,7 @@ export const InputIpPicker = ({
   const input3 = useRef<HTMLInputElement>();
   const input4 = useRef<HTMLInputElement>();
 
-  const [address, setAddress] = useState<string>('');
+  const [address, setAddress] = useState<string>('...');
   const splittedAddress = useMemo(() => address.split('.') || [], [address]);
   const refs = useMemo(() => [input1, input2, input3, input4], []);
 
@@ -62,8 +62,8 @@ export const InputIpPicker = ({
       newAddress[index] = value;
 
       const newValue = newAddress.join('.');
-      setAddress(newValue === '...' ? '' : newValue);
-      onChange?.(newValue === '...' ? '' : newValue);
+      setAddress(newValue);
+      onChange?.(newValue);
     },
     [onChange, address, disabled, readOnly]
   );

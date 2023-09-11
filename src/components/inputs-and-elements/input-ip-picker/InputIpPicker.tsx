@@ -83,6 +83,8 @@ export const InputIpPicker = ({
       }
 
       setAddress(value);
+    } else {
+      setAddress('...');
     }
   }, [value]);
 

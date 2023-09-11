@@ -9,8 +9,7 @@ export default {
 };
 
 export const Default = () => {
-  const [value, setValue] = useState('');
-  console.log(value);
+  const [value, setValue] = useState('138');
 
   return <InputIpPicker onChange={(value) => setValue(value)} value={value} label='IP Address' />;
 };

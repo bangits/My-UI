@@ -11,5 +11,9 @@ export default {
 export const Default = () => {
   const [value, setValue] = useState('138');
 
-  return <InputIpPicker onChange={(value) => setValue(value)} value={value} label='IP Address' />;
+  return (
+    <div style={{ width: '234px' }}>
+      <InputIpPicker onChange={(value) => setValue(value)} value={value} label='IP Address' />
+    </div>
+  );
 };

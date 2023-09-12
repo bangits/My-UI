@@ -17,16 +17,23 @@ export const IpField = forwardRef(
       }
     };
 
+    const handleChange = (e) => {
+      if (e.target.value && !/^[0-9]*$/.test(e.target.value)) {
+        return;
+      }
+
+      onChange(e.target.value, e);
+    };
+
     return (
       <div className={styles.InputBaseWrapper}>
         <input
           ref={ref}
           disabled={disabled}
           value={value}
-          onKeyUp={handleKeyUp}
-          onChange={(e) => onChange(e.target.value, e)}
+          onInput={handleChange}
+          onKeyDown={handleKeyUp}
           className={styles.InputBase}
-          type='number'
           placeholder='-'
         />
         {!removeDivider && <div className={styles.Divider}></div>}

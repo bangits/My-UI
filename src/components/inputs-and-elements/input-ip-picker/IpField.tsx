@@ -34,6 +34,7 @@ export const IpField = forwardRef(
           onInput={handleChange}
           onKeyDown={handleKeyUp}
           className={styles.InputBase}
+          maxLength={3}
           placeholder='-'
         />
         {!removeDivider && <div className={styles.Divider}></div>}

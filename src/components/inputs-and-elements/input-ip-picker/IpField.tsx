@@ -1,5 +1,6 @@
 import { ChangeEvent, KeyboardEvent, LegacyRef, forwardRef } from 'react';
 import styles from './InputIpPicker.module.scss';
+import classNames from 'classnames';
 
 interface IpFieldProps {
   onChange: (value: string, e?: ChangeEvent<HTMLInputElement>) => void;
@@ -33,9 +34,8 @@ export const IpField = forwardRef(
           value={value}
           onInput={handleChange}
           onKeyDown={handleKeyUp}
-          className={styles.InputBase}
+          className={classNames(styles.InputBase, removeDivider && styles.InputBaseWrapperFull)}
           maxLength={3}
-          placeholder='-'
         />
         {!removeDivider && <div className={styles.Divider}></div>}
       </div>

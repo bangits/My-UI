@@ -5,9 +5,9 @@
 
   .InputStyles {
     position: relative;
-    padding: calculateRem(16px);
+    padding: 0 calculateRem(12px) !important;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     border: 0.5px solid transparent;
     max-width: calculateRem(280px);
@@ -53,7 +53,7 @@
   }
 
   .InputBase {
-    width: calculateRem(30px);
+    width: calculateRem(25px);
     border: none;
     box-shadow: none;
     outline: none;
@@ -70,10 +70,16 @@
     align-items: center;
   }
 
+  .InputBaseWrapperFull {
+    width: 100%;
+  }
+
   .Divider {
     position: relative;
-    width: 5px;
-    height: 5px;
+    top: calculateRem(4px);
+    right: calculateRem(1px);
+    width: calculateRem(2px);
+    height: calculateRem(2px);
     background-color: color(black-color);
     border-radius: 50%;
 

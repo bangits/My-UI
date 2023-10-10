@@ -1,0 +1,37 @@
+@mixin generate-date-timepicker-styles {
+  .InputBase {
+    border-radius: 4px;
+
+    &--defaultWidth {
+      width: calculateRem(280px) !important;
+    }
+
+    &--fullWidth {
+      width: 100% !important;
+    }
+
+    &--defaultColor {
+      border-color: color(gray-transparent) !important;
+      & input:first-of-type {
+        color: color(black-color);
+        &::placeholder {
+          color: color(black-color);
+        }
+      }
+    }
+
+    &--errorColor {
+      border-color: color(red-orange) !important;
+      & input:first-of-type {
+        color: color(red-orange);
+        &::placeholder {
+          color: color(red-orange);
+        }
+      }
+    }
+  }
+
+  .Explanation {
+    margin-top: calculateRem(5px);
+  }
+}

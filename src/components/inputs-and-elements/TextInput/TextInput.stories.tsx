@@ -36,7 +36,6 @@ export const Default = () => {
       <h1> </h1>
 
       <TextInput
-        color={getColorKnobs()}
         disabled={boolean('disabled', false)}
         label={text('label for number input', 'Default Number Input')}
         defaultValue={text('defaultValue', undefined)}

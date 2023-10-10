@@ -28,3 +28,4 @@ export * from './popover';
 export * from './tag-with-image';
 export * from './color-picker';
 export * from './drawer';
+export * from './date-time-picker';
